@@ -1,0 +1,315 @@
+Windows PowerShell
+Copyright (C) 2016 Microsoft Corporation. All rights reserved.
+
+PS C:\Users\jfitz> az login
+To sign in, use a web browser to open the page https://aka.ms/devicelogin and enter the code B3K4PFCZU to authenticate.
+[
+  {
+    "cloudName": "AzureCloud",
+    "id": "40829fae-5fcc-4c6b-b898-f951997a928a",
+    "isDefault": true,
+    "name": "Free Trial",
+    "state": "Enabled",
+    "tenantId": "90dc55a2-c71d-4591-af20-d9a438944e78",
+    "user": {
+      "name": "jfitz@computer.org",
+      "type": "user"
+    }
+  }
+]
+PS C:\Users\jfitz> az webapp deployment user set --user-name deploy.john.fitzpatrick --password azure5blot
+{
+  "id": null,
+  "kind": null,
+  "location": null,
+  "name": "web",
+  "publishingPassword": null,
+  "publishingPasswordHash": null,
+  "publishingPasswordHashSalt": null,
+  "publishingUserName": "deploy.john.fitzpatrick",
+  "tags": null,
+  "type": "Microsoft.Web/publishingUsers/web",
+  "userName": null
+}
+PS C:\Users\jfitz> az appservices list-locations
+az: error: argument _command_package: invalid choice: appservices
+usage: az [-h] [--output {json,tsv,table,jsonc}] [--verbose] [--debug]
+          [--query JMESPATH]
+          {acr,acs,webapp,appservice,functionapp,batch,billing,cdn,cloud,cognitiveservices,component,configure,consumpti
+on,container,cosmosdb,dla,dls,eventgrid,feedback,find,interactive,iot,keyvault,lab,monitor,network,login,logout,account,
+mysql,postgres,redis,group,resource,provider,feature,tag,policy,lock,managedapp,role,ad,sf,sql,storage,vm,vmss,disk,snap
+shot,image}
+          ...
+PS C:\Users\jfitz> az appservice list-locations
+[
+  {
+    "name": "South Central US"
+  },
+  {
+    "name": "North Europe"
+  },
+  {
+    "name": "West Europe"
+  },
+  {
+    "name": "Southeast Asia"
+  },
+  {
+    "name": "East Asia"
+  },
+  {
+    "name": "West US"
+  },
+  {
+    "name": "East US"
+  },
+  {
+    "name": "Japan West"
+  },
+  {
+    "name": "Japan East"
+  },
+  {
+    "name": "East US 2"
+  },
+  {
+    "name": "North Central US"
+  },
+  {
+    "name": "Central US"
+  },
+  {
+    "name": "Brazil South"
+  },
+  {
+    "name": "Australia East"
+  },
+  {
+    "name": "Australia Southeast"
+  },
+  {
+    "name": "Central India"
+  },
+  {
+    "name": "West India"
+  },
+  {
+    "name": "South India"
+  },
+  {
+    "name": "Canada Central"
+  },
+  {
+    "name": "Canada East"
+  },
+  {
+    "name": "West Central US"
+  },
+  {
+    "name": "West US 2"
+  },
+  {
+    "name": "UK West"
+  },
+  {
+    "name": "UK South"
+  },
+  {
+    "name": "Korea South"
+  },
+  {
+    "name": "Korea Central"
+  }
+]
+PS C:\Users\jfitz> az group create --name resgroup --location "West US 2"
+{
+  "id": "/subscriptions/40829fae-5fcc-4c6b-b898-f951997a928a/resourceGroups/resgroup",
+  "location": "westus2",
+  "managedBy": null,
+  "name": "resgroup",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null
+}
+PS C:\Users\jfitz> az appservice plan create --name svcplan --resource-group resgroup --sku FREE
+{- Starting ..
+  "adminSiteName": null,
+  "appServicePlanName": "svcplan",
+  "geoRegion": "West US 2",
+  "hostingEnvironmentProfile": null,
+  "id": "/subscriptions/40829fae-5fcc-4c6b-b898-f951997a928a/resourceGroups/resgroup/providers/Microsoft.Web/serverfarms
+/svcplan",
+  "kind": "app",
+  "location": "West US 2",
+  "maximumNumberOfWorkers": 1,
+  "name": "svcplan",
+  "numberOfSites": 0,
+  "perSiteScaling": false,
+  "provisioningState": "Succeeded",
+  "reserved": false,
+  "resourceGroup": "resgroup",
+  "sku": {
+    "capabilities": null,
+    "capacity": 0,
+    "family": "F",
+    "locations": null,
+    "name": "F1",
+    "size": "F1",
+    "skuCapacity": null,
+    "tier": "Free"
+  },
+  "status": "Ready",
+  "subscription": "40829fae-5fcc-4c6b-b898-f951997a928a",
+  "tags": null,
+  "targetWorkerCount": 0,
+  "targetWorkerSizeId": 0,
+  "type": "Microsoft.Web/serverfarms",
+  "workerTierName": null
+}
+PS C:\Users\jfitz> az webapp create --name codestat --resource-group resgroup --plan svcplan
+{- Starting ..
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "codestat.azurewebsites.net",
+  "enabled": true,
+  "enabledHostNames": [
+    "codestat.azurewebsites.net",
+    "codestat.scm.azurewebsites.net"
+  ],
+  "ftpPublishingUrl": "ftp://waws-prod-mwh-005.ftp.azurewebsites.windows.net/site/wwwroot",
+  "gatewaySiteName": null,
+  "hostNameSslStates": [
+    {
+      "hostType": "Standard",
+      "name": "codestat.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "virtualIp": null
+    },
+    {
+      "hostType": "Repository",
+      "name": "codestat.scm.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "virtualIp": null
+    }
+  ],
+  "hostNames": [
+    "codestat.azurewebsites.net"
+  ],
+  "hostNamesDisabled": false,
+  "hostingEnvironmentProfile": null,
+  "id": "/subscriptions/40829fae-5fcc-4c6b-b898-f951997a928a/resourceGroups/resgroup/providers/Microsoft.Web/sites/codes
+tat",
+  "isDefaultContainer": null,
+  "kind": "app",
+  "lastModifiedTimeUtc": "2017-08-21T01:59:52.593333",
+  "location": "West US 2",
+  "maxNumberOfWorkers": null,
+  "microService": null,
+  "name": "codestat",
+  "outboundIpAddresses": "52.229.17.201,52.229.16.200,52.229.18.159,52.229.19.165",
+  "premiumAppDeployed": null,
+  "repositorySiteName": "codestat",
+  "reserved": false,
+  "resourceGroup": "resgroup",
+  "scmSiteAlsoStopped": false,
+  "serverFarmId": "/subscriptions/40829fae-5fcc-4c6b-b898-f951997a928a/resourceGroups/resgroup/providers/Microsoft.Web/s
+erverfarms/svcplan",
+  "siteConfig": null,
+  "slotSwapStatus": null,
+  "state": "Running",
+  "suspendedTill": null,
+  "tags": null,
+  "targetSwapSlot": null,
+  "trafficManagerHostNames": null,
+  "type": "Microsoft.Web/sites",
+  "usageState": "Normal"
+}
+PS C:\Users\jfitz> az webapp config set --python-version 3.4 --name codestat --resource-group resgroup
+{
+  "alwaysOn": false,
+  "apiDefinition": null,
+  "appCommandLine": "",
+  "appSettings": null,
+  "autoHealEnabled": false,
+  "autoHealRules": {
+    "actions": null,
+    "triggers": null
+  },
+  "autoSwapSlotName": null,
+  "connectionStrings": null,
+  "cors": null,
+  "defaultDocuments": [
+    "Default.htm",
+    "Default.html",
+    "Default.asp",
+    "index.htm",
+    "index.html",
+    "iisstart.htm",
+    "default.aspx",
+    "index.php",
+    "hostingstart.html"
+  ],
+  "detailedErrorLoggingEnabled": false,
+  "documentRoot": null,
+  "experiments": {
+    "rampUpRules": []
+  },
+  "handlerMappings": null,
+  "httpLoggingEnabled": false,
+  "id": "/subscriptions/40829fae-5fcc-4c6b-b898-f951997a928a/resourceGroups/resgroup/providers/Microsoft.Web/sites/codes
+tat",
+  "ipSecurityRestrictions": null,
+  "javaContainer": null,
+  "javaContainerVersion": null,
+  "javaVersion": null,
+  "kind": null,
+  "limits": null,
+  "linuxFxVersion": "",
+  "loadBalancing": "LeastRequests",
+  "localMySqlEnabled": false,
+  "location": "West US 2",
+  "logsDirectorySizeLimit": 35,
+  "machineKey": null,
+  "managedPipelineMode": "Integrated",
+  "name": "codestat",
+  "netFrameworkVersion": "v4.0",
+  "nodeVersion": "",
+  "numberOfWorkers": 1,
+  "phpVersion": "5.6",
+  "publishingUsername": "$codestat",
+  "push": null,
+  "pythonVersion": "3.4",
+  "remoteDebuggingEnabled": false,
+  "remoteDebuggingVersion": "VS2012",
+  "requestTracingEnabled": false,
+  "requestTracingExpirationTime": null,
+  "resourceGroup": "resgroup",
+  "scmType": "None",
+  "tags": null,
+  "tracingOptions": null,
+  "type": "Microsoft.Web/sites",
+  "use32BitWorkerProcess": true,
+  "virtualApplications": [
+    {
+      "physicalPath": "site\\wwwroot",
+      "preloadEnabled": false,
+      "virtualDirectories": null,
+      "virtualPath": "/"
+    }
+  ],
+  "vnetName": "",
+  "webSocketsEnabled": false
+}
+PS C:\Users\jfitz> az webapp deployment source config-local-git --name codestat --resource-group resgroup --query url --
+output tsv
+https://deploy.john.fitzpatrick@codestat.scm.azurewebsites.net/codestat.git
+PS C:\Users\jfitz>
