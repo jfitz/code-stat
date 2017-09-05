@@ -2,6 +2,10 @@
 <HEAD>
 </HEAD>
 <BODY>
-Hello from HTML!
+Welcome to the CodeStat page!
+<FORM name="submitcode" method="post" action="/detect-language">
+<TEXTAREA cols="50" rows="20" name="code"></TEXTAREA>
+<INPUT type="submit" value="Submit">
+</FORM>
 </BODY>
 </HTML>

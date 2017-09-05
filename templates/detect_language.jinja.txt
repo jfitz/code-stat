@@ -1,0 +1,14 @@
+<HTML>
+<HEAD>
+<style> .codetext { font-family: "Consolas", Consolas; }
+</style>
+</HEAD>
+<BODY>
+This code appears to be {{language}}
+<div class="codetext">
+{% for line in code %}
+    {{ line }}<br>
+{% endfor %}
+</div>
+</BODY>
+</HTML>
