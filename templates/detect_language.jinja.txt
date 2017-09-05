@@ -10,5 +10,11 @@ This code appears to be {{language}}
     {{ line }}<br>
 {% endfor %}
 </div>
+Unknown tokens
+<div class="codetext">
+{% for unknown in unknowns %}
+    {{ unknown }}<br>
+{% endfor %}
+</div>
 </BODY>
 </HTML>
