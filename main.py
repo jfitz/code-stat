@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-from string import digits
+import string
 
 app = Flask(__name__)
 
@@ -34,22 +34,24 @@ def split_to_tokens(line):
       token = token + c
       st = t
     else:
-      if len(token) > 0 and st == 1:
+      if len(token) > 0 and (st == 1 or st == 4):
         tokens.append(token)
       token = c
       st = t
-  if len(token) > 0 and st == 1:
+  if len(token) > 0 and (st == 1 or st == 4):
     tokens.append(token)
   return tokens
 
 def chartype(c):
   retval = 4
-  if str.isalpha(c):
+  if c.isalpha():
     retval = 1
-  if str.isdigit(c):
+  if c.isdigit():
     retval = 2
-  if str.isspace(c):
+  if c.isspace():
     retval = 3
+  if c in string.punctuation:
+    retval = 4
   return retval
 
 def drop_numbers(tokens):
@@ -85,16 +87,17 @@ def remove_string_literals(line):
 def identify_language(code):
   retval = 'Unknown'
   basic_confidence, unknowns = is_basic_source(code)
-  retval = 'BASIC with confidence ' + '{0:.3f}'.format(basic_confidence)
+  pascal_confidence, unknowns = is_pascal_source(code)
+  retval = 'Pascal with confidence ' + '{0:.3f}'.format(pascal_confidence)
   return retval, unknowns
 
-def is_basic_source(code):
+def is_basic_source(lines):
   # Pass 1 - all lines begin with numbers
   num_lines_start_num = 0
-  for line in code:
+  for line in lines:
     if len(line) > 0 and line[0].isdigit():
       num_lines_start_num += 1
-  confidence_1 = num_lines_start_num / len(code)
+  confidence_1 = num_lines_start_num / len(lines)
 
   # Pass 2 - reasonable tokens
   num_tokens = 0
@@ -120,10 +123,10 @@ def is_basic_source(code):
   defined_tokens = keywords + functions + user_functions + operators
   unknown_tokens = []
   
-  for line in code:
+  for line in lines:
     #  if line begins with number, remove number
-    line = line.lstrip(digits)
-    # remove leading blanks
+    line = line.lstrip(string.digits)
+    # remove leading and trailing blanks
     line = line.strip()
     # remove comments (REM and apostrophe)
     if line.startswith('REM'):
@@ -151,6 +154,75 @@ def is_basic_source(code):
   if num_tokens > 0:
     confidence_2 = num_known_tokens / num_tokens
 
+  # compute confidence
+  confidence = confidence_1 * confidence_2
+  
+  return confidence, unknown_tokens
+
+def remove_pascal_comments(line):
+  result = ''
+  in_brace_comment = False
+  for c in line:
+    if c == '{' and not in_brace_comment:
+      in_brace_comment = True
+      c = ''
+
+    if not in_brace_comment:
+      result += c
+
+    if c == '}':
+      in_brace_comment = False
+      
+  return result
+
+def is_pascal_source(lines):
+  confidence_1 = 0
+  first_token = ''
+  last_token = ''
+  num_begin = 0
+  num_end = 0
+  for line in lines:
+    line = remove_pascal_comments(line)
+    # remove leading and trailing blanks
+    line = line.strip()
+    #  consider only lines with text
+    if len(line) > 0:
+      line = remove_string_literals(line)
+      #  simple lexer
+      tokens = split_to_tokens(line)
+      #  merge adjacent tokens when compatible
+      #  drop all numbers
+      tokens = drop_numbers(tokens)
+      #  count 'begin' and 'end' tokens
+      for token in tokens:
+        if first_token == '':
+          first_token = token
+        last_token = token
+        if token == 'begin':
+          num_begin += 1
+        if token == 'end':
+          num_end += 1
+
+  unknown_tokens = []
+
+  if first_token == 'program':
+    unknown_tokens.append('first token is program')
+    confidence_1 += 0.5
+  else:
+    unknown_tokens.append('first token is "' + first_token + '"')
+    
+  if last_token == '.':
+    unknown_tokens.append('last token is .')
+    confidence_1 += 0.5
+  else:
+    unknown_tokens.append('last token is "' + last_token + '"')
+
+  if num_begin == num_end and num_begin > 0:
+    unknown_tokens.append('begin and end counts match')
+    confidence_2 = 1.0
+  else:
+    unknown_tokens.append('begin and end counts do not match')
+    
   # compute confidence
   confidence = confidence_1 * confidence_2
   
