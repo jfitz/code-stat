@@ -4,7 +4,10 @@
 </style>
 </HEAD>
 <BODY>
-This code appears to be {{language}}
+This code appears to be:<br>
+{% for language in languages %}
+    {{ language }} with confidence {{ languages[language] }}<br>
+{% endfor %}
 <div class="codetext">
 {% for line in code %}
     {{ line }}<br>

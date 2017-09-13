@@ -13,8 +13,8 @@ def detect_language():
   text = request.form['code']
   lines = text.split('\r\n')
   tokens = simple_lexer(lines)
-  detected_language, unknown_tokens = identify_language(lines)
-  html = render_template('detect_language.jinja.txt', language=detected_language, code=lines, unknowns=unknown_tokens)
+  detected_languages = identify_language(lines)
+  html = render_template('detect_language.jinja.txt', languages=detected_languages, code=lines)
   return html
 
 def simple_lexer(text):
@@ -85,11 +85,10 @@ def remove_string_literals(line):
   return result
 
 def identify_language(code):
-  retval = 'Unknown'
-  basic_confidence, unknowns = is_basic_source(code)
-  pascal_confidence, unknowns = is_pascal_source(code)
-  retval = 'Pascal with confidence ' + '{0:.3f}'.format(pascal_confidence)
-  return retval, unknowns
+  retval = {}
+  retval['BASIC'] = is_basic_source(code)
+  retval['Pascal'] = is_pascal_source(code)
+  return retval
 
 def is_basic_source(lines):
   # Pass 1 - all lines begin with numbers
@@ -121,7 +120,6 @@ def is_basic_source(lines):
     'OPEN', 'CLOSE'
     ]
   defined_tokens = keywords + functions + user_functions + operators
-  unknown_tokens = []
   
   for line in lines:
     #  if line begins with number, remove number
@@ -147,8 +145,6 @@ def is_basic_source(lines):
           num_known_tokens += 1
         elif is_variable(token):
           num_known_tokens += 1
-        else:
-          unknown_tokens.append(token)
 
   confidence_2 = 0
   if num_tokens > 0:
@@ -157,7 +153,7 @@ def is_basic_source(lines):
   # compute confidence
   confidence = confidence_1 * confidence_2
   
-  return confidence, unknown_tokens
+  return confidence
 
 def remove_pascal_comments(line):
   result = ''
@@ -177,6 +173,7 @@ def remove_pascal_comments(line):
 
 def is_pascal_source(lines):
   confidence_1 = 0
+  confidence_2 = 0
   first_token = ''
   last_token = ''
   num_begin = 0
@@ -203,30 +200,19 @@ def is_pascal_source(lines):
         if token == 'end':
           num_end += 1
 
-  unknown_tokens = []
-
   if first_token == 'program':
-    unknown_tokens.append('first token is program')
     confidence_1 += 0.5
-  else:
-    unknown_tokens.append('first token is "' + first_token + '"')
     
   if last_token == '.':
-    unknown_tokens.append('last token is .')
     confidence_1 += 0.5
-  else:
-    unknown_tokens.append('last token is "' + last_token + '"')
 
   if num_begin == num_end and num_begin > 0:
-    unknown_tokens.append('begin and end counts match')
     confidence_2 = 1.0
-  else:
-    unknown_tokens.append('begin and end counts do not match')
     
   # compute confidence
   confidence = confidence_1 * confidence_2
   
-  return confidence, unknown_tokens
+  return confidence
 
 if __name__ == '__main__':
   app.run()
