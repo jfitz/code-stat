@@ -3,7 +3,7 @@
 </HEAD>
 <BODY>
 Welcome to the CodeStat page!
-<FORM name="submitcode" method="post" action="detect-language">
+<FORM name="submitcode" method="post" action="/detect">
 <TEXTAREA cols="50" rows="20" name="code"></TEXTAREA>
 <INPUT type="submit" value="Submit">
 </FORM>

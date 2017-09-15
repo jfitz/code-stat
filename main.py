@@ -10,7 +10,7 @@ def hello_world():
   html = render_template('index.jinja.txt', title='CodeStat')
   return html
 
-@app.route('/detect-language', methods=['POST'])
+@app.route('/detect', methods=['POST'])
 def detect_language():
   return 'Page text'
   #text = request.form['code']
