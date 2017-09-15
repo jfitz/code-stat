@@ -12,11 +12,12 @@ def hello_world():
 
 @app.route('/detect-language', methods=['POST'])
 def detect_language():
-  text = request.form['code']
-  lines = text.split('\r\n')
-  detected_languages = identify_language(lines)
-  html = render_template('detect_language.jinja.txt', languages=detected_languages, code=lines)
-  return html
+  return 'Page text'
+  #text = request.form['code']
+  #lines = text.split('\r\n')
+  #detected_languages = identify_language(lines)
+  #html = render_template('detect_language.jinja.txt', languages=detected_languages, code=lines)
+  #return html
 
 def identify_language(code):
   retval = {}
