@@ -10,8 +10,13 @@ def hello_world():
   html = render_template('index.jinja.txt', title='CodeStat')
   return html
 
+@app.route('/code')
+def code():
+  html = render_template('index.jinja.txt', title='CodeStat')
+  return html
+
 @app.route('/detect', methods=['POST'])
-def detect_language():
+def detect():
   return 'Page text'
   #text = request.form['code']
   #lines = text.split('\r\n')
