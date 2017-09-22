@@ -1,13 +1,15 @@
 from Examiner import Examiner
 
 class PascalExaminer(Examiner):
-  def __init__(self, lines):
+  def __init__(self, code):
     confidence_1 = 0
     confidence_2 = 0
     first_token = ''
     last_token = ''
     num_begin = 0
     num_end = 0
+
+    lines = code.split('\r\n')
     for line in lines:
       line = self.remove_pascal_comments(line)
       # remove leading and trailing blanks
@@ -32,19 +34,19 @@ class PascalExaminer(Examiner):
 
     if first_token == 'program':
       confidence_1 += 0.5
-    
+
     if last_token == '.':
       confidence_1 += 0.5
 
     if num_begin == num_end and num_begin > 0:
       confidence_2 = 1.0
-    
+
     # compute confidence
     self.confidence = confidence_1 * confidence_2
 
   def confidence(self):
     return self.confidence
-    
+
   def remove_pascal_comments(self, line):
     result = ''
     in_brace_comment = False
@@ -58,5 +60,5 @@ class PascalExaminer(Examiner):
 
       if c == '}':
         in_brace_comment = False
-      
+
     return result

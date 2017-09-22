@@ -14,9 +14,9 @@ class Examiner:
 
       if c == '"' and in_string:
         in_string = False
-      
+
     return result
-  
+
   def split_to_tokens(self, line):
     tokens = []
     st = 0

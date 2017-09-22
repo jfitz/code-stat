@@ -13,8 +13,8 @@ def hello_world():
 @app.route('/detect', methods=['POST'])
 def detect():
   text = request.form['code']
+  detected_languages = identify_language(text)
   lines = text.split('\r\n')
-  detected_languages = identify_language(lines)
   html = render_template('detect_language.jinja.txt', languages=detected_languages, code=lines)
   return html
 

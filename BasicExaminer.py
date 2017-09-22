@@ -2,7 +2,9 @@ import string
 from Examiner import Examiner
 
 class BasicExaminer(Examiner):
-  def __init__(self, lines):
+  def __init__(self, code):
+    lines = code.split('\r\n')
+
     # Pass 1 - all lines begin with numbers
     num_lines_start_num = 0
     for line in lines:
@@ -32,7 +34,7 @@ class BasicExaminer(Examiner):
       'OPEN', 'CLOSE'
       ]
     defined_tokens = keywords + functions + user_functions + operators
-  
+
     for line in lines:
       #  if line begins with number, remove number
       line = line.lstrip(string.digits)
@@ -64,7 +66,7 @@ class BasicExaminer(Examiner):
 
     # compute confidence
     self.confidence = confidence_1 * confidence_2
-    
+
   def confidence(self):
     return self.confidence
 
