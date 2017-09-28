@@ -6,38 +6,37 @@ class Tokenizer():
   def tokenize(self, text):
     tokens = []
     while len(text) > 0:
-      token, count = self.try_tokenizers(text)
+      token = self.try_tokenizers(text)
 
-      if token == None and self.invalid_tokenizer != None:
-          token, count = self.try_invalid(text)
-          
-      if token == None:
+      if token == '' and self.invalid_tokenizer != None:
+          token = self.try_invalid(text)
+
+      if token == '':
           raise Exception("Cannot tokenize '#{text}'")
 
-      if isinstance(token, list):
-        tokens += token
-      else:
-        tokens.append(token)
+      tokens.append(token)
 
-      text = text[count:-1]
+      count = len(token)
+
+      text = text[count:]
     
     return tokens
     
   def try_tokenizers(self, text):
     for tokenizer in self.tokenizers:
-        tokenizer.attempt(text)
-    count = 0
-    token = None
+      tokenizer.attempt(text)
+
+    token = ''
     # general tokenizers
     for tokenizer in self.tokenizers:
-      if tokenizer.count > count:
-        token = tokenizer.token()
-        count = tokenizer.count()
+      t = tokenizer.token
 
-    return [token, count]
+      if len(t) > len(token):
+        token = t
+
+    return token
 
   def try_invalid(self, text):
     self.invalid_tokenizer.attempt(text)
-    token = self.invalid_tokenizer.token()
-    count = self.invalid_tokenizer.count()
-    return [token, count]
+    token = self.invalid_tokenizer.token
+    return token
