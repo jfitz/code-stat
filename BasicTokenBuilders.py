@@ -1,19 +1,20 @@
 # accept any character (but only one)
 class InvalidTokenBuilder:
   def __init__(self):
-    self.token = ''
+    self.token = None
 
   def attempt(self, text):
-    self.token = ''
+    self.token = None
     if len(text) > 0:
       self.token = text[0]
 
 # token reader for whitespace
 class WhitespaceTokenBuilder:
   def __init__(self):
-    self.token = ''
+    self.token = None
 
   def attempt(self, text):
+    self.token = None
     candidate = ''
     i = 0
     accepted = True
@@ -24,7 +25,8 @@ class WhitespaceTokenBuilder:
         candidate += c
       i += 1
 
-    self.token = candidate
+    if len(candidate) > 0:
+      self.token = candidate
 
   def accept(self, candidate, c):
     return c.isspace()
@@ -32,9 +34,10 @@ class WhitespaceTokenBuilder:
 # token reader for number
 class NumberTokenBuilder:
   def __init__(self):
-    self.token = ''
+    self.token = None
 
   def attempt(self, text):
+    self.token = None
     candidate = ''
     i = 0
     accepted = True
@@ -45,7 +48,8 @@ class NumberTokenBuilder:
         candidate += c
       i += 1
 
-    self.token = candidate
+    if len(candidate) > 0:
+      self.token = candidate
 
   def accept(self, candidate, c):
     return c.isdigit()
@@ -53,9 +57,10 @@ class NumberTokenBuilder:
 # token reader for identifier
 class IdentifierTokenBuilder:
   def __init__(self):
-    self.token = ''
+    self.token = None
 
   def attempt(self, text):
+    self.token = None
     candidate = ''
     i = 0
     accepted = True
@@ -66,7 +71,8 @@ class IdentifierTokenBuilder:
         candidate += c
       i += 1
 
-    self.token = candidate
+    if len(candidate) > 0:
+      self.token = candidate
 
   def accept(self, candidate, c):
     result = None
@@ -84,6 +90,7 @@ class StringTokenBuilder:
     self.token = ''
 
   def attempt(self, text):
+    self.token = None
     candidate = ''
     i = 0
     accepted = True
@@ -94,7 +101,8 @@ class StringTokenBuilder:
         candidate += c
       i += 1
 
-    self.token = candidate
+    if len(candidate) > 0:
+      self.token = candidate
 
   def accept(self, candidate, c):
     result = False
@@ -112,8 +120,10 @@ class StringTokenBuilder:
 class ListTokenBuilder:
   def __init__(self, legals):
     self.legals = legals
+    self.token = ''
 
   def attempt(self, text):
+    self.token = None
     best_candidate = ''
     candidate = ''
     i = 0
@@ -127,7 +137,8 @@ class ListTokenBuilder:
         if candidate in self.legals:
           best_candidate = candidate
 
-    self.token = best_candidate
+    if len(best_candidate) > 0:
+      self.token = best_candidate
 
   def accept(self, candidate, c):
     token = candidate + c
