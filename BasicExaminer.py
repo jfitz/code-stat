@@ -1,5 +1,7 @@
 import string
 from Examiner import Examiner
+from BasicTokenBuilders import *
+from Tokenizer import Tokenizer
 
 class BasicExaminer(Examiner):
   def __init__(self, code):
@@ -15,50 +17,38 @@ class BasicExaminer(Examiner):
     # Pass 2 - reasonable tokens
     num_tokens = 0
     num_known_tokens = 0
+
+    wtb = WhitespaceTokenBuilder()
+    ntb = NumberTokenBuilder()
+    itb = IdentifierTokenBuilder()
+    stb = StringTokenBuilder()
     operators = [
-      '(', ')', '=', '+', '-', '*', '/', '^', '<=', '<', '>', '>=',
-      ',', ';', ':', '#', '%', '$', '.'
+      '+', '-', '*', '/', '^',
+      '=', '>', '>=', '<', '<=', '<>',
+      '(', ')'
       ]
-    functions = [ 'INT', 'TAB', 'EXP', 'SIN', 'COS', 'SQR' ]
-    user_functions = [
-      'FNA', 'FNB', 'FNC', 'FND', 'FNE', 'FNF', 'FNG', 'FNH', 'FNI', 'FNJ',
-      'FNK', 'FNL', 'FNM', 'FNN', 'FNO', 'FNP', 'FNQ', 'FNR', 'FNS', 'FNT',
-      'FNU', 'FNV', 'FNW', 'FNX', 'FNY', 'FNZ'
-      ]
-    keywords = [
-      'READ', 'DATA', 'DEF', 'DIM', 'FOR', 'TO', 'STEP', 'NEXT',
-      'IF', 'THEN', 'ELSE',
-      'CHANGE', 'LET',
-      'PRINT', 'USING', 'INPUT', 'LINE', 'LINPUT',
-      'GOTO', 'GOSUB', 'ON', 'RETURN', 'END', 'STOP',
-      'OPEN', 'CLOSE'
-      ]
-    defined_tokens = keywords + functions + user_functions + operators
+    otb = ListTokenBuilder(operators)
+    tokenbuilders = [wtb, ntb, itb, stb, otb]
+    
+    invalid_token_builder = InvalidTokenBuilder()
+    tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 
     for line in lines:
-      #  if line begins with number, remove number
-      line = line.lstrip(string.digits)
-      # remove leading and trailing blanks
       line = line.strip()
-      # remove comments (REM and apostrophe)
-      if line.startswith('REM'):
-        line = ''
+      seen_rem = False
       #  consider only lines with text
       if len(line) > 0:
-        line = self.remove_string_literals(line)
         #  simple lexer
-        tokens = self.split_to_tokens(line)
-        #  merge adjacent tokens when compatible
-        #  drop all numbers
-        tokens = self.drop_numbers(tokens)
+        tokens = tokenizer.tokenize(line)
         #  unknown operators reduce confidence
         #  unknown identifiers (text of two or more, not FNx) reduce confidence
         for token in tokens:
-          num_tokens += 1
-          if token in defined_tokens:
-            num_known_tokens += 1
-          elif self.is_variable(token):
-            num_known_tokens += 1
+          if not seen_rem:
+            num_tokens += 1
+            if not token.invalid:
+              num_known_tokens += 1
+            if str(token) == 'REM' or str(token) == 'REMARK':
+              seen_rem = True
 
     confidence_2 = 0
     if num_tokens > 0:
