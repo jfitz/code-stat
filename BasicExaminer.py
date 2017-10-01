@@ -25,7 +25,10 @@ class BasicExaminer(Examiner):
     operators = [
       '+', '-', '*', '/', '^',
       '=', '>', '>=', '<', '<=', '<>',
-      '(', ')'
+      '(', ')', ',', ':', ';', '&', '#', '\\'
+      ]
+    operators2 = [
+      '==', '->', '!=', '~', '@', '?', '{', '}', '%'
       ]
     otb = ListTokenBuilder(operators)
     tokenbuilders = [wtb, ntb, itb, stb, otb]
