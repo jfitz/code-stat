@@ -23,7 +23,9 @@ class PascalExaminer(Examiner):
       '[', ']', '..'
       ]
     otb = ListTokenBuilder(operators)
-    tokenbuilders = [wtb, ntb, itb, stb, otb, bctb, ctb]
+    nltb = NewlineTokenBuilder()
+    
+    tokenbuilders = [wtb, ntb, itb, stb, otb, bctb, ctb, nltb]
 
     
     invalid_token_builder = InvalidTokenBuilder()
@@ -64,10 +66,12 @@ class PascalExaminer(Examiner):
     if str(last_token) == '.':
       confidence_1 += 0.5
 
-    if num_begin == num_end and num_begin > 0:
-      confidence_2 = 1.0
+    num_begin_end = num_begin + num_end
+    if num_begin_end > 0:
+      confidence_2a = num_begin / num_begin_end
+      confidence_2b = num_end / num_begin_end
+      confidence_2 = confidence_2a + confidence_2b
 
-    confidence_3 = 0
     if num_tokens > 0:
       confidence_3 = num_known_tokens / num_tokens
 
