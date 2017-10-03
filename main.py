@@ -21,6 +21,8 @@ def detect():
 def identify_language(code):
   retval = {}
 
+  code = code.replace('\r\n','\n')
+
   basic_examiner = BasicExaminer(code)
   retval['BASIC'] = basic_examiner.confidence
 

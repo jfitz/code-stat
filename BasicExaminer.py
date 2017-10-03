@@ -5,7 +5,7 @@ from Tokenizer import Tokenizer
 
 class BasicExaminer(Examiner):
   def __init__(self, code):
-    lines = code.split('\r\n')
+    lines = code.split('\n')
 
     # Pass 1 - all lines begin with numbers
     num_lines_start_num = 0

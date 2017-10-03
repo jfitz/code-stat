@@ -5,7 +5,7 @@ from Tokenizer import Tokenizer
 
 class PascalExaminer(Examiner):
   def __init__(self, code):
-    lines = code.split('\r\n')
+    lines = code.split('\n')
 
     num_tokens = 0
     num_known_tokens = 0
