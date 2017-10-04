@@ -40,25 +40,21 @@ class PascalExaminer(Examiner):
     confidence_2 = 0
     confidence_3 = 0
     
-    for line in lines:
-      line = line.strip()
-      #  consider only lines with text
-      if len(line) > 0:
-        #  simple lexer
-        tokens = tokenizer.tokenize(line)
-        #  unknown operators reduce confidence
-        #  unknown identifiers (text of two or more, not FNx) reduce confidence
-        for token in tokens:
-          num_tokens += 1
-          if not token.invalid:
-            num_known_tokens += 1
-          if first_token == '':
-            first_token = token
-          last_token = token
-          if str(token) == 'begin':
-            num_begin += 1
-          if str(token) == 'end':
-            num_end += 1
+    tokens = tokenizer.tokenize(code)
+    #  unknown operators reduce confidence
+    #  unknown identifiers (text of two or more, not FNx) reduce confidence
+    for token in tokens:
+      num_tokens += 1
+      if not token.invalid:
+        num_known_tokens += 1
+      if first_token == '' and not token.whitespace() and not token.comment():
+        first_token = token
+      if not token.whitespace() and not token.comment():
+        last_token = token
+      if str(token) == 'begin':
+        num_begin += 1
+      if str(token) == 'end':
+        num_end += 1
 
     if str(first_token) == 'program':
       confidence_1 += 0.5

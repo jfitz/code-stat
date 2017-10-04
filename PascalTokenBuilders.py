@@ -9,6 +9,12 @@ class Token:
   def count(self):
     return len(self.text)
 
+  def whitespace(self):
+    return self.text[0].isspace()
+
+  def comment(self):
+    return self.text.startswith('(*') or self.text[0] == '{'
+
 # accept any character (but only one)
 class InvalidTokenBuilder:
   def __init__(self):
@@ -223,7 +229,7 @@ class BraceCommentTokenBuilder:
       result = True
     if c == '}' and len(candidate) > 0:
       result = True
-    if len(candidate) > 1 and candidate[-1] != '}':
+    if len(candidate) > 0 and candidate[-1] != '}':
       result = True
     return result
 
