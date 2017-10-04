@@ -56,7 +56,7 @@ class PascalExaminer(Examiner):
       if str(token) == 'end':
         num_end += 1
 
-    if str(first_token) == 'program':
+    if str(first_token).lower() == 'program':
       confidence_1 += 0.5
 
     if str(last_token) == '.':
