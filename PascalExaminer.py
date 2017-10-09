@@ -12,6 +12,17 @@ class PascalExaminer:
     num_operators = 0
     num_known_operators = 0
 
+    all_operators = [
+      '+', '-', '*', '/', '%',
+      '=', '<>', '>', '>=', '<', '<=',
+      'and', 'and', 'or', 'not',
+      '&', '|', '~', '<<', '>>',
+      ':=', '^',
+      '(', ')', ',', ':', ';',
+      '[', ']', '..',
+      '++', '--', '**', '->', '<->', '<=>', '@', '&&', '||'
+      '\\', '::', '?', '{', '}'
+      ]
     wtb = WhitespaceTokenBuilder()
     ntb = NumberTokenBuilder()
     itb = IdentifierTokenBuilder()
@@ -19,16 +30,16 @@ class PascalExaminer:
     bctb = BraceCommentTokenBuilder()
     ctb = CommentTokenBuilder()
     known_operators = [
-      '+', '-', '*', '/', '^',
-      '=', '>', '>=', '<', '<=', '<>',
+      '+', '-', '*', '/', '%',
+      '=', '<>', '>', '>=', '<', '<=',
+      'and', 'and', 'or', 'not',
+      '&', '|', '~', '<<', '>>',
+      ':=', '^',
       '(', ')', ',', ':', ';',
       '[', ']', '..'
       ]
     kotb = ListTokenBuilder(known_operators, 'operator')
-    unknown_operators = [
-      '++', '--', '**', '->', '<->', '<=>', '%', '~', '@', '&&', '||'
-      '&', '|', '\\'
-      ]
+    unknown_operators = set(all_operators) - set(known_operators)
     uotb = ListTokenBuilder(unknown_operators, 'invalid operators')
     nltb = NewlineTokenBuilder()
     

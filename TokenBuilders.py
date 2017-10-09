@@ -111,3 +111,34 @@ class ListTokenBuilder:
         result = True
 
     return result
+
+# token reader for newline
+class NewlineTokenBuilder:
+  def __init__(self):
+    self.token = None
+
+  def attempt(self, text):
+    self.token = None
+    candidate = ''
+    i = 0
+    accepted = True
+    while i < len(text) and accepted:
+      c = text[i]
+      accepted = self.accept(candidate, c)
+      if accepted:
+        candidate += c
+      i += 1
+
+    if len(candidate) > 0:
+      self.token = candidate
+
+  def get_token(self):
+    if self.token is None:
+      return None
+    return Token(self.token, 'newline')
+
+  def accept(self, candidate, c):
+    result = False
+    if c == '\n' and candidate == '':
+      result = True
+    return result
