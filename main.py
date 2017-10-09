@@ -1,5 +1,4 @@
 from flask import Flask, request, render_template
-from Examiner import Examiner
 from BasicExaminer import BasicExaminer
 from PascalExaminer import PascalExaminer
 

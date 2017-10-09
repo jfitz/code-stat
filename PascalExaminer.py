@@ -1,9 +1,8 @@
 import string
-from Examiner import Examiner
 from PascalTokenBuilders import *
 from Tokenizer import Tokenizer
 
-class PascalExaminer(Examiner):
+class PascalExaminer:
   def __init__(self, code):
     lines = code.split('\n')
 
@@ -93,22 +92,3 @@ class PascalExaminer(Examiner):
 
     # compute confidence
     self.confidence = confidence_1 * confidence_2 * confidence_3 * confidence_4
-
-  def confidence(self):
-    return self.confidence
-
-  def remove_pascal_comments(self, line):
-    result = ''
-    in_brace_comment = False
-    for c in line:
-      if c == '{' and not in_brace_comment:
-        in_brace_comment = True
-        c = ''
-
-      if not in_brace_comment:
-        result += c
-
-      if c == '}':
-        in_brace_comment = False
-
-    return result

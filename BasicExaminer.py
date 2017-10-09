@@ -1,9 +1,8 @@
 import string
-from Examiner import Examiner
 from BasicTokenBuilders import *
 from Tokenizer import Tokenizer
 
-class BasicExaminer(Examiner):
+class BasicExaminer:
   def __init__(self, code):
     lines = code.split('\n')
 
@@ -85,6 +84,3 @@ class BasicExaminer(Examiner):
 
     # compute confidence
     self.confidence = confidence_1 * confidence_2 * confidence_3
-
-  def confidence(self):
-    return self.confidence
