@@ -27,6 +27,7 @@ class CobolExaminer:
     ntb = NumberTokenBuilder()
     itb = IdentifierTokenBuilder()
     stb = StringTokenBuilder()
+    ptb = PictureTokenBuilder()
     known_operators = [
       'ADD', 'SUBTRACT', 'MULTIPLY', 'DIVIDE',
       '=', '<>', '>', '>=', '<', '<=',
@@ -94,7 +95,7 @@ class CobolExaminer:
       ]
     ktb = ListTokenBuilder(keywords, 'keyword')
     
-    tokenbuilders = [wtb, ntb, itb, stb, kotb, uotb, nltb, ktb]
+    tokenbuilders = [wtb, ntb, itb, stb, ptb, kotb, uotb, nltb, ktb]
     
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
@@ -122,10 +123,9 @@ class CobolExaminer:
         found_keywords.add(str(token))
 
     # count unique keywords and compare to number of tokens
-    if num_tokens > 0:
-      keyword_fraction = len(found_keywords) / num_tokens
-      if keyword_fraction > 0.05:
-        confidence_1 = 1.0
+    num_keywords = len(found_keywords)
+    if num_keywords > 10:
+      confidence_1 = 1.0
 
     #  unknown tokens reduce confidence
     if num_tokens > 0:
@@ -137,6 +137,6 @@ class CobolExaminer:
       confidence_3 = num_known_operators / num_operators
 
     # compute confidence
-    self.confidence = confidence_1 * confidence_2 ### * confidence_3
+    self.confidence = confidence_1 * confidence_2
 
     self.tokens = tokens
