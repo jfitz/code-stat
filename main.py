@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 from BasicExaminer import BasicExaminer
 from PascalExaminer import PascalExaminer
+from CobolExaminer import CobolExaminer
 
 app = Flask(__name__)
 
@@ -27,6 +28,9 @@ def identify_language(code):
 
   pascal_examiner = PascalExaminer(code)
   retval['Pascal'] = pascal_examiner.confidence
+
+  cobol_examiner = CobolExaminer(code)
+  retval['COBOL'] = cobol_examiner.confidence
 
   return retval
 
