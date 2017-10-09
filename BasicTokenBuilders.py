@@ -1,13 +1,4 @@
-class Token:
-  def __init__(self, text, group):
-    self.text = text
-    self.group = group
-
-  def __str__(self):
-    return self.text
-
-  def count(self):
-    return len(self.text)
+from Token import Token
 
 # accept any character (but only one)
 class InvalidTokenBuilder:
