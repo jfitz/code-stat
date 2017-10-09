@@ -138,3 +138,5 @@ class CobolExaminer:
 
     # compute confidence
     self.confidence = confidence_1 * confidence_2 ### * confidence_3
+
+    self.tokens = tokens

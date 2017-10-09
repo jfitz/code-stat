@@ -26,12 +26,12 @@ class IdentifierTokenBuilder:
     return Token(self.token, 'identifier')
 
   def accept(self, candidate, c):
-    result = None
-    if result is None and c.isalpha():
+    result = False
+    if c.isalpha():
       result = True
-    if result is not None and c.isdigit():
+    if len(candidate) > 0 and c.isdigit():
       result = True
-    if result is not None and c == '-':
+    if len(candidate) > 0 and c == '-':
       result = True
     return result
 
