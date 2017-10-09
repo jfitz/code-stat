@@ -22,17 +22,27 @@ class BasicExaminer(Examiner):
     ntb = NumberTokenBuilder()
     itb = IdentifierTokenBuilder()
     stb = StringTokenBuilder()
-    operators = [
+    expected_operators = [
       '+', '-', '*', '/', '^',
       '=', '>', '>=', '<', '<=', '<>',
       '(', ')', ',', ':', ';', '&', '#', '\\'
       ]
-    operators2 = [
-      '==', '->', '!=', '~', '@', '?', '{', '}', '%'
+    eotb = ListTokenBuilder(expected_operators, 'operator')
+    invalid_operators = [
+      '==', '->', '!=', '~', '@', '?', '{', '}',
+      '%', '<->', '<=>', '++', '--', '::', ':='
       ]
-    otb = ListTokenBuilder(operators)
-    tokenbuilders = [wtb, ntb, itb, stb, otb]
+    iotb = ListTokenBuilder(invalid_operators, 'invalid operator')
+
+    expected_keywords = [
+      'CHANGE', 'CLOSE', 'DATA', 'DEF', 'DIM', 'END', 'FOR', 'GOSUB',
+      'GOTO', 'IF', 'INPUT', 'LET', 'OPEN', 'NEXT', 'PRINT', 'RANDOMIZE',
+      'READ', 'REM', 'REMARK', 'RESTORE', 'RETURN', 'STOP'
+      ]
+    ktb = ListTokenBuilder(expected_keywords, 'keyword')
     
+    tokenbuilders = [wtb, ntb, itb, stb, eotb, iotb, ktb]
+
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 
@@ -41,18 +51,20 @@ class BasicExaminer(Examiner):
       seen_rem = False
       #  consider only lines with text
       if len(line) > 0:
-        #  simple lexer
         tokens = tokenizer.tokenize(line)
-        #  unknown operators reduce confidence
-        #  unknown identifiers (text of two or more, not FNx) reduce confidence
         for token in tokens:
           if not seen_rem:
+            # count all tokens
             num_tokens += 1
-            if not token.invalid:
+
+            # count known tokens
+            if not token.group.startswith('invalid'):
               num_known_tokens += 1
             if str(token) == 'REM' or str(token) == 'REMARK':
               seen_rem = True
 
+    #  unknown operators reduce confidence
+    #  unknown identifiers (text of two or more, not FNx) reduce confidence
     confidence_2 = 0
     if num_tokens > 0:
       confidence_2 = num_known_tokens / num_tokens
@@ -62,10 +74,3 @@ class BasicExaminer(Examiner):
 
   def confidence(self):
     return self.confidence
-
-  def is_variable(self, token):
-    if len(token) == 1 and token[0].isalpha():
-      return True
-    if len(token) == 2 and token[0].isalpha() and token[1].isdigit():
-      return True
-    return False

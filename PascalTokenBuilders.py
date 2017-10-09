@@ -1,7 +1,7 @@
 class Token:
-  def __init__(self, text, invalid):
+  def __init__(self, text, group):
     self.text = text
-    self.invalid = invalid
+    self.group = group
 
   def __str__(self):
     return self.text
@@ -28,7 +28,7 @@ class InvalidTokenBuilder:
   def get_token(self):
     if self.token is None:
       return None
-    return Token(self.token, True)
+    return Token(self.token, 'invalid')
   
 # token reader for whitespace
 class WhitespaceTokenBuilder:
@@ -53,7 +53,7 @@ class WhitespaceTokenBuilder:
   def get_token(self):
     if self.token is None:
       return None
-    return Token(self.token, False)
+    return Token(self.token, 'whitespace')
 
   def accept(self, candidate, c):
     return c.isspace()
@@ -81,7 +81,7 @@ class NumberTokenBuilder:
   def get_token(self):
     if self.token is None:
       return None
-    return Token(self.token, False)
+    return Token(self.token, 'number')
 
   def accept(self, candidate, c):
     return c.isdigit()
@@ -109,7 +109,7 @@ class IdentifierTokenBuilder:
   def get_token(self):
     if self.token is None:
       return None
-    return Token(self.token, False)
+    return Token(self.token, 'identifier')
 
   def accept(self, candidate, c):
     result = None
@@ -144,7 +144,7 @@ class StringTokenBuilder:
   def get_token(self):
     if self.token is None:
       return None
-    return Token(self.token, False)
+    return Token(self.token, 'string')
 
   def accept(self, candidate, c):
     result = False
@@ -160,8 +160,9 @@ class StringTokenBuilder:
 
 # accept characters to match item in list
 class ListTokenBuilder:
-  def __init__(self, legals):
+  def __init__(self, legals, group):
     self.legals = legals
+    self.group = group
     self.token = ''
 
   def attempt(self, text):
@@ -185,7 +186,7 @@ class ListTokenBuilder:
   def get_token(self):
     if self.token is None:
       return None
-    return Token(self.token, False)
+    return Token(self.token, self.group)
 
   def accept(self, candidate, c):
     token = candidate + c
@@ -221,7 +222,7 @@ class BraceCommentTokenBuilder:
   def get_token(self):
     if self.token is None:
       return None
-    return Token(self.token, False)
+    return Token(self.token, 'comment')
 
   def accept(self, candidate, c):
     result = False
@@ -256,7 +257,7 @@ class CommentTokenBuilder:
   def get_token(self):
     if self.token is None:
       return None
-    return Token(self.token, False)
+    return Token(self.token, 'comment')
 
   def accept(self, candidate, c):
     result = False
@@ -293,7 +294,7 @@ class NewlineTokenBuilder:
   def get_token(self):
     if self.token is None:
       return None
-    return Token(self.token, False)
+    return Token(self.token, 'newline')
 
   def accept(self, candidate, c):
     result = False

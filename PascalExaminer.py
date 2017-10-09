@@ -22,11 +22,10 @@ class PascalExaminer(Examiner):
       '(', ')', ',', ':', ';',
       '[', ']', '..'
       ]
-    otb = ListTokenBuilder(operators)
+    otb = ListTokenBuilder(operators, 'operator')
     nltb = NewlineTokenBuilder()
     
     tokenbuilders = [wtb, ntb, itb, stb, otb, bctb, ctb, nltb]
-
     
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
@@ -45,7 +44,7 @@ class PascalExaminer(Examiner):
     #  unknown identifiers (text of two or more, not FNx) reduce confidence
     for token in tokens:
       num_tokens += 1
-      if not token.invalid:
+      if not token.group.startswith('invalid'):
         num_known_tokens += 1
       if first_token == '' and not token.whitespace() and not token.comment():
         first_token = token
