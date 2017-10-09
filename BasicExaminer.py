@@ -17,22 +17,24 @@ class BasicExaminer(Examiner):
     # Pass 2 - reasonable tokens
     num_tokens = 0
     num_known_tokens = 0
+    num_operators = 0
+    num_known_operators = 0
 
     wtb = WhitespaceTokenBuilder()
     ntb = NumberTokenBuilder()
     itb = IdentifierTokenBuilder()
     stb = StringTokenBuilder()
-    expected_operators = [
+    known_operators = [
       '+', '-', '*', '/', '^',
       '=', '>', '>=', '<', '<=', '<>',
       '(', ')', ',', ':', ';', '&', '#', '\\'
       ]
-    eotb = ListTokenBuilder(expected_operators, 'operator')
-    invalid_operators = [
+    kotb = ListTokenBuilder(known_operators, 'operator')
+    unknown_operators = [
       '==', '->', '!=', '~', '@', '?', '{', '}',
       '%', '<->', '<=>', '++', '--', '::', ':='
       ]
-    iotb = ListTokenBuilder(invalid_operators, 'invalid operator')
+    uotb = ListTokenBuilder(unknown_operators, 'invalid operator')
 
     expected_keywords = [
       'CHANGE', 'CLOSE', 'DATA', 'DEF', 'DIM', 'END', 'FOR', 'GOSUB',
@@ -41,7 +43,7 @@ class BasicExaminer(Examiner):
       ]
     ktb = ListTokenBuilder(expected_keywords, 'keyword')
     
-    tokenbuilders = [wtb, ntb, itb, stb, eotb, iotb, ktb]
+    tokenbuilders = [wtb, ntb, itb, stb, kotb, uotb, ktb]
 
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
@@ -63,14 +65,26 @@ class BasicExaminer(Examiner):
             if str(token) == 'REM' or str(token) == 'REMARK':
               seen_rem = True
 
-    #  unknown operators reduce confidence
-    #  unknown identifiers (text of two or more, not FNx) reduce confidence
+            # count operators
+            if token.group == 'operator' or token.group == 'invalid operator':
+              num_operators += 1
+            if token.group == 'operator':
+              num_known_operators += 1
+
+    # unknown tokens reduce confidence
     confidence_2 = 0
     if num_tokens > 0:
       confidence_2 = num_known_tokens / num_tokens
 
+    #  unknown operators reduce confidence
+    confidence_3 = 0
+    if num_operators > 0:
+      confidence_3 = num_known_operators / num_operators
+
+    #  unknown identifiers (text of two or more, not FNx) reduce confidence
+
     # compute confidence
-    self.confidence = confidence_1 * confidence_2
+    self.confidence = confidence_1 * confidence_2 * confidence_3
 
   def confidence(self):
     return self.confidence
