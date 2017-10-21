@@ -1,3 +1,4 @@
+import json
 from flask import Flask, request, render_template
 from BasicExaminer import BasicExaminer
 from PascalExaminer import PascalExaminer
@@ -21,6 +22,9 @@ def detect():
   if action == 'tokens':
     found_tokens = find_tokens(text)
     html = render_template('display_tokens.jinja.txt', tokens = found_tokens)
+  if action == 'json':
+    detected_languages = identify_language(text)
+    html = json.dumps(detected_languages)
   return html
 
 def identify_language(code):
