@@ -13,19 +13,11 @@ def hello_world():
 
 @app.route('/detect', methods=['POST'])
 def detect():
-  text = request.form['code']
-  action = request.form['action']
-  if action == 'code':
-    detected_languages = identify_language(text)
-    lines = text.split('\r\n')
-    html = render_template('detect_language.jinja.txt', languages=detected_languages, code=lines)
-  if action == 'tokens':
-    found_tokens = find_tokens(text)
-    html = render_template('display_tokens.jinja.txt', tokens = found_tokens)
-  if action == 'json':
-    detected_languages = identify_language(text)
-    html = json.dumps(detected_languages)
-  return html
+  text = request.get_data()
+  text = str(text)
+  detected_languages = identify_language(text)
+  json_text = json.dumps(detected_languages)
+  return json_text
 
 def identify_language(code):
   retval = {}

@@ -1,16 +1,36 @@
 <HTML>
-<HEAD>
-</HEAD>
-<BODY>
+<head>
+<script type="text/javascript">
+function sendgetreq()
+{
+    var results = '';
+    var code = document.getElementById('code').value;
+    var req = new XMLHttpRequest();
+    req.open('POST', "/detect", true);
+    req.setRequestHeader("Content-type", "text/plain");
+    req.onload = function (e) {
+      if (req.readyState === 4) {
+        if (req.status === 200) {
+          results = req.responseText;
+          var div = document.getElementById('result');
+          div.innerText = results
+        } else {
+          console.error(req.statusText);
+        }
+      }
+    };
+    req.onerror = function (e) {
+      console.error(req.statusText);
+    };
+    req.send(code);
+}
+</script>
+</head>
+<body>
 Welcome to the CodeStat page!
-<FORM name="submitcode" method="post" action="/detect">
-<TEXTAREA cols="50" rows="20" name="code"></TEXTAREA>
-<SELECT name="action">
-  <OPTION value="tokens">Display tokens</OPTION>
-  <OPTION value="code">Display code</OPTION>
-  <OPTION value="json">Return JSON</OPTION>
-</SELECT>
-<INPUT type="submit" value="Submit">
-</FORM>
-</BODY>
+<TEXTAREA cols="50" rows="20" id="code"></TEXTAREA>
+<br/>
+<input type="button" OnClick="sendgetreq();" value="Detect language">
+<div id="result"></div>
+</body>
 </HTML>
