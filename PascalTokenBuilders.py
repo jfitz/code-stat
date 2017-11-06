@@ -1,24 +1,10 @@
 from Token import Token
+from TokenBuilders import TokenBuilder
 
 # token reader for identifier
-class IdentifierTokenBuilder:
+class IdentifierTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = None
-
-  def attempt(self, text):
-    self.token = None
-    candidate = ''
-    i = 0
-    accepted = True
-    while i < len(text) and accepted:
-      c = text[i]
-      accepted = self.accept(candidate, c)
-      if accepted:
-        candidate += c
-      i += 1
-
-    if len(candidate) > 0:
-      self.token = candidate
 
   def get_token(self):
     if self.token is None:
@@ -36,24 +22,9 @@ class IdentifierTokenBuilder:
     return result
 
 # token reader for text literal (string)
-class StringTokenBuilder:
+class StringTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = ''
-
-  def attempt(self, text):
-    self.token = None
-    candidate = ''
-    i = 0
-    accepted = True
-    while i < len(text) and accepted:
-      c = text[i]
-      accepted = self.accept(candidate, c)
-      if accepted:
-        candidate += c
-      i += 1
-
-    if len(candidate) > 0:
-      self.token = candidate
 
   def get_token(self):
     if self.token is None:
@@ -73,24 +44,9 @@ class StringTokenBuilder:
     return result
 
 # token reader for brace comment
-class BraceCommentTokenBuilder:
+class BraceCommentTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = ''
-
-  def attempt(self, text):
-    self.token = None
-    candidate = ''
-    i = 0
-    accepted = True
-    while i < len(text) and accepted:
-      c = text[i]
-      accepted = self.accept(candidate, c)
-      if accepted:
-        candidate += c
-      i += 1
-
-    if len(candidate) > 0:
-      self.token = candidate
 
   def get_token(self):
     if self.token is None:
@@ -108,24 +64,9 @@ class BraceCommentTokenBuilder:
     return result
 
 # token reader for comment
-class CommentTokenBuilder:
+class CommentTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = ''
-
-  def attempt(self, text):
-    self.token = None
-    candidate = ''
-    i = 0
-    accepted = True
-    while i < len(text) and accepted:
-      c = text[i]
-      accepted = self.accept(candidate, c)
-      if accepted:
-        candidate += c
-      i += 1
-
-    if len(candidate) > 0:
-      self.token = candidate
 
   def get_token(self):
     if self.token is None:
