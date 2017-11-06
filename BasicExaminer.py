@@ -56,6 +56,7 @@ class BasicExaminer:
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 
+    self.tokens = []
     for line in lines:
       line = line.strip()
       seen_rem = False
@@ -63,6 +64,7 @@ class BasicExaminer:
       if len(line) > 0:
         tokens = tokenizer.tokenize(line)
         for token in tokens:
+          self.tokens.append(token.to_debug())
           if not seen_rem:
             # count all tokens
             num_tokens += 1

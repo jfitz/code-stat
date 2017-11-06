@@ -79,11 +79,13 @@ class PascalExaminer:
         num_known_operators += 1
 
     # program should begin with 'program'
-    if str(first_token).lower() == 'program':
+    first_token_str = str(first_token)
+    if first_token_str.lower() == 'program':
       confidence_1 += 0.5
 
     # program should end with '.'
-    if str(last_token) == '.':
+    last_token_str = str(last_token)
+    if last_token_str == '.':
       confidence_1 += 0.5
 
     # consider the number of matches for begin/end

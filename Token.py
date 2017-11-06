@@ -6,6 +6,9 @@ class Token:
   def __str__(self):
     return self.text
 
+  def to_debug(self):
+    return self.text + ':' + self.group
+
   def count(self):
     return len(self.text)
 

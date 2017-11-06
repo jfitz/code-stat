@@ -1,4 +1,5 @@
 import json
+import codecs
 from flask import Flask, request, render_template
 from BasicExaminer import BasicExaminer
 from PascalExaminer import PascalExaminer
@@ -13,11 +14,27 @@ def hello_world():
 
 @app.route('/detect', methods=['POST'])
 def detect():
-  text = request.get_data()
-  text = str(text)
+  bytes = request.get_data()
+  text = bytes.decode('ascii')
   detected_languages = identify_language(text)
   json_text = json.dumps(detected_languages)
   return json_text
+
+@app.route('/basic', methods=['POST'])
+def basic():
+  bytes = request.get_data()
+  text = bytes.decode('ascii')
+  basic_examiner = BasicExaminer(text)
+  retval = basic_examiner.tokens
+  return str(retval)
+
+@app.route('/pascal', methods=['POST'])
+def pascal():
+  bytes = request.get_data()
+  text = bytes.decode('ascii')
+  pascal_examiner = PascalExaminer(text)
+  retval = pascal_examiner.tokens
+  return str(retval)
 
 def identify_language(code):
   retval = {}
