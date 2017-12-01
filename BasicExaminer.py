@@ -12,7 +12,10 @@ class BasicExaminer:
     for line in lines:
       if len(line) > 0 and line[0].isdigit():
         num_lines_start_num += 1
-    confidence_1 = num_lines_start_num / len(lines)
+
+    confidence_1 = 0
+    if len(lines) > 0:
+      confidence_1 = num_lines_start_num / len(lines)
 
     # Pass 2 - reasonable tokens
     num_tokens = 0
@@ -59,12 +62,15 @@ class BasicExaminer:
     self.tokens = []
     for line in lines:
       line = line.strip()
+      
       seen_rem = False
       #  consider only lines with text
       if len(line) > 0:
         tokens = tokenizer.tokenize(line)
+        
         for token in tokens:
           self.tokens.append(token.to_debug())
+          
           if not seen_rem:
             # count all tokens
             num_tokens += 1
@@ -82,12 +88,12 @@ class BasicExaminer:
               num_known_operators += 1
 
     # unknown tokens reduce confidence
-    confidence_2 = 0
+    confidence_2 = 1
     if num_tokens > 0:
       confidence_2 = num_known_tokens / num_tokens
 
     #  unknown operators reduce confidence
-    confidence_3 = 0
+    confidence_3 = 1
     if num_operators > 0:
       confidence_3 = num_known_operators / num_operators
 

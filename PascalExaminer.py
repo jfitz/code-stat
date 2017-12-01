@@ -1,4 +1,5 @@
 import string
+import math
 from TokenBuilders import *
 from PascalTokenBuilders import *
 from Tokenizer import Tokenizer
@@ -12,6 +13,12 @@ class PascalExaminer:
     num_operators = 0
     num_known_operators = 0
 
+    known_keywords = [
+      'and', 'begin', 'case', 'div', 'do', 'downto', 'else', 'end', 'for',
+      'forward', 'function', 'goto', 'if', 'int', 'nil', 'not', 'of', 'or',
+      'otherwise', 'packed', 'procedure', 'program', 'real', 'record',
+      'repeat', 'then', 'to', 'until', 'uses', 'value', 'var', 'while'
+      ]
     all_operators = [
       '+', '-', '*', '/', '%',
       '=', '<>', '>', '>=', '<', '<=',
@@ -52,24 +59,28 @@ class PascalExaminer:
     last_token = ''
     num_begin = 0
     num_end = 0
+    num_keywords = 0
+    found_keywords = {}
 
-    confidence_1 = 0
-    confidence_2 = 0
-    confidence_3 = 0
-    
     tokens = tokenizer.tokenize(code)
     for token in tokens:
+      token_lower = str(token).lower()
+      
       num_tokens += 1
+      
       if not token.group.startswith('invalid'):
         num_known_tokens += 1
+        
       if first_token == '' and not token.whitespace() and not token.comment():
         first_token = token
+        
       if not token.whitespace() and not token.comment():
         last_token = token
+        
       # count 'begin' and 'end' keywords for matches
-      if str(token) == 'begin':
+      if token_lower == 'begin':
         num_begin += 1
-      if str(token) == 'end':
+      if token_lower == 'end':
         num_end += 1
 
       # count operators
@@ -78,31 +89,45 @@ class PascalExaminer:
       if token.group == 'operator':
         num_known_operators += 1
 
+      # count keywords
+      if token_lower in known_keywords:
+        num_keywords += 1
+        found_keywords[token_lower] = True
+
     # program should begin with 'program'
+    confidence_1 = 0
     first_token_str = str(first_token)
     if first_token_str.lower() == 'program':
-      confidence_1 += 0.5
+      confidence_1 += 0.75
 
     # program should end with '.'
     last_token_str = str(last_token)
     if last_token_str == '.':
-      confidence_1 += 0.5
+      confidence_1 += 0.25
 
     # consider the number of matches for begin/end
+    confidence_2 = 1
     num_begin_end = num_begin + num_end
     if num_begin_end > 0:
       confidence_2a = num_begin / num_begin_end
       confidence_2b = num_end / num_begin_end
       confidence_2 = confidence_2a + confidence_2b
 
-    #  unknown operators reduce confidence
+    # recognized keywords improve confidence
+    confidence_3 = 0
+    if num_keywords > 0:
+      ratio = len(found_keywords) / len(known_keywords)
+      confidence_3 = math.sqrt(ratio)
+
+    #  unknown tokens reduce confidence
+    confidence_4 = 1
     if num_tokens > 0:
-      confidence_3 = num_known_tokens / num_tokens
+      confidence_4 = num_known_tokens / num_tokens
 
     #  unknown operators reduce confidence
-    confidence_4 = 0
+    confidence_5 = 1
     if num_operators > 0:
-      confidence_4 = num_known_operators / num_operators
+      confidence_5 = num_known_operators / num_operators
 
     # compute confidence
-    self.confidence = confidence_1 * confidence_2 * confidence_3 * confidence_4
+    self.confidence = confidence_1 * confidence_2 * confidence_3 * confidence_4 * confidence_5

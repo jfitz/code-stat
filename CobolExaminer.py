@@ -100,43 +100,47 @@ class CobolExaminer:
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 
-    confidence_1 = 0
-    confidence_2 = 0
-    confidence_3 = 0
-
     found_keywords = set()
     
-    tokens = tokenizer.tokenize(code)
-    for token in tokens:
-      num_tokens += 1
-      if not token.group.startswith('invalid'):
-        num_known_tokens += 1
+    self.tokens = []
+    for line in lines:
+      line = line.strip()
+      
+      if len(line) > 7 and line[7] != '*':
+        tokens = tokenizer.tokenize(line)
+        
+        for token in tokens:
+          self.tokens.append(token.to_debug())
 
-      # count operators
-      if token.group == 'operator' or token.group == 'invalid operator':
-        num_operators += 1
-      if token.group == 'operator':
-        num_known_operators += 1
+          num_tokens += 1
+          if not token.group.startswith('invalid'):
+            num_known_tokens += 1
 
-      # collect keywords for counting
-      if token.group == 'keyword':
-        found_keywords.add(str(token))
+          # count operators
+          if token.group == 'operator' or token.group == 'invalid operator':
+            num_operators += 1
+          if token.group == 'operator':
+            num_known_operators += 1
+
+          # collect keywords for counting
+          if token.group == 'keyword':
+            found_keywords.add(str(token))
 
     # count unique keywords and compare to number of tokens
+    confidence_1 = 0
     num_keywords = len(found_keywords)
     if num_keywords > 10:
-      confidence_1 = 1.0
+      confidence_1 = 1
 
     #  unknown tokens reduce confidence
+    confidence_2 = 1
     if num_tokens > 0:
       confidence_2 = num_known_tokens / num_tokens
 
     #  unknown operators reduce confidence
-    confidence_3 = 0
+    confidence_3 = 1
     if num_operators > 0:
       confidence_3 = num_known_operators / num_operators
 
     # compute confidence
     self.confidence = confidence_1 * confidence_2
-
-    self.tokens = tokens
