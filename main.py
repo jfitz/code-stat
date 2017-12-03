@@ -4,6 +4,7 @@ from flask import Flask, request, render_template
 from BasicExaminer import BasicExaminer
 from PascalExaminer import PascalExaminer
 from CobolExaminer import CobolExaminer
+from CExaminer import CExaminer
 
 app = Flask(__name__)
 
@@ -50,14 +51,10 @@ def identify_language(code):
   cobol_examiner = CobolExaminer(code)
   retval['COBOL'] = cobol_examiner.confidence
 
+  c_examiner = CExaminer(code)
+  retval['C'] = c_examiner.confidence
+
   return retval
-
-def find_tokens(code):
-
-  code = code.replace('\r\n','\n')
-
-  cobol_examiner = CobolExaminer(code)
-  return cobol_examiner.tokens
 
 if __name__ == '__main__':
   app.run()
