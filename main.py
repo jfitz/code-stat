@@ -5,6 +5,7 @@ from BasicExaminer import BasicExaminer
 from PascalExaminer import PascalExaminer
 from CobolExaminer import CobolExaminer
 from CExaminer import CExaminer
+from CppExaminer import CppExaminer
 
 app = Flask(__name__)
 
@@ -53,6 +54,9 @@ def identify_language(code):
 
   c_examiner = CExaminer(code)
   retval['C'] = c_examiner.confidence
+
+  cpp_examiner = CppExaminer(code)
+  retval['C++'] = cpp_examiner.confidence
 
   return retval
 
