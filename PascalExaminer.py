@@ -13,12 +13,8 @@ class PascalExaminer:
     num_operators = 0
     num_known_operators = 0
 
-    known_keywords = [
-      'and', 'begin', 'case', 'div', 'do', 'downto', 'else', 'end', 'for',
-      'forward', 'function', 'goto', 'if', 'int', 'nil', 'not', 'of', 'or',
-      'otherwise', 'packed', 'procedure', 'program', 'real', 'record',
-      'repeat', 'then', 'to', 'until', 'uses', 'value', 'var', 'while'
-      ]
+    wtb = WhitespaceTokenBuilder()
+
     all_operators = [
       '+', '-', '*', '/', '%',
       '=', '<>', '>', '>=', '<', '<=',
@@ -27,15 +23,17 @@ class PascalExaminer:
       ':=', '^',
       '(', ')', ',', ':', ';',
       '[', ']', '..',
-      '++', '--', '**', '->', '<->', '<=>', '@', '&&', '||'
+      '++', '--', '**', '->', '<->', '<=>', '@', '&&', '||',
       '\\', '::', '?', '{', '}'
       ]
-    wtb = WhitespaceTokenBuilder()
+
     ntb = NumberTokenBuilder()
     itb = IdentifierTokenBuilder()
     stb = StringTokenBuilder()
+
     bctb = BraceCommentTokenBuilder()
     ctb = CommentTokenBuilder()
+
     known_operators = [
       '+', '-', '*', '/', '%',
       '=', '<>', '>', '>=', '<', '<=',
@@ -45,12 +43,24 @@ class PascalExaminer:
       '(', ')', ',', ':', ';',
       '[', ']', '..'
       ]
+    
     kotb = ListTokenBuilder(known_operators, 'operator')
+
     unknown_operators = set(all_operators) - set(known_operators)
     uotb = ListTokenBuilder(unknown_operators, 'invalid operators')
+
     nltb = NewlineTokenBuilder()
     
-    tokenbuilders = [wtb, ntb, itb, stb, kotb, uotb, bctb, ctb, nltb]
+    keywords = [
+      'and', 'begin', 'case', 'div', 'do', 'downto', 'else', 'end', 'for',
+      'forward', 'function', 'goto', 'if', 'int', 'nil', 'not', 'of', 'or',
+      'otherwise', 'packed', 'procedure', 'program', 'real', 'record',
+      'repeat', 'then', 'to', 'until', 'uses', 'value', 'var', 'while'
+      ]
+
+    ktb = ListTokenBuilder(keywords, 'keyword')
+
+    tokenbuilders = [wtb, ntb, itb, stb, kotb, uotb, bctb, ctb, nltb, ktb]
     
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
@@ -90,7 +100,7 @@ class PascalExaminer:
         num_known_operators += 1
 
       # count keywords
-      if token_lower in known_keywords:
+      if token_lower in keywords:
         num_keywords += 1
         found_keywords[token_lower] = True
 
@@ -116,7 +126,7 @@ class PascalExaminer:
     # recognized keywords improve confidence
     confidence_3 = 0
     if num_keywords > 0:
-      ratio = len(found_keywords) / len(known_keywords)
+      ratio = len(found_keywords) / len(keywords)
       confidence_3 = math.sqrt(ratio)
 
     #  unknown tokens reduce confidence

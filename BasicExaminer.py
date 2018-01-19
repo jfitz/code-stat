@@ -17,11 +17,13 @@ class BasicExaminer:
     if len(lines) > 0:
       confidence_1 = num_lines_start_num / len(lines)
 
-    # Pass 2 - reasonable tokens
+    # Pass 2 - tokens
     num_tokens = 0
     num_known_tokens = 0
     num_operators = 0
     num_known_operators = 0
+
+    wtb = WhitespaceTokenBuilder()
 
     all_operators = [
       '+', '-', '*', '/', '%',
@@ -31,28 +33,32 @@ class BasicExaminer:
       ':=', '^',
       '(', ')', ',', ':', ';',
       '[', ']', '..',
-      '++', '--', '**', '->', '<->', '<=>', '@', '&&', '||'
+      '++', '--', '**', '->', '<->', '<=>', '@', '&&', '||',
       '\\', '::', '?', '{', '}'
       ]
-    wtb = WhitespaceTokenBuilder()
+
     ntb = NumberTokenBuilder()
     itb = IdentifierTokenBuilder()
     stb = StringTokenBuilder()
+
     known_operators = [
       '+', '-', '*', '/', '^',
       '=', '>', '>=', '<', '<=', '<>',
       '(', ')', ',', ':', ';', '&', '#', '\\'
       ]
+    
     kotb = ListTokenBuilder(known_operators, 'operator')
+
     unknown_operators = set(all_operators) - set(known_operators)
     uotb = ListTokenBuilder(unknown_operators, 'invalid operator')
 
-    expected_keywords = [
+    keywords = [
       'CHANGE', 'CLOSE', 'DATA', 'DEF', 'DIM', 'END', 'FOR', 'GOSUB',
       'GOTO', 'IF', 'INPUT', 'LET', 'OPEN', 'NEXT', 'PRINT', 'RANDOMIZE',
       'READ', 'REM', 'REMARK', 'RESTORE', 'RETURN', 'STOP'
       ]
-    ktb = ListTokenBuilder(expected_keywords, 'keyword')
+
+    ktb = ListTokenBuilder(keywords, 'keyword')
     
     tokenbuilders = [wtb, ntb, itb, stb, kotb, uotb, ktb]
 

@@ -12,6 +12,8 @@ class CobolExaminer:
     num_operators = 0
     num_known_operators = 0
 
+    wtb = WhitespaceTokenBuilder()
+
     all_operators = [
       '+', '-', '*', '/', '%',
       '=', '<>', '>', '>=', '<', '<=',
@@ -20,24 +22,29 @@ class CobolExaminer:
       ':=', '^',
       '(', ')', ',', ':', ';',
       '[', ']', '..',
-      '++', '--', '**', '->', '<->', '<=>', '@', '&&', '||'
+      '++', '--', '**', '->', '<->', '<=>', '@', '&&', '||',
       '\\', '::', '?', '{', '}'
       ]
-    wtb = WhitespaceTokenBuilder()
+
     ntb = NumberTokenBuilder()
     itb = IdentifierTokenBuilder()
     stb = StringTokenBuilder()
     ptb = PictureTokenBuilder()
+
     known_operators = [
       'ADD', 'SUBTRACT', 'MULTIPLY', 'DIVIDE',
       '=', '<>', '>', '>=', '<', '<=',
       'AND', 'OR', 'NOT',
       '(', ')', ',', ':', '.'
       ]
+    
     kotb = ListTokenBuilder(known_operators, 'operator')
+
     unknown_operators = set(all_operators) - set(known_operators)
     uotb = ListTokenBuilder(unknown_operators, 'invalid operators')
+
     nltb = NewlineTokenBuilder()
+
     keywords = [
       'ACCEPT',
       'ASSIGN TO',
@@ -93,6 +100,7 @@ class CobolExaminer:
       'WORKING-STORAGE SECTION.',
       'WRITE'
       ]
+
     ktb = ListTokenBuilder(keywords, 'keyword')
     
     tokenbuilders = [wtb, ntb, itb, stb, ptb, kotb, uotb, nltb, ktb]
