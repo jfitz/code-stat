@@ -63,6 +63,8 @@ class SlashCommentTokenBuilder(TokenBuilder):
       result = True
     if c == '/' and candidate == '':
       result = True
+    if c == '\n':
+      result = False
     return result
 
 # token reader for comment
@@ -77,12 +79,12 @@ class CommentTokenBuilder(TokenBuilder):
 
   def accept(self, candidate, c):
     result = False
-    if c == '(' and candidate == '':
+    if c == '/' and candidate == '':
       result = True
     if c == '*' and len(candidate) == 1:
       result = True
-    if c == ')' and len(candidate) > 2 and candidate[-1] == '*':
+    if c == '/' and len(candidate) > 2 and candidate[-1] == '*':
       result = True
-    if candidate.startswith('(*') and candidate[-1] != ')':
+    if candidate.startswith('/*') and candidate[-1] != '/':
       result = True
     return result

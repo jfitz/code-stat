@@ -157,3 +157,5 @@ class CppExaminer:
     # compute confidence
     confidence = confidence_1 * confidence_3 * confidence_4
     self.confidence = confidence
+    self.tokens = tokens
+    

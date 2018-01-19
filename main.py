@@ -22,21 +22,12 @@ def detect():
   json_text = json.dumps(detected_languages)
   return json_text
 
-@app.route('/basic', methods=['POST'])
+@app.route('/tokens', methods=['POST'])
 def basic():
   bytes = request.get_data()
   text = bytes.decode('ascii')
-  basic_examiner = BasicExaminer(text)
-  retval = basic_examiner.tokens
-  return str(retval)
-
-@app.route('/pascal', methods=['POST'])
-def pascal():
-  bytes = request.get_data()
-  text = bytes.decode('ascii')
-  pascal_examiner = PascalExaminer(text)
-  retval = pascal_examiner.tokens
-  return str(retval)
+  json_text = tokenize(text, 'C++')
+  return json_text
 
 def identify_language(code):
   retval = {}
@@ -57,6 +48,15 @@ def identify_language(code):
 
   cpp_examiner = CppExaminer(code)
   retval['C++'] = cpp_examiner.confidence
+
+  return retval
+
+def tokenize(code, language):
+  examiner = CppExaminer(code)
+  tokens = examiner.tokens
+  retval = ''
+  for token in tokens:
+    retval += json.dumps(token.toJSON()) + '\n'
 
   return retval
 

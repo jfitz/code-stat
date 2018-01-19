@@ -17,3 +17,7 @@ class Token:
 
   def comment(self):
     return self.text.startswith('(*') or self.text[0] == '{'
+
+  def toJSON(self):
+    return '{ ' + self.group + ': ' + self.text + ' }'
+  
