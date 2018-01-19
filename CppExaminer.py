@@ -13,7 +13,48 @@ class CppExaminer:
     num_operators = 0
     num_known_operators = 0
 
-    known_keywords = [
+    wtb = WhitespaceTokenBuilder()
+
+    all_operators = [
+      '+', '-', '*', '/', '%',
+      '=', '==', '!=', '<>', '>', '>=', '<', '<=',
+      'and', 'and', 'or', 'not',
+      '+=', '-=', '*=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>=',
+      '&', '|', '~', '<<', '>>',
+      ':=', '^',
+      '(', ')', ',', '.', ':', ';',
+      '[', ']', '..',
+      '++', '--', '**', '->', '<->', '<=>', '@', '&&', '||',
+      '\\', '::', '?', '{', '}'
+      ]
+    
+    ntb = NumberTokenBuilder()
+    itb = IdentifierTokenBuilder()
+    stb = StringTokenBuilder()
+
+    sctb = SlashCommentTokenBuilder()
+    ctb = CommentTokenBuilder()
+
+    known_operators = [
+      '+', '-', '*', '/', '%',
+      '=', '==', '!=', '>', '>=', '<', '<=',
+      '+=', '-=', '*=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>=',
+      '&', '|', '~', '<<', '>>',
+      '^',
+      '(', ')', ',', '.', ':', ';',
+      '[', ']',
+      '++', '--', '->', '&&', '||',
+      '::', '?', '{', '}'
+      ]
+    
+    kotb = ListTokenBuilder(known_operators, 'operator')
+
+    unknown_operators = set(all_operators) - set(known_operators)
+    uotb = ListTokenBuilder(unknown_operators, 'invalid operator')
+
+    nltb = NewlineTokenBuilder()
+
+    keywords = [
       'bool', 'int', 'char', 'float', 'double',
       'signed', 'unsigned', 'short', 'long',
       'class', 'typedef', 'enum', 'friend', 'operator',
@@ -26,49 +67,20 @@ class CppExaminer:
       'struct', 'union', 'void', 'return',
       'new', 'delete', 'explicit', 'mutable',
       'private', 'protected', 'public',
-      '#define', '#include'
-      ]
-    power_keywords = [
-      'bool', 'class', 'typedef', 'friend', 'operator',
-      'const', 'volatile', 'sizeof',
       '#define', '#include',
-      'printf', 'scanf'
+      'cin', 'cout'
       ]
-    all_operators = [
-      '+', '-', '*', '/', '%',
-      '=', '==', '!=', '<>', '>', '>=', '<', '<=',
-      'and', 'and', 'or', 'not',
-      '+=', '-=', '*=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>=',
-      '&', '|', '~', '<<', '>>',
-      ':=', '^',
-      '(', ')', ',', '.', ':', ';',
-      '[', ']', '..',
-      '++', '--', '**', '->', '<->', '<=>', '@', '&&', '||'
-      '\\', '::', '?', '{', '}'
+
+    ktb = ListTokenBuilder(keywords, 'keyword')
+
+    power_keywords = [
+      'bool', 'class', 'friend', 'operator',
+      'const', 'volatile', 'sizeof',
+      'private', 'protected', 'public',
+      'cin', 'cout'
       ]
-    wtb = WhitespaceTokenBuilder()
-    ntb = NumberTokenBuilder()
-    itb = IdentifierTokenBuilder()
-    stb = StringTokenBuilder()
-    sctb = SlashCommentTokenBuilder()
-    ctb = CommentTokenBuilder()
-    known_operators = [
-      '+', '-', '*', '/', '%',
-      '=', '==', '!=', '>', '>=', '<', '<=',
-      '+=', '-=', '*=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>=',
-      '&', '|', '~', '<<', '>>',
-      '^',
-      '(', ')', ',', '.', ':', ';',
-      '[', ']',
-      '++', '--', '->', '&&', '||'
-      '::', '?', '{', '}'
-      ]
-    kotb = ListTokenBuilder(known_operators, 'operator')
-    unknown_operators = set(all_operators) - set(known_operators)
-    uotb = ListTokenBuilder(unknown_operators, 'invalid operators')
-    nltb = NewlineTokenBuilder()
     
-    tokenbuilders = [wtb, ntb, itb, stb, kotb, uotb, sctb, ctb, nltb]
+    tokenbuilders = [wtb, ntb, itb, stb, kotb, uotb, sctb, ctb, nltb, ktb]
     
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
@@ -110,7 +122,7 @@ class CppExaminer:
         num_known_operators += 1
 
       # count keywords
-      if token_lower in known_keywords:
+      if token_lower in keywords:
         num_keywords += 1
         found_keywords[token_lower] = True
 
@@ -130,8 +142,7 @@ class CppExaminer:
     # recognized keywords improve confidence
     confidence_2 = 0
     if num_keywords > 0:
-      ratio = len(found_keywords) / len(known_keywords)
-      confidence_2 = math.sqrt(ratio)
+      confidence_2 = len(found_keywords) / len(keywords)
 
     #  unknown tokens reduce confidence
     confidence_3 = 1
@@ -143,11 +154,6 @@ class CppExaminer:
     if num_operators > 0:
       confidence_4 = num_known_operators / num_operators
 
-    boost = 0
-    if num_power_keywords > 0:
-      boost = num_power_keywords / len(power_keywords)
-
     # compute confidence
-    confidence = confidence_1 * confidence_2 * confidence_3 * confidence_4
-    confidence = confidence + ((1 - confidence) * boost)
+    confidence = confidence_1 * confidence_3 * confidence_4
     self.confidence = confidence
