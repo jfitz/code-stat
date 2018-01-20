@@ -1,10 +1,13 @@
 import string
+from Examiner import Examiner
 from TokenBuilders import *
 from CobolTokenBuilders import *
 from Tokenizer import Tokenizer
 
-class CobolExaminer:
+class CobolExaminer(Examiner):
   def __init__(self, code):
+    super().__init__()
+
     lines = code.split('\n')
 
     num_tokens = 0
@@ -13,18 +16,6 @@ class CobolExaminer:
     num_known_operators = 0
 
     wtb = WhitespaceTokenBuilder()
-
-    all_operators = [
-      '+', '-', '*', '/', '%',
-      '=', '<>', '>', '>=', '<', '<=',
-      'and', 'and', 'or', 'not',
-      '&', '|', '~', '<<', '>>',
-      ':=', '^',
-      '(', ')', ',', ':', ';',
-      '[', ']', '..',
-      '++', '--', '**', '->', '<->', '<=>', '@', '&&', '||',
-      '\\', '::', '?', '{', '}'
-      ]
 
     ntb = NumberTokenBuilder()
     itb = IdentifierTokenBuilder()
@@ -40,7 +31,7 @@ class CobolExaminer:
     
     kotb = ListTokenBuilder(known_operators, 'operator')
 
-    unknown_operators = set(all_operators) - set(known_operators)
+    unknown_operators = set(self.common_operators()) - set(known_operators)
     uotb = ListTokenBuilder(unknown_operators, 'invalid operator')
 
     nltb = NewlineTokenBuilder()

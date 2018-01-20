@@ -1,10 +1,13 @@
 import string
+from Examiner import Examiner
 from TokenBuilders import *
 from BasicTokenBuilders import *
 from Tokenizer import Tokenizer
 
-class BasicExaminer:
+class BasicExaminer(Examiner):
   def __init__(self, code):
+    super().__init__()
+
     lines = code.split('\n')
 
     # Pass 1 - all lines begin with numbers
@@ -25,18 +28,6 @@ class BasicExaminer:
 
     wtb = WhitespaceTokenBuilder()
 
-    all_operators = [
-      '+', '-', '*', '/', '%',
-      '=', '<>', '>', '>=', '<', '<=',
-      'and', 'and', 'or', 'not',
-      '&', '|', '~', '<<', '>>',
-      ':=', '^',
-      '(', ')', ',', ':', ';',
-      '[', ']', '..',
-      '++', '--', '**', '->', '<->', '<=>', '@', '&&', '||',
-      '\\', '::', '?', '{', '}'
-      ]
-
     ntb = NumberTokenBuilder()
     itb = IdentifierTokenBuilder()
     stb = StringTokenBuilder()
@@ -49,7 +40,7 @@ class BasicExaminer:
     
     kotb = ListTokenBuilder(known_operators, 'operator')
 
-    unknown_operators = set(all_operators) - set(known_operators)
+    unknown_operators = set(self.common_operators()) - set(known_operators)
     uotb = ListTokenBuilder(unknown_operators, 'invalid operator')
 
     keywords = [
@@ -76,8 +67,6 @@ class BasicExaminer:
         self.tokens += tokens
         
         for token in tokens:
-          self.tokens.append(token.to_debug())
-          
           if not seen_rem:
             # count all tokens
             num_tokens += 1
