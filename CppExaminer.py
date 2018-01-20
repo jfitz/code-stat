@@ -122,12 +122,10 @@ class CppExaminer(Examiner):
         found_power_keywords[token_lower] = True
 
     # consider the number of matches for begin/end
-    confidence_1 = 1
     num_begin_end = num_begin + num_end
+    confidence_1 = 0
     if num_begin_end > 0:
-      confidence_1a = num_begin / num_begin_end
-      confidence_1b = num_end / num_begin_end
-      confidence_1 = confidence_1a + confidence_1b
+      confidence_1 = (num_begin + num_end) / num_begin_end
 
     # recognized keywords improve confidence
     confidence_2 = 0
@@ -148,4 +146,3 @@ class CppExaminer(Examiner):
     confidence = confidence_1 * confidence_3 * confidence_4
     self.confidence = confidence
     self.tokens = tokens
-    

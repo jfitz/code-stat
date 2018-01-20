@@ -12,13 +12,15 @@ class IdentifierTokenBuilder(TokenBuilder):
     return Token(self.token, 'identifier')
 
   def accept(self, candidate, c):
-    result = None
-    if result is None and c.isalpha():
+    result = False
+
+    if c.isalpha():
       result = True
-    if result is not None and c.isdigit():
+    if len(candidate) > 0 and c.isdigit():
       result = True
-    if result is not None and c == '_':
+    if c == '_':
       result = True
+
     return result
 
 # token reader for text literal (string)
@@ -33,6 +35,7 @@ class StringTokenBuilder(TokenBuilder):
 
   def accept(self, candidate, c):
     result = False
+
     if c == "'" and candidate == '':
       result = True
     if c == "'" and len(candidate) > 0:
@@ -41,6 +44,16 @@ class StringTokenBuilder(TokenBuilder):
       result = True
     if c != "'" and len(candidate) > 1 and candidate[-1] != "'":
       result = True
+
+    if c == '"' and candidate == '':
+      result = True
+    if c == '"' and len(candidate) > 0:
+      result = True
+    if c != '"' and len(candidate) == 1:
+      result = True
+    if c != '"' and len(candidate) > 1 and candidate[-1] != '"':
+      result = True
+
     return result
 
 # token reader for // comment

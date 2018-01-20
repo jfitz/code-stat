@@ -28,7 +28,7 @@ class BasicExaminer(Examiner):
 
     wtb = WhitespaceTokenBuilder()
 
-    ntb = NumberTokenBuilder()
+    ntb = BasicNumberTokenBuilder()
     itb = IdentifierTokenBuilder()
     stb = StringTokenBuilder()
 

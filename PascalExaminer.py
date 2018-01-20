@@ -31,14 +31,14 @@ class PascalExaminer(Examiner):
       'and', 'and', 'or', 'not',
       '&', '|', '~', '<<', '>>',
       ':=', '^',
-      '(', ')', ',', ':', ';',
+      '(', ')', ',', '.', ':', ';',
       '[', ']', '..'
       ]
     
     kotb = ListTokenBuilder(known_operators, 'operator')
 
     unknown_operators = set(self.common_operators()) - set(known_operators)
-    uotb = ListTokenBuilder(unknown_operators, 'invalid operators')
+    uotb = ListTokenBuilder(unknown_operators, 'invalid operator')
 
     nltb = NewlineTokenBuilder()
     
@@ -107,18 +107,15 @@ class PascalExaminer(Examiner):
       confidence_1 += 0.25
 
     # consider the number of matches for begin/end
-    confidence_2 = 1
     num_begin_end = num_begin + num_end
+    confidence_2 = 1
     if num_begin_end > 0:
-      confidence_2a = num_begin / num_begin_end
-      confidence_2b = num_end / num_begin_end
-      confidence_2 = confidence_2a + confidence_2b
+      confidence_2 = (num_begin + num_end) / num_begin_end
 
     # recognized keywords improve confidence
     confidence_3 = 0
     if num_keywords > 0:
-      ratio = len(found_keywords) / len(keywords)
-      confidence_3 = math.sqrt(ratio)
+      confidence_3 = len(found_keywords) / len(keywords)
 
     #  unknown tokens reduce confidence
     confidence_4 = 1
@@ -131,5 +128,5 @@ class PascalExaminer(Examiner):
       confidence_5 = num_known_operators / num_operators
 
     # compute confidence
-    self.confidence = confidence_1 * confidence_2 * confidence_3 * confidence_4 * confidence_5
+    self.confidence = confidence_1 * confidence_2 * confidence_4 * confidence_5
     self.tokens = tokens

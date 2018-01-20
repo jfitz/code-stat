@@ -1,6 +1,26 @@
 from Token import Token
 from TokenBuilders import TokenBuilder
 
+# token reader for number
+class BasicNumberTokenBuilder(TokenBuilder):
+  def __init__(self):
+    self.token = None
+
+  def get_token(self):
+    if self.token is None:
+      return None
+    return Token(self.token, 'number')
+
+  def accept(self, candidate, c):
+    result = False
+
+    if len(candidate) == 0 and c.isdigit():
+      result = True
+    if len(candidate) > 0 and not candidate.endswith('%') and (c.isdigit() or c == '%'):
+      result = True
+    
+    return result
+
 # token reader for identifier
 class IdentifierTokenBuilder(TokenBuilder):
   def __init__(self):
@@ -12,13 +32,15 @@ class IdentifierTokenBuilder(TokenBuilder):
     return Token(self.token, 'identifier')
 
   def accept(self, candidate, c):
-    result = None
-    if result is None and c.isalpha():
+    result = False
+
+    if len(candidate) == 0 and c.isalpha():
       result = True
-    if result is not None and c.isdigit():
+    if len(candidate) == 1 and c.isdigit():
       result = True
-    if result is not None and (c == '$' or c == '%'):
+    if len(candidate) > 0 and (c == '$' or c == '%'):
       result = True
+
     return result
 
 # token reader for text literal (string)

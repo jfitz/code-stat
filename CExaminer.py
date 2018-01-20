@@ -119,12 +119,10 @@ class CExaminer(Examiner):
         found_power_keywords[token_lower] = True
 
     # consider the number of matches for begin/end
-    confidence_1 = 1
     num_begin_end = num_begin + num_end
+    confidence_1 = 0
     if num_begin_end > 0:
-      confidence_1a = num_begin / num_begin_end
-      confidence_1b = num_end / num_begin_end
-      confidence_1 = confidence_1a + confidence_1b
+      confidence_1 = (num_begin + num_end) / num_begin_end
 
     # recognized keywords improve confidence
     confidence_2 = 0
