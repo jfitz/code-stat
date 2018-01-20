@@ -41,7 +41,7 @@ class CobolExaminer:
     kotb = ListTokenBuilder(known_operators, 'operator')
 
     unknown_operators = set(all_operators) - set(known_operators)
-    uotb = ListTokenBuilder(unknown_operators, 'invalid operators')
+    uotb = ListTokenBuilder(unknown_operators, 'invalid operator')
 
     nltb = NewlineTokenBuilder()
 
@@ -112,14 +112,13 @@ class CobolExaminer:
     
     self.tokens = []
     for line in lines:
-      line = line.strip()
+      line = line.rstrip()
       
-      if len(line) > 7 and line[7] != '*':
+      if not line.startswith('      *'):
         tokens = tokenizer.tokenize(line)
+        self.tokens += tokens
         
         for token in tokens:
-          self.tokens.append(token.to_debug())
-
           num_tokens += 1
           if not token.group.startswith('invalid'):
             num_known_tokens += 1

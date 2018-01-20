@@ -29,8 +29,10 @@ function tokenize()
 {
     var results = '';
     var code = document.getElementById('code').value;
+    var language = document.getElementById('language').value;
+    var query = "/tokens?language=" + language;
     var req = new XMLHttpRequest();
-    req.open('POST', "/tokens?language=Cpp", true);
+    req.open('POST', query, true);
     req.setRequestHeader("Content-type", "text/plain");
     req.onload = function (e) {
       if (req.readyState === 4) {
@@ -54,8 +56,10 @@ function tokenize()
 Welcome to the CodeStat page!
 <TEXTAREA cols="50" rows="20" id="code"></TEXTAREA>
 <br/>
-<input type="button" OnClick="detectLanguage();" value="Detect language">
-<input type="button" OnClick="tokenize();" value="Tokenize">
+<input type="button" OnClick="detectLanguage();" value="Detect language"/>
+<br/>
+<input type="text" id="language"/>
+<input type="button" OnClick="tokenize();" value="Tokenize"/>
 <div id="result"></div>
 </body>
 </HTML>

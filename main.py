@@ -23,10 +23,11 @@ def detect():
   return json_text
 
 @app.route('/tokens', methods=['POST'])
-def basic():
+def tokens():
+  language = request.args["language"]
   bytes = request.get_data()
   text = bytes.decode('ascii')
-  json_text = tokenize(text, 'C++')
+  json_text = tokenize(text, language.lower())
   return json_text
 
 def identify_language(code):
@@ -52,11 +53,29 @@ def identify_language(code):
   return retval
 
 def tokenize(code, language):
-  examiner = CppExaminer(code)
-  tokens = examiner.tokens
+  tokens = []
+  if language in ['c++', 'cpp']:
+    examiner = CppExaminer(code)
+    tokens = examiner.tokens
+  if language in ['c']:
+    examiner = CExaminer(code)
+    tokens = examiner.tokens
+  if language in ['pascal', 'pas']:
+    examiner = PascalExaminer(code)
+    tokens = examiner.tokens
+  if language in ['basic', 'bas']:
+    examiner = BasicExaminer(code)
+    tokens = examiner.tokens
+  if language in ['cobol', 'cob', 'cbl']:
+    examiner = CobolExaminer(code)
+    tokens = examiner.tokens
+
   retval = ''
   for token in tokens:
-    retval += json.dumps(token.toJSON()) + '\n'
+    if token.__class__.__name__ == 'str':
+      retval += token + '\n'
+    else:
+      retval += token.toJSON() + '\n'
 
   return retval
 

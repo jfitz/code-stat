@@ -141,3 +141,4 @@ class PascalExaminer:
 
     # compute confidence
     self.confidence = confidence_1 * confidence_2 * confidence_3 * confidence_4 * confidence_5
+    self.tokens = tokens

@@ -73,6 +73,7 @@ class BasicExaminer:
       #  consider only lines with text
       if len(line) > 0:
         tokens = tokenizer.tokenize(line)
+        self.tokens += tokens
         
         for token in tokens:
           self.tokens.append(token.to_debug())

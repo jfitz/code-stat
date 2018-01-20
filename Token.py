@@ -13,10 +13,10 @@ class Token:
     return len(self.text)
 
   def whitespace(self):
-    return self.text[0].isspace()
+    return self.group == 'whitespace'
 
   def comment(self):
-    return self.text.startswith('(*') or self.text[0] == '{'
+    return self.group == 'comment'
 
   def toJSON(self):
     return '{ ' + self.group + ': ' + self.text + ' }'
