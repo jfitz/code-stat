@@ -72,8 +72,6 @@ class CExaminer(Examiner):
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 
-    first_token = ''
-    last_token = ''
     num_begin = 0
     num_end = 0
     num_keywords = 0
@@ -89,12 +87,6 @@ class CExaminer(Examiner):
       
       if not token.group.startswith('invalid'):
         num_known_tokens += 1
-        
-      if first_token == '' and not token.whitespace() and not token.comment():
-        first_token = token
-        
-      if not token.whitespace() and not token.comment():
-        last_token = token
         
       # count 'begin' and 'end' keywords for matches
       if token_lower == '{':
