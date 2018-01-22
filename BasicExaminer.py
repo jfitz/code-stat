@@ -74,6 +74,8 @@ class BasicExaminer(Examiner):
             # count known tokens
             if not token.group.startswith('invalid'):
               num_known_tokens += 1
+
+            # flag the comment mode to ignore remaining tokens
             if str(token) == 'REM' or str(token) == 'REMARK':
               seen_rem = True
 
