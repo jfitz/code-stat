@@ -10,7 +10,7 @@ from CppExaminer import CppExaminer
 app = Flask(__name__)
 
 @app.route('/')
-def hello_world():
+def code_stat():
   html = render_template('index.jinja.txt', title='CodeStat')
   return html
 
