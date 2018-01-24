@@ -80,7 +80,7 @@ class SlashCommentTokenBuilder(TokenBuilder):
       result = False
     return result
 
-# token reader for comment
+# token reader for /* */ comment
 class CommentTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = ''
