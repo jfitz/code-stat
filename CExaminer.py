@@ -112,26 +112,27 @@ class CExaminer(Examiner):
 
     # consider the number of matches for begin/end
     num_begin_end = num_begin + num_end
-    confidence_1 = 0
+    brace_match_confidence = 0
     if num_begin_end > 0:
-      confidence_1 = (num_begin + num_end) / num_begin_end
+      brace_match_confidence = (num_begin + num_end) / num_begin_end
 
     # recognized keywords improve confidence
-    confidence_2 = 0
+    keyword_confidence = 0
     if num_keywords > 0:
-      confidence_2 = len(found_keywords) / len(keywords)
+      keyword_confidence = len(found_keywords) / len(keywords)
 
     #  unknown tokens reduce confidence
-    confidence_3 = 1
+    token_confidence = 1
     if num_tokens > 0:
-      confidence_3 = num_known_tokens / num_tokens
+      token_confidence = num_known_tokens / num_tokens
 
     #  unknown operators reduce confidence
-    confidence_4 = 1
+    operator_confidence = 1
     if num_operators > 0:
       confidence_4 = num_known_operators / num_operators
 
     # compute confidence
-    confidence = confidence_1 * confidence_3 * confidence_4
+    confidence = brace_match_confidence * token_confidence * operator_confidence
+
     self.confidence = confidence
     self.tokens = tokens

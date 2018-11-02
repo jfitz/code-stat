@@ -13,12 +13,14 @@ class IdentifierTokenBuilder(TokenBuilder):
 
   def accept(self, candidate, c):
     result = False
+
     if c.isalpha():
       result = True
     if len(candidate) > 0 and c.isdigit():
       result = True
     if len(candidate) > 0 and c == '-':
       result = True
+
     return result
 
 # token reader for text literal (string)

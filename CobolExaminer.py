@@ -125,20 +125,20 @@ class CobolExaminer(Examiner):
             found_keywords.add(str(token))
 
     # count unique keywords and compare to number of tokens
-    confidence_1 = 0
+    keyword_confidence = 0
     num_keywords = len(found_keywords)
     if num_keywords > 10:
-      confidence_1 = 1
+      keyword_confidence = 1
 
     #  unknown tokens reduce confidence
-    confidence_2 = 1
+    token_confidence = 1
     if num_tokens > 0:
-      confidence_2 = num_known_tokens / num_tokens
+      token_confidence = num_known_tokens / num_tokens
 
     #  unknown operators reduce confidence
-    confidence_3 = 1
+    operator_confidence = 1
     if num_operators > 0:
-      confidence_3 = num_known_operators / num_operators
+      operator_confidence = num_known_operators / num_operators
 
     # compute confidence
-    self.confidence = confidence_1 * confidence_2
+    self.confidence = keyword_confidence * token_confidence * operator_confidence

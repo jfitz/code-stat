@@ -16,9 +16,9 @@ class BasicExaminer(Examiner):
       if len(line) > 0 and line[0].isdigit():
         num_lines_start_num += 1
 
-    confidence_1 = 0
+    line_format_confidence = 0
     if len(lines) > 0:
-      confidence_1 = num_lines_start_num / len(lines)
+      line_format_confidence = num_lines_start_num / len(lines)
 
     # Pass 2 - tokens
     num_tokens = 0
@@ -86,16 +86,16 @@ class BasicExaminer(Examiner):
               num_known_operators += 1
 
     # unknown tokens reduce confidence
-    confidence_2 = 1
+    token_confidence = 1
     if num_tokens > 0:
-      confidence_2 = num_known_tokens / num_tokens
+      token_confidence = num_known_tokens / num_tokens
 
     #  unknown operators reduce confidence
-    confidence_3 = 1
+    operator_confidence = 1
     if num_operators > 0:
-      confidence_3 = num_known_operators / num_operators
+      operator_confidence = num_known_operators / num_operators
 
     #  unknown identifiers (text of two or more, not FNx) reduce confidence
 
     # compute confidence
-    self.confidence = confidence_1 * confidence_2 * confidence_3
+    self.confidence = line_format_confidence * token_confidence * operator_confidence

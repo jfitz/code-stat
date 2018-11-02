@@ -26,13 +26,14 @@ class PascalExaminer(Examiner):
     ctb = CommentTokenBuilder()
 
     known_operators = [
-      '+', '-', '*', '/', '%',
+      '+', '-', '*', '/',
       '=', '<>', '>', '>=', '<', '<=',
-      'and', 'and', 'or', 'not',
+      'and', 'then', 'or', 'else', 'not',
       '&', '|', '~', '<<', '>>',
-      ':=', '^',
+      ':=', '^', '~',
       '(', ')', ',', '.', ':', ';',
-      '[', ']', '..'
+      '[', ']', '..',
+      'div', 'mod', 'shl', 'shr', 'in'
       ]
     
     kotb = ListTokenBuilder(known_operators, 'operator')
@@ -51,7 +52,7 @@ class PascalExaminer(Examiner):
 
     ktb = ListTokenBuilder(keywords, 'keyword')
 
-    tokenbuilders = [wtb, ntb, itb, stb, kotb, uotb, bctb, ctb, nltb, ktb]
+    tokenbuilders = [wtb, stb, kotb, uotb, bctb, ctb, nltb, ntb, itb, ktb]
     
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
@@ -96,37 +97,39 @@ class PascalExaminer(Examiner):
         found_keywords[token_lower] = True
 
     # program should begin with 'program'
-    confidence_1 = 0
+    program_end_confidence = 0
     first_token_str = str(first_token)
     if first_token_str.lower() == 'program':
-      confidence_1 += 0.75
+      program_end_confidence += 0.75
 
     # program should end with '.'
     last_token_str = str(last_token)
     if last_token_str == '.':
-      confidence_1 += 0.25
+      program_end_confidence += 0.25
 
     # consider the number of matches for begin/end
     num_begin_end = num_begin + num_end
-    confidence_2 = 1
+    begin_end_confidence = 1
     if num_begin_end > 0:
-      confidence_2 = (num_begin + num_end) / num_begin_end
+      begin_end_confidence = (num_begin + num_end) / num_begin_end
 
     # recognized keywords improve confidence
-    confidence_3 = 0
+    keyword_confidence = 0
     if num_keywords > 0:
-      confidence_3 = len(found_keywords) / len(keywords)
+      keyword_confidence = len(found_keywords) / len(keywords)
 
     #  unknown tokens reduce confidence
-    confidence_4 = 1
+    token_confidence = 1
     if num_tokens > 0:
-      confidence_4 = num_known_tokens / num_tokens
+      token_confidence = num_known_tokens / num_tokens
 
     #  unknown operators reduce confidence
-    confidence_5 = 1
+    operator_confidence = 1
     if num_operators > 0:
-      confidence_5 = num_known_operators / num_operators
+      operator_confidence = num_known_operators / num_operators
 
     # compute confidence
-    self.confidence = confidence_1 * confidence_2 * confidence_4 * confidence_5
+    confidence = program_end_confidence * begin_end_confidence * token_confidence * operator_confidence
+
+    self.confidence = confidence
     self.tokens = tokens
