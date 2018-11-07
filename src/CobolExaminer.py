@@ -142,3 +142,8 @@ class CobolExaminer(Examiner):
 
     # compute confidence
     self.confidence = keyword_confidence * token_confidence * operator_confidence
+    self.confidences = {
+      'keyword': keyword_confidence,
+      'token': token_confidence,
+      'operator': operator_confidence
+    }

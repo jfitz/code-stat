@@ -30,6 +30,14 @@ def tokens():
   json_text = tokenize(text, language.lower())
   return json_text
 
+@app.route('/confidence', methods=['POST'])
+def confidence():
+  language = request.args["language"]
+  bytes = request.get_data()
+  text = bytes.decode('ascii')
+  json_text = tokenize_confidence(text, language.lower())
+  return json_text
+
 
 def identify_language(code):
   retval = {}
@@ -77,6 +85,28 @@ def tokenize(code, language):
       retval += token + '\n'
     else:
       retval += token.toJSON() + '\n'
+
+  return retval
+
+def tokenize_confidence(code, language):
+  confidences = {}
+  if language in ['c++', 'cpp']:
+    examiner = CppExaminer(code)
+    confidences = examiner.confidences
+  if language in ['c']:
+    examiner = CExaminer(code)
+    confidences = examiner.confidences
+  if language in ['pascal', 'pas']:
+    examiner = PascalExaminer(code)
+    confidences = examiner.confidences
+  if language in ['basic', 'bas']:
+    examiner = BasicExaminer(code)
+    confidences = examiner.confidences
+  if language in ['cobol', 'cob', 'cbl']:
+    examiner = CobolExaminer(code)
+    confidences = examiner.confidences
+
+  retval = json.dumps(confidences)
 
   return retval
 

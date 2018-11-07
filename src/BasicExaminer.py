@@ -12,13 +12,17 @@ class BasicExaminer(Examiner):
 
     # Pass 1 - all lines begin with numbers
     num_lines_start_num = 0
+    num_nonblank_lines = 0
     for line in lines:
-      if len(line) > 0 and line[0].isdigit():
-        num_lines_start_num += 1
+      line = line.strip()
+      if len(line) > 0:
+        num_nonblank_lines += 1
+        if line[0].isdigit():
+          num_lines_start_num += 1
 
-    line_format_confidence = 0
-    if len(lines) > 0:
-      line_format_confidence = num_lines_start_num / len(lines)
+    line_format_confidence = 0.0
+    if num_nonblank_lines > 0:
+      line_format_confidence = num_lines_start_num / num_nonblank_lines
 
     # Pass 2 - tokens
     num_tokens = 0
@@ -29,7 +33,7 @@ class BasicExaminer(Examiner):
     wtb = WhitespaceTokenBuilder()
 
     ntb = BasicNumberTokenBuilder()
-    itb = IdentifierTokenBuilder()
+    vtb = VariableTokenBuilder()
     stb = StringTokenBuilder()
 
     known_operators = [
@@ -50,8 +54,18 @@ class BasicExaminer(Examiner):
       ]
 
     ktb = ListTokenBuilder(keywords, 'keyword')
-    
-    tokenbuilders = [wtb, ntb, itb, stb, kotb, uotb, ktb]
+
+    functions = [
+      'ABS', 'ASC', 'CHR$', 'COS', 'DET', 'INV', 'LEFT$', 'LEN', 'MID$', 'RIGHT$',
+      'SGN', 'SIN', 'STR$', 'TRN', 'VAL', 'ZER',
+      'FNA', 'FNB', 'FNC', 'FND', 'FNE', 'FNF', 'FNG', 'FNH', 'FNI', 'FNJ',
+      'FNK', 'FNL', 'FNM', 'FNN', 'FNO', 'FNP', 'FNQ', 'FNR', 'FNS', 'FNT',
+      'FNU', 'FNV', 'FNW', 'FNX', 'FNY', 'FNZ'
+    ]
+
+    ftb = ListTokenBuilder(functions, 'function')
+
+    tokenbuilders = [wtb, ntb, vtb, ftb, stb, kotb, uotb, ktb]
 
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
@@ -86,12 +100,12 @@ class BasicExaminer(Examiner):
               num_known_operators += 1
 
     # unknown tokens reduce confidence
-    token_confidence = 1
+    token_confidence = 1.0
     if num_tokens > 0:
       token_confidence = num_known_tokens / num_tokens
 
     #  unknown operators reduce confidence
-    operator_confidence = 1
+    operator_confidence = 1.0
     if num_operators > 0:
       operator_confidence = num_known_operators / num_operators
 
@@ -99,3 +113,8 @@ class BasicExaminer(Examiner):
 
     # compute confidence
     self.confidence = line_format_confidence * token_confidence * operator_confidence
+    self.confidences = {
+      'line_format': line_format_confidence,
+      'token': token_confidence,
+      'operator': operator_confidence
+      }

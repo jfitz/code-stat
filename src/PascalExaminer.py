@@ -129,7 +129,12 @@ class PascalExaminer(Examiner):
       operator_confidence = num_known_operators / num_operators
 
     # compute confidence
-    confidence = program_end_confidence * begin_end_confidence * token_confidence * operator_confidence
-
-    self.confidence = confidence
+    self.confidence = program_end_confidence * begin_end_confidence * token_confidence * operator_confidence
+    self.confidences = {
+      'program_begin': program_end_confidence,
+      'program_end': begin_end_confidence,
+      'keyword': keyword_confidence,
+      'token': token_confidence,
+      'operator': operator_confidence
+    }
     self.tokens = tokens

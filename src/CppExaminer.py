@@ -135,7 +135,10 @@ class CppExaminer(Examiner):
       operator_confidence = num_known_operators / num_operators
 
     # compute confidence
-    confidence = brace_match_confidence * token_confidence * operator_confidence
-
-    self.confidence = confidence
+    self.confidence = brace_match_confidence * token_confidence * operator_confidence
+    self.confidences = {
+      'brace_match': brace_match_confidence,
+      'token': token_confidence,
+      'operator': operator_confidence
+    }
     self.tokens = tokens

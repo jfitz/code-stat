@@ -21,8 +21,8 @@ class BasicNumberTokenBuilder(TokenBuilder):
     
     return result
 
-# token reader for identifier
-class IdentifierTokenBuilder(TokenBuilder):
+# token reader for variable
+class VariableTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = None
 
