@@ -35,6 +35,7 @@ class BasicExaminer(Examiner):
     ntb = BasicNumberTokenBuilder()
     vtb = VariableTokenBuilder()
     stb = StringTokenBuilder()
+    rtb = RemarkTokenBuilder()
 
     known_operators = [
       '+', '-', '*', '/', '^',
@@ -65,7 +66,7 @@ class BasicExaminer(Examiner):
 
     ftb = ListTokenBuilder(functions, 'function')
 
-    tokenbuilders = [wtb, ntb, vtb, ftb, stb, kotb, uotb, ktb]
+    tokenbuilders = [wtb, ntb, vtb, ftb, stb, kotb, uotb, ktb, rtb]
 
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)

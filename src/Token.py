@@ -1,3 +1,5 @@
+import json
+
 class Token:
   def __init__(self, text, group):
     self.text = text
@@ -19,5 +21,11 @@ class Token:
     return self.group == 'comment'
 
   def toJSON(self):
-    return '{ ' + self.group + ': ' + self.text + ' }'
+    data = {
+      "type": self.group,
+      "value": self.text
+    }
+
+    s = json.dumps(data)
+    return s
   
