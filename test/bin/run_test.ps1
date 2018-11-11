@@ -2,19 +2,21 @@ Param
 (
     [string]$name,
     [string]$language="BASIC",
-    [string]$action="confidence"
+    [string]$action="confidence",
+    [string]$inputfile,
+    [string]$expected
 )
 
 Write-Output "Starting test $name..."
-$input_file = ".\test\data\simple.txt"
-$expected_result_file = ".\test\ref\$action\BASIC.txt"
-$actual_result_file = ".\tests\BASIC\out.txt"
+$actual = ".\tests\$name\out.txt"
 $url = "http://localhost:5000/${action}?language=$language"
-Write-Output "action: $action"
-Write-Output "URL: $url"
-invoke-restmethod -method post -uri "$url" -infile $input_file -outfile $actual_result_file
-if (Compare-Object $(Get-Content $actual_result_file) $(Get-Content $expected_result_file)) {
+mkdir -path .\tests\$name
+Write-Output "Invoking service $url"
+invoke-restmethod -method post -uri "$url" -infile $input_file -outfile $actual
+Write-Output "Comparing $actual against $expected"
+if (Compare-Object $(Get-Content $expected) $(Get-Content $actual)) {
     "Test $name failed"
 } else {
     "Test $name passed"
 }
+Write-Output ""
