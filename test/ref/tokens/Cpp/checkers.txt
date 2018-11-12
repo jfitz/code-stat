@@ -1,0 +1,398 @@
+{"type": "keyword", "value": "#include"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "<"}
+{"type": "identifier", "value": "iostream"}
+{"type": "operator", "value": ">"}
+{"type": "whitespace", "value": "\n"}
+{"type": "keyword", "value": "#include"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "<"}
+{"type": "identifier", "value": "stdio"}
+{"type": "operator", "value": "."}
+{"type": "identifier", "value": "h"}
+{"type": "operator", "value": ">"}
+{"type": "whitespace", "value": "\n"}
+{"type": "keyword", "value": "#include"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "<"}
+{"type": "identifier", "value": "string"}
+{"type": "operator", "value": ">"}
+{"type": "whitespace", "value": "\n"}
+{"type": "comment", "value": "/* The SpelGraph Library is designed as an introduction to computer graphics programming. \n * It has basic primitives for creating computer graphics applications.\n */"}
+{"type": "whitespace", "value": "\n"}
+{"type": "keyword", "value": "#include"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "<"}
+{"type": "identifier", "value": "SpelGraph"}
+{"type": "operator", "value": "."}
+{"type": "identifier", "value": "h"}
+{"type": "operator", "value": ">"}
+{"type": "whitespace", "value": "\n\n"}
+{"type": "identifier", "value": "using"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "namespace"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "std"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n\n\n"}
+{"type": "identifier", "value": "const"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "int"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "UPPER_LEFT_X"}
+{"type": "operator", "value": "="}
+{"type": "number", "value": "50"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n"}
+{"type": "identifier", "value": "const"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "int"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "UPPER_LEFT_Y"}
+{"type": "operator", "value": "="}
+{"type": "number", "value": "100"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n"}
+{"type": "identifier", "value": "const"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "int"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "LOWER_RIGHT_X"}
+{"type": "operator", "value": "="}
+{"type": "number", "value": "200"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n"}
+{"type": "identifier", "value": "const"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "int"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "LOWER_RIGHT_Y"}
+{"type": "operator", "value": "="}
+{"type": "number", "value": "250"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n"}
+{"type": "identifier", "value": "const"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "int"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "SQUARE_SIZE"}
+{"type": "operator", "value": "="}
+{"type": "number", "value": "50"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n\n"}
+{"type": "comment", "value": "// class declaration for the Board class. There is one instance of this class. The class is designed "}
+{"type": "whitespace", "value": "\n"}
+{"type": "comment", "value": "// to "}
+{"type": "whitespace", "value": "\n"}
+{"type": "identifier", "value": "class"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Board"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "{"}
+{"type": "whitespace", "value": "\n"}
+{"type": "identifier", "value": "private"}
+{"type": "operator", "value": ":"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "identifier", "value": "char"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "theBoard"}
+{"type": "operator", "value": "["}
+{"type": "number", "value": "8"}
+{"type": "operator", "value": "]"}
+{"type": "operator", "value": "["}
+{"type": "number", "value": "8"}
+{"type": "operator", "value": "]"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\t\t"}
+{"type": "comment", "value": "// The tic-tac-toe board is a 3x3 board"}
+{"type": "whitespace", "value": "\n\t\n"}
+{"type": "identifier", "value": "public"}
+{"type": "operator", "value": ":"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "identifier", "value": "Board"}
+{"type": "operator", "value": "("}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\t\t\t\t\t"}
+{"type": "comment", "value": "// Constructor for the board class"}
+{"type": "whitespace", "value": "\n\t\n\t\n\t"}
+{"type": "identifier", "value": "bool"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "setMove"}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "unsigned"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "int"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "p"}
+{"type": "operator", "value": ","}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "char"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "m"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\t"}
+{"type": "comment", "value": "// sets a move at position with a particular mark"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "identifier", "value": "bool"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "checkWin"}
+{"type": "operator", "value": "("}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\t\t\t\t\t\t"}
+{"type": "comment", "value": "// checks for a win"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "identifier", "value": "void"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "display"}
+{"type": "operator", "value": "("}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\t\t\t\t\t\t\t"}
+{"type": "comment", "value": "// displays the current state of the board"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "identifier", "value": "void"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "drawX"}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "int"}
+{"type": "operator", "value": ","}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "int"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\t\t\t\t\t"}
+{"type": "comment", "value": "// this function displays a graphic X"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "identifier", "value": "void"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "drawO"}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "int"}
+{"type": "operator", "value": ","}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "int"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\t\t\t\t\t"}
+{"type": "comment", "value": "// this function displays a graphic O"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "identifier", "value": "int"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "convertMouse"}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "int"}
+{"type": "operator", "value": ","}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "int"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\t\t\t"}
+{"type": "comment", "value": "// this function is to convert x,y values to a position on the board"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "identifier", "value": "void"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "checkMouse"}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "int"}
+{"type": "operator", "value": "&"}
+{"type": "operator", "value": ","}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "int"}
+{"type": "operator", "value": "&"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\t\t\t"}
+{"type": "comment", "value": "// checks to ensure the mouse is within the area of the board"}
+{"type": "whitespace", "value": "\n\t\n\t\n"}
+{"type": "operator", "value": "}"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n\n\n"}
+{"type": "comment", "value": "// class declaration for the Player class. There will be two instances of this class. One for each"}
+{"type": "whitespace", "value": "\n"}
+{"type": "comment", "value": "// player."}
+{"type": "whitespace", "value": "\n"}
+{"type": "identifier", "value": "class"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Player"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "{"}
+{"type": "whitespace", "value": "\n"}
+{"type": "identifier", "value": "private"}
+{"type": "operator", "value": ":"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "identifier", "value": "char"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "mark"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\t\t\t\t"}
+{"type": "comment", "value": "// the type of mark used by the player i.e. X or O"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "identifier", "value": "string"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "name"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\t\t\t"}
+{"type": "comment", "value": "// the name of the player"}
+{"type": "whitespace", "value": "\n\t\n\t\n"}
+{"type": "identifier", "value": "public"}
+{"type": "operator", "value": ":"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "identifier", "value": "Player"}
+{"type": "operator", "value": "("}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\t\t\t"}
+{"type": "comment", "value": "// constructor for the Player class"}
+{"type": "whitespace", "value": "\n\t\n\t"}
+{"type": "comment", "value": "// basic access to data members"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "identifier", "value": "void"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "setName"}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "string"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "n"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\t"}
+{"type": "comment", "value": "// set name of player"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "identifier", "value": "string"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "getName"}
+{"type": "operator", "value": "("}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\t\t"}
+{"type": "comment", "value": "// get the name of the player"}
+{"type": "whitespace", "value": "\n\t\n\t"}
+{"type": "identifier", "value": "void"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "setMark"}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "char"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "m"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\t"}
+{"type": "comment", "value": "// set the player's mark"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "identifier", "value": "char"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "getMark"}
+{"type": "operator", "value": "("}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\t\t\t"}
+{"type": "comment", "value": "// get the mark of the player"}
+{"type": "whitespace", "value": "\n"}
+{"type": "operator", "value": "}"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n\n\n\n\n\n"}
+{"type": "comment", "value": "/* Name of Function: main\n * Description: \n *\t\t\tThis function is the driver for the tic-tac-toe program. It is responsible for controlling and validating \n *\t\t\tplayer moves.\n * Parmeters:\n *       argc    : number of command line arguments\n *       argv    : list of command line arguments\n */"}
+{"type": "whitespace", "value": "\n\n"}
+{"type": "identifier", "value": "int"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "main"}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "int"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "argc"}
+{"type": "operator", "value": ","}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "char"}
+{"type": "operator", "value": "*"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "argv"}
+{"type": "operator", "value": "["}
+{"type": "operator", "value": "]"}
+{"type": "operator", "value": ")"}
+{"type": "whitespace", "value": "\n"}
+{"type": "operator", "value": "{"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "comment", "value": "// data dictionary"}
+{"type": "whitespace", "value": "\n\t\n    "}
+{"type": "comment", "value": "// insert code here... (remove this line when you start"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "identifier", "value": "initSpelGraph"}
+{"type": "operator", "value": "("}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "identifier", "value": "clearscreen"}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "BLACK"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "comment", "value": "// data dictionary"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "identifier", "value": "Player"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "player1"}
+{"type": "operator", "value": ","}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "player2"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "identifier", "value": "Board"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Checkerboard"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "identifier", "value": "bool"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "winner"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "false"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "identifier", "value": "int"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "moves"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "="}
+{"type": "whitespace", "value": " "}
+{"type": "number", "value": "0"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "identifier", "value": "unsigned"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "int"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "move"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "identifier", "value": "string"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "promptData"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "identifier", "value": "char"}
+{"type": "operator", "value": "*"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "promptDataCstr"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "identifier", "value": "int"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "playX"}
+{"type": "operator", "value": ","}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "playY"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n\t\n\t"}
+{"type": "comment", "value": "// this shows how to use the setMark and setName methods"}
+{"type": "whitespace", "value": "\n\t"}
+{"type": "identifier", "value": "player1"}
+{"type": "operator", "value": "."}
+{"type": "identifier", "value": "setMark"}
+{"type": "operator", "value": "("}
+{"type": "string", "value": "'p');\n\tplayer2.setMark('w');\n\t\n\tplayer1.setName(\"P1\");\n\tplayer2.setName(\"P2\");\n\t\n\t\n\t\n\t// main loop for controlling the game by handling the logic between the moves of the players\n\t// and checking the board for wins.\n\twhile (!winner && moves <= 64) {\n\t\t\n\t\t// display the board to start the game\n\t\tCheckerboard.display();\n\t\t\n\t\t// player 1 makes the first move\n\t\t// These two lines convert string object (used for concatentation) to char* object to\n\t\t// pass to the writedraw function.\n\t\tpromptData = \"Player: \" + player1.getName() + \" make a move: \";\n\t\tpromptDataCstr = promptData.c_str();\n\t\t\n\t\t// places graphic text on the screen\n\t\twritedraw(promptDataCstr, 0, 0, PURPLE);\n\t\t\n\t\t// gets mouse position & makes sure it is in bounds\n\t\tgetmouse(playX, playY);\n\t\tCheckerboard.checkMouse(playX, playY);\n\t\t\n\t\t// converts (X,Y) position of the mouse into a move value 0-8\n\t\tmove = Checkerboard.convertMouse(playX, playY);\n\t\t\n\t\t// make a move and check its validity\n\t\twhile (!Checkerboard.setMove(move, player1.getMark())) {\n\t\t\twritedraw(\"ERROR: Space Occupied, try again :)/>\", 0, 0, PINK);\n\t\t\tgetmouse(playX, playY);\n\t\t\tCheckerboard.checkMouse(playX, playY);\n\t\t\tmove = Checkerboard.convertMouse(playX, playY);\n\t\t}\n\t\t\n\t\tmoves++; // increments the number of moves\n\t\tif (Checkerboard.checkWin()) { // if player 1 wins, display and end the game\n\t\t\t\n\t\t\t// These two lines convert string object (used for concatentation) to char* object to\n\t\t\t// pass to the writedraw function.\n\t\t\tpromptData = \"Player: \" + player1.getName() + \" wins\";\n\t\t\tpromptDataCstr = promptData.c_str();\n\t\t\t\n\t\t\t// places graphic text on the screen\n\t\t\twritedraw(promptDataCstr, 0, 0, PURPLE);\n\t\t\t\n\t\t\t// we have a winner\n\t\t\twinner = true;\n\t\t\t\n\t\t} else {  // if player 1 does not win then player 2 plays\n\t\t\t\n\t\t\tif (moves == 64) break; // game is over!\n\t\t\t\n\t\t\t\n\t\t\tCheckerboard.display();\n\t\t\t\n\t\t\t// These two lines convert string object (used for concatentation) to char* object to\n\t\t\t// pass to the writedraw function.\n\t\t\tpromptData = \"Player: \" + player2.getName() + \" make a move: \";\n\t\t\tpromptDataCstr = promptData.c_str();\n\t\t\t\n\t\t\t// places graphic text on the screen\n\t\t\twritedraw(promptDataCstr, 0, 0, WHITE);\n\t\t\t\n\t\t\t// gets mouse position & makes sure it is in bounds\n\t\t\tgetmouse(playX, playY);\n\t\t\tCheckerboard.checkMouse(playX, playY);\n\t\t\t\n\t\t\t// converts (X,Y) position of the mouse into a move value 0-8\n\t\t\tmove = Checkerboard.convertMouse(playX, playY);\n\t\t\t\n\t\t\t\n\t\t\t// make a move and check its validity\n\t\t\twhile (!Checkerboard.setMove(move, player2.getMark())) {\n\t\t\t\twritedraw(\"ERROR: Space Occupied, try again :)/>\", 0, 0, PINK;\n\t\t\t\tgetmouse(playX, playY);\n\t\t\t\tCheckerboard.checkMouse(playX, playY);\n\t\t\t\tmove = Checkerboard.convertMouse(playX, playY);\n\t\t\t}\t\t\t\n\t\t\t\n\t\t\tmoves++; // increments the number of wins\n\t\t\tif (Checkerboard.checkWin()) { // if player 2 wins display and end the game\n\t\t\t\t\n\t\t\t\t// These two lines convert string object (used for concatentation) to char* object to\n\t\t\t\t// pass to the writedraw function.\n\t\t\t\tpromptData = \"Player: \" + player2.getName() + \" wins\";\n\t\t\t\tpromptDataCstr = promptData.c_str();\n\t\t\t\t\n\t\t\t\t// places graphic text on the screen\n\t\t\t\twritedraw(promptDataCstr, 0, 0, WHITE);\n\t\t\t\t\n\t\t\t\t// we have a winner\n\t\t\t\twinner = true;\n\t\t\t}\n\t\t}\n\t\t\n\t\t\n\t}\n\t\n\tCheckerboard.display();\n\t\n\tif (winner == false)\n\t\tcout << \"It's a Draw\" << endl;\n\t\n\tcout << \"Game Over\" << endl;\n\t\n\t\n\tfinishSpelGraph();\n\t\n\t\n    return 0;\n}\n\nEND_OF_MAIN()  // do not remove this line\n\n\n\n// Begin Function Definitions\n\n\nBoard::Board() {\nint rows;\nint col;\n\t\t\t\t\t\t  \nfor(rows = 8; rows > 0; rows--)\n{\n\tfor(col = 0; col < 8; col++)\n\t\t{\n\t\t\tif(rows<=3&&rows%2==0&&col%2==0)\n\t\t\tcout << \"b\";\n\t\t\telse if (rows<=3&&rows%2==1&&col%2==1)\n\t\t\tcout << \"b\";\n\t\t\telse if (rows>=6&&rows%2==0&&col%2==0)\n\t\t\tcout<< \"r\";\n\t\t\telse if (rows>=6&&rows%2==1&&col%2==1)\n\t\t\tcout<< \"r\";\n\t\t\telse\n\t\t\tcout << \"_\";\n\t\t\t\t\t\t  }\n\t\t\tcout << endl;\n\t\t\t}\t\n\t\t\t\t\t\t  \n\t}\n// sets a move at position with a particular mark\nbool Board::setMove(unsigned int p, char m) {\n\tint row = p / 8;\n\tint col = p % 8;\n\t\n\t\n\tif (theBoard[row][col] == 'X' || theBoard[row][col] == 'O' || p < 0 || p > 8)\n\t\treturn false;\n\telse {\n\t\t// draw mark on the board\n\t\tif (m == 'X')\n\t\t\tdrawX(UPPER_LEFT_X+SQUARE_SIZE*(col), UPPER_LEFT_Y+SQUARE_SIZE*(row));\n\t\telse \n\t\t\tdrawO(UPPER_LEFT_X+SQUARE_SIZE*(col), UPPER_LEFT_Y+SQUARE_SIZE*(row));\n\t\t\n\t\ttheBoard[row][col] = m;\t\n\t\t\n\t\treturn true;\n\t}\n\t\n\t\n}\t\n\n\n// checks for a win\nbool Board::checkWin() {\n\tif \n\t\t\t\t\t\t  ((theBoard[0][0] == theBoard[1][0] && theBoard[0][0] == theBoard[2][0] && theBoard[0][0] == theBoard[1][0] && theBoard[0][0] == theBoard[1][0] && theBoard[0][0] == theBoard[1][0] && theBoard[0][0] == theBoard[1][0]) || // col 1\n\t\t\t\t\t\t   (theBoard[0][1] == theBoard[1][1] && theBoard[0][1] == theBoard[2][1]) || // col 2\n\t\t\t\t\t\t   (theBoard[0][2] == theBoard[1][2] && theBoard[0][2] == theBoard[2][2]) || // col 3\n\t\t\t\t\t\t   (theBoard[0][0] == theBoard[0][1] && theBoard[0][0] == theBoard[0][2]) || // row 1\n\t\t\t\t\t\t   (theBoard[1][0] == theBoard[1][1] && theBoard[1][0] == theBoard[1][2]) || // row 2\n\t\t\t\t\t\t   (theBoard[2][0] == theBoard[2][1] && theBoard[2][0] == theBoard[2][2]) || // row 3\n\t\t\t\t\t\t  \n\t\t\t\t\t\t________________________________________________________________________________________  \n((theBoard[0][0] == theBoard[1][0] && theBoard[0][0] == theBoard[2][0] && theBoard [0][0] == theBoard[3][0] && theBoard[0][0] == theBoard[4][0] && theBoard[5][0] == theBoard[0][0]  ) || // col 1\n\t\t(theBoard[0][1] == theBoard[1][1] && theBoard[0][1] == theBoard[2][1] == theBoard [3][1] == theBoard[4][1] == theBoard[5][1] == theBoard[6][1] == theBoard[7][1] )) || // col 2\n\t\t(theBoard[0][2] == theBoard[1][2] && theBoard[0][2] == theBoard[2][2] == theBoard [3][2] == theBoard[4][2] == theBoard[5][2] == theBoard[6][2] == theBoard[7][2] )) || // col 3\n\t\t\n\t\t(theBoard[0][3] == theBoard[1][3] && theBoard[0][3] == theBoard[2][3] == theBoard [3][3] == theBoard[4][3] == theBoard[5][3] == theBoard[6][3] == theBoard[7][3] )) || // col 4\n\t\t(theBoard[0][4] == theBoard[1][4] && theBoard[0][4] == theBoard[2][4] == theBoard [3][4] == theBoard[4][4] == theBoard[5][4] == theBoard[6][4] == theBoard[7][4] )) || // col 5\n\t\t(theBoard[0][5] == theBoard[1][5] && theBoard[0][5] == theBoard[2][5] == theBoard [3][5] == theBoard[4][5] == theBoard[5][5] == theBoard[6][5] == theBoard[7][5] )) || // col 6\n\t\t(theBoard[0][6] == theBoard[1][6] && theBoard[0][6] == theBoard[2][6] == theBoard [3][6] == theBoard[4][6] == theBoard[5][6] == theBoard[6][6] == theBoard[7][6] )) || // col 7\n\t\t(theBoard[0][7] == theBoard[1][7] && theBoard[0][7] == theBoard[2][7] == theBoard [3][7] == theBoard[4][7] == theBoard[5][7] == theBoard[6][7] == theBoard[7][7] )) || // col 8\n\t\n\t\t(theBoard[0][0] == theBoard[0][1] && theBoard[0][0] == theBoard[0][2] == theBoard [3][0] == theBoard[4][0] == theBoard[5][0] == theBoard[6][0] == theBoard[7][0] )) || // row 1\n\t\t(theBoard[1][0] == theBoard[1][1] && theBoard[1][0] == theBoard[1][2] == theBoard [3][0] == theBoard[4][0] == theBoard[5][0] == theBoard[6][0] == theBoard[7][0] )) || // row 2\n\t\t(theBoard[2][0] == theBoard[2][1] && theBoard[2][0] == theBoard[2][2] == theBoard [3][0] == theBoard[4][0] == theBoard[5][0] == theBoard[6][0] == theBoard[7][0] )) || // row 3\n\t\t\n\t\t(theBoard[3][0] == theBoard[1][0] && theBoard[0][0] == theBoard[2][0] == theBoard [3][0] == theBoard[4][0] == theBoard[5][0] == theBoard[6][0] == theBoard[7][0] )) || // row 4\n\t\t(theBoard[4][1] == theBoard[1][1] && theBoard[0][1] == theBoard[2][1] == theBoard [3][0] == theBoard[4][0] == theBoard[5][0] == theBoard[6][0] == theBoard[7][0] )) || // row 5\n\t\t(theBoard[5][2] == theBoard[1][2] && theBoard[0][2] == theBoard[2][2] == theBoard [3][0] == theBoard[4][0] == theBoard[5][0] == theBoard[6][0] == theBoard[7][0] )) || // row 6\n\t\t(theBoard[6][0] == theBoard[1][0] && theBoard[0][0] == theBoard[2][0] == theBoard [3][0] == theBoard[4][0] == theBoard[5][0] == theBoard[6][0] == theBoard[7][0] )) || // row 7\n\t\t(theBoard[7][1] == theBoard[1][1] && theBoard[0][1] == theBoard[2][1] == theBoard [3][0] == theBoard[4][0] == theBoard[5][0] == theBoard[6][0] == theBoard[7][0] )) || // row 8\n\t\t__________\n\t\t\n\t\t(theBoard[0][0] == theBoard[1][1] && theBoard[0][0] == theBoard[2][2]) || // diag l2r\n\t\t(theBoard[0][2] == theBoard[1][1] && theBoard[0][2] == theBoard[2][0]) )  // diag r2l\n\t\treturn true; // we have a winner\t\n\telse\n\t\treturn false;\n\t\n\t\n}\t\t\t\t\n\n\nvoid Board::checkMouse(int& x, int& y) {\n\twhile (x < UPPER_LEFT_X || x > LOWER_RIGHT_X || \n\t\t   y < UPPER_LEFT_Y || y > LOWER_RIGHT_Y) {\n\t\tgetmouse(x, y);\n\t}\n}\n\n// displays the current state of the board\t\t\nvoid Board::display() {\n\t\n\t// draw the lines\n\tmoveto(100, 100);\n\tlineto(100, 250);\n\tmoveto(150, 100);\n\tlineto(150, 250);\n\tmoveto(50, 150);\n\tlineto(200, 150);\n\tmoveto(50, 200);\n\tlineto(200, 200);\n\t/*\tfor (int i=0; i < 8; i++) {\n\t for (int j=0; j < 8; j++) {\n\t cout << theBoard[i][j] << \"  \";\n\t \n\t }\n\t cout << endl;\n\t }\n\t */\n\t\n}\t\n\nvoid Board::drawp(int x, int y) {\n\tsetcolor(PURPLE);\n\tmoveto(x+5, y+5);\n\tlineto(x+40, y+40);\n\tmoveto(x+5, y+40);\n\tlineto(x+40, y+5);\n\tsetcolor(PINK);\n\t\n}\n\nvoid Board::drawO(int x, int y) {\n\tsetcolor(WHITE);\n\tmoveto(x+5, y+5);\n\tlineto(x+40, y+5);\n\tlineto(x+40, y+40);\n\tlineto(x+5, y+40);\n\tlineto(x+5, y+5);\n\tsetcolor(PINK);\n\t\n}\n\nint Board::convertMouse(int x, int y) {\n\tint row = (y-UPPER_LEFT_Y)/SQUARE_SIZE;\n\tint col = (x-UPPER_LEFT_X)/SQUARE_SIZE;\n\t\n\tint pos = row*8 + col;\n\t\n\treturn pos;\n}\n\n// constructor for the Player class\nPlayer::Player():  mark('P'), name(\"Computer\") {\n\t// nothing here\n}\n\n// set name of player to the value of the parameter n\nvoid Player::setName(string n) {\n\tname = n;\n}\n\n// returns the name of the player\nstring Player::getName() {\n\treturn name;\n}\n\n\n// set the player's mark\nvoid Player::setMark(char m) {\n\tm = toupper(m);\n\tif (m == 'P' || m == 'W')\n\t\tmark = m;\n\telse \n\t\tmark = 'E';\n\t\n}\n\n// get the mark of the player\nchar Player::getMark() {\n\treturn mark;\n}\n\n\n// End Function Definitions\n\n"}

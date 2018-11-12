@@ -1,0 +1,941 @@
+{"type": "identifier", "value": "program"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "FireWorks"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n\n"}
+{"type": "comment", "value": "{$R+}"}
+{"type": "whitespace", "value": "\n\n"}
+{"type": "identifier", "value": "uses"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "Crt"}
+{"type": "operator", "value": ","}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Graph"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n\n"}
+{"type": "identifier", "value": "var"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "GraphDriver"}
+{"type": "operator", "value": ","}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "GraphMode"}
+{"type": "operator", "value": ","}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "ErrorCode"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Integer"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "Ch"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Char"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "I"}
+{"type": "operator", "value": ","}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "J"}
+{"type": "operator", "value": ","}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "K"}
+{"type": "operator", "value": ","}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "XStart"}
+{"type": "operator", "value": ","}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "YStart"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Integer"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "XX"}
+{"type": "operator", "value": ","}
+{"type": "identifier", "value": "YY"}
+{"type": "operator", "value": ","}
+{"type": "identifier", "value": "CC"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Array"}
+{"type": "operator", "value": "["}
+{"type": "number", "value": "1"}
+{"type": "operator", "value": ".."}
+{"type": "number", "value": "1000"}
+{"type": "operator", "value": "]"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "of"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Integer"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "FX"}
+{"type": "operator", "value": ","}
+{"type": "identifier", "value": "FY"}
+{"type": "operator", "value": ","}
+{"type": "identifier", "value": "DX"}
+{"type": "operator", "value": ","}
+{"type": "identifier", "value": "DY"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Array"}
+{"type": "operator", "value": "["}
+{"type": "number", "value": "1"}
+{"type": "operator", "value": ".."}
+{"type": "number", "value": "70"}
+{"type": "operator", "value": "]"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "of"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Real"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "R"}
+{"type": "operator", "value": ","}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "T"}
+{"type": "operator", "value": ","}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "X"}
+{"type": "operator", "value": ","}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Y"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Real"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n\n"}
+{"type": "identifier", "value": "procedure"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Explode"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "C"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Integer"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n\n"}
+{"type": "identifier", "value": "begin"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "T"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "-"}
+{"type": "identifier", "value": "Pi"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "I"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "number", "value": "0"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "Repeat"}
+{"type": "whitespace", "value": "\n    "}
+{"type": "identifier", "value": "I"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "I"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "+"}
+{"type": "whitespace", "value": " "}
+{"type": "number", "value": "1"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n    "}
+{"type": "identifier", "value": "DX"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "I"}
+{"type": "operator", "value": "]"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Sin"}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "T"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": "*"}
+{"type": "number", "value": "5"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n    "}
+{"type": "identifier", "value": "DY"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "I"}
+{"type": "operator", "value": "]"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Cos"}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "T"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": "*"}
+{"type": "number", "value": "5"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n    "}
+{"type": "identifier", "value": "FX"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "I"}
+{"type": "operator", "value": "]"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "X"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n    "}
+{"type": "identifier", "value": "FY"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "I"}
+{"type": "operator", "value": "]"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Y"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n    "}
+{"type": "identifier", "value": "T"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "T"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "+"}
+{"type": "whitespace", "value": " "}
+{"type": "number", "value": "0"}
+{"type": "operator", "value": "."}
+{"type": "number", "value": "15"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "Until"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "T"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ">"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Pi"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n\n  "}
+{"type": "identifier", "value": "K"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "number", "value": "0"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "Repeat"}
+{"type": "whitespace", "value": "\n    "}
+{"type": "identifier", "value": "For"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "J"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "number", "value": "1"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "to"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "I"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "do"}
+{"type": "whitespace", "value": "\n      "}
+{"type": "identifier", "value": "begin"}
+{"type": "whitespace", "value": "\n        "}
+{"type": "identifier", "value": "If"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "C"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "="}
+{"type": "whitespace", "value": " "}
+{"type": "number", "value": "0"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "then"}
+{"type": "whitespace", "value": "\n          "}
+{"type": "identifier", "value": "PutPixel"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "Round"}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "FX"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "J"}
+{"type": "operator", "value": "]"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ","}
+{"type": "identifier", "value": "Round"}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "FY"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "J"}
+{"type": "operator", "value": "]"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ","}
+{"type": "number", "value": "0"}
+{"type": "operator", "value": ")"}
+{"type": "whitespace", "value": "\n        "}
+{"type": "operator", "value": "else"}
+{"type": "whitespace", "value": "\n          "}
+{"type": "identifier", "value": "PutPixel"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "Round"}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "FX"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "J"}
+{"type": "operator", "value": "]"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ","}
+{"type": "identifier", "value": "Round"}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "FY"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "J"}
+{"type": "operator", "value": "]"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ","}
+{"type": "identifier", "value": "Random"}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "GetMaxColor"}
+{"type": "operator", "value": "+"}
+{"type": "number", "value": "1"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n        "}
+{"type": "identifier", "value": "FX"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "J"}
+{"type": "operator", "value": "]"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "FX"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "J"}
+{"type": "operator", "value": "]"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "+"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "DX"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "J"}
+{"type": "operator", "value": "]"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n        "}
+{"type": "identifier", "value": "FY"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "J"}
+{"type": "operator", "value": "]"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "FY"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "J"}
+{"type": "operator", "value": "]"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "-"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "DY"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "J"}
+{"type": "operator", "value": "]"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n        "}
+{"type": "identifier", "value": "DY"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "J"}
+{"type": "operator", "value": "]"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "DY"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "J"}
+{"type": "operator", "value": "]"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "-"}
+{"type": "whitespace", "value": " "}
+{"type": "number", "value": "0"}
+{"type": "operator", "value": "."}
+{"type": "number", "value": "2"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n      "}
+{"type": "identifier", "value": "end"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n    "}
+{"type": "identifier", "value": "K"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "K"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "+"}
+{"type": "whitespace", "value": " "}
+{"type": "number", "value": "1"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n    "}
+{"type": "identifier", "value": "Delay"}
+{"type": "operator", "value": "("}
+{"type": "number", "value": "10"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": " "}
+{"type": "comment", "value": "{ This was not in the original. }"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "Until"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Keypressed"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "or"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "K"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ">"}
+{"type": "whitespace", "value": " "}
+{"type": "number", "value": "50"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n"}
+{"type": "identifier", "value": "end"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n\n"}
+{"type": "identifier", "value": "procedure"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "ShootFireWork"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n\n"}
+{"type": "identifier", "value": "begin"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "comment", "value": "{ Delay (1000); }"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "Randomize"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "T"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Random"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "/"}
+{"type": "whitespace", "value": " "}
+{"type": "number", "value": "2"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "-"}
+{"type": "whitespace", "value": " "}
+{"type": "number", "value": "0"}
+{"type": "operator", "value": "."}
+{"type": "number", "value": "25"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "+"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Pi"}
+{"type": "operator", "value": "/"}
+{"type": "number", "value": "2"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "X"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "XStart"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "Y"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "YStart"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "R"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "number", "value": "20"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "I"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "number", "value": "0"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "Repeat"}
+{"type": "whitespace", "value": "\n    "}
+{"type": "identifier", "value": "Inc"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "I"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n    "}
+{"type": "identifier", "value": "XX"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "I"}
+{"type": "operator", "value": "]"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Round"}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "X"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n    "}
+{"type": "identifier", "value": "YY"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "I"}
+{"type": "operator", "value": "]"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Round"}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "Y"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n    "}
+{"type": "identifier", "value": "CC"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "I"}
+{"type": "operator", "value": "]"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "GetPixel"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "XX"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "I"}
+{"type": "operator", "value": "]"}
+{"type": "operator", "value": ","}
+{"type": "identifier", "value": "YY"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "I"}
+{"type": "operator", "value": "]"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n    "}
+{"type": "identifier", "value": "If"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "I"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ">"}
+{"type": "whitespace", "value": " "}
+{"type": "number", "value": "1"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "then"}
+{"type": "whitespace", "value": "\n      "}
+{"type": "identifier", "value": "If"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "XX"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "I"}
+{"type": "operator", "value": "]"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "XX"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "I"}
+{"type": "operator", "value": "-"}
+{"type": "number", "value": "1"}
+{"type": "operator", "value": "]"}
+{"type": "operator", "value": ")"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "and"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "YY"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "I"}
+{"type": "operator", "value": "]"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "YY"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "I"}
+{"type": "operator", "value": "-"}
+{"type": "number", "value": "1"}
+{"type": "operator", "value": "]"}
+{"type": "operator", "value": ")"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "then"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "CC"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "I"}
+{"type": "operator", "value": "]"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "CC"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "I"}
+{"type": "operator", "value": "-"}
+{"type": "number", "value": "1"}
+{"type": "operator", "value": "]"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n    "}
+{"type": "identifier", "value": "PutPixel"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "XX"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "I"}
+{"type": "operator", "value": "]"}
+{"type": "operator", "value": ","}
+{"type": "identifier", "value": "YY"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "I"}
+{"type": "operator", "value": "]"}
+{"type": "operator", "value": ","}
+{"type": "identifier", "value": "Random"}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "GetMaxColor"}
+{"type": "operator", "value": "+"}
+{"type": "number", "value": "1"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n    "}
+{"type": "identifier", "value": "If"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "I"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ">"}
+{"type": "whitespace", "value": " "}
+{"type": "number", "value": "5"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "then"}
+{"type": "whitespace", "value": "\n      "}
+{"type": "identifier", "value": "PutPixel"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "XX"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "I"}
+{"type": "operator", "value": "-"}
+{"type": "number", "value": "5"}
+{"type": "operator", "value": "]"}
+{"type": "operator", "value": ","}
+{"type": "identifier", "value": "YY"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "I"}
+{"type": "operator", "value": "-"}
+{"type": "number", "value": "5"}
+{"type": "operator", "value": "]"}
+{"type": "operator", "value": ","}
+{"type": "identifier", "value": "CC"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "I"}
+{"type": "operator", "value": "-"}
+{"type": "number", "value": "5"}
+{"type": "operator", "value": "]"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n    "}
+{"type": "identifier", "value": "X"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "X"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "+"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Cos"}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "T"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": "*"}
+{"type": "identifier", "value": "R"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n    "}
+{"type": "identifier", "value": "Y"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Y"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "-"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Sin"}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "T"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": "*"}
+{"type": "identifier", "value": "R"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n    "}
+{"type": "identifier", "value": "If"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "T"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ">"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Pi"}
+{"type": "operator", "value": "/"}
+{"type": "number", "value": "2"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "then"}
+{"type": "whitespace", "value": "\n      "}
+{"type": "identifier", "value": "T"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "T"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "+"}
+{"type": "whitespace", "value": " "}
+{"type": "number", "value": "0"}
+{"type": "operator", "value": "."}
+{"type": "number", "value": "02"}
+{"type": "whitespace", "value": "\n    "}
+{"type": "operator", "value": "else"}
+{"type": "whitespace", "value": "\n      "}
+{"type": "identifier", "value": "T"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "T"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "-"}
+{"type": "whitespace", "value": " "}
+{"type": "number", "value": "0"}
+{"type": "operator", "value": "."}
+{"type": "number", "value": "02"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n    "}
+{"type": "identifier", "value": "R"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "R"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "*"}
+{"type": "whitespace", "value": " "}
+{"type": "number", "value": "0"}
+{"type": "operator", "value": "."}
+{"type": "number", "value": "93"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n    "}
+{"type": "identifier", "value": "Delay"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "("}
+{"type": "number", "value": "20"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "Until"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "KeyPressed"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "or"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "T"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "<"}
+{"type": "whitespace", "value": " "}
+{"type": "number", "value": "0"}
+{"type": "operator", "value": ")"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "or"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "T"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ">"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Pi"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n\n  "}
+{"type": "identifier", "value": "For"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "J"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "I"}
+{"type": "operator", "value": "-"}
+{"type": "number", "value": "5"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "to"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "I"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "do"}
+{"type": "whitespace", "value": "\n\n     "}
+{"type": "identifier", "value": "PutPixel"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "XX"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "J"}
+{"type": "operator", "value": "]"}
+{"type": "operator", "value": ","}
+{"type": "identifier", "value": "YY"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "J"}
+{"type": "operator", "value": "]"}
+{"type": "operator", "value": ","}
+{"type": "identifier", "value": "CC"}
+{"type": "operator", "value": "["}
+{"type": "identifier", "value": "J"}
+{"type": "operator", "value": "]"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n"}
+{"type": "comment", "value": "{    ch := readkey; }"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "Explode"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "("}
+{"type": "number", "value": "1"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "Explode"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "("}
+{"type": "number", "value": "0"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n"}
+{"type": "identifier", "value": "end"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n\n"}
+{"type": "identifier", "value": "begin"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "GraphDriver"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Detect"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "InitGraph"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "GraphDriver"}
+{"type": "operator", "value": ","}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "GraphMode"}
+{"type": "operator", "value": ","}
+{"type": "whitespace", "value": " "}
+{"type": "string", "value": "'..'"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "ErrorCode"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "GraphResult"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "If"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "ErrorCode"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "<>"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "grOk"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "then"}
+{"type": "whitespace", "value": "\n    "}
+{"type": "identifier", "value": "begin"}
+{"type": "whitespace", "value": "\n      "}
+{"type": "identifier", "value": "Writeln"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "("}
+{"type": "string", "value": "'Graphics Error: '"}
+{"type": "operator", "value": ","}
+{"type": "identifier", "value": "GraphErrorMsg"}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "ErrorCode"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n      "}
+{"type": "identifier", "value": "Halt"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n    "}
+{"type": "identifier", "value": "end"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "SetColor"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "("}
+{"type": "identifier", "value": "GetMaxColor"}
+{"type": "operator", "value": ")"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "XStart"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "GetMaxX"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "div"}
+{"type": "whitespace", "value": " "}
+{"type": "number", "value": "2"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "YStart"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "GetMaxY"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": "-"}
+{"type": "whitespace", "value": " "}
+{"type": "number", "value": "20"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n\n  "}
+{"type": "identifier", "value": "Repeat"}
+{"type": "whitespace", "value": "\n    "}
+{"type": "identifier", "value": "ShootFireWork"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "Until"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "Keypressed"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n\n  "}
+{"type": "identifier", "value": "Ch"}
+{"type": "whitespace", "value": " "}
+{"type": "operator", "value": ":="}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "ReadKey"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "ClearDevice"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n  "}
+{"type": "identifier", "value": "CloseGraph"}
+{"type": "operator", "value": ";"}
+{"type": "whitespace", "value": "\n"}
+{"type": "identifier", "value": "end"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "\n"}

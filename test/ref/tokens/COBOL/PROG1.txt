@@ -1,0 +1,778 @@
+{"type": "whitespace", "value": "       "}
+{"type": "identifier", "value": "IDENTIFICATION"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "DIVISION"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "       "}
+{"type": "keyword", "value": "PROGRAM-ID."}
+{"type": "whitespace", "value": "    "}
+{"type": "identifier", "value": "PROG1"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "       "}
+{"type": "keyword", "value": "ENVIRONMENT DIVISION."}
+{"type": "whitespace", "value": "       "}
+{"type": "keyword", "value": "INPUT-OUTPUT SECTION."}
+{"type": "whitespace", "value": "       "}
+{"type": "keyword", "value": "FILE-CONTROL."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "SELECT"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EMPL-FILE-IN"}
+{"type": "whitespace", "value": "               "}
+{"type": "keyword", "value": "ASSIGN TO"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "COBOLDATA2D"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "SELECT"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EMPL-REPORT-OUT"}
+{"type": "whitespace", "value": "               "}
+{"type": "keyword", "value": "ASSIGN TO"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "PROG1-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "       "}
+{"type": "keyword", "value": "DATA DIVISION."}
+{"type": "whitespace", "value": "       "}
+{"type": "keyword", "value": "FILE SECTION."}
+{"type": "whitespace", "value": "       "}
+{"type": "identifier", "value": "FD"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "EMPL-FILE-IN"}
+{"type": "whitespace", "value": "               "}
+{"type": "identifier", "value": "RECORD"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "CONTAINS"}
+{"type": "whitespace", "value": " "}
+{"type": "number", "value": "80"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "CHARACTERS"}
+{"type": "whitespace", "value": "               "}
+{"type": "identifier", "value": "LABEL"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "RECORDS"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "ARE"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "OMITTED"}
+{"type": "whitespace", "value": "               "}
+{"type": "identifier", "value": "DATA"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "RECORD"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "IS"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "ER-EMPL-REC-IN"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "       "}
+{"type": "number", "value": "01"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "ER-EMPL-REC-IN"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "number", "value": "05"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "ER-EMPL-DEPT-NUM-IN"}
+{"type": "whitespace", "value": "                 "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "9(2)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "number", "value": "05"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "ER-SSN-IN"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "               "}
+{"type": "number", "value": "10"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "ER-SSN-1ST-3-CHAR-IN"}
+{"type": "whitespace", "value": "            "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "9(3)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "               "}
+{"type": "number", "value": "10"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "ER-SSN-MID-2-CHAR-IN"}
+{"type": "whitespace", "value": "            "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "9(2)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "               "}
+{"type": "number", "value": "10"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "ER-SSN-LST-4-CHAR-IN"}
+{"type": "whitespace", "value": "            "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "9(4)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "number", "value": "05"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "ER-FULL-NAME-IN"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "               "}
+{"type": "number", "value": "10"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "ER-LAST-NAME-IN"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "                   "}
+{"type": "number", "value": "15"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "ER-1ST-CHAR-IN"}
+{"type": "whitespace", "value": "              "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(1)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "                   "}
+{"type": "number", "value": "15"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "ER-REST-OF-LNAME-IN"}
+{"type": "whitespace", "value": "         "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(11)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "               "}
+{"type": "number", "value": "10"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "ER-FIRST-NAME-IN"}
+{"type": "whitespace", "value": "                "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(11)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "               "}
+{"type": "number", "value": "10"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "ER-MID-INIT-IN"}
+{"type": "whitespace", "value": "                  "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(1)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "number", "value": "05"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "ER-ADDRESS-IN"}
+{"type": "whitespace", "value": "                       "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(15)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "number", "value": "05"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "FILLER"}
+{"type": "whitespace", "value": "                              "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(10)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "number", "value": "05"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "ER-CITY-IN"}
+{"type": "whitespace", "value": "                          "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(13)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "number", "value": "05"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "ER-PHONE-NUM-IN"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "               "}
+{"type": "number", "value": "10"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "ER-PHONE-PREFIX-IN"}
+{"type": "whitespace", "value": "              "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "9(3)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "               "}
+{"type": "number", "value": "10"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "ER-PHONE-LINE-IN"}
+{"type": "whitespace", "value": "                "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "9(4)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "       "}
+{"type": "identifier", "value": "FD"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "EMPL-REPORT-OUT"}
+{"type": "whitespace", "value": "               "}
+{"type": "identifier", "value": "RECORD"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "CONTAINS"}
+{"type": "whitespace", "value": " "}
+{"type": "number", "value": "132"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "CHARACTERS"}
+{"type": "whitespace", "value": "               "}
+{"type": "identifier", "value": "LABEL"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "RECORDS"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "ARE"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "OMITTED"}
+{"type": "whitespace", "value": "               "}
+{"type": "identifier", "value": "DATA"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "RECORD"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "IS"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EL-EMPL-LINE-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "       "}
+{"type": "number", "value": "01"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "EL-EMPL-LINE-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "number", "value": "05"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "EL-FULL-NAME-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "               "}
+{"type": "number", "value": "10"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "EL-LAST-NAME-OUT"}
+{"type": "whitespace", "value": "                "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(12)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "               "}
+{"type": "number", "value": "10"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "FILLER"}
+{"type": "whitespace", "value": "                          "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(2)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "               "}
+{"type": "number", "value": "10"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "EL-FIRST-NAME-OUT"}
+{"type": "whitespace", "value": "               "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(11)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "               "}
+{"type": "number", "value": "10"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "FILLER"}
+{"type": "whitespace", "value": "                          "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(1)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "               "}
+{"type": "number", "value": "10"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "EL-MID-INIT-OUT"}
+{"type": "whitespace", "value": "                 "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(1)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "number", "value": "05"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "FILLER"}
+{"type": "whitespace", "value": "                              "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(2)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "number", "value": "05"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "EL-SSN-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "               "}
+{"type": "number", "value": "10"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "EL-SSN-1ST-3-CHAR-OUT"}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "9(3)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "               "}
+{"type": "number", "value": "10"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "EL-HYPHEN-1-OUT"}
+{"type": "whitespace", "value": "                 "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(1)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "               "}
+{"type": "number", "value": "10"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "EL-SSN-MID-2-CHAR-OUT"}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "9(2)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "               "}
+{"type": "number", "value": "10"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "EL-HYPHEN-2-OUT"}
+{"type": "whitespace", "value": "                 "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(1)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "               "}
+{"type": "number", "value": "10"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "EL-SSN-LST-4-CHAR-OUT"}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "9(4)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "number", "value": "05"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "FILLER"}
+{"type": "whitespace", "value": "                              "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(2)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "number", "value": "05"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "EL-ADDRESS-OUT"}
+{"type": "whitespace", "value": "                      "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(15)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "number", "value": "05"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "FILLER"}
+{"type": "whitespace", "value": "                              "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(12)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "number", "value": "05"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "EL-CITY-OUT"}
+{"type": "whitespace", "value": "                         "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(13)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "number", "value": "05"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "FILLER"}
+{"type": "whitespace", "value": "                              "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(2)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "number", "value": "05"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "EL-PHONE-NUM-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "               "}
+{"type": "number", "value": "10"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "EL-PHONE-PREFIX-OUT"}
+{"type": "whitespace", "value": "             "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "9(3)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "               "}
+{"type": "number", "value": "10"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "EL-HYPHEN-3-OUT"}
+{"type": "whitespace", "value": "                 "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(1)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "               "}
+{"type": "number", "value": "10"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "EL-PHONE-LINE-OUT"}
+{"type": "whitespace", "value": "               "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "9(4)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "number", "value": "05"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "FILLER"}
+{"type": "whitespace", "value": "                              "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(3)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "number", "value": "05"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "EL-EMPL-DEPT-NUM-OUT"}
+{"type": "whitespace", "value": "                "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "9(2)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "number", "value": "05"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "FILLER"}
+{"type": "whitespace", "value": "                              "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(4)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "number", "value": "05"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "EL-EMPL-CODE-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "               "}
+{"type": "number", "value": "10"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "EL-EMPL-CODE-1ST-CHAR-OUT"}
+{"type": "whitespace", "value": "       "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(1)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "               "}
+{"type": "number", "value": "10"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "EL-EMPL-CODE-NEXT4-CHAR-OUT"}
+{"type": "whitespace", "value": "     "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "9(4)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "               "}
+{"type": "number", "value": "10"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "EL-EMPL-CODE-LAST2-CHAR-OUT"}
+{"type": "whitespace", "value": "     "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "9(2)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "number", "value": "05"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "FILLER"}
+{"type": "whitespace", "value": "                              "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(24)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "       "}
+{"type": "keyword", "value": "WORKING-STORAGE SECTION."}
+{"type": "whitespace", "value": "       "}
+{"type": "number", "value": "01"}
+{"type": "whitespace", "value": "  "}
+{"type": "identifier", "value": "WS-PROGRAM-SWITCHES"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "number", "value": "05"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "WS-EOF-SWITCH"}
+{"type": "whitespace", "value": "                        "}
+{"type": "identifier", "value": "PIC"}
+{"type": "whitespace", "value": " "}
+{"type": "picture", "value": "X(3)"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "       "}
+{"type": "keyword", "value": "PROCEDURE DIVISION."}
+{"type": "whitespace", "value": "       "}
+{"type": "identifier", "value": "A00-MAINLINE-PARA"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "keyword", "value": "OPEN INPUT"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EMPL-FILE-IN"}
+{"type": "whitespace", "value": "               "}
+{"type": "identifier", "value": "OUTPUT"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EMPL-REPORT-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "PERFORM"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "B10-INIT-PARA"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "READ"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EMPL-FILE-IN"}
+{"type": "whitespace", "value": "               "}
+{"type": "keyword", "value": "AT END"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "MOVE"}
+{"type": "whitespace", "value": " "}
+{"type": "string", "value": "\"YES\""}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "TO"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "WS-EOF-SWITCH"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "PERFORM"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "B20-PROCESS-PARA"}
+{"type": "whitespace", "value": "               "}
+{"type": "identifier", "value": "UNTIL"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "WS-EOF-SWITCH"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "IS"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EQUAL"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "TO"}
+{"type": "whitespace", "value": " "}
+{"type": "string", "value": "\"YES\""}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "CLOSE"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EMPL-FILE-IN"}
+{"type": "whitespace", "value": "                 "}
+{"type": "identifier", "value": "EMPL-REPORT-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "keyword", "value": "STOP RUN."}
+{"type": "whitespace", "value": "       "}
+{"type": "identifier", "value": "B10-INIT-PARA"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "MOVE"}
+{"type": "whitespace", "value": " "}
+{"type": "string", "value": "\"NO\""}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "TO"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "WS-EOF-SWITCH"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "       "}
+{"type": "identifier", "value": "B20-PROCESS-PARA"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "MOVE"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "SPACES"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "TO"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EL-EMPL-LINE-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "MOVE"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "ER-LAST-NAME-IN"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "TO"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EL-LAST-NAME-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "MOVE"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "ER-FIRST-NAME-IN"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "TO"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EL-FIRST-NAME-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "MOVE"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "ER-MID-INIT-IN"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "TO"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EL-MID-INIT-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "MOVE"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "ER-SSN-1ST-3-CHAR-IN"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "TO"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EL-SSN-1ST-3-CHAR-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "MOVE"}
+{"type": "whitespace", "value": " "}
+{"type": "string", "value": "\"-\""}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "TO"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EL-HYPHEN-1-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "MOVE"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "ER-SSN-MID-2-CHAR-IN"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "TO"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EL-SSN-MID-2-CHAR-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "MOVE"}
+{"type": "whitespace", "value": " "}
+{"type": "string", "value": "\"-\""}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "TO"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EL-HYPHEN-2-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "MOVE"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "ER-SSN-LST-4-CHAR-IN"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "TO"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EL-SSN-LST-4-CHAR-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "MOVE"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "ER-ADDRESS-IN"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "TO"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EL-ADDRESS-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "MOVE"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "ER-CITY-IN"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "TO"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EL-CITY-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "MOVE"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "ER-PHONE-PREFIX-IN"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "TO"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EL-PHONE-PREFIX-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "MOVE"}
+{"type": "whitespace", "value": " "}
+{"type": "string", "value": "\"-\""}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "TO"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EL-HYPHEN-3-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "MOVE"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "ER-PHONE-LINE-IN"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "TO"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EL-PHONE-LINE-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "MOVE"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "ER-EMPL-DEPT-NUM-IN"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "TO"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EL-EMPL-DEPT-NUM-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "MOVE"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "ER-1ST-CHAR-IN"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "TO"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EL-EMPL-CODE-1ST-CHAR-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "MOVE"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "ER-SSN-LST-4-CHAR-IN"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "TO"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EL-EMPL-CODE-NEXT4-CHAR-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "MOVE"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "ER-EMPL-DEPT-NUM-IN"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "TO"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EL-EMPL-CODE-LAST2-CHAR-OUT"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "WRITE"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EL-EMPL-LINE-OUT"}
+{"type": "whitespace", "value": "               "}
+{"type": "identifier", "value": "AFTER"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "ADVANCING"}
+{"type": "whitespace", "value": " "}
+{"type": "number", "value": "2"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "LINES"}
+{"type": "operator", "value": "."}
+{"type": "whitespace", "value": "           "}
+{"type": "identifier", "value": "READ"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "EMPL-FILE-IN"}
+{"type": "whitespace", "value": "               "}
+{"type": "keyword", "value": "AT END"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "MOVE"}
+{"type": "whitespace", "value": " "}
+{"type": "string", "value": "\"YES\""}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "TO"}
+{"type": "whitespace", "value": " "}
+{"type": "identifier", "value": "WS-EOF-SWITCH"}
+{"type": "operator", "value": "."}
