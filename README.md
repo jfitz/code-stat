@@ -1,11 +1,10 @@
-# Python Flask app on Azure App Service Web
+# Code-Stat web services
 
-This is a minimal sample app that demonstrates how to run a Python Flask application on Azure App Service Web.
+A set of web services that analyze source code.
 
-This repository can directly be deployed to Azure App Service.
+The 'detect' web service identifies the language based on the source. Only
+the one source file is required. (For example, a C source file does not require any header files for language identification.)
 
-For more information, please see the [Python on App Service Quickstart docs](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-python).
+The 'confidence' web service reports on the confidence values computed during the 'detect' web service.
 
-# Contributing
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+The 'tokens' web service breaks a source file into tokens, given a language name.
