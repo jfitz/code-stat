@@ -1,16 +1,20 @@
 {"type": "comment", "value": "{$M 65084,0,655360 }"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "Program"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Spider"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "comment", "value": "{$N+}"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "comment", "value": "{ Draws some beeeyoootiful 3-d graphics of a spider on a chessboard }"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "uses"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "Dos"}
 {"type": "operator", "value": ","}
 {"type": "whitespace", "value": " "}
@@ -25,9 +29,11 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Mouse"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "const"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "MaxPoly"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "="}
@@ -36,14 +42,16 @@
 {"type": "operator", "value": ";"}
 {"type": "whitespace", "value": " "}
 {"type": "comment", "value": "{ Can go up to 650 }"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "DiskMaxPoly"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "="}
 {"type": "whitespace", "value": " "}
 {"type": "number", "value": "5000"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "D"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":"}
@@ -56,7 +64,8 @@
 {"type": "operator", "value": ";"}
 {"type": "whitespace", "value": "  "}
 {"type": "comment", "value": "{ 300 }"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "AR"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "="}
@@ -65,57 +74,67 @@
 {"type": "operator", "value": "."}
 {"type": "number", "value": "3"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "TempDrive"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "="}
 {"type": "whitespace", "value": " "}
 {"type": "string", "value": "'E'"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "BackgroundColorDuring2dDrawing"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "="}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Blue"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "ForegroundColorDuring2dDrawing"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "="}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "White"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "BackgroundColorDuring3dDrawing"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "="}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Blue"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "ForegroundColorDuring3dDrawing"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "="}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "yellow"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "ColorForPolygonsDuringHidden"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "="}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Green"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "type"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "LineType"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "="}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Record"}
-{"type": "whitespace", "value": "\n               "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "               "}
 {"type": "identifier", "value": "X"}
 {"type": "operator", "value": ","}
 {"type": "whitespace", "value": " "}
@@ -128,16 +147,19 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Real"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n             "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "             "}
 {"type": "identifier", "value": "end"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "FootType"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "="}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Record"}
-{"type": "whitespace", "value": "\n               "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "               "}
 {"type": "identifier", "value": "X"}
 {"type": "operator", "value": ","}
 {"type": "whitespace", "value": " "}
@@ -150,19 +172,23 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Real"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n             "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "             "}
 {"type": "identifier", "value": "end"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "var"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "Ch"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Char"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "Z"}
 {"type": "operator", "value": ","}
 {"type": "whitespace", "value": " "}
@@ -186,7 +212,8 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Integer"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "dX"}
 {"type": "operator", "value": ","}
 {"type": "whitespace", "value": " "}
@@ -205,7 +232,8 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Real"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "GraphDriver"}
 {"type": "operator", "value": ","}
 {"type": "whitespace", "value": " "}
@@ -218,7 +246,8 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Integer"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "P"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":"}
@@ -234,7 +263,8 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "PointType"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "Sp"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":"}
@@ -250,7 +280,8 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "FootType"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "Function"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Get3dX"}
@@ -270,9 +301,11 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "LongInt"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "begin"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "Get3dX"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -296,10 +329,11 @@
 {"type": "identifier", "value": "AR"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "end"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "Function"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Get3dY"}
@@ -319,9 +353,11 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "LongInt"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "begin"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "Get3dY"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -343,10 +379,11 @@
 {"type": "identifier", "value": "Z"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "end"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "procedure"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Line3d"}
@@ -369,9 +406,11 @@
 {"type": "identifier", "value": "Real"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "begin"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "Line"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
@@ -404,40 +443,47 @@
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "end"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "procedure"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "FindCenter"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "var"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "T"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Integer"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "begin"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "CenterX"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
 {"type": "whitespace", "value": " "}
 {"type": "number", "value": "0"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "CenterZ"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
 {"type": "whitespace", "value": " "}
 {"type": "number", "value": "0"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "For"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "T"}
@@ -451,9 +497,11 @@
 {"type": "number", "value": "6"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "do"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "begin"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "CenterX"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -469,7 +517,8 @@
 {"type": "operator", "value": "."}
 {"type": "identifier", "value": "X"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "CenterZ"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -485,10 +534,12 @@
 {"type": "operator", "value": "."}
 {"type": "identifier", "value": "Z"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "end"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "CenterX"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -499,7 +550,8 @@
 {"type": "whitespace", "value": " "}
 {"type": "number", "value": "6"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "CenterZ"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -510,17 +562,20 @@
 {"type": "whitespace", "value": " "}
 {"type": "number", "value": "6"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "end"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "procedure"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "DrawBoard"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "begin"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "For"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "X"}
@@ -535,7 +590,8 @@
 {"type": "number", "value": "6"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "do"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "Line3d"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
@@ -556,7 +612,8 @@
 {"type": "number", "value": "90"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "For"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Z"}
@@ -572,7 +629,8 @@
 {"type": "number", "value": "15"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "do"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "Line3d"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
@@ -596,7 +654,8 @@
 {"type": "number", "value": "6"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "For"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "X"}
@@ -611,7 +670,8 @@
 {"type": "number", "value": "5"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "do"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "For"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Z"}
@@ -627,9 +687,11 @@
 {"type": "number", "value": "14"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "do"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "begin"}
-{"type": "whitespace", "value": "\n        "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "        "}
 {"type": "identifier", "value": "If"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Odd"}
@@ -641,9 +703,11 @@
 {"type": "operator", "value": ")"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "then"}
-{"type": "whitespace", "value": "\n          "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "          "}
 {"type": "identifier", "value": "begin"}
-{"type": "whitespace", "value": "\n            "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "            "}
 {"type": "identifier", "value": "SetFillStyle"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
@@ -652,20 +716,25 @@
 {"type": "identifier", "value": "LightCyan"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n            "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "            "}
 {"type": "identifier", "value": "SetColor"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
 {"type": "identifier", "value": "LightCyan"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n          "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "          "}
 {"type": "identifier", "value": "end"}
-{"type": "whitespace", "value": "\n        "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "        "}
 {"type": "operator", "value": "else"}
-{"type": "whitespace", "value": "\n          "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "          "}
 {"type": "identifier", "value": "begin"}
-{"type": "whitespace", "value": "\n            "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "            "}
 {"type": "identifier", "value": "SetFillStyle"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
@@ -674,17 +743,20 @@
 {"type": "identifier", "value": "Cyan"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n            "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "            "}
 {"type": "identifier", "value": "SetColor"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
 {"type": "identifier", "value": "Cyan"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n          "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "          "}
 {"type": "identifier", "value": "end"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n        "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "        "}
 {"type": "identifier", "value": "P"}
 {"type": "operator", "value": "["}
 {"type": "number", "value": "1"}
@@ -704,7 +776,8 @@
 {"type": "number", "value": "6"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n        "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "        "}
 {"type": "identifier", "value": "P"}
 {"type": "operator", "value": "["}
 {"type": "number", "value": "1"}
@@ -725,7 +798,8 @@
 {"type": "number", "value": "6"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n        "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "        "}
 {"type": "identifier", "value": "P"}
 {"type": "operator", "value": "["}
 {"type": "number", "value": "2"}
@@ -749,7 +823,8 @@
 {"type": "number", "value": "6"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n        "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "        "}
 {"type": "identifier", "value": "P"}
 {"type": "operator", "value": "["}
 {"type": "number", "value": "2"}
@@ -774,7 +849,8 @@
 {"type": "number", "value": "6"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n        "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "        "}
 {"type": "identifier", "value": "P"}
 {"type": "operator", "value": "["}
 {"type": "number", "value": "3"}
@@ -800,7 +876,8 @@
 {"type": "number", "value": "6"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n        "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "        "}
 {"type": "identifier", "value": "P"}
 {"type": "operator", "value": "["}
 {"type": "number", "value": "3"}
@@ -825,7 +902,8 @@
 {"type": "number", "value": "6"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n        "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "        "}
 {"type": "identifier", "value": "P"}
 {"type": "operator", "value": "["}
 {"type": "number", "value": "4"}
@@ -847,7 +925,8 @@
 {"type": "number", "value": "6"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n        "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "        "}
 {"type": "identifier", "value": "P"}
 {"type": "operator", "value": "["}
 {"type": "number", "value": "4"}
@@ -868,7 +947,8 @@
 {"type": "number", "value": "6"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n        "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "        "}
 {"type": "identifier", "value": "FillPoly"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
@@ -877,22 +957,26 @@
 {"type": "identifier", "value": "P"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "end"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "comment", "value": "{      else\n        LineTo (Get3dX(Cos(2*Pi*X/9)*T*0.5,-54+Sin(2*Pi*X/9)*T*3),\n               Get3dY(-2,-54+Sin(2*Pi*X/9)*T*3));\n  For X := 1 to 9 do\n    Line3d (0,-2,-54,Cos(2*Pi*X/9)*0.5*17,-2,-54+Sin(2*Pi*X/9)*3*17);\n  For T := 1 to 12 do\n    For X := 1 to 9 do\n      begin\n        If ((X < 7) and Odd (X+T)) or ((X >= 7) and Not Odd (X+T)) then\n          begin\n            SetFillStyle (SolidFill,LightCyan);\n            SetColor (LightCyan);\n          end\n        else\n          begin\n            SetFillStyle (SolidFill,Cyan);\n            SetColor (Cyan);\n          end;\n      P[1].X := Get3dX(Cos(2*Pi*X/9)*T*0.5,-54+Sin(2*Pi*X/9)*T*3);\n      P[1].Y := Get3dY(-2,-54+Sin(2*Pi*X/9)*T*3);\n      P[2].X := Get3dX(Cos(2*Pi*(X+1)/9)*T*0.5,-54+Sin(2*Pi*(X+1)/9)*T*3);\n      P[2].Y := Get3dY(-2,-54+Sin(2*Pi*(X+1)/9)*T*3);\n      P[3].X := Get3dX(Cos(2*Pi*(X+1)/9)*(T+1)*0.5,-54+Sin(2*Pi*(X+1)/9)*(T+1)*3);\n      P[3].Y := Get3dY(-2,-54+Sin(2*Pi*(X+1)/9)*(T+1)*3);\n      P[4].X := Get3dX(Cos(2*Pi*X/9)*(T+1)*0.5,-54+Sin(2*Pi*X/9)*(T+1)*3);\n      P[4].Y := Get3dY(-2,-54+Sin(2*Pi*X/9)*(T+1)*3);\n      FillPoly (4,P);\n    end;}"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "end"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "procedure"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "DrawSpider"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "var"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "MidX"}
 {"type": "operator", "value": ","}
 {"type": "whitespace", "value": " "}
@@ -902,28 +986,33 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Real"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "T"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Integer"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "begin"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "HideCursor"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "SetWriteMode"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
 {"type": "identifier", "value": "XOrPut"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "comment", "value": "{  SetLineStyle (SolidLn,0,ThickWidth);}"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "For"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "T"}
@@ -937,9 +1026,11 @@
 {"type": "number", "value": "6"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "do"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "begin"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "MidX"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -963,7 +1054,8 @@
 {"type": "operator", "value": "."}
 {"type": "number", "value": "5"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "MidZ"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -987,14 +1079,16 @@
 {"type": "operator", "value": "."}
 {"type": "number", "value": "5"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "SetColor"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
 {"type": "identifier", "value": "LightCyan"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "Line3d"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
@@ -1019,7 +1113,8 @@
 {"type": "identifier", "value": "MidZ"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "Line3d"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
@@ -1063,10 +1158,12 @@
 {"type": "identifier", "value": "Z"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "end"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "For"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "T"}
@@ -1080,9 +1177,11 @@
 {"type": "number", "value": "6"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "do"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "begin"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "MidX"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -1106,7 +1205,8 @@
 {"type": "operator", "value": "."}
 {"type": "number", "value": "5"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "MidZ"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -1130,14 +1230,16 @@
 {"type": "operator", "value": "."}
 {"type": "number", "value": "5"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "SetColor"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
 {"type": "identifier", "value": "LightRed"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "Line3d"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
@@ -1158,7 +1260,8 @@
 {"type": "identifier", "value": "MidZ"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "Line3d"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
@@ -1191,25 +1294,30 @@
 {"type": "identifier", "value": "Z"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "end"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "ShowCursor"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "end"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "begin"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "GraphDriver"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Detect"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "InitGraph"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
@@ -1220,14 +1328,16 @@
 {"type": "string", "value": "'\\TURBO'"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "GraphError"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "GraphResult"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "If"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "GraphError"}
@@ -1237,9 +1347,11 @@
 {"type": "identifier", "value": "grOk"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "then"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "begin"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "Writeln"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
@@ -1252,13 +1364,16 @@
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "Halt"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "end"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "For"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "T"}
@@ -1272,9 +1387,11 @@
 {"type": "number", "value": "6"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "do"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "begin"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "Sp"}
 {"type": "operator", "value": "["}
 {"type": "identifier", "value": "T"}
@@ -1306,7 +1423,8 @@
 {"type": "operator", "value": "."}
 {"type": "number", "value": "8"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "Sp"}
 {"type": "operator", "value": "["}
 {"type": "identifier", "value": "T"}
@@ -1319,7 +1437,8 @@
 {"type": "operator", "value": "-"}
 {"type": "number", "value": "2"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "Sp"}
 {"type": "operator", "value": "["}
 {"type": "identifier", "value": "T"}
@@ -1349,10 +1468,12 @@
 {"type": "operator", "value": "*"}
 {"type": "number", "value": "6"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "end"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "SetBorderLimits"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
@@ -1365,12 +1486,15 @@
 {"type": "identifier", "value": "GetMaxY"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "ShowCursor"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "Repeat"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "GetMouseStatus"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
@@ -1381,7 +1505,8 @@
 {"type": "identifier", "value": "Button"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "For"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "T"}
@@ -1395,7 +1520,8 @@
 {"type": "number", "value": "6"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "do"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "For"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "X"}
@@ -1409,25 +1535,33 @@
 {"type": "number", "value": "3"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "do"}
-{"type": "whitespace", "value": "\n        "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "        "}
 {"type": "identifier", "value": "begin"}
-{"type": "whitespace", "value": "\n          "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "          "}
 {"type": "identifier", "value": "ClearDevice"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n          "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "          "}
 {"type": "identifier", "value": "DrawBoard"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n          "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "          "}
 {"type": "identifier", "value": "FindCenter"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n          "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "          "}
 {"type": "identifier", "value": "DrawSpider"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "comment", "value": "{      Delay (500);}"}
-{"type": "whitespace", "value": "\n          "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "          "}
 {"type": "comment", "value": "{ DrawSpider; }"}
-{"type": "whitespace", "value": "\n          "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "          "}
 {"type": "identifier", "value": "If"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "T"}
@@ -1437,7 +1571,8 @@
 {"type": "number", "value": "3"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "then"}
-{"type": "whitespace", "value": "\n            "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "            "}
 {"type": "identifier", "value": "TT"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -1449,9 +1584,11 @@
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": "*"}
 {"type": "number", "value": "2"}
-{"type": "whitespace", "value": "\n          "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "          "}
 {"type": "operator", "value": "else"}
-{"type": "whitespace", "value": "\n            "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "            "}
 {"type": "identifier", "value": "TT"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -1462,7 +1599,8 @@
 {"type": "operator", "value": "-"}
 {"type": "number", "value": "1"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n          "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "          "}
 {"type": "identifier", "value": "dX"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -1495,7 +1633,8 @@
 {"type": "operator", "value": "."}
 {"type": "number", "value": "4"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n          "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "          "}
 {"type": "identifier", "value": "dZ"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -1528,7 +1667,8 @@
 {"type": "operator", "value": "."}
 {"type": "number", "value": "2"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n          "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "          "}
 {"type": "identifier", "value": "Sp"}
 {"type": "operator", "value": "["}
 {"type": "identifier", "value": "TT"}
@@ -1549,7 +1689,8 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "dX"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n          "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "          "}
 {"type": "identifier", "value": "If"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "X"}
@@ -1559,7 +1700,8 @@
 {"type": "number", "value": "3"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "then"}
-{"type": "whitespace", "value": "\n            "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "            "}
 {"type": "identifier", "value": "Sp"}
 {"type": "operator", "value": "["}
 {"type": "identifier", "value": "TT"}
@@ -1573,9 +1715,11 @@
 {"type": "number", "value": "1"}
 {"type": "operator", "value": "."}
 {"type": "number", "value": "8"}
-{"type": "whitespace", "value": "\n          "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "          "}
 {"type": "operator", "value": "else"}
-{"type": "whitespace", "value": "\n            "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "            "}
 {"type": "identifier", "value": "Sp"}
 {"type": "operator", "value": "["}
 {"type": "identifier", "value": "TT"}
@@ -1588,7 +1732,8 @@
 {"type": "operator", "value": "-"}
 {"type": "number", "value": "2"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n          "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "          "}
 {"type": "identifier", "value": "Sp"}
 {"type": "operator", "value": "["}
 {"type": "identifier", "value": "TT"}
@@ -1609,10 +1754,12 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "dZ"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n        "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "        "}
 {"type": "identifier", "value": "end"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "Until"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Keypressed"}
@@ -1627,7 +1774,8 @@
 {"type": "number", "value": "0"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "While"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Keypressed"}
@@ -1640,7 +1788,7 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "ReadKey"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "end"}
 {"type": "operator", "value": "."}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}

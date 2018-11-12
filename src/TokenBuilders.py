@@ -43,7 +43,30 @@ class WhitespaceTokenBuilder(TokenBuilder):
     return Token(self.token, 'whitespace')
 
   def accept(self, candidate, c):
-    return c.isspace()
+    result = c.isspace() and c != '\n' and c != '\r'
+
+    return result
+
+# token reader for newline
+class NewlineTokenBuilder(TokenBuilder):
+  def __init__(self):
+    self.token = None
+
+  def get_token(self):
+    if self.token is None:
+      return None
+    return Token(self.token, 'newline')
+
+  def accept(self, candidate, c):
+    result = False
+
+    if candidate == '':
+      result = c == '\r' or c == '\n'
+
+    if candidate == '\r' and c == '\n':
+      result = True
+
+    return result
 
 # token reader for number
 class NumberTokenBuilder(TokenBuilder):
@@ -97,20 +120,4 @@ class ListTokenBuilder(TokenBuilder):
       if legal[:count] == token:
         result = True
 
-    return result
-
-# token reader for newline
-class NewlineTokenBuilder(TokenBuilder):
-  def __init__(self):
-    self.token = None
-
-  def get_token(self):
-    if self.token is None:
-      return None
-    return Token(self.token, 'newline')
-
-  def accept(self, candidate, c):
-    result = False
-    if c == '\n' and candidate == '':
-      result = True
     return result

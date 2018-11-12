@@ -17,6 +17,7 @@ class PascalExaminer(Examiner):
     num_known_operators = 0
 
     wtb = WhitespaceTokenBuilder()
+    nltb = NewlineTokenBuilder()
 
     ntb = NumberTokenBuilder()
     itb = IdentifierTokenBuilder()
@@ -52,7 +53,7 @@ class PascalExaminer(Examiner):
 
     ktb = ListTokenBuilder(keywords, 'keyword')
 
-    tokenbuilders = [wtb, stb, kotb, uotb, bctb, ctb, nltb, ntb, itb, ktb]
+    tokenbuilders = [wtb, nltb, stb, kotb, uotb, bctb, ctb, nltb, ntb, itb, ktb]
     
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)

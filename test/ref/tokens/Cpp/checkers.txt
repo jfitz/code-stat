@@ -3,7 +3,7 @@
 {"type": "operator", "value": "<"}
 {"type": "identifier", "value": "iostream"}
 {"type": "operator", "value": ">"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "keyword", "value": "#include"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "<"}
@@ -11,15 +11,15 @@
 {"type": "operator", "value": "."}
 {"type": "identifier", "value": "h"}
 {"type": "operator", "value": ">"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "keyword", "value": "#include"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "<"}
 {"type": "identifier", "value": "string"}
 {"type": "operator", "value": ">"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "comment", "value": "/* The SpelGraph Library is designed as an introduction to computer graphics programming. \n * It has basic primitives for creating computer graphics applications.\n */"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "keyword", "value": "#include"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "<"}
@@ -27,14 +27,17 @@
 {"type": "operator", "value": "."}
 {"type": "identifier", "value": "h"}
 {"type": "operator", "value": ">"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "using"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "namespace"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "std"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "const"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "int"}
@@ -43,7 +46,7 @@
 {"type": "operator", "value": "="}
 {"type": "number", "value": "50"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "const"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "int"}
@@ -52,7 +55,7 @@
 {"type": "operator", "value": "="}
 {"type": "number", "value": "100"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "const"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "int"}
@@ -61,7 +64,7 @@
 {"type": "operator", "value": "="}
 {"type": "number", "value": "200"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "const"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "int"}
@@ -70,7 +73,7 @@
 {"type": "operator", "value": "="}
 {"type": "number", "value": "250"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "const"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "int"}
@@ -79,20 +82,22 @@
 {"type": "operator", "value": "="}
 {"type": "number", "value": "50"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "comment", "value": "// class declaration for the Board class. There is one instance of this class. The class is designed "}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "comment", "value": "// to "}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "class"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Board"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "{"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "private"}
 {"type": "operator", "value": ":"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "char"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "theBoard"}
@@ -105,17 +110,25 @@
 {"type": "operator", "value": ";"}
 {"type": "whitespace", "value": "\t\t"}
 {"type": "comment", "value": "// The tic-tac-toe board is a 3x3 board"}
-{"type": "whitespace", "value": "\n\t\n"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "public"}
 {"type": "operator", "value": ":"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "Board"}
 {"type": "operator", "value": "("}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
 {"type": "whitespace", "value": "\t\t\t\t\t"}
 {"type": "comment", "value": "// Constructor for the board class"}
-{"type": "whitespace", "value": "\n\t\n\t\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "bool"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "setMove"}
@@ -134,7 +147,8 @@
 {"type": "operator", "value": ";"}
 {"type": "whitespace", "value": "\t"}
 {"type": "comment", "value": "// sets a move at position with a particular mark"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "bool"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "checkWin"}
@@ -143,7 +157,8 @@
 {"type": "operator", "value": ";"}
 {"type": "whitespace", "value": "\t\t\t\t\t\t"}
 {"type": "comment", "value": "// checks for a win"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "void"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "display"}
@@ -152,7 +167,8 @@
 {"type": "operator", "value": ";"}
 {"type": "whitespace", "value": "\t\t\t\t\t\t\t"}
 {"type": "comment", "value": "// displays the current state of the board"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "void"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "drawX"}
@@ -165,7 +181,8 @@
 {"type": "operator", "value": ";"}
 {"type": "whitespace", "value": "\t\t\t\t\t"}
 {"type": "comment", "value": "// this function displays a graphic X"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "void"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "drawO"}
@@ -178,7 +195,8 @@
 {"type": "operator", "value": ";"}
 {"type": "whitespace", "value": "\t\t\t\t\t"}
 {"type": "comment", "value": "// this function displays a graphic O"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "int"}
 {"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "convertMouse"}
@@ -191,7 +209,8 @@
 {"type": "operator", "value": ";"}
 {"type": "whitespace", "value": "\t\t\t"}
 {"type": "comment", "value": "// this function is to convert x,y values to a position on the board"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "void"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "checkMouse"}
@@ -206,49 +225,66 @@
 {"type": "operator", "value": ";"}
 {"type": "whitespace", "value": "\t\t\t"}
 {"type": "comment", "value": "// checks to ensure the mouse is within the area of the board"}
-{"type": "whitespace", "value": "\n\t\n\t\n"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
+{"type": "newline", "value": "\n"}
 {"type": "operator", "value": "}"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "comment", "value": "// class declaration for the Player class. There will be two instances of this class. One for each"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "comment", "value": "// player."}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "class"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Player"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "{"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "private"}
 {"type": "operator", "value": ":"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "char"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "mark"}
 {"type": "operator", "value": ";"}
 {"type": "whitespace", "value": "\t\t\t\t"}
 {"type": "comment", "value": "// the type of mark used by the player i.e. X or O"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "string"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "name"}
 {"type": "operator", "value": ";"}
 {"type": "whitespace", "value": "\t\t\t"}
 {"type": "comment", "value": "// the name of the player"}
-{"type": "whitespace", "value": "\n\t\n\t\n"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "public"}
 {"type": "operator", "value": ":"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "Player"}
 {"type": "operator", "value": "("}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
 {"type": "whitespace", "value": "\t\t\t"}
 {"type": "comment", "value": "// constructor for the Player class"}
-{"type": "whitespace", "value": "\n\t\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "comment", "value": "// basic access to data members"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "void"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "setName"}
@@ -260,7 +296,8 @@
 {"type": "operator", "value": ";"}
 {"type": "whitespace", "value": "\t"}
 {"type": "comment", "value": "// set name of player"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "string"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "getName"}
@@ -269,7 +306,10 @@
 {"type": "operator", "value": ";"}
 {"type": "whitespace", "value": "\t\t"}
 {"type": "comment", "value": "// get the name of the player"}
-{"type": "whitespace", "value": "\n\t\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "void"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "setMark"}
@@ -281,7 +321,8 @@
 {"type": "operator", "value": ";"}
 {"type": "whitespace", "value": "\t"}
 {"type": "comment", "value": "// set the player's mark"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "char"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "getMark"}
@@ -290,12 +331,18 @@
 {"type": "operator", "value": ";"}
 {"type": "whitespace", "value": "\t\t\t"}
 {"type": "comment", "value": "// get the mark of the player"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "operator", "value": "}"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n\n\n\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "comment", "value": "/* Name of Function: main\n * Description: \n *\t\t\tThis function is the driver for the tic-tac-toe program. It is responsible for controlling and validating \n *\t\t\tplayer moves.\n * Parmeters:\n *       argc    : number of command line arguments\n *       argv    : list of command line arguments\n */"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "int"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "main"}
@@ -312,26 +359,34 @@
 {"type": "operator", "value": "["}
 {"type": "operator", "value": "]"}
 {"type": "operator", "value": ")"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "operator", "value": "{"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "comment", "value": "// data dictionary"}
-{"type": "whitespace", "value": "\n\t\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "comment", "value": "// insert code here... (remove this line when you start"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "initSpelGraph"}
 {"type": "operator", "value": "("}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "clearscreen"}
 {"type": "operator", "value": "("}
 {"type": "identifier", "value": "BLACK"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "comment", "value": "// data dictionary"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "Player"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "player1"}
@@ -339,12 +394,14 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "player2"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "Board"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Checkerboard"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "bool"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "winner"}
@@ -353,7 +410,8 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "false"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "int"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "moves"}
@@ -362,25 +420,29 @@
 {"type": "whitespace", "value": " "}
 {"type": "number", "value": "0"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "unsigned"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "int"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "move"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "string"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "promptData"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "char"}
 {"type": "operator", "value": "*"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "promptDataCstr"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "int"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "playX"}
@@ -388,9 +450,13 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "playY"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\t\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "comment", "value": "// this shows how to use the setMark and setName methods"}
-{"type": "whitespace", "value": "\n\t"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "\t"}
 {"type": "identifier", "value": "player1"}
 {"type": "operator", "value": "."}
 {"type": "identifier", "value": "setMark"}

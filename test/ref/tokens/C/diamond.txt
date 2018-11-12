@@ -5,15 +5,18 @@
 {"type": "operator", "value": "."}
 {"type": "identifier", "value": "h"}
 {"type": "operator", "value": ">"}
-{"type": "whitespace", "value": "\r\n \r\n"}
+{"type": "newline", "value": "\r\n"}
+{"type": "whitespace", "value": " "}
+{"type": "newline", "value": "\r\n"}
 {"type": "identifier", "value": "int"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "main"}
 {"type": "operator", "value": "("}
 {"type": "operator", "value": ")"}
-{"type": "whitespace", "value": "\r\n"}
+{"type": "newline", "value": "\r\n"}
 {"type": "operator", "value": "{"}
-{"type": "whitespace", "value": "\r\n  "}
+{"type": "newline", "value": "\r\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "int"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "n"}
@@ -31,7 +34,10 @@
 {"type": "whitespace", "value": " "}
 {"type": "number", "value": "1"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\r\n \r\n  "}
+{"type": "newline", "value": "\r\n"}
+{"type": "whitespace", "value": " "}
+{"type": "newline", "value": "\r\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "printf"}
 {"type": "operator", "value": "("}
 {"type": "string", "value": "\"Enter number of rows\\n\");\r\n  scanf(\"%d\", &n);\r\n \r\n  space = n - 1;\r\n \r\n  for (k = 1; k <= n; k++)\r\n  {\r\n    for (c = 1; c <= space; c++)\r\n      printf(\" \");\r\n \r\n    space--;\r\n \r\n    for (c = 1; c <= 2*k-1; c++)\r\n      printf(\"*\");\r\n \r\n    printf(\"\\n\");\r\n  }\r\n \r\n  space = 1;\r\n \r\n  for (k = 1; k <= n - 1; k++)\r\n  {\r\n    for (c = 1; c <= space; c++)\r\n      printf(\" \");\r\n \r\n    space++;\r\n \r\n    for (c = 1 ; c <= 2*(n-k)-1; c++)\r\n      printf(\"*\");\r\n \r\n    printf(\"\\n\");\r\n  }\r\n \r\n  return 0;\r\n}"}

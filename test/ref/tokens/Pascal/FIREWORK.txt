@@ -2,19 +2,24 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "FireWorks"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "comment", "value": "{$R+}"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "uses"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "Crt"}
 {"type": "operator", "value": ","}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Graph"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "var"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "GraphDriver"}
 {"type": "operator", "value": ","}
 {"type": "whitespace", "value": " "}
@@ -27,14 +32,16 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Integer"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "Ch"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Char"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "I"}
 {"type": "operator", "value": ","}
 {"type": "whitespace", "value": " "}
@@ -53,7 +60,8 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Integer"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "XX"}
 {"type": "operator", "value": ","}
 {"type": "identifier", "value": "YY"}
@@ -73,7 +81,8 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Integer"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "FX"}
 {"type": "operator", "value": ","}
 {"type": "identifier", "value": "FY"}
@@ -95,7 +104,8 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Real"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "R"}
 {"type": "operator", "value": ","}
 {"type": "whitespace", "value": " "}
@@ -111,7 +121,8 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Real"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "procedure"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Explode"}
@@ -124,9 +135,11 @@
 {"type": "identifier", "value": "Integer"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "begin"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "T"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -134,16 +147,19 @@
 {"type": "operator", "value": "-"}
 {"type": "identifier", "value": "Pi"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "I"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
 {"type": "whitespace", "value": " "}
 {"type": "number", "value": "0"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "Repeat"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "I"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -154,7 +170,8 @@
 {"type": "whitespace", "value": " "}
 {"type": "number", "value": "1"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "DX"}
 {"type": "operator", "value": "["}
 {"type": "identifier", "value": "I"}
@@ -169,7 +186,8 @@
 {"type": "operator", "value": "*"}
 {"type": "number", "value": "5"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "DY"}
 {"type": "operator", "value": "["}
 {"type": "identifier", "value": "I"}
@@ -184,7 +202,8 @@
 {"type": "operator", "value": "*"}
 {"type": "number", "value": "5"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "FX"}
 {"type": "operator", "value": "["}
 {"type": "identifier", "value": "I"}
@@ -194,7 +213,8 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "X"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "FY"}
 {"type": "operator", "value": "["}
 {"type": "identifier", "value": "I"}
@@ -204,7 +224,8 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Y"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "T"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -217,7 +238,8 @@
 {"type": "operator", "value": "."}
 {"type": "number", "value": "15"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "Until"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "T"}
@@ -226,16 +248,20 @@
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Pi"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "K"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
 {"type": "whitespace", "value": " "}
 {"type": "number", "value": "0"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "Repeat"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "For"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "J"}
@@ -249,9 +275,11 @@
 {"type": "identifier", "value": "I"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "do"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "begin"}
-{"type": "whitespace", "value": "\n        "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "        "}
 {"type": "identifier", "value": "If"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "C"}
@@ -261,7 +289,8 @@
 {"type": "number", "value": "0"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "then"}
-{"type": "whitespace", "value": "\n          "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "          "}
 {"type": "identifier", "value": "PutPixel"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
@@ -283,9 +312,11 @@
 {"type": "operator", "value": ","}
 {"type": "number", "value": "0"}
 {"type": "operator", "value": ")"}
-{"type": "whitespace", "value": "\n        "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "        "}
 {"type": "operator", "value": "else"}
-{"type": "whitespace", "value": "\n          "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "          "}
 {"type": "identifier", "value": "PutPixel"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
@@ -313,7 +344,8 @@
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n        "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "        "}
 {"type": "identifier", "value": "FX"}
 {"type": "operator", "value": "["}
 {"type": "identifier", "value": "J"}
@@ -333,7 +365,8 @@
 {"type": "identifier", "value": "J"}
 {"type": "operator", "value": "]"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n        "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "        "}
 {"type": "identifier", "value": "FY"}
 {"type": "operator", "value": "["}
 {"type": "identifier", "value": "J"}
@@ -353,7 +386,8 @@
 {"type": "identifier", "value": "J"}
 {"type": "operator", "value": "]"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n        "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "        "}
 {"type": "identifier", "value": "DY"}
 {"type": "operator", "value": "["}
 {"type": "identifier", "value": "J"}
@@ -372,10 +406,12 @@
 {"type": "operator", "value": "."}
 {"type": "number", "value": "2"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "end"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "K"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -386,7 +422,8 @@
 {"type": "whitespace", "value": " "}
 {"type": "number", "value": "1"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "Delay"}
 {"type": "operator", "value": "("}
 {"type": "number", "value": "10"}
@@ -394,7 +431,8 @@
 {"type": "operator", "value": ";"}
 {"type": "whitespace", "value": " "}
 {"type": "comment", "value": "{ This was not in the original. }"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "Until"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Keypressed"}
@@ -409,22 +447,27 @@
 {"type": "number", "value": "50"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "end"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "procedure"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "ShootFireWork"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "begin"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "comment", "value": "{ Delay (1000); }"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "Randomize"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "T"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -447,44 +490,51 @@
 {"type": "operator", "value": "/"}
 {"type": "number", "value": "2"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "X"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "XStart"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "Y"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "YStart"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "R"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
 {"type": "whitespace", "value": " "}
 {"type": "number", "value": "20"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "I"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
 {"type": "whitespace", "value": " "}
 {"type": "number", "value": "0"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "Repeat"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "Inc"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
 {"type": "identifier", "value": "I"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "XX"}
 {"type": "operator", "value": "["}
 {"type": "identifier", "value": "I"}
@@ -497,7 +547,8 @@
 {"type": "identifier", "value": "X"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "YY"}
 {"type": "operator", "value": "["}
 {"type": "identifier", "value": "I"}
@@ -510,7 +561,8 @@
 {"type": "identifier", "value": "Y"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "CC"}
 {"type": "operator", "value": "["}
 {"type": "identifier", "value": "I"}
@@ -532,7 +584,8 @@
 {"type": "operator", "value": "]"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "If"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "I"}
@@ -542,7 +595,8 @@
 {"type": "number", "value": "1"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "then"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "If"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
@@ -595,7 +649,8 @@
 {"type": "number", "value": "1"}
 {"type": "operator", "value": "]"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "PutPixel"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
@@ -617,7 +672,8 @@
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "If"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "I"}
@@ -627,7 +683,8 @@
 {"type": "number", "value": "5"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "then"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "PutPixel"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
@@ -653,7 +710,8 @@
 {"type": "operator", "value": "]"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "X"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -669,7 +727,8 @@
 {"type": "operator", "value": "*"}
 {"type": "identifier", "value": "R"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "Y"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -685,7 +744,8 @@
 {"type": "operator", "value": "*"}
 {"type": "identifier", "value": "R"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "If"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "T"}
@@ -697,7 +757,8 @@
 {"type": "number", "value": "2"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "then"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "T"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -709,9 +770,11 @@
 {"type": "number", "value": "0"}
 {"type": "operator", "value": "."}
 {"type": "number", "value": "02"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "operator", "value": "else"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "T"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -724,7 +787,8 @@
 {"type": "operator", "value": "."}
 {"type": "number", "value": "02"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "R"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -737,14 +801,16 @@
 {"type": "operator", "value": "."}
 {"type": "number", "value": "93"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "Delay"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
 {"type": "number", "value": "20"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "Until"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "KeyPressed"}
@@ -769,7 +835,9 @@
 {"type": "identifier", "value": "Pi"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "For"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "J"}
@@ -785,7 +853,9 @@
 {"type": "identifier", "value": "I"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "do"}
-{"type": "whitespace", "value": "\n\n     "}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "     "}
 {"type": "identifier", "value": "PutPixel"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
@@ -805,35 +875,40 @@
 {"type": "operator", "value": "]"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "comment", "value": "{    ch := readkey; }"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "Explode"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
 {"type": "number", "value": "1"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "Explode"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
 {"type": "number", "value": "0"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "end"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n"}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "begin"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "GraphDriver"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Detect"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "InitGraph"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
@@ -846,14 +921,16 @@
 {"type": "string", "value": "'..'"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "ErrorCode"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "GraphResult"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "If"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "ErrorCode"}
@@ -863,9 +940,11 @@
 {"type": "identifier", "value": "grOk"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "then"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "begin"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "Writeln"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
@@ -877,20 +956,24 @@
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n      "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "      "}
 {"type": "identifier", "value": "Halt"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "end"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "SetColor"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": "("}
 {"type": "identifier", "value": "GetMaxColor"}
 {"type": "operator", "value": ")"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "XStart"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -901,7 +984,8 @@
 {"type": "whitespace", "value": " "}
 {"type": "number", "value": "2"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "YStart"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
@@ -912,30 +996,38 @@
 {"type": "whitespace", "value": " "}
 {"type": "number", "value": "20"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "Repeat"}
-{"type": "whitespace", "value": "\n    "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "    "}
 {"type": "identifier", "value": "ShootFireWork"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "Until"}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "Keypressed"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "Ch"}
 {"type": "whitespace", "value": " "}
 {"type": "operator", "value": ":="}
 {"type": "whitespace", "value": " "}
 {"type": "identifier", "value": "ReadKey"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "ClearDevice"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n  "}
+{"type": "newline", "value": "\n"}
+{"type": "whitespace", "value": "  "}
 {"type": "identifier", "value": "CloseGraph"}
 {"type": "operator", "value": ";"}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}
 {"type": "identifier", "value": "end"}
 {"type": "operator", "value": "."}
-{"type": "whitespace", "value": "\n"}
+{"type": "newline", "value": "\n"}

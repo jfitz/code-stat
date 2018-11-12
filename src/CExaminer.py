@@ -17,6 +17,7 @@ class CExaminer(Examiner):
     num_known_operators = 0
 
     wtb = WhitespaceTokenBuilder()
+    nltb = NewlineTokenBuilder()
 
     ntb = NumberTokenBuilder()
     itb = IdentifierTokenBuilder()
@@ -67,7 +68,7 @@ class CExaminer(Examiner):
       'printf', 'scanf'
       ]
     
-    tokenbuilders = [wtb, ntb, itb, stb, kotb, uotb, sctb, ctb, nltb, ktb]
+    tokenbuilders = [wtb, nltb, ntb, itb, stb, kotb, uotb, sctb, ctb, nltb, ktb]
     
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
