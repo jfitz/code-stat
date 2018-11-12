@@ -18,6 +18,7 @@ Write-Output "Comparing $actual against $expected"
 if (Compare-Object $(Get-Content $expected) $(Get-Content $actual)) {
     "Test $name failed"
     Copy-Item $actual $expected
+    set-variable -name failures -value ($failures + 1) -scope 1
 } else {
     "Test $name passed"
 }
