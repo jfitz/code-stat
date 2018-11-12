@@ -1,8 +1,8 @@
 Param
 (
     [string]$name,
-    [string]$language="BASIC",
-    [string]$action="confidence",
+    [string]$language,
+    [string]$action,
     [string]$inputfile,
     [string]$expected
 )
