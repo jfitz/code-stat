@@ -15,7 +15,7 @@ class Token:
     return len(self.text)
 
   def whitespace(self):
-    return self.group == 'whitespace'
+    return self.group == 'whitespace' or self.group == 'newline'
 
   def comment(self):
     return self.group == 'comment'

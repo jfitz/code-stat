@@ -36,23 +36,17 @@ class StringTokenBuilder(TokenBuilder):
   def accept(self, candidate, c):
     result = False
 
-    if c == "'" and candidate == '':
-      result = True
-    if c == "'" and len(candidate) > 0:
-      result = True
-    if c != "'" and len(candidate) == 1:
-      result = True
-    if c != "'" and len(candidate) > 1 and candidate[-1] != "'":
+    if candidate == '' and (c == "'" or c == '"'):
       result = True
 
-    if c == '"' and candidate == '':
+    if len(candidate) == 1:
       result = True
-    if c == '"' and len(candidate) > 0:
+
+    if len(candidate) > 1 and candidate[-1] != candidate[0]:
       result = True
-    if c != '"' and len(candidate) == 1:
-      result = True
-    if c != '"' and len(candidate) > 1 and candidate[-1] != '"':
-      result = True
+
+    if c == '\n' or c == '\r':
+      result = False
 
     return result
 

@@ -35,14 +35,19 @@ class StringTokenBuilder(TokenBuilder):
 
   def accept(self, candidate, c):
     result = False
-    if (c == '"' or c == "'") and candidate == '':
+
+    if candidate == '' and (c == "'" or c == '"'):
       result = True
-    if (c == '"' or c == "'") and len(candidate) > 0 and c == candidate[0]:
+
+    if len(candidate) == 1:
       result = True
-    if len(candidate) == 1 and c != candidate[0]:
-      result = True
+
     if len(candidate) > 1 and candidate[-1] != candidate[0]:
       result = True
+
+    if c == '\n' or c == '\r':
+      result = False
+
     return result
 
 # token reader for PIC descriptor
