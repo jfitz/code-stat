@@ -8,8 +8,8 @@ test\bin\run_test.ps1 -name prime_test -action confidence -language C -inputfile
 test\bin\run_test.ps1 -name prog1 -action confidence -language COBOL -inputfile ".\test\data\COBOL\PROG1.COB" -expected ".\test\ref\confidence\COBOL\PROG1.txt"
 test\bin\run_test.ps1 -name checkers -action confidence -language Cpp -inputfile ".\test\data\Cpp\checkers.cpp" -expected ".\test\ref\confidence\Cpp\checkers.txt"
 test\bin\run_test.ps1 -name firework -action confidence -language Pascal -inputfile ".\test\data\Pascal\FIREWORK.PAS" -expected ".\test\ref\confidence\Pascal\FIREWORK.txt"
-test\bin\run_test.ps1 -name hello -action confidence -language Pascal -inputfile ".\test\data\Pascal\HELLO.PAS" -expected ".\test\ref\tokens\Pascal\HELLO.txt"
-test\bin\run_test.ps1 -name rose -action confidence -language Pascal -inputfile ".\test\data\Pascal\ROSE.PAS" -expected ".\test\ref\tokens\Pascal\ROSE.txt"
-test\bin\run_test.ps1 -name spider -action confidence -language Pascal -inputfile ".\test\data\Pascal\SPIDER.PAS" -expected ".\test\ref\tokens\Pascal\SPIDER.txt"
+test\bin\run_test.ps1 -name hello -action confidence -language Pascal -inputfile ".\test\data\Pascal\HELLO.PAS" -expected ".\test\ref\confidence\Pascal\HELLO.txt"
+test\bin\run_test.ps1 -name rose -action confidence -language Pascal -inputfile ".\test\data\Pascal\ROSE.PAS" -expected ".\test\ref\confidence\Pascal\ROSE.txt"
+test\bin\run_test.ps1 -name spider -action confidence -language Pascal -inputfile ".\test\data\Pascal\SPIDER.PAS" -expected ".\test\ref\confidence\Pascal\SPIDER.txt"
 
 Write-Output "Number of failures: $failures"
