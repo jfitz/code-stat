@@ -58,6 +58,7 @@ class PictureTokenBuilder(TokenBuilder):
   def get_token(self):
     if self.token is None:
       return None
+
     return Token(self.token, 'picture')
 
   def accept(self, candidate, c):
@@ -65,10 +66,13 @@ class PictureTokenBuilder(TokenBuilder):
     num_lparens = candidate.count('(')
     num_rparens = candidate.count(')')
 
+    if candidate == '' and c == 'S':
+      result = True
+
     if num_rparens == num_lparens:
-      if c == '9' or c == 'X' or c == 'V':
+      if c in ['9', 'X', 'V', 'Z']:
         result = True
-      if c == '(':
+      if c == '(' and len(candidate) > 0:
         result = True
 
     if num_rparens == num_lparens - 1:

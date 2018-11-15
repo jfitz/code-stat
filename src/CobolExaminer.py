@@ -114,7 +114,7 @@ class CobolExaminer(Examiner):
 
     ktb = ListTokenBuilder(keywords, 'keyword')
     
-    tokenbuilders = [wtb, nltb, ntb, ktb, itb, stb, ptb, kotb, uotb]
+    tokenbuilders = [wtb, nltb, ntb, ktb, ptb, itb, stb, kotb, uotb]
     
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
