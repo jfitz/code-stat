@@ -19,7 +19,9 @@ def detect():
   bytes = request.get_data()
   text = bytes.decode('ascii')
   detected_languages = identify_language(text)
+
   json_text = json.dumps(detected_languages)
+
   return json_text
 
 @app.route('/tokens', methods=['POST'])
@@ -27,7 +29,14 @@ def tokens():
   language = request.args["language"]
   bytes = request.get_data()
   text = bytes.decode('ascii')
-  json_text = tokenize(text, language.lower())
+  tokens = tokenize(text, language.lower())
+  token_list = []
+
+  for token in tokens:
+    token_list.append(token.toDict())
+
+  json_text = json.dumps(token_list)
+
   return json_text
 
 @app.route('/confidence', methods=['POST'])
@@ -35,7 +44,9 @@ def confidence():
   language = request.args["language"]
   bytes = request.get_data()
   text = bytes.decode('ascii')
+
   json_text = tokenize_confidence(text, language.lower())
+
   return json_text
 
 
@@ -63,30 +74,28 @@ def identify_language(code):
 
 def tokenize(code, language):
   tokens = []
+
   if language in ['c++', 'cpp']:
     examiner = CppExaminer(code)
     tokens = examiner.tokens
+
   if language in ['c']:
     examiner = CExaminer(code)
     tokens = examiner.tokens
+
   if language in ['pascal', 'pas']:
     examiner = PascalExaminer(code)
     tokens = examiner.tokens
+
   if language in ['basic', 'bas']:
     examiner = BasicExaminer(code)
     tokens = examiner.tokens
+
   if language in ['cobol', 'cob', 'cbl']:
     examiner = CobolExaminer(code)
     tokens = examiner.tokens
 
-  retval = ''
-  for token in tokens:
-    if token.__class__.__name__ == 'str':
-      retval += token + '\n'
-    else:
-      retval += token.toJSON() + '\n'
-
-  return retval
+  return tokens
 
 def tokenize_confidence(code, language):
   confidences = {}
