@@ -31,6 +31,7 @@ class BasicExaminer(Examiner):
     num_known_operators = 0
 
     wtb = WhitespaceTokenBuilder()
+    nltb = NewlineTokenBuilder()
 
     ntb = BasicNumberTokenBuilder()
     vtb = VariableTokenBuilder()
@@ -66,7 +67,7 @@ class BasicExaminer(Examiner):
 
     ftb = ListTokenBuilder(functions, 'function')
 
-    tokenbuilders = [wtb, ntb, vtb, ftb, stb, kotb, uotb, ktb, rtb]
+    tokenbuilders = [wtb, nltb, ntb, vtb, ftb, stb, kotb, uotb, ktb, rtb]
 
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
@@ -75,30 +76,25 @@ class BasicExaminer(Examiner):
     for line in lines:
       line = line.strip()
       
-      seen_rem = False
       #  consider only lines with text
       if len(line) > 0:
         tokens = tokenizer.tokenize(line)
+        tokens.append(Token('\n', 'newline'))
         self.tokens += tokens
         
         for token in tokens:
-          if not seen_rem:
-            # count all tokens
-            num_tokens += 1
+          # count all tokens
+          num_tokens += 1
 
-            # count known tokens
-            if not token.group.startswith('invalid'):
-              num_known_tokens += 1
+          # count known tokens
+          if not token.group.startswith('invalid'):
+            num_known_tokens += 1
 
-            # flag the comment mode to ignore remaining tokens
-            if str(token) == 'REM' or str(token) == 'REMARK':
-              seen_rem = True
-
-            # count operators
-            if token.group == 'operator' or token.group == 'invalid operator':
-              num_operators += 1
-            if token.group == 'operator':
-              num_known_operators += 1
+          # count operators
+          if token.group == 'operator' or token.group == 'invalid operator':
+            num_operators += 1
+          if token.group == 'operator':
+            num_known_operators += 1
 
     # unknown tokens reduce confidence
     token_confidence = 1.0
