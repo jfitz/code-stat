@@ -11,7 +11,12 @@ Write-Output "Starting test $name..."
 $actual = ".\tests\$name\out.txt"
 $actual_adjusted = ".\tests\$name\out1.txt"
 $url = "http://localhost:5000/${action}?language=$language"
-mkdir -path .\tests\$name
+
+if (!(Test-Path -Path .\tests\$name )) {
+    New-Item -ItemType directory -Path .\tests\$name
+}
+Remove-Item .\tests\$name\*.*
+
 Write-Output "Invoking service $url -infile $inputfile -outfile $actual..."
 Invoke-RestMethod -method post -uri "$url" -infile $inputfile -outfile $actual
 
