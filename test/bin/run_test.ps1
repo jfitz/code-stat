@@ -21,7 +21,7 @@ Write-Output "Invoking service $url -infile $inputfile -outfile $actual..."
 Invoke-RestMethod -method post -uri "$url" -infile $inputfile -outfile $actual
 
 Write-Output "Adjusting JSON output..."
-Get-Content $actual | python src/AddNlToJson.py | Out-File $actual_adjusted
+Get-Content $actual | python src/AddNlToJson.py | python src/IndentJson.py | Out-File $actual_adjusted
 
 Write-Output "Comparing $actual against $expected..."
 if (Compare-Object $(Get-Content $expected) $(Get-Content $actual_adjusted)) {
