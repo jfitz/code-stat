@@ -45,8 +45,22 @@ function tokenize()
 
           for (i = 0; i < length; i++) {
             item = data[i];
-            if (item['type'] == "newline") {
+            if (item['type'] == 'newline') {
               formatted_results += '<br/>';
+            } else if (item['type'] == 'keyword') {
+              formatted_results += '<font color="orchid">' + item['value'] + '</font>';
+            } else if (item['type'] == 'number') {
+              formatted_results += '<font color="blue">' + item['value'] + '</font>';
+            } else if (item['type'] == 'string') {
+              formatted_results += '<font color="salmon">' + item['value'] + '</font>';
+            } else if (item['type'] == 'operator') {
+              formatted_results += '<font color="green">' + item['value'] + '</font>';
+            } else if (item['type'] == 'comment') {
+              formatted_results += '<font color="yellowgreen">' + item['value'] + '</font>';
+            } else if (item['type'] == 'remark') {
+              formatted_results += '<font color="yellowgreen">' + item['value'] + '</font>';
+            } else if (item['type'] == 'picture') {
+              formatted_results += '<font color="hotpink">' + item['value'] + '</font>';
             } else {
               formatted_results += item['value'];
             }
