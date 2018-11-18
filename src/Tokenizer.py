@@ -27,15 +27,15 @@ class Tokenizer():
 
     # see which tokenbuilder found the longest
     token = None
+    count = 0
     for tokenizer in self.tokenizers:
       t = tokenizer.get_token()
+      c = tokenizer.get_count()
 
       if t is not None:
-        if token is None:
+        if c > count:
           token = t
-        else:
-          if t.count() > token.count():
-            token = t
+          count = c
 
     return token
 

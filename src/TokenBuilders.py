@@ -17,6 +17,15 @@ class TokenBuilder:
     if len(candidate) > 0:
       self.token = candidate
 
+  def accept(self, candidate, c):
+    return False
+
+  def get_count(self):
+    if self.token is None:
+      return 0
+
+    return len(self.token)
+
 # accept any character (but only one)
 class InvalidTokenBuilder(TokenBuilder):
   def __init__(self):
@@ -30,6 +39,7 @@ class InvalidTokenBuilder(TokenBuilder):
   def get_token(self):
     if self.token is None:
       return None
+
     return Token(self.token, 'invalid')
   
 # token reader for whitespace
@@ -40,6 +50,7 @@ class WhitespaceTokenBuilder(TokenBuilder):
   def get_token(self):
     if self.token is None:
       return None
+
     return Token(self.token, 'whitespace')
 
   def accept(self, candidate, c):
@@ -55,6 +66,7 @@ class NewlineTokenBuilder(TokenBuilder):
   def get_token(self):
     if self.token is None:
       return None
+
     return Token(self.token, 'newline')
 
   def accept(self, candidate, c):
@@ -76,6 +88,7 @@ class NumberTokenBuilder(TokenBuilder):
   def get_token(self):
     if self.token is None:
       return None
+
     return Token(self.token, 'number')
 
   def accept(self, candidate, c):
@@ -94,9 +107,11 @@ class ListTokenBuilder(TokenBuilder):
     candidate = ''
     i = 0
     accepted = True
+
     while i < len(text) and accepted:
       c = text[i]
       accepted = self.accept(candidate, c)
+
       if accepted:
         candidate += c
         i += 1
@@ -109,6 +124,7 @@ class ListTokenBuilder(TokenBuilder):
   def get_token(self):
     if self.token is None:
       return None
+
     return Token(self.token, self.group)
 
   def accept(self, candidate, c):
