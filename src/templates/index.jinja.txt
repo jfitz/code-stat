@@ -40,7 +40,7 @@ function tokenize()
           results = req.responseText;
           data = JSON.parse(results)
           var div = document.getElementById('result');
-          formatted_results = '';
+          formatted_results = '<pre><code>';
           length = data.length;
 
           for (i = 0; i < length; i++) {
@@ -51,6 +51,8 @@ function tokenize()
               formatted_results += item['value'];
             }
           }
+
+          formatted_results += '</code></pre>'
 
           div.innerHTML = formatted_results;
         } else {
