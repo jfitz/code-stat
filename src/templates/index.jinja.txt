@@ -27,6 +27,16 @@ function detectLanguage()
 
 function tokenize()
 {
+    html_colors = {
+      keyword: 'orchid',
+      number: 'blue',
+      string: 'salmon',
+      operator: 'green',
+      comment: 'yellowgreen',
+      remark: 'yellowgreen',
+      picture: 'hotpink'
+    };
+
     var results = '';
     var code = document.getElementById('code').value;
     var language = document.getElementById('language').value;
@@ -45,24 +55,16 @@ function tokenize()
 
           for (i = 0; i < length; i++) {
             item = data[i];
-            if (item['type'] == 'newline') {
+            item_type = item['type'];
+            item_value = item['value'];
+            if (item_type == 'newline') {
               formatted_results += '<br/>';
-            } else if (item['type'] == 'keyword') {
-              formatted_results += '<font color="orchid">' + item['value'] + '</font>';
-            } else if (item['type'] == 'number') {
-              formatted_results += '<font color="blue">' + item['value'] + '</font>';
-            } else if (item['type'] == 'string') {
-              formatted_results += '<font color="salmon">' + item['value'] + '</font>';
-            } else if (item['type'] == 'operator') {
-              formatted_results += '<font color="green">' + item['value'] + '</font>';
-            } else if (item['type'] == 'comment') {
-              formatted_results += '<font color="yellowgreen">' + item['value'] + '</font>';
-            } else if (item['type'] == 'remark') {
-              formatted_results += '<font color="yellowgreen">' + item['value'] + '</font>';
-            } else if (item['type'] == 'picture') {
-              formatted_results += '<font color="hotpink">' + item['value'] + '</font>';
+            } else if (item_type in html_colors) {
+              front_html = '<font color=' + html_colors[item['type']] + '>';
+              back_html = '</font>';
+              formatted_results += front_html + item_value + back_html;
             } else {
-              formatted_results += item['value'];
+              formatted_results += item_value;
             }
           }
 
