@@ -38,13 +38,27 @@ function tokenize()
       if (req.readyState === 4) {
         if (req.status === 200) {
           results = req.responseText;
+          data = JSON.parse(results)
           var div = document.getElementById('result');
-          div.innerText = results
+          formatted_results = '';
+          length = data.length;
+
+          for (i = 0; i < length; i++) {
+            item = data[i];
+            if (item['type'] == "newline") {
+              formatted_results += '<br/>';
+            } else {
+              formatted_results += item['value'];
+            }
+          }
+
+          div.innerHTML = formatted_results;
         } else {
           console.error(req.statusText);
         }
       }
     };
+
     req.onerror = function (e) {
       console.error(req.statusText);
     };

@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def code_stat():
-  html = render_template('index.jinja.txt', title='CodeStat')
+  html = render_template('index.jinja.txt', title='Code-Stat')
   return html
 
 @app.route('/detect', methods=['POST'])
