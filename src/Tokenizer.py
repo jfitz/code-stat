@@ -6,16 +6,21 @@ class Tokenizer():
   def tokenize(self, text):
     tokens = []
     while len(text) > 0:
-      token = self.try_tokenizers(text)
+      token = None
+      tokenizer = self.try_tokenizers(text)
 
-      if token == None and self.invalid_tokenizer != None:
-        token = self.try_invalid(text)
+      if tokenizer is not None:
+        token = tokenizer.get_token()
+      else:
+        if self.invalid_tokenizer != None:
+          tokenizer = self.invalid_tokenizer
+          token = self.try_invalid(text)
 
       if token == None:
-          raise Exception("Cannot tokenize '#{text}'")
+        raise Exception("Cannot tokenize '#{text}'")
 
       tokens.append(token)
-      count = token.count()
+      count = tokenizer.get_count()
       text = text[count:]
     
     return tokens
@@ -26,6 +31,7 @@ class Tokenizer():
       tokenizer.attempt(text)
 
     # see which tokenbuilder found the longest
+    winner = None
     token = None
     count = 0
     for tokenizer in self.tokenizers:
@@ -36,8 +42,9 @@ class Tokenizer():
         if c > count:
           token = t
           count = c
+          winner = tokenizer
 
-    return token
+    return winner
 
   def try_invalid(self, text):
     self.invalid_tokenizer.attempt(text)
