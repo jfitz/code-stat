@@ -37,7 +37,6 @@ if (Compare-Object $(Get-Content $expected) $(Get-Content $actual_final)) {
 } else {
     Write-Output ""
     "Test $name passed"
-    Copy-Item $actual_final $expected
 }
 
 Write-Output "****** ****** ******"
