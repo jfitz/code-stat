@@ -85,7 +85,18 @@ class RemarkTokenBuilder(TokenBuilder):
     if self.token == None:
       return None
 
-    return [Token(self.token, 'remark')]
+    token1 = Token('', 'comment')
+    token2 = Token('', 'comment')
+
+    if self.token.startswith('REM'):
+      token1 = Token('REM', 'keyword')
+      token2 = Token(self.token[3:], 'comment')
+
+    if self.token.startswith('REMARK'):
+      token1 = Token('REMARK', 'keyword')
+      token2 = Token(self.token[6:], 'comment')
+
+    return [token1, token2]
 
   def accept(self, candidate, c):
     result = False
