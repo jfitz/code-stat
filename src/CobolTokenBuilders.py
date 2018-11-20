@@ -63,7 +63,15 @@ class PictureTokenBuilder(TokenBuilder):
     if self.token is None:
       return None
 
-    return [Token(self.token, 'picture')]
+    tokens = None
+    if self.token[-1] == '.':
+      token1 = Token(self.token[:-1], 'picture')
+      token2 = Token('.', 'operator')
+      tokens = [token1, token2]
+    else:
+      tokens = [Token(self.token, 'picture')]
+
+    return tokens
 
   def accept(self, candidate, c):
     result = False
@@ -74,14 +82,19 @@ class PictureTokenBuilder(TokenBuilder):
       result = True
 
     if num_rparens == num_lparens:
-      if c in ['9', 'X', 'V', 'Z', ',', '.']:
+      if c in ['9', 'X', 'Z', 'V', ',', '.'] and len(candidate) > 0:
         result = True
+
+      if c in ['9', 'X', 'Z'] and candidate =='':
+        result = True
+
       if c == '(' and len(candidate) > 0:
         result = True
 
     if num_rparens == num_lparens - 1:
       if c.isdigit():
         result = True
+
       if c == ')':
         result = True
 
