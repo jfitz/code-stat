@@ -1,1 +1,1 @@
-start-process .\src\main.py
+start-process python .\src\main.py
