@@ -6,11 +6,11 @@ class BasicNumberTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = None
 
-  def get_token(self):
+  def get_tokens(self):
     if self.token is None:
       return None
 
-    return Token(self.token, 'number')
+    return [Token(self.token, 'number')]
 
   def accept(self, candidate, c):
     result = False
@@ -28,11 +28,11 @@ class VariableTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = None
 
-  def get_token(self):
+  def get_tokens(self):
     if self.token is None:
       return None
 
-    return Token(self.token, 'identifier')
+    return [Token(self.token, 'identifier')]
 
   def accept(self, candidate, c):
     result = False
@@ -53,11 +53,11 @@ class StringTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = ''
 
-  def get_token(self):
+  def get_tokens(self):
     if self.token is None:
       return None
 
-    return Token(self.token, 'string')
+    return [Token(self.token, 'string')]
 
   def accept(self, candidate, c):
     result = False
@@ -81,10 +81,11 @@ class RemarkTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = ''
 
-  def get_token(self):
+  def get_tokens(self):
     if self.token == None:
       return None
-    return Token(self.token, 'remark')
+
+    return [Token(self.token, 'remark')]
 
   def accept(self, candidate, c):
     result = False
