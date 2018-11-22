@@ -12,7 +12,7 @@ function detectLanguage()
       if (req.readyState === 4) {
         if (req.status === 200) {
           results = req.responseText;
-          var div = document.getElementById('result');
+          var div = document.getElementById('detect_result');
           div.innerText = results
         } else {
           console.error(req.statusText);
@@ -50,7 +50,6 @@ function tokenize()
         if (req.status === 200) {
           results = req.responseText;
           data = JSON.parse(results)
-          var div = document.getElementById('result');
           formatted_results = '<pre><code>';
           length = data.length;
 
@@ -71,6 +70,7 @@ function tokenize()
 
           formatted_results += '</code></pre>'
 
+          var div = document.getElementById('tokens_result');
           div.innerHTML = formatted_results;
         } else {
           console.error(req.statusText);
@@ -99,6 +99,8 @@ Welcome to the CodeStat page!
 <option>Pascal</option>
 </select>
 <input type="button" OnClick="tokenize();" value="Tokenize"/>
-<div id="result"></div>
+<div id="detect_result"></div>
+<div id="confidence_result"></div>
+<div id="tokens_result"></div>
 </body>
 </HTML>
