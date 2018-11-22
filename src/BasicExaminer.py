@@ -50,9 +50,10 @@ class BasicExaminer(Examiner):
     uotb = ListTokenBuilder(unknown_operators, 'invalid operator')
 
     keywords = [
-      'CHANGE', 'CLOSE', 'DATA', 'DEF', 'DIM', 'END', 'FOR', 'GOSUB',
-      'GOTO', 'IF', 'INPUT', 'LET', 'OPEN', 'NEXT', 'PRINT', 'RANDOMIZE',
-      'READ', 'REM', 'REMARK', 'RESTORE', 'RETURN', 'STOP'
+      'AS', 'CHANGE', 'CLOSE', 'DATA', 'DEF', 'DIM', 'ELSE', 'END', 'ERROR',
+      'FILE', 'FOR', 'GOSUB', 'GO', 'GOTO', 'IF', 'INPUT', 'LET', 'ON', 'OPEN',
+      'OUTPUT', 'NEXT', 'PRINT', 'RANDOMIZE', 'READ', 'REM', 'REMARK',
+      'RESTORE', 'RETURN', 'STEP', 'STOP', 'THEN', 'TO'
       ]
 
     ktb = ListTokenBuilder(keywords, 'keyword')

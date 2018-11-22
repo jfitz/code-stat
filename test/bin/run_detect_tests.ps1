@@ -3,6 +3,9 @@ Set-StrictMode -Version Latest
 [int]$failures = 0
 
 test\bin\run_test.ps1 -name simple -action detect -inputfile ".\test\data\BASIC\simple.bas" -expected ".\test\ref\detect\BASIC\simple.txt"
+test\bin\run_test.ps1 -name 3dplot -action detect -inputfile ".\test\data\BASIC\3dplot.bas" -expected ".\test\ref\detect\BASIC\3dplot.txt"
+test\bin\run_test.ps1 -name batnum -action detect -inputfile ".\test\data\BASIC\batnum.bas" -expected ".\test\ref\detect\BASIC\batnum.txt"
+test\bin\run_test.ps1 -name life -action detect -inputfile ".\test\data\BASIC\life.bas" -expected ".\test\ref\detect\BASIC\life.txt"
 test\bin\run_test.ps1 -name diamond -action detect -inputfile ".\test\data\C\diamond.c" -expected ".\test\ref\detect\C\diamond.txt"
 test\bin\run_test.ps1 -name prime_test -action detect -inputfile ".\test\data\C\prime_test.c" -expected ".\test\ref\detect\C\prime_test.txt"
 test\bin\run_test.ps1 -name prog1 -action detect -inputfile ".\test\data\COBOL\PROG1.COB" -expected ".\test\ref\detect\COBOL\PROG1.txt"

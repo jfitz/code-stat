@@ -91,7 +91,13 @@ Welcome to the CodeStat page!
 <br/>
 <input type="button" OnClick="detectLanguage();" value="Detect language"/>
 <br/>
-<input type="text" id="language"/>
+<select name="language" id="language">
+<option>BASIC</option>
+<option>COBOL</option>
+<option>C</option>
+<option>Cpp</option>
+<option>Pascal</option>
+</select>
 <input type="button" OnClick="tokenize();" value="Tokenize"/>
 <div id="result"></div>
 </body>

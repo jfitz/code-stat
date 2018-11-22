@@ -45,10 +45,11 @@ class PascalExaminer(Examiner):
     nltb = NewlineTokenBuilder()
     
     keywords = [
-      'and', 'begin', 'case', 'div', 'do', 'downto', 'else', 'end', 'for',
-      'forward', 'function', 'goto', 'if', 'int', 'nil', 'not', 'of', 'or',
-      'otherwise', 'packed', 'procedure', 'program', 'real', 'record',
-      'repeat', 'then', 'to', 'until', 'uses', 'value', 'var', 'while'
+      'and', 'array', 'begin', 'boolean', 'break', 'case', 'char', 'const',
+      'do', 'downto', 'else', 'end', 'false', 'file', 'for', 'forward',
+      'function', 'goto', 'if', 'integer', 'label', 'nil', 'of', 'otherwise',
+      'packed', 'procedure', 'program', 'real', 'record', 'repeat', 'set',
+      'string', 'then', 'to', 'true', 'until', 'uses', 'value', 'var', 'while'
       ]
 
     ktb = ListTokenBuilder(keywords, 'keyword')
