@@ -36,7 +36,7 @@ Write-Output "Invoking service $url -infile $inputfile -outfile $actual..."
 Invoke-RestMethod -method post -uri "$url" -infile $inputfile -outfile $actual
 
 Write-Output "Adjusting JSON output..."
-Get-Content $actual | python src/AddNlToJson.py | python src/IndentJson.py | Out-File $actual_adjusted
+Get-Content $actual | python AddNlToJson.py | python IndentJson.py | Out-File $actual_adjusted
 dotnet test\bin\UTF16-UTF8.dll "$actual_adjusted" "$actual_final"
 
 Write-Output "Comparing $actual_final against $expected..."
