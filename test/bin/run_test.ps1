@@ -14,7 +14,18 @@ Write-Output ""
 $actual = ".\tests\$name\out.txt"
 $actual_adjusted = ".\tests\$name\out1.txt"
 $actual_final = ".\tests\$name\out2.txt"
-$url = "http://localhost:5000/${action}?language=$language"
+$target = "localhost:5000"
+$params = ""
+
+if (![string]::IsNullOrEmpty($language)) {
+    $params = "language=$language"
+}
+
+if ([string]::IsNullOrEmpty($params)) {
+    $url = "http://" + $target + "/" + $action
+} else {
+    $url = "http://" + $target + "/" + $action + "?" + $params
+}
 
 if (!(Test-Path -Path .\tests\$name )) {
     New-Item -ItemType directory -Path .\tests\$name
