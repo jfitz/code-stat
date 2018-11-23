@@ -85,7 +85,7 @@ class PictureTokenBuilder(TokenBuilder):
       if c in ['9', 'X', 'Z', 'V', ',', '.'] and len(candidate) > 0:
         result = True
 
-      if c in ['9', 'X', 'Z'] and candidate =='':
+      if c in ['9', 'X', 'Z', 'V'] and candidate =='':
         result = True
 
       if c == '(' and len(candidate) > 0:

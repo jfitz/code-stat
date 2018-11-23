@@ -29,7 +29,7 @@ class PascalExaminer(Examiner):
     known_operators = [
       '+', '-', '*', '/',
       '=', '<>', '>', '>=', '<', '<=',
-      'and', 'then', 'or', 'else', 'not',
+      'and', 'or', 'not',
       '&', '|', '~', '<<', '>>',
       ':=', '^', '~',
       '(', ')', ',', '.', ':', ';',
@@ -37,10 +37,10 @@ class PascalExaminer(Examiner):
       'div', 'mod', 'shl', 'shr', 'in'
       ]
     
-    kotb = ListTokenBuilder(known_operators, 'operator')
+    kotb = ListTokenBuilder(known_operators, 'operator', False)
 
     unknown_operators = set(self.common_operators()) - set(known_operators)
-    uotb = ListTokenBuilder(unknown_operators, 'invalid operator')
+    uotb = ListTokenBuilder(unknown_operators, 'invalid operator', False)
 
     nltb = NewlineTokenBuilder()
     
@@ -52,9 +52,9 @@ class PascalExaminer(Examiner):
       'string', 'then', 'to', 'true', 'until', 'uses', 'value', 'var', 'while'
       ]
 
-    ktb = ListTokenBuilder(keywords, 'keyword')
+    ktb = ListTokenBuilder(keywords, 'keyword', False)
 
-    tokenbuilders = [wtb, nltb, stb, kotb, uotb, bctb, ctb, nltb, ntb, itb, ktb]
+    tokenbuilders = [wtb, nltb, stb, kotb, uotb, bctb, ctb, ntb, ktb, itb]
     
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)

@@ -96,9 +96,10 @@ class NumberTokenBuilder(TokenBuilder):
 
 # accept characters to match item in list
 class ListTokenBuilder(TokenBuilder):
-  def __init__(self, legals, group):
+  def __init__(self, legals, group, case_sensitive):
     self.legals = legals
     self.group = group
+    self.case_sensitive = case_sensitive
     self.token = ''
 
   def attempt(self, text):
@@ -115,8 +116,12 @@ class ListTokenBuilder(TokenBuilder):
       if accepted:
         candidate += c
         i += 1
-        if candidate in self.legals:
-          best_candidate = candidate
+        if self.case_sensitive:
+          if candidate in self.legals:
+            best_candidate = candidate
+        else:
+          if candidate.lower() in self.legals:
+            best_candidate = candidate
 
     if len(best_candidate) > 0:
       self.token = best_candidate
@@ -132,8 +137,13 @@ class ListTokenBuilder(TokenBuilder):
     count = len(token)
     result = False
 
-    for legal in self.legals:
-      if legal[:count] == token:
-        result = True
+    if self.case_sensitive:
+      for legal in self.legals:
+        if legal[:count] == token:
+          result = True
+    else:
+      for legal in self.legals:
+        if legal[:count] == token.lower():
+          result = True
 
     return result

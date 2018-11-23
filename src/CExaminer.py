@@ -38,10 +38,10 @@ class CExaminer(Examiner):
       '?', '{', '}'
       ]
 
-    kotb = ListTokenBuilder(known_operators, 'operator')
+    kotb = ListTokenBuilder(known_operators, 'operator', True)
 
     unknown_operators = set(self.common_operators()) - set(known_operators)
-    uotb = ListTokenBuilder(unknown_operators, 'invalid operator')
+    uotb = ListTokenBuilder(unknown_operators, 'invalid operator', True)
 
     nltb = NewlineTokenBuilder()
 
@@ -58,7 +58,7 @@ class CExaminer(Examiner):
       '#define', '#include'
       ]
     
-    ktb = ListTokenBuilder(keywords, 'keyword')
+    ktb = ListTokenBuilder(keywords, 'keyword', True)
 
     power_keywords = [
       'typedef',

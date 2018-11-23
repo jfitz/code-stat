@@ -44,10 +44,10 @@ class BasicExaminer(Examiner):
       '(', ')', ',', ':', ';', '&', '#', '\\'
       ]
     
-    kotb = ListTokenBuilder(known_operators, 'operator')
+    kotb = ListTokenBuilder(known_operators, 'operator', True)
 
     unknown_operators = set(self.common_operators()) - set(known_operators)
-    uotb = ListTokenBuilder(unknown_operators, 'invalid operator')
+    uotb = ListTokenBuilder(unknown_operators, 'invalid operator', True)
 
     keywords = [
       'AS', 'CHANGE', 'CLOSE', 'DATA', 'DEF', 'DIM', 'ELSE', 'END', 'ERROR',
@@ -56,7 +56,7 @@ class BasicExaminer(Examiner):
       'RESTORE', 'RETURN', 'STEP', 'STOP', 'THEN', 'TO'
       ]
 
-    ktb = ListTokenBuilder(keywords, 'keyword')
+    ktb = ListTokenBuilder(keywords, 'keyword', True)
 
     functions = [
       'ABS', 'ASC', 'CHR$', 'COS', 'DET', 'INV', 'LEFT$', 'LEN', 'MID$', 'RIGHT$',
@@ -66,7 +66,7 @@ class BasicExaminer(Examiner):
       'FNU', 'FNV', 'FNW', 'FNX', 'FNY', 'FNZ'
     ]
 
-    ftb = ListTokenBuilder(functions, 'function')
+    ftb = ListTokenBuilder(functions, 'function', True)
 
     tokenbuilders = [wtb, nltb, ntb, vtb, ftb, stb, kotb, uotb, ktb, rtb]
 
