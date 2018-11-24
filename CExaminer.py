@@ -9,8 +9,6 @@ class CExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
-    lines = code.split('\n')
-
     num_tokens = 0
     num_known_tokens = 0
     num_operators = 0
@@ -25,6 +23,7 @@ class CExaminer(Examiner):
 
     sctb = SlashCommentTokenBuilder()
     ctb = CommentTokenBuilder()
+    cpptb = CPreProcessorTokenBuilder()
 
     known_operators = [
       '+', '-', '*', '/', '%',
@@ -53,22 +52,21 @@ class CExaminer(Examiner):
       'for', 'while', 'do',
       'const', 'volatile', 'sizeof',
       'if', 'else', 'switch', 'case', 'default',
-      'goto', 'continue', 'break',
       'struct', 'union', 'void', 'return',
-      '#define', '#include'
+      'goto', 'continue', 'break'
       ]
     
     ktb = ListTokenBuilder(keywords, 'keyword', True)
 
-    power_keywords = [
-      'typedef',
-      'auto', 'extern', 'register',
-      'const', 'volatile', 'sizeof',
-      '#define', '#include',
-      'printf', 'scanf'
+    cpp_keywords = [
+      'private', 'protected', 'public',
+      'true', 'false',
+      'cin', 'cout',
+      'bool', 'class', 'friend', 'operator',
+      'try', 'catch', 'throw'
       ]
     
-    tokenbuilders = [wtb, nltb, ntb, itb, stb, kotb, uotb, sctb, ctb, nltb, ktb]
+    tokenbuilders = [wtb, nltb, ntb, ktb, itb, stb, kotb, uotb, sctb, ctb, cpptb, nltb]
     
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
@@ -77,8 +75,8 @@ class CExaminer(Examiner):
     num_end = 0
     num_keywords = 0
     found_keywords = {}
-    num_power_keywords = 0
-    found_power_keywords = {}
+    num_cpp_keywords = 0
+    found_cpp_keywords = {}
 
     tokens = tokenizer.tokenize(code)
     for token in tokens:
@@ -106,10 +104,10 @@ class CExaminer(Examiner):
         num_keywords += 1
         found_keywords[token_lower] = True
 
-      # count power keywords
-      if token_lower in power_keywords:
-        num_power_keywords += 1
-        found_power_keywords[token_lower] = True
+      # count C++ keywords
+      if token_lower in cpp_keywords:
+        num_cpp_keywords += 1
+        found_cpp_keywords[token_lower] = True
 
     # consider the number of matches for begin/end
     num_begin_end = num_begin + num_end
@@ -122,15 +120,20 @@ class CExaminer(Examiner):
     if num_keywords > 0:
       keyword_confidence = len(found_keywords) / len(keywords)
 
-    #  unknown tokens reduce confidence
+    # unknown tokens reduce confidence
     token_confidence = 1
     if num_tokens > 0:
       token_confidence = num_known_tokens / num_tokens
 
-    #  unknown operators reduce confidence
+    # unknown operators reduce confidence
     operator_confidence = 1
     if num_operators > 0:
       operator_confidence = num_known_operators / num_operators
+
+    # C++ keywords reduce confidence
+    cpp_keyword_confidence = 1
+    if num_cpp_keywords > 0:
+      cpp_keyword_confidence = len(found_cpp_keywords) / num_cpp_keywords
 
     # compute confidence
     self.confidence = brace_match_confidence * token_confidence * operator_confidence
@@ -138,6 +141,7 @@ class CExaminer(Examiner):
       'brace_match': brace_match_confidence,
       'keyword': keyword_confidence,
       'token': token_confidence,
-      'operator': operator_confidence
+      'operator': operator_confidence,
+      'cpp_keyword': cpp_keyword_confidence
       }
     self.tokens = tokens

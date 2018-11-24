@@ -1,35 +1,11 @@
 ﻿[
     {
-        "type": "keyword",
-        "value": "#include"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "operator",
-        "value": "<"
-    },
-    {
-        "type": "identifier",
-        "value": "stdio"
-    },
-    {
-        "type": "operator",
-        "value": "."
-    },
-    {
-        "type": "identifier",
-        "value": "h"
-    },
-    {
-        "type": "operator",
-        "value": ">"
+        "type": "preprocessor",
+        "value": "#include <stdio.h>\r"
     },
     {
         "type": "newline",
-        "value": "\r\n"
+        "value": "\n"
     },
     {
         "type": "whitespace",
@@ -68,7 +44,7 @@
         "value": "   "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -192,7 +168,7 @@
         "value": "   "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "if"
     },
     {
@@ -272,7 +248,7 @@
         "value": "   "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "else"
     },
     {
@@ -296,7 +272,7 @@
         "value": "       "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "for"
     },
     {
@@ -428,7 +404,7 @@
         "value": "           "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "if"
     },
     {
@@ -496,7 +472,7 @@
         "value": "              "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "break"
     },
     {
@@ -524,7 +500,7 @@
         "value": "       "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "if"
     },
     {
@@ -604,7 +580,7 @@
         "value": "       "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "else"
     },
     {
@@ -656,7 +632,7 @@
         "value": "   "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "return"
     },
     {

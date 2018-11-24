@@ -1,79 +1,23 @@
 ﻿[
     {
-        "type": "keyword",
-        "value": "#include"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "operator",
-        "value": "<"
-    },
-    {
-        "type": "identifier",
-        "value": "iostream"
-    },
-    {
-        "type": "operator",
-        "value": ">"
+        "type": "preprocessor",
+        "value": "#include <iostream>"
     },
     {
         "type": "newline",
         "value": "\n"
     },
     {
-        "type": "keyword",
-        "value": "#include"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "operator",
-        "value": "<"
-    },
-    {
-        "type": "identifier",
-        "value": "stdio"
-    },
-    {
-        "type": "operator",
-        "value": "."
-    },
-    {
-        "type": "identifier",
-        "value": "h"
-    },
-    {
-        "type": "operator",
-        "value": ">"
+        "type": "preprocessor",
+        "value": "#include <stdio.h>"
     },
     {
         "type": "newline",
         "value": "\n"
     },
     {
-        "type": "keyword",
-        "value": "#include"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "operator",
-        "value": "<"
-    },
-    {
-        "type": "identifier",
-        "value": "string"
-    },
-    {
-        "type": "operator",
-        "value": ">"
+        "type": "preprocessor",
+        "value": "#include <string>"
     },
     {
         "type": "newline",
@@ -88,32 +32,8 @@
         "value": "\n"
     },
     {
-        "type": "keyword",
-        "value": "#include"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "operator",
-        "value": "<"
-    },
-    {
-        "type": "identifier",
-        "value": "SpelGraph"
-    },
-    {
-        "type": "operator",
-        "value": "."
-    },
-    {
-        "type": "identifier",
-        "value": "h"
-    },
-    {
-        "type": "operator",
-        "value": ">"
+        "type": "preprocessor",
+        "value": "#include <SpelGraph.h>"
     },
     {
         "type": "newline",
@@ -160,7 +80,7 @@
         "value": "\n"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "const"
     },
     {
@@ -168,7 +88,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -196,7 +116,7 @@
         "value": "\n"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "const"
     },
     {
@@ -204,7 +124,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -232,7 +152,7 @@
         "value": "\n"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "const"
     },
     {
@@ -240,7 +160,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -268,7 +188,7 @@
         "value": "\n"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "const"
     },
     {
@@ -276,7 +196,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -304,7 +224,7 @@
         "value": "\n"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "const"
     },
     {
@@ -312,7 +232,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -360,7 +280,7 @@
         "value": "\n"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "class"
     },
     {
@@ -384,7 +304,7 @@
         "value": "\n"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "private"
     },
     {
@@ -400,7 +320,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "char"
     },
     {
@@ -460,7 +380,7 @@
         "value": "\n"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "public"
     },
     {
@@ -524,7 +444,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "bool"
     },
     {
@@ -540,7 +460,7 @@
         "value": "("
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "unsigned"
     },
     {
@@ -548,7 +468,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -568,7 +488,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "char"
     },
     {
@@ -604,7 +524,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "bool"
     },
     {
@@ -644,7 +564,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "void"
     },
     {
@@ -684,7 +604,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "void"
     },
     {
@@ -700,7 +620,7 @@
         "value": "("
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -712,7 +632,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -740,7 +660,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "void"
     },
     {
@@ -756,7 +676,7 @@
         "value": "("
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -768,7 +688,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -796,7 +716,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -812,7 +732,7 @@
         "value": "("
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -824,7 +744,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -852,7 +772,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "void"
     },
     {
@@ -868,7 +788,7 @@
         "value": "("
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -884,7 +804,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -964,7 +884,7 @@
         "value": "\n"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "class"
     },
     {
@@ -988,7 +908,7 @@
         "value": "\n"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "private"
     },
     {
@@ -1004,7 +924,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "char"
     },
     {
@@ -1080,7 +1000,7 @@
         "value": "\n"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "public"
     },
     {
@@ -1148,7 +1068,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "void"
     },
     {
@@ -1248,7 +1168,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "void"
     },
     {
@@ -1264,7 +1184,7 @@
         "value": "("
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "char"
     },
     {
@@ -1300,7 +1220,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "char"
     },
     {
@@ -1380,7 +1300,7 @@
         "value": "\n"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -1396,7 +1316,7 @@
         "value": "("
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -1416,7 +1336,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "char"
     },
     {
@@ -1616,7 +1536,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "bool"
     },
     {
@@ -1640,7 +1560,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "false"
     },
     {
@@ -1656,7 +1576,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -1696,7 +1616,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "unsigned"
     },
     {
@@ -1704,7 +1624,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -1752,7 +1672,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "char"
     },
     {
@@ -1780,7 +1700,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -2036,7 +1956,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "while"
     },
     {
@@ -2628,7 +2548,7 @@
         "value": "\t\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "while"
     },
     {
@@ -2980,7 +2900,7 @@
         "value": "\t\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "if"
     },
     {
@@ -3320,7 +3240,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "true"
     },
     {
@@ -3352,7 +3272,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "else"
     },
     {
@@ -3388,7 +3308,7 @@
         "value": "\t\t\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "if"
     },
     {
@@ -3428,7 +3348,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "break"
     },
     {
@@ -3964,7 +3884,7 @@
         "value": "\t\t\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "while"
     },
     {
@@ -4316,7 +4236,7 @@
         "value": "\t\t\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "if"
     },
     {
@@ -4656,7 +4576,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "true"
     },
     {
@@ -4772,7 +4692,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "if"
     },
     {
@@ -4800,7 +4720,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "false"
     },
     {
@@ -4816,7 +4736,7 @@
         "value": "\t\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "cout"
     },
     {
@@ -4872,7 +4792,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "cout"
     },
     {
@@ -4976,7 +4896,7 @@
         "value": "    "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "return"
     },
     {
@@ -5092,7 +5012,7 @@
         "value": "\n"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -5112,7 +5032,7 @@
         "value": "\n"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -5140,7 +5060,7 @@
         "value": "\n"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "for"
     },
     {
@@ -5232,7 +5152,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "for"
     },
     {
@@ -5328,7 +5248,7 @@
         "value": "\t\t\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "if"
     },
     {
@@ -5408,7 +5328,7 @@
         "value": "\t\t\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "cout"
     },
     {
@@ -5440,7 +5360,7 @@
         "value": "\t\t\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "else"
     },
     {
@@ -5448,7 +5368,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "if"
     },
     {
@@ -5532,7 +5452,7 @@
         "value": "\t\t\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "cout"
     },
     {
@@ -5564,7 +5484,7 @@
         "value": "\t\t\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "else"
     },
     {
@@ -5572,7 +5492,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "if"
     },
     {
@@ -5656,7 +5576,7 @@
         "value": "\t\t\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "cout"
     },
     {
@@ -5684,7 +5604,7 @@
         "value": "\t\t\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "else"
     },
     {
@@ -5692,7 +5612,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "if"
     },
     {
@@ -5776,7 +5696,7 @@
         "value": "\t\t\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "cout"
     },
     {
@@ -5804,7 +5724,7 @@
         "value": "\t\t\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "else"
     },
     {
@@ -5816,7 +5736,7 @@
         "value": "\t\t\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "cout"
     },
     {
@@ -5860,7 +5780,7 @@
         "value": "\t\t\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "cout"
     },
     {
@@ -5932,7 +5852,7 @@
         "value": "\n"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "bool"
     },
     {
@@ -5956,7 +5876,7 @@
         "value": "("
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "unsigned"
     },
     {
@@ -5964,7 +5884,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -5984,7 +5904,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "char"
     },
     {
@@ -6016,7 +5936,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -6072,7 +5992,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -6144,7 +6064,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "if"
     },
     {
@@ -6332,7 +6252,7 @@
         "value": "\t\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "return"
     },
     {
@@ -6340,7 +6260,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "false"
     },
     {
@@ -6356,7 +6276,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "else"
     },
     {
@@ -6388,7 +6308,7 @@
         "value": "\t\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "if"
     },
     {
@@ -6520,7 +6440,7 @@
         "value": "\t\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "else"
     },
     {
@@ -6700,7 +6620,7 @@
         "value": "\t\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "return"
     },
     {
@@ -6708,7 +6628,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "true"
     },
     {
@@ -6776,7 +6696,7 @@
         "value": "\n"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "bool"
     },
     {
@@ -6820,7 +6740,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "if"
     },
     {
@@ -14976,7 +14896,7 @@
         "value": "\t\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "return"
     },
     {
@@ -14984,7 +14904,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "true"
     },
     {
@@ -15008,7 +14928,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "else"
     },
     {
@@ -15020,7 +14940,7 @@
         "value": "\t\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "return"
     },
     {
@@ -15028,7 +14948,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "false"
     },
     {
@@ -15076,7 +14996,7 @@
         "value": "\n"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "void"
     },
     {
@@ -15100,7 +15020,7 @@
         "value": "("
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -15124,7 +15044,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -15160,7 +15080,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "while"
     },
     {
@@ -15384,7 +15304,7 @@
         "value": "\n"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "void"
     },
     {
@@ -15800,7 +15720,7 @@
         "value": "\n"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "void"
     },
     {
@@ -15824,7 +15744,7 @@
         "value": "("
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -15844,7 +15764,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -16172,7 +16092,7 @@
         "value": "\n"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "void"
     },
     {
@@ -16196,7 +16116,7 @@
         "value": "("
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -16216,7 +16136,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -16600,7 +16520,7 @@
         "value": "\n"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -16624,7 +16544,7 @@
         "value": "("
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -16644,7 +16564,7 @@
         "value": " "
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -16676,7 +16596,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -16740,7 +16660,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -16812,7 +16732,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "int"
     },
     {
@@ -16884,7 +16804,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "return"
     },
     {
@@ -17036,7 +16956,7 @@
         "value": "\n"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "void"
     },
     {
@@ -17184,7 +17104,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "return"
     },
     {
@@ -17228,7 +17148,7 @@
         "value": "\n"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "void"
     },
     {
@@ -17252,7 +17172,7 @@
         "value": "("
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "char"
     },
     {
@@ -17328,7 +17248,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "if"
     },
     {
@@ -17436,7 +17356,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "else"
     },
     {
@@ -17508,7 +17428,7 @@
         "value": "\n"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "char"
     },
     {
@@ -17552,7 +17472,7 @@
         "value": "\t"
     },
     {
-        "type": "identifier",
+        "type": "keyword",
         "value": "return"
     },
     {

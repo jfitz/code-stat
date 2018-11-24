@@ -9,8 +9,6 @@ class CppExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
-    lines = code.split('\n')
-
     num_tokens = 0
     num_known_tokens = 0
     num_operators = 0
@@ -25,6 +23,7 @@ class CppExaminer(Examiner):
 
     sctb = SlashCommentTokenBuilder()
     ctb = CommentTokenBuilder()
+    cpptb = CPreProcessorTokenBuilder()
 
     known_operators = [
       '+', '-', '*', '/', '%',
@@ -46,32 +45,34 @@ class CppExaminer(Examiner):
     nltb = NewlineTokenBuilder()
 
     keywords = [
-      'bool', 'int', 'char', 'float', 'double',
+      'int', 'char', 'float', 'double',
       'signed', 'unsigned', 'short', 'long',
-      'class', 'typedef', 'enum', 'friend', 'operator',
-      'auto', 'extern', 'register', 'static', 'const',
-      'for', 'while', 'do', 'try', 'catch', 'throw',
+      'typedef', 'enum',
+      'auto', 'extern', 'register', 'static',
+      'for', 'while', 'do',
       'const', 'volatile', 'sizeof',
       'if', 'else', 'switch', 'case', 'default',
-      'true', 'false',
-      'goto', 'continue', 'break',
       'struct', 'union', 'void', 'return',
+      'goto', 'continue', 'break',
       'new', 'delete', 'explicit', 'mutable',
       'private', 'protected', 'public',
-      '#define', '#include',
-      'cin', 'cout'
+      'true', 'false',
+      'cin', 'cout',
+      'bool', 'class', 'friend', 'operator',
+      'try', 'catch', 'throw'
       ]
 
     ktb = ListTokenBuilder(keywords, 'keyword', True)
 
     power_keywords = [
-      'bool', 'class', 'friend', 'operator',
-      'const', 'volatile', 'sizeof',
       'private', 'protected', 'public',
-      'cin', 'cout'
+      'true', 'false',
+      'cin', 'cout',
+      'bool', 'class', 'friend', 'operator',
+      'try', 'catch', 'throw'
       ]
     
-    tokenbuilders = [wtb, nltb, ntb, itb, stb, kotb, uotb, sctb, ctb, nltb, ktb]
+    tokenbuilders = [wtb, nltb, ntb, ktb, itb, stb, kotb, uotb, sctb, ctb, cpptb, nltb]
     
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
@@ -138,6 +139,7 @@ class CppExaminer(Examiner):
     # compute confidence
     self.confidence = brace_match_confidence * token_confidence * operator_confidence
     self.confidences = {
+      'keyword_confidence': keyword_confidence,
       'brace_match': brace_match_confidence,
       'token': token_confidence,
       'operator': operator_confidence
