@@ -86,15 +86,23 @@ function tokenize()
             item_type = item['type'];
             item_value = item['value'];
             item_safe = text_to_safe_html(item_value);
+            item_html = 'empty';
+
             if (item_type == 'newline') {
-              formatted_results += '<br/>';
+              item_html = '<br/>'; 
+            } else if (item_type.startsWith('invalid')) {
+              front_html = '<font color=red>';
+              back_html = '</font>';
+              item_html = front_html + item_safe + back_html;
             } else if (item_type in html_colors) {
               front_html = '<font color=' + html_colors[item['type']] + '>';
               back_html = '</font>';
-              formatted_results += front_html + item_safe + back_html;
+              item_html = front_html + item_safe + back_html;
             } else {
-              formatted_results += item_safe;
+              item_html = item_safe;
             }
+
+            formatted_results += item_html;
           }
 
           formatted_results += '</pre></code>'
