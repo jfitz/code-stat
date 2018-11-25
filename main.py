@@ -9,11 +9,6 @@ from CppExaminer import CppExaminer
 
 app = Flask(__name__)
 
-@app.route('/')
-def code_stat():
-  html = render_template('index.jinja.txt', title='Code-Stat')
-  return html
-
 @app.route('/detect', methods=['POST'])
 def detect():
   bytes = request.get_data()

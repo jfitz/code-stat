@@ -41,6 +41,14 @@ function detectLanguage()
     req.send(code);
 }
 
+function text_to_safe_html(str) {
+  s1 = str.replace(/&/g, '&amp;');
+  s2 = s1.replace(/</g, '&lt;');
+  s3 = s2.replace(/>/g, '&gt;');
+  s4 = s3.replace(/"/g, '&quot;');
+  return s4;
+}
+
 function tokenize()
 {
     html_colors = {
@@ -67,25 +75,26 @@ function tokenize()
         if (req.status === 200) {
           results = req.responseText;
           data = JSON.parse(results)
-          formatted_results = '<pre><code>';
+          formatted_results = '<code><pre>';
           length = data.length;
 
           for (i = 0; i < length; i++) {
             item = data[i];
             item_type = item['type'];
             item_value = item['value'];
+            item_safe = text_to_safe_html(item_value);
             if (item_type == 'newline') {
               formatted_results += '<br/>';
             } else if (item_type in html_colors) {
               front_html = '<font color=' + html_colors[item['type']] + '>';
               back_html = '</font>';
-              formatted_results += front_html + item_value + back_html;
+              formatted_results += front_html + item_safe + back_html;
             } else {
-              formatted_results += item_value;
+              formatted_results += item_safe;
             }
           }
 
-          formatted_results += '</code></pre>'
+          formatted_results += '</pre></code>'
 
           var div = document.getElementById('tokens_result');
           div.innerHTML = formatted_results;
