@@ -28,6 +28,9 @@ function detectLanguage()
             }
           }
 
+          if (language_name == 'C++') {
+            language_name = 'Cpp';
+          }
           var language_select = document.getElementById('language');
           language_select.value = language_name
         } else {
