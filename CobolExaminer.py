@@ -488,16 +488,43 @@ class CobolExaminer(Examiner):
 
     found_keywords = set()
     
+    # The official COBOL line format is:
+    # 1-6: line number or blank (ignored)
+    # 7: space or *
+    # 8-71: program text
+    # 72-: identification, traditionally sequence number (ignored)
+    #
+    
     self.tokens = []
     for line in lines:
       line = line.rstrip()
-      
-      if line.startswith('      *'):
-        self.tokens.append(Token('      ', 'whitespace'))
+
+      line_number = line[:5]
+      line_indicator = ''
+      if len(line) > 6:
+        line_indicator = line[6]
+      line_text = ''
+      if len(line) > 7:
+        line_text = line[7:71]
+      line_identification = ''
+      if len(line) > 72:
+        line_identification = line[72:]
+
+      if len(line_number) > 0:
+        if line_number.isspace():
+          self.tokens.append(Token(line_number, 'whitespace'))
+        else:
+          self.tokens.append(Token(line_number, 'number'))
+
+      if len(line_identification) > 0:
+        self.tokens.append(Token(line_identification, 'string'))
+
+      if line_indicator == '*':
         self.tokens.append(Token(line[6:], 'comment'))
         self.tokens.append(Token('\n', 'newline'))
       else:
-        tokens = tokenizer.tokenize(line)
+        self.tokens.append(Token(' ', 'whitespace')) # the indicator column
+        tokens = tokenizer.tokenize(line_text)
         tokens.append(Token('\n', 'newline'))
         self.tokens += tokens
         
