@@ -4,7 +4,8 @@ Param
     [string]$language,
     [string]$action,
     [string]$inputfile,
-    [string]$expected
+    [string]$expected,
+    [switch]$json
 )
 
 Write-Output "****** ****** ******"
@@ -35,9 +36,13 @@ Remove-Item .\tests\$name\*.*
 Write-Output "Invoking service $url -infile $inputfile -outfile $actual..."
 Invoke-RestMethod -method post -uri "$url" -infile $inputfile -outfile $actual
 
-Write-Output "Adjusting JSON output..."
-Get-Content $actual | python AddNlToJson.py | python IndentJson.py | Out-File $actual_adjusted
-dotnet test\bin\UTF16-UTF8.dll "$actual_adjusted" "$actual_final"
+if ($json) {
+    Write-Output "Adjusting JSON output..."
+    Get-Content $actual | python AddNlToJson.py | python IndentJson.py | Out-File $actual_adjusted
+    dotnet test\bin\UTF16-UTF8.dll "$actual_adjusted" "$actual_final"
+} else {
+    Get-Content $actual | Out-File $actual_final
+}
 
 Write-Output "Comparing $actual_final against $expected..."
 if (Compare-Object $(Get-Content $expected) $(Get-Content $actual_final)) {

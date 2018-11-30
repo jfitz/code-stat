@@ -9,6 +9,14 @@ from CppExaminer import CppExaminer
 
 app = Flask(__name__)
 
+@app.route('/detab', methods=['POST'])
+def detab():
+  bytes = request.get_data()
+  text = bytes.decode('ascii')
+  detabbed_text = tabs_to_spaces(text)
+
+  return detabbed_text
+
 @app.route('/detect', methods=['POST'])
 def detect():
   bytes = request.get_data()
@@ -43,6 +51,37 @@ def confidence():
   json_text = tokenize_confidence(text, language.lower())
 
   return json_text
+
+
+def tabs_to_spaces(text):
+  tab_size = 8
+
+  if 'tabsize' in request.args:
+    tab_size = request.args['tabsize']
+ 
+    try:
+      tab_size = int(tab_size)
+    except ValueError:
+      tab_size = 8
+ 
+  column = 0
+  detabbed_text = ''
+
+  for c in text:
+    if c == '\n':
+      detabbed_text += c
+      column = 0
+    else:
+      if c == '\t':
+        next_tab_stop = int((column + tab_size) / tab_size) * tab_size
+        while column < next_tab_stop:
+          detabbed_text += ' '
+          column += 1
+      else:
+        detabbed_text += c
+        column += 1
+  
+  return detabbed_text
 
 
 def identify_language(code):
