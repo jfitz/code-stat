@@ -10,7 +10,6 @@ class CppExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
-    num_tokens = 0
     num_known_tokens = 0
     num_operators = 0
     num_known_operators = 0
@@ -85,11 +84,9 @@ class CppExaminer(Examiner):
     num_power_keywords = 0
     found_power_keywords = {}
 
-    tokens = tokenizer.tokenize(code)
-    for token in tokens:
+    self.tokens = tokenizer.tokenize(code)
+    for token in self.tokens:
       token_lower = str(token).lower()
-      
-      num_tokens += 1
       
       if not token.group.startswith('invalid'):
         num_known_tokens += 1
@@ -129,8 +126,8 @@ class CppExaminer(Examiner):
 
     #  unknown tokens reduce confidence
     token_confidence = 1
-    if num_tokens > 0:
-      token_confidence = num_known_tokens / num_tokens
+    if len(self.tokens) > 0:
+      token_confidence = num_known_tokens / len(self.tokens)
 
     #  unknown operators reduce confidence
     operator_confidence = 1
@@ -145,4 +142,3 @@ class CppExaminer(Examiner):
       'token': token_confidence,
       'operator': operator_confidence
     }
-    self.tokens = tokens

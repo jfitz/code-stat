@@ -25,7 +25,6 @@ class BasicExaminer(Examiner):
       line_format_confidence = num_lines_start_num / num_nonblank_lines
 
     # Pass 2 - tokens
-    num_tokens = 0
     num_known_tokens = 0
     num_operators = 0
     num_known_operators = 0
@@ -75,6 +74,7 @@ class BasicExaminer(Examiner):
 
     self.tokens = []
     for line in lines:
+      line = line.strip('\r')
       line = line.strip()
       
       #  consider only lines with text
@@ -88,9 +88,6 @@ class BasicExaminer(Examiner):
         tokens.append(Token('\n', 'newline'))
         self.tokens += tokens
         
-        # count tokens
-        num_tokens += len(tokens)
-
         # count known tokens
         for token in tokens:
           if not token.group.startswith('invalid'):
@@ -108,8 +105,8 @@ class BasicExaminer(Examiner):
 
     # unknown tokens reduce confidence
     token_confidence = 1.0
-    if num_tokens > 0:
-      token_confidence = num_known_tokens / num_tokens
+    if len(self.tokens) > 0:
+      token_confidence = num_known_tokens / len(self.tokens)
 
     #  unknown operators reduce confidence
     operator_confidence = 1.0

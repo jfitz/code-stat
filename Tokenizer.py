@@ -19,7 +19,7 @@ class Tokenizer():
           new_tokens = self.try_invalid(text)
 
       if new_tokens == None:
-        raise Exception("Cannot tokenize '#{text}'")
+        raise Exception("Cannot tokenize '" + text + "'")
 
       tokens += new_tokens
       count = tokenizer.get_count()

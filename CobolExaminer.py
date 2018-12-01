@@ -10,7 +10,6 @@ class CobolExaminer(Examiner):
 
     lines = code.split('\n')
 
-    num_tokens = 0
     num_known_tokens = 0
     num_operators = 0
     num_known_operators = 0
@@ -497,6 +496,7 @@ class CobolExaminer(Examiner):
     
     self.tokens = []
     for line in lines:
+      line = line.rstrip('\r')
       line = line.rstrip()
 
       line_number = line[:6]
@@ -516,26 +516,28 @@ class CobolExaminer(Examiner):
       if len(line_number) > 0:
         if line_number.isspace():
           self.tokens.append(Token(line_number, 'whitespace'))
+          num_known_tokens += 1
         else:
           if line_number.isdigit():
             self.tokens.append(Token(line_number, 'line number'))
+            num_known_tokens += 1
           else:
-            self.tokens.append(Token(line_number, 'invalid'))
+            self.tokens.append(Token(line_number, 'invalid 1'))
 
       if line_indicator == '*':
         # the entire line is a comment
         self.tokens.append(Token(line[6:], 'comment'))
+        num_known_tokens += 1
       else:
         if line_indicator == ' ':
           self.tokens.append(Token(' ', 'whitespace')) # the indicator column
+          num_known_tokens += 1
         else:
-          self.tokens.append(Token(line_indicator, 'invalid'))
+          if line_indicator != '':
+            self.tokens.append(Token(line_indicator, 'invalid 2'))
 
         tokens = tokenizer.tokenize(line_text)
         self.tokens += tokens
-
-        # count tokens
-        num_tokens += len(tokens)
 
         # count invalid tokens
         for token in tokens:
@@ -559,8 +561,10 @@ class CobolExaminer(Examiner):
 
       if len(line_identification) > 0:
         self.tokens.append(Token(line_identification, 'line identification'))
+        num_known_tokens += 1
 
       self.tokens.append(Token('\n', 'newline'))
+      num_known_tokens += 1
 
     # count unique keywords and compare to number of tokens
     keyword_confidence = 0
@@ -570,8 +574,8 @@ class CobolExaminer(Examiner):
 
     #  unknown tokens reduce confidence
     token_confidence = 1
-    if num_tokens > 0:
-      token_confidence = num_known_tokens / num_tokens
+    if len(self.tokens) > 0:
+      token_confidence = num_known_tokens / len(self.tokens)
 
     #  unknown operators reduce confidence
     operator_confidence = 1
