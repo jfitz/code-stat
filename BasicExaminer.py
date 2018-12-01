@@ -80,20 +80,29 @@ class BasicExaminer(Examiner):
       #  consider only lines with text
       if len(line) > 0:
         tokens = tokenizer.tokenize(line)
+
+        # convert leading number to line number
+        if len(tokens) > 0 and tokens[0].group == 'number':
+          tokens[0] = Token(tokens[0].text, 'line number')
+
         tokens.append(Token('\n', 'newline'))
         self.tokens += tokens
         
-        for token in tokens:
-          # count all tokens
-          num_tokens += 1
+        # count tokens
+        num_tokens += len(tokens)
 
-          # count known tokens
+        # count known tokens
+        for token in tokens:
           if not token.group.startswith('invalid'):
             num_known_tokens += 1
 
-          # count operators
+        # count all operators
+        for token in tokens:
           if token.group == 'operator' or token.group == 'invalid operator':
             num_operators += 1
+
+        # count valid operators
+        for token in tokens:
           if token.group == 'operator':
             num_known_operators += 1
 

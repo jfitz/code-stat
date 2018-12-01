@@ -499,13 +499,16 @@ class CobolExaminer(Examiner):
     for line in lines:
       line = line.rstrip()
 
-      line_number = line[:5]
+      line_number = line[:6]
+
       line_indicator = ''
       if len(line) > 6:
         line_indicator = line[6]
+
       line_text = ''
       if len(line) > 7:
         line_text = line[7:71]
+
       line_identification = ''
       if len(line) > 72:
         line_identification = line[72:]
@@ -514,34 +517,50 @@ class CobolExaminer(Examiner):
         if line_number.isspace():
           self.tokens.append(Token(line_number, 'whitespace'))
         else:
-          self.tokens.append(Token(line_number, 'number'))
-
-      if len(line_identification) > 0:
-        self.tokens.append(Token(line_identification, 'string'))
+          if line_number.isdigit():
+            self.tokens.append(Token(line_number, 'line number'))
+          else:
+            self.tokens.append(Token(line_number, 'invalid'))
 
       if line_indicator == '*':
+        # the entire line is a comment
         self.tokens.append(Token(line[6:], 'comment'))
-        self.tokens.append(Token('\n', 'newline'))
       else:
-        self.tokens.append(Token(' ', 'whitespace')) # the indicator column
+        if line_indicator == ' ':
+          self.tokens.append(Token(' ', 'whitespace')) # the indicator column
+        else:
+          self.tokens.append(Token(line_indicator, 'invalid'))
+
         tokens = tokenizer.tokenize(line_text)
-        tokens.append(Token('\n', 'newline'))
         self.tokens += tokens
-        
+
+        # count tokens
+        num_tokens += len(tokens)
+
+        # count invalid tokens
         for token in tokens:
-          num_tokens += 1
           if not token.group.startswith('invalid'):
             num_known_tokens += 1
 
-          # count operators
+        # count all operators
+        for token in tokens:
           if token.group == 'operator' or token.group == 'invalid operator':
             num_operators += 1
+
+        # count valid operators
+        for token in tokens:
           if token.group == 'operator':
             num_known_operators += 1
 
-          # collect keywords for counting
+        # collect keywords for counting
+        for token in tokens:
           if token.group == 'keyword':
             found_keywords.add(str(token))
+
+      if len(line_identification) > 0:
+        self.tokens.append(Token(line_identification, 'line identification'))
+
+      self.tokens.append(Token('\n', 'newline'))
 
     # count unique keywords and compare to number of tokens
     keyword_confidence = 0
