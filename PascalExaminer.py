@@ -54,8 +54,6 @@ class PascalExaminer(Examiner):
 
     first_token = ''
     last_token = ''
-    num_begin = 0
-    num_end = 0
     num_keywords = 0
     found_keywords = {}
 
@@ -63,17 +61,12 @@ class PascalExaminer(Examiner):
     for token in self.tokens:
       token_lower = str(token).lower()
       
+      # get the first and last meaningful tokens
       if first_token == '' and not token.whitespace() and not token.comment():
         first_token = token
-        
+
       if not token.whitespace() and not token.comment():
         last_token = token
-        
-      # count 'begin' and 'end' keywords for matches
-      if token_lower == 'begin':
-        num_begin += 1
-      if token_lower == 'end':
-        num_end += 1
 
       # count keywords
       if token_lower in keywords:
@@ -96,6 +89,7 @@ class PascalExaminer(Examiner):
       program_end_confidence += 0.25
 
     # consider the number of matches for begin/end
+    ok, num_begin, num_end = self.check_paired_tokens(self.tokens, 'begin', 'end')
     num_begin_end = num_begin + num_end
     begin_end_confidence = 1
     if num_begin_end > 0:

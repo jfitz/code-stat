@@ -45,3 +45,25 @@ class Examiner:
         num += 1
 
     return num
+
+  def check_paired_tokens(self, tokens, open_token, close_token):
+    level = 0
+    min_level = 0
+    num_open = 0
+    num_close = 0
+
+    for token in tokens:
+      token_lower = str(token).lower()
+
+      if token_lower == open_token:
+        num_open += 1
+        level += 1
+
+      if token_lower == close_token:
+        num_close += 1
+        level -= 1
+        if level < min_level:
+          min_level = level
+
+    ok = level == 0 and min_level == 0
+    return ok, num_open, num_close

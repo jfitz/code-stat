@@ -73,8 +73,6 @@ class CppExaminer(Examiner):
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 
-    num_begin = 0
-    num_end = 0
     num_keywords = 0
     found_keywords = {}
     num_power_keywords = 0
@@ -84,12 +82,6 @@ class CppExaminer(Examiner):
     for token in self.tokens:
       token_lower = str(token).lower()
       
-      # count 'begin' and 'end' keywords for matches
-      if token_lower == '{':
-        num_begin += 1
-      if token_lower == '}':
-        num_end += 1
-
       # count keywords
       if token_lower in keywords:
         num_keywords += 1
@@ -105,6 +97,7 @@ class CppExaminer(Examiner):
     num_known_operators = self.count_known_operators(self.tokens)
 
     # consider the number of matches for begin/end
+    ok, num_begin, num_end = self.check_paired_tokens(self.tokens, '{', '}')
     num_begin_end = num_begin + num_end
     brace_match_confidence = 0
     if num_begin_end > 0:
