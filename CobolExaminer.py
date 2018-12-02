@@ -11,7 +11,7 @@ class CobolExaminer(Examiner):
     lines = code.split('\n')
 
     num_known_tokens = 0
-    num_operators = 0
+    num_invalid_operators = 0
     num_known_operators = 0
 
     wtb = WhitespaceTokenBuilder()
@@ -522,7 +522,7 @@ class CobolExaminer(Examiner):
             self.tokens.append(Token(line_number, 'line number'))
             num_known_tokens += 1
           else:
-            self.tokens.append(Token(line_number, 'invalid 1'))
+            self.tokens.append(Token(line_number, 'invalid'))
 
       if line_indicator == '*':
         # the entire line is a comment
@@ -534,25 +534,19 @@ class CobolExaminer(Examiner):
           num_known_tokens += 1
         else:
           if line_indicator != '':
-            self.tokens.append(Token(line_indicator, 'invalid 2'))
+            self.tokens.append(Token(line_indicator, 'invalid'))
 
         tokens = tokenizer.tokenize(line_text)
         self.tokens += tokens
 
-        # count invalid tokens
-        for token in tokens:
-          if not token.group.startswith('invalid'):
-            num_known_tokens += 1
+        # count valid tokens
+        num_known_tokens += self.count_valid_tokens(tokens)
 
-        # count all operators
-        for token in tokens:
-          if token.group == 'operator' or token.group == 'invalid operator':
-            num_operators += 1
+        # count invalid operators
+        num_invalid_operators += self.count_invalid_operators(tokens)
 
         # count valid operators
-        for token in tokens:
-          if token.group == 'operator':
-            num_known_operators += 1
+        num_known_operators += self.count_known_operators(tokens)
 
         # collect keywords for counting
         for token in tokens:
@@ -579,6 +573,7 @@ class CobolExaminer(Examiner):
 
     #  unknown operators reduce confidence
     operator_confidence = 1
+    num_operators = num_known_operators + num_invalid_operators
     if num_operators > 0:
       operator_confidence = num_known_operators / num_operators
 

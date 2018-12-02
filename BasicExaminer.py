@@ -26,7 +26,7 @@ class BasicExaminer(Examiner):
 
     # Pass 2 - tokens
     num_known_tokens = 0
-    num_operators = 0
+    num_invalid_operators = 0
     num_known_operators = 0
 
     wtb = WhitespaceTokenBuilder()
@@ -89,19 +89,13 @@ class BasicExaminer(Examiner):
         self.tokens += tokens
         
         # count known tokens
-        for token in tokens:
-          if not token.group.startswith('invalid'):
-            num_known_tokens += 1
+        num_known_tokens += self.count_valid_tokens(tokens)
 
-        # count all operators
-        for token in tokens:
-          if token.group == 'operator' or token.group == 'invalid operator':
-            num_operators += 1
+        # count invalid operators
+        num_invalid_operators += self.count_invalid_operators(tokens)
 
         # count valid operators
-        for token in tokens:
-          if token.group == 'operator':
-            num_known_operators += 1
+        num_known_operators += self.count_known_operators(tokens)
 
     # unknown tokens reduce confidence
     token_confidence = 1.0
@@ -110,6 +104,7 @@ class BasicExaminer(Examiner):
 
     #  unknown operators reduce confidence
     operator_confidence = 1.0
+    num_operators = num_known_operators + num_invalid_operators
     if num_operators > 0:
       operator_confidence = num_known_operators / num_operators
 
