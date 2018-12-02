@@ -26,35 +26,6 @@ class IdentifierTokenBuilder(TokenBuilder):
 
     return result
 
-# token reader for text literal (string)
-class StringTokenBuilder(TokenBuilder):
-  def __init__(self, quotes):
-    self.quotes = quotes
-    self.token = ''
-
-  def get_tokens(self):
-    if self.token is None:
-      return None
-
-    return [Token(self.token, 'string')]
-
-  def accept(self, candidate, c):
-    result = False
-
-    if len(candidate) == 0 and c in self.quotes:
-      result = True
-
-    if len(candidate) == 1:
-      result = True
-
-    if len(candidate) > 1 and candidate[-1] != candidate[0]:
-      result = True
-
-    if c == '\n' or c == '\r':
-      result = False
-
-    return result
-
 # token reader for PIC descriptor
 class PictureTokenBuilder(TokenBuilder):
   def __init__(self):
