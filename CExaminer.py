@@ -10,10 +10,6 @@ class CExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
-    num_known_tokens = 0
-    num_operators = 0
-    num_known_operators = 0
-
     wtb = WhitespaceTokenBuilder()
     nltb = NewlineTokenBuilder()
 
@@ -82,20 +78,11 @@ class CExaminer(Examiner):
     for token in self.tokens:
       token_lower = str(token).lower()
       
-      if not token.group.startswith('invalid'):
-        num_known_tokens += 1
-        
       # count 'begin' and 'end' keywords for matches
       if token_lower == '{':
         num_begin += 1
       if token_lower == '}':
         num_end += 1
-
-      # count operators
-      if token.group == 'operator' or token.group == 'invalid operator':
-        num_operators += 1
-      if token.group == 'operator':
-        num_known_operators += 1
 
       # count keywords
       if token_lower in keywords:
@@ -106,6 +93,10 @@ class CExaminer(Examiner):
       if token_lower in cpp_keywords:
         num_cpp_keywords += 1
         found_cpp_keywords[token_lower] = True
+
+    num_known_tokens = self.count_valid_tokens(self.tokens)
+    num_invalid_operators = self.count_invalid_operators(self.tokens)
+    num_known_operators = self.count_known_operators(self.tokens)
 
     # consider the number of matches for begin/end
     num_begin_end = num_begin + num_end
@@ -125,6 +116,7 @@ class CExaminer(Examiner):
 
     # unknown operators reduce confidence
     operator_confidence = 1
+    num_operators = num_known_operators + num_invalid_operators
     if num_operators > 0:
       operator_confidence = num_known_operators / num_operators
 

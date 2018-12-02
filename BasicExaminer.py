@@ -88,13 +88,8 @@ class BasicExaminer(Examiner):
         tokens.append(Token('\n', 'newline'))
         self.tokens += tokens
         
-        # count known tokens
         num_known_tokens += self.count_valid_tokens(tokens)
-
-        # count invalid operators
         num_invalid_operators += self.count_invalid_operators(tokens)
-
-        # count valid operators
         num_known_operators += self.count_known_operators(tokens)
 
     # unknown tokens reduce confidence

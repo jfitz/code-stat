@@ -9,10 +9,6 @@ class PascalExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
-    num_known_tokens = 0
-    num_operators = 0
-    num_known_operators = 0
-
     wtb = WhitespaceTokenBuilder()
     nltb = NewlineTokenBuilder()
 
@@ -67,9 +63,6 @@ class PascalExaminer(Examiner):
     for token in self.tokens:
       token_lower = str(token).lower()
       
-      if not token.group.startswith('invalid'):
-        num_known_tokens += 1
-        
       if first_token == '' and not token.whitespace() and not token.comment():
         first_token = token
         
@@ -82,16 +75,14 @@ class PascalExaminer(Examiner):
       if token_lower == 'end':
         num_end += 1
 
-      # count operators
-      if token.group == 'operator' or token.group == 'invalid operator':
-        num_operators += 1
-      if token.group == 'operator':
-        num_known_operators += 1
-
       # count keywords
       if token_lower in keywords:
         num_keywords += 1
         found_keywords[token_lower] = True
+
+    num_known_tokens = self.count_valid_tokens(self.tokens)
+    num_invalid_operators = self.count_invalid_operators(self.tokens)
+    num_known_operators = self.count_known_operators(self.tokens)
 
     # program should begin with 'program'
     program_end_confidence = 0
@@ -122,6 +113,7 @@ class PascalExaminer(Examiner):
 
     #  unknown operators reduce confidence
     operator_confidence = 1
+    num_operators = num_known_operators + num_invalid_operators
     if num_operators > 0:
       operator_confidence = num_known_operators / num_operators
 
