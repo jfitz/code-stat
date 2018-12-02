@@ -52,26 +52,22 @@ class PascalExaminer(Examiner):
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 
-    first_token = ''
-    last_token = ''
-    num_keywords = 0
-    found_keywords = {}
+    found_keywords = set()
 
     self.tokens = tokenizer.tokenize(code)
+
+    # get the first and last meaningful tokens
+    first_token = ''
+    last_token = ''
+
     for token in self.tokens:
-      token_lower = str(token).lower()
-      
-      # get the first and last meaningful tokens
       if first_token == '' and not token.whitespace() and not token.comment():
         first_token = token
 
       if not token.whitespace() and not token.comment():
         last_token = token
 
-      # count keywords
-      if token_lower in keywords:
-        num_keywords += 1
-        found_keywords[token_lower] = True
+    found_keywords = self.find_keywords(self.tokens)
 
     num_known_tokens = self.count_valid_tokens(self.tokens)
     num_invalid_operators = self.count_invalid_operators(self.tokens)
@@ -96,9 +92,7 @@ class PascalExaminer(Examiner):
       begin_end_confidence = (num_begin + num_end) / num_begin_end
 
     # recognized keywords improve confidence
-    keyword_confidence = 0
-    if num_keywords > 0:
-      keyword_confidence = len(found_keywords) / len(keywords)
+    keyword_confidence = len(found_keywords) / len(keywords)
 
     #  unknown tokens reduce confidence
     token_confidence = 1

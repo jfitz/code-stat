@@ -19,8 +19,10 @@ class Examiner:
       '%>%'
       ]
 
+
   def common_operators(self):
     return self.operators
+
 
   def count_valid_tokens(self, tokens):
     num = 0
@@ -30,6 +32,7 @@ class Examiner:
 
     return num
 
+
   def count_invalid_operators(self, tokens):
     num = 0
     for token in tokens:
@@ -38,6 +41,7 @@ class Examiner:
 
     return num
 
+
   def count_known_operators(self, tokens):
     num = 0
     for token in tokens:
@@ -45,6 +49,17 @@ class Examiner:
         num += 1
 
     return num
+
+
+  def find_keywords(self, tokens):
+    found_keywords = set()
+
+    for token in tokens:
+      if token.group == 'keyword':
+        found_keywords.add(str(token))
+
+    return found_keywords
+
 
   def check_paired_tokens(self, tokens, open_token, close_token):
     level = 0

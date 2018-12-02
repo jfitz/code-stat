@@ -543,10 +543,7 @@ class CobolExaminer(Examiner):
         num_invalid_operators += self.count_invalid_operators(tokens)
         num_known_operators += self.count_known_operators(tokens)
 
-        # collect keywords for counting
-        for token in tokens:
-          if token.group == 'keyword':
-            found_keywords.add(str(token))
+        found_keywords |= self.find_keywords(tokens)
 
       if len(line_identification) > 0:
         self.tokens.append(Token(line_identification, 'line identification'))
