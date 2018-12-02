@@ -67,20 +67,10 @@ class CExaminer(Examiner):
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 
-    found_keywords = set()
-    num_cpp_keywords = 0
-    found_cpp_keywords = {}
-
     self.tokens = tokenizer.tokenize(code)
-    for token in self.tokens:
-      token_lower = str(token).lower()
-      
-      # count C++ keywords
-      if token_lower in cpp_keywords:
-        num_cpp_keywords += 1
-        found_cpp_keywords[token_lower] = True
 
     found_keywords = self.find_keywords(self.tokens)
+    found_cpp_keywords = self.find_specific_keywords(self.tokens, cpp_keywords)
 
     num_known_tokens = self.count_valid_tokens(self.tokens)
     num_invalid_operators = self.count_invalid_operators(self.tokens)
@@ -108,12 +98,10 @@ class CExaminer(Examiner):
       operator_confidence = num_known_operators / num_operators
 
     # C++ keywords reduce confidence
-    cpp_keyword_confidence = 1
-    if num_cpp_keywords > 0:
-      cpp_keyword_confidence = len(found_cpp_keywords) / num_cpp_keywords
+    cpp_keyword_confidence = 1.0 - len(found_cpp_keywords) / len(cpp_keywords)
 
     # compute confidence
-    self.confidence = brace_match_confidence * token_confidence * operator_confidence
+    self.confidence = brace_match_confidence * token_confidence * operator_confidence * cpp_keyword_confidence
     self.confidences = {
       'brace_match': brace_match_confidence,
       'keyword': keyword_confidence,

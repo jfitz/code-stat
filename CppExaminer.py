@@ -73,20 +73,10 @@ class CppExaminer(Examiner):
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 
-    found_keywords = set()
-    num_power_keywords = 0
-    found_power_keywords = {}
-
     self.tokens = tokenizer.tokenize(code)
-    for token in self.tokens:
-      token_lower = str(token).lower()
       
-      # count power keywords
-      if token_lower in power_keywords:
-        num_power_keywords += 1
-        found_power_keywords[token_lower] = True
-
     found_keywords = self.find_keywords(self.tokens)
+    found_power_keywords = self.find_specific_keywords(self.tokens, power_keywords)
 
     num_known_tokens = self.count_valid_tokens(self.tokens)
     num_invalid_operators = self.count_invalid_operators(self.tokens)

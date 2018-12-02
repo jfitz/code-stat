@@ -61,6 +61,18 @@ class Examiner:
     return found_keywords
 
 
+  def find_specific_keywords(self, tokens, keywords):
+    found_keywords = set()
+
+    for token in tokens:
+      if token.group == 'keyword':
+        token_lower = str(token).lower()
+        if token_lower in keywords:
+          found_keywords.add(str(token))
+
+    return found_keywords
+
+
   def check_paired_tokens(self, tokens, open_token, close_token):
     level = 0
     min_level = 0
