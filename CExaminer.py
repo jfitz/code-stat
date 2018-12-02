@@ -15,7 +15,7 @@ class CExaminer(Examiner):
 
     ntb = NumberTokenBuilder()
     itb = IdentifierTokenBuilder()
-    stb = StringTokenBuilder()
+    stb = StringTokenBuilder(['"', "'"])
 
     sctb = SlashCommentTokenBuilder()
     ctb = CommentTokenBuilder()

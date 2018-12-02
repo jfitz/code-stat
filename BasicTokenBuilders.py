@@ -50,7 +50,8 @@ class VariableTokenBuilder(TokenBuilder):
 
 # token reader for text literal (string)
 class StringTokenBuilder(TokenBuilder):
-  def __init__(self):
+  def __init__(self, quotes):
+    self.quotes = quotes
     self.token = ''
 
   def get_tokens(self):
@@ -62,7 +63,7 @@ class StringTokenBuilder(TokenBuilder):
   def accept(self, candidate, c):
     result = False
 
-    if candidate == '' and c == '"':
+    if len(candidate) == 0 and c in self.quotes:
       result = True
 
     if len(candidate) == 1:

@@ -18,7 +18,7 @@ class CobolExaminer(Examiner):
 
     ntb = NumberTokenBuilder()
     itb = IdentifierTokenBuilder()
-    stb = StringTokenBuilder()
+    stb = StringTokenBuilder(['"', "'"])
     ptb = PictureTokenBuilder()
 
     known_operators = [

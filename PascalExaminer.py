@@ -14,7 +14,7 @@ class PascalExaminer(Examiner):
 
     ntb = NumberTokenBuilder()
     itb = IdentifierTokenBuilder()
-    stb = StringTokenBuilder()
+    stb = StringTokenBuilder(["'"])
 
     bctb = BraceCommentTokenBuilder()
     ctb = CommentTokenBuilder()

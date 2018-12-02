@@ -34,7 +34,7 @@ class BasicExaminer(Examiner):
 
     ntb = BasicNumberTokenBuilder()
     vtb = VariableTokenBuilder()
-    stb = StringTokenBuilder()
+    stb = StringTokenBuilder(['"'])
     rtb = RemarkTokenBuilder()
 
     known_operators = [
