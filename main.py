@@ -3,7 +3,7 @@ import codecs
 from flask import Flask, request, render_template
 from BasicExaminer import BasicExaminer
 from PascalExaminer import PascalExaminer
-from CobolExaminer import CobolExaminer
+from FixedFormatCobolExaminer import FixedFormatCobolExaminer
 from CExaminer import CExaminer
 from CppExaminer import CppExaminer
 
@@ -95,8 +95,8 @@ def identify_language(code):
   pascal_examiner = PascalExaminer(code)
   retval['Pascal'] = pascal_examiner.confidence
 
-  cobol_examiner = CobolExaminer(code)
-  retval['COBOL'] = cobol_examiner.confidence
+  fixed_cobol_examiner = FixedFormatCobolExaminer(code)
+  retval['Fixed-Format-COBOL'] = fixed_cobol_examiner.confidence
 
   c_examiner = CExaminer(code)
   retval['C'] = c_examiner.confidence
@@ -125,28 +125,33 @@ def tokenize(code, language):
     examiner = BasicExaminer(code)
     tokens = examiner.tokens
 
-  if language in ['cobol', 'cob', 'cbl']:
-    examiner = CobolExaminer(code)
+  if language in ['fixed-format-cobol', 'cobol', 'cob', 'cbl']:
+    examiner = FixedFormatCobolExaminer(code)
     tokens = examiner.tokens
 
   return tokens
 
 def tokenize_confidence(code, language):
   confidences = {}
+
   if language in ['c++', 'cpp']:
     examiner = CppExaminer(code)
     confidences = examiner.confidences
+
   if language in ['c']:
     examiner = CExaminer(code)
     confidences = examiner.confidences
+
   if language in ['pascal', 'pas']:
     examiner = PascalExaminer(code)
     confidences = examiner.confidences
+
   if language in ['basic', 'bas']:
     examiner = BasicExaminer(code)
     confidences = examiner.confidences
-  if language in ['cobol', 'cob', 'cbl']:
-    examiner = CobolExaminer(code)
+
+  if language in ['fixed-format-cobol', 'cobol', 'cob', 'cbl']:
+    examiner = FixedFormatCobolExaminer(code)
     confidences = examiner.confidences
 
   retval = json.dumps(confidences)
