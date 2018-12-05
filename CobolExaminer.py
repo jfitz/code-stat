@@ -480,7 +480,7 @@ class CobolExaminer(Examiner):
       'ZEROS'
     ]
 
-    ktb = ListTokenBuilder(keywords, 'keyword', True)
+    ktb = ListTokenBuilder(keywords, 'keyword', False)
 
     cpptb = CobolPreprocessorTokenBuilder()
     
@@ -518,7 +518,8 @@ class CobolExaminer(Examiner):
               self.tokens.append(Token(line_number, 'line number'))
               num_known_tokens += 1
             else:
-              self.tokens.append(Token(line_number, 'invalid'))
+              self.tokens.append(Token(line_number, 'line identification'))
+              num_known_tokens += 1
 
         if len(line) > 6:
           line_indicator = line[6]
@@ -547,7 +548,7 @@ class CobolExaminer(Examiner):
           else:
             if line_indicator != '':
               self.tokens.append(Token(line_indicator, 'invalid'))
-
+  
         tokens = tokenizer.tokenize(line_text)
         self.tokens += tokens
 

@@ -149,7 +149,7 @@ class ListTokenBuilder(TokenBuilder):
           if candidate in self.legals:
             best_candidate = candidate
         else:
-          if candidate.lower() in self.legals:
+          if candidate.lower() in (legal.lower() for legal in self.legals):
             best_candidate = candidate
 
     if len(best_candidate) > 0:
@@ -172,7 +172,7 @@ class ListTokenBuilder(TokenBuilder):
           result = True
     else:
       for legal in self.legals:
-        if legal[:count] == token.lower():
+        if legal[:count].lower() == token.lower():
           result = True
 
     return result
