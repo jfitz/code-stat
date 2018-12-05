@@ -1,16 +1,19 @@
 from Token import Token
 from TokenBuilders import TokenBuilder
 
+
 # token reader for identifier
 class IdentifierTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = None
+
 
   def get_tokens(self):
     if self.token is None:
       return None
 
     return [Token(self.token, 'identifier')]
+
 
   def accept(self, candidate, c):
     result = False
@@ -26,10 +29,12 @@ class IdentifierTokenBuilder(TokenBuilder):
 
     return result
 
+
 # token reader for PIC descriptor
 class PictureTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = ''
+
 
   def get_tokens(self):
     if self.token is None:
@@ -44,6 +49,7 @@ class PictureTokenBuilder(TokenBuilder):
       tokens = [Token(self.token, 'picture')]
 
     return tokens
+
 
   def accept(self, candidate, c):
     result = False
@@ -69,5 +75,73 @@ class PictureTokenBuilder(TokenBuilder):
 
       if c == ')':
         result = True
+
+    return result
+
+
+# token reader for *> comment
+class StarCommentTokenBuilder(TokenBuilder):
+  def __init__(self):
+    self.token = ''
+
+
+  def get_tokens(self):
+    if self.token is None:
+      return None
+
+    if self.token.startswith('*>'):
+      return [Token(self.token, 'comment')]
+
+    return None
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if candidate.startswith('*>'):
+      result = True
+
+    if c == '>' and candidate == '*':
+      result = True
+
+    if c == '*' and candidate == '':
+      result = True
+
+    if c == '\n':
+      result = False
+
+    return result
+
+
+# token reader for *> comment
+class CobolPreprocessorTokenBuilder(TokenBuilder):
+  def __init__(self):
+    self.token = ''
+
+
+  def get_tokens(self):
+    if self.token is None:
+      return None
+
+    if self.token.startswith('>>'):
+      return [Token(self.token, 'preprocessor')]
+
+    return None
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if candidate.startswith('>>'):
+      result = True
+
+    if c == '>' and candidate == '>':
+      result = True
+
+    if c == '>' and candidate == '':
+      result = True
+
+    if c == '\n':
+      result = False
 
     return result

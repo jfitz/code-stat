@@ -71,7 +71,7 @@ class CommentTokenBuilder(TokenBuilder):
   def accept(self, candidate, c):
     result = False
 
-    if c == '/' and candidate == '':
+    if c == '/' and len(candidate) == 0:
       result = True
 
     if c == '*' and len(candidate) == 1:
@@ -80,7 +80,7 @@ class CommentTokenBuilder(TokenBuilder):
     if c == '/' and len(candidate) > 2 and candidate[-1] == '*':
       result = True
 
-    if candidate.startswith('/*') and candidate[-1] != '/':
+    if candidate.startswith('/*') and (candidate[-2] != '*' or candidate[-1] != '/'):
       result = True
 
     return result

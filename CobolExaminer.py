@@ -5,7 +5,7 @@ from CobolTokenBuilders import *
 from Tokenizer import Tokenizer
 
 class CobolExaminer(Examiner):
-  def __init__(self, code, fixed_or_free):
+  def __init__(self, code, fixed_format):
     super().__init__()
 
     lines = code.split('\n')
@@ -20,6 +20,7 @@ class CobolExaminer(Examiner):
     itb = IdentifierTokenBuilder()
     stb = StringTokenBuilder(['"', "'"])
     ptb = PictureTokenBuilder()
+    sctb = StarCommentTokenBuilder()
 
     known_operators = [
       'ADD', 'SUBTRACT', 'MULTIPLY', 'DIVIDE',
@@ -480,8 +481,10 @@ class CobolExaminer(Examiner):
     ]
 
     ktb = ListTokenBuilder(keywords, 'keyword', True)
+
+    cpptb = CobolPreprocessorTokenBuilder()
     
-    tokenbuilders = [wtb, nltb, ptb, ntb, ktb, kotb, uotb, itb, stb]
+    tokenbuilders = [wtb, nltb, ptb, ntb, ktb, kotb, uotb, itb, stb, sctb, cpptb]
     
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
@@ -499,7 +502,7 @@ class CobolExaminer(Examiner):
       line_text = ''
       line_identification = ''
 
-      if fixed_or_free:
+      if fixed_format:
         # The fixed-format COBOL line format is:
         # 1-6: line number or blank (ignored)
         # 7: space or *
@@ -529,17 +532,21 @@ class CobolExaminer(Examiner):
         # in free-format COBOL, the entire line can contain tokens
         line_text = line
 
-      if line_indicator == '*':
-        # the entire line is a comment
+      if line_indicator in ['*', '/', 'D']:
+        # the entire line is a comment (including DEBUG lines)
         self.tokens.append(Token(line[6:], 'comment'))
         num_known_tokens += 1
       else:
-        if line_indicator == ' ':
-          self.tokens.append(Token(' ', 'whitespace')) # the indicator column
+        if line_indicator == '$':
+          self.tokens.append(Token(line[6:], 'preprocessor'))
           num_known_tokens += 1
         else:
-          if line_indicator != '':
-            self.tokens.append(Token(line_indicator, 'invalid'))
+          if line_indicator == ' ':
+            self.tokens.append(Token(' ', 'whitespace')) # the indicator column
+            num_known_tokens += 1
+          else:
+            if line_indicator != '':
+              self.tokens.append(Token(line_indicator, 'invalid'))
 
         tokens = tokenizer.tokenize(line_text)
         self.tokens += tokens
