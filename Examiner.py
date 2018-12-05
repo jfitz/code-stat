@@ -24,6 +24,30 @@ class Examiner:
     return self.operators
 
 
+  def tabs_to_spaces(self, text, tab_size):
+    if tab_size is None:
+      tab_size = 8
+
+    column = 0
+    detabbed_text = ''
+
+    for c in text:
+      if c == '\n':
+        detabbed_text += c
+        column = 0
+      else:
+        if c == '\t':
+          next_tab_stop = int((column + tab_size) / tab_size) * tab_size
+          while column < next_tab_stop:
+            detabbed_text += ' '
+            column += 1
+        else:
+          detabbed_text += c
+          column += 1
+    
+    return detabbed_text
+
+
   def count_valid_tokens(self, tokens):
     num = 0
     for token in tokens:

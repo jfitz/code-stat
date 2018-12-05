@@ -492,6 +492,7 @@ class CobolExaminer(Examiner):
     for line in lines:
       line = line.rstrip('\r')
       line = line.rstrip()
+      line = self.tabs_to_spaces(line, 8)
 
       line_number = line[:6]
       line_indicator = ''
