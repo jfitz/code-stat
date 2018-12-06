@@ -5,7 +5,7 @@ from CobolTokenBuilders import *
 from Tokenizer import Tokenizer
 
 class CobolExaminer(Examiner):
-  def __init__(self, code, fixed_format):
+  def __init__(self, code, fixed_format, tab_size):
     super().__init__()
 
     lines = code.split('\n')
@@ -495,7 +495,7 @@ class CobolExaminer(Examiner):
     for line in lines:
       line = line.rstrip('\r')
       line = line.rstrip()
-      line = self.tabs_to_spaces(line, 8)
+      line = self.tabs_to_spaces(line, tab_size)
 
       line_number = line[:6]
       line_indicator = ''

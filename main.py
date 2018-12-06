@@ -11,6 +11,10 @@ app = Flask(__name__)
 
 @app.route('/detab', methods=['POST'])
 def detab():
+  tabsize = 8
+  if 'tabsize' in request.args:
+    tabsize = request.args['tabsize']
+
   bytes = request.get_data()
   text = bytes.decode('ascii')
   detabbed_text = tabs_to_spaces(text)
@@ -19,9 +23,13 @@ def detab():
 
 @app.route('/detect', methods=['POST'])
 def detect():
+  tabsize = 8
+  if 'tabsize' in request.args:
+    tabsize = request.args['tabsize']
+
   bytes = request.get_data()
   text = bytes.decode('ascii')
-  detected_languages = identify_language(text)
+  detected_languages = identify_language(text, tabsize)
 
   json_text = json.dumps(detected_languages)
 
@@ -29,10 +37,17 @@ def detect():
 
 @app.route('/tokens', methods=['POST'])
 def tokens():
-  language = request.args["language"]
+  language = ''
+  if 'language' in request.args:
+    language = request.args['language']
+
+  tabsize = 8
+  if 'tabsize' in request.args:
+    tabsize = request.args['tabsize']
+
   bytes = request.get_data()
   text = bytes.decode('ascii')
-  tokens = tokenize(text, language.lower())
+  tokens = tokenize(text, language.lower(), tabsize)
   token_list = []
 
   for token in tokens:
@@ -44,11 +59,18 @@ def tokens():
 
 @app.route('/confidence', methods=['POST'])
 def confidence():
-  language = request.args["language"]
+  language = ''
+  if 'language' in request.args:
+    language = request.args['language']
+
+  tabsize = 8
+  if 'tabsize' in request.args:
+    tabsize = request.args['tabsize']
+
   bytes = request.get_data()
   text = bytes.decode('ascii')
 
-  json_text = tokenize_confidence(text, language.lower())
+  json_text = tokenize_confidence(text, language.lower(), tabsize)
 
   return json_text
 
@@ -84,7 +106,12 @@ def tabs_to_spaces(text):
   return detabbed_text
 
 
-def identify_language(code):
+def identify_language(code, tabsize):
+  try:
+    tab_size = int(tabsize)
+  except ValueError:
+    tab_size = 8
+
   retval = {}
 
   code = code.replace('\r\n','\n')
@@ -95,10 +122,10 @@ def identify_language(code):
   pascal_examiner = PascalExaminer(code)
   retval['Pascal'] = pascal_examiner.confidence
 
-  fixed_cobol_examiner = CobolExaminer(code, True)
+  fixed_cobol_examiner = CobolExaminer(code, True, tab_size)
   retval['Fixed-Format-COBOL'] = fixed_cobol_examiner.confidence
 
-  free_cobol_examiner = CobolExaminer(code, False)
+  free_cobol_examiner = CobolExaminer(code, False, tab_size)
   retval['Free-Format-COBOL'] = free_cobol_examiner.confidence
 
   c_examiner = CExaminer(code)
@@ -109,7 +136,12 @@ def identify_language(code):
 
   return retval
 
-def tokenize(code, language):
+def tokenize(code, language, tabsize):
+  try:
+    tab_size = int(tabsize)
+  except ValueError:
+    tab_size = 8
+
   tokens = []
 
   if language in ['c++', 'cpp']:
@@ -129,16 +161,21 @@ def tokenize(code, language):
     tokens = examiner.tokens
 
   if language in ['fixed-format-cobol', 'cobol', 'cob', 'cbl']:
-    examiner = CobolExaminer(code, True)
+    examiner = CobolExaminer(code, True, tab_size)
     tokens = examiner.tokens
 
   if language in ['free-format-cobol']:
-    examiner = CobolExaminer(code, False)
+    examiner = CobolExaminer(code, False, tab_size)
     tokens = examiner.tokens
 
   return tokens
 
-def tokenize_confidence(code, language):
+def tokenize_confidence(code, language, tabsize):
+  try:
+    tab_size = int(tabsize)
+  except ValueError:
+    tab_size = 8
+
   confidences = {}
 
   if language in ['c++', 'cpp']:
@@ -158,11 +195,11 @@ def tokenize_confidence(code, language):
     confidences = examiner.confidences
 
   if language in ['fixed-format-cobol', 'cobol', 'cob', 'cbl']:
-    examiner = CobolExaminer(code, True)
+    examiner = CobolExaminer(code, True, tab_size)
     confidences = examiner.confidences
 
   if language in ['free-format-cobol']:
-    examiner = CobolExaminer(code, False)
+    examiner = CobolExaminer(code, False, tab_size)
     confidences = examiner.confidences
 
   retval = json.dumps(confidences)

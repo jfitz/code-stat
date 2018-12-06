@@ -5,7 +5,8 @@ Param
     [string]$action,
     [string]$inputfile,
     [string]$expected,
-    [switch]$json
+    [switch]$json,
+    [int32]$tabsize
 )
 
 Write-Output "****** ****** ******"
@@ -16,16 +17,21 @@ $actual = ".\tests\$name\out.txt"
 $actual_adjusted = ".\tests\$name\out1.txt"
 $actual_final = ".\tests\$name\out2.txt"
 $target = "localhost:5000"
-$params = ""
+$params = @()
 
-if (![string]::IsNullOrEmpty($language)) {
-    $params = "language=$language"
+if ($PSBoundParameters.ContainsKey('language')) {
+    $params += "language=$language"
 }
 
-if ([string]::IsNullOrEmpty($params)) {
-    $url = "http://" + $target + "/" + $action
+if ($PSBoundParameters.ContainsKey('tabsize')) {
+    $params += "tabsize=$tabsize"
+}
+
+if ($params.Count -gt 0) {
+        $paramstext = $params -join '&'
+    $url = "http://" + $target + "/" + $action + "?" + $paramstext
 } else {
-    $url = "http://" + $target + "/" + $action + "?" + $params
+    $url = "http://" + $target + "/" + $action
 }
 
 if (!(Test-Path -Path .\tests\$name )) {
