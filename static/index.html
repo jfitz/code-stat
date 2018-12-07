@@ -1,8 +1,7 @@
 <HTML>
 <head>
 <script type="text/javascript">
-function detectLanguage()
-{
+function detectLanguage() {
     var results = '';
     var code = document.getElementById('code').value;
     var req = new XMLHttpRequest();
@@ -52,8 +51,30 @@ function text_to_safe_html(str) {
   return s4;
 }
 
-function tokenize()
-{
+function colorize(token, html_colors) {
+  token_type = token['type'];
+  token_value = token['value'];
+  token_safe = text_to_safe_html(token_value);
+  token_html = 'empty';
+
+  if (token_type == 'newline') {
+    token_html = '<br/>'; 
+  } else if (token_type.startsWith('invalid')) {
+    front_html = '<font color=red>';
+    back_html = '</font>';
+    token_html = front_html + token_safe + back_html;
+  } else if (token_type in html_colors) {
+    front_html = '<font color=' + html_colors[token_type] + '>';
+    back_html = '</font>';
+    token_html = front_html + token_safe + back_html;
+  } else {
+    token_html = token_safe;
+  }
+
+  return token_html;
+}
+
+function tokenize() {
     html_colors = {
       keyword: 'orchid',
       number: 'blue',
@@ -84,27 +105,7 @@ function tokenize()
           length = data.length;
 
           for (i = 0; i < length; i++) {
-            item = data[i];
-            item_type = item['type'];
-            item_value = item['value'];
-            item_safe = text_to_safe_html(item_value);
-            item_html = 'empty';
-
-            if (item_type == 'newline') {
-              item_html = '<br/>'; 
-            } else if (item_type.startsWith('invalid')) {
-              front_html = '<font color=red>';
-              back_html = '</font>';
-              item_html = front_html + item_safe + back_html;
-            } else if (item_type in html_colors) {
-              front_html = '<font color=' + html_colors[item['type']] + '>';
-              back_html = '</font>';
-              item_html = front_html + item_safe + back_html;
-            } else {
-              item_html = item_safe;
-            }
-
-            formatted_results += item_html;
+            formatted_results += colorize(data[i], html_colors)
           }
 
           formatted_results += '</pre></code>'
@@ -112,14 +113,17 @@ function tokenize()
           var div = document.getElementById('tokens_result');
           div.innerHTML = formatted_results;
         } else {
+          // TODO: build a response
           console.error(req.statusText);
         }
       }
     };
 
     req.onerror = function (e) {
+      // TODO: build a response
       console.error(req.statusText);
     };
+
     req.send(code);
 }
 </script>
@@ -139,8 +143,8 @@ Welcome to the CodeStat page!
 <option>Pascal</option>
 </select>
 <input type="button" OnClick="tokenize();" value="Tokenize"/>
-<div id="detect_result"></div>
-<div id="confidence_result"></div>
-<div id="tokens_result"></div>
+<div id="detect_result" style="border:1px solid black"></div>
+<div id="confidence_result" style="border:1px solid black"></div>
+<div id="tokens_result" style="border:1px solid black"></div>
 </body>
 </HTML>
