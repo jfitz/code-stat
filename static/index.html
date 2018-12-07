@@ -11,10 +11,39 @@ function detectLanguage() {
       if (req.readyState === 4) {
         if (req.status === 200) {
           results = req.responseText;
-          var detect_div = document.getElementById('detect_result');
-          detect_div.innerText = results;
 
           data = JSON.parse(results);
+
+          formatted_results = '<code><pre>';
+
+          names = [];
+          name_length = 0;
+          for (key in data) {
+            names.push(key);
+            if (key.length > name_length) {
+              name_length = key.length;
+            }
+          }
+
+          // build list of names and confidence values
+          names.sort();
+          for (i = 0; i < names.length; i++) {
+            name = names[i]
+            num_spaces = name_length - name.length + 1;
+            spaces = ' '.repeat(num_spaces);
+            confidence = data[name];
+
+            g_confidence = Math.round(confidence * 100.0 / 5.0);
+            g_stars = '*'.repeat(g_confidence);
+            g_spaces = ' '.repeat(20 - g_confidence);
+
+              formatted_results += name + spaces + confidence.toFixed(5) + '  [' + g_stars + g_spaces + ']' + '<br/>';
+          }
+
+          formatted_results += '</pre></code>';
+
+          var detect_div = document.getElementById('detect_result');
+          detect_div.innerHTML = formatted_results;
 
           // find the most likely language
           language_name = 'BASIC';
@@ -27,9 +56,11 @@ function detectLanguage() {
             }
           }
 
+          // change 'C++' because the '+' character causes problems for file names
           if (language_name == 'C++') {
             language_name = 'Cpp';
           }
+
           var language_select = document.getElementById('language');
           language_select.value = language_name
         } else {
