@@ -45,6 +45,8 @@ function build_confidence_grid(confidences) {
 
     formatted_results += name + spaces + confidence.toFixed(decimals) + g_bar + '<br/>';
   }
+
+  return formatted_results
 }
 
 function detectLanguage() {
@@ -69,27 +71,23 @@ function detectLanguage() {
           var detect_div = document.getElementById('detect_result');
           detect_div.innerHTML = formatted_results;
 
-          // find the most likely language
-          language_name = 'BASIC';
-          confidence = 0.0;
+          if (names.length > 0) {
+            // find the most likely language
+            language_name = names[0];
+            confidence = 0.0;
 
-          for (i = 0; i < names.length; i++) {
-            name = names[i];
+            for (i = 0; i < names.length; i++) {
+              name = names[i];
 
-            if (confidences[name] > confidence) {
-              language_name = name;
-              confidence = confidences[name];
+              if (confidences[name] > confidence) {
+                language_name = name;
+                confidence = confidences[name];
+              }
             }
-          }
 
-          // change 'C++' because the '+' character causes problems for requests
-          // TODO: escape the request to allow '+'
-          if (language_name == 'C++') {
-            language_name = 'Cpp';
+            var language_select = document.getElementById('language');
+            language_select.value = language_name
           }
-
-          var language_select = document.getElementById('language');
-          language_select.value = language_name
         } else {
           console.error(req.statusText);
         }
@@ -151,6 +149,12 @@ function tokenize() {
     var results = '';
     var code = document.getElementById('code').value;
     var language = document.getElementById('language').value;
+    // change 'C++' because the '+' character causes problems for requests
+    // TODO: escape the request to allow '+'
+    if (language == 'C++') {
+      language = 'Cpp';
+    }
+
     var query = "/tokens?language=" + language;
     var req = new XMLHttpRequest();
     req.open('POST', query, true);
@@ -189,7 +193,7 @@ function tokenize() {
 </head>
 <body>
 Welcome to the CodeStat page!
-<TEXTAREA style="width:100%;" rows="20" id="code"></TEXTAREA>
+<textarea style="width:100%;" rows="20" id="code"></textarea>
 <br/>
 <input type="button" OnClick="detectLanguage();" value="Detect language"/>
 <br/>
@@ -198,7 +202,7 @@ Welcome to the CodeStat page!
 <option>Fixed-Format-COBOL</option>
 <option>Free-Format-COBOL</option>
 <option>C</option>
-<option>Cpp</option>
+<option>C++</option>
 <option>Pascal</option>
 <option>Python</option>
 </select>
