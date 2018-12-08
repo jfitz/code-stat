@@ -49,21 +49,59 @@ function build_confidence_grid(confidences) {
   return formatted_results
 }
 
+function key_with_greatest_value(o) {
+  greatest_value_key = o[0];
+  greatest_value = 0.0;
+
+  for (key in o) {
+    if (o[key] > greatest_value) {
+      greatest_value_key = key;
+      greatest_value = o[key];
+    }
+  }
+
+  return greatest_value_key;
+}
+
+function build_language_select_options(names) {
+  options = '';
+
+  for (i = 0; i < names.language; i++) {
+    option = '<option>' + names[i] + '</option>'
+    options += option
+  }
+
+  return options;
+}
+
 function detectLanguage() {
     var results = '';
     var code = document.getElementById('code').value;
     var req = new XMLHttpRequest();
     req.open('POST', "/detect", true);
     req.setRequestHeader("Content-type", "text/plain");
+
     req.onload = function (e) {
       if (req.readyState === 4) {
         if (req.status === 200) {
           results = req.responseText;
           confidences = JSON.parse(results);
           names = keys_in_object(confidences);
+          names.sort();
+
+          // build list of names
+          var language_select = document.getElementById('language');
+          while (language_select.firstChild) {
+            language_select.removeChild(language_select.firstChild);
+          }
+          for (i = 0; i < names.length; i++) {
+            option = document.createElement('option');
+            option.value = names[i]
+            option.textContent = names[i];
+            language_select.appendChild(option);
+          }
 
           // build list of names and confidence values
-          names.sort();
           formatted_results = '<code><pre>';
           formatted_results += build_confidence_grid(confidences);
           formatted_results += '</pre></code>';
@@ -73,19 +111,7 @@ function detectLanguage() {
 
           if (names.length > 0) {
             // find the most likely language
-            language_name = names[0];
-            confidence = 0.0;
-
-            for (i = 0; i < names.length; i++) {
-              name = names[i];
-
-              if (confidences[name] > confidence) {
-                language_name = name;
-                confidence = confidences[name];
-              }
-            }
-
-            var language_select = document.getElementById('language');
+            language_name = key_with_greatest_value(confidences)
             language_select.value = language_name
           }
         } else {
@@ -93,9 +119,11 @@ function detectLanguage() {
         }
       }
     };
+
     req.onerror = function (e) {
       console.error(req.statusText);
     };
+
     req.send(code);
 }
 
@@ -199,12 +227,6 @@ Welcome to the CodeStat page!
 <br/>
 <select name="language" id="language">
 <option>BASIC</option>
-<option>Fixed-Format-COBOL</option>
-<option>Free-Format-COBOL</option>
-<option>C</option>
-<option>C++</option>
-<option>Pascal</option>
-<option>Python</option>
 </select>
 <input type="button" OnClick="tokenize();" value="Tokenize"/>
 <div id="detect_result" style="border:1px solid black"></div>
