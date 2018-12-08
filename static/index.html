@@ -1,6 +1,28 @@
 <HTML>
 <head>
 <script type="text/javascript">
+function keys_in_object(o) {
+  keys = [];
+
+  for (key in o) {
+    keys.push(key);
+  }
+
+  return keys;
+}
+
+function longest_string(ss) {
+  longest = '';
+
+  for (i = 0; i < ss.length; i++) {
+    if (ss[i].length > longest.length) {
+      longest = ss[i];
+    }
+  }
+
+  return longest;
+}
+
 function detectLanguage() {
     var results = '';
     var code = document.getElementById('code').value;
@@ -11,19 +33,11 @@ function detectLanguage() {
       if (req.readyState === 4) {
         if (req.status === 200) {
           results = req.responseText;
-
           data = JSON.parse(results);
+          names = keys_in_object(data);
+          name_length = longest_string(names).length;
 
           formatted_results = '<code><pre>';
-
-          names = [];
-          name_length = 0;
-          for (key in data) {
-            names.push(key);
-            if (key.length > name_length) {
-              name_length = key.length;
-            }
-          }
 
           // build list of names and confidence values
           names.sort();
