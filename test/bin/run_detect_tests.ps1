@@ -38,4 +38,8 @@ test\bin\run_test.ps1 -json -name spider -action detect -inputfile ".\test\data\
 
 test\bin\run_test.ps1 -json -name polyglot -action detect -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\detect\multiple\polyglot.txt"
 
+test\bin\run_test.ps1 -json -name drone-3d -action detect -inputfile ".\test\data\Python\drone_3d_trajectory_following.py" -expected ".\test\ref\detect\Python\drone_3d_trajectory_following.txt"
+test\bin\run_test.ps1 -json -name quadrotor -action detect -inputfile ".\test\data\Python\Quadrotor.py" -expected ".\test\ref\detect\Python\Quadrotor.txt"
+test\bin\run_test.ps1 -json -name trajectory -action detect -inputfile ".\test\data\Python\TrajectoryGenerator.py" -expected ".\test\ref\detect\Python\TrajectoryGenerator.txt"
+
 Write-Output "Number of failures: $failures"

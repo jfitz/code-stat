@@ -117,7 +117,8 @@ function tokenize() {
       invalid: 'red',
       preprocessor: 'lightgreen',
       'line number': 'skyblue',
-      'line identification': 'royalblue'
+      'line identification': 'royalblue',
+      'line continuation': 'goldenrod'
     };
 
     var results = '';
@@ -172,6 +173,7 @@ Welcome to the CodeStat page!
 <option>C</option>
 <option>Cpp</option>
 <option>Pascal</option>
+<option>Python</option>
 </select>
 <input type="button" OnClick="tokenize();" value="Tokenize"/>
 <div id="detect_result" style="border:1px solid black"></div>

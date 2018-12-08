@@ -40,4 +40,8 @@ test\bin\run_test.ps1 -json -name polyglot-c -action confidence -language C -inp
 test\bin\run_test.ps1 -json -name polyglot-cobol -action confidence -language COBOL -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\confidence\COBOL\polyglot.txt"
 test\bin\run_test.ps1 -json -name polyglot-pascal -action confidence -language Pascal -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\confidence\Pascal\polyglot.txt"
 
+test\bin\run_test.ps1 -json -name drone-3d -action confidence -language Python -inputfile ".\test\data\Python\drone_3d_trajectory_following.py" -expected ".\test\ref\confidence\Python\drone_3d_trajectory_following.txt"
+test\bin\run_test.ps1 -json -name quadrotor -action confidence -language Python -inputfile ".\test\data\Python\Quadrotor.py" -expected ".\test\ref\confidence\Python\Quadrotor.txt"
+test\bin\run_test.ps1 -json -name trajectory -action confidence -language Python -inputfile ".\test\data\Python\TrajectoryGenerator.py" -expected ".\test\ref\confidence\Python\TrajectoryGenerator.txt"
+
 Write-Output "Number of failures: $failures"

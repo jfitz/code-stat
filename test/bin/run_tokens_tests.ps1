@@ -40,4 +40,8 @@ test\bin\run_test.ps1 -json -name polyglot-c -action tokens -language C -inputfi
 test\bin\run_test.ps1 -json -name polyglot-cobol -action tokens -language COBOL -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\tokens\COBOL\polyglot.txt"
 test\bin\run_test.ps1 -json -name polyglot-pascal -action tokens -language Pascal -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\tokens\Pascal\polyglot.txt"
 
+test\bin\run_test.ps1 -json -name drone-3d -action tokens -language Python -inputfile ".\test\data\Python\drone_3d_trajectory_following.py" -expected ".\test\ref\tokens\Python\drone_3d_trajectory_following.txt"
+test\bin\run_test.ps1 -json -name quadrotor -action tokens -language Python -inputfile ".\test\data\Python\Quadrotor.py" -expected ".\test\ref\tokens\Python\Quadrotor.txt"
+test\bin\run_test.ps1 -json -name trajectory -action tokens -language Python -inputfile ".\test\data\Python\TrajectoryGenerator.py" -expected ".\test\ref\tokens\Python\TrajectoryGenerator.txt"
+
 Write-Output "Number of failures: $failures"

@@ -6,6 +6,7 @@ from PascalExaminer import PascalExaminer
 from CobolExaminer import CobolExaminer
 from CExaminer import CExaminer
 from CppExaminer import CppExaminer
+from PythonExaminer import PythonExaminer
 
 app = Flask(__name__)
 
@@ -119,8 +120,11 @@ def identify_language(code, tabsize):
   basic_examiner = BasicExaminer(code)
   retval['BASIC'] = basic_examiner.confidence
 
-  pascal_examiner = PascalExaminer(code)
-  retval['Pascal'] = pascal_examiner.confidence
+  c_examiner = CExaminer(code)
+  retval['C'] = c_examiner.confidence
+
+  cpp_examiner = CppExaminer(code)
+  retval['C++'] = cpp_examiner.confidence
 
   fixed_cobol_examiner = CobolExaminer(code, True, tab_size)
   retval['Fixed-Format-COBOL'] = fixed_cobol_examiner.confidence
@@ -128,11 +132,11 @@ def identify_language(code, tabsize):
   free_cobol_examiner = CobolExaminer(code, False, tab_size)
   retval['Free-Format-COBOL'] = free_cobol_examiner.confidence
 
-  c_examiner = CExaminer(code)
-  retval['C'] = c_examiner.confidence
+  pascal_examiner = PascalExaminer(code)
+  retval['Pascal'] = pascal_examiner.confidence
 
-  cpp_examiner = CppExaminer(code)
-  retval['C++'] = cpp_examiner.confidence
+  py_examiner = PythonExaminer(code)
+  retval['Python'] = py_examiner.confidence
 
   return retval
 
@@ -144,20 +148,16 @@ def tokenize(code, language, tabsize):
 
   tokens = []
 
-  if language in ['c++', 'cpp']:
-    examiner = CppExaminer(code)
+  if language in ['basic', 'bas']:
+    examiner = BasicExaminer(code)
     tokens = examiner.tokens
 
   if language in ['c']:
     examiner = CExaminer(code)
     tokens = examiner.tokens
 
-  if language in ['pascal', 'pas']:
-    examiner = PascalExaminer(code)
-    tokens = examiner.tokens
-
-  if language in ['basic', 'bas']:
-    examiner = BasicExaminer(code)
+  if language in ['c++', 'cpp']:
+    examiner = CppExaminer(code)
     tokens = examiner.tokens
 
   if language in ['fixed-format-cobol', 'cobol', 'cob', 'cbl']:
@@ -166,6 +166,14 @@ def tokenize(code, language, tabsize):
 
   if language in ['free-format-cobol']:
     examiner = CobolExaminer(code, False, tab_size)
+    tokens = examiner.tokens
+
+  if language in ['pascal', 'pas']:
+    examiner = PascalExaminer(code)
+    tokens = examiner.tokens
+
+  if language in ['python', 'py']:
+    examiner = PythonExaminer(code)
     tokens = examiner.tokens
 
   return tokens
@@ -178,20 +186,16 @@ def tokenize_confidence(code, language, tabsize):
 
   confidences = {}
 
-  if language in ['c++', 'cpp']:
-    examiner = CppExaminer(code)
+  if language in ['basic', 'bas']:
+    examiner = BasicExaminer(code)
     confidences = examiner.confidences
 
   if language in ['c']:
     examiner = CExaminer(code)
     confidences = examiner.confidences
 
-  if language in ['pascal', 'pas']:
-    examiner = PascalExaminer(code)
-    confidences = examiner.confidences
-
-  if language in ['basic', 'bas']:
-    examiner = BasicExaminer(code)
+  if language in ['c++', 'cpp']:
+    examiner = CppExaminer(code)
     confidences = examiner.confidences
 
   if language in ['fixed-format-cobol', 'cobol', 'cob', 'cbl']:
@@ -200,6 +204,14 @@ def tokenize_confidence(code, language, tabsize):
 
   if language in ['free-format-cobol']:
     examiner = CobolExaminer(code, False, tab_size)
+    confidences = examiner.confidences
+
+  if language in ['pascal', 'pas']:
+    examiner = PascalExaminer(code)
+    confidences = examiner.confidences
+
+  if language in ['python', 'py']:
+    examiner = PythonExaminer(code)
     confidences = examiner.confidences
 
   retval = json.dumps(confidences)
