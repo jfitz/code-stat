@@ -23,6 +23,30 @@ function longest_string(ss) {
   return longest;
 }
 
+function build_confidence_grid(confidences) {
+  width = 20
+  decimals = 5
+  names = keys_in_object(confidences);
+  name_length = longest_string(names).length;
+
+  for (i = 0; i < names.length; i++) {
+    name = names[i]
+
+    // format the name with trailing spaces
+    num_spaces = name_length - name.length + 1;
+    spaces = ' '.repeat(num_spaces);
+    confidence = confidences[name];
+
+    // format the chart (stars) with trailing spaces
+    g_confidence = Math.round(confidence * width);
+    g_stars = '*'.repeat(g_confidence);
+    g_spaces = ' '.repeat(width - g_confidence);
+    g_bar = '  [' + g_stars + g_spaces + ']'
+
+    formatted_results += name + spaces + confidence.toFixed(decimals) + g_bar + '<br/>';
+  }
+}
+
 function detectLanguage() {
     var results = '';
     var code = document.getElementById('code').value;
@@ -33,27 +57,13 @@ function detectLanguage() {
       if (req.readyState === 4) {
         if (req.status === 200) {
           results = req.responseText;
-          data = JSON.parse(results);
-          names = keys_in_object(data);
-          name_length = longest_string(names).length;
-
-          formatted_results = '<code><pre>';
+          confidences = JSON.parse(results);
+          names = keys_in_object(confidences);
 
           // build list of names and confidence values
           names.sort();
-          for (i = 0; i < names.length; i++) {
-            name = names[i]
-            num_spaces = name_length - name.length + 1;
-            spaces = ' '.repeat(num_spaces);
-            confidence = data[name];
-
-            g_confidence = Math.round(confidence * 100.0 / 5.0);
-            g_stars = '*'.repeat(g_confidence);
-            g_spaces = ' '.repeat(20 - g_confidence);
-
-              formatted_results += name + spaces + confidence.toFixed(5) + '  [' + g_stars + g_spaces + ']' + '<br/>';
-          }
-
+          formatted_results = '<code><pre>';
+          formatted_results += build_confidence_grid(confidences);
           formatted_results += '</pre></code>';
 
           var detect_div = document.getElementById('detect_result');
@@ -63,14 +73,17 @@ function detectLanguage() {
           language_name = 'BASIC';
           confidence = 0.0;
 
-          for (var key in data) {
-            if (data[key] > confidence) {
-              language_name = key;
-              confidence = data[key];
+          for (i = 0; i < names.length; i++) {
+            name = names[i];
+
+            if (confidences[name] > confidence) {
+              language_name = name;
+              confidence = confidences[name];
             }
           }
 
-          // change 'C++' because the '+' character causes problems for file names
+          // change 'C++' because the '+' character causes problems for requests
+          // TODO: escape the request to allow '+'
           if (language_name == 'C++') {
             language_name = 'Cpp';
           }
