@@ -8,14 +8,7 @@ class CobolExaminer(Examiner):
   def __init__(self, code, fixed_format, tab_size):
     super().__init__()
 
-    lines = code.split('\n')
-
-    num_known_tokens = 0
-    num_invalid_operators = 0
-    num_known_operators = 0
-
     wtb = WhitespaceTokenBuilder()
-
     ntb = NumberTokenBuilder()
     itb = IdentifierTokenBuilder()
     stb = StringTokenBuilder(['"', "'"])
@@ -489,8 +482,8 @@ class CobolExaminer(Examiner):
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 
-    found_keywords = set()
-    
+    lines = code.split('\n')
+
     self.tokens = []
     for line in lines:
       line = line.rstrip('\r')
@@ -502,6 +495,7 @@ class CobolExaminer(Examiner):
       line_text = ''
       line_identification = ''
 
+      # break apart the line based on fixed format or free format style
       if fixed_format:
         # The fixed-format COBOL line format is:
         # 1-6: line number or blank (ignored)
@@ -512,14 +506,11 @@ class CobolExaminer(Examiner):
         if len(line_number) > 0:
           if line_number.isspace():
             self.tokens.append(Token(line_number, 'whitespace'))
-            num_known_tokens += 1
           else:
             if line_number.isdigit():
               self.tokens.append(Token(line_number, 'line number'))
-              num_known_tokens += 1
             else:
               self.tokens.append(Token(line_number, 'line identification'))
-              num_known_tokens += 1
 
         if len(line) > 6:
           line_indicator = line[6]
@@ -533,37 +524,38 @@ class CobolExaminer(Examiner):
         # in free-format COBOL, the entire line can contain tokens
         line_text = line
 
-      if line_indicator in ['*', '/', 'D']:
-        # the entire line is a comment (including DEBUG lines)
-        self.tokens.append(Token(line[6:], 'comment'))
-        num_known_tokens += 1
-      else:
-        if line_indicator == '$':
-          self.tokens.append(Token(line[6:], 'preprocessor'))
-          num_known_tokens += 1
+      # tokenize the line indicator
+      if fixed_format:
+        if line_indicator in ['*', '/', 'D']:
+          # the entire line is a comment (including DEBUG lines)
+          self.tokens.append(Token(line[6:], 'comment'))
         else:
-          if line_indicator == ' ':
-            self.tokens.append(Token(' ', 'whitespace')) # the indicator column
-            num_known_tokens += 1
+          if line_indicator == '$':
+            self.tokens.append(Token(line[6:], 'preprocessor'))
           else:
-            if line_indicator != '':
-              self.tokens.append(Token(line_indicator, 'invalid'))
-  
-        tokens = tokenizer.tokenize(line_text)
-        self.tokens += tokens
+            if line_indicator == ' ':
+              self.tokens.append(Token(' ', 'whitespace'))
+            else:
+              if line_indicator != '':
+                self.tokens.append(Token(line_indicator, 'invalid'))
 
-        num_known_tokens += self.count_valid_tokens(tokens)
-        num_invalid_operators += self.count_invalid_operators(tokens)
-        num_known_operators += self.count_known_operators(tokens)
+          # tokenize the code    
+          self.tokens += tokenizer.tokenize(line_text)
+      else:
+        # tokenize the code    
+        self.tokens += tokenizer.tokenize(line_text)
 
-        found_keywords |= self.find_keywords(tokens)
-
-      if len(line_identification) > 0:
-        self.tokens.append(Token(line_identification, 'line identification'))
-        num_known_tokens += 1
+      # tokenize the line identification
+      if fixed_format:
+        if len(line_identification) > 0:
+          self.tokens.append(Token(line_identification, 'line identification'))
 
       self.tokens.append(Token('\n', 'newline'))
-      num_known_tokens += 1
+
+    num_known_tokens = self.count_valid_tokens(self.tokens)
+    num_invalid_operators = self.count_invalid_operators(self.tokens)
+    num_known_operators = self.count_known_operators(self.tokens)
+    found_keywords = self.find_keywords(self.tokens)
 
     # count unique keywords and compare to number of tokens
     keyword_confidence = 0
