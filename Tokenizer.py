@@ -34,15 +34,15 @@ class Tokenizer():
 
     # see which tokenbuilder found the longest
     winner = None
-    count = 0
+    winner_score = 0
     for tokenizer in self.tokenizers:
       t = tokenizer.get_tokens()
-      c = tokenizer.get_count()
+      score = tokenizer.get_score()
 
       if t is not None:
-        if c > count:
-          count = c
+        if score > winner_score:
           winner = tokenizer
+          winner_score = winner.get_score()
 
     return winner
 

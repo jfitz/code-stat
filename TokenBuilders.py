@@ -26,6 +26,12 @@ class TokenBuilder:
 
     return len(self.token)
 
+  def get_score(self):
+    if self.token is None:
+      return 0
+
+    return len(self.token)
+
 # accept any character (but only one)
 class InvalidTokenBuilder(TokenBuilder):
   def __init__(self):
