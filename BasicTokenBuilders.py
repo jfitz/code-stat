@@ -6,11 +6,13 @@ class BasicNumberTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = None
 
+
   def get_tokens(self):
     if self.token is None:
       return None
 
     return [Token(self.token, 'number')]
+
 
   def accept(self, candidate, c):
     result = False
@@ -23,16 +25,19 @@ class BasicNumberTokenBuilder(TokenBuilder):
     
     return result
 
+
 # token reader for variable
 class VariableTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = None
+
 
   def get_tokens(self):
     if self.token is None:
       return None
 
     return [Token(self.token, 'identifier')]
+
 
   def accept(self, candidate, c):
     result = False
@@ -48,10 +53,12 @@ class VariableTokenBuilder(TokenBuilder):
 
     return result
 
+
 # token reader for REMARK comment
 class RemarkTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = ''
+
 
   def get_tokens(self):
     if self.token == None:
@@ -70,6 +77,7 @@ class RemarkTokenBuilder(TokenBuilder):
 
     return [token1, token2]
 
+
   def accept(self, candidate, c):
     result = False
 
@@ -86,3 +94,32 @@ class RemarkTokenBuilder(TokenBuilder):
       result = True
 
     return result
+
+
+# token reader for number
+class LineNumberTokenBuilder(TokenBuilder):
+  def __init__(self):
+    self.token = None
+
+
+  def get_tokens(self):
+    if self.token is None:
+      return None
+
+    return [Token(self.token, 'line number')]
+
+
+  def accept(self, candidate, c):
+    return c.isdigit()
+
+
+  def get_score(self, last_printable_token):
+    if self.token is None:
+      return 0
+
+    boost = 0
+
+    if last_printable_token.group == 'newline':
+      boost += 0.5
+
+    return len(self.token) + boost

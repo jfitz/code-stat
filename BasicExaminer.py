@@ -32,10 +32,11 @@ class BasicExaminer(Examiner):
     wtb = WhitespaceTokenBuilder()
     nltb = NewlineTokenBuilder()
 
-    ntb = BasicNumberTokenBuilder()
+    bntb = BasicNumberTokenBuilder()
     vtb = VariableTokenBuilder()
     stb = StringTokenBuilder(['"'])
     rtb = RemarkTokenBuilder()
+    lntb = LineNumberTokenBuilder()
 
     known_operators = [
       '+', '-', '*', '/', '^',
@@ -67,7 +68,7 @@ class BasicExaminer(Examiner):
 
     ftb = ListTokenBuilder(functions, 'function', True)
 
-    tokenbuilders = [wtb, nltb, ntb, vtb, ftb, stb, kotb, uotb, ktb, rtb]
+    tokenbuilders = [wtb, nltb, bntb, lntb, vtb, ftb, stb, kotb, uotb, ktb, rtb]
 
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
@@ -80,10 +81,6 @@ class BasicExaminer(Examiner):
       #  consider only lines with text
       if len(line) > 0:
         tokens = tokenizer.tokenize(line)
-
-        # convert leading number to line number
-        if len(tokens) > 0 and tokens[0].group == 'number':
-          tokens[0] = Token(tokens[0].text, 'line number')
 
         tokens.append(Token('\n', 'newline'))
         self.tokens += tokens

@@ -17,8 +17,10 @@ class TokenBuilder:
     if len(candidate) > 0:
       self.token = candidate
 
+
   def accept(self, candidate, c):
     return False
+
 
   def get_count(self):
     if self.token is None:
@@ -26,21 +28,25 @@ class TokenBuilder:
 
     return len(self.token)
 
+
   def get_score(self, last_printable_token):
     if self.token is None:
       return 0
 
     return len(self.token)
 
+
 # accept any character (but only one)
 class InvalidTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = None
 
+
   def attempt(self, text):
     self.token = None
     if len(text) > 0:
       self.token = text[0]
+
 
   def get_tokens(self):
     if self.token is None:
@@ -48,10 +54,12 @@ class InvalidTokenBuilder(TokenBuilder):
 
     return [Token(self.token, 'invalid')]
   
+
 # token reader for whitespace
 class WhitespaceTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = None
+
 
   def get_tokens(self):
     if self.token is None:
@@ -59,21 +67,25 @@ class WhitespaceTokenBuilder(TokenBuilder):
 
     return [Token(self.token, 'whitespace')]
 
+
   def accept(self, candidate, c):
     result = c.isspace() and c != '\n' and c != '\r'
 
     return result
+
 
 # token reader for newline
 class NewlineTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = None
 
+
   def get_tokens(self):
     if self.token is None:
       return None
 
     return [Token(self.token, 'newline')]
+
 
   def accept(self, candidate, c):
     result = False
@@ -86,17 +98,20 @@ class NewlineTokenBuilder(TokenBuilder):
 
     return result
 
+
 # token reader for text literal (string)
 class StringTokenBuilder(TokenBuilder):
   def __init__(self, quotes):
     self.quotes = quotes
     self.token = ''
 
+
   def get_tokens(self):
     if self.token is None:
       return None
 
     return [Token(self.token, 'string')]
+
 
   def accept(self, candidate, c):
     result = False
@@ -115,10 +130,12 @@ class StringTokenBuilder(TokenBuilder):
 
     return result
 
+
 # token reader for number
 class NumberTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = None
+
 
   def get_tokens(self):
     if self.token is None:
@@ -126,8 +143,10 @@ class NumberTokenBuilder(TokenBuilder):
 
     return [Token(self.token, 'number')]
 
+
   def accept(self, candidate, c):
     return c.isdigit()
+
 
 # accept characters to match item in list
 class ListTokenBuilder(TokenBuilder):
@@ -136,6 +155,7 @@ class ListTokenBuilder(TokenBuilder):
     self.group = group
     self.case_sensitive = case_sensitive
     self.token = ''
+
 
   def attempt(self, text):
     self.token = None
@@ -161,11 +181,13 @@ class ListTokenBuilder(TokenBuilder):
     if len(best_candidate) > 0:
       self.token = best_candidate
 
+
   def get_tokens(self):
     if self.token is None:
       return None
 
     return [Token(self.token, self.group)]
+
 
   def accept(self, candidate, c):
     token = candidate + c
@@ -183,10 +205,12 @@ class ListTokenBuilder(TokenBuilder):
 
     return result
 
+
 # token reader for preprocessor directives
 class CPreProcessorTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = ''
+
 
   def get_tokens(self):
     if self.token is None:
@@ -196,6 +220,7 @@ class CPreProcessorTokenBuilder(TokenBuilder):
       return [Token(self.token, 'preprocessor')]
 
     return None
+
 
   def accept(self, candidate, c):
     result = False
