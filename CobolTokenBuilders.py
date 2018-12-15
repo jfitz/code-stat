@@ -78,6 +78,18 @@ class PictureTokenBuilder(TokenBuilder):
 
     return result
 
+  def get_score(self, last_printable_token):
+    if self.token is None:
+      return 0
+
+    boost = 0
+
+    if last_printable_token.group == 'keyword' and \
+    last_printable_token.text in (name.upper() for name in ['PIC', 'PICTURE']):
+      boost += 0.5
+
+    return len(self.token) + boost
+
 
 # token reader for *> comment
 class StarCommentTokenBuilder(TokenBuilder):

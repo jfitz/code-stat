@@ -477,7 +477,7 @@ class CobolExaminer(Examiner):
 
     cpptb = CobolPreprocessorTokenBuilder()
     
-    tokenbuilders = [wtb, nltb, ptb, ntb, ktb, kotb, uotb, itb, stb, sctb, cpptb]
+    tokenbuilders = [wtb, nltb, ntb, ptb, ktb, kotb, uotb, itb, stb, sctb, cpptb]
     
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)

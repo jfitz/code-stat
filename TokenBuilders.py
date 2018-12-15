@@ -26,7 +26,7 @@ class TokenBuilder:
 
     return len(self.token)
 
-  def get_score(self):
+  def get_score(self, last_printable_token):
     if self.token is None:
       return 0
 
