@@ -137,3 +137,23 @@ class Examiner:
       token_groups.append(token_group)
 
     return token_groups
+
+
+  def drop_whitespace(self, tokens):
+    new_list = []
+
+    for token in tokens:
+      if token.group != 'whitespace':
+        new_list.append(token)
+    
+    return tokens
+
+
+  def drop_comments(self, tokens):
+    new_list = []
+
+    for token in tokens:
+      if token.group != 'comment':
+        new_list.append(token)
+    
+    return tokens
