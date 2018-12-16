@@ -98,22 +98,3 @@ class BasicExaminer(Examiner):
       'token': token_confidence,
       'operator': operator_confidence
       }
-
-
-  def split_tokens(self, tokens):
-    token_groups = []
-
-    token_group = []
-
-    for token in tokens:
-      if token.group == 'newline':
-        if len(token_group) > 0:
-          token_groups.append(token_group)
-          token_group = []
-      else:
-        token_group.append(token)
-    
-    if len(token_group) > 0:
-      token_groups.append(token_group)
-
-    return token_groups
