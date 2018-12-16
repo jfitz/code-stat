@@ -93,6 +93,9 @@ class RemarkTokenBuilder(TokenBuilder):
     if candidate.startswith('REM'):
       result = True
 
+    if c in ['\n', '\r']:
+      result = False
+
     return result
 
 

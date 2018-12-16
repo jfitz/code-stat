@@ -8,23 +8,6 @@ class BasicExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
-    lines = code.split('\n')
-
-    # Pass 1 - all lines begin with numbers
-    num_lines_start_num = 0
-    num_nonblank_lines = 0
-    for line in lines:
-      line = line.strip()
-      if len(line) > 0:
-        num_nonblank_lines += 1
-        if line[0].isdigit():
-          num_lines_start_num += 1
-
-    line_format_confidence = 0.0
-    if num_nonblank_lines > 0:
-      line_format_confidence = num_lines_start_num / num_nonblank_lines
-
-    # Pass 2 - tokens
     num_known_tokens = 0
     num_invalid_operators = 0
     num_known_operators = 0
@@ -73,21 +56,11 @@ class BasicExaminer(Examiner):
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 
-    self.tokens = []
-    for line in lines:
-      line = line.strip('\r')
-      line = line.strip()
-      
-      #  consider only lines with text
-      if len(line) > 0:
-        tokens = tokenizer.tokenize(line)
+    self.tokens = tokenizer.tokenize(code)
 
-        tokens.append(Token('\n', 'newline'))
-        self.tokens += tokens
-        
-        num_known_tokens += self.count_valid_tokens(tokens)
-        num_invalid_operators += self.count_invalid_operators(tokens)
-        num_known_operators += self.count_known_operators(tokens)
+    num_known_tokens = self.count_valid_tokens(self.tokens)
+    num_invalid_operators = self.count_invalid_operators(self.tokens)
+    num_known_operators = self.count_known_operators(self.tokens)
 
     # unknown tokens reduce confidence
     token_confidence = 1.0
@@ -102,6 +75,22 @@ class BasicExaminer(Examiner):
 
     #  unknown identifiers (text of two or more, not FNx) reduce confidence
 
+    # line format
+    lines = self.split_tokens(self.tokens)
+    num_lines = 0
+    num_lines_correct = 0
+    for line in lines:
+      if len(line) > 0:
+        num_lines += 1
+
+        if line[0].group == 'line number':
+          num_lines_correct += 1
+    
+    line_format_confidence = 0
+
+    if num_lines > 0:
+      line_format_confidence = num_lines_correct / num_lines
+
     # compute confidence
     self.confidence = line_format_confidence * token_confidence * operator_confidence
     self.confidences = {
@@ -109,3 +98,22 @@ class BasicExaminer(Examiner):
       'token': token_confidence,
       'operator': operator_confidence
       }
+
+
+  def split_tokens(self, tokens):
+    token_groups = []
+
+    token_group = []
+
+    for token in tokens:
+      if token.group == 'newline':
+        if len(token_group) > 0:
+          token_groups.append(token_group)
+          token_group = []
+      else:
+        token_group.append(token)
+    
+    if len(token_group) > 0:
+      token_groups.append(token_group)
+
+    return token_groups
