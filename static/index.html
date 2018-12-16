@@ -1,7 +1,7 @@
 <HTML>
 <head>
 <script type="text/javascript">
-function keys_in_object(o) {
+function keysInObject(o) {
   keys = [];
 
   for (key in o) {
@@ -11,7 +11,7 @@ function keys_in_object(o) {
   return keys;
 }
 
-function longest_string(ss) {
+function longestString(ss) {
   longest = '';
 
   for (i = 0; i < ss.length; i++) {
@@ -23,60 +23,77 @@ function longest_string(ss) {
   return longest;
 }
 
-function build_confidence_grid(confidences) {
+function buildConfidenceGrid(confidences) {
   width = 20
   decimals = 5
-  names = keys_in_object(confidences);
-  name_length = longest_string(names).length;
+  names = keysInObject(confidences);
+  nameLength = longestString(names).length;
 
-  confidence_grid_html = '<code><pre>';
+  confidenceGridHtml = '<code><pre>';
 
   for (i = 0; i < names.length; i++) {
     name = names[i]
 
     // format the name with trailing spaces
-    num_spaces = name_length - name.length + 1;
-    spaces = ' '.repeat(num_spaces);
+    numSpaces = nameLength - name.length + 1;
+    spaces = ' '.repeat(numSpaces);
     confidence = confidences[name];
 
     // format the chart (stars) with trailing spaces
-    g_confidence = Math.round(confidence * width);
-    g_stars = '*'.repeat(g_confidence);
-    g_spaces = ' '.repeat(width - g_confidence);
-    g_bar = '  [' + g_stars + g_spaces + ']'
+    gConfidence = Math.round(confidence * width);
+    gStars = '*'.repeat(gConfidence);
+    gSpaces = ' '.repeat(width - gConfidence);
+    gBar = '  [' + gStars + gSpaces + ']'
 
-    confidence_grid_html += name + spaces + confidence.toFixed(decimals) + g_bar + '<br/>';
+    confidenceGridHtml += name + spaces + confidence.toFixed(decimals) + gBar + '<br/>';
   }
 
-  confidence_grid_html += '</pre></code>';
+  confidenceGridHtml += '</pre></code>';
 
-  return confidence_grid_html
+  return confidenceGridHtml
 }
 
-function key_with_greatest_value(o) {
-  greatest_value_key = o[0];
-  greatest_value = 0.0;
+function keyWithGreatestValue(o) {
+  greatestValueKey = o[0];
+  greatestValue = 0.0;
 
   for (key in o) {
-    if (o[key] > greatest_value) {
-      greatest_value_key = key;
-      greatest_value = o[key];
+    if (o[key] > greatestValue) {
+      greatestValueKey = key;
+      greatestValue = o[key];
     }
   }
 
-  return greatest_value_key;
+  return greatestValueKey;
 }
 
-function build_language_select_options(language_select, names) {
-  while (language_select.firstChild) {
-    language_select.removeChild(language_select.firstChild);
+function buildLanguageSelectOptions(languageSelect, names) {
+  while (languageSelect.firstChild) {
+    languageSelect.removeChild(languageSelect.firstChild);
   }
 
   for (i = 0; i < names.length; i++) {
     option = document.createElement('option');
     option.value = names[i]
     option.textContent = names[i];
-    language_select.appendChild(option);
+    languageSelect.appendChild(option);
+  }
+}
+
+function loadLanguageNames() {
+  var languageSelect = document.getElementById('language');
+
+  while (languageSelect.firstChild) {
+    languageSelect.removeChild(languageSelect.firstChild);
+  }
+
+  names = ["BASIC", "C", "C++", "Fixed-length COBOL", "Free-form COBOL", "Pascal", "Python"]
+
+  for (i = 0; i < names.length; i++) {
+    option = document.createElement('option');
+    option.value = names[i]
+    option.textContent = names[i];
+    languageSelect.appendChild(option);
   }
 }
 
@@ -92,20 +109,20 @@ function detectLanguage() {
         if (req.status === 200) {
           results = req.responseText;
           confidences = JSON.parse(results);
-          names = keys_in_object(confidences).sort();
+          names = keysInObject(confidences).sort();
 
           // build list of names
-          var language_select = document.getElementById('language');
-          build_language_select_options(language_select, names)
+          var languageSelect = document.getElementById('language');
+          buildLanguageSelectOptions(languageSelect, names)
 
           // build list of names and confidence values
-          var detect_div = document.getElementById('detect_result');
-          confidence_grid_html = build_confidence_grid(confidences);
-          detect_div.innerHTML = confidence_grid_html;
+          var detectDiv = document.getElementById('detect_result');
+          confidenceGridHtml = buildConfidenceGrid(confidences);
+          detectDiv.innerHTML = confidenceGridHtml;
 
           if (names.length > 0) {
             // find the most likely language
-            language_select.value = key_with_greatest_value(confidences)
+            languageSelect.value = keyWithGreatestValue(confidences)
           }
         } else {
           console.error(req.statusText);
@@ -120,7 +137,7 @@ function detectLanguage() {
     req.send(code);
 }
 
-function text_to_safe_html(str) {
+function textToSafeHtml(str) {
   s1 = str.replace(/&/g, '&amp;');
   s2 = s1.replace(/</g, '&lt;');
   s3 = s2.replace(/>/g, '&gt;');
@@ -128,31 +145,31 @@ function text_to_safe_html(str) {
   return s4;
 }
 
-function colorize(token, html_colors) {
-  token_type = token['type'];
-  token_value = token['value'];
-  token_safe = text_to_safe_html(token_value);
-  token_html = 'empty';
+function colorize(token, htmlColors) {
+  tokenType = token['type'];
+  tokenValue = token['value'];
+  tokenSafe = textToSafeHtml(tokenValue);
+  tokenHtml = 'empty';
 
-  if (token_type == 'newline') {
-    token_html = '<br/>'; 
-  } else if (token_type.startsWith('invalid')) {
-    front_html = '<font color=red>';
-    back_html = '</font>';
-    token_html = front_html + token_safe + back_html;
-  } else if (token_type in html_colors) {
-    front_html = '<font color=' + html_colors[token_type] + '>';
-    back_html = '</font>';
-    token_html = front_html + token_safe + back_html;
+  if (tokenType == 'newline') {
+    tokenHtml = '<br/>'; 
+  } else if (tokenType.startsWith('invalid')) {
+    frontHtml = '<font color=red>';
+    backHtml = '</font>';
+    tokenHtml = frontHtml + tokenSafe + backHtml;
+  } else if (tokenType in htmlColors) {
+    frontHtml = '<font color=' + htmlColors[tokenType] + '>';
+    backHtml = '</font>';
+    tokenHtml = frontHtml + tokenSafe + backHtml;
   } else {
-    token_html = token_safe;
+    tokenHtml = tokenSafe;
   }
 
-  return token_html;
+  return tokenHtml;
 }
 
 function tokenize() {
-    html_colors = {
+    htmlColors = {
       keyword: 'orchid',
       number: 'blue',
       string: 'salmon',
@@ -185,17 +202,17 @@ function tokenize() {
         if (req.status === 200) {
           results = req.responseText;
           data = JSON.parse(results)
-          formatted_results = '<code><pre>';
+          formattedResults = '<code><pre>';
           length = data.length;
 
           for (i = 0; i < length; i++) {
-            formatted_results += colorize(data[i], html_colors)
+            formattedResults += colorize(data[i], htmlColors)
           }
 
-          formatted_results += '</pre></code>'
+          formattedResults += '</pre></code>'
 
           var div = document.getElementById('tokens_result');
-          div.innerHTML = formatted_results;
+          div.innerHTML = formattedResults;
         } else {
           // TODO: build a response
           console.error(req.statusText);
@@ -212,7 +229,7 @@ function tokenize() {
 }
 </script>
 </head>
-<body>
+<body onload="loadLanguageNames()">
 Welcome to the CodeStat page!
 <textarea style="width:100%;" rows="20" id="code"></textarea>
 <br/>
