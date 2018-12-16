@@ -29,6 +29,8 @@ function build_confidence_grid(confidences) {
   names = keys_in_object(confidences);
   name_length = longest_string(names).length;
 
+  confidence_grid_html = '<code><pre>';
+
   for (i = 0; i < names.length; i++) {
     name = names[i]
 
@@ -43,10 +45,12 @@ function build_confidence_grid(confidences) {
     g_spaces = ' '.repeat(width - g_confidence);
     g_bar = '  [' + g_stars + g_spaces + ']'
 
-    formatted_results += name + spaces + confidence.toFixed(decimals) + g_bar + '<br/>';
+    confidence_grid_html += name + spaces + confidence.toFixed(decimals) + g_bar + '<br/>';
   }
 
-  return formatted_results
+  confidence_grid_html += '</pre></code>';
+
+  return confidence_grid_html
 }
 
 function key_with_greatest_value(o) {
@@ -63,15 +67,17 @@ function key_with_greatest_value(o) {
   return greatest_value_key;
 }
 
-function build_language_select_options(names) {
-  options = '';
-
-  for (i = 0; i < names.language; i++) {
-    option = '<option>' + names[i] + '</option>'
-    options += option
+function build_language_select_options(language_select, names) {
+  while (language_select.firstChild) {
+    language_select.removeChild(language_select.firstChild);
   }
 
-  return options;
+  for (i = 0; i < names.length; i++) {
+    option = document.createElement('option');
+    option.value = names[i]
+    option.textContent = names[i];
+    language_select.appendChild(option);
+  }
 }
 
 function detectLanguage() {
@@ -86,33 +92,20 @@ function detectLanguage() {
         if (req.status === 200) {
           results = req.responseText;
           confidences = JSON.parse(results);
-          names = keys_in_object(confidences);
-          names.sort();
+          names = keys_in_object(confidences).sort();
 
           // build list of names
           var language_select = document.getElementById('language');
-          while (language_select.firstChild) {
-            language_select.removeChild(language_select.firstChild);
-          }
-          for (i = 0; i < names.length; i++) {
-            option = document.createElement('option');
-            option.value = names[i]
-            option.textContent = names[i];
-            language_select.appendChild(option);
-          }
+          build_language_select_options(language_select, names)
 
           // build list of names and confidence values
-          formatted_results = '<code><pre>';
-          formatted_results += build_confidence_grid(confidences);
-          formatted_results += '</pre></code>';
-
           var detect_div = document.getElementById('detect_result');
-          detect_div.innerHTML = formatted_results;
+          confidence_grid_html = build_confidence_grid(confidences);
+          detect_div.innerHTML = confidence_grid_html;
 
           if (names.length > 0) {
             // find the most likely language
-            language_name = key_with_greatest_value(confidences)
-            language_select.value = language_name
+            language_select.value = key_with_greatest_value(confidences)
           }
         } else {
           console.error(req.statusText);
