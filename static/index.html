@@ -87,14 +87,28 @@ function loadLanguageNames() {
     languageSelect.removeChild(languageSelect.firstChild);
   }
 
-  names = ["BASIC", "C", "C++", "Fixed-length COBOL", "Free-form COBOL", "Pascal", "Python"]
+  var code = document.getElementById('code').value;
+  var req = new XMLHttpRequest();
+  req.open('GET', "/languages", true);
 
-  for (i = 0; i < names.length; i++) {
-    option = document.createElement('option');
-    option.value = names[i]
-    option.textContent = names[i];
-    languageSelect.appendChild(option);
+  req.onload = function (e) {
+    if (req.readyState === 4) {
+      if (req.status === 200) {
+        results = req.responseText;
+        names = JSON.parse(results);
+        names.sort();
+
+        for (i = 0; i < names.length; i++) {
+          option = document.createElement('option');
+          option.value = names[i]
+          option.textContent = names[i];
+          languageSelect.appendChild(option);
+        }
+      }
+    }
   }
+
+  req.send()
 }
 
 function detectLanguage() {

@@ -10,6 +10,12 @@ from PythonExaminer import PythonExaminer
 
 app = Flask(__name__)
 
+@app.route('/languages', methods=['GET'])
+def languages():
+  names = ["BASIC", "C", "C++", "Fixed-length COBOL", "Free-form COBOL", "Pascal", "Python"]
+  json_text = json.dumps(names)
+  return json_text
+
 @app.route('/detab', methods=['POST'])
 def detab():
   tabsize = 8
