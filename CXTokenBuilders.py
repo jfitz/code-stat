@@ -27,7 +27,7 @@ class IdentifierTokenBuilder(TokenBuilder):
     return result
 
 # token reader for // comment
-class SlashCommentTokenBuilder(TokenBuilder):
+class SlashSlashCommentTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = ''
 
@@ -58,7 +58,7 @@ class SlashCommentTokenBuilder(TokenBuilder):
     return result
 
 # token reader for /* */ comment
-class CommentTokenBuilder(TokenBuilder):
+class SlashStarCommentTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = ''
 

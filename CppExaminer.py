@@ -17,8 +17,8 @@ class CppExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder()
     string_tb = StringTokenBuilder(['"', "'"])
 
-    slash_slash_comment_tb = SlashCommentTokenBuilder()
-    slash_star_comment_tb = CommentTokenBuilder()
+    slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
+    slash_star_comment_tb = SlashStarCommentTokenBuilder()
     c_preprocessor_tb = CPreProcessorTokenBuilder()
 
     known_operators = [

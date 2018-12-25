@@ -50,7 +50,7 @@ class BraceCommentTokenBuilder(TokenBuilder):
     return result
 
 # token reader for comment
-class CommentTokenBuilder(TokenBuilder):
+class ParenStarCommentTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = ''
 

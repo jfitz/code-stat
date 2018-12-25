@@ -55,7 +55,7 @@ class HashCommentTokenBuilder(TokenBuilder):
     return result
 
 # token reader for """ """ comment
-class CommentTokenBuilder(TokenBuilder):
+class TripleQuoteCommentTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = ''
 

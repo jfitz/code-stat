@@ -18,7 +18,7 @@ class PythonExaminer(Examiner):
     string_tb = StringTokenBuilder(['"', "'"])
 
     hash_comment_tb = HashCommentTokenBuilder()
-    tripe_quote_comment_tb = CommentTokenBuilder()
+    tripe_quote_comment_tb = TripleQuoteCommentTokenBuilder()
 
     known_operators = [
       '+', '-', '*', '/', '%',
