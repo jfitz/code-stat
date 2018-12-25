@@ -10,15 +10,15 @@ class PythonExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
-    wtb = WhitespaceTokenBuilder()
-    nltb = NewlineTokenBuilder()
+    whitespace_tb = WhitespaceTokenBuilder()
+    newline_tb = NewlineTokenBuilder()
 
-    ntb = NumberTokenBuilder()
-    itb = IdentifierTokenBuilder()
-    stb = StringTokenBuilder(['"', "'"])
+    number_tb = NumberTokenBuilder()
+    identifier_tb = IdentifierTokenBuilder()
+    string_tb = StringTokenBuilder(['"', "'"])
 
-    hctb = HashCommentTokenBuilder()
-    ctb = CommentTokenBuilder()
+    hash_comment_tb = HashCommentTokenBuilder()
+    tripe_quote_comment_tb = CommentTokenBuilder()
 
     known_operators = [
       '+', '-', '*', '/', '%',
@@ -31,14 +31,13 @@ class PythonExaminer(Examiner):
       '++', '--', 'and', 'or', 'in', 'is'
       ]
 
-    kotb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
     unknown_operators = set(self.common_operators()) - set(known_operators)
-    uotb = ListTokenBuilder(unknown_operators, 'invalid operator', True)
+    unknown_operator_tb = ListTokenBuilder(unknown_operators, 'invalid operator', True)
 
     continuation_chars = ['\\']
-    lctb = ListTokenBuilder(continuation_chars, 'line continuation', False)
-    nltb = NewlineTokenBuilder()
+    line_continuation_tb = ListTokenBuilder(continuation_chars, 'line continuation', False)
 
     keywords = [
       'import', 'from', 'as', 'def', 'class',
@@ -47,9 +46,21 @@ class PythonExaminer(Examiner):
       'for', 'while'
       ]
     
-    ktb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
-    tokenbuilders = [wtb, lctb, nltb, ntb, ktb, itb, stb, kotb, uotb, hctb, ctb]
+    tokenbuilders = [
+      whitespace_tb,
+      line_continuation_tb,
+      newline_tb,
+      number_tb,
+      keyword_tb,
+      identifier_tb,
+      string_tb,
+      known_operator_tb,
+      unknown_operator_tb,
+      hash_comment_tb,
+      tripe_quote_comment_tb
+    ]
     
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)

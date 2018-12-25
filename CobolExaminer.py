@@ -8,12 +8,14 @@ class CobolExaminer(Examiner):
   def __init__(self, code, fixed_format, tab_size):
     super().__init__()
 
-    wtb = WhitespaceTokenBuilder()
-    ntb = NumberTokenBuilder()
-    itb = IdentifierTokenBuilder()
-    stb = StringTokenBuilder(['"', "'"])
-    ptb = PictureTokenBuilder()
-    sctb = StarCommentTokenBuilder()
+    whitespace_tb = WhitespaceTokenBuilder()
+    newline_tb = NewlineTokenBuilder()
+
+    number_tb = NumberTokenBuilder()
+    identifier_tb = IdentifierTokenBuilder()
+    string_tb = StringTokenBuilder(['"', "'"])
+    picture_tb = PictureTokenBuilder()
+    star_comment_tb = StarCommentTokenBuilder()
 
     known_operators = [
       'ADD', 'SUBTRACT', 'MULTIPLY', 'DIVIDE',
@@ -23,12 +25,10 @@ class CobolExaminer(Examiner):
       '(', ')', ',', ':', '.'
       ]
     
-    kotb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
     unknown_operators = set(self.common_operators()) - set(known_operators)
-    uotb = ListTokenBuilder(unknown_operators, 'invalid operator', True)
-
-    nltb = NewlineTokenBuilder()
+    unknown_operator_tb = ListTokenBuilder(unknown_operators, 'invalid operator', True)
 
     keywords = [
       'ACCEPT',
@@ -473,11 +473,23 @@ class CobolExaminer(Examiner):
       'ZEROS'
     ]
 
-    ktb = ListTokenBuilder(keywords, 'keyword', False)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
 
-    cpptb = CobolPreprocessorTokenBuilder()
+    cobol_preprocessor_tb = CobolPreprocessorTokenBuilder()
     
-    tokenbuilders = [wtb, nltb, ntb, ptb, ktb, kotb, uotb, itb, stb, sctb, cpptb]
+    tokenbuilders = [
+      whitespace_tb,
+      newline_tb,
+      number_tb,
+      picture_tb,
+      keyword_tb,
+      known_operator_tb,
+      unknown_operator_tb,
+      identifier_tb,
+      string_tb,
+      star_comment_tb,
+      cobol_preprocessor_tb
+    ]
     
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)

@@ -9,15 +9,15 @@ class PascalExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
-    wtb = WhitespaceTokenBuilder()
-    nltb = NewlineTokenBuilder()
+    whitespace_tb = WhitespaceTokenBuilder()
+    newline_tb = NewlineTokenBuilder()
 
-    ntb = NumberTokenBuilder()
-    itb = IdentifierTokenBuilder()
-    stb = StringTokenBuilder(["'"])
+    number_tb = NumberTokenBuilder()
+    identifier_tb = IdentifierTokenBuilder()
+    string_tb = StringTokenBuilder(["'"])
 
-    bctb = BraceCommentTokenBuilder()
-    ctb = CommentTokenBuilder()
+    brace_comment_tb = BraceCommentTokenBuilder()
+    pascal_comment_tb = CommentTokenBuilder()
 
     known_operators = [
       '+', '-', '*', '/',
@@ -28,26 +28,36 @@ class PascalExaminer(Examiner):
       '(', ')', ',', '.', ':', ';',
       '[', ']', '..',
       'div', 'mod', 'shl', 'shr', 'in'
-      ]
+    ]
     
-    kotb = ListTokenBuilder(known_operators, 'operator', False)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False)
 
     unknown_operators = set(self.common_operators()) - set(known_operators)
-    uotb = ListTokenBuilder(unknown_operators, 'invalid operator', False)
+    unknown_operator_tb = ListTokenBuilder(unknown_operators, 'invalid operator', False)
 
-    nltb = NewlineTokenBuilder()
-    
     keywords = [
       'and', 'array', 'begin', 'boolean', 'break', 'case', 'char', 'const',
       'do', 'downto', 'else', 'end', 'false', 'file', 'for', 'forward',
       'function', 'goto', 'if', 'integer', 'label', 'nil', 'of', 'otherwise',
-      'packed', 'procedure', 'program', 'real', 'record', 'repeat', 'set',
-      'string', 'then', 'to', 'true', 'until', 'uses', 'value', 'var', 'while'
+      'packed', 'procedure', 'program', 'real', 'record', 'repeat', 'reset',
+      'set', 'string', 'then', 'to', 'true', 'until', 'uses', 'value', 'var',
+      'while'
       ]
 
-    ktb = ListTokenBuilder(keywords, 'keyword', False)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
 
-    tokenbuilders = [wtb, nltb, stb, kotb, uotb, bctb, ctb, ntb, ktb, itb]
+    tokenbuilders = [
+      whitespace_tb,
+      newline_tb,
+      string_tb,
+      known_operator_tb,
+      unknown_operator_tb,
+      brace_comment_tb,
+      pascal_comment_tb,
+      number_tb,
+      keyword_tb,
+      identifier_tb
+      ]
     
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)

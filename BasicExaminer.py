@@ -12,14 +12,14 @@ class BasicExaminer(Examiner):
     num_invalid_operators = 0
     num_known_operators = 0
 
-    wtb = WhitespaceTokenBuilder()
-    nltb = NewlineTokenBuilder()
+    whitespace_tb = WhitespaceTokenBuilder()
+    newline_tb = NewlineTokenBuilder()
 
-    bntb = BasicNumberTokenBuilder()
-    vtb = VariableTokenBuilder()
-    stb = StringTokenBuilder(['"'])
-    rtb = RemarkTokenBuilder()
-    lntb = LineNumberTokenBuilder()
+    basic_number_tb = BasicNumberTokenBuilder()
+    variable_tb = VariableTokenBuilder()
+    string_tb = StringTokenBuilder(['"'])
+    remark_tb = RemarkTokenBuilder()
+    line_number_tb = LineNumberTokenBuilder()
 
     known_operators = [
       '+', '-', '*', '/', '^',
@@ -27,31 +27,45 @@ class BasicExaminer(Examiner):
       '(', ')', ',', ':', ';', '&', '#', '\\'
       ]
     
-    kotb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
     unknown_operators = set(self.common_operators()) - set(known_operators)
-    uotb = ListTokenBuilder(unknown_operators, 'invalid operator', True)
+    unknown_operator_tb = ListTokenBuilder(unknown_operators, 'invalid operator', True)
 
     keywords = [
       'AS', 'CHANGE', 'CLOSE', 'DATA', 'DEF', 'DIM', 'ELSE', 'END', 'ERROR',
-      'FILE', 'FOR', 'GOSUB', 'GO', 'GOTO', 'IF', 'INPUT', 'LET', 'ON', 'OPEN',
-      'OUTPUT', 'NEXT', 'PRINT', 'RANDOMIZE', 'READ', 'REM', 'REMARK',
-      'RESTORE', 'RETURN', 'STEP', 'STOP', 'THEN', 'TO'
+      'FILE', 'FOR', 'GOSUB', 'GO', 'GOTO', 'IF', 'INPUT', 'LET', 'MAT', 'NEXT', 
+      'ON', 'OPEN', 'OUTPUT', 'PRINT', 'RANDOMIZE', 'READ', 'REM', 'REMARK',
+      'RESTORE', 'RETURN', 'STEP', 'STOP', 'THEN', 'TO', 'USING'
       ]
 
-    ktb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
     functions = [
-      'ABS', 'ASC', 'CHR$', 'COS', 'DET', 'INV', 'LEFT$', 'LEN', 'MID$', 'RIGHT$',
-      'SGN', 'SIN', 'STR$', 'TRN', 'VAL', 'ZER',
+      'ABS', 'ASC', 'ATN', 'CHR$', 'COS', 'EXP', 'LEFT', 'LEFT$',
+      'LEN', 'MID', 'MID$', 'RIGHT', 'RIGHT$',
+      'SGN', 'SIN', 'STR$', 'TAN', 'VAL',
+      'DET', 'INV', 'TRN', 'ZER',
       'FNA', 'FNB', 'FNC', 'FND', 'FNE', 'FNF', 'FNG', 'FNH', 'FNI', 'FNJ',
       'FNK', 'FNL', 'FNM', 'FNN', 'FNO', 'FNP', 'FNQ', 'FNR', 'FNS', 'FNT',
       'FNU', 'FNV', 'FNW', 'FNX', 'FNY', 'FNZ'
     ]
 
-    ftb = ListTokenBuilder(functions, 'function', True)
+    function_tb = ListTokenBuilder(functions, 'function', True)
 
-    tokenbuilders = [wtb, nltb, bntb, lntb, vtb, ftb, stb, kotb, uotb, ktb, rtb]
+    tokenbuilders = [
+      whitespace_tb,
+      newline_tb,
+      basic_number_tb,
+      line_number_tb,
+      variable_tb,
+      function_tb,
+      string_tb,
+      known_operator_tb,
+      unknown_operator_tb,
+      keyword_tb,
+      remark_tb
+    ]
 
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)

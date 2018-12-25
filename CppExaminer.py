@@ -10,16 +10,16 @@ class CppExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
-    wtb = WhitespaceTokenBuilder()
-    nltb = NewlineTokenBuilder()
+    whitespace_tb = WhitespaceTokenBuilder()
+    newline_tb = NewlineTokenBuilder()
 
-    ntb = NumberTokenBuilder()
-    itb = IdentifierTokenBuilder()
-    stb = StringTokenBuilder(['"', "'"])
+    number_tb = NumberTokenBuilder()
+    identifier_tb = IdentifierTokenBuilder()
+    string_tb = StringTokenBuilder(['"', "'"])
 
-    sctb = SlashCommentTokenBuilder()
-    ctb = CommentTokenBuilder()
-    cpptb = CPreProcessorTokenBuilder()
+    slash_slash_comment_tb = SlashCommentTokenBuilder()
+    slash_star_comment_tb = CommentTokenBuilder()
+    c_preprocessor_tb = CPreProcessorTokenBuilder()
 
     known_operators = [
       '+', '-', '*', '/', '%',
@@ -33,12 +33,10 @@ class CppExaminer(Examiner):
       '::', '?', '{', '}'
       ]
     
-    kotb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
     unknown_operators = set(self.common_operators()) - set(known_operators)
-    uotb = ListTokenBuilder(unknown_operators, 'invalid operator', True)
-
-    nltb = NewlineTokenBuilder()
+    unknown_operator_tb = ListTokenBuilder(unknown_operators, 'invalid operator', True)
 
     keywords = [
       'int', 'char', 'float', 'double',
@@ -58,7 +56,7 @@ class CppExaminer(Examiner):
       'try', 'catch', 'throw'
       ]
 
-    ktb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
     power_keywords = [
       'private', 'protected', 'public',
@@ -68,7 +66,20 @@ class CppExaminer(Examiner):
       'try', 'catch', 'throw'
       ]
     
-    tokenbuilders = [wtb, nltb, ntb, ktb, itb, stb, kotb, uotb, sctb, ctb, cpptb, nltb]
+    tokenbuilders = [
+      whitespace_tb,
+      newline_tb,
+      number_tb,
+      keyword_tb,
+      identifier_tb,
+      string_tb,
+      known_operator_tb,
+      unknown_operator_tb,
+      slash_slash_comment_tb,
+      slash_star_comment_tb,
+      c_preprocessor_tb,
+      newline_tb
+    ]
     
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
