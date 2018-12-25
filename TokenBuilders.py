@@ -157,6 +157,52 @@ class IntegerTokenBuilder(TokenBuilder):
     return result
 
 
+# token reader for real (no exponent)
+class RealTokenBuilder(TokenBuilder):
+  def __init__(self, require_before, require_after):
+    self.token = None
+    self.require_before = require_before
+    self.require_after = require_after
+
+
+  def get_tokens(self):
+    if self.token is None:
+      return None
+
+    return [Token(self.token, 'number')]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if c.isdigit():
+      result = True
+    
+    if c == '.' and '.' not in candidate:
+      result = True
+
+    return result
+
+
+  def get_score(self, last_printable_token):
+    if self.token is None:
+      return 0
+
+    if len(self.token) < 2:
+      return 0
+
+    if '.' not in self.token:
+      return 0
+
+    if self.require_before and not self.token[0].isdigit():
+      return 0
+
+    if self.require_after and not self.token[-1].isdigit():
+      return 0
+
+    return len(self.token)
+
+
 # token reader for number
 class NumberTokenBuilder(TokenBuilder):
   def __init__(self):

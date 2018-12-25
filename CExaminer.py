@@ -14,6 +14,7 @@ class CExaminer(Examiner):
     newline_tb = NewlineTokenBuilder()
 
     integer_tb = IntegerTokenBuilder(False)
+    real_tb = RealTokenBuilder(False, False)
     number_tb = NumberTokenBuilder()
     identifier_tb = IdentifierTokenBuilder()
     string_tb = StringTokenBuilder(['"', "'"])
@@ -65,6 +66,7 @@ class CExaminer(Examiner):
       whitespace_tb,
       newline_tb,
       integer_tb,
+      real_tb,
       number_tb,
       keyword_tb,
       identifier_tb,

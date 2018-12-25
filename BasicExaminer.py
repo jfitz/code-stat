@@ -16,6 +16,7 @@ class BasicExaminer(Examiner):
     newline_tb = NewlineTokenBuilder()
 
     integer_tb = IntegerTokenBuilder(False)
+    real_tb = RealTokenBuilder(False, False)
     basic_number_tb = BasicNumberTokenBuilder()
     variable_tb = VariableTokenBuilder()
     string_tb = StringTokenBuilder(['"'])
@@ -57,6 +58,7 @@ class BasicExaminer(Examiner):
     tokenbuilders = [
       whitespace_tb,
       newline_tb,
+      real_tb,
       integer_tb,
       basic_number_tb,
       line_number_tb,

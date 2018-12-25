@@ -14,6 +14,7 @@ class PythonExaminer(Examiner):
     newline_tb = NewlineTokenBuilder()
 
     integer_tb = IntegerTokenBuilder(True)
+    real_tb = RealTokenBuilder(False, False)
     number_tb = NumberTokenBuilder()
     identifier_tb = IdentifierTokenBuilder()
     string_tb = StringTokenBuilder(['"', "'"])
@@ -53,6 +54,7 @@ class PythonExaminer(Examiner):
       whitespace_tb,
       line_continuation_tb,
       integer_tb,
+      real_tb,
       newline_tb,
       number_tb,
       keyword_tb,
