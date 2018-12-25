@@ -13,6 +13,7 @@ class PythonExaminer(Examiner):
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
+    integer_tb = IntegerTokenBuilder(True)
     number_tb = NumberTokenBuilder()
     identifier_tb = IdentifierTokenBuilder()
     string_tb = StringTokenBuilder(['"', "'"])
@@ -51,6 +52,7 @@ class PythonExaminer(Examiner):
     tokenbuilders = [
       whitespace_tb,
       line_continuation_tb,
+      integer_tb,
       newline_tb,
       number_tb,
       keyword_tb,

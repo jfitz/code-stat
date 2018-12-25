@@ -12,6 +12,7 @@ class PascalExaminer(Examiner):
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
+    integer_tb = IntegerTokenBuilder(False)
     number_tb = NumberTokenBuilder()
     identifier_tb = IdentifierTokenBuilder()
     string_tb = StringTokenBuilder(["'"])
@@ -48,6 +49,7 @@ class PascalExaminer(Examiner):
 
     tokenbuilders = [
       whitespace_tb,
+      integer_tb,
       newline_tb,
       string_tb,
       known_operator_tb,

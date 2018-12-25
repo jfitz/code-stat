@@ -131,6 +131,32 @@ class StringTokenBuilder(TokenBuilder):
     return result
 
 
+# token reader for integer
+class IntegerTokenBuilder(TokenBuilder):
+  def __init__(self, allow_underscore):
+    self.token = None
+    self.allow_underscore = allow_underscore
+
+
+  def get_tokens(self):
+    if self.token is None:
+      return None
+
+    return [Token(self.token, 'number')]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if c.isdigit():
+      result = True
+    
+    if c == '_' and self.allow_underscore:
+      result = True
+
+    return result
+
+
 # token reader for number
 class NumberTokenBuilder(TokenBuilder):
   def __init__(self):
@@ -202,36 +228,5 @@ class ListTokenBuilder(TokenBuilder):
       for legal in self.legals:
         if legal[:count].lower() == token.lower():
           result = True
-
-    return result
-
-
-# token reader for preprocessor directives
-class CPreProcessorTokenBuilder(TokenBuilder):
-  def __init__(self):
-    self.token = ''
-
-
-  def get_tokens(self):
-    if self.token is None:
-      return None
-
-    if self.token.startswith('#'):
-      return [Token(self.token, 'preprocessor')]
-
-    return None
-
-
-  def accept(self, candidate, c):
-    result = False
-
-    if candidate.startswith('#'):
-      result = True
-
-    if c == '#' and candidate == '':
-      result = True
-
-    if c == '\n':
-      result = False
 
     return result
