@@ -157,6 +157,31 @@ class IntegerTokenBuilder(TokenBuilder):
     return result
 
 
+# token reader for integer with exponent
+class IntegerExponentTokenBuilder(TokenBuilder):
+  def __init__(self):
+    self.token = None
+
+
+  def get_tokens(self):
+    if self.token is None:
+      return None
+
+    return [Token(self.token, 'number')]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if c.isdigit():
+      result = True
+    
+    if c.lower() == 'e' and len(candidate) > 0 and 'e' not in candidate.lower():
+      result = True
+
+    return result
+
+
 # token reader for real (no exponent)
 class RealTokenBuilder(TokenBuilder):
   def __init__(self, require_before, require_after):

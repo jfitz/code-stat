@@ -14,6 +14,7 @@ class CppExaminer(Examiner):
     newline_tb = NewlineTokenBuilder()
 
     integer_tb = IntegerTokenBuilder(False)
+    integer_exponent_tb = IntegerExponentTokenBuilder()
     real_tb = RealTokenBuilder(False, False)
     number_tb = NumberTokenBuilder()
     identifier_tb = IdentifierTokenBuilder()
@@ -72,6 +73,7 @@ class CppExaminer(Examiner):
       whitespace_tb,
       newline_tb,
       integer_tb,
+      integer_exponent_tb,
       real_tb,
       number_tb,
       keyword_tb,

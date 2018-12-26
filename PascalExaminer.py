@@ -13,6 +13,7 @@ class PascalExaminer(Examiner):
     newline_tb = NewlineTokenBuilder()
 
     integer_tb = IntegerTokenBuilder(False)
+    integer_exponent_tb = IntegerExponentTokenBuilder()
     real_tb = RealTokenBuilder(True, True)
     number_tb = NumberTokenBuilder()
     identifier_tb = IdentifierTokenBuilder()
@@ -51,6 +52,7 @@ class PascalExaminer(Examiner):
     tokenbuilders = [
       whitespace_tb,
       integer_tb,
+      integer_exponent_tb,
       real_tb,
       newline_tb,
       string_tb,

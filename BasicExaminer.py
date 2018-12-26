@@ -16,6 +16,7 @@ class BasicExaminer(Examiner):
     newline_tb = NewlineTokenBuilder()
 
     integer_tb = IntegerTokenBuilder(False)
+    integer_exponent_tb = IntegerExponentTokenBuilder()
     real_tb = RealTokenBuilder(False, False)
     basic_number_tb = BasicNumberTokenBuilder()
     variable_tb = VariableTokenBuilder()
@@ -60,6 +61,7 @@ class BasicExaminer(Examiner):
       newline_tb,
       real_tb,
       integer_tb,
+      integer_exponent_tb,
       basic_number_tb,
       line_number_tb,
       variable_tb,
