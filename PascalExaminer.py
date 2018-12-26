@@ -15,7 +15,7 @@ class PascalExaminer(Examiner):
     integer_tb = IntegerTokenBuilder(False)
     integer_exponent_tb = IntegerExponentTokenBuilder()
     real_tb = RealTokenBuilder(True, True)
-    number_tb = NumberTokenBuilder()
+    real_exponent_tb = RealExponentTokenBuilder(False, False)
     identifier_tb = IdentifierTokenBuilder()
     string_tb = StringTokenBuilder(["'"])
 
@@ -54,13 +54,13 @@ class PascalExaminer(Examiner):
       integer_tb,
       integer_exponent_tb,
       real_tb,
+      real_exponent_tb,
       newline_tb,
       string_tb,
       known_operator_tb,
       unknown_operator_tb,
       brace_comment_tb,
       paren_star_comment_tb,
-      number_tb,
       keyword_tb,
       identifier_tb
       ]

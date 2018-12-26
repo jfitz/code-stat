@@ -16,7 +16,7 @@ class CppExaminer(Examiner):
     integer_tb = IntegerTokenBuilder(False)
     integer_exponent_tb = IntegerExponentTokenBuilder()
     real_tb = RealTokenBuilder(False, False)
-    number_tb = NumberTokenBuilder()
+    real_exponent_tb = RealExponentTokenBuilder(False, False)
     identifier_tb = IdentifierTokenBuilder()
     string_tb = StringTokenBuilder(['"', "'"])
 
@@ -75,7 +75,7 @@ class CppExaminer(Examiner):
       integer_tb,
       integer_exponent_tb,
       real_tb,
-      number_tb,
+      real_exponent_tb,
       keyword_tb,
       identifier_tb,
       string_tb,

@@ -14,7 +14,7 @@ class CobolExaminer(Examiner):
     integer_tb = IntegerTokenBuilder(False)
     integer_exponent_tb = IntegerExponentTokenBuilder()
     real_tb = RealTokenBuilder(False, True)
-    number_tb = NumberTokenBuilder()
+    real_exponent_tb = RealExponentTokenBuilder(False, True)
     identifier_tb = IdentifierTokenBuilder()
     string_tb = StringTokenBuilder(['"', "'"])
     picture_tb = PictureTokenBuilder()
@@ -486,7 +486,7 @@ class CobolExaminer(Examiner):
       integer_tb,
       integer_exponent_tb,
       real_tb,
-      number_tb,
+      real_exponent_tb,
       picture_tb,
       keyword_tb,
       known_operator_tb,
