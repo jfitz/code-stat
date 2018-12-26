@@ -345,3 +345,40 @@ class ListTokenBuilder(TokenBuilder):
           result = True
 
     return result
+
+
+# token reader for integer
+class PrefixedIntegerTokenBuilder(TokenBuilder):
+  def __init__(self, prefix, allowed_chars):
+    self.token = None
+    self.prefix = prefix
+    self.allowed_chars = allowed_chars
+
+
+  def get_tokens(self):
+    if self.token is None:
+      return None
+
+    return [Token(self.token, 'number')]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if len(candidate) == 0 and c == self.prefix:
+      result = True
+    
+    if len(candidate) > 0 and c in self.allowed_chars:
+      result = True
+
+    return result
+
+
+  def get_score(self, last_printable_token):
+    if self.token is None:
+      return 0
+
+    if len(self.token) < 2:
+      return 0
+
+    return len(self.token)
