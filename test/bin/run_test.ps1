@@ -13,9 +13,10 @@ Write-Output "****** ****** ******"
 Write-Output "Starting test $name..."
 Write-Output ""
 
-$actual = ".\tests\$name\out.txt"
-$actual_adjusted = ".\tests\$name\out1.txt"
-$actual_final = ".\tests\$name\out2.txt"
+$testbed = "$env:USERPROFILE\Projects\CodeStat"
+$actual = "$testbed\$name\out.txt"
+$actual_adjusted = "$testbed\$name\out1.txt"
+$actual_final = "$testbed\$name\out2.txt"
 $target = "localhost:5000"
 $params = @()
 
@@ -34,10 +35,10 @@ if ($params.Count -gt 0) {
     $url = "http://" + $target + "/" + $action
 }
 
-if (!(Test-Path -Path .\tests\$name )) {
-    New-Item -ItemType directory -Path .\tests\$name
+if (!(Test-Path -Path $testbed\$name )) {
+    New-Item -ItemType directory -Path $testbed\$name
 }
-Remove-Item .\tests\$name\*.*
+Remove-Item $testbed\$name\*.*
 
 Write-Output "Invoking service $url -infile $inputfile -outfile $actual..."
 Invoke-RestMethod -method post -uri "$url" -infile $inputfile -outfile $actual
