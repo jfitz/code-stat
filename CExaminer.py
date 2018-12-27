@@ -28,7 +28,7 @@ class CExaminer(Examiner):
       '+', '-', '*', '/', '%',
       '=', '==', '!=', '>', '>=', '<', '<=',
       '+=', '-=', '*=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>=',
-      '&', '|', '~', '<<', '>>',
+      '!', '&', '|', '~', '<<', '>>',
       '^',
       '(', ')', ',', '.', ':', ';',
       '[', ']',
@@ -37,9 +37,6 @@ class CExaminer(Examiner):
       ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
-
-    unknown_operators = set(self.common_operators()) - set(known_operators)
-    unknown_operator_tb = ListTokenBuilder(unknown_operators, 'invalid operator', True)
 
     keywords = [
       'int', 'char', 'float', 'double',
@@ -74,7 +71,7 @@ class CExaminer(Examiner):
       identifier_tb,
       string_tb,
       known_operator_tb,
-      unknown_operator_tb,
+      self.unknown_operator_tb,
       slash_slash_comment_tb,
       slash_star_comment_tb,
       c_preprocessor_tb

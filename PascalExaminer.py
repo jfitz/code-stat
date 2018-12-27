@@ -38,9 +38,6 @@ class PascalExaminer(Examiner):
     
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', False)
 
-    unknown_operators = set(self.common_operators()) - set(known_operators)
-    unknown_operator_tb = ListTokenBuilder(unknown_operators, 'invalid operator', False)
-
     keywords = [
       'and', 'array', 'begin', 'boolean', 'break', 'case', 'char', 'const',
       'do', 'downto', 'else', 'end', 'false', 'file', 'for', 'forward',
@@ -64,7 +61,7 @@ class PascalExaminer(Examiner):
       newline_tb,
       string_tb,
       known_operator_tb,
-      unknown_operator_tb,
+      self.unknown_operator_tb,
       brace_comment_tb,
       paren_star_comment_tb,
       keyword_tb,

@@ -30,9 +30,6 @@ class CobolExaminer(Examiner):
     
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
-    unknown_operators = set(self.common_operators()) - set(known_operators)
-    unknown_operator_tb = ListTokenBuilder(unknown_operators, 'invalid operator', True)
-
     keywords = [
       'ACCEPT',
       'ACCESS',
@@ -490,7 +487,7 @@ class CobolExaminer(Examiner):
       picture_tb,
       keyword_tb,
       known_operator_tb,
-      unknown_operator_tb,
+      self.unknown_operator_tb,
       identifier_tb,
       string_tb,
       star_comment_tb,

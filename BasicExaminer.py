@@ -36,22 +36,21 @@ class BasicExaminer(Examiner):
     
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
-    unknown_operators = set(self.common_operators()) - set(known_operators)
-    unknown_operator_tb = ListTokenBuilder(unknown_operators, 'invalid operator', True)
-
     keywords = [
       'AS', 'CHANGE', 'CLOSE', 'DATA', 'DEF', 'DIM', 'ELSE', 'END', 'ERROR',
       'FILE', 'FOR', 'GOSUB', 'GO', 'GOTO', 'IF', 'INPUT', 'LET', 'MAT', 'NEXT', 
-      'ON', 'OPEN', 'OUTPUT', 'PRINT', 'RANDOMIZE', 'READ', 'REM', 'REMARK',
+      'ON', 'ONERR', 'OPEN', 'OUTPUT', 'PEEK', 'POKE', 'PRINT',
+      'RANDOMIZE', 'READ', 'REM', 'REMARK',
       'RESTORE', 'RETURN', 'STEP', 'STOP', 'THEN', 'TO', 'USING'
       ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
     functions = [
-      'ABS', 'ASC', 'ATN', 'CHR$', 'COS', 'EXP', 'LEFT', 'LEFT$',
-      'LEN', 'MID', 'MID$', 'RIGHT', 'RIGHT$',
-      'SGN', 'SIN', 'STR$', 'TAN', 'VAL',
+      'ASC', 'CHR$', 'STR$', 'TAB',
+      'ATN', 'COS', 'SIN', 'TAN',
+      'ABS', 'EXP', 'INT', 'LOG', 'RND', 'SGN', 'SQR',
+      'LEFT', 'LEFT$', 'LEN', 'MID', 'MID$', 'RIGHT', 'RIGHT$', 'VAL',
       'DET', 'INV', 'TRN', 'ZER',
       'FNA', 'FNB', 'FNC', 'FND', 'FNE', 'FNF', 'FNG', 'FNH', 'FNI', 'FNJ',
       'FNK', 'FNL', 'FNM', 'FNN', 'FNO', 'FNP', 'FNQ', 'FNR', 'FNS', 'FNT',
@@ -76,7 +75,7 @@ class BasicExaminer(Examiner):
       function_tb,
       string_tb,
       known_operator_tb,
-      unknown_operator_tb,
+      self.unknown_operator_tb,
       keyword_tb,
       remark_tb
     ]

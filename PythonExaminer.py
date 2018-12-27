@@ -36,9 +36,6 @@ class PythonExaminer(Examiner):
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
-    unknown_operators = set(self.common_operators()) - set(known_operators)
-    unknown_operator_tb = ListTokenBuilder(unknown_operators, 'invalid operator', True)
-
     continuation_chars = ['\\']
     line_continuation_tb = ListTokenBuilder(continuation_chars, 'line continuation', False)
 
@@ -63,7 +60,7 @@ class PythonExaminer(Examiner):
       identifier_tb,
       string_tb,
       known_operator_tb,
-      unknown_operator_tb,
+      self.unknown_operator_tb,
       hash_comment_tb,
       tripe_quote_comment_tb
     ]

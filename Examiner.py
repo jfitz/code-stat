@@ -1,27 +1,16 @@
+from TokenBuilders import ListTokenBuilder
+
 class Examiner:
   def __init__(self):
-    self.operators = [
-      '+', '-', '*', '/', '%', '&', '|', '~', '^', '\\', '#',
-      '+=', '-=', '*=', '/=', '%=', '&=', '|=', '^=',
-       '<<', '>>',
-       '<<=', '>>=',
-      '=', '==', '!=', '<>', '>', '>=', '<', '<=',
-      '++', '--', '**', '//'
-      'and', 'or', 'not',
-      '{', '}', '(', ')', '[', ']',
-      ':=', '..',
+    operators = [
+      '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')',
+      '-', '+', '=',
+      '[', ']', '{', '}', '/', '|', '\\',
       ',', '.', ':', ';',
-      '<-', '->', '<->', '<=>',
-      '@',
-      '&&', '||',
-      '::', '?',
-      ':-',
-      '%>%'
-      ]
-
-
-  def common_operators(self):
-    return self.operators
+      '>', '<',
+      '?'
+    ]
+    self.unknown_operator_tb = ListTokenBuilder(operators, 'invalid operator', True)
 
 
   def tabs_to_spaces(self, text, tab_size):
