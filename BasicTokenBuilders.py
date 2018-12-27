@@ -2,9 +2,10 @@ from Token import Token
 from TokenBuilders import TokenBuilder
 
 # token reader for number
-class BasicNumberTokenBuilder(TokenBuilder):
-  def __init__(self):
+class BasicSuffixedIntegerTokenBuilder(TokenBuilder):
+  def __init__(self, suffix):
     self.token = None
+    self.suffix = suffix
 
 
   def get_tokens(self):
@@ -17,13 +18,87 @@ class BasicNumberTokenBuilder(TokenBuilder):
   def accept(self, candidate, c):
     result = False
 
-    if len(candidate) == 0 and c.isdigit():
+    if c.isdigit():
       result = True
 
-    if len(candidate) > 0 and not candidate.endswith('%') and (c.isdigit() or c == '%'):
+    if len(candidate) > 0 and c == self.suffix:
       result = True
+
+    if candidate.endswith(self.suffix):
+      result = False
     
     return result
+
+
+  def get_score(self, last_printable_token):
+    if self.token is None:
+      return 0
+
+    if len(self.token) < 2:
+      return 0
+
+    if not self.token.endswith(self.suffix):
+      return 0
+
+    return len(self.token)
+
+
+# token reader for real (no exponent)
+class BasicSuffixedRealTokenBuilder(TokenBuilder):
+  def __init__(self, require_before, require_after, suffix):
+    self.token = None
+    self.require_before = require_before
+    self.require_after = require_after
+    self.suffix = suffix
+
+
+  def get_tokens(self):
+    if self.token is None:
+      return None
+
+    return [Token(self.token, 'number')]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if c.isdigit():
+      result = True
+    
+    if c == '.' and '.' not in candidate:
+      result = True
+
+    if len(candidate) > 0 and c == self.suffix:
+      result = True
+
+    if candidate.endswith(self.suffix):
+      result = False
+
+    return result
+
+
+  def get_score(self, last_printable_token):
+    if self.token is None:
+      return 0
+
+    if len(self.token) < 2:
+      return 0
+
+    if self.require_before and not self.token[0].isdigit():
+      return 0
+
+    point_position = self.token.find('.')
+
+    if point_position == -1:
+      return 0
+
+    if self.require_after and not self.token[point_position + 1].isdigit():
+      return 0
+
+    if not self.token.endswith(self.suffix):
+      return 0
+
+    return len(self.token)
 
 
 # token reader for variable

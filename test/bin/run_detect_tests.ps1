@@ -2,6 +2,7 @@ Set-StrictMode -Version Latest
 
 [int]$failures = 0
 
+test\bin\run_test.ps1 -json -name values -action detect -inputfile ".\test\data\BASIC\values.bas" -expected ".\test\ref\detect\BASIC\values.txt"
 test\bin\run_test.ps1 -json -name simple -action detect -inputfile ".\test\data\BASIC\simple.bas" -expected ".\test\ref\detect\BASIC\simple.txt"
 test\bin\run_test.ps1 -json -name 3dplot -action detect -inputfile ".\test\data\BASIC\3dplot.bas" -expected ".\test\ref\detect\BASIC\3dplot.txt"
 test\bin\run_test.ps1 -json -name batnum -action detect -inputfile ".\test\data\BASIC\batnum.bas" -expected ".\test\ref\detect\BASIC\batnum.txt"

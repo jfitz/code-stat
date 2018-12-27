@@ -19,7 +19,10 @@ class BasicExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder()
     real_tb = RealTokenBuilder(False, False)
     real_exponent_tb = RealExponentTokenBuilder(False, False)
-    basic_number_tb = BasicNumberTokenBuilder()
+    integer_suffix_tb = BasicSuffixedIntegerTokenBuilder('%')
+    long_suffix_tb = BasicSuffixedIntegerTokenBuilder('&')
+    single_suffix_tb = BasicSuffixedRealTokenBuilder(False, False, '!')
+    double_suffix_tb = BasicSuffixedRealTokenBuilder(False, False, '#')
     variable_tb = VariableTokenBuilder()
     string_tb = StringTokenBuilder(['"'])
     remark_tb = RemarkTokenBuilder()
@@ -62,7 +65,10 @@ class BasicExaminer(Examiner):
       newline_tb,
       integer_tb,
       integer_exponent_tb,
-      basic_number_tb,
+      single_suffix_tb,
+      double_suffix_tb,
+      integer_suffix_tb,
+      long_suffix_tb,
       real_tb,
       real_exponent_tb,
       line_number_tb,
