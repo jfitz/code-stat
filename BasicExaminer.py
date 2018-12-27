@@ -23,7 +23,7 @@ class BasicExaminer(Examiner):
     long_suffix_tb = BasicSuffixedIntegerTokenBuilder('&')
     single_suffix_tb = BasicSuffixedRealTokenBuilder(False, False, '!')
     double_suffix_tb = BasicSuffixedRealTokenBuilder(False, False, '#')
-    variable_tb = VariableTokenBuilder()
+    variable_tb = BasicVariableTokenBuilder('%#!$&')
     string_tb = StringTokenBuilder(['"'])
     remark_tb = RemarkTokenBuilder()
     line_number_tb = LineNumberTokenBuilder()

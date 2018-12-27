@@ -102,9 +102,10 @@ class BasicSuffixedRealTokenBuilder(TokenBuilder):
 
 
 # token reader for variable
-class VariableTokenBuilder(TokenBuilder):
-  def __init__(self):
+class BasicVariableTokenBuilder(TokenBuilder):
+  def __init__(self, suffixes):
     self.token = None
+    self.suffixes = suffixes
 
 
   def get_tokens(self):
@@ -123,7 +124,7 @@ class VariableTokenBuilder(TokenBuilder):
     if len(candidate) == 1 and c.isdigit():
       result = True
 
-    if len(candidate) > 0 and (c == '$' or c == '%'):
+    if len(candidate) > 0 and (candidate[-1].isalpha or candidate[-1].isdigit()) and c in self.suffixes:
       result = True
 
     return result
