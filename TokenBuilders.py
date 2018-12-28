@@ -365,10 +365,10 @@ class PrefixedIntegerTokenBuilder(TokenBuilder):
   def accept(self, candidate, c):
     result = False
 
-    if len(candidate) == 0 and c == self.prefix:
+    if len(candidate) < len(self.prefix) and c == self.prefix[len(candidate)]:
       result = True
     
-    if len(candidate) > 0 and c in self.allowed_chars:
+    if len(candidate) >= len(self.prefix) and c in self.allowed_chars:
       result = True
 
     return result

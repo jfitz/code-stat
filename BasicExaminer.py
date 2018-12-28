@@ -23,6 +23,9 @@ class BasicExaminer(Examiner):
     long_suffix_tb = BasicSuffixedIntegerTokenBuilder('&')
     single_suffix_tb = BasicSuffixedRealTokenBuilder(False, False, '!')
     double_suffix_tb = BasicSuffixedRealTokenBuilder(False, False, '#')
+    hex_constant_tb = PrefixedIntegerTokenBuilder('&H', '0123456789ABCDEFabcdef_')
+    octal_constant_tb = PrefixedIntegerTokenBuilder('&O', '01234567_')
+    binary_constant_tb = PrefixedIntegerTokenBuilder('&B', '01_')
     variable_tb = BasicVariableTokenBuilder('%#!$&')
     string_tb = StringTokenBuilder(['"'])
     remark_tb = RemarkTokenBuilder()
@@ -31,7 +34,7 @@ class BasicExaminer(Examiner):
     known_operators = [
       '+', '-', '*', '/', '^',
       '=', '>', '>=', '<', '<=', '<>',
-      '(', ')', ',', ':', ';', '&', '#', '\\'
+      '(', ')', ',', ':', ';', '#', '\\'
       ]
     
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
@@ -70,6 +73,9 @@ class BasicExaminer(Examiner):
       long_suffix_tb,
       real_tb,
       real_exponent_tb,
+      hex_constant_tb,
+      octal_constant_tb,
+      binary_constant_tb,
       line_number_tb,
       variable_tb,
       function_tb,
