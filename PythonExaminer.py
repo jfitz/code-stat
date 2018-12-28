@@ -90,7 +90,23 @@ class PythonExaminer(Examiner):
     if num_operators > 0:
       operator_confidence = num_known_operators / num_operators
 
-    # line format
+    # line format 1 - lines without indent start with keyword
+    lines = self.split_tokens(self.tokens)
+    num_lines = 0
+    num_lines_correct = 0
+    for line in lines:
+      if len(line) > 0:
+        num_lines += 1
+
+        if line[0].group in ['keyword', 'whitespace', 'comment']:
+          num_lines_correct += 1
+    
+    line_format_1_confidence = 0
+
+    if num_lines > 0:
+      line_format_1_confidence = num_lines_correct / num_lines
+
+    # line format 2 - some keyword lines end in colon
     tokens = self.drop_whitespace(self.tokens)
     tokens = self.drop_comments(tokens)
     lines = self.split_tokens(tokens)
@@ -109,15 +125,16 @@ class PythonExaminer(Examiner):
           if last_token.group == 'operator' and last_token.text == ':':
             num_lines_correct += 1
 
-    line_format_confidence = 1
+    line_format_2_confidence = 1
 
     if num_lines > 0:
-      line_format_confidence = num_lines_correct / num_lines
+      line_format_2_confidence = num_lines_correct / num_lines
 
     # compute confidence
-    self.confidence = line_format_confidence * token_confidence * operator_confidence
+    self.confidence = line_format_1_confidence * line_format_2_confidence * token_confidence * operator_confidence
     self.confidences = {
-      'line_format': line_format_confidence,
+      'line_format_1': line_format_1_confidence,
+      'line_format_2': line_format_2_confidence,
       'keyword': keyword_confidence,
       'token': token_confidence,
       'operator': operator_confidence
