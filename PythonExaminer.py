@@ -98,7 +98,7 @@ class PythonExaminer(Examiner):
       if len(line) > 0:
         num_lines += 1
 
-        if line[0].group in ['keyword', 'whitespace', 'comment']:
+        if line[0].group in ['keyword', 'whitespace', 'comment', 'string']:
           num_lines_correct += 1
     
     line_format_1_confidence = 0

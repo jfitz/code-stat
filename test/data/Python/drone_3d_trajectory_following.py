@@ -35,11 +35,11 @@ Kd_z = 1
 
 
 def quad_sim(x_c, y_c, z_c):
-    """
+    '''
     Calculates the necessary thrust and torques for the quadrotor to
     follow the trajectory described by the sets of coefficients
     x_c, y_c, and z_c.
-    """
+    '''
     x_pos = -5
     y_pos = -5
     z_pos = 5

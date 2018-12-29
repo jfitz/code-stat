@@ -54,7 +54,7 @@ class HashCommentTokenBuilder(TokenBuilder):
 
     return result
 
-# token reader for """ """ comment
+# token reader for triple quote string
 class TripleQuoteCommentTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = ''
@@ -63,18 +63,21 @@ class TripleQuoteCommentTokenBuilder(TokenBuilder):
     if self.token is None:
       return None
 
-    return [Token(self.token, 'comment')]
+    return [Token(self.token, 'string')]
 
   def accept(self, candidate, c):
     result = False
 
-    if c == '"' and len(candidate) < 3:
+    if len(candidate) == 0 and c in '"\'':
       result = True
 
-    if candidate.startswith('"""'):
+    if len(candidate) in [1, 2]:
+      result = c == candidate[0]
+
+    if len(candidate) > 2 and candidate[:3] in ['"""', "'''"]:
       result = True
 
-    if len(candidate) > 5 and candidate[-3:] == '"""':
+    if len(candidate) > 5 and candidate[-3:] == candidate[:3]:
       result = False
 
     return result
