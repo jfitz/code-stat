@@ -46,4 +46,8 @@ test\bin\run_test.ps1 -json -name drone-3d -action detect -inputfile ".\test\dat
 test\bin\run_test.ps1 -json -name quadrotor -action detect -inputfile ".\test\data\Python\Quadrotor.py" -expected ".\test\ref\detect\Python\Quadrotor.txt"
 test\bin\run_test.ps1 -json -name trajectory -action detect -inputfile ".\test\data\Python\TrajectoryGenerator.py" -expected ".\test\ref\detect\Python\TrajectoryGenerator.txt"
 
+test\bin\run_test.ps1 -json -name hello-ftn66 -action detect -language FORTRAN-66 -inputfile ".\test\data\FORTRAN-66\HELLO.FOR" -expected ".\test\ref\detect\FORTRAN-66\HELLO.txt"
+test\bin\run_test.ps1 -json -name heron-ftn66 -action detect -language FORTRAN-66 -inputfile ".\test\data\FORTRAN-66\HERON.FOR" -expected ".\test\ref\detect\FORTRAN-66\HERON.txt"
+test\bin\run_test.ps1 -json -name heron2-ftn66 -action detect -language FORTRAN-66 -inputfile ".\test\data\FORTRAN-66\HERON2.FOR" -expected ".\test\ref\detect\FORTRAN-66\HERON2.txt"
+
 Write-Output "Number of failures: $failures"

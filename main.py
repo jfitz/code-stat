@@ -7,12 +7,23 @@ from CobolExaminer import CobolExaminer
 from CExaminer import CExaminer
 from CppExaminer import CppExaminer
 from PythonExaminer import PythonExaminer
+from Fortran66Examiner import Fortran66Examiner
 
 app = Flask(__name__)
 
 @app.route('/languages', methods=['GET'])
 def languages():
-  names = ["BASIC", "C", "C++", "Fixed-length COBOL", "Free-form COBOL", "Pascal", "Python"]
+  names = [
+    'BASIC',
+    'C',
+    'C++',
+    'Fixed-length COBOL',
+    'Free-form COBOL',
+    'FORTRAN-66',
+    'Pascal',
+    'Python'
+  ]
+
   json_text = json.dumps(names)
   return json_text
 
@@ -138,6 +149,9 @@ def identify_language(code, tabsize):
   free_cobol_examiner = CobolExaminer(code, False, tab_size)
   retval['Free-Format-COBOL'] = free_cobol_examiner.confidence
 
+  fortran66_examiner = Fortran66Examiner(code,tab_size)
+  retval['Fortran-66'] = fortran66_examiner.confidence
+
   pascal_examiner = PascalExaminer(code)
   retval['Pascal'] = pascal_examiner.confidence
 
@@ -172,6 +186,10 @@ def tokenize(code, language, tabsize):
 
   if language in ['free-format-cobol']:
     examiner = CobolExaminer(code, False, tab_size)
+    tokens = examiner.tokens
+
+  if language in ['fortran', 'for', 'ftn', 'fortran-66']:
+    examiner = Fortran66Examiner(code, tab_size)
     tokens = examiner.tokens
 
   if language in ['pascal', 'pas']:
@@ -210,6 +228,10 @@ def tokenize_confidence(code, language, tabsize):
 
   if language in ['free-format-cobol']:
     examiner = CobolExaminer(code, False, tab_size)
+    confidences = examiner.confidences
+
+  if language in ['fortran', 'for', 'ftn', 'fortran-66']:
+    examiner = Fortran66Examiner(code, tab_size)
     confidences = examiner.confidences
 
   if language in ['pascal', 'pas']:

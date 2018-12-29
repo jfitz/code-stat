@@ -3,7 +3,7 @@ from TokenBuilders import TokenBuilder
 
 
 # token reader for identifier
-class IdentifierTokenBuilder(TokenBuilder):
+class CobolIdentifierTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = None
 
