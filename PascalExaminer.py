@@ -15,7 +15,7 @@ class PascalExaminer(Examiner):
     integer_tb = IntegerTokenBuilder(False)
     integer_exponent_tb = IntegerExponentTokenBuilder()
     real_tb = RealTokenBuilder(True, True)
-    real_exponent_tb = RealExponentTokenBuilder(False, False)
+    real_exponent_tb = RealExponentTokenBuilder(True, True)
     hex_constant_tb = PrefixedIntegerTokenBuilder('$', '0123456789ABCDEFabcdef')
     octal_constant_tb = PrefixedIntegerTokenBuilder('&', '01234567')
     binary_constant_tb = PrefixedIntegerTokenBuilder('%', '01')
