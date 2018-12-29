@@ -29,13 +29,19 @@ def languages():
 
 @app.route('/detab', methods=['POST'])
 def detab():
-  tabsize = 8
-  if 'tabsize' in request.args:
-    tabsize = request.args['tabsize']
+  tab_size = 8
 
-  bytes = request.get_data()
-  text = bytes.decode('ascii')
-  detabbed_text = tabs_to_spaces(text)
+  if 'tabsize' in request.args:
+    tab_size = request.args['tabsize']
+ 
+    try:
+      tab_size = int(tab_size)
+    except ValueError:
+      tab_size = 8
+ 
+  request_bytes = request.get_data()
+  text = request_bytes.decode('ascii')
+  detabbed_text = tabs_to_spaces(text, tab_size)
 
   return detabbed_text
 
@@ -45,8 +51,8 @@ def detect():
   if 'tabsize' in request.args:
     tabsize = request.args['tabsize']
 
-  bytes = request.get_data()
-  text = bytes.decode('ascii')
+  request_bytes = request.get_data()
+  text = request_bytes.decode('ascii')
   detected_languages = identify_language(text, tabsize)
 
   json_text = json.dumps(detected_languages)
@@ -63,8 +69,8 @@ def tokens():
   if 'tabsize' in request.args:
     tabsize = request.args['tabsize']
 
-  bytes = request.get_data()
-  text = bytes.decode('ascii')
+  request_bytes = request.get_data()
+  text = request_bytes.decode('ascii')
   tokens = tokenize(text, language.lower(), tabsize)
   token_list = []
 
@@ -85,25 +91,15 @@ def confidence():
   if 'tabsize' in request.args:
     tabsize = request.args['tabsize']
 
-  bytes = request.get_data()
-  text = bytes.decode('ascii')
+  request_bytes = request.get_data()
+  text = request_bytes.decode('ascii')
 
   json_text = tokenize_confidence(text, language.lower(), tabsize)
 
   return json_text
 
 
-def tabs_to_spaces(text):
-  tab_size = 8
-
-  if 'tabsize' in request.args:
-    tab_size = request.args['tabsize']
- 
-    try:
-      tab_size = int(tab_size)
-    except ValueError:
-      tab_size = 8
- 
+def tabs_to_spaces(text, tab_size):
   column = 0
   detabbed_text = ''
 

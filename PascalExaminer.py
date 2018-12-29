@@ -76,14 +76,14 @@ class PascalExaminer(Examiner):
     self.tokens = tokenizer.tokenize(code)
 
     # get the first and last meaningful tokens
-    first_token = ''
-    last_token = ''
+    first_token = None
+    last_token = None
 
     for token in self.tokens:
-      if first_token == '' and not token.whitespace() and not token.comment():
+      if first_token is None and token.group not in ['whitespace', 'comment', 'newline']:
         first_token = token
 
-      if not token.whitespace() and not token.comment():
+      if token.group not in ['whitespace', 'comment', 'newline']:
         last_token = token
 
     found_keywords = self.find_keywords(self.tokens)
@@ -94,14 +94,14 @@ class PascalExaminer(Examiner):
 
     # program should begin with 'program'
     program_end_confidence = 0
-    first_token_str = str(first_token)
-    if first_token_str.lower() == 'program':
-      program_end_confidence += 0.75
+    if first_token is not None:
+      if first_token.text.lower() == 'program':
+        program_end_confidence += 0.75
 
     # program should end with '.'
-    last_token_str = str(last_token)
-    if last_token_str == '.':
-      program_end_confidence += 0.25
+    if last_token is not None:
+      if last_token.text == '.':
+        program_end_confidence += 0.25
 
     # consider the number of matches for begin/end
     ok, num_begin, num_end = self.check_paired_tokens(self.tokens, 'begin', 'end')
