@@ -1,3 +1,4 @@
+import string
 from Token import Token
 from TokenBuilders import TokenBuilder
 
@@ -77,6 +78,9 @@ class HollerithStringTokenBuilder(TokenBuilder):
 
     if len(candidate) == 2 and candidate[1].isdigit():
       return c == 'H'
+
+    if c not in string.printable:
+      return False
 
     spec_length = 1 # for the H
     # compute length
