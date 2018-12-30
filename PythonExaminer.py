@@ -19,9 +19,11 @@ class PythonExaminer(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(False, False)
     identifier_tb = IdentifierTokenBuilder()
     string_tb = StringTokenBuilder(['"', "'"])
+    raw_string_tb = PrefixedStringTokenBuilder('r', ['"', "'"])
 
     hash_comment_tb = HashCommentTokenBuilder()
-    tripe_quote_comment_tb = TripleQuoteCommentTokenBuilder()
+    triple_quote_comment_tb = TripleQuoteCommentTokenBuilder()
+    raw_triple_quote_comment_tb = RawTripleQuoteCommentTokenBuilder()
 
     known_operators = [
       '+', '-', '*', '/', '%',
@@ -59,10 +61,12 @@ class PythonExaminer(Examiner):
       keyword_tb,
       identifier_tb,
       string_tb,
+      raw_string_tb,
       known_operator_tb,
       self.unknown_operator_tb,
       hash_comment_tb,
-      tripe_quote_comment_tb
+      triple_quote_comment_tb,
+      raw_triple_quote_comment_tb
     ]
     
     invalid_token_builder = InvalidTokenBuilder()

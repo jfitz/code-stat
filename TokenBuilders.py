@@ -125,7 +125,43 @@ class StringTokenBuilder(TokenBuilder):
     if len(candidate) > 1 and candidate[-1] != candidate[0]:
       result = True
 
-    if c == '\n' or c == '\r':
+    if c in ['\n', '\r']:
+      result = False
+
+    return result
+
+
+# token reader for prefixed text literal (string)
+class PrefixedStringTokenBuilder(TokenBuilder):
+  def __init__(self, prefix, quotes):
+    self.prefix = prefix
+    self.quotes = quotes
+    self.token = ''
+
+
+  def get_tokens(self):
+    if self.token is None:
+      return None
+
+    return [Token(self.token, 'string')]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if len(candidate) == 0 and c in self.prefix:
+      result = True
+
+    if len(candidate) == 1 and c in self.quotes:
+      result = True
+
+    if len(candidate) == 2:
+      result = True
+
+    if len(candidate) > 2 and candidate[-1] != candidate[1]:
+      result = True
+
+    if c in ['\n', '\r']:
       result = False
 
     return result
