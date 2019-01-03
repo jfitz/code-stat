@@ -51,4 +51,9 @@ test\bin\run_test.ps1 -json -name hello-ftn66 -action detect -language FORTRAN-6
 test\bin\run_test.ps1 -json -name heron-ftn66 -action detect -language FORTRAN-66 -inputfile ".\test\data\FORTRAN-66\HERON.FOR" -expected ".\test\ref\detect\FORTRAN-66\HERON.txt"
 test\bin\run_test.ps1 -json -name heron2-ftn66 -action detect -language FORTRAN-66 -inputfile ".\test\data\FORTRAN-66\HERON2.FOR" -expected ".\test\ref\detect\FORTRAN-66\HERON2.txt"
 
+test\bin\run_test.ps1 -json -name hello-ftn77 -action detect -language FORTRAN-77 -inputfile ".\test\data\FORTRAN-77\HELLO.F77" -expected ".\test\ref\detect\FORTRAN-77\HELLO.txt"
+test\bin\run_test.ps1 -json -name complex-ftn77 -action detect -language FORTRAN-77 -inputfile ".\test\data\FORTRAN-77\COMPLEX.F77" -expected ".\test\ref\detect\FORTRAN-77\COMPLEX.txt"
+test\bin\run_test.ps1 -json -name euclid-ftn77 -action detect -language FORTRAN-77 -inputfile ".\test\data\FORTRAN-77\EUCLID.F77" -expected ".\test\ref\detect\FORTRAN-77\EUCLID.txt"
+test\bin\run_test.ps1 -json -name heron-ftn77 -action detect -language FORTRAN-77 -inputfile ".\test\data\FORTRAN-77\HERON.F77" -expected ".\test\ref\detect\FORTRAN-77\HERON.txt"
+
 Write-Output "Number of failures: $failures"
