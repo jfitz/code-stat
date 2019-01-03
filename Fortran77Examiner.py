@@ -150,9 +150,28 @@ class Fortran77Examiner(Examiner):
     if num_operators > 0:
       operator_confidence = num_known_operators / num_operators
 
+    # two operands in a row is not FORTRAN
+    tokens = self.drop_whitespace(self.tokens)
+    tokens = self.drop_comments(tokens)
+
+    operands = ['number', 'string', 'identifier']
+
+    two_operand_count = 0
+    prev_token = Token('\n', 'newline')
+    for token in tokens:
+      if token.group in operands and prev_token.group in operands:
+        two_operand_count += 1
+
+      prev_token = token
+
+    operand_confidence = 1.0
+    if len(tokens) > 0:
+      operand_confidence = 1.0 - (two_operand_count / len(tokens))
+
     # compute confidence
-    self.confidence = token_confidence * operator_confidence
+    self.confidence = token_confidence * operator_confidence * operand_confidence
     self.confidences = {
       'token': token_confidence,
-      'operator': operator_confidence
+      'operator': operator_confidence,
+      'operand': operand_confidence
       }
