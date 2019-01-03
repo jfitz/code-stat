@@ -572,6 +572,42 @@ class CobolExaminer(Examiner):
     num_known_operators = self.count_known_operators(self.tokens)
     found_keywords = self.find_keywords(self.tokens)
 
+    # check expected keywords
+    counts = {
+      'IDENTIFICATION': 0,
+      'ENVIRONMENT': 0,
+      'DATA': 0,
+      'PROCEDURE': 0
+    }
+
+    tokens = self.drop_whitespace(self.tokens)
+    tokens = self.drop_comments(tokens)
+
+    prev_text = ''
+    for token in tokens:
+      text = token.text
+
+      if text == 'DIVISION' and prev_text in ['IDENTIFICATION', 'ID']:
+        counts['IDENTIFICATION'] += 1
+      if text == 'DIVISION' and prev_text == 'ENVIRONMENT':
+        counts['ENVIRONMENT'] += 1
+      if text == 'DIVISION' and prev_text == 'DATA':
+        counts['DATA'] += 1
+      if text == 'DIVISION' and prev_text == 'PROCEDURE':
+        counts['PROCEDURE'] += 1
+
+      prev_text = text
+    
+    expected_keyword_confidence = 0.50
+    if counts['IDENTIFICATION'] == 1:
+      expected_keyword_confidence += 0.125
+    if counts['ENVIRONMENT'] == 1:
+      expected_keyword_confidence += 0.125
+    if counts['DATA'] == 1:
+      expected_keyword_confidence += 0.125
+    if counts['PROCEDURE'] == 1:
+      expected_keyword_confidence += 0.125
+
     # count unique keywords and compare to number of tokens
     keyword_confidence = 0
     num_keywords = len(found_keywords)
@@ -590,9 +626,10 @@ class CobolExaminer(Examiner):
       operator_confidence = num_known_operators / num_operators
 
     # compute confidence
-    self.confidence = keyword_confidence * token_confidence * operator_confidence
+    self.confidence = keyword_confidence * expected_keyword_confidence * token_confidence * operator_confidence
     self.confidences = {
       'keyword': keyword_confidence,
+      'expected_keyword': expected_keyword_confidence,
       'token': token_confidence,
       'operator': operator_confidence
     }

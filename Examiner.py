@@ -135,7 +135,7 @@ class Examiner:
       if token.group != 'whitespace':
         new_list.append(token)
     
-    return tokens
+    return new_list
 
 
   def drop_comments(self, tokens):
@@ -145,4 +145,4 @@ class Examiner:
       if token.group != 'comment':
         new_list.append(token)
     
-    return tokens
+    return new_list
