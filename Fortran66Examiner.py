@@ -77,8 +77,8 @@ class Fortran66Examiner(Examiner):
       # 1: space or C
       # 2-6: line number or blank
       # 7: continuation character
-      # 8-71: program text
-      # 72-: identification, traditionally sequence number (ignored)
+      # 8-72: program text
+      # 73-: identification, traditionally sequence number (ignored)
       line_indicator = ''
       if len(line) > 0:
         line_indicator = line[0]
@@ -131,7 +131,7 @@ class Fortran66Examiner(Examiner):
 
         line_text = ''
         if len(line) > 6:
-          line_text = line[6:71]
+          line_text = line[6:72]
           self.tokens += tokenizer.tokenize(line_text)
 
       self.tokens.append(Token('\n', 'newline'))
