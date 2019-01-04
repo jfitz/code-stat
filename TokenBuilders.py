@@ -29,7 +29,7 @@ class TokenBuilder:
     return len(self.token)
 
 
-  def get_score(self, last_printable_token):
+  def get_score(self, line_printable_tokens):
     if self.token is None:
       return 0
 
@@ -245,7 +245,7 @@ class RealTokenBuilder(TokenBuilder):
     return result
 
 
-  def get_score(self, last_printable_token):
+  def get_score(self, line_printable_tokens):
     if self.token is None:
       return 0
 
@@ -297,7 +297,7 @@ class RealExponentTokenBuilder(TokenBuilder):
     return result
 
 
-  def get_score(self, last_printable_token):
+  def get_score(self, line_printable_tokens):
     if self.token is None:
       return 0
 
@@ -410,7 +410,7 @@ class PrefixedIntegerTokenBuilder(TokenBuilder):
     return result
 
 
-  def get_score(self, last_printable_token):
+  def get_score(self, line_printable_tokens):
     if self.token is None:
       return 0
 

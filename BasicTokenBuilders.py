@@ -30,7 +30,7 @@ class BasicSuffixedIntegerTokenBuilder(TokenBuilder):
     return result
 
 
-  def get_score(self, last_printable_token):
+  def get_score(self, line_printable_tokens):
     if self.token is None:
       return 0
 
@@ -77,7 +77,7 @@ class BasicSuffixedRealTokenBuilder(TokenBuilder):
     return result
 
 
-  def get_score(self, last_printable_token):
+  def get_score(self, line_printable_tokens):
     if self.token is None:
       return 0
 
@@ -192,13 +192,13 @@ class LineNumberTokenBuilder(TokenBuilder):
     return c.isdigit()
 
 
-  def get_score(self, last_printable_token):
+  def get_score(self, line_printable_tokens):
     if self.token is None:
       return 0
 
     boost = 0
 
-    if last_printable_token.group == 'newline':
+    if len(line_printable_tokens) == 0:
       boost += 0.5
 
     return len(self.token) + boost

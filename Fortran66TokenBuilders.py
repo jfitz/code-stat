@@ -41,13 +41,12 @@ class HollerithStringTokenBuilder(TokenBuilder):
 
     return len(candidate) < length
 
-  def get_score(self, last_printable_token):
+
+  def get_score(self, line_printable_tokens):
     if self.token is None:
       return 0
 
-    boost = 0
+    if len(self.token) < 3:
+      return 0
 
-    if last_printable_token.group == 'newline':
-      boost += 0.5
-
-    return len(self.token) + boost
+    return len(self.token)

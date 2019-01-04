@@ -22,6 +22,7 @@ class Fortran66Examiner(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(False, False)
     identifier_tb = FortranIdentifierTokenBuilder()
     string_tb = HollerithStringTokenBuilder()
+    format_tb = FormatSpecifierTokenBuilder()
 
     known_operators = [
       '=', '+', '-', '*', '/', '**',
@@ -54,6 +55,7 @@ class Fortran66Examiner(Examiner):
       real_tb,
       real_exponent_tb,
       keyword_tb,
+      format_tb,
       identifier_tb,
       known_operator_tb,
       self.unknown_operator_tb,
