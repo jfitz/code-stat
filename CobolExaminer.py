@@ -567,10 +567,12 @@ class CobolExaminer(Examiner):
 
       self.tokens.append(Token('\n', 'newline'))
 
+    found_keywords = self.find_keywords(self.tokens)
+    found_identifiers = self.find_identifiers(self.tokens)
+
     num_known_tokens = self.count_valid_tokens(self.tokens)
     num_invalid_operators = self.count_invalid_operators(self.tokens)
     num_known_operators = self.count_known_operators(self.tokens)
-    found_keywords = self.find_keywords(self.tokens)
 
     # check expected keywords
     counts = {

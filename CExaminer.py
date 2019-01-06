@@ -84,6 +84,7 @@ class CExaminer(Examiner):
 
     found_keywords = self.find_keywords(self.tokens)
     found_cpp_keywords = self.find_specific_keywords(self.tokens, cpp_keywords)
+    found_identifiers = self.find_identifiers(self.tokens)
 
     num_known_tokens = self.count_valid_tokens(self.tokens)
     num_invalid_operators = self.count_invalid_operators(self.tokens)
@@ -97,7 +98,11 @@ class CExaminer(Examiner):
       brace_match_confidence = (num_begin + num_end) / num_begin_end
 
     # recognized keywords improve confidence
-    keyword_confidence = len(found_keywords) / len(keywords)
+    keyword_confidence = 0
+    if len(found_keywords) > 0:
+      keyword_confidence = 1.0
+    if (len(found_identifiers)) > 0:
+      keyword_confidence = len(found_keywords) / len(found_identifiers)
 
     # unknown tokens reduce confidence
     token_confidence = 1
@@ -117,8 +122,8 @@ class CExaminer(Examiner):
     self.confidence = brace_match_confidence * token_confidence * operator_confidence * cpp_keyword_confidence
     self.confidences = {
       'brace_match': brace_match_confidence,
-      'keyword': keyword_confidence,
       'token': token_confidence,
+      'keyword': keyword_confidence,
       'operator': operator_confidence,
       'cpp_keyword': cpp_keyword_confidence
       }

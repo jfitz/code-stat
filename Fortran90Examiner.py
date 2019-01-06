@@ -83,6 +83,9 @@ class Fortran90Examiner(Examiner):
 
     self.tokens = tokenizer.tokenize(code)
 
+    found_keywords = self.find_keywords(self.tokens)
+    found_identifiers = self.find_identifiers(self.tokens)
+
     num_known_tokens = self.count_valid_tokens(self.tokens)
     num_invalid_operators = self.count_invalid_operators(self.tokens)
     num_known_operators = self.count_known_operators(self.tokens)
@@ -91,6 +94,13 @@ class Fortran90Examiner(Examiner):
     token_confidence = 1.0
     if len(self.tokens) > 0:
       token_confidence = num_known_tokens / len(self.tokens)
+
+    # recognized keywords improve confidence
+    keyword_confidence = 0
+    if len(found_keywords) > 0:
+      keyword_confidence = 1.0
+    if (len(found_identifiers)) > 0:
+      keyword_confidence = len(found_keywords) / len(found_identifiers)
 
     #  unknown operators reduce confidence
     operator_confidence = 1.0
@@ -120,6 +130,7 @@ class Fortran90Examiner(Examiner):
     self.confidence = token_confidence * operator_confidence * operand_confidence
     self.confidences = {
       'token': token_confidence,
+      'keyword': keyword_confidence,
       'operator': operator_confidence,
       'operand': operand_confidence
       }

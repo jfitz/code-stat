@@ -149,43 +149,33 @@ def identify_language(code, tabsize):
   except ValueError:
     tab_size = 8
 
-  retval = {}
-
   code = code.replace('\r\n','\n')
 
-  basic_examiner = BasicExaminer(code)
-  retval['BASIC'] = basic_examiner.confidence
+  examiners = {}
+  examiners['BASIC'] = BasicExaminer(code)
+  examiners['C'] = CExaminer(code)
+  examiners['C++'] = CppExaminer(code)
+  examiners['C#'] = CsharpExaminer(code)
+  examiners['Fixed-Format-COBOL'] = CobolExaminer(code, True, tab_size)
+  examiners['Free-Format-COBOL'] = CobolExaminer(code, False, tab_size)
+  examiners['Fortran-66'] = Fortran66Examiner(code,tab_size)
+  examiners['Fortran-77'] = Fortran77Examiner(code,tab_size)
+  examiners['Fortran-90'] = Fortran90Examiner(code,tab_size)
+  examiners['Pascal'] = PascalExaminer(code)
+  examiners['Python'] = PythonExaminer(code)
 
-  c_examiner = CExaminer(code)
-  retval['C'] = c_examiner.confidence
+  # store confidence values
+  retval = {}
+  for name in examiners:
+    retval[name] = examiners[name].confidence
 
-  cpp_examiner = CppExaminer(code)
-  retval['C++'] = cpp_examiner.confidence
-
-  csharp_examiner = CsharpExaminer(code)
-  retval['C#'] = csharp_examiner.confidence
-
-  fixed_cobol_examiner = CobolExaminer(code, True, tab_size)
-  retval['Fixed-Format-COBOL'] = fixed_cobol_examiner.confidence
-
-  free_cobol_examiner = CobolExaminer(code, False, tab_size)
-  retval['Free-Format-COBOL'] = free_cobol_examiner.confidence
-
-  fortran66_examiner = Fortran66Examiner(code,tab_size)
-  retval['Fortran-66'] = fortran66_examiner.confidence
-
-  fortran77_examiner = Fortran77Examiner(code,tab_size)
-  retval['Fortran-77'] = fortran77_examiner.confidence
-
-  fortran90_examiner = Fortran90Examiner(code,tab_size)
-  retval['Fortran-90'] = fortran90_examiner.confidence
-
-  pascal_examiner = PascalExaminer(code)
-  retval['Pascal'] = pascal_examiner.confidence
-
-  py_examiner = PythonExaminer(code)
-  retval['Python'] = py_examiner.confidence
-
+  # find the highest value
+  # count how many have the greatest value
+  # if more than one (a tie among multiple)
+  # for each with the high value, get the confidences
+  # use the keyword confidence to break the tie
+  # increase all values by respective keyword confidence
+  # then reduce by the highest keyword confidence
   return retval
 
 def tokenize(code, language, tabsize):

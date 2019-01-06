@@ -75,13 +75,18 @@ class PythonExaminer(Examiner):
     self.tokens = tokenizer.tokenize(code)
 
     found_keywords = self.find_keywords(self.tokens)
+    found_identifiers = self.find_identifiers(self.tokens)
 
     num_known_tokens = self.count_valid_tokens(self.tokens)
     num_invalid_operators = self.count_invalid_operators(self.tokens)
     num_known_operators = self.count_known_operators(self.tokens)
 
     # recognized keywords improve confidence
-    keyword_confidence = len(found_keywords) / len(keywords)
+    keyword_confidence = 0
+    if len(found_keywords) > 0:
+      keyword_confidence = 1.0
+    if (len(found_identifiers)) > 0:
+      keyword_confidence = len(found_keywords) / len(found_identifiers)
 
     # unknown tokens reduce confidence
     token_confidence = 1
@@ -139,7 +144,7 @@ class PythonExaminer(Examiner):
     self.confidences = {
       'line_format_1': line_format_1_confidence,
       'line_format_2': line_format_2_confidence,
-      'keyword': keyword_confidence,
       'token': token_confidence,
+      'keyword': keyword_confidence,
       'operator': operator_confidence
       }

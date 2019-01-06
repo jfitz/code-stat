@@ -74,6 +74,16 @@ class Examiner:
     return found_keywords
 
 
+  def find_identifiers(self, tokens):
+    found_identifiers = set()
+
+    for token in tokens:
+      if token.group in ['identifier', 'function']:
+        found_identifiers.add(str(token))
+
+    return found_identifiers
+
+
   def find_specific_keywords(self, tokens, keywords):
     found_keywords = set()
 

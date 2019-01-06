@@ -87,6 +87,7 @@ class PascalExaminer(Examiner):
         last_token = token
 
     found_keywords = self.find_keywords(self.tokens)
+    found_identifiers = self.find_identifiers(self.tokens)
 
     num_known_tokens = self.count_valid_tokens(self.tokens)
     num_invalid_operators = self.count_invalid_operators(self.tokens)
@@ -111,7 +112,11 @@ class PascalExaminer(Examiner):
       begin_end_confidence = (num_begin + num_end) / num_begin_end
 
     # recognized keywords improve confidence
-    keyword_confidence = len(found_keywords) / len(keywords)
+    keyword_confidence = 0
+    if len(found_keywords) > 0:
+      keyword_confidence = 1.0
+    if (len(found_identifiers)) > 0:
+      keyword_confidence = len(found_keywords) / len(found_identifiers)
 
     #  unknown tokens reduce confidence
     token_confidence = 1
@@ -129,7 +134,7 @@ class PascalExaminer(Examiner):
     self.confidences = {
       'program_begin': program_end_confidence,
       'program_end': begin_end_confidence,
-      'keyword': keyword_confidence,
       'token': token_confidence,
+      'keyword': keyword_confidence,
       'operator': operator_confidence
     }
