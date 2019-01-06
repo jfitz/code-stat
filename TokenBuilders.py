@@ -418,3 +418,33 @@ class PrefixedIntegerTokenBuilder(TokenBuilder):
       return 0
 
     return len(self.token)
+
+
+# token reader for ! comment
+class LeadCommentTokenBuilder(TokenBuilder):
+  def __init__(self, lead):
+    self.token = ''
+    self.lead = lead
+
+  def get_tokens(self):
+    if self.token is None:
+      return None
+
+    if self.token.startswith(self.lead):
+      return [Token(self.token, 'comment')]
+
+    return None
+
+  def accept(self, candidate, c):
+    result = False
+
+    if candidate.startswith(self.lead):
+      result = True
+
+    if c == self.lead and candidate == '':
+      result = True
+
+    if c == '\n':
+      result = False
+
+    return result

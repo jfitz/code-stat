@@ -31,10 +31,12 @@ class BasicExaminer(Examiner):
     remark_tb = RemarkTokenBuilder()
     line_number_tb = LineNumberTokenBuilder()
 
+    stmt_separator_tb = ListTokenBuilder([':'], 'statement separator', False)
+
     known_operators = [
       '+', '-', '*', '/', '^',
       '=', '>', '>=', '<', '<=', '<>',
-      '(', ')', ',', ':', ';', '#', '\\'
+      '(', ')', ',', ';', '#', '\\'
       ]
     
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
@@ -80,6 +82,7 @@ class BasicExaminer(Examiner):
       variable_tb,
       function_tb,
       string_tb,
+      stmt_separator_tb,
       known_operator_tb,
       self.unknown_operator_tb,
       keyword_tb,

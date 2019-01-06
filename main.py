@@ -9,6 +9,7 @@ from CppExaminer import CppExaminer
 from PythonExaminer import PythonExaminer
 from Fortran66Examiner import Fortran66Examiner
 from Fortran77Examiner import Fortran77Examiner
+from Fortran90Examiner import Fortran90Examiner
 
 app = Flask(__name__)
 
@@ -22,6 +23,7 @@ def languages():
     'Free-form COBOL',
     'FORTRAN-66',
     'FORTRAN-77',
+    'Fortran-90',
     'Pascal',
     'Python'
   ]
@@ -153,6 +155,9 @@ def identify_language(code, tabsize):
   fortran77_examiner = Fortran77Examiner(code,tab_size)
   retval['Fortran-77'] = fortran77_examiner.confidence
 
+  fortran90_examiner = Fortran90Examiner(code,tab_size)
+  retval['Fortran-90'] = fortran90_examiner.confidence
+
   pascal_examiner = PascalExaminer(code)
   retval['Pascal'] = pascal_examiner.confidence
 
@@ -195,6 +200,10 @@ def tokenize(code, language, tabsize):
 
   if language in ['f77', 'fortran-77']:
     examiner = Fortran77Examiner(code, tab_size)
+    tokens = examiner.tokens
+
+  if language in ['f90', 'fortran-90']:
+    examiner = Fortran90Examiner(code, tab_size)
     tokens = examiner.tokens
 
   if language in ['pascal', 'pas']:
@@ -241,6 +250,10 @@ def tokenize_confidence(code, language, tabsize):
 
   if language in ['f77', 'fortran-77']:
     examiner = Fortran77Examiner(code, tab_size)
+    confidences = examiner.confidences
+
+  if language in ['f90', 'fortran-90']:
+    examiner = Fortran90Examiner(code, tab_size)
     confidences = examiner.confidences
 
   if language in ['pascal', 'pas']:

@@ -21,7 +21,7 @@ class PythonExaminer(Examiner):
     string_tb = StringTokenBuilder(['"', "'"])
     raw_string_tb = PrefixedStringTokenBuilder('r', ['"', "'"])
 
-    hash_comment_tb = HashCommentTokenBuilder()
+    hash_comment_tb = LeadCommentTokenBuilder('#')
     triple_quote_comment_tb = TripleQuoteCommentTokenBuilder()
     raw_triple_quote_comment_tb = RawTripleQuoteCommentTokenBuilder()
 

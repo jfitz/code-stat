@@ -26,33 +26,6 @@ class IdentifierTokenBuilder(TokenBuilder):
 
     return result
 
-# token reader for // comment
-class HashCommentTokenBuilder(TokenBuilder):
-  def __init__(self):
-    self.token = ''
-
-  def get_tokens(self):
-    if self.token is None:
-      return None
-
-    if self.token.startswith('#'):
-      return [Token(self.token, 'comment')]
-
-    return None
-
-  def accept(self, candidate, c):
-    result = False
-
-    if candidate.startswith('#'):
-      result = True
-
-    if c == '#' and candidate == '':
-      result = True
-
-    if c == '\n':
-      result = False
-
-    return result
 
 # token reader for triple quote string
 class TripleQuoteCommentTokenBuilder(TokenBuilder):
