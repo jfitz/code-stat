@@ -61,4 +61,8 @@ test\bin\run_test.ps1 -json -name cylinder-ftn90 -action detect -language Fortra
 test\bin\run_test.ps1 -json -name gauss-ftn90 -action detect -language Fortran-90 -inputfile ".\test\data\Fortran-90\gauss.f90" -expected ".\test\ref\detect\Fortran-90\gauss.txt"
 test\bin\run_test.ps1 -json -name hello-ftn90 -action detect -language Fortran-90 -inputfile ".\test\data\Fortran-90\hello.f90" -expected ".\test\ref\detect\Fortran-90\hello.txt"
 
+test\bin\run_test.ps1 -json -name calculator1 -action detect -language Csharp -inputfile ".\test\data\Csharp\calculator1.cs" -expected ".\test\ref\detect\Csharp\calculator1.txt"
+test\bin\run_test.ps1 -json -name calculator2 -action detect -language Csharp -inputfile ".\test\data\Csharp\calculator2.cs" -expected ".\test\ref\detect\Csharp\calculator2.txt"
+test\bin\run_test.ps1 -json -name calculator3 -action detect -language Csharp -inputfile ".\test\data\Csharp\calculator3.cs" -expected ".\test\ref\detect\Csharp\calculator3.txt"
+
 Write-Output "Number of failures: $failures"

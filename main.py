@@ -6,10 +6,28 @@ from PascalExaminer import PascalExaminer
 from CobolExaminer import CobolExaminer
 from CExaminer import CExaminer
 from CppExaminer import CppExaminer
+from CsharpExaminer import CsharpExaminer
 from PythonExaminer import PythonExaminer
 from Fortran66Examiner import Fortran66Examiner
 from Fortran77Examiner import Fortran77Examiner
 from Fortran90Examiner import Fortran90Examiner
+
+
+def decode_bytes(in_bytes):
+  text = ''
+  try:
+    text = in_bytes.decode('ascii')
+  except UnicodeDecodeError:
+    try:
+      text = in_bytes.decode('utf-8')
+    except UnicodeDecodeError:
+      try:
+        text = in_bytes.decode('utf-16')
+      except UnicodeDecodeError:
+        pass
+
+  return text
+
 
 app = Flask(__name__)
 
@@ -19,6 +37,7 @@ def languages():
     'BASIC',
     'C',
     'C++',
+    'C#',
     'Fixed-length COBOL',
     'Free-form COBOL',
     'FORTRAN-66',
@@ -44,7 +63,7 @@ def detab():
       tab_size = 8
  
   request_bytes = request.get_data()
-  text = request_bytes.decode('ascii')
+  text = decode_bytes(request_bytes)
   detabbed_text = tabs_to_spaces(text, tab_size)
 
   return detabbed_text
@@ -56,7 +75,7 @@ def detect():
     tabsize = request.args['tabsize']
 
   request_bytes = request.get_data()
-  text = request_bytes.decode('ascii')
+  text = decode_bytes(request_bytes)
   detected_languages = identify_language(text, tabsize)
 
   json_text = json.dumps(detected_languages)
@@ -74,7 +93,7 @@ def tokens():
     tabsize = request.args['tabsize']
 
   request_bytes = request.get_data()
-  text = request_bytes.decode('ascii')
+  text = decode_bytes(request_bytes)
   tokens = tokenize(text, language.lower(), tabsize)
   token_list = []
 
@@ -96,7 +115,7 @@ def confidence():
     tabsize = request.args['tabsize']
 
   request_bytes = request.get_data()
-  text = request_bytes.decode('ascii')
+  text = decode_bytes(request_bytes)
 
   json_text = tokenize_confidence(text, language.lower(), tabsize)
 
@@ -143,6 +162,9 @@ def identify_language(code, tabsize):
   cpp_examiner = CppExaminer(code)
   retval['C++'] = cpp_examiner.confidence
 
+  csharp_examiner = CsharpExaminer(code)
+  retval['C#'] = csharp_examiner.confidence
+
   fixed_cobol_examiner = CobolExaminer(code, True, tab_size)
   retval['Fixed-Format-COBOL'] = fixed_cobol_examiner.confidence
 
@@ -184,6 +206,10 @@ def tokenize(code, language, tabsize):
 
   if language in ['c++', 'cpp']:
     examiner = CppExaminer(code)
+    tokens = examiner.tokens
+
+  if language in ['c#', 'csharp']:
+    examiner = CsharpExaminer(code)
     tokens = examiner.tokens
 
   if language in ['fixed-format-cobol', 'cobol', 'cob', 'cbl']:
@@ -234,6 +260,10 @@ def tokenize_confidence(code, language, tabsize):
 
   if language in ['c++', 'cpp']:
     examiner = CppExaminer(code)
+    confidences = examiner.confidences
+
+  if language in ['c#', 'csharp']:
+    examiner = CsharpExaminer(code)
     confidences = examiner.confidences
 
   if language in ['fixed-format-cobol', 'cobol', 'cob', 'cbl']:

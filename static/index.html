@@ -208,6 +208,9 @@ function tokenize() {
     if (language == 'C++') {
       language = 'Cpp';
     }
+    if (language == 'C#') {
+      language = 'Csharp';
+    }
 
     var query = "/tokens?language=" + language;
     var req = new XMLHttpRequest();
