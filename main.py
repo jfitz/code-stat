@@ -166,16 +166,40 @@ def identify_language(code, tabsize):
 
   # store confidence values
   retval = {}
+  highest_confidence = 0
   for name in examiners:
-    retval[name] = examiners[name].confidence
+    confidence = examiners[name].confidence
+    retval[name] = confidence
+    # find the highest value
+    if confidence > highest_confidence:
+      highest_confidence = confidence
 
-  # find the highest value
   # count how many have the greatest value
-  # if more than one (a tie among multiple)
-  # for each with the high value, get the confidences
-  # use the keyword confidence to break the tie
-  # increase all values by respective keyword confidence
-  # then reduce by the highest keyword confidence
+  high_names = []
+  for name in examiners:
+    confidence = examiners[name].confidence
+    if confidence == highest_confidence:
+      high_names.append(name)
+
+  # if a tie among multiple examiners
+  if len(high_names) > 1:
+    # for each with the high value, get the confidences
+    highest_keyword_value = 0
+    highest_keyword_name = ''
+    for name in high_names:
+      confidences = examiners[name].confidences
+      keyword_confidence = confidences['keyword']
+      if keyword_confidence > highest_keyword_value:
+        highest_keyword_name = name
+        highest_keyword_value = keyword_confidence
+
+    # increase all values by respective keyword confidence
+    # then reduce by the highest keyword confidence
+    for name in high_names:
+      confidences = examiners[name].confidences
+      keyword_confidence = confidences['keyword']
+      retval[name] += keyword_confidence - highest_keyword_value
+
   return retval
 
 def tokenize(code, language, tabsize):
