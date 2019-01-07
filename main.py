@@ -11,6 +11,7 @@ from PythonExaminer import PythonExaminer
 from Fortran66Examiner import Fortran66Examiner
 from Fortran77Examiner import Fortran77Examiner
 from Fortran90Examiner import Fortran90Examiner
+from JavaExaminer import JavaExaminer
 
 
 def decode_bytes(in_bytes):
@@ -43,6 +44,7 @@ def languages():
     'FORTRAN-66',
     'FORTRAN-77',
     'Fortran-90',
+    'Java',
     'Pascal',
     'Python'
   ]
@@ -127,7 +129,7 @@ def tabs_to_spaces(text, tab_size):
   detabbed_text = ''
 
   for c in text:
-    if c == '\n':
+    if c in ['\n', '\r']:
       detabbed_text += c
       column = 0
     else:
@@ -161,6 +163,7 @@ def identify_language(code, tabsize):
   examiners['Fortran-66'] = Fortran66Examiner(code,tab_size)
   examiners['Fortran-77'] = Fortran77Examiner(code,tab_size)
   examiners['Fortran-90'] = Fortran90Examiner(code,tab_size)
+  examiners['Java'] = JavaExaminer(code)
   examiners['Pascal'] = PascalExaminer(code)
   examiners['Python'] = PythonExaminer(code)
 
@@ -246,6 +249,10 @@ def tokenize(code, language, tabsize):
     examiner = Fortran90Examiner(code, tab_size)
     tokens = examiner.tokens
 
+  if language in ['java', 'jav']:
+    examiner = JavaExaminer(code)
+    tokens = examiner.tokens
+
   if language in ['pascal', 'pas']:
     examiner = PascalExaminer(code)
     tokens = examiner.tokens
@@ -298,6 +305,10 @@ def tokenize_confidence(code, language, tabsize):
 
   if language in ['f90', 'fortran-90']:
     examiner = Fortran90Examiner(code, tab_size)
+    confidences = examiner.confidences
+
+  if language in ['java', 'jav']:
+    examiner = JavaExaminer(code)
     confidences = examiner.confidences
 
   if language in ['pascal', 'pas']:

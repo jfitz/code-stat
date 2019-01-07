@@ -120,7 +120,7 @@ class StarCommentTokenBuilder(TokenBuilder):
     if c == '*' and candidate == '':
       result = True
 
-    if c == '\n':
+    if c in ['\n', '\r']:
       result = False
 
     return result
@@ -154,7 +154,7 @@ class CobolPreprocessorTokenBuilder(TokenBuilder):
     if c == '>' and candidate == '':
       result = True
 
-    if c == '\n':
+    if c in ['\n', '\r']:
       result = False
 
     return result

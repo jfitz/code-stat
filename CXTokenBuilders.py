@@ -52,7 +52,7 @@ class SlashSlashCommentTokenBuilder(TokenBuilder):
     if c == '/' and candidate == '':
       result = True
 
-    if c == '\n':
+    if c in ['\n', '\r']:
       result = False
 
     return result
@@ -111,7 +111,7 @@ class CPreProcessorTokenBuilder(TokenBuilder):
     if c == '#' and candidate == '':
       result = True
 
-    if c == '\n':
+    if c in ['\n', '\r']:
       result = False
 
     return result

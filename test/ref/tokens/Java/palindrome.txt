@@ -1,0 +1,1022 @@
+﻿[
+    {
+        "type": "keyword",
+        "value": "package"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "beginnersbook"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "com"
+    },
+    {
+        "type": "operator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "import"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "java"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "util"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "Scanner"
+    },
+    {
+        "type": "operator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "class"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "PalindromeCheck"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "operator",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "comment",
+        "value": "//My Method to check"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "public"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "static"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "boolean"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "isPal"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "String"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "s"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "operator",
+        "value": "{"
+    },
+    {
+        "type": "whitespace",
+        "value": "   "
+    },
+    {
+        "type": "comment",
+        "value": "// if length is 0 or 1 then String is palindrome"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "keyword",
+        "value": "if"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "s"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "length"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "=="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "0"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "||"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "s"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "length"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "=="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "            "
+    },
+    {
+        "type": "keyword",
+        "value": "return"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "true"
+    },
+    {
+        "type": "operator",
+        "value": ";"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "keyword",
+        "value": "if"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "s"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "charAt"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "0"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "=="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "s"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "charAt"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "s"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "length"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": "-"
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "comment",
+        "value": "/* check for first and last char of String:\r\n         * if they are same then do the same thing for a substring\r\n         * with first and last char removed. and carry on this\r\n         * until you string completes or condition fails\r\n         * Function calling itself: Recursion\r\n         */"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "keyword",
+        "value": "return"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "isPal"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "s"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "substring"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "s"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "length"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": "-"
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "comment",
+        "value": "/* If program control reaches to this statement it means\r\n         * the String is not palindrome hence return false.\r\n         */"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "keyword",
+        "value": "return"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "false"
+    },
+    {
+        "type": "operator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "operator",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "public"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "static"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "void"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "main"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "String"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "identifier",
+        "value": "args"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "operator",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    \t"
+    },
+    {
+        "type": "comment",
+        "value": "//For capturing user input"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "identifier",
+        "value": "Scanner"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "scanner"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "new"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Scanner"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "System"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "in"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "identifier",
+        "value": "System"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "out"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "println"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"Enter the String for check:\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "identifier",
+        "value": "String"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "string"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "scanner"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "nextLine"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "comment",
+        "value": "/* If function returns true then the string is\r\n         * palindrome else not\r\n         */"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "keyword",
+        "value": "if"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "isPal"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "string"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "            "
+    },
+    {
+        "type": "identifier",
+        "value": "System"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "out"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "println"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "string"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\" is a palindrome\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "keyword",
+        "value": "else"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "            "
+    },
+    {
+        "type": "identifier",
+        "value": "System"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "out"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "println"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "string"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\" is not a palindrome\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "operator",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "operator",
+        "value": "}"
+    }
+]

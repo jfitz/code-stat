@@ -1,0 +1,810 @@
+﻿[
+    {
+        "type": "keyword",
+        "value": "import"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "java"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "util"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "Scanner"
+    },
+    {
+        "type": "operator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "class"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "PrimeCheck"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "operator",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "   "
+    },
+    {
+        "type": "keyword",
+        "value": "public"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "static"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "void"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "main"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "String"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "args"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "   "
+    },
+    {
+        "type": "operator",
+        "value": "{"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t\t"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "keyword",
+        "value": "int"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "temp"
+    },
+    {
+        "type": "operator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "keyword",
+        "value": "boolean"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "isPrime"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "keyword",
+        "value": "true"
+    },
+    {
+        "type": "operator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "identifier",
+        "value": "Scanner"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "scan"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "new"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Scanner"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "System"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "in"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "identifier",
+        "value": "System"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "out"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "println"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"Enter any number:\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "comment",
+        "value": "//capture the input in an integer"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "keyword",
+        "value": "int"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "num"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "identifier",
+        "value": "scan"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "nextInt"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "identifier",
+        "value": "scan"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "close"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "keyword",
+        "value": "for"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "keyword",
+        "value": "int"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "i"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "number",
+        "value": "2"
+    },
+    {
+        "type": "operator",
+        "value": ";"
+    },
+    {
+        "type": "identifier",
+        "value": "i"
+    },
+    {
+        "type": "operator",
+        "value": "<="
+    },
+    {
+        "type": "identifier",
+        "value": "num"
+    },
+    {
+        "type": "operator",
+        "value": "/"
+    },
+    {
+        "type": "number",
+        "value": "2"
+    },
+    {
+        "type": "operator",
+        "value": ";"
+    },
+    {
+        "type": "identifier",
+        "value": "i"
+    },
+    {
+        "type": "operator",
+        "value": "++"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "operator",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "           "
+    },
+    {
+        "type": "identifier",
+        "value": "temp"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "identifier",
+        "value": "num"
+    },
+    {
+        "type": "operator",
+        "value": "%"
+    },
+    {
+        "type": "identifier",
+        "value": "i"
+    },
+    {
+        "type": "operator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t   "
+    },
+    {
+        "type": "keyword",
+        "value": "if"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "temp"
+    },
+    {
+        "type": "operator",
+        "value": "=="
+    },
+    {
+        "type": "number",
+        "value": "0"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t   "
+    },
+    {
+        "type": "operator",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t      "
+    },
+    {
+        "type": "identifier",
+        "value": "isPrime"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "keyword",
+        "value": "false"
+    },
+    {
+        "type": "operator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t      "
+    },
+    {
+        "type": "keyword",
+        "value": "break"
+    },
+    {
+        "type": "operator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t   "
+    },
+    {
+        "type": "operator",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "operator",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "comment",
+        "value": "//If isPrime is true then the number is prime else not"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "keyword",
+        "value": "if"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "isPrime"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t   "
+    },
+    {
+        "type": "identifier",
+        "value": "System"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "out"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "println"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "num"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\" is a Prime Number\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "keyword",
+        "value": "else"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t   "
+    },
+    {
+        "type": "identifier",
+        "value": "System"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "out"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "println"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "num"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\" is not a Prime Number\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "   "
+    },
+    {
+        "type": "operator",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "operator",
+        "value": "}"
+    }
+]
