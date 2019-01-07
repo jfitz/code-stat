@@ -23,6 +23,7 @@ class CsharpExaminer(Examiner):
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
+    c_preprocessor_tb = CPreProcessorTokenBuilder()
 
     known_operators = [
       '+', '-', '*', '/', '%',
@@ -82,6 +83,7 @@ class CsharpExaminer(Examiner):
       self.unknown_operator_tb,
       slash_slash_comment_tb,
       slash_star_comment_tb,
+      c_preprocessor_tb,
       newline_tb
     ]
     
