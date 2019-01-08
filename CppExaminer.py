@@ -22,7 +22,14 @@ class CppExaminer(Examiner):
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
-    c_preprocessor_tb = CPreProcessorTokenBuilder()
+
+    directives = (
+      '#define', '#undef',
+      '#ifdef', '#ifndef', '#if', '#endif', '#else', '#elif',
+      '#line', '#error', '#include', '#pragma'
+    )
+
+    c_preprocessor_tb = CPreProcessorTokenBuilder(directives)
 
     known_operators = [
       '+', '-', '*', '/', '%',

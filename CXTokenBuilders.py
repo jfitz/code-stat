@@ -88,8 +88,9 @@ class SlashStarCommentTokenBuilder(TokenBuilder):
 
 # token reader for preprocessor directives
 class CPreProcessorTokenBuilder(TokenBuilder):
-  def __init__(self):
+  def __init__(self, prefixes):
     self.token = ''
+    self.prefixes = prefixes
 
 
   def get_tokens(self):
@@ -115,3 +116,13 @@ class CPreProcessorTokenBuilder(TokenBuilder):
       result = False
 
     return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.token is None:
+      return 0
+
+    if self.token.startswith(self.prefixes):
+      return len(self.token)
+    
+    return 0

@@ -23,7 +23,14 @@ class CsharpExaminer(Examiner):
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
-    c_preprocessor_tb = CPreProcessorTokenBuilder()
+
+    directives = (
+      '#if', '#else', '#elif', '#endif',
+      '#define', '#undef', '#warning', '#error'
+      '#line', '#region', '#endregion', '#pragma'
+    )
+
+    c_preprocessor_tb = CPreProcessorTokenBuilder(directives)
 
     known_operators = [
       '+', '-', '*', '/', '%',
