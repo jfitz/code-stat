@@ -68,4 +68,6 @@ test\bin\run_test.ps1 -json -name calculator3 -action detect -language Csharp -i
 test\bin\run_test.ps1 -json -name prime_test-java -action detect -language Java -inputfile ".\test\data\Java\prime_test.java" -expected ".\test\ref\detect\Java\prime_test.txt"
 test\bin\run_test.ps1 -json -name palindrome-java -action detect -language Java -inputfile ".\test\data\Java\palindrome.java" -expected ".\test\ref\detect\Java\palindrome.txt"
 
+test\bin\run_test.ps1 -json -name webhook-ruby -action detect -language Ruby -inputfile ".\test\data\Ruby\webhook.rb" -expected ".\test\ref\detect\Ruby\webhook.txt"
+
 Write-Output "Number of failures: $failures"

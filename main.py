@@ -12,6 +12,7 @@ from Fortran66Examiner import Fortran66Examiner
 from Fortran77Examiner import Fortran77Examiner
 from Fortran90Examiner import Fortran90Examiner
 from JavaExaminer import JavaExaminer
+from RubyExaminer import RubyExaminer
 
 
 def decode_bytes(in_bytes):
@@ -46,7 +47,8 @@ def languages():
     'Fortran-90',
     'Java',
     'Pascal',
-    'Python'
+    'Python',
+    'Ruby'
   ]
 
   json_text = json.dumps(names)
@@ -166,6 +168,7 @@ def identify_language(code, tabsize):
   examiners['Java'] = JavaExaminer(code)
   examiners['Pascal'] = PascalExaminer(code)
   examiners['Python'] = PythonExaminer(code)
+  examiners['Ruby'] = RubyExaminer(code)
 
   # store confidence values
   retval = {}
@@ -261,7 +264,12 @@ def tokenize(code, language, tabsize):
     examiner = PythonExaminer(code)
     tokens = examiner.tokens
 
+  if language in ['ruby', 'rb']:
+    examiner = RubyExaminer(code)
+    tokens = examiner.tokens
+
   return tokens
+
 
 def tokenize_confidence(code, language, tabsize):
   try:
@@ -317,6 +325,10 @@ def tokenize_confidence(code, language, tabsize):
 
   if language in ['python', 'py']:
     examiner = PythonExaminer(code)
+    confidences = examiner.confidences
+
+  if language in ['ruby', 'rb']:
+    examiner = RubyExaminer(code)
     confidences = examiner.confidences
 
   retval = json.dumps(confidences)
