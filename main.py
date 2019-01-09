@@ -191,12 +191,10 @@ def identify_language(code, tabsize):
   if len(high_names) > 1:
     # for each with the high value, get the confidences
     highest_keyword_value = 0
-    highest_keyword_name = ''
     for name in high_names:
       confidences = examiners[name].confidences
       keyword_confidence = confidences['keyword']
       if keyword_confidence > highest_keyword_value:
-        highest_keyword_name = name
         highest_keyword_value = keyword_confidence
 
     # increase all values by respective keyword confidence
@@ -205,6 +203,12 @@ def identify_language(code, tabsize):
       confidences = examiners[name].confidences
       keyword_confidence = confidences['keyword']
       retval[name] += keyword_confidence - highest_keyword_value
+
+      # constrain to [0.0, 1.0]
+      if retval[name] > 1.0:
+        retval[name] = 1.0
+      if retval[name] < 0.0:
+        retval[name] = 0.0
 
   return retval
 
