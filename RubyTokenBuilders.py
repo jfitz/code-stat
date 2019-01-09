@@ -48,3 +48,63 @@ class SymbolTokenBuilder(TokenBuilder):
       result = c.isalpha() or c.isdigit() or c == '_'
 
     return result
+
+
+# token reader for identifier
+class HereDocTokenBuilder(TokenBuilder):
+  def __init__(self):
+    self.token = None
+
+  def get_tokens(self):
+    if self.token is None:
+      return None
+
+    return [Token(self.token, 'here doc')]
+
+  def accept(self, candidate, c):
+    result = False
+ 
+    if len(candidate) == 0:
+      result = c == '<'
+
+    if len(candidate) == 1:
+      result = c == '<'
+
+    if len(candidate) == 2:
+      result = c == '-'
+
+    if len(candidate) > 2:
+      result = True
+
+      # if the last line begins with the marker from the front
+      # stop accepting characters
+      lines = candidate.split('\n')
+      if len(lines) > 1:
+        marker = lines[0][3:].rstrip()
+        if lines[-1].startswith(marker):
+          result = False
+
+    return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.token is None:
+      return 0
+
+    lines = self.token.split('\n')
+
+    if len(lines) < 2:
+      return 0
+
+    line0 = lines[0].rstrip()
+    if len(line0) < 4:
+      return 0
+
+    marker = lines[0][3:].rstrip()
+
+    last_line = lines[-1].rstrip()
+
+    if last_line != marker:
+      return 0
+    
+    return len(self.token)

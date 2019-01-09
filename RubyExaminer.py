@@ -19,6 +19,7 @@ class RubyExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder()
     symbol_tb = SymbolTokenBuilder()
     string_tb = StringTokenBuilder(['"', "'"])
+    heredoc_tb = HereDocTokenBuilder()
 
     hash_comment_tb = LeadCommentTokenBuilder('#')
 
@@ -65,6 +66,7 @@ class RubyExaminer(Examiner):
       string_tb,
       known_operator_tb,
       self.unknown_operator_tb,
+      heredoc_tb,
       hash_comment_tb
     ]
     
