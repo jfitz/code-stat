@@ -192,8 +192,20 @@
         "value": "    "
     },
     {
-        "type": "here doc",
-        "value": "<<-EOF\r\nWebhooks can be created for either specific gems or all gems. In both cases\r\nyou'll get a POST request of the gem in JSON format at the URL you specify in\r\nthe command. You can also use this command to test fire a webhook for any gem.\r\nEOF"
+        "type": "operator",
+        "value": "<<-"
+    },
+    {
+        "type": "marker",
+        "value": "EOF"
+    },
+    {
+        "type": "string",
+        "value": "Webhooks can be created for either specific gems or all gems. In both cases\r\nyou'll get a POST request of the gem in JSON format at the URL you specify in\r\nthe command. You can also use this command to test fire a webhook for any gem.\r"
+    },
+    {
+        "type": "marker",
+        "value": "EOF"
     },
     {
         "type": "newline",

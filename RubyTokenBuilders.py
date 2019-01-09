@@ -59,7 +59,16 @@ class HereDocTokenBuilder(TokenBuilder):
     if self.token is None:
       return None
 
-    return [Token(self.token, 'here doc')]
+    # split the text into operator, marker, content, and marker tokens
+    lines = self.token.split('\n')
+    oper = lines[0][:3]
+    marker = lines[-1]
+    content = Token('\n'.join(lines[1:-1]), 'string')
+    op_token = Token(oper, 'operator')
+    mark_token = Token(marker, 'marker')
+
+    # the marker token is used twice - once at beginning and once at end
+    return [op_token, mark_token, content, mark_token]
 
   def accept(self, candidate, c):
     result = False
