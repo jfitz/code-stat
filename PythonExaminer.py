@@ -3,7 +3,6 @@ import math
 from Examiner import Examiner
 from TokenBuilders import *
 from PythonTokenBuilders import *
-from PythonTokenBuilders import *
 from Tokenizer import Tokenizer
 
 class PythonExaminer(Examiner):
