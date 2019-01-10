@@ -54,6 +54,7 @@ class SymbolTokenBuilder(TokenBuilder):
 class HereDocTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = None
+    self.oper = '<<-'
 
   def get_tokens(self):
     if self.token is None:
@@ -63,34 +64,37 @@ class HereDocTokenBuilder(TokenBuilder):
     lines = self.token.split('\n')
     oper = lines[0][:3]
     marker = lines[-1]
-    content = Token('\n'.join(lines[1:-1]), 'string')
+    content = Token('\n'.join(lines[1:-1]), 'here doc')
     op_token = Token(oper, 'operator')
-    mark_token = Token(marker, 'marker')
+    mark_token = Token(marker, 'doc marker')
+    newline_token = Token('\n', 'newline')
 
     # the marker token is used twice - once at beginning and once at end
-    return [op_token, mark_token, content, mark_token]
+    return [
+      op_token,
+      mark_token,
+      newline_token,
+      content,
+      newline_token,
+      mark_token
+    ]
 
   def accept(self, candidate, c):
     result = False
  
-    if len(candidate) == 0:
-      result = c == '<'
-
-    if len(candidate) == 1:
-      result = c == '<'
-
-    if len(candidate) == 2:
-      result = c == '-'
-
-    if len(candidate) > 2:
+    if len(candidate) < len(self.oper):
+      result = self.oper.startswith(candidate)
+    else:
       result = True
 
-      # if the last line begins with the marker from the front
+      # if the last line begins with the marker from the first line
       # stop accepting characters
       lines = candidate.split('\n')
       if len(lines) > 1:
-        marker = lines[0][3:].rstrip()
-        if lines[-1].startswith(marker):
+        first_line = lines[0]
+        last_line = lines[-1]
+        marker = first_line[len(self.oper):].rstrip()
+        if last_line.startswith(marker):
           result = False
 
     return result
