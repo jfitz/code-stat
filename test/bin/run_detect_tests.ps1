@@ -70,4 +70,9 @@ test\bin\run_test.ps1 -json -name palindrome-java -action detect -language Java 
 
 test\bin\run_test.ps1 -json -name webhook-ruby -action detect -language Ruby -inputfile ".\test\data\Ruby\webhook.rb" -expected ".\test\ref\detect\Ruby\webhook.txt"
 
+test\bin\run_test.ps1 -json -name family-main -action detect -language Prolog -inputfile ".\test\data\Prolog\family-main.pl" -expected ".\test\ref\detect\Prolog\family-main.txt"
+test\bin\run_test.ps1 -json -name family-kb -action detect -language Prolog -inputfile ".\test\data\Prolog\family-kb.pl" -expected ".\test\ref\detect\Prolog\family-kb.txt"
+test\bin\run_test.ps1 -json -name family-menu -action detect -language Prolog -inputfile ".\test\data\Prolog\family-menu.pl" -expected ".\test\ref\detect\Prolog\family-menu.txt"
+test\bin\run_test.ps1 -json -name family-queries -action detect -language Prolog -inputfile ".\test\data\Prolog\family-queries.pl" -expected ".\test\ref\detect\Prolog\family-queries.txt"
+
 Write-Output "Number of failures: $failures"

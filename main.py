@@ -2,16 +2,17 @@ import json
 import codecs
 from flask import Flask, request, render_template
 from BasicExaminer import BasicExaminer
-from PascalExaminer import PascalExaminer
-from CobolExaminer import CobolExaminer
 from CExaminer import CExaminer
+from CobolExaminer import CobolExaminer
 from CppExaminer import CppExaminer
 from CsharpExaminer import CsharpExaminer
-from PythonExaminer import PythonExaminer
 from Fortran66Examiner import Fortran66Examiner
 from Fortran77Examiner import Fortran77Examiner
 from Fortran90Examiner import Fortran90Examiner
 from JavaExaminer import JavaExaminer
+from PascalExaminer import PascalExaminer
+from PrologExaminer import PrologExaminer
+from PythonExaminer import PythonExaminer
 from RubyExaminer import RubyExaminer
 
 
@@ -47,6 +48,7 @@ def languages():
     'Fortran-90',
     'Java',
     'Pascal',
+    'Prolog',
     'Python',
     'Ruby'
   ]
@@ -167,6 +169,7 @@ def identify_language(code, tabsize):
   examiners['Fortran-90'] = Fortran90Examiner(code,tab_size)
   examiners['Java'] = JavaExaminer(code)
   examiners['Pascal'] = PascalExaminer(code)
+  examiners['Prolog'] = PrologExaminer(code)
   examiners['Python'] = PythonExaminer(code)
   examiners['Ruby'] = RubyExaminer(code)
 
@@ -264,6 +267,10 @@ def tokenize(code, language, tabsize):
     examiner = PascalExaminer(code)
     tokens = examiner.tokens
 
+  if language in ['prolog', 'pl']:
+    examiner = PrologExaminer(code)
+    tokens = examiner.tokens
+
   if language in ['python', 'py']:
     examiner = PythonExaminer(code)
     tokens = examiner.tokens
@@ -325,6 +332,10 @@ def tokenize_confidence(code, language, tabsize):
 
   if language in ['pascal', 'pas']:
     examiner = PascalExaminer(code)
+    confidences = examiner.confidences
+
+  if language in ['prolog', 'py']:
+    examiner = PrologExaminer(code)
     confidences = examiner.confidences
 
   if language in ['python', 'py']:
