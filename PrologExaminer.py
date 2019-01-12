@@ -33,7 +33,7 @@ class PrologExaminer(Examiner):
         ':', '+', '-', '/\\', '\\/', 'xor',
         '?', '*', '/', '//', 'div', 'rdiv', '<<', '>>', 'mod', 'rem',
         '**', '^', '+', '-', '\\', '.', '$',
-        '(', ')'
+        '(', ')', '[', ']'
       ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
