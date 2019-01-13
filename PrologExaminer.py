@@ -16,6 +16,7 @@ class PrologExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder()
     real_tb = RealTokenBuilder(False, False)
     real_exponent_tb = RealExponentTokenBuilder(False, False)
+    variable_tb = PrologVariableTokenBuilder()
     identifier_tb = IdentifierTokenBuilder()
     string_tb = StringTokenBuilder(['"', "'"])
 
@@ -54,6 +55,7 @@ class PrologExaminer(Examiner):
       real_exponent_tb,
       newline_tb,
       keyword_tb,
+      variable_tb,
       identifier_tb,
       string_tb,
       known_operator_tb,
