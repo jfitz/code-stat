@@ -102,22 +102,26 @@ class BasicExaminer(Examiner):
     num_known_operators = self.count_known_operators(self.tokens)
 
     # recognized keywords improve confidence
-    keyword_confidence = 0
+    self.keyword_confidence = 0.0
+
     if len(found_keywords) > 0:
-      keyword_confidence = 1.0
-    if (len(found_identifiers)) > 0:
-      keyword_confidence = len(found_keywords) / len(found_identifiers)
+      self.keyword_confidence = 1.0
+
+    if len(found_identifiers) > 0:
+      self.keyword_confidence = len(found_keywords) / len(found_identifiers)
 
     # unknown tokens reduce confidence
-    token_confidence = 1.0
+    self.token_confidence = 1.0
+
     if len(self.tokens) > 0:
-      token_confidence = num_known_tokens / len(self.tokens)
+      self.token_confidence = num_known_tokens / len(self.tokens)
 
     #  unknown operators reduce confidence
-    operator_confidence = 1.0
+    self.operator_confidence = 1.0
     num_operators = num_known_operators + num_invalid_operators
+
     if num_operators > 0:
-      operator_confidence = num_known_operators / num_operators
+      self.operator_confidence = num_known_operators / num_operators
 
     #  unknown identifiers (text of two or more, not FNx) reduce confidence
 
@@ -132,16 +136,20 @@ class BasicExaminer(Examiner):
         if line[0].group == 'line number':
           num_lines_correct += 1
     
-    line_format_confidence = 0
+    self.line_format_confidence = 0
 
     if num_lines > 0:
-      line_format_confidence = num_lines_correct / num_lines
+      self.line_format_confidence = num_lines_correct / num_lines
 
-    # compute confidence
-    self.confidence = line_format_confidence * token_confidence * operator_confidence
-    self.confidences = {
-      'line_format': line_format_confidence,
-      'token': token_confidence,
-      'keyword': keyword_confidence,
-      'operator': operator_confidence
-      }
+
+  def confidence(self):
+    return self.line_format_confidence *  self.token_confidence * self.operator_confidence
+
+
+  def confidences(self):
+    return {
+      'line_format': self.line_format_confidence,
+      'token': self.token_confidence,
+      'keyword': self.keyword_confidence,
+      'operator': self.operator_confidence
+    }

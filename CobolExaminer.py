@@ -600,38 +600,45 @@ class CobolExaminer(Examiner):
 
       prev_text = text
     
-    expected_keyword_confidence = 0.50
+    self.expected_keyword_confidence = 0.50
     if counts['IDENTIFICATION'] == 1:
-      expected_keyword_confidence += 0.125
+      self.expected_keyword_confidence += 0.125
     if counts['ENVIRONMENT'] == 1:
-      expected_keyword_confidence += 0.125
+      self.expected_keyword_confidence += 0.125
     if counts['DATA'] == 1:
-      expected_keyword_confidence += 0.125
+      self.expected_keyword_confidence += 0.125
     if counts['PROCEDURE'] == 1:
-      expected_keyword_confidence += 0.125
+      self.expected_keyword_confidence += 0.125
 
     # count unique keywords and compare to number of tokens
-    keyword_confidence = 0
+    self.keyword_confidence = 0.0
     num_keywords = len(found_keywords)
+
     if num_keywords > 10:
-      keyword_confidence = 1
+      self.keyword_confidence = 1.0
 
     #  unknown tokens reduce confidence
-    token_confidence = 1
+    self.token_confidence = 1.0
+
     if len(self.tokens) > 0:
-      token_confidence = num_known_tokens / len(self.tokens)
+      self.token_confidence = num_known_tokens / len(self.tokens)
 
     #  unknown operators reduce confidence
-    operator_confidence = 1
+    self.operator_confidence = 1.0
     num_operators = num_known_operators + num_invalid_operators
-    if num_operators > 0:
-      operator_confidence = num_known_operators / num_operators
 
-    # compute confidence
-    self.confidence = keyword_confidence * expected_keyword_confidence * token_confidence * operator_confidence
-    self.confidences = {
-      'keyword': keyword_confidence,
-      'expected_keyword': expected_keyword_confidence,
-      'token': token_confidence,
-      'operator': operator_confidence
+    if num_operators > 0:
+      self.operator_confidence = num_known_operators / num_operators
+
+
+  def confidence(self):
+    return self.keyword_confidence * self.expected_keyword_confidence * self.token_confidence * self.operator_confidence
+
+
+  def confidences(self):
+    return {
+      'token': self.token_confidence,
+      'keyword': self.keyword_confidence,
+      'expected_keyword': self.expected_keyword_confidence,
+      'operator': self.operator_confidence
     }

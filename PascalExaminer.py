@@ -94,47 +94,55 @@ class PascalExaminer(Examiner):
     num_known_operators = self.count_known_operators(self.tokens)
 
     # program should begin with 'program'
-    program_end_confidence = 0
+    self.program_end_confidence = 0.0
     if first_token is not None:
       if first_token.text.lower() == 'program':
-        program_end_confidence += 0.75
+        self.program_end_confidence += 0.75
 
     # program should end with '.'
     if last_token is not None:
       if last_token.text == '.':
-        program_end_confidence += 0.25
+        self.program_end_confidence += 0.25
 
     # consider the number of matches for begin/end
     ok, num_begin, num_end = self.check_paired_tokens(self.tokens, 'begin', 'end')
     num_begin_end = num_begin + num_end
-    begin_end_confidence = 1
+    self.begin_end_confidence = 1.0
     if num_begin_end > 0:
-      begin_end_confidence = (num_begin + num_end) / num_begin_end
+      self.begin_end_confidence = (num_begin + num_end) / num_begin_end
 
     # recognized keywords improve confidence
-    keyword_confidence = 0
+    self.keyword_confidence = 0.0
+
     if len(found_keywords) > 0:
-      keyword_confidence = 1.0
-    if (len(found_identifiers)) > 0:
-      keyword_confidence = len(found_keywords) / len(found_identifiers)
+      self.keyword_confidence = 1.0
+
+    if len(found_identifiers) > 0:
+      self.keyword_confidence = len(found_keywords) / len(found_identifiers)
 
     #  unknown tokens reduce confidence
-    token_confidence = 1
+    self.token_confidence = 1.0
+
     if len(self.tokens) > 0:
-      token_confidence = num_known_tokens / len(self.tokens)
+      self.token_confidence = num_known_tokens / len(self.tokens)
 
     #  unknown operators reduce confidence
-    operator_confidence = 1
+    self.operator_confidence = 1.0
     num_operators = num_known_operators + num_invalid_operators
-    if num_operators > 0:
-      operator_confidence = num_known_operators / num_operators
 
-    # compute confidence
-    self.confidence = program_end_confidence * begin_end_confidence * token_confidence * operator_confidence
-    self.confidences = {
-      'program_begin': program_end_confidence,
-      'program_end': begin_end_confidence,
-      'token': token_confidence,
-      'keyword': keyword_confidence,
-      'operator': operator_confidence
+    if num_operators > 0:
+      self.operator_confidence = num_known_operators / num_operators
+
+
+  def confidence(self):
+    return self.program_end_confidence * self.begin_end_confidence * self.token_confidence * self.operator_confidence
+
+
+  def confidences(self):
+    return {
+      'program_end': self.program_end_confidence,
+      'begin_end': self.begin_end_confidence,
+      'token': self.token_confidence,
+      'keyword': self.keyword_confidence,
+      'operator': self.operator_confidence
     }

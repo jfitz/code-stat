@@ -177,7 +177,7 @@ def identify_language(code, tabsize):
   retval = {}
   highest_confidence = 0
   for name in examiners:
-    confidence = examiners[name].confidence
+    confidence = examiners[name].confidence()
     retval[name] = confidence
     # find the highest value
     if confidence > highest_confidence:
@@ -186,7 +186,7 @@ def identify_language(code, tabsize):
   # count how many have the greatest value
   high_names = []
   for name in examiners:
-    confidence = examiners[name].confidence
+    confidence = examiners[name].confidence()
     if confidence == highest_confidence:
       high_names.append(name)
 
@@ -195,7 +195,7 @@ def identify_language(code, tabsize):
     # for each with the high value, get the confidences
     highest_keyword_value = 0
     for name in high_names:
-      confidences = examiners[name].confidences
+      confidences = examiners[name].confidences()
       keyword_confidence = confidences['keyword']
       if keyword_confidence > highest_keyword_value:
         highest_keyword_value = keyword_confidence
@@ -203,7 +203,7 @@ def identify_language(code, tabsize):
     # increase all values by respective keyword confidence
     # then reduce by the highest keyword confidence
     for name in high_names:
-      confidences = examiners[name].confidences
+      confidences = examiners[name].confidences()
       keyword_confidence = confidences['keyword']
       retval[name] += keyword_confidence - highest_keyword_value
 
@@ -267,7 +267,7 @@ def tokenize(code, language, tabsize):
     examiner = PascalExaminer(code)
     tokens = examiner.tokens
 
-  if language in ['prolog', 'pl']:
+  if language in ['prolog']:
     examiner = PrologExaminer(code)
     tokens = examiner.tokens
 
@@ -292,59 +292,59 @@ def tokenize_confidence(code, language, tabsize):
 
   if language in ['basic', 'bas']:
     examiner = BasicExaminer(code)
-    confidences = examiner.confidences
+    confidences = examiner.confidences()
 
   if language in ['c']:
     examiner = CExaminer(code)
-    confidences = examiner.confidences
+    confidences = examiner.confidences()
 
   if language in ['c++', 'cpp']:
     examiner = CppExaminer(code)
-    confidences = examiner.confidences
+    confidences = examiner.confidences()
 
   if language in ['c#', 'csharp']:
     examiner = CsharpExaminer(code)
-    confidences = examiner.confidences
+    confidences = examiner.confidences()
 
   if language in ['fixed-format-cobol', 'cobol', 'cob', 'cbl']:
     examiner = CobolExaminer(code, True, tab_size)
-    confidences = examiner.confidences
+    confidences = examiner.confidences()
 
   if language in ['free-format-cobol']:
     examiner = CobolExaminer(code, False, tab_size)
-    confidences = examiner.confidences
+    confidences = examiner.confidences()
 
   if language in ['fortran', 'for', 'ftn', 'fortran-66']:
     examiner = Fortran66Examiner(code, tab_size)
-    confidences = examiner.confidences
+    confidences = examiner.confidences()
 
   if language in ['f77', 'fortran-77']:
     examiner = Fortran77Examiner(code, tab_size)
-    confidences = examiner.confidences
+    confidences = examiner.confidences()
 
   if language in ['f90', 'fortran-90']:
     examiner = Fortran90Examiner(code, tab_size)
-    confidences = examiner.confidences
+    confidences = examiner.confidences()
 
   if language in ['java', 'jav']:
     examiner = JavaExaminer(code)
-    confidences = examiner.confidences
+    confidences = examiner.confidences()
 
   if language in ['pascal', 'pas']:
     examiner = PascalExaminer(code)
-    confidences = examiner.confidences
+    confidences = examiner.confidences()
 
-  if language in ['prolog', 'py']:
+  if language in ['prolog']:
     examiner = PrologExaminer(code)
-    confidences = examiner.confidences
+    confidences = examiner.confidences()
 
   if language in ['python', 'py']:
     examiner = PythonExaminer(code)
-    confidences = examiner.confidences
+    confidences = examiner.confidences()
 
   if language in ['ruby', 'rb']:
     examiner = RubyExaminer(code)
-    confidences = examiner.confidences
+    confidences = examiner.confidences()
 
   retval = json.dumps(confidences)
 

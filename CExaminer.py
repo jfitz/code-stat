@@ -100,37 +100,46 @@ class CExaminer(Examiner):
     # consider the number of matches for begin/end
     ok, num_begin, num_end = self.check_paired_tokens(self.tokens, '{', '}')
     num_begin_end = num_begin + num_end
-    brace_match_confidence = 0
+    self.brace_match_confidence = 0.0
+
     if num_begin_end > 0:
-      brace_match_confidence = (num_begin + num_end) / num_begin_end
+      self.brace_match_confidence = (num_begin + num_end) / num_begin_end
 
     # recognized keywords improve confidence
-    keyword_confidence = 0
+    self.keyword_confidence = 0.0
+
     if len(found_keywords) > 0:
-      keyword_confidence = 1.0
-    if (len(found_identifiers)) > 0:
-      keyword_confidence = len(found_keywords) / len(found_identifiers)
+      self.keyword_confidence = 1.0
+
+    if len(found_identifiers) > 0:
+      self.keyword_confidence = len(found_keywords) / len(found_identifiers)
 
     # unknown tokens reduce confidence
-    token_confidence = 1
+    self.token_confidence = 1.0
+
     if len(self.tokens) > 0:
-      token_confidence = num_known_tokens / len(self.tokens)
+      self.token_confidence = num_known_tokens / len(self.tokens)
 
     # unknown operators reduce confidence
-    operator_confidence = 1
+    self.operator_confidence = 1
     num_operators = num_known_operators + num_invalid_operators
+
     if num_operators > 0:
-      operator_confidence = num_known_operators / num_operators
+      self.operator_confidence = num_known_operators / num_operators
 
     # C++ keywords reduce confidence
-    cpp_keyword_confidence = 1.0 - len(found_cpp_keywords) / len(cpp_keywords)
+    self.cpp_keyword_confidence = 1.0 - len(found_cpp_keywords) / len(cpp_keywords)
 
-    # compute confidence
-    self.confidence = brace_match_confidence * token_confidence * operator_confidence * cpp_keyword_confidence
-    self.confidences = {
-      'brace_match': brace_match_confidence,
-      'token': token_confidence,
-      'keyword': keyword_confidence,
-      'operator': operator_confidence,
-      'cpp_keyword': cpp_keyword_confidence
-      }
+
+  def confidence(self):
+    return self.brace_match_confidence * self.token_confidence * self.operator_confidence * self.cpp_keyword_confidence
+
+
+  def confidences(self):
+    return {
+      'brace_match': self.brace_match_confidence,
+      'token': self.token_confidence,
+      'keyword': self.keyword_confidence,
+      'operator': self.operator_confidence,
+      'cpp_keyword': self.cpp_keyword_confidence
+    }

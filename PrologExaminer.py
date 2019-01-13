@@ -76,27 +76,35 @@ class PrologExaminer(Examiner):
     num_known_operators = self.count_known_operators(self.tokens)
 
     # recognized keywords improve confidence
-    keyword_confidence = 0
+    self.keyword_confidence = 0.0
+
     if len(found_keywords) > 0:
-      keyword_confidence = 1.0
-    if (len(found_identifiers)) > 0:
-      keyword_confidence = len(found_keywords) / len(found_identifiers)
+      self.keyword_confidence = 1.0
+
+    if len(found_identifiers) > 0:
+      self.keyword_confidence = len(found_keywords) / len(found_identifiers)
 
     # unknown tokens reduce confidence
-    token_confidence = 1
+    self.token_confidence = 1.0
+
     if len(self.tokens) > 0:
-      token_confidence = num_known_tokens / len(self.tokens)
+      self.token_confidence = num_known_tokens / len(self.tokens)
 
     # unknown operators reduce confidence
-    operator_confidence = 1
+    self.operator_confidence = 1.0
     num_operators = num_known_operators + num_invalid_operators
-    if num_operators > 0:
-      operator_confidence = num_known_operators / num_operators
 
-    # compute confidence
-    self.confidence = token_confidence * operator_confidence
-    self.confidences = {
-      'token': token_confidence,
-      'keyword': keyword_confidence,
-      'operator': operator_confidence
-      }
+    if num_operators > 0:
+      self.operator_confidence = num_known_operators / num_operators
+
+
+  def confidence(self):
+    return self.token_confidence * self.operator_confidence
+
+
+  def confidences(self):
+    return {
+      'token': self.token_confidence,
+      'keyword': self.keyword_confidence,
+      'operator': self.operator_confidence
+    }
