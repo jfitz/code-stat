@@ -83,10 +83,6 @@ class JavaExaminer(Examiner):
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 
     self.tokens = tokenizer.tokenize(code)
-      
-    found_keywords = self.find_keywords(self.tokens)
-    found_power_keywords = self.find_specific_keywords(self.tokens, power_keywords)
-    found_identifiers = self.find_identifiers(self.tokens)
 
     num_known_tokens = self.count_valid_tokens(self.tokens)
     num_invalid_operators = self.count_invalid_operators(self.tokens)
@@ -95,42 +91,26 @@ class JavaExaminer(Examiner):
     # consider the number of matches for begin/end
     ok, num_begin, num_end = self.check_paired_tokens(self.tokens, '{', '}')
     num_begin_end = num_begin + num_end
-    self.brace_match_confidence = 0.0
+    brace_match_confidence = 0.0
 
     if num_begin_end > 0:
-      self.brace_match_confidence = (num_begin + num_end) / num_begin_end
-
-    # recognized keywords improve confidence
-    self.keyword_confidence = 0.0
-
-    if len(found_keywords) > 0:
-      self.keyword_confidence = 1.0
-
-    if len(found_identifiers) > 0:
-      self.keyword_confidence = len(found_keywords) / len(found_identifiers)
+      brace_match_confidence = (num_begin + num_end) / num_begin_end
 
     #  unknown tokens reduce confidence
-    self.token_confidence = 1.0
+    token_confidence = 1.0
 
     if len(self.tokens) > 0:
-      self.token_confidence = num_known_tokens / len(self.tokens)
+      token_confidence = num_known_tokens / len(self.tokens)
 
     #  unknown operators reduce confidence
-    self.operator_confidence = 1.0
+    operator_confidence = 1.0
     num_operators = num_known_operators + num_invalid_operators
 
     if num_operators > 0:
-      self.operator_confidence = num_known_operators / num_operators
+      operator_confidence = num_known_operators / num_operators
 
-
-  def confidence(self):
-    return self.brace_match_confidence * self.token_confidence * self.operator_confidence
-
-
-  def confidences(self):
-    return {
-      'brace_match': self.brace_match_confidence,
-      'token': self.token_confidence,
-      'keyword': self.keyword_confidence,
-      'operator': self.operator_confidence
+    self.confidences = {
+      'brace_match': brace_match_confidence,
+      'token': token_confidence,
+      'operator': operator_confidence
     }

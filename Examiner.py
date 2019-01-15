@@ -10,7 +10,18 @@ class Examiner:
       '>', '<',
       '?'
     ]
+
     self.unknown_operator_tb = ListTokenBuilder(operators, 'invalid operator', True)
+    self.confidences = {}
+
+
+  def confidence(self):
+    value = 1.0
+
+    for name in self.confidences:
+      value *= self.confidences[name]
+
+    return value
 
 
   def tabs_to_spaces(self, text, tab_size):
@@ -64,10 +75,10 @@ class Examiner:
     return num
 
 
-  def find_keywords(self, tokens):
+  def find_keywords(self):
     found_keywords = set()
 
-    for token in tokens:
+    for token in self.tokens:
       if token.group == 'keyword':
         found_keywords.add(str(token))
 

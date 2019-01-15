@@ -73,34 +73,22 @@ class PythonExaminer(Examiner):
 
     self.tokens = tokenizer.tokenize(code)
 
-    found_keywords = self.find_keywords(self.tokens)
-    found_identifiers = self.find_identifiers(self.tokens)
-
     num_known_tokens = self.count_valid_tokens(self.tokens)
     num_invalid_operators = self.count_invalid_operators(self.tokens)
     num_known_operators = self.count_known_operators(self.tokens)
 
-    # recognized keywords improve confidence
-    self.keyword_confidence = 0.0
-
-    if len(found_keywords) > 0:
-      self.keyword_confidence = 1.0
-
-    if (len(found_identifiers)) > 0:
-      self.keyword_confidence = len(found_keywords) / len(found_identifiers)
-
     # unknown tokens reduce confidence
-    self.token_confidence = 1.0
+    token_confidence = 1.0
 
     if len(self.tokens) > 0:
-      self.token_confidence = num_known_tokens / len(self.tokens)
+      token_confidence = num_known_tokens / len(self.tokens)
 
     # unknown operators reduce confidence
-    self.operator_confidence = 1.0
+    operator_confidence = 1.0
     num_operators = num_known_operators + num_invalid_operators
 
     if num_operators > 0:
-      self.operator_confidence = num_known_operators / num_operators
+      operator_confidence = num_known_operators / num_operators
 
     # line format 1 - lines without indent start with keyword
     lines = self.split_tokens(self.tokens)
@@ -113,10 +101,10 @@ class PythonExaminer(Examiner):
         if line[0].group in ['keyword', 'whitespace', 'comment', 'string']:
           num_lines_correct += 1
     
-    self.line_format_1_confidence = 0.0
+    line_format_1_confidence = 0.0
 
     if num_lines > 0:
-      self.line_format_1_confidence = num_lines_correct / num_lines
+      line_format_1_confidence = num_lines_correct / num_lines
 
     # line format 2 - some keyword lines end in colon
     tokens = self.drop_whitespace(self.tokens)
@@ -137,21 +125,14 @@ class PythonExaminer(Examiner):
           if last_token.group == 'operator' and last_token.text == ':':
             num_lines_correct += 1
 
-    self.line_format_2_confidence = 1.0
+    line_format_2_confidence = 1.0
 
     if num_lines > 0:
-      self.line_format_2_confidence = num_lines_correct / num_lines
+      line_format_2_confidence = num_lines_correct / num_lines
 
-
-  def confidence(self):
-    return self.line_format_1_confidence * self.line_format_2_confidence * self.token_confidence * self.operator_confidence
-
-
-  def confidences(self):
-    return {
-      'line_format_1': self.line_format_1_confidence,
-      'line_format_2': self.line_format_2_confidence,
-      'token': self.token_confidence,
-      'keyword': self.keyword_confidence,
-      'operator': self.operator_confidence
+    self.confidences = {
+      'token': token_confidence,
+      'operator': operator_confidence,
+      'line_format_1': line_format_1_confidence,
+      'line_format_2': line_format_2_confidence
     }

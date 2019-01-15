@@ -173,7 +173,7 @@ def identify_language(code, tabsize):
   examiners['Python'] = PythonExaminer(code)
   examiners['Ruby'] = RubyExaminer(code)
 
-  # store confidence values
+  # get confidence values
   retval = {}
   highest_confidence = 0
   for name in examiners:
@@ -192,26 +192,49 @@ def identify_language(code, tabsize):
 
   # if a tie among multiple examiners
   if len(high_names) > 1:
-    # for each with the high value, get the confidences
-    highest_keyword_value = 0
+    lowest_token_count = None
     for name in high_names:
-      confidences = examiners[name].confidences()
-      keyword_confidence = confidences['keyword']
-      if keyword_confidence > highest_keyword_value:
-        highest_keyword_value = keyword_confidence
+      count = len(examiners[name].tokens)
+      if lowest_token_count is None or count < lowest_token_count:
+        lowest_token_count = count
 
-    # increase all values by respective keyword confidence
-    # then reduce by the highest keyword confidence
+    # assign confidence to number of tokens (fewer tokens are better)
     for name in high_names:
-      confidences = examiners[name].confidences()
-      keyword_confidence = confidences['keyword']
-      retval[name] += keyword_confidence - highest_keyword_value
+      count = len(examiners[name].tokens)
+      token_count_confidence = lowest_token_count / count
+      examiners[name].confidences['token_count'] = token_count_confidence
 
-      # constrain to [0.0, 1.0]
-      if retval[name] > 1.0:
-        retval[name] = 1.0
-      if retval[name] < 0.0:
-        retval[name] = 0.0
+    # recalculate confidence with new factor
+    for name in high_names:
+      confidence = examiners[name].confidence()
+      retval[name] = confidence
+
+  # count how many have the greatest value after token count confidence
+  high_names = []
+  for name in examiners:
+    confidence = examiners[name].confidence()
+    if confidence == highest_confidence:
+      high_names.append(name)
+
+  # if still a tie among multiple examiners
+  if len(high_names) > 1:
+    highest_keyword_count = 0
+    for name in high_names:
+      keyword_count = len(examiners[name].find_keywords())
+      if keyword_count > highest_keyword_count:
+        highest_keyword_count = keyword_count
+
+    if highest_keyword_count > 0:
+      # assign confidence to number of keywords (more is better)
+      for name in high_names:
+        count = len(examiners[name].find_keywords())
+        keyword_count_confidence = count / highest_keyword_count
+        examiners[name].confidences['keyword_count'] = keyword_count_confidence
+
+      # recalculate confidence with new factor
+      for name in high_names:
+        confidence = examiners[name].confidence()
+        retval[name] = confidence
 
   return retval
 
@@ -292,59 +315,59 @@ def tokenize_confidence(code, language, tabsize):
 
   if language in ['basic', 'bas']:
     examiner = BasicExaminer(code)
-    confidences = examiner.confidences()
+    confidences = examiner.confidences
 
   if language in ['c']:
     examiner = CExaminer(code)
-    confidences = examiner.confidences()
+    confidences = examiner.confidences
 
   if language in ['c++', 'cpp']:
     examiner = CppExaminer(code)
-    confidences = examiner.confidences()
+    confidences = examiner.confidences
 
   if language in ['c#', 'csharp']:
     examiner = CsharpExaminer(code)
-    confidences = examiner.confidences()
+    confidences = examiner.confidences
 
   if language in ['fixed-format-cobol', 'cobol', 'cob', 'cbl']:
     examiner = CobolExaminer(code, True, tab_size)
-    confidences = examiner.confidences()
+    confidences = examiner.confidences
 
   if language in ['free-format-cobol']:
     examiner = CobolExaminer(code, False, tab_size)
-    confidences = examiner.confidences()
+    confidences = examiner.confidences
 
   if language in ['fortran', 'for', 'ftn', 'fortran-66']:
     examiner = Fortran66Examiner(code, tab_size)
-    confidences = examiner.confidences()
+    confidences = examiner.confidences
 
   if language in ['f77', 'fortran-77']:
     examiner = Fortran77Examiner(code, tab_size)
-    confidences = examiner.confidences()
+    confidences = examiner.confidences
 
   if language in ['f90', 'fortran-90']:
     examiner = Fortran90Examiner(code, tab_size)
-    confidences = examiner.confidences()
+    confidences = examiner.confidences
 
   if language in ['java', 'jav']:
     examiner = JavaExaminer(code)
-    confidences = examiner.confidences()
+    confidences = examiner.confidences
 
   if language in ['pascal', 'pas']:
     examiner = PascalExaminer(code)
-    confidences = examiner.confidences()
+    confidences = examiner.confidences
 
   if language in ['prolog']:
     examiner = PrologExaminer(code)
-    confidences = examiner.confidences()
+    confidences = examiner.confidences
 
   if language in ['python', 'py']:
     examiner = PythonExaminer(code)
-    confidences = examiner.confidences()
+    confidences = examiner.confidences
 
   if language in ['ruby', 'rb']:
     examiner = RubyExaminer(code)
-    confidences = examiner.confidences()
+    confidences = examiner.confidences
 
   retval = json.dumps(confidences)
 

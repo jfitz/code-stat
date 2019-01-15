@@ -137,34 +137,22 @@ class Fortran77Examiner(Examiner):
 
       self.tokens.append(Token('\n', 'newline'))
 
-    found_keywords = self.find_keywords(self.tokens)
-    found_identifiers = self.find_identifiers(self.tokens)
-
     num_known_tokens = self.count_valid_tokens(self.tokens)
     num_invalid_operators = self.count_invalid_operators(self.tokens)
     num_known_operators = self.count_known_operators(self.tokens)
 
     # unknown tokens reduce confidence
-    self.token_confidence = 1.0
+    token_confidence = 1.0
 
     if len(self.tokens) > 0:
-      self.token_confidence = num_known_tokens / len(self.tokens)
-
-    # recognized keywords improve confidence
-    self.keyword_confidence = 0.0
-
-    if len(found_keywords) > 0:
-      self.keyword_confidence = 1.0
-
-    if len(found_identifiers) > 0:
-      self.keyword_confidence = len(found_keywords) / len(found_identifiers)
+      token_confidence = num_known_tokens / len(self.tokens)
 
     #  unknown operators reduce confidence
-    self.operator_confidence = 1.0
+    operator_confidence = 1.0
     num_operators = num_known_operators + num_invalid_operators
 
     if num_operators > 0:
-      self.operator_confidence = num_known_operators / num_operators
+      operator_confidence = num_known_operators / num_operators
 
     # two operands in a row is not FORTRAN
     tokens = self.drop_whitespace(self.tokens)
@@ -180,20 +168,13 @@ class Fortran77Examiner(Examiner):
 
       prev_token = token
 
-    self.operand_confidence = 1.0
+    operand_confidence = 1.0
 
     if len(tokens) > 0:
-      self.operand_confidence = 1.0 - (two_operand_count / len(tokens))
+      operand_confidence = 1.0 - (two_operand_count / len(tokens))
 
-
-  def confidence(self):
-    return self.token_confidence * self.operator_confidence * self.operand_confidence
-
-
-  def confidences(self):
-    return {
-      'token': self.token_confidence,
-      'keyword': self.keyword_confidence,
-      'operator': self.operator_confidence,
-      'operand': self.operand_confidence
+    self.confidences = {
+      'token': token_confidence,
+      'operator': operator_confidence,
+      'operand': operand_confidence
     }

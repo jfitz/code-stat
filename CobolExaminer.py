@@ -567,9 +567,6 @@ class CobolExaminer(Examiner):
 
       self.tokens.append(Token('\n', 'newline'))
 
-    found_keywords = self.find_keywords(self.tokens)
-    found_identifiers = self.find_identifiers(self.tokens)
-
     num_known_tokens = self.count_valid_tokens(self.tokens)
     num_invalid_operators = self.count_invalid_operators(self.tokens)
     num_known_operators = self.count_known_operators(self.tokens)
@@ -600,45 +597,31 @@ class CobolExaminer(Examiner):
 
       prev_text = text
     
-    self.expected_keyword_confidence = 0.50
+    expected_keyword_confidence = 0.50
     if counts['IDENTIFICATION'] == 1:
-      self.expected_keyword_confidence += 0.125
+      expected_keyword_confidence += 0.125
     if counts['ENVIRONMENT'] == 1:
-      self.expected_keyword_confidence += 0.125
+      expected_keyword_confidence += 0.125
     if counts['DATA'] == 1:
-      self.expected_keyword_confidence += 0.125
+      expected_keyword_confidence += 0.125
     if counts['PROCEDURE'] == 1:
-      self.expected_keyword_confidence += 0.125
-
-    # count unique keywords and compare to number of tokens
-    self.keyword_confidence = 0.0
-    num_keywords = len(found_keywords)
-
-    if num_keywords > 10:
-      self.keyword_confidence = 1.0
+      expected_keyword_confidence += 0.125
 
     #  unknown tokens reduce confidence
-    self.token_confidence = 1.0
+    token_confidence = 1.0
 
     if len(self.tokens) > 0:
-      self.token_confidence = num_known_tokens / len(self.tokens)
+      token_confidence = num_known_tokens / len(self.tokens)
 
     #  unknown operators reduce confidence
-    self.operator_confidence = 1.0
+    operator_confidence = 1.0
     num_operators = num_known_operators + num_invalid_operators
 
     if num_operators > 0:
-      self.operator_confidence = num_known_operators / num_operators
+      operator_confidence = num_known_operators / num_operators
 
-
-  def confidence(self):
-    return self.keyword_confidence * self.expected_keyword_confidence * self.token_confidence * self.operator_confidence
-
-
-  def confidences(self):
-    return {
-      'token': self.token_confidence,
-      'keyword': self.keyword_confidence,
-      'expected_keyword': self.expected_keyword_confidence,
-      'operator': self.operator_confidence
+    self.confidences = {
+      'token': token_confidence,
+      'expected_keyword': expected_keyword_confidence,
+      'operator': operator_confidence
     }

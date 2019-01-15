@@ -89,9 +89,7 @@ class CExaminer(Examiner):
 
     self.tokens = tokenizer.tokenize(code)
 
-    found_keywords = self.find_keywords(self.tokens)
     found_cpp_keywords = self.find_specific_keywords(self.tokens, cpp_keywords)
-    found_identifiers = self.find_identifiers(self.tokens)
 
     num_known_tokens = self.count_valid_tokens(self.tokens)
     num_invalid_operators = self.count_invalid_operators(self.tokens)
@@ -100,46 +98,30 @@ class CExaminer(Examiner):
     # consider the number of matches for begin/end
     ok, num_begin, num_end = self.check_paired_tokens(self.tokens, '{', '}')
     num_begin_end = num_begin + num_end
-    self.brace_match_confidence = 0.0
+    brace_match_confidence = 0.0
 
     if num_begin_end > 0:
-      self.brace_match_confidence = (num_begin + num_end) / num_begin_end
-
-    # recognized keywords improve confidence
-    self.keyword_confidence = 0.0
-
-    if len(found_keywords) > 0:
-      self.keyword_confidence = 1.0
-
-    if len(found_identifiers) > 0:
-      self.keyword_confidence = len(found_keywords) / len(found_identifiers)
+      brace_match_confidence = (num_begin + num_end) / num_begin_end
 
     # unknown tokens reduce confidence
-    self.token_confidence = 1.0
+    token_confidence = 1.0
 
     if len(self.tokens) > 0:
-      self.token_confidence = num_known_tokens / len(self.tokens)
+      token_confidence = num_known_tokens / len(self.tokens)
 
     # unknown operators reduce confidence
-    self.operator_confidence = 1
+    operator_confidence = 1
     num_operators = num_known_operators + num_invalid_operators
 
     if num_operators > 0:
-      self.operator_confidence = num_known_operators / num_operators
+      operator_confidence = num_known_operators / num_operators
 
     # C++ keywords reduce confidence
-    self.cpp_keyword_confidence = 1.0 - len(found_cpp_keywords) / len(cpp_keywords)
+    cpp_keyword_confidence = 1.0 - len(found_cpp_keywords) / len(cpp_keywords)
 
-
-  def confidence(self):
-    return self.brace_match_confidence * self.token_confidence * self.operator_confidence * self.cpp_keyword_confidence
-
-
-  def confidences(self):
-    return {
-      'brace_match': self.brace_match_confidence,
-      'token': self.token_confidence,
-      'keyword': self.keyword_confidence,
-      'operator': self.operator_confidence,
-      'cpp_keyword': self.cpp_keyword_confidence
+    self.confidences = {
+      'brace_match': brace_match_confidence,
+      'token': token_confidence,
+      'operator': operator_confidence,
+      'cpp_keyword': cpp_keyword_confidence
     }
