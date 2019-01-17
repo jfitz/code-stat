@@ -41,7 +41,23 @@ class CExaminer(Examiner):
       '[', ']',
       '++', '--', '->', '&&', '||',
       '?', '{', '}'
-      ]
+    ]
+
+    unary_operators = [
+      '+', '-', '*',
+      '!', '&', '~',
+      '++', '--',
+      '(', ';',
+      '['
+    ]
+
+    postfix_operators = [
+      '++', '--', '&'
+    ]
+
+    groupers = [
+      '(', ')', '[', ']'
+    ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
@@ -55,7 +71,7 @@ class CExaminer(Examiner):
       'if', 'else', 'switch', 'case', 'default',
       'struct', 'union', 'void', 'return',
       'goto', 'continue', 'break'
-      ]
+    ]
     
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
@@ -110,11 +126,26 @@ class CExaminer(Examiner):
       token_confidence = num_known_tokens / len(self.tokens)
 
     # unknown operators reduce confidence
-    operator_confidence = 1.0
+    operator_confidence_1 = 1.0
+    operator_confidence_2 = 1.0
     num_operators = num_known_operators + num_invalid_operators
 
     if num_operators > 0:
-      operator_confidence = num_known_operators / num_operators
+      operator_confidence_1 = num_known_operators / num_operators
+      errors = 0
+      prev_token = Token('\n', 'newline')
+
+      for token in self.tokens:
+        if token.group == 'operator' and\
+          prev_token.group == 'operator' and\
+          prev_token.text not in groupers and\
+          prev_token.text not in postfix_operators and\
+          token.text not in unary_operators:
+          errors += 1
+
+        prev_token = token
+
+      operator_confidence_2 = 1.0 - errors / num_operators
 
     # C++ keywords reduce confidence
     # notice that they are tokenized as identifiers and not keywords
@@ -130,6 +161,7 @@ class CExaminer(Examiner):
     self.confidences = {
       'brace_match': brace_match_confidence,
       'token': token_confidence,
-      'operator': operator_confidence,
+      'operator_1': operator_confidence_1,
+      'operator_2': operator_confidence_2,
       'cpp_keyword': cpp_keyword_confidence
     }
