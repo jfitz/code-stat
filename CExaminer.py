@@ -162,6 +162,5 @@ class CExaminer(Examiner):
       'brace_match': brace_match_confidence,
       'token': token_confidence,
       'operator_1': operator_confidence_1,
-      'operator_2': operator_confidence_2,
-      'cpp_keyword': cpp_keyword_confidence
+      'operator_2': operator_confidence_2
     }

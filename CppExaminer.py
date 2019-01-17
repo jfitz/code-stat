@@ -170,6 +170,5 @@ class CppExaminer(Examiner):
       'brace_match': brace_match_confidence,
       'token': token_confidence,
       'operator_1': operator_confidence_1,
-      'operator_2': operator_confidence_2,
-      'power_keyword': power_keyword_confidence
+      'operator_2': operator_confidence_2
     }
