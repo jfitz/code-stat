@@ -76,8 +76,8 @@ class CppExaminer(Examiner):
       'cin', 'cout',
       'bool', 'class', 'friend', 'operator',
       'try', 'catch', 'throw'
-      ]
-    
+    ]
+
     tokenbuilders = [
       whitespace_tb,
       newline_tb,
@@ -113,21 +113,31 @@ class CppExaminer(Examiner):
     if num_begin_end > 0:
       brace_match_confidence = (num_begin + num_end) / num_begin_end
 
-    #  unknown tokens reduce confidence
+    # unknown tokens reduce confidence
     token_confidence = 1.0
 
     if len(self.tokens) > 0:
       token_confidence = num_known_tokens / len(self.tokens)
 
-    #  unknown operators reduce confidence
+    # unknown operators reduce confidence
     operator_confidence = 1.0
     num_operators = num_known_operators + num_invalid_operators
 
     if num_operators > 0:
       operator_confidence = num_known_operators / num_operators
 
+    # absence of power keywords reduces confidence
+    power_keywords_found = {}
+    for token in self.tokens:
+      if token.group == 'keyword' and token.text in power_keywords:
+        power_keywords_found[token.text] = True
+
+    ratio = len(power_keywords_found) / len(power_keywords)
+    power_keyword_confidence = ratio ** (1.0 / 3.0)
+
     self.confidences = {
       'brace_match': brace_match_confidence,
       'token': token_confidence,
-      'operator': operator_confidence
+      'operator': operator_confidence,
+      'power_keyword': power_keyword_confidence
     }

@@ -11,6 +11,7 @@ class Examiner:
       '?'
     ]
 
+    self.tokens = []
     self.unknown_operator_tb = ListTokenBuilder(operators, 'invalid operator', True)
     self.confidences = {}
 
@@ -85,10 +86,10 @@ class Examiner:
     return found_keywords
 
 
-  def find_identifiers(self, tokens):
+  def find_identifiers(self):
     found_identifiers = set()
 
-    for token in tokens:
+    for token in self.tokens:
       if token.group in ['identifier', 'function']:
         found_identifiers.add(str(token))
 

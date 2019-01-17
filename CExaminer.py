@@ -110,14 +110,22 @@ class CExaminer(Examiner):
       token_confidence = num_known_tokens / len(self.tokens)
 
     # unknown operators reduce confidence
-    operator_confidence = 1
+    operator_confidence = 1.0
     num_operators = num_known_operators + num_invalid_operators
 
     if num_operators > 0:
       operator_confidence = num_known_operators / num_operators
 
     # C++ keywords reduce confidence
-    cpp_keyword_confidence = 1.0 - len(found_cpp_keywords) / len(cpp_keywords)
+    # notice that they are tokenized as identifiers and not keywords
+    found_cpp_keywords = {}
+    identifiers = self.find_identifiers()
+    for text in identifiers:
+      if text in cpp_keywords:
+        found_cpp_keywords[text] = True
+
+    ratio = len(found_cpp_keywords) / len(cpp_keywords)
+    cpp_keyword_confidence = 1.0 - ratio ** (1.0 / 3.0)
 
     self.confidences = {
       'brace_match': brace_match_confidence,
