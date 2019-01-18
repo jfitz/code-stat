@@ -18,6 +18,7 @@ class SwiftExaminer(Examiner):
     real_tb = RealTokenBuilder(False, False)
     real_exponent_tb = RealExponentTokenBuilder(False, False)
     identifier_tb = IdentifierTokenBuilder()
+    attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute')
     string_tb = StringTokenBuilder(['"'])
 
     triple_quote_comment_tb = TripleQuoteCommentTokenBuilder()
@@ -32,7 +33,7 @@ class SwiftExaminer(Examiner):
         '=', '+=', '-=', '*=', '/=', '%=', '<<=', '>>=', '&=', '^=', '|=',
         '...', '..<', '?', ':',
         '(', ')', '[', ']', '.', '++', '--',
-        ',', ';', '{', '}'
+        ',', ';', '{', '}', '->', '??'
       ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
@@ -67,6 +68,7 @@ class SwiftExaminer(Examiner):
       keyword_tb,
       known_operator_tb,
       identifier_tb,
+      attribute_tb,
       string_tb,
       slash_slash_comment_tb,
       slash_star_comment_tb,

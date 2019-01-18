@@ -477,3 +477,27 @@ class TripleQuoteCommentTokenBuilder(TokenBuilder):
       result = False
 
     return result
+
+
+# token reader for identifier
+class PrefixedIdentifierTokenBuilder(TokenBuilder):
+  def __init__(self, prefix, group):
+    self.token = None
+    self.prefix = prefix
+    self.group = group
+
+  def get_tokens(self):
+    if self.token is None:
+      return None
+
+    return [Token(self.token, self.group)]
+
+  def accept(self, candidate, c):
+    result = False
+
+    if len(candidate) < len(self.prefix):
+      result = self.prefix.startswith(candidate + c)
+    else:
+      result = c.isalpha() or c.isdigit() or c == '_'
+
+    return result

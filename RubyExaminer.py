@@ -17,7 +17,7 @@ class RubyExaminer(Examiner):
     real_tb = RealTokenBuilder(False, False)
     real_exponent_tb = RealExponentTokenBuilder(False, False)
     identifier_tb = IdentifierTokenBuilder()
-    symbol_tb = SymbolTokenBuilder()
+    symbol_tb = PrefixedIdentifierTokenBuilder(':', 'symbol')
     string_tb = StringTokenBuilder(['"', "'"])
     heredoc_tb = HereDocTokenBuilder()
 
