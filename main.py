@@ -14,6 +14,7 @@ from PascalExaminer import PascalExaminer
 from PrologExaminer import PrologExaminer
 from PythonExaminer import PythonExaminer
 from RubyExaminer import RubyExaminer
+from SwiftExaminer import SwiftExaminer
 
 
 def decode_bytes(in_bytes):
@@ -50,7 +51,8 @@ def languages():
     'Pascal',
     'Prolog',
     'Python',
-    'Ruby'
+    'Ruby',
+    'Swift'
   ]
 
   json_text = json.dumps(names)
@@ -172,6 +174,7 @@ def identify_language(code, tabsize):
   examiners['Prolog'] = PrologExaminer(code)
   examiners['Python'] = PythonExaminer(code)
   examiners['Ruby'] = RubyExaminer(code)
+  examiners['Swift'] = SwiftExaminer(code)
 
   # get confidence values
   retval = {}
@@ -302,6 +305,10 @@ def tokenize(code, language, tabsize):
     examiner = RubyExaminer(code)
     tokens = examiner.tokens
 
+  if language in ['swift']:
+    examiner = SwiftExaminer(code)
+    tokens = examiner.tokens
+
   return tokens
 
 
@@ -367,6 +374,10 @@ def tokenize_confidence(code, language, tabsize):
 
   if language in ['ruby', 'rb']:
     examiner = RubyExaminer(code)
+    confidences = examiner.confidences
+
+  if language in ['swift']:
+    examiner = SwiftExaminer(code)
     confidences = examiner.confidences
 
   retval = json.dumps(confidences)

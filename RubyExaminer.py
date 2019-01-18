@@ -55,19 +55,19 @@ class RubyExaminer(Examiner):
 
     tokenbuilders = [
       whitespace_tb,
+      newline_tb,
       integer_tb,
       integer_exponent_tb,
       real_tb,
       real_exponent_tb,
-      newline_tb,
       keyword_tb,
       symbol_tb,
       known_operator_tb,
-      self.unknown_operator_tb,
       identifier_tb,
       string_tb,
       heredoc_tb,
-      hash_comment_tb
+      hash_comment_tb,
+      self.unknown_operator_tb
     ]
     
     invalid_token_builder = InvalidTokenBuilder()

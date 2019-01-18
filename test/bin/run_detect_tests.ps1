@@ -75,4 +75,11 @@ test\bin\run_test.ps1 -json -name family-kb -action detect -language Prolog -inp
 test\bin\run_test.ps1 -json -name family-menu -action detect -language Prolog -inputfile ".\test\data\Prolog\family-menu.pl" -expected ".\test\ref\detect\Prolog\family-menu.txt"
 test\bin\run_test.ps1 -json -name family-queries -action detect -language Prolog -inputfile ".\test\data\Prolog\family-queries.pl" -expected ".\test\ref\detect\Prolog\family-queries.txt"
 
+test\bin\run_test.ps1 -json -name AppDelegate -action detect -language Swift -inputfile ".\test\data\Swift\AppDelegate.swift" -expected ".\test\ref\detect\Swift\AppDelegate.txt"
+test\bin\run_test.ps1 -json -name Meal -action detect -language Swift -inputfile ".\test\data\Swift\Meal.swift" -expected ".\test\ref\detect\Swift\Meal.txt"
+test\bin\run_test.ps1 -json -name MealTableViewCell -action detect -language Swift -inputfile ".\test\data\Swift\MealTableViewCell.swift" -expected ".\test\ref\detect\Swift\MealTableViewCell.txt"
+test\bin\run_test.ps1 -json -name MealTableViewController -action detect -language Swift -inputfile ".\test\data\Swift\MealTableViewController.swift" -expected ".\test\ref\detect\Swift\MealTableViewController.txt"
+test\bin\run_test.ps1 -json -name MealViewController -action detect -language Swift -inputfile ".\test\data\Swift\MealViewController.swift" -expected ".\test\ref\detect\Swift\MealViewController.txt"
+test\bin\run_test.ps1 -json -name RatingControl -action detect -language Swift -inputfile ".\test\data\Swift\RatingControl.swift" -expected ".\test\ref\detect\Swift\RatingControl.txt"
+
 Write-Output "Number of failures: $failures"

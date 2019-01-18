@@ -1,0 +1,598 @@
+﻿[
+    {
+        "type": "comment",
+        "value": "//"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "//  MealTableViewCell.swift"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "//  FoodTracker"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "//"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "//  Created by Jane Appleseed on 11/15/16."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "//  Copyright \u00a9 2016 Apple Inc. All rights reserved."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "//"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "import"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "UIKit"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "class"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "MealTableViewCell"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "UITableViewCell"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "comment",
+        "value": "//MARK: Properties"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "IBOutlet"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "weak"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "var"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "nameLabel"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "UILabel"
+    },
+    {
+        "type": "operator",
+        "value": "!"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "IBOutlet"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "weak"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "var"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "photoImageView"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "UIImageView"
+    },
+    {
+        "type": "operator",
+        "value": "!"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "IBOutlet"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "weak"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "var"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ratingControl"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "RatingControl"
+    },
+    {
+        "type": "operator",
+        "value": "!"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "override"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "func"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "awakeFromNib"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "keyword",
+        "value": "super"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "awakeFromNib"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "comment",
+        "value": "// Initialization code"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "operator",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "override"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "func"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "setSelected"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "_"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "selected"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Bool"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "animated"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Bool"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "keyword",
+        "value": "super"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "setSelected"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "selected"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "animated"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "animated"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "comment",
+        "value": "// Configure the view for the selected state"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "operator",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "operator",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    }
+]
