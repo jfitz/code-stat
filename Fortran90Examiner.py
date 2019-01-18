@@ -69,12 +69,12 @@ class Fortran90Examiner(Examiner):
       real_tb,
       real_exponent_tb,
       keyword_tb,
+      continuation_tb,
+      known_operator_tb,
       identifier_tb,
       string_tb,
       bang_comment_tb,
-      continuation_tb,
       stmt_separator_tb,
-      known_operator_tb,
       self.unknown_operator_tb
     ]
 

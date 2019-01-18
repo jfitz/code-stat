@@ -56,10 +56,10 @@ class Fortran66Examiner(Examiner):
       real_exponent_tb,
       keyword_tb,
       format_tb,
-      identifier_tb,
       known_operator_tb,
-      self.unknown_operator_tb,
-      string_tb
+      identifier_tb,
+      string_tb,
+      self.unknown_operator_tb
     ]
 
     invalid_token_builder = InvalidTokenBuilder()

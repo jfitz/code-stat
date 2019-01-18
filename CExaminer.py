@@ -91,13 +91,13 @@ class CExaminer(Examiner):
       real_tb,
       real_exponent_tb,
       keyword_tb,
+      known_operator_tb,
       identifier_tb,
       string_tb,
-      known_operator_tb,
-      self.unknown_operator_tb,
       slash_slash_comment_tb,
       slash_star_comment_tb,
-      c_preprocessor_tb
+      c_preprocessor_tb,
+      self.unknown_operator_tb
     ]
     
     invalid_token_builder = InvalidTokenBuilder()

@@ -84,9 +84,9 @@ class BasicExaminer(Examiner):
       string_tb,
       stmt_separator_tb,
       known_operator_tb,
-      self.unknown_operator_tb,
       keyword_tb,
-      remark_tb
+      remark_tb,
+      self.unknown_operator_tb
     ]
 
     invalid_token_builder = InvalidTokenBuilder()

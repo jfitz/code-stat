@@ -52,20 +52,20 @@ class PythonExaminer(Examiner):
     tokenbuilders = [
       whitespace_tb,
       line_continuation_tb,
+      newline_tb,
       integer_tb,
       integer_exponent_tb,
       real_tb,
       real_exponent_tb,
-      newline_tb,
       keyword_tb,
+      known_operator_tb,
       identifier_tb,
       string_tb,
       raw_string_tb,
-      known_operator_tb,
-      self.unknown_operator_tb,
       hash_comment_tb,
       triple_quote_comment_tb,
-      raw_triple_quote_comment_tb
+      raw_triple_quote_comment_tb,
+      self.unknown_operator_tb
     ]
     
     invalid_token_builder = InvalidTokenBuilder()

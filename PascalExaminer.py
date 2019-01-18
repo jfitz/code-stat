@@ -39,7 +39,7 @@ class PascalExaminer(Examiner):
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', False)
 
     keywords = [
-      'and', 'array', 'begin', 'boolean', 'break', 'case', 'char', 'const',
+      'array', 'begin', 'boolean', 'break', 'case', 'char', 'const',
       'do', 'downto', 'else', 'end', 'false', 'file', 'for', 'forward',
       'function', 'goto', 'if', 'integer', 'label', 'nil', 'of', 'otherwise',
       'packed', 'procedure', 'program', 'real', 'record', 'repeat', 'reset',
@@ -51,6 +51,7 @@ class PascalExaminer(Examiner):
 
     tokenbuilders = [
       whitespace_tb,
+      newline_tb,
       integer_tb,
       integer_exponent_tb,
       real_tb,
@@ -58,14 +59,13 @@ class PascalExaminer(Examiner):
       hex_constant_tb,
       octal_constant_tb,
       binary_constant_tb,
-      newline_tb,
+      keyword_tb,
       string_tb,
       known_operator_tb,
-      self.unknown_operator_tb,
+      identifier_tb,
       brace_comment_tb,
       paren_star_comment_tb,
-      keyword_tb,
-      identifier_tb
+      self.unknown_operator_tb
       ]
     
     invalid_token_builder = InvalidTokenBuilder()

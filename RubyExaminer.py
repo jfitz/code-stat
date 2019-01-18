@@ -61,11 +61,11 @@ class RubyExaminer(Examiner):
       real_exponent_tb,
       newline_tb,
       keyword_tb,
-      identifier_tb,
       symbol_tb,
-      string_tb,
       known_operator_tb,
       self.unknown_operator_tb,
+      identifier_tb,
+      string_tb,
       heredoc_tb,
       hash_comment_tb
     ]

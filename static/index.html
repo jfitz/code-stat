@@ -332,6 +332,8 @@ function tokenize() {
 
         formattedResults = '<code><pre>';
 
+        length = tokens.length;
+
         for (i = 0; i < length; i++) {
           token = tokens[i];
           formattedResults += colorize(token, htmlColors);
