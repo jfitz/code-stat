@@ -19,6 +19,7 @@ class PascalExaminer(Examiner):
     hex_constant_tb = PrefixedIntegerTokenBuilder('$', '0123456789ABCDEFabcdef')
     octal_constant_tb = PrefixedIntegerTokenBuilder('&', '01234567')
     binary_constant_tb = PrefixedIntegerTokenBuilder('%', '01')
+    char_constant_tb = PrefixedIntegerTokenBuilder('#', '0123456789')
     identifier_tb = IdentifierTokenBuilder()
     string_tb = StringTokenBuilder(["'"])
 
@@ -59,6 +60,7 @@ class PascalExaminer(Examiner):
       hex_constant_tb,
       octal_constant_tb,
       binary_constant_tb,
+      char_constant_tb,
       keyword_tb,
       string_tb,
       known_operator_tb,
