@@ -84,4 +84,10 @@ test\bin\run_test.ps1 -json -name MealTableViewController -action tokens -langua
 test\bin\run_test.ps1 -json -name MealViewController -action tokens -language Swift -inputfile ".\test\data\Swift\MealViewController.swift" -expected ".\test\ref\tokens\Swift\MealViewController.txt"
 test\bin\run_test.ps1 -json -name RatingControl -action tokens -language Swift -inputfile ".\test\data\Swift\RatingControl.swift" -expected ".\test\ref\tokens\Swift\RatingControl.txt"
 
+test\bin\run_test.ps1 -json -name ETM-540-01 -action tokens -language R -inputfile ".\test\data\R\ETM-540-01.R" -expected ".\test\ref\tokens\R\ETM-540-01.txt"
+test\bin\run_test.ps1 -json -name ETM-540-02 -action tokens -language R -inputfile ".\test\data\R\ETM-540-02.R" -expected ".\test\ref\tokens\R\ETM-540-02.txt"
+test\bin\run_test.ps1 -json -name ETM-540-03 -action tokens -language R -inputfile ".\test\data\R\ETM-540-03.R" -expected ".\test\ref\tokens\R\ETM-540-03.txt"
+test\bin\run_test.ps1 -json -name ETM-540-04 -action tokens -language R -inputfile ".\test\data\R\ETM-540-04.R" -expected ".\test\ref\tokens\R\ETM-540-04.txt"
+test\bin\run_test.ps1 -json -name ETM-540-05 -action tokens -language R -inputfile ".\test\data\R\ETM-540-05.R" -expected ".\test\ref\tokens\R\ETM-540-05.txt"
+
 Write-Output "Number of failures: $failures"

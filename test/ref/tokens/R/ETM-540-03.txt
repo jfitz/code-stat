@@ -1,0 +1,6794 @@
+﻿[
+    {
+        "type": "identifier",
+        "value": "library"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "pander"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "library"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "magrittr"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "library"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "dplyr"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "library"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "ROI"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "library"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "ROI"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "plugin"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "glpk"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "library"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "ompr"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "library"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "ompr"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "roi"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "Base3VarModel"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "MIPModel"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_variable"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "type"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"continuous\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "lb"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "0"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_variable"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "type"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"continuous\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "lb"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "0"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_variable"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "type"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"continuous\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "lb"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "0"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "set_objective"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "20"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "14"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "16"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"max\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_constraint"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "6"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "2"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "4"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "2000"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "#fabrication"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_constraint"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "8"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "6"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "4"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "2000"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "#assembly"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_constraint"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "6"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "4"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "8"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "1440"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "#machining"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_constraint"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "40"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "25"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "25"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "9600"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "#wood"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_constraint"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "200"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "#"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "solve_model"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "with_ROI"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "solver"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"glpk\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "obj_val"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "objective_value"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Base3VarModel"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "xchairs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "get_solution"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Base3VarModel"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "xdesks"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "get_solution"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Base3VarModel"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "xtables"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "get_solution"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Base3VarModel"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "base_case_res"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "cbind"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "xchairs"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "xdesks"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "xtables"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "obj_val"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "rownames"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "base_case_res"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"\""
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "pander"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "base_case_res"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "caption"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "string",
+        "value": "\"Production Plan for Base Case\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "#rduals1 <- as.matrix(get_row_duals(result1), ncol=5)"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "rduals1"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "as"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "matrix"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "get_row_duals"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Base3VarModel"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "dimnames"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "rduals1"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "list"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"fabrication\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"assembly\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"machining\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"wood\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"demand\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"Row Duals\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "pander"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "rduals1"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "caption"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "string",
+        "value": "\"Shadow Prices of Constrained Resources\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "IncMachiningHrs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "MIPModel"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_variable"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "type"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"continuous\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "lb"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "0"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_variable"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "type"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"continuous\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "lb"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "0"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_variable"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "type"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"continuous\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "lb"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "0"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "set_objective"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "20"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "14"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "16"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"max\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_constraint"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "6"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "2"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "4"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "2000"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "#fabrication"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_constraint"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "8"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "6"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "4"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "2000"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "#assembly"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_constraint"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "6"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "4"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "8"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "1441"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "#machining"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_constraint"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "40"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "25"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "25"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "9600"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "#wood"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_constraint"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "200"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "#"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "solve_model"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "with_ROI"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "solver"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"glpk\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "obj_val"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "objective_value"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "IncMachiningHrs"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "xchairs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "get_solution"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "IncMachiningHrs"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "xdesks"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "get_solution"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "IncMachiningHrs"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "xtables"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "get_solution"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "IncMachiningHrs"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "inc_mc_res"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "cbind"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "xchairs"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "xdesks"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "xtables"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "obj_val"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "rownames"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "inc_mc_res"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"\""
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "pander"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "inc_mc_res"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "caption"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "string",
+        "value": "\"Production Plan with One Additional Machining Hour\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "IncWood"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "MIPModel"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_variable"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "type"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"continuous\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "lb"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "0"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_variable"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "type"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"continuous\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "lb"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "0"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_variable"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "type"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"continuous\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "lb"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "0"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "set_objective"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "20"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "14"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "16"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"max\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_constraint"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "6"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "2"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "4"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "2000"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "#fabrication"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_constraint"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "8"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "6"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "4"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "2000"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "#assembly"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_constraint"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "6"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "4"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "8"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "1440"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "#machining"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_constraint"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "40"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "25"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "25"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "19600"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "#wood"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_constraint"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "200"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "#"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "solve_model"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "with_ROI"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "solver"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"glpk\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "obj_val"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "objective_value"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "IncWood"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "xchairs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "get_solution"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "IncWood"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "xdesks"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "get_solution"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "IncWood"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "xtables"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "get_solution"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "IncWood"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "inc_wd_res"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "cbind"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "xchairs"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "xdesks"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "xtables"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "obj_val"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "rownames"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "inc_wd_res"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"\""
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "pander"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "inc_wd_res"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "caption"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "string",
+        "value": "\"Production Plan with 10,000 Additional Square Feet of Wood\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "#cduals1 <- as.matrix(get_column_duals(result1), ncol=1 )"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "cduals1"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "as"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "matrix"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "get_column_duals"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Base3VarModel"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "dimnames"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "cduals1"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "list"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"Chairs\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"Desks\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"Tables\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"Column Duals\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "pander"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "cduals1"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "caption"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "string",
+        "value": "\"Incorrect Reduced Costs of Variables\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# Value of Resources"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "chair_res_used"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "cbind"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "rduals1"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "2"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "8"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "6"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "40"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "0"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "colnames"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "chair_res_used"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"Row Duals\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"Resources Used\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "pander"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "chair_res_used"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "caption"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "string",
+        "value": "\"Resources Used by a Chair and their Shadow Prices\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "desk_res_used"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "cbind"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "rduals1"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "2"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "6"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "4"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "25"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "0"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "colnames"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "desk_res_used"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"Row Duals\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"Resources Used\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "pander"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "desk_res_used"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "caption"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "string",
+        "value": "\"Resources Used by a Desk and their Shadow Prices\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "Table1Model"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "MIPModel"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_variable"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "type"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"continuous\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "lb"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "0"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_variable"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "type"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"continuous\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "lb"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "0"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_variable"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "type"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"continuous\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "lb"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "set_objective"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "20"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "14"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "16"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"max\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_constraint"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "6"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "2"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "4"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "2000"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "#fabrication"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_constraint"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "8"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "6"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "4"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "2000"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "#assembly"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_constraint"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "6"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "4"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "8"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "1440"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "#machining"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_constraint"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "40"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "25"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "25"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "9600"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "#wood"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_constraint"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "200"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "#"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "solve_model"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "with_ROI"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "solver"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"glpk\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "obj_val"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "objective_value"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Table1Model"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "xchairs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "get_solution"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Table1Model"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Chairs"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "xdesks"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "get_solution"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Table1Model"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Desks"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "xtables"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "get_solution"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Table1Model"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Tables"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "Table1_case_res"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "cbind"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "xchairs"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "xdesks"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "xtables"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "obj_val"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "rownames"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Table1_case_res"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"\""
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "#rownames(Table1_case_res) <- \"Amount to Produce\""
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "pander"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Table1_case_res"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "caption"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "string",
+        "value": "\"Production Plan with Table Set to One\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "rownames"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "base_case_res"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"Base Case\""
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "Table1_case_res"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "cbind"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "xchairs"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "xdesks"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "xtables"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "obj_val"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "rownames"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Table1_case_res"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"with forced change to Tables\""
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "pander"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "rbind"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "base_case_res"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Table1_case_res"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "caption"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "string",
+        "value": "\"Impact of a Forced Change in Tables\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "bookcase_res_used"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "cbind"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "rduals1"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "6"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "12"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "16"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "80"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "0"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "colnames"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "bookcase_res_used"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"Row Duals\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"Resources Used\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "pander"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "bookcase_res_used"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "caption"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "string",
+        "value": "\"Resources Used by a Bookcase and their Shadow Prices\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    }
+]

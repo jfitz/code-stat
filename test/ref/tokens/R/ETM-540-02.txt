@@ -1,0 +1,4026 @@
+﻿[
+    {
+        "type": "identifier",
+        "value": "NProd"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "4"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "NResources"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "5"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "ProdNames"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "lapply"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "list"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "rep"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"Prod\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "NProd"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "paste0"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "NProd"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# Product names: Prod1, Prod2, ..."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "ResNames"
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "lapply"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "list"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "rep"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"Res\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "NResources"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "paste0"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "NResources"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# Resource names: Res1, Res2, ..."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "Profit"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "matrix"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "20"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "14"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "3"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "16"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "ncol"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "identifier",
+        "value": "NProd"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "dimnames"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"Profit\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "ProdNames"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "Resources"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "matrix"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "6"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "8"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "6"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "7"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "40"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "2"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "6"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "4"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "10"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "25"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "2"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "5"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "4"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "8"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "25"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "12"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "16"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ncol"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "identifier",
+        "value": "NProd"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "dimnames"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "ResNames"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "ProdNames"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "Available"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "matrix"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "1440"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "1440"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "2000"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "1000"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "9600"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ncol"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "dimnames"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "ResNames"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "string",
+        "value": "\"Available\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "library"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "pander"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "pander"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Profit"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "caption"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "string",
+        "value": "\"Profit per Product\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "library"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "magrittr"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "quietly"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "TRUE"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "#Used for pipes/dplyr"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "library"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "dplyr"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "quietly"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "TRUE"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "##"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "## Attaching package: dplyr"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "## The following objects are masked from package:stats:"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "##"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "## filter, lag"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "##"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "## The following objects are masked from package:base:"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "##"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "## intersect, setdiff, setequal, union"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "##"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "library"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "ROI"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "quietly"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "TRUE"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "## ROI.plugin.glpk: R Optimization Infrastructure"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "## Registered solver plugins: nlminb, glpk."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "## Default solver: auto."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "library"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "ROI"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "plugin"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "glpk"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "quietly"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "TRUE"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "library"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "ompr"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "quietly"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "TRUE"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "library"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "ompr"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "roi"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "quietly"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "TRUE"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "prodmodel"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "MIPModel"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_variable"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "x"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "identifier",
+        "value": "i"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "i"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "NProd"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "type"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "string",
+        "value": "\"continuous\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "lb"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "number",
+        "value": "0"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "set_objective"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "sum_expr"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Profit"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "identifier",
+        "value": "i"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "x"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "identifier",
+        "value": "i"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "i"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "NProd"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"max\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_constraint"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "sum_expr"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Resources"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "identifier",
+        "value": "j"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "i"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "x"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "identifier",
+        "value": "i"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "i"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "NProd"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "# Left hand side of constraint"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t\t"
+    },
+    {
+        "type": "operator",
+        "value": "<="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Available"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "identifier",
+        "value": "j"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "# Inequality and Right side of constraint"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t\t"
+    },
+    {
+        "type": "identifier",
+        "value": "j"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "NResources"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "# Repeat for each resource, j."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "solve_model"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "with_ROI"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "solver"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"glpk\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "prodmodel"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "## Status: optimal"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "## Objective value: 2857.143"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "products"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "matrix"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "rep"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "-"
+    },
+    {
+        "type": "number",
+        "value": "1.0"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "NProd"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "nrow"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "NProd"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ncol"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "dimnames"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "ProdNames"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"x\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "temp"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "get_solution"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "prodmodel"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "x"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "identifier",
+        "value": "i"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "# Extracts optimal values of variables"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "products"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "t"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "temp"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "number",
+        "value": "3"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": "      "
+    },
+    {
+        "type": "comment",
+        "value": "# Extracts third column"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# Resizes and renames"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "products"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "matrix"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "products"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "nrow"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ncol"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "identifier",
+        "value": "NProd"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "dimnames"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"x\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "ProdNames"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "pander"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "products"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "caption"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"Optimal Production Plan\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "Results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "Resources"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Resources"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": "%*%"
+    },
+    {
+        "type": "identifier",
+        "value": "t"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "products"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# Multiply matrix of resources by amount of products produced"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "colnames"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "Resources"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"Used\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# Change column name to reflect amount of resources used."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "pander"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "Resources"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "caption"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "string",
+        "value": "\"Resources Used\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "Resources"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "number",
+        "value": "4"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "20"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "# Set value of the 4th row, 1st column to 20"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# In our example, this is the paint resource used by making a chair"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "prodmodel"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "MIPModel"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_variable"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "x"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "identifier",
+        "value": "i"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "i"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "NProd"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "type"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "string",
+        "value": "\"continuous\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "lb"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "number",
+        "value": "0"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "set_objective"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "sum_expr"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Profit"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "identifier",
+        "value": "i"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "x"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "identifier",
+        "value": "i"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "i"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "NProd"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"max\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_constraint"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "sum_expr"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Resources"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "identifier",
+        "value": "j"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "i"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "x"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "identifier",
+        "value": "i"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "i"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "NProd"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "# Left hand side of constraint"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t\t"
+    },
+    {
+        "type": "operator",
+        "value": "<="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Available"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "identifier",
+        "value": "j"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t\t"
+    },
+    {
+        "type": "identifier",
+        "value": "j"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "NResources"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "# Repeat for each resource, j."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# Inequality and Right side of constraint"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "solve_model"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "with_ROI"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "solver"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"glpk\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "prodmodel"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "## Status: optimal"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "## Objective value: 1500"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "products"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "matrix"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "rep"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "-"
+    },
+    {
+        "type": "number",
+        "value": "1.0"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "NProd"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "nrow"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "NProd"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ncol"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "dimnames"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "ProdNames"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"x\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "temp"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "get_solution"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "prodmodel"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "x"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "identifier",
+        "value": "i"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "# Extracts optimal values of variables"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "products"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "t"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "temp"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "number",
+        "value": "3"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# Extracts third column"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "products"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "matrix"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "products"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "nrow"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ncol"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "identifier",
+        "value": "NProd"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "dimnames"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"x\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "ProdNames"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# Resizes and renames"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "pander"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "products"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "caption"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"Revised Optimal Production Plan\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    }
+]

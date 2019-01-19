@@ -13,6 +13,7 @@ from JavaExaminer import JavaExaminer
 from PascalExaminer import PascalExaminer
 from PrologExaminer import PrologExaminer
 from PythonExaminer import PythonExaminer
+from RExaminer import RExaminer
 from RubyExaminer import RubyExaminer
 from SwiftExaminer import SwiftExaminer
 
@@ -173,6 +174,7 @@ def identify_language(code, tabsize):
   examiners['Pascal'] = PascalExaminer(code)
   examiners['Prolog'] = PrologExaminer(code)
   examiners['Python'] = PythonExaminer(code)
+  examiners['R'] = RExaminer(code)
   examiners['Ruby'] = RubyExaminer(code)
   examiners['Swift'] = SwiftExaminer(code)
 
@@ -301,6 +303,10 @@ def tokenize(code, language, tabsize):
     examiner = PythonExaminer(code)
     tokens = examiner.tokens
 
+  if language in ['r', 'rmd']:
+    examiner = RExaminer(code)
+    tokens = examiner.tokens
+
   if language in ['ruby', 'rb']:
     examiner = RubyExaminer(code)
     tokens = examiner.tokens
@@ -370,6 +376,10 @@ def tokenize_confidence(code, language, tabsize):
 
   if language in ['python', 'py']:
     examiner = PythonExaminer(code)
+    confidences = examiner.confidences
+
+  if language in ['r', 'rmd']:
+    examiner = RExaminer(code)
     confidences = examiner.confidences
 
   if language in ['ruby', 'rb']:

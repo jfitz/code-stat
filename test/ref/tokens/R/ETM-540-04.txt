@@ -1,0 +1,4522 @@
+﻿[
+    {
+        "type": "identifier",
+        "value": "library"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "pander"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "quietly"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "keyword",
+        "value": "TRUE"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "x"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "matrix"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "10"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "20"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "30"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "50"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ncol"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "dimnames"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "identifier",
+        "value": "list"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "LETTERS"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "number",
+        "value": "4"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"x\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "y"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "matrix"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "75"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "100"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "300"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "400"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ncol"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "dimnames"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "identifier",
+        "value": "list"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "LETTERS"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "number",
+        "value": "4"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"y\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "pander"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "cbind"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "x"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "y"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "caption"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "string",
+        "value": "\"First Dataset for DEA\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "library"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Benchmarking"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "quietly"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "keyword",
+        "value": "TRUE"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "dea"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "plot"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "x"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "y"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "RTS"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "string",
+        "value": "\"crs\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORIENTATION"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "string",
+        "value": "\"in-out\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "txt"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "identifier",
+        "value": "LETTERS"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "length"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "x"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "add"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "keyword",
+        "value": "FALSE"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "wx"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "keyword",
+        "value": "NULL"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "wy"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "keyword",
+        "value": "NULL"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "TRANSPOSE"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "keyword",
+        "value": "FALSE"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "fex"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "GRID"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "keyword",
+        "value": "TRUE"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "RANGE"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "keyword",
+        "value": "FALSE"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "param"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "keyword",
+        "value": "NULL"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "ND"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "nrow"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "x"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "statement separator",
+        "value": ";"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "NX"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ncol"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "x"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "statement separator",
+        "value": ";"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "NY"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ncol"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "y"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "statement separator",
+        "value": ";"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "# Define data size"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "xdata"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "x"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "ND"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "dim"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "xdata"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "ND"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "NX"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "ydata"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "y"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "ND"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "dim"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "ydata"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "ND"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "NY"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# Now we will create lists of names"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "DMUnames"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "list"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "LETTERS"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "ND"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "Xnames"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "lapply"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "list"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "rep"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"X\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "NX"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "paste0"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "NX"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "Ynames"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "lapply"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "list"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "rep"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"Y\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "NY"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "paste0"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "NY"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "Vnames"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "lapply"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "list"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "rep"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"v\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "NX"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "paste0"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "NX"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "Unames"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "lapply"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "list"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "rep"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"u\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "NY"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "paste0"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "NY"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# DMU names: A, B, ..."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# Input names: x1, ..."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# Output names: y1, ..."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# Input weight names: v1, ..."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# Output weight names: u1, ..."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "SXnames"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "lapply"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "list"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "rep"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"sx\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "NX"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "paste0"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "NX"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "# Input slack names: sx1, ..."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "SYnames"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "lapply"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "list"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "rep"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"sy\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "NY"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "paste0"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "NY"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "# Output slack names: sy1, ..."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "Lambdanames"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "lapply"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "list"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "rep"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"L_\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ND"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "paste0"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "LETTERS"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "ND"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "efficiency"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "matrix"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "rep"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "-"
+    },
+    {
+        "type": "number",
+        "value": "1.0"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ND"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "nrow"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "identifier",
+        "value": "ND"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ncol"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "dimnames"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "efficiency"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "DMUnames"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"CCR-IO\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# Attach names"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "lambda"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "matrix"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "rep"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "-"
+    },
+    {
+        "type": "number",
+        "value": "1.0"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ND"
+    },
+    {
+        "type": "operator",
+        "value": "^"
+    },
+    {
+        "type": "number",
+        "value": "2"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "nrow"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "identifier",
+        "value": "ND"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ncol"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "identifier",
+        "value": "ND"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "dimnames"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "lambda"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "DMUnames"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Lambdanames"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "xslack"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "matrix"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "rep"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "-"
+    },
+    {
+        "type": "number",
+        "value": "1.0"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ND"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "NX"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "nrow"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "identifier",
+        "value": "ND"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ncol"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "identifier",
+        "value": "NX"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "dimnames"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "xslack"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "DMUnames"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "SXnames"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "yslack"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "matrix"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "rep"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "-"
+    },
+    {
+        "type": "number",
+        "value": "1.0"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ND"
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "identifier",
+        "value": "NY"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "nrow"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "identifier",
+        "value": "ND"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ncol"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "identifier",
+        "value": "NY"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "dimnames"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "yslack"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "DMUnames"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "SYnames"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "library"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "dplyr"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "quietly"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "keyword",
+        "value": "TRUE"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "library"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "ROI"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "quietly"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "keyword",
+        "value": "TRUE"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "library"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "ROI"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "plugin"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "glpk"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "quietly"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "keyword",
+        "value": "TRUE"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "# Connection to glpk as solver"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# Optimization Modeling using R"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "library"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "ompr"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "quietly"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "keyword",
+        "value": "TRUE"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "library"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "ompr"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "roi"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "quietly"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "keyword",
+        "value": "TRUE"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# DMU to analyze."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "k"
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "number",
+        "value": "2"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "result"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "MIPModel"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_variable"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "vlambda"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "identifier",
+        "value": "j"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "j"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "ND"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "type"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"continuous\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "lb"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "0"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_variable"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "vtheta"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "type"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"continuous\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "set_objective"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "vtheta"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"min\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_constraint"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "sum_expr"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "vlambda"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "identifier",
+        "value": "j"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "xdata"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "identifier",
+        "value": "j"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "j"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "ND"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "vtheta"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "xdata"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "identifier",
+        "value": "k"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "add_constraint"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "sum_expr"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "vlambda"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "identifier",
+        "value": "j"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "*"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ydata"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "identifier",
+        "value": "j"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "j"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "ND"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": ">="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ydata"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "identifier",
+        "value": "k"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "line continuation",
+        "value": "%>%"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "identifier",
+        "value": "solve_model"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "with_ROI"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "solver"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"glpk\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "omprtheta"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "get_solution"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "result"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "vtheta"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "omprlambda"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "get_solution"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "result"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "vlambda"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "identifier",
+        "value": "j"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "ND"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "4"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "# Four Decision Making Units or DMUs"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "NX"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "# One input"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "NY"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "comment",
+        "value": "# One output"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# Only doing analysis for one unit at a time to start"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "efficiency"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "matrix"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "rep"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "-"
+    },
+    {
+        "type": "number",
+        "value": "1.0"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "nrow"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ncol"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "lambda"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "matrix"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "rep"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "-"
+    },
+    {
+        "type": "number",
+        "value": "1.0"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ND"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "nrow"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "identifier",
+        "value": "ncol"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "identifier",
+        "value": "ND"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "efficiency"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "t"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "omprtheta"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "colnames"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "efficiency"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"CCR-IO\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "lambda"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "t"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "omprlambda"
+    },
+    {
+        "type": "operator",
+        "value": "["
+    },
+    {
+        "type": "number",
+        "value": "3"
+    },
+    {
+        "type": "operator",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# Takes the third column from the results and transposes results"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# to be structured correctly for later viewing"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "colnames"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "lambda"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"L_A\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"L_B\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"L_C\""
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"L_D\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "pander"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "cbind"
+    },
+    {
+        "type": "operator",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "efficiency"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "results"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "lambda"
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": ","
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "identifier",
+        "value": "caption"
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "string",
+        "value": "\"Input-Oriented Envelopment Analysis for DMU B (CCR-IO)\""
+    },
+    {
+        "type": "operator",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    }
+]

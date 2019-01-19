@@ -84,4 +84,10 @@ test\bin\run_test.ps1 -json -name MealTableViewController -action confidence -la
 test\bin\run_test.ps1 -json -name MealViewController -action confidence -language Swift -inputfile ".\test\data\Swift\MealViewController.swift" -expected ".\test\ref\confidence\Swift\MealViewController.txt"
 test\bin\run_test.ps1 -json -name RatingControl -action confidence -language Swift -inputfile ".\test\data\Swift\RatingControl.swift" -expected ".\test\ref\confidence\Swift\RatingControl.txt"
 
+test\bin\run_test.ps1 -json -name ETM-540-01 -action confidence -language R -inputfile ".\test\data\R\ETM-540-01.R" -expected ".\test\ref\confidence\R\ETM-540-01.txt"
+test\bin\run_test.ps1 -json -name ETM-540-02 -action confidence -language R -inputfile ".\test\data\R\ETM-540-02.R" -expected ".\test\ref\confidence\R\ETM-540-02.txt"
+test\bin\run_test.ps1 -json -name ETM-540-03 -action confidence -language R -inputfile ".\test\data\R\ETM-540-03.R" -expected ".\test\ref\confidence\R\ETM-540-03.txt"
+test\bin\run_test.ps1 -json -name ETM-540-04 -action confidence -language R -inputfile ".\test\data\R\ETM-540-04.R" -expected ".\test\ref\confidence\R\ETM-540-04.txt"
+test\bin\run_test.ps1 -json -name ETM-540-05 -action confidence -language R -inputfile ".\test\data\R\ETM-540-05.R" -expected ".\test\ref\confidence\R\ETM-540-05.txt"
+
 Write-Output "Number of failures: $failures"
