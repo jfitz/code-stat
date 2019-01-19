@@ -23,6 +23,21 @@ function longestString(ss) {
   return longest;
 }
 
+function buildConfidenceLine(name, confidence, width, decimals, nameLength) {
+    // format the name with trailing spaces
+    var numSpaces = nameLength - name.length + 1;
+    var spaces = ' '.repeat(numSpaces);
+    var nameBar = name + spaces;
+    // format the chart (stars) with trailing spaces
+    var gridConfidence = Math.round(confidence * width);
+    var gridStars = '*'.repeat(gridConfidence);
+    var gridSpaces = ' '.repeat(width - gridConfidence);
+    var gridBar = '  [' + gridStars + gridSpaces + ']';
+    var line = nameBar + confidence.toFixed(decimals) + gridBar;
+
+    return line;
+}
+
 function buildConfidenceGrid(confidences) {
   var width = 20
   var decimals = 5
@@ -31,22 +46,15 @@ function buildConfidenceGrid(confidences) {
 
   var confidenceGridHtml = '<code><pre>';
 
-  for (i = 0; i < names.length; i++) {
-    var name = names[i]
-
     // format the name with trailing spaces
-    var numSpaces = nameLength - name.length + 1;
-    var spaces = ' '.repeat(numSpaces);
-    var confidence = confidences[name];
+    for (i = 0; i < names.length; i++) {
+      var name = names[i]
+      var confidence = confidences[name];
+      var line = buildConfidenceLine(name, confidence, width, decimals, nameLength);
+      var htmlLine = line + '<br/>'
 
-    // format the chart (stars) with trailing spaces
-    var gConfidence = Math.round(confidence * width);
-    var gStars = '*'.repeat(gConfidence);
-    var gSpaces = ' '.repeat(width - gConfidence);
-    var gBar = '  [' + gStars + gSpaces + ']'
-
-    confidenceGridHtml += name + spaces + confidence.toFixed(decimals) + gBar + '<br/>';
-  }
+      confidenceGridHtml += htmlLine;
+    }
 
   confidenceGridHtml += '</pre></code>';
 
