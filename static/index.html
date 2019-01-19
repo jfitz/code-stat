@@ -2,7 +2,7 @@
 <head>
 <script type="text/javascript">
 function keysInObject(o) {
-  keys = [];
+  var keys = [];
 
   for (key in o) {
     keys.push(key);
@@ -12,7 +12,7 @@ function keysInObject(o) {
 }
 
 function longestString(ss) {
-  longest = '';
+  var longest = '';
 
   for (i = 0; i < ss.length; i++) {
     if (ss[i].length > longest.length) {
@@ -24,26 +24,26 @@ function longestString(ss) {
 }
 
 function buildConfidenceGrid(confidences) {
-  width = 20
-  decimals = 5
-  names = keysInObject(confidences);
-  nameLength = longestString(names).length;
+  var width = 20
+  var decimals = 5
+  var names = keysInObject(confidences);
+  var nameLength = longestString(names).length;
 
-  confidenceGridHtml = '<code><pre>';
+  var confidenceGridHtml = '<code><pre>';
 
   for (i = 0; i < names.length; i++) {
-    name = names[i]
+    var name = names[i]
 
     // format the name with trailing spaces
-    numSpaces = nameLength - name.length + 1;
-    spaces = ' '.repeat(numSpaces);
-    confidence = confidences[name];
+    var numSpaces = nameLength - name.length + 1;
+    var spaces = ' '.repeat(numSpaces);
+    var confidence = confidences[name];
 
     // format the chart (stars) with trailing spaces
-    gConfidence = Math.round(confidence * width);
-    gStars = '*'.repeat(gConfidence);
-    gSpaces = ' '.repeat(width - gConfidence);
-    gBar = '  [' + gStars + gSpaces + ']'
+    var gConfidence = Math.round(confidence * width);
+    var gStars = '*'.repeat(gConfidence);
+    var gSpaces = ' '.repeat(width - gConfidence);
+    var gBar = '  [' + gStars + gSpaces + ']'
 
     confidenceGridHtml += name + spaces + confidence.toFixed(decimals) + gBar + '<br/>';
   }
@@ -54,8 +54,8 @@ function buildConfidenceGrid(confidences) {
 }
 
 function keyWithGreatestValue(o) {
-  greatestValueKey = o[0];
-  greatestValue = 0.0;
+  var greatestValueKey = o[0];
+  var greatestValue = 0.0;
 
   for (key in o) {
     if (o[key] > greatestValue) {
@@ -73,7 +73,7 @@ function buildLanguageSelectOptions(languageSelect, names) {
   }
 
   for (i = 0; i < names.length; i++) {
-    option = document.createElement('option');
+    var option = document.createElement('option');
     option.value = names[i]
     option.textContent = names[i];
     languageSelect.appendChild(option);
@@ -94,12 +94,12 @@ function loadLanguageNames() {
   req.onload = function (e) {
     if (req.readyState === 4) {
       if (req.status === 200) {
-        results = req.responseText;
-        names = JSON.parse(results);
+        var results = req.responseText;
+        var names = JSON.parse(results);
         names.sort();
 
         for (i = 0; i < names.length; i++) {
-          option = document.createElement('option');
+          var option = document.createElement('option');
           option.value = names[i]
           option.textContent = names[i];
           languageSelect.appendChild(option);
@@ -122,8 +122,8 @@ function detectLanguage() {
       if (req.readyState === 4) {
         if (req.status === 200) {
           results = req.responseText;
-          confidences = JSON.parse(results);
-          names = keysInObject(confidences).sort();
+          var confidences = JSON.parse(results);
+          var names = keysInObject(confidences).sort();
 
           // build list of names
           var languageSelect = document.getElementById('language');
@@ -131,7 +131,7 @@ function detectLanguage() {
 
           // build list of names and confidence values
           var detectDiv = document.getElementById('detect_result');
-          confidenceGridHtml = buildConfidenceGrid(confidences);
+          var confidenceGridHtml = buildConfidenceGrid(confidences);
           detectDiv.innerHTML = confidenceGridHtml;
 
           if (names.length > 0) {
@@ -152,28 +152,28 @@ function detectLanguage() {
 }
 
 function textToSafeHtml(str) {
-  s1 = str.replace(/&/g, '&amp;');
-  s2 = s1.replace(/</g, '&lt;');
-  s3 = s2.replace(/>/g, '&gt;');
-  s4 = s3.replace(/"/g, '&quot;');
+  var s1 = str.replace(/&/g, '&amp;');
+  var s2 = s1.replace(/</g, '&lt;');
+  var s3 = s2.replace(/>/g, '&gt;');
+  var s4 = s3.replace(/"/g, '&quot;');
   return s4;
 }
 
 function colorize(token, htmlColors) {
-  tokenType = token['type'];
-  tokenValue = token['value'];
-  tokenSafe = textToSafeHtml(tokenValue);
-  tokenHtml = 'empty';
+  var tokenType = token['type'];
+  var tokenValue = token['value'];
+  var tokenSafe = textToSafeHtml(tokenValue);
+  var tokenHtml = 'empty';
 
   if (tokenType == 'newline') {
     tokenHtml = '<br/>'; 
   } else if (tokenType.startsWith('invalid')) {
-    frontHtml = '<font color=red>';
-    backHtml = '</font>';
+    var frontHtml = '<font color=red>';
+    var backHtml = '</font>';
     tokenHtml = frontHtml + tokenSafe + backHtml;
   } else if (tokenType in htmlColors) {
-    frontHtml = '<font color=' + htmlColors[tokenType] + '>';
-    backHtml = '</font>';
+    var frontHtml = '<font color=' + htmlColors[tokenType] + '>';
+    var backHtml = '</font>';
     tokenHtml = frontHtml + tokenSafe + backHtml;
   } else {
     tokenHtml = tokenSafe;
@@ -183,7 +183,7 @@ function colorize(token, htmlColors) {
 }
 
 function formatCounts(counts) {
-  html = ''
+  var html = ''
 
   var keys = [];
   for (var key in counts) {
@@ -191,12 +191,12 @@ function formatCounts(counts) {
       keys.push(key);
     }
   }
-  length = keys.length
+  var length = keys.length
 
-  total = 0
+  var total = 0
   for (i = 0; i < length; i++) {
-    key = keys[i];
-    count = counts[key];
+    var key = keys[i];
+    var count = counts[key];
     total += count
     html += key + '|' + count + '<br/>';
   }
@@ -206,7 +206,7 @@ function formatCounts(counts) {
 }
 
 function formatConfidence(confidences) {
-  html = ''
+  var html = ''
 
   var keys = [];
   for (var key in confidences) {
@@ -214,11 +214,11 @@ function formatConfidence(confidences) {
       keys.push(key);
     }
   }
-  length = keys.length
+  var length = keys.length
 
   for (i = 0; i < length; i++) {
-    key = keys[i];
-    count = confidences[key];
+    var key = keys[i];
+    var count = confidences[key];
     html += key + '|' + count + '<br/>';
   }
 
@@ -245,11 +245,11 @@ function showConfidence() {
   req.onload = function (e) {
     if (req.readyState === 4) {
       if (req.status === 200) {
-        results = req.responseText;
-        confidences = JSON.parse(results);
-        length = confidences.length;
+        var results = req.responseText;
+        var confidences = JSON.parse(results);
+        var length = confidences.length;
 
-        formattedConfidence = formatConfidence(confidences);
+        var formattedConfidence = formatConfidence(confidences);
 
         var div_confidence = document.getElementById('confidence_result');
         div_confidence.innerHTML = formattedConfidence;
@@ -269,7 +269,7 @@ function showConfidence() {
 };
 
 function tokenize() {
-  htmlColors = {
+  var htmlColors = {
     keyword: 'orchid',
     number: 'blue',
     string: 'salmon',
@@ -310,15 +310,15 @@ function tokenize() {
   req.onload = function (e) {
     if (req.readyState === 4) {
       if (req.status === 200) {
-        results = req.responseText;
-        tokens = JSON.parse(results);
-        length = tokens.length;
+        var results = req.responseText;
+        var tokens = JSON.parse(results);
+        var length = tokens.length;
 
-        counts = {};
+        var counts = {};
 
         for (i = 0; i < length; i++) {
-          token = tokens[i];
-          ctype = token['type'];
+          var token = tokens[i];
+          var ctype = token['type'];
           if (ctype in counts) {
             counts[ctype] += 1;
           } else {
@@ -326,17 +326,15 @@ function tokenize() {
           }
         }
 
-        formattedDetails = formatCounts(counts);
+        var formattedDetails = formatCounts(counts);
 
         var div_details = document.getElementById('tokens_details');
         div_details.innerHTML = formattedDetails;
 
-        formattedResults = '<code><pre>';
-
-        length = tokens.length;
+        var formattedResults = '<code><pre>';
 
         for (i = 0; i < length; i++) {
-          token = tokens[i];
+          var token = tokens[i];
           formattedResults += colorize(token, htmlColors);
         }
 
