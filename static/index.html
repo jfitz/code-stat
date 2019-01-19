@@ -96,14 +96,10 @@ function loadLanguageNames() {
       if (req.status === 200) {
         var results = req.responseText;
         var names = JSON.parse(results);
+
         names.sort();
 
-        for (i = 0; i < names.length; i++) {
-          var option = document.createElement('option');
-          option.value = names[i]
-          option.textContent = names[i];
-          languageSelect.appendChild(option);
-        }
+        buildLanguageSelectOptions(languageSelect, names);
       }
     }
   }
