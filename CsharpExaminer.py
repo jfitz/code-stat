@@ -12,6 +12,7 @@ class CsharpExaminer(Examiner):
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
+    stmt_separator_tb = ListTokenBuilder([';'], 'statement separator', False)
 
     integer_tb = IntegerTokenBuilder(False)
     integer_exponent_tb = IntegerExponentTokenBuilder()
@@ -38,7 +39,7 @@ class CsharpExaminer(Examiner):
       '+=', '-=', '*=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>=',
       '!', '&', '|', '~', '<<', '>>',
       '^',
-      '(', ')', ',', '.', ':', ';',
+      '(', ')', ',', '.', ':',
       '[', ']',
       '++', '--', '->', '&&', '||',
       '?', '??', '?.', '?[', '{', '}',
@@ -78,6 +79,7 @@ class CsharpExaminer(Examiner):
     tokenbuilders = [
       whitespace_tb,
       newline_tb,
+      stmt_separator_tb,
       integer_tb,
       integer_exponent_tb,
       real_tb,

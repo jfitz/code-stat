@@ -48,12 +48,12 @@ class RExaminer(Examiner):
     tokenbuilders = [
       whitespace_tb,
       newline_tb,
+      stmt_separator_tb,
       integer_tb,
       integer_exponent_tb,
       real_tb,
       real_exponent_tb,
       keyword_tb,
-      stmt_separator_tb,
       continuation_tb,
       known_operator_tb,
       identifier_tb,

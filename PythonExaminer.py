@@ -11,6 +11,7 @@ class PythonExaminer(Examiner):
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
+    stmt_separator_tb = ListTokenBuilder([';'], 'statement separator', False)
 
     integer_tb = IntegerTokenBuilder(True)
     integer_exponent_tb = IntegerExponentTokenBuilder()
@@ -30,7 +31,7 @@ class PythonExaminer(Examiner):
       '+=', '-=', '*=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>=',
       '&', '|', '~', '<<', '>>',
       '**',
-      '(', ')', ',', '.', ':', ';',
+      '(', ')', ',', '.', ':',
       '[', ']',
       '++', '--', 'and', 'or', 'in', 'is'
       ]
@@ -53,6 +54,7 @@ class PythonExaminer(Examiner):
       whitespace_tb,
       line_continuation_tb,
       newline_tb,
+      stmt_separator_tb,
       integer_tb,
       integer_exponent_tb,
       real_tb,

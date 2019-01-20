@@ -12,6 +12,7 @@ class SwiftExaminer(Examiner):
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
+    stmt_separator_tb = ListTokenBuilder([';'], 'statement separator', False)
 
     integer_tb = IntegerTokenBuilder(True)
     integer_exponent_tb = IntegerExponentTokenBuilder()
@@ -33,7 +34,7 @@ class SwiftExaminer(Examiner):
         '=', '+=', '-=', '*=', '/=', '%=', '<<=', '>>=', '&=', '^=', '|=',
         '...', '..<', '?', ':',
         '(', ')', '[', ']', '.', '++', '--',
-        ',', ';', '{', '}', '->', '??'
+        ',', '{', '}', '->', '??'
       ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
@@ -61,6 +62,7 @@ class SwiftExaminer(Examiner):
     tokenbuilders = [
       whitespace_tb,
       newline_tb,
+      stmt_separator_tb,
       integer_tb,
       integer_exponent_tb,
       real_tb,

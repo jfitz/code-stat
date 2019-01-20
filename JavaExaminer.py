@@ -12,6 +12,7 @@ class JavaExaminer(Examiner):
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
+    stmt_separator_tb = ListTokenBuilder([';'], 'statement separator', False)
 
     integer_tb = IntegerTokenBuilder(False)
     integer_exponent_tb = IntegerExponentTokenBuilder()
@@ -29,7 +30,7 @@ class JavaExaminer(Examiner):
       '+=', '-=', '*=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>=',
       '!', '&', '|', '~', '<<', '>>', '>>>', '>>>=',
       '^',
-      '(', ')', ',', '.', ':', ';',
+      '(', ')', ',', '.', ':',
       '[', ']',
       '++', '--', '&&', '||',
       '?', '{', '}'
@@ -54,17 +55,10 @@ class JavaExaminer(Examiner):
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
-    power_keywords = [
-      'private', 'protected', 'public',
-      'true', 'false',
-      'abstract',
-      'boolean', 'class',
-      'try', 'catch', 'throw', 'override'
-      ]
-    
     tokenbuilders = [
       whitespace_tb,
       newline_tb,
+      stmt_separator_tb,
       integer_tb,
       integer_exponent_tb,
       real_tb,

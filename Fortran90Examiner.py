@@ -64,6 +64,7 @@ class Fortran90Examiner(Examiner):
     tokenbuilders = [
       whitespace_tb,
       newline_tb,
+      stmt_separator_tb,
       integer_tb,
       integer_exponent_tb,
       real_tb,
@@ -74,7 +75,6 @@ class Fortran90Examiner(Examiner):
       identifier_tb,
       string_tb,
       bang_comment_tb,
-      stmt_separator_tb,
       self.unknown_operator_tb
     ]
 

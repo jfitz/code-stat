@@ -67,6 +67,7 @@ class BasicExaminer(Examiner):
     tokenbuilders = [
       whitespace_tb,
       newline_tb,
+      stmt_separator_tb,
       integer_tb,
       integer_exponent_tb,
       single_suffix_tb,
@@ -79,12 +80,11 @@ class BasicExaminer(Examiner):
       octal_constant_tb,
       binary_constant_tb,
       line_number_tb,
-      variable_tb,
-      function_tb,
       string_tb,
-      stmt_separator_tb,
       known_operator_tb,
       keyword_tb,
+      function_tb,
+      variable_tb,
       remark_tb,
       self.unknown_operator_tb
     ]

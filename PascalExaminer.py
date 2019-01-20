@@ -11,6 +11,7 @@ class PascalExaminer(Examiner):
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
+    stmt_separator_tb = ListTokenBuilder([';'], 'statement separator', False)
 
     integer_tb = IntegerTokenBuilder(False)
     integer_exponent_tb = IntegerExponentTokenBuilder()
@@ -32,7 +33,7 @@ class PascalExaminer(Examiner):
       'and', 'or', 'not',
       '&', '|', '~', '<<', '>>',
       ':=', '^', '~', '@',
-      '(', ')', ',', '.', ':', ';',
+      '(', ')', ',', '.', ':',
       '[', ']', '..',
       'div', 'mod', 'shl', 'shr', 'in'
     ]
@@ -53,6 +54,7 @@ class PascalExaminer(Examiner):
     tokenbuilders = [
       whitespace_tb,
       newline_tb,
+      stmt_separator_tb,
       integer_tb,
       integer_exponent_tb,
       real_tb,
@@ -72,8 +74,6 @@ class PascalExaminer(Examiner):
     
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
-
-    found_keywords = set()
 
     self.tokens = tokenizer.tokenize(code)
 
