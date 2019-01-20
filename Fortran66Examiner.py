@@ -136,6 +136,8 @@ class Fortran66Examiner(Examiner):
 
       self.tokens.append(Token('\n', 'newline'))
 
+    self.tokens = self.combineAdjacentWhitespace(self.tokens)
+
     num_known_tokens = self.count_valid_tokens(self.tokens)
     num_invalid_operators = self.count_invalid_operators(self.tokens)
     num_known_operators = self.count_known_operators(self.tokens)

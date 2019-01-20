@@ -1,3 +1,4 @@
+from Token import Token
 from TokenBuilders import ListTokenBuilder
 
 class Examiner:
@@ -167,4 +168,20 @@ class Examiner:
       if token.group != 'comment':
         new_list.append(token)
     
+    return new_list
+
+  def combineAdjacentWhitespace(self, tokens):
+    new_list = []
+
+    new_token = None
+    for token in tokens:
+      if token.group == 'whitespace' and new_token is not None and new_token.group == 'whitespace':
+        new_token = Token(new_token.text + token.text, 'whitespace')
+      else:
+        if new_token is not None:
+            new_list.append(new_token)
+        new_token = token
+    if new_token is not None:
+      new_list.append(new_token)
+
     return new_list
