@@ -1,8 +1,21 @@
 import string
 import math
 from Examiner import Examiner
-from TokenBuilders import *
-from RTokenBuilders import *
+from TokenBuilders import (
+  InvalidTokenBuilder,
+  WhitespaceTokenBuilder,
+  NewlineTokenBuilder,
+  StringTokenBuilder,
+  IntegerTokenBuilder,
+  IntegerExponentTokenBuilder,
+  RealTokenBuilder,
+  RealExponentTokenBuilder,
+  ListTokenBuilder,
+  LeadCommentTokenBuilder
+)
+from RTokenBuilders import (
+  IdentifierTokenBuilder
+)
 from Tokenizer import Tokenizer
 
 class RExaminer(Examiner):

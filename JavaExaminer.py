@@ -1,9 +1,22 @@
 import string
 import math
 from Examiner import Examiner
-from TokenBuilders import *
-from CXTokenBuilders import *
-from JavaTokenBuilders import *
+from TokenBuilders import (
+  InvalidTokenBuilder,
+  WhitespaceTokenBuilder,
+  NewlineTokenBuilder,
+  StringTokenBuilder,
+  IntegerTokenBuilder,
+  IntegerExponentTokenBuilder,
+  RealTokenBuilder,
+  RealExponentTokenBuilder,
+  ListTokenBuilder
+)
+from CXTokenBuilders import (
+  IdentifierTokenBuilder,
+  SlashSlashCommentTokenBuilder,
+  SlashStarCommentTokenBuilder
+)
 from Tokenizer import Tokenizer
 
 class JavaExaminer(Examiner):
@@ -88,6 +101,9 @@ class JavaExaminer(Examiner):
 
     if num_begin_end > 0:
       brace_match_confidence = (num_begin + num_end) / num_begin_end
+
+    if not ok:
+      brace_match_confidence *= 0.75
 
     #  unknown tokens reduce confidence
     token_confidence = 1.0

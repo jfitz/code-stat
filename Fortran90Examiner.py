@@ -1,8 +1,21 @@
 import string
+from Token import Token
 from Examiner import Examiner
-from TokenBuilders import *
-from FortranXTokenBuilders import *
-from Fortran90TokenBuilders import *
+from TokenBuilders import (
+  InvalidTokenBuilder,
+  WhitespaceTokenBuilder,
+  NewlineTokenBuilder,
+  StringTokenBuilder,
+  IntegerTokenBuilder,
+  IntegerExponentTokenBuilder,
+  RealTokenBuilder,
+  RealExponentTokenBuilder,
+  ListTokenBuilder,
+  LeadCommentTokenBuilder
+)
+from Fortran90TokenBuilders import (
+  IdentifierTokenBuilder
+)
 from Tokenizer import Tokenizer
 
 class Fortran90Examiner(Examiner):

@@ -1,8 +1,22 @@
 import string
 import math
 from Examiner import Examiner
-from TokenBuilders import *
-from PrologTokenBuilders import *
+from TokenBuilders import (
+  InvalidTokenBuilder,
+  WhitespaceTokenBuilder,
+  NewlineTokenBuilder,
+  StringTokenBuilder,
+  IntegerTokenBuilder,
+  IntegerExponentTokenBuilder,
+  RealTokenBuilder,
+  RealExponentTokenBuilder,
+  ListTokenBuilder,
+  LeadCommentTokenBuilder
+)
+from PrologTokenBuilders import (
+  IdentifierTokenBuilder,
+  PrologVariableTokenBuilder
+)
 from Tokenizer import Tokenizer
 
 class PrologExaminer(Examiner):
@@ -28,9 +42,9 @@ class PrologExaminer(Examiner):
         '?-',
         '|',
         '->', '*->',
-        ',', ':=', '\+',
-        '<', '=', '=..', '=@=', '\=@=', '=:=', '=<', '==', '=\=',
-        '>', '>=', '@<', '@=<', '@>', '@>=', '\=', '\==', 'as', 'is', '>:<',
+        ',', ':=', r'\+',
+        '<', '=', '=..', '=@=', '\\=@=', '=:=', '=<', '==', '=\\=',
+        '>', '>=', '@<', '@=<', '@>', '@>=', '\\=', '\\==', 'as', 'is', '>:<',
         ':<',
         ':', '+', '-', '/\\', '\\/', 'xor',
         '?', '*', '/', '//', 'div', 'rdiv', '<<', '>>', 'mod', 'rem',

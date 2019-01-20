@@ -1,8 +1,23 @@
 import string
 import math
 from Examiner import Examiner
-from TokenBuilders import *
-from PascalTokenBuilders import *
+from TokenBuilders import (
+  InvalidTokenBuilder,
+  WhitespaceTokenBuilder,
+  NewlineTokenBuilder,
+  StringTokenBuilder,
+  IntegerTokenBuilder,
+  IntegerExponentTokenBuilder,
+  RealTokenBuilder,
+  RealExponentTokenBuilder,
+  ListTokenBuilder,
+  PrefixedIntegerTokenBuilder
+)
+from PascalTokenBuilders import (
+  IdentifierTokenBuilder,
+  BraceCommentTokenBuilder,
+  ParenStarCommentTokenBuilder
+)
 from Tokenizer import Tokenizer
 
 class PascalExaminer(Examiner):
@@ -109,6 +124,7 @@ class PascalExaminer(Examiner):
     begin_end_confidence = 1.0
     if num_begin_end > 0:
       begin_end_confidence = (num_begin + num_end) / num_begin_end
+      # begin_end_confidence = 1.0 - (abs(num_begin - num_end) / num_begin_end)
 
     #  unknown tokens reduce confidence
     token_confidence = 1.0

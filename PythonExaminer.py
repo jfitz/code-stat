@@ -1,8 +1,24 @@
 import string
 import math
 from Examiner import Examiner
-from TokenBuilders import *
-from PythonTokenBuilders import *
+from TokenBuilders import (
+  InvalidTokenBuilder,
+  WhitespaceTokenBuilder,
+  NewlineTokenBuilder,
+  StringTokenBuilder,
+  PrefixedStringTokenBuilder,
+  IntegerTokenBuilder,
+  IntegerExponentTokenBuilder,
+  RealTokenBuilder,
+  RealExponentTokenBuilder,
+  ListTokenBuilder,
+  LeadCommentTokenBuilder,
+  TripleQuoteCommentTokenBuilder
+)
+from PythonTokenBuilders import (
+  IdentifierTokenBuilder,
+  RawTripleQuoteCommentTokenBuilder
+)
 from Tokenizer import Tokenizer
 
 class PythonExaminer(Examiner):

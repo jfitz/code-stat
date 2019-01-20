@@ -1,7 +1,24 @@
 import string
 from Examiner import Examiner
-from TokenBuilders import *
-from BasicTokenBuilders import *
+from TokenBuilders import (
+  InvalidTokenBuilder,
+  WhitespaceTokenBuilder,
+  NewlineTokenBuilder,
+  StringTokenBuilder,
+  IntegerTokenBuilder,
+  IntegerExponentTokenBuilder,
+  RealTokenBuilder,
+  RealExponentTokenBuilder,
+  ListTokenBuilder,
+  PrefixedIntegerTokenBuilder
+)
+from BasicTokenBuilders import (
+  BasicSuffixedIntegerTokenBuilder,
+  BasicSuffixedRealTokenBuilder,
+  BasicVariableTokenBuilder,
+  RemarkTokenBuilder,
+  LineNumberTokenBuilder
+)
 from Tokenizer import Tokenizer
 
 class BasicExaminer(Examiner):

@@ -1,8 +1,23 @@
 import string
 import math
 from Examiner import Examiner
-from TokenBuilders import *
-from RubyTokenBuilders import *
+from TokenBuilders import (
+  InvalidTokenBuilder,
+  WhitespaceTokenBuilder,
+  NewlineTokenBuilder,
+  StringTokenBuilder,
+  IntegerTokenBuilder,
+  IntegerExponentTokenBuilder,
+  RealTokenBuilder,
+  RealExponentTokenBuilder,
+  ListTokenBuilder,
+  LeadCommentTokenBuilder,
+  PrefixedIdentifierTokenBuilder
+)
+from RubyTokenBuilders import (
+  IdentifierTokenBuilder,
+  HereDocTokenBuilder
+)
 from Tokenizer import Tokenizer
 
 class RubyExaminer(Examiner):

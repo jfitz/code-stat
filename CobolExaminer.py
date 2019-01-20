@@ -1,7 +1,23 @@
 import string
+from Token import Token
 from Examiner import Examiner
-from TokenBuilders import *
-from CobolTokenBuilders import *
+from TokenBuilders import (
+  InvalidTokenBuilder,
+  WhitespaceTokenBuilder,
+  NewlineTokenBuilder,
+  StringTokenBuilder,
+  IntegerTokenBuilder,
+  IntegerExponentTokenBuilder,
+  RealTokenBuilder,
+  RealExponentTokenBuilder,
+  ListTokenBuilder
+)
+from CobolTokenBuilders import (
+  CobolIdentifierTokenBuilder,
+  PictureTokenBuilder,
+  StarCommentTokenBuilder,
+  CobolPreprocessorTokenBuilder
+)
 from Tokenizer import Tokenizer
 
 class CobolExaminer(Examiner):

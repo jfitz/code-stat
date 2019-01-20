@@ -1,9 +1,24 @@
 import string
 import math
 from Examiner import Examiner
-from TokenBuilders import *
-from CXTokenBuilders import *
-from CsharpTokenBuilders import *
+from TokenBuilders import (
+  InvalidTokenBuilder,
+  WhitespaceTokenBuilder,
+  NewlineTokenBuilder,
+  StringTokenBuilder,
+  PrefixedStringTokenBuilder,
+  IntegerTokenBuilder,
+  IntegerExponentTokenBuilder,
+  RealTokenBuilder,
+  RealExponentTokenBuilder,
+  ListTokenBuilder
+)
+from CXTokenBuilders import (
+  IdentifierTokenBuilder,
+  SlashSlashCommentTokenBuilder,
+  SlashStarCommentTokenBuilder,
+  CPreProcessorTokenBuilder
+)
 from Tokenizer import Tokenizer
 
 class CsharpExaminer(Examiner):
@@ -68,14 +83,6 @@ class CsharpExaminer(Examiner):
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
-    power_keywords = [
-      'private', 'protected', 'public',
-      'true', 'false',
-      'abstract',
-      'bool', 'class', 'event', 'operator',
-      'try', 'catch', 'throw', 'override'
-      ]
-    
     tokenbuilders = [
       whitespace_tb,
       newline_tb,
@@ -111,6 +118,9 @@ class CsharpExaminer(Examiner):
 
     if num_begin_end > 0:
       brace_match_confidence = (num_begin + num_end) / num_begin_end
+
+    if not ok:
+      brace_match_confidence *= 0.75
 
     #  unknown tokens reduce confidence
     token_confidence = 1.0

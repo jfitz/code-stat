@@ -1,9 +1,24 @@
 import string
 import math
 from Examiner import Examiner
-from TokenBuilders import *
-from CXTokenBuilders import *
-from SwiftTokenBuilders import *
+from TokenBuilders import (
+  InvalidTokenBuilder,
+  WhitespaceTokenBuilder,
+  NewlineTokenBuilder,
+  StringTokenBuilder,
+  IntegerTokenBuilder,
+  IntegerExponentTokenBuilder,
+  RealTokenBuilder,
+  RealExponentTokenBuilder,
+  ListTokenBuilder,
+  PrefixedIdentifierTokenBuilder,
+  TripleQuoteCommentTokenBuilder
+)
+from CXTokenBuilders import (
+  IdentifierTokenBuilder,
+  SlashSlashCommentTokenBuilder,
+  SlashStarCommentTokenBuilder
+)
 from Tokenizer import Tokenizer
 
 class SwiftExaminer(Examiner):
