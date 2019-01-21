@@ -128,6 +128,8 @@ class PythonExaminer(Examiner):
     if num_lines > 0:
       line_format_1_confidence = num_lines_correct / num_lines
 
+    line_format_1_confidence = 1.0
+
     # line format 2 - some keyword lines end in colon
     tokens = self.drop_whitespace(self.tokens)
     tokens = self.drop_comments(tokens)

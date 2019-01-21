@@ -645,6 +645,5 @@ class CobolExaminer(Examiner):
 
     self.confidences = {
       'token': token_confidence,
-      'expected_keyword': expected_keyword_confidence,
       'operator': operator_confidence
     }
