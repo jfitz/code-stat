@@ -37,7 +37,7 @@ class PascalExaminer(Examiner):
     binary_constant_tb = PrefixedIntegerTokenBuilder('%', '01')
     char_constant_tb = PrefixedIntegerTokenBuilder('#', '0123456789')
     identifier_tb = IdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(["'"])
+    string_tb = StringTokenBuilder(["'"], False)
 
     brace_comment_tb = BraceCommentTokenBuilder()
     paren_star_comment_tb = ParenStarCommentTokenBuilder()

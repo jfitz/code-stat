@@ -34,7 +34,7 @@ class CsharpExaminer(Examiner):
     real_tb = RealTokenBuilder(False, False)
     real_exponent_tb = RealExponentTokenBuilder(False, False)
     identifier_tb = IdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(['"', "'"])
+    string_tb = StringTokenBuilder(['"', "'"], False)
     prefixed_string_tb = PrefixedStringTokenBuilder('@', ['"'])
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()

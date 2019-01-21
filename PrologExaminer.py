@@ -33,7 +33,7 @@ class PrologExaminer(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(False, False)
     variable_tb = PrologVariableTokenBuilder()
     identifier_tb = IdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(['"', "'"])
+    string_tb = StringTokenBuilder(['"', "'"], False)
 
     comment_tb = LeadCommentTokenBuilder('%')
 

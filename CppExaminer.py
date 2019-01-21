@@ -34,7 +34,7 @@ class CppExaminer(Examiner):
     real_tb = RealTokenBuilder(False, False)
     real_exponent_tb = RealExponentTokenBuilder(False, False)
     identifier_tb = IdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(['"', "'"])
+    string_tb = StringTokenBuilder(['"', "'"], False)
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()

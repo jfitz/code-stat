@@ -32,7 +32,7 @@ class CobolExaminer(Examiner):
     real_tb = RealTokenBuilder(False, True)
     real_exponent_tb = RealExponentTokenBuilder(False, True)
     identifier_tb = CobolIdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(['"', "'"])
+    string_tb = StringTokenBuilder(['"', "'"], True)
     picture_tb = PictureTokenBuilder()
     star_comment_tb = StarCommentTokenBuilder()
 

@@ -101,8 +101,9 @@ class NewlineTokenBuilder(TokenBuilder):
 
 # token reader for text literal (string)
 class StringTokenBuilder(TokenBuilder):
-  def __init__(self, quotes):
+  def __init__(self, quotes, quote_stuffing):
     self.quotes = quotes
+    self.quote_stuffing = quote_stuffing
     self.token = ''
 
 
@@ -122,8 +123,21 @@ class StringTokenBuilder(TokenBuilder):
     if len(candidate) == 1:
       result = True
 
-    if len(candidate) > 1 and candidate[-1] != candidate[0]:
-      result = True
+    if len(candidate) > 1:
+      if candidate[-1] != candidate[0]:
+        result = True
+      else:
+        if self.quote_stuffing:
+          # string is terminated unless next is also a matching quote
+          if c == candidate[0]:
+            result = True
+          else:
+            if candidate[-2:] == candidate[0] * 2:
+              result = True
+            if candidate[-3:] == candidate[0] * 3:
+              result = False
+            if candidate[-4:] == candidate[0] * 2:
+              result = True
 
     if c in ['\n', '\r']:
       result = False

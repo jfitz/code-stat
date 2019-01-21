@@ -44,7 +44,7 @@ class BasicExaminer(Examiner):
     octal_constant_tb = PrefixedIntegerTokenBuilder('&O', '01234567_')
     binary_constant_tb = PrefixedIntegerTokenBuilder('&B', '01_')
     variable_tb = BasicVariableTokenBuilder('%#!$&')
-    string_tb = StringTokenBuilder(['"'])
+    string_tb = StringTokenBuilder(['"'], True)
     remark_tb = RemarkTokenBuilder()
     line_number_tb = LineNumberTokenBuilder()
 
