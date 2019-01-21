@@ -43,13 +43,16 @@ class JavaExaminer(Examiner):
       '+=', '-=', '*=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>=',
       '!', '&', '|', '~', '<<', '>>', '>>>', '>>>=',
       '^',
-      '(', ')', ',', '.', ':',
-      '[', ']',
+      '.', ':',
       '++', '--', '&&', '||',
       '?', '{', '}'
-      ]
-    
+    ]
+
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+
+    groupers = ['(', ')', ',', '[', ']']
+
+    groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     keywords = [
       'abstract', 'assert', 'boolean', 'break', 'byte',
@@ -64,7 +67,7 @@ class JavaExaminer(Examiner):
       'static', 'strictfp', 'super', 'switch', 'synchronized',
       'this', 'throw', 'throws', 'true', 'transient', 'try',
       'void', 'volatile', 'while'
-      ]
+    ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
@@ -78,13 +81,14 @@ class JavaExaminer(Examiner):
       real_exponent_tb,
       keyword_tb,
       known_operator_tb,
+      groupers_tb,
       identifier_tb,
       string_tb,
       slash_slash_comment_tb,
       slash_star_comment_tb,
       self.unknown_operator_tb
     ]
-    
+
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 

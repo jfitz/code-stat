@@ -54,10 +54,14 @@ class RubyExaminer(Examiner):
         '<<=', '>>=',
         '&&=', '&=', '||=', '|=', '^=',
         'not', 'and', 'or',
-        '.', ',', '(', ')', '[', ']', '{', '}'
+        '.', '{', '}'
       ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+
+    groupers = ['(', ')', ',', '[', ']']
+
+    groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     keywords = [
       'BEGIN', 'END', 'alias', 'begin', 'break', 'case', 'class',
@@ -65,8 +69,8 @@ class RubyExaminer(Examiner):
       'false', 'for', 'if', 'in', 'module', 'next', 'nil', 'redo',
       'rescue', 'retry', 'return', 'self', 'super', 'then', 'true',
       'undef', 'unless', 'until', 'when', 'while', 'yield'
-      ]
-    
+    ]
+
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
     tokenbuilders = [
@@ -80,13 +84,14 @@ class RubyExaminer(Examiner):
       keyword_tb,
       symbol_tb,
       known_operator_tb,
+      groupers_tb,
       identifier_tb,
       string_tb,
       heredoc_tb,
       hash_comment_tb,
       self.unknown_operator_tb
     ]
-    
+
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 

@@ -40,7 +40,7 @@ class RExaminer(Examiner):
         '<', '<=', '>', '>=',
         '==', '!=', '!', '|', '&', '||', '&&',
         'isTRUE',
-        '.', ',', ':', '(', ')', '[', ']', '{', '}', '[[', ']]', '@', '$',
+        '.', ':', '{', '}', '[[', ']]', '@', '$',
         '=', '<-', '<<-', '->', '->>'
       ]
 
@@ -50,12 +50,16 @@ class RExaminer(Examiner):
 
     continuation_tb = ListTokenBuilder(['%>%'], 'line continuation', False)
 
+    groupers = ['(', ')', ',', '[', ']']
+
+    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+
     keywords = [
       'if', 'else', 'repeat', 'while', 'function', 'for', 'in', 'next', 'break',
       'TRUE', 'FALSE', 'NULL', 'Inf', 'NaN', 'NA', 'NA_integer_', 'NA_real_',
       'NA_complex_', 'NA_character_'
     ]
-    
+
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
     tokenbuilders = [
@@ -69,12 +73,13 @@ class RExaminer(Examiner):
       keyword_tb,
       continuation_tb,
       known_operator_tb,
+      groupers_tb,
       identifier_tb,
       string_tb,
       hash_comment_tb,
       self.unknown_operator_tb
     ]
-    
+
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 

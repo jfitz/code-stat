@@ -43,15 +43,18 @@ class Fortran90Examiner(Examiner):
       '==', '>', '>=', '<', '<=', '/=',
       '.EQ.', '.NE.', '.LT.', '.LE.', '.GT.', '.GE.',
       '.AND.', '.OR.', '.NOT.', '.EQV.', '.NEQV.',
-      '(', ')', ',',
-      ':', '::', '[', ']'
-      ]
-    
+      ':', '::'
+    ]
+
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', False)
 
     continuation_tb = ListTokenBuilder(['&'], 'line continuation', False)
 
     stmt_separator_tb = ListTokenBuilder([';'], 'statement separator', False)
+
+    groupers = ['(', ')', ',', '[', ']']
+
+    groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     keywords = [
       'IF', 'THEN', 'ELSE', 'ENDIF', 'END IF', 'GO', 'TO', 'GOTO', 'GO TO',
@@ -70,7 +73,7 @@ class Fortran90Examiner(Examiner):
       'private', 'procedure', 'public', 'recursive', 'result', 'select',
       'sequence', 'target', 'use', 'while', 'where',
       'enddo', 'none'
-      ]
+    ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
 
@@ -85,6 +88,7 @@ class Fortran90Examiner(Examiner):
       keyword_tb,
       continuation_tb,
       known_operator_tb,
+      groupers_tb,
       identifier_tb,
       string_tb,
       bang_comment_tb,

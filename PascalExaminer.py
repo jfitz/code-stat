@@ -48,12 +48,16 @@ class PascalExaminer(Examiner):
       'and', 'or', 'not',
       '&', '|', '~', '<<', '>>',
       ':=', '^', '~', '@',
-      '(', ')', ',', '.', ':',
-      '[', ']', '..',
+      '.', ':',
+      '..',
       'div', 'mod', 'shl', 'shr', 'in'
     ]
-    
+
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', False)
+
+    groupers = ['(', ')', ',', '[', ']']
+
+    groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     keywords = [
       'array', 'begin', 'boolean', 'break', 'case', 'char', 'const',
@@ -62,7 +66,7 @@ class PascalExaminer(Examiner):
       'packed', 'procedure', 'program', 'real', 'record', 'repeat', 'reset',
       'set', 'string', 'then', 'to', 'true', 'until', 'uses', 'value', 'var',
       'while'
-      ]
+    ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
 
@@ -81,12 +85,13 @@ class PascalExaminer(Examiner):
       keyword_tb,
       string_tb,
       known_operator_tb,
+      groupers_tb,
       identifier_tb,
       brace_comment_tb,
       paren_star_comment_tb,
       self.unknown_operator_tb
-      ]
-    
+    ]
+
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 

@@ -41,10 +41,14 @@ class CobolExaminer(Examiner):
       '+', '-', '*', '/', '**',
       '=', '<>', '>', '>=', '<', '<=',
       'AND', 'OR', 'NOT',
-      '(', ')', ',', ':', '.'
-      ]
-    
+      ':', '.'
+    ]
+
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+
+    groupers = ['(', ')', ',']
+
+    groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     keywords = [
       'ACCEPT',
@@ -503,13 +507,14 @@ class CobolExaminer(Examiner):
       picture_tb,
       keyword_tb,
       known_operator_tb,
-      self.unknown_operator_tb,
+      groupers_tb,
       identifier_tb,
       string_tb,
       star_comment_tb,
-      cobol_preprocessor_tb
+      cobol_preprocessor_tb,
+      self.unknown_operator_tb
     ]
-    
+
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 

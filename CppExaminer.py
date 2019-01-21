@@ -53,30 +53,27 @@ class CppExaminer(Examiner):
       '+=', '-=', '*=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>=',
       '!', '&', '|', '~', '<<', '>>',
       '^',
-      '(', ')', ',', '.', ':',
-      '[', ']',
+      '.', ':',
       '++', '--', '->', '&&', '||',
       '?', '{', '}',
       '::', '<=>', '.*', '->*',
       'new', 'delete', 'and', 'and_eq', 'bitand', 'bitor', 'compl',
       'not', 'not_eq', 'or', 'or_eq', 'xor', 'xor_eq'
     ]
-    
+
     unary_operators = [
       '+', '-', '*',
       '!', '&', '~',
-      '++', '--',
-      '(',
-      '['
+      '++', '--'
     ]
 
     postfix_operators = [
       '++', '--', '&'
     ]
 
-    groupers = [
-      '(', ')', '[', ']'
-    ]
+    groupers = ['(', ')', ',', '[', ']']
+
+    groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
@@ -122,6 +119,7 @@ class CppExaminer(Examiner):
       real_exponent_tb,
       keyword_tb,
       known_operator_tb,
+      groupers_tb,
       identifier_tb,
       string_tb,
       slash_slash_comment_tb,
@@ -129,7 +127,7 @@ class CppExaminer(Examiner):
       c_preprocessor_tb,
       self.unknown_operator_tb
     ]
-    
+
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 
@@ -169,7 +167,6 @@ class CppExaminer(Examiner):
       for token in self.tokens:
         if token.group == 'operator' and\
           prev_token.group == 'operator' and\
-          prev_token.text not in groupers and\
           prev_token.text not in postfix_operators and\
           token.text not in unary_operators:
           errors += 1

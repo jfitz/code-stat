@@ -52,8 +52,7 @@ class CExaminer(Examiner):
       '+=', '-=', '*=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>=',
       '!', '&', '|', '~', '<<', '>>',
       '^',
-      '(', ')', ',', '.', ':', ';',
-      '[', ']',
+      '.', ':', ';',
       '++', '--', '->', '&&', '||',
       '?', '{', '}'
     ]
@@ -61,18 +60,16 @@ class CExaminer(Examiner):
     unary_operators = [
       '+', '-', '*',
       '!', '&', '~',
-      '++', '--',
-      '(', ';',
-      '['
+      '++', '--'
     ]
 
     postfix_operators = [
       '++', '--', '&'
     ]
 
-    groupers = [
-      '(', ')', '[', ']'
-    ]
+    groupers = ['(', ')', ',', '[', ']']
+
+    groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
@@ -87,7 +84,7 @@ class CExaminer(Examiner):
       'struct', 'union', 'void', 'return',
       'goto', 'continue', 'break'
     ]
-    
+
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
     cpp_keywords = [
@@ -96,8 +93,8 @@ class CExaminer(Examiner):
       'cin', 'cout',
       'bool', 'class', 'friend', 'operator',
       'try', 'catch', 'throw'
-      ]
-    
+    ]
+
     tokenbuilders = [
       whitespace_tb,
       newline_tb,
@@ -106,6 +103,7 @@ class CExaminer(Examiner):
       real_tb,
       real_exponent_tb,
       keyword_tb,
+      groupers_tb,
       known_operator_tb,
       identifier_tb,
       string_tb,
@@ -114,7 +112,7 @@ class CExaminer(Examiner):
       c_preprocessor_tb,
       self.unknown_operator_tb
     ]
-    
+
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 

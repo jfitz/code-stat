@@ -42,24 +42,27 @@ class PrologExaminer(Examiner):
         '?-',
         '|',
         '->', '*->',
-        ',', ':=', r'\+',
+        ':=', '\\+',
         '<', '=', '=..', '=@=', '\\=@=', '=:=', '=<', '==', '=\\=',
         '>', '>=', '@<', '@=<', '@>', '@>=', '\\=', '\\==', 'as', 'is', '>:<',
         ':<',
         ':', '+', '-', '/\\', '\\/', 'xor',
         '?', '*', '/', '//', 'div', 'rdiv', '<<', '>>', 'mod', 'rem',
-        '**', '^', '+', '-', '\\', '.', '$',
-        '(', ')', '[', ']'
+        '**', '^', '+', '-', '\\', '.', '$'
       ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+
+    groupers = ['(', ')', ',', '[', ']']
+
+    groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     keywords = [
       'dynamic', 'discontiguous', 'initialization', 'meta_predicate',
       'module_transparent', 'multifile', 'public', 'thread_local',
       'thread_initialization', 'volatile'
     ]
-    
+
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
     tokenbuilders = [
@@ -73,12 +76,13 @@ class PrologExaminer(Examiner):
       keyword_tb,
       variable_tb,
       known_operator_tb,
+      groupers_tb,
       identifier_tb,
       string_tb,
       comment_tb,
       self.unknown_operator_tb
     ]
-    
+
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 

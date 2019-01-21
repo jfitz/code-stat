@@ -47,12 +47,15 @@ class PythonExaminer(Examiner):
       '+=', '-=', '*=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>=',
       '&', '|', '~', '<<', '>>',
       '**',
-      '(', ')', ',', '.', ':',
-      '[', ']',
+      '.', ':',
       '++', '--', 'and', 'or', 'in', 'is'
-      ]
+    ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+
+    groupers = ['(', ')', ',', '[', ']']
+
+    groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     continuation_chars = ['\\']
     line_continuation_tb = ListTokenBuilder(continuation_chars, 'line continuation', False)
@@ -62,8 +65,8 @@ class PythonExaminer(Examiner):
       'None', 'False', 'True',
       'if', 'else',
       'for', 'while'
-      ]
-    
+    ]
+
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
     tokenbuilders = [
@@ -77,6 +80,7 @@ class PythonExaminer(Examiner):
       real_exponent_tb,
       keyword_tb,
       known_operator_tb,
+      groupers_tb,
       identifier_tb,
       string_tb,
       raw_string_tb,
@@ -85,7 +89,7 @@ class PythonExaminer(Examiner):
       raw_triple_quote_comment_tb,
       self.unknown_operator_tb
     ]
-    
+
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 

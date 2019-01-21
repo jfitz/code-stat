@@ -54,16 +54,19 @@ class CsharpExaminer(Examiner):
       '+=', '-=', '*=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>=',
       '!', '&', '|', '~', '<<', '>>',
       '^',
-      '(', ')', ',', '.', ':',
-      '[', ']',
+      '.', ':',
       '++', '--', '->', '&&', '||',
       '?', '??', '?.', '?[', '{', '}',
       '=>',
       'as', 'is', 'await', 'sizeof', 'delegate', 'default',
       'checked', 'unchecked', 'typeof', 'new'
-      ]
+    ]
     
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+
+    groupers = ['(', ')', ',', '[', ']']
+
+    groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     keywords = [
       'abstract', 'base', 'bool', 'break', 'byte',
@@ -79,7 +82,7 @@ class CsharpExaminer(Examiner):
       'this', 'throw', 'true', 'try', 'uint', 'ulong',
       'unsafe', 'ushort', 'using', 'using static',
       'virtual', 'void', 'volatile', 'while'
-      ]
+    ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
@@ -93,6 +96,7 @@ class CsharpExaminer(Examiner):
       real_exponent_tb,
       keyword_tb,
       known_operator_tb,
+      groupers_tb,
       identifier_tb,
       string_tb,
       prefixed_string_tb,
@@ -101,7 +105,7 @@ class CsharpExaminer(Examiner):
       c_preprocessor_tb,
       self.unknown_operator_tb
     ]
-    
+
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 

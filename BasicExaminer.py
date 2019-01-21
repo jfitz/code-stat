@@ -53,10 +53,14 @@ class BasicExaminer(Examiner):
     known_operators = [
       '+', '-', '*', '/', '^',
       '=', '>', '>=', '<', '<=', '<>',
-      '(', ')', ',', ';', '#', '\\'
-      ]
-    
+      '#', '\\'
+    ]
+
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+
+    groupers = ['(', ')', ',', ';']
+
+    groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     keywords = [
       'AS', 'CHANGE', 'CLOSE', 'DATA', 'DEF', 'DIM', 'ELSE', 'END', 'ERROR',
@@ -64,7 +68,7 @@ class BasicExaminer(Examiner):
       'ON', 'ONERR', 'OPEN', 'OUTPUT', 'PEEK', 'POKE', 'PRINT',
       'RANDOMIZE', 'READ', 'REM', 'REMARK',
       'RESTORE', 'RETURN', 'STEP', 'STOP', 'THEN', 'TO', 'USING'
-      ]
+    ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
@@ -99,6 +103,7 @@ class BasicExaminer(Examiner):
       line_number_tb,
       string_tb,
       known_operator_tb,
+      groupers_tb,
       keyword_tb,
       function_tb,
       variable_tb,

@@ -41,11 +41,14 @@ class Fortran77Examiner(Examiner):
     known_operators = [
       '=', '+', '-', '*', '/', '**',
       '.EQ.', '.GT.', '.GE.', '.LT.', '.LE.', '.NE.',
-      '.AND.', '.OR.', '.NOT.',
-      '(', ')', ','
-      ]
-    
+      '.AND.', '.OR.', '.NOT.'
+    ]
+
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+
+    groupers = ['(', ')', ',']
+
+    groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     keywords = [
       'IF', 'THEN', 'ELSE', 'ENDIF', 'END IF', 'GO', 'TO', 'GOTO', 'GO TO',
@@ -58,7 +61,7 @@ class Fortran77Examiner(Examiner):
       'COMMON', 'DIMENSION', 'EQUIVALENCE', 'DATA', 'EXTERNAL',
       'CALL', 'RETURN', 'PAUSE', 'STOP', 'END',
       'INQUIRE', 'INTRINSIC', 'PARAMETER'
-      ]
+    ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
@@ -72,6 +75,7 @@ class Fortran77Examiner(Examiner):
       keyword_tb,
       format_tb,
       known_operator_tb,
+      groupers_tb,
       identifier_tb,
       string_tb,
       self.unknown_operator_tb
