@@ -116,7 +116,7 @@ class Examiner:
     num_close = 0
 
     for token in tokens:
-      token_lower = str(token).lower()
+      token_lower = token.text.lower()
 
       if token_lower in open_tokens:
         num_open += 1
