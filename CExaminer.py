@@ -1,9 +1,24 @@
 import string
 import math
+from Token import Token
 from Examiner import Examiner
-from TokenBuilders import *
-from CXTokenBuilders import *
-from CTokenBuilders import *
+from TokenBuilders import (
+  InvalidTokenBuilder,
+  WhitespaceTokenBuilder,
+  NewlineTokenBuilder,
+  StringTokenBuilder,
+  IntegerTokenBuilder,
+  IntegerExponentTokenBuilder,
+  RealTokenBuilder,
+  RealExponentTokenBuilder,
+  ListTokenBuilder
+)
+from CXTokenBuilders import (
+  IdentifierTokenBuilder,
+  SlashSlashCommentTokenBuilder,
+  SlashStarCommentTokenBuilder,
+  CPreProcessorTokenBuilder
+)
 from Tokenizer import Tokenizer
 
 class CExaminer(Examiner):
@@ -119,6 +134,9 @@ class CExaminer(Examiner):
     if num_begin_end > 0:
       brace_match_confidence = (num_begin + num_end) / num_begin_end
 
+    if not ok:
+      brace_match_confidence *= 0.75
+
     # unknown tokens reduce confidence
     token_confidence = 1.0
 
@@ -155,8 +173,8 @@ class CExaminer(Examiner):
       if text in cpp_keywords:
         found_cpp_keywords[text] = True
 
-    ratio = len(found_cpp_keywords) / len(cpp_keywords)
-    cpp_keyword_confidence = 1.0 - ratio ** (1.0 / 3.0)
+    # ratio = len(found_cpp_keywords) / len(cpp_keywords)
+    # cpp_keyword_confidence = 1.0 - ratio ** (1.0 / 3.0)
 
     self.confidences = {
       'brace_match': brace_match_confidence,
