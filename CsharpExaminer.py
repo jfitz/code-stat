@@ -112,7 +112,7 @@ class CsharpExaminer(Examiner):
     num_known_operators = self.count_known_operators(self.tokens)
 
     # consider the number of matches for begin/end
-    ok, num_begin, num_end = self.check_paired_tokens(self.tokens, '{', '}')
+    ok, num_begin, num_end = self.check_paired_tokens(self.tokens, ['{'], ['}'])
     num_begin_end = num_begin + num_end
     brace_match_confidence = 0.0
 

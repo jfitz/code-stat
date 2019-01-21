@@ -119,12 +119,18 @@ class PascalExaminer(Examiner):
         program_end_confidence += 0.25
 
     # consider the number of matches for begin/end
-    ok, num_begin, num_end = self.check_paired_tokens(self.tokens, 'begin', 'end')
+    ok, num_begin, num_end = self.check_paired_tokens(self.tokens, ['begin', 'record'], ['end'])
     num_begin_end = num_begin + num_end
-    begin_end_confidence = 1.0
+    # assume no begin or end keywords
+    begin_end_confidence = 0.0
     if num_begin_end > 0:
-      begin_end_confidence = (num_begin + num_end) / num_begin_end
-      # begin_end_confidence = 1.0 - (abs(num_begin - num_end) / num_begin_end)
+      begin_end_confidence = 1.0
+      difference = num_begin - num_end
+      # match or -1 for turbo pascal which allows no starting begin
+      if difference not in [0, -1]:
+        # difference in counts reduces confidence
+        reduction = (abs(difference) / num_begin_end) * 0.1
+        begin_end_confidence -= reduction
 
     #  unknown tokens reduce confidence
     token_confidence = 1.0

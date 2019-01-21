@@ -109,7 +109,7 @@ class Examiner:
     return found_keywords
 
 
-  def check_paired_tokens(self, tokens, open_token, close_token):
+  def check_paired_tokens(self, tokens, open_tokens, close_tokens):
     level = 0
     min_level = 0
     num_open = 0
@@ -118,11 +118,11 @@ class Examiner:
     for token in tokens:
       token_lower = str(token).lower()
 
-      if token_lower == open_token:
+      if token_lower in open_tokens:
         num_open += 1
         level += 1
 
-      if token_lower == close_token:
+      if token_lower in close_tokens:
         num_close += 1
         level -= 1
         if level < min_level:
