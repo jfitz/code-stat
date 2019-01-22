@@ -91,6 +91,7 @@ class Fortran77Examiner(Examiner):
       line = line.rstrip('\r')
       line = line.rstrip()
       line = self.tabs_to_spaces(line, tab_size)
+      line = line[:72]
 
       # The fixed-format FORTRAN line format is:
       # 1: space or C or *
@@ -150,7 +151,7 @@ class Fortran77Examiner(Examiner):
 
         line_text = ''
         if len(line) > 6:
-          line_text = line[6:72]
+          line_text = line[6:]
           self.tokens += tokenizer.tokenize(line_text)
 
       self.tokens.append(Token('\n', 'newline'))
