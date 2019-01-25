@@ -19,7 +19,7 @@ from Fortran90TokenBuilders import (
 from Tokenizer import Tokenizer
 
 class Fortran90Examiner(Examiner):
-  def __init__(self, code, tab_size):
+  def __init__(self, code):
     super().__init__()
 
     num_known_tokens = 0

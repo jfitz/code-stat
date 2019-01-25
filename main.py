@@ -301,7 +301,7 @@ def identify_language(code, tabsize):
   examiners['COBOL-2002'] = Cobol2002Examiner(code)
   examiners['Fortran-66'] = Fortran66Examiner(code, tab_size)
   examiners['Fortran-77'] = Fortran77Examiner(code, tab_size)
-  examiners['Fortran-90'] = Fortran90Examiner(code, tab_size)
+  examiners['Fortran-90'] = Fortran90Examiner(code)
   examiners['Java'] = JavaExaminer(code)
   examiners['Pascal'] = PascalExaminer(code)
   examiners['Prolog'] = PrologExaminer(code)
@@ -416,7 +416,7 @@ def tokenize(code, language, tabsize):
     tokens = examiner.tokens
 
   if language in ['f90', 'fortran-90']:
-    examiner = Fortran90Examiner(code, tab_size)
+    examiner = Fortran90Examiner(code)
     tokens = examiner.tokens
 
   if language in ['java', 'jav']:
@@ -491,7 +491,7 @@ def tokenize_confidence(code, language, tabsize):
     confidences = examiner.confidences
 
   if language in ['f90', 'fortran-90']:
-    examiner = Fortran90Examiner(code, tab_size)
+    examiner = Fortran90Examiner(code)
     confidences = examiner.confidences
 
   if language in ['java', 'jav']:
