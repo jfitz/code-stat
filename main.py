@@ -297,11 +297,11 @@ def identify_language(code, tabsize):
   examiners['C'] = CExaminer(code)
   examiners['C++'] = CppExaminer(code)
   examiners['C#'] = CsharpExaminer(code)
-  examiners['Fixed-Format-COBOL'] = CobolExaminer(code, True, tab_size)
+  examiners['Fixed-Format-COBOL'] = CobolExaminer(code, tab_size)
   examiners['COBOL-2002'] = Cobol2002Examiner(code)
-  examiners['Fortran-66'] = Fortran66Examiner(code,tab_size)
-  examiners['Fortran-77'] = Fortran77Examiner(code,tab_size)
-  examiners['Fortran-90'] = Fortran90Examiner(code,tab_size)
+  examiners['Fortran-66'] = Fortran66Examiner(code, tab_size)
+  examiners['Fortran-77'] = Fortran77Examiner(code, tab_size)
+  examiners['Fortran-90'] = Fortran90Examiner(code, tab_size)
   examiners['Java'] = JavaExaminer(code)
   examiners['Pascal'] = PascalExaminer(code)
   examiners['Prolog'] = PrologExaminer(code)
@@ -400,7 +400,7 @@ def tokenize(code, language, tabsize):
     tokens = examiner.tokens
 
   if language in ['fixed-format-cobol', 'cobol', 'cob', 'cbl']:
-    examiner = CobolExaminer(code, True, tab_size)
+    examiner = CobolExaminer(code, tab_size)
     tokens = examiner.tokens
 
   if language in ['free-format-cobol', 'cobol-2002']:
@@ -475,7 +475,7 @@ def tokenize_confidence(code, language, tabsize):
     confidences = examiner.confidences
 
   if language in ['fixed-format-cobol', 'cobol', 'cob', 'cbl']:
-    examiner = CobolExaminer(code, True, tab_size)
+    examiner = CobolExaminer(code, tab_size)
     confidences = examiner.confidences
 
   if language in ['free-format-cobol', 'cobol-2002']:

@@ -21,7 +21,7 @@ from CobolTokenBuilders import (
 from Tokenizer import Tokenizer
 
 class CobolExaminer(Examiner):
-  def __init__(self, code, fixed_format, tab_size):
+  def __init__(self, code, tab_size):
     super().__init__()
 
     whitespace_tb = WhitespaceTokenBuilder()
@@ -531,60 +531,52 @@ class CobolExaminer(Examiner):
       line_text = ''
       line_identification = ''
 
-      # break apart the line based on fixed format or free format style
-      if fixed_format:
-        # The fixed-format COBOL line format is:
-        # 1-6: line number or blank (ignored)
-        # 7: space or *
-        # 8-71: program text
-        # 72-: identification, traditionally sequence number (ignored)
+      # break apart the line based on fixed format
 
-        if len(line_number) > 0:
-          if line_number.isspace():
-            self.tokens.append(Token(line_number, 'whitespace'))
+      # The fixed-format COBOL line format is:
+      # 1-6: line number or blank (ignored)
+      # 7: space or *
+      # 8-71: program text
+      # 72-: identification, traditionally sequence number (ignored)
+
+      if len(line_number) > 0:
+        if line_number.isspace():
+          self.tokens.append(Token(line_number, 'whitespace'))
+        else:
+          if line_number.isdigit():
+            self.tokens.append(Token(line_number, 'line number'))
           else:
-            if line_number.isdigit():
-              self.tokens.append(Token(line_number, 'line number'))
-            else:
-              self.tokens.append(Token(line_number, 'line identification'))
+            self.tokens.append(Token(line_number, 'line identification'))
 
-        if len(line) > 6:
-          line_indicator = line[6]
+      if len(line) > 6:
+        line_indicator = line[6]
 
-        if len(line) > 7:
-          line_text = line[7:71]
+      if len(line) > 7:
+        line_text = line[7:71]
 
-        if len(line) > 72:
-          line_identification = line[72:]
-      else:
-        # in free-format COBOL, the entire line can contain tokens
-        line_text = line
+      if len(line) > 72:
+        line_identification = line[72:]
 
       # tokenize the line indicator
-      if fixed_format:
-        if line_indicator in ['*', '/', 'D']:
-          # the entire line is a comment (including DEBUG lines)
-          self.tokens.append(Token(line[6:], 'comment'))
-        else:
-          if line_indicator == '$':
-            self.tokens.append(Token(line[6:], 'preprocessor'))
-          else:
-            if line_indicator == ' ':
-              self.tokens.append(Token(' ', 'whitespace'))
-            else:
-              if line_indicator != '':
-                self.tokens.append(Token(line_indicator, 'invalid'))
-
-          # tokenize the code    
-          self.tokens += tokenizer.tokenize(line_text)
+      if line_indicator in ['*', '/', 'D']:
+        # the entire line is a comment (including DEBUG lines)
+        self.tokens.append(Token(line[6:], 'comment'))
       else:
+        if line_indicator == '$':
+          self.tokens.append(Token(line[6:], 'preprocessor'))
+        else:
+          if line_indicator == ' ':
+            self.tokens.append(Token(' ', 'whitespace'))
+          else:
+            if line_indicator != '':
+              self.tokens.append(Token(line_indicator, 'invalid'))
+
         # tokenize the code    
         self.tokens += tokenizer.tokenize(line_text)
 
       # tokenize the line identification
-      if fixed_format:
-        if len(line_identification) > 0:
-          self.tokens.append(Token(line_identification, 'line identification'))
+      if len(line_identification) > 0:
+        self.tokens.append(Token(line_identification, 'line identification'))
 
       self.tokens.append(Token('\n', 'newline'))
 
