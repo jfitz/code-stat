@@ -23,11 +23,12 @@ test\bin\run_test.ps1 -json -name prog12-2 -action confidence -language COBOL -i
 test\bin\run_test.ps1 -json -name prog13-3 -action confidence -language COBOL -inputfile ".\test\data\COBOL\PROG13-3.COB" -expected ".\test\ref\confidence\COBOL\PROG13-3.txt"
 test\bin\run_test.ps1 -json -name prog14-2 -action confidence -language COBOL -inputfile ".\test\data\COBOL\PROG14-2.COB" -expected ".\test\ref\confidence\COBOL\PROG14-2.txt"
 test\bin\run_test.ps1 -json -name prog15-4 -action confidence -language COBOL -inputfile ".\test\data\COBOL\PROG15-4.COB" -expected ".\test\ref\confidence\COBOL\PROG15-4.txt"
-test\bin\run_test.ps1 -json -name freeformat1 -action confidence -language Free-Format-COBOL -tabsize 4 -inputfile ".\test\data\COBOL\Free Format 1.COB" -expected ".\test\ref\confidence\COBOL\Free Format 1.txt"
-test\bin\run_test.ps1 -json -name freeformat2 -action confidence -language Free-Format-COBOL -tabsize 4 -inputfile ".\test\data\COBOL\Free Format 2.COB" -expected ".\test\ref\confidence\COBOL\Free Format 2.txt"
-test\bin\run_test.ps1 -json -name freeformat3 -action confidence -language Free-Format-COBOL -tabsize 4 -inputfile ".\test\data\COBOL\Free Format 3.COB" -expected ".\test\ref\confidence\COBOL\Free Format 3.txt"
-test\bin\run_test.ps1 -json -name freeformat4 -action confidence -language Free-Format-COBOL -tabsize 4 -inputfile ".\test\data\COBOL\Free Format 4.COB" -expected ".\test\ref\confidence\COBOL\Free Format 4.txt"
 test\bin\run_test.ps1 -json -name exec1 -action confidence -language Fixed-Format-COBOL -tabsize 4 -inputfile ".\test\data\COBOL\UNLDDBCU2.COB" -expected ".\test\ref\confidence\COBOL\UNLDDBCU2.txt"
+
+test\bin\run_test.ps1 -json -name report_card -action confidence -language COBOL-2002 -tabsize 4 -inputfile ".\test\data\COBOL-2002\ReportCard.COB" -expected ".\test\ref\confidence\COBOL-2002\ReportCard.txt"
+test\bin\run_test.ps1 -json -name person -action confidence -language COBOL-2002 -tabsize 4 -inputfile ".\test\data\COBOL-2002\Person.COB" -expected ".\test\ref\confidence\COBOL-2002\Person.txt"
+test\bin\run_test.ps1 -json -name sales_report -action confidence -language COBOL-2002 -tabsize 4 -inputfile ".\test\data\COBOL-2002\SalesReport.COB" -expected ".\test\ref\confidence\COBOL-2002\SalesReport.txt"
+test\bin\run_test.ps1 -json -name report -action confidence -language COBOL-2002 -tabsize 4 -inputfile ".\test\data\COBOL-2002\Report.COB" -expected ".\test\ref\confidence\COBOL-2002\Report.txt"
 
 test\bin\run_test.ps1 -json -name checkers -action confidence -language Cpp -inputfile ".\test\data\Cpp\checkers.cpp" -expected ".\test\ref\confidence\Cpp\checkers.txt"
 test\bin\run_test.ps1 -json -name hrdb -action confidence -language Cpp -inputfile ".\test\data\Cpp\hrdb.cpp" -expected ".\test\ref\confidence\Cpp\hrdb.txt"

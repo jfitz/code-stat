@@ -23,11 +23,12 @@ test\bin\run_test.ps1 -json -name prog12-2 -action detect -inputfile ".\test\dat
 test\bin\run_test.ps1 -json -name prog13-3 -action detect -inputfile ".\test\data\COBOL\PROG13-3.COB" -expected ".\test\ref\detect\COBOL\PROG13-3.txt"
 test\bin\run_test.ps1 -json -name prog14-2 -action detect -inputfile ".\test\data\COBOL\PROG14-2.COB" -expected ".\test\ref\detect\COBOL\PROG14-2.txt"
 test\bin\run_test.ps1 -json -name prog15-4 -action detect -inputfile ".\test\data\COBOL\PROG15-4.COB" -expected ".\test\ref\detect\COBOL\PROG15-4.txt"
-test\bin\run_test.ps1 -json -name freeformat1 -action detect -inputfile ".\test\data\COBOL\Free Format 1.COB" -tabsize 4 -expected ".\test\ref\detect\COBOL\Free Format 1.txt"
-test\bin\run_test.ps1 -json -name freeformat2 -action detect -inputfile ".\test\data\COBOL\Free Format 2.COB" -tabsize 4 -expected ".\test\ref\detect\COBOL\Free Format 2.txt"
-test\bin\run_test.ps1 -json -name freeformat3 -action detect -inputfile ".\test\data\COBOL\Free Format 3.COB" -tabsize 4 -expected ".\test\ref\detect\COBOL\Free Format 3.txt"
-test\bin\run_test.ps1 -json -name freeformat4 -action detect -inputfile ".\test\data\COBOL\Free Format 4.COB" -tabsize 4 -expected ".\test\ref\detect\COBOL\Free Format 4.txt"
 test\bin\run_test.ps1 -json -name exec1 -action detect -inputfile ".\test\data\COBOL\UNLDDBCU2.COB" -tabsize 4 -expected ".\test\ref\detect\COBOL\UNLDDBCU2.txt"
+
+test\bin\run_test.ps1 -json -name report_card -action detect -tabsize 4 -inputfile ".\test\data\COBOL-2002\ReportCard.COB" -expected ".\test\ref\detect\COBOL-2002\ReportCard.txt"
+test\bin\run_test.ps1 -json -name person -action detect -tabsize 4 -inputfile ".\test\data\COBOL-2002\Person.COB" -expected ".\test\ref\detect\COBOL-2002\Person.txt"
+test\bin\run_test.ps1 -json -name sales_report -action detect -tabsize 4 -inputfile ".\test\data\COBOL-2002\SalesReport.COB" -expected ".\test\ref\detect\COBOL-2002\SalesReport.txt"
+test\bin\run_test.ps1 -json -name report -action detect -tabsize 4 -inputfile ".\test\data\COBOL-2002\Report.COB" -expected ".\test\ref\detect\COBOL-2002\Report.txt"
 
 test\bin\run_test.ps1 -json -name checkers -action detect -inputfile ".\test\data\Cpp\checkers.cpp" -expected ".\test\ref\detect\Cpp\checkers.txt"
 test\bin\run_test.ps1 -json -name hrdb -action detect -inputfile ".\test\data\Cpp\hrdb.cpp" -expected ".\test\ref\detect\Cpp\hrdb.txt"

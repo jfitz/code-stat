@@ -44,7 +44,7 @@ def languages():
     'C++',
     'C#',
     'Fixed-length COBOL',
-    'Free-form COBOL',
+    'COBOL-2002',
     'FORTRAN-66',
     'FORTRAN-77',
     'Fortran-90',
@@ -59,6 +59,7 @@ def languages():
   json_text = json.dumps(names)
   return json_text
 
+
 @app.route('/detab', methods=['POST'])
 def detab():
   tab_size = 8
@@ -70,12 +71,39 @@ def detab():
       tab_size = int(tab_size)
     except ValueError:
       tab_size = 8
- 
+
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
   detabbed_text = tabs_to_spaces(text, tab_size)
 
   return detabbed_text
+
+
+@app.route('/truncate', methods=['POST'])
+def truncate():
+  request_bytes = request.get_data()
+  text = decode_bytes(request_bytes)
+  truncated_text = truncate_lines(text, 72)
+
+  return truncated_text
+
+
+@app.route('/unwrap', methods=['POST'])
+def unwrap():
+  language = ''
+  if 'language' in request.args:
+    language = request.args['language']
+
+  request_bytes = request.get_data()
+  text = decode_bytes(request_bytes)
+  unwrapped_text = text
+  if language.lower() == 'fortran':
+    unwrapped_text = unwrap_fortran_lines(text)
+  if language.lower() == 'cobol':
+    unwrapped_text = unwrap_cobol_lines(text)
+
+  return unwrapped_text
+
 
 @app.route('/detect', methods=['POST'])
 def detect():
@@ -90,6 +118,7 @@ def detect():
   json_text = json.dumps(detected_languages)
 
   return json_text
+
 
 @app.route('/tokens', methods=['POST'])
 def tokens():
@@ -112,6 +141,7 @@ def tokens():
   json_text = json.dumps(token_list)
 
   return json_text
+
 
 @app.route('/confidence', methods=['POST'])
 def confidence():
@@ -152,6 +182,107 @@ def tabs_to_spaces(text, tab_size):
   return detabbed_text
 
 
+def split_lines(text):
+  lines = []
+
+  line = ''
+  for c in text:
+    if c == '\r':
+      pass
+    else:
+      if c == '\n':
+        lines.append(line)
+        line = ''
+      else:
+        line += c
+  if len(line) > 0:
+    lines.append(line)
+
+  return lines
+
+
+def truncate_lines(text, column):
+  truncated_lines = ''
+
+  # break into lines
+  lines = split_lines(text)
+
+  for line in lines:
+    line = line[:column]
+    truncated_lines += line
+    truncated_lines += '\n'
+
+  return truncated_lines
+
+
+def unwrap_fortran_lines(text):
+  unwrapped_lines = ''
+
+  # break into lines
+  lines = split_lines(text)
+
+  buffer = None
+  for line in lines:
+    # rtrim
+    line = line.rstrip()
+
+    # if continuation (not comment, longer than 6, not space in column 5)
+    if len(line) > 5 and line[0] != 'C' and line[5] != ' ':
+      # drop leading columns
+      line = line[5:]
+      # append to buffer
+      if buffer is None:
+        buffer = line
+      else:
+        buffer += line
+    else:
+      if buffer is not None:
+        unwrapped_lines += buffer
+        unwrapped_lines += '\n'
+      buffer = line
+  if len(buffer) > 0:
+    unwrapped_lines += buffer
+    unwrapped_lines += '\n'
+
+  return unwrapped_lines
+
+
+def unwrap_cobol_lines(text):
+  unwrapped_lines = ''
+
+  # break into lines
+  lines = split_lines(text)
+
+  buffer = None
+  for line in lines:
+    # rtrim
+    line = line.rstrip()
+
+    # if continuation (not comment, longer than 6, not space in column)
+    if len(line) > 6 and line[6] == '-':
+      # drop leading columns
+      line = line[7:]
+      # append to buffer
+      if buffer is None:
+        buffer = line
+      else:
+        # for COBOL, drop leading spaces and the leading quote
+        line = line.lstrip()
+        if len(line) > 0 and line[0] in "'\"":
+          line = line[1:]
+        buffer += line
+    else:
+      if buffer is not None:
+        unwrapped_lines += buffer
+        unwrapped_lines += '\n'
+      buffer = line
+  if len(buffer) > 0:
+    unwrapped_lines += buffer
+    unwrapped_lines += '\n'
+
+  return unwrapped_lines
+
+
 def identify_language(code, tabsize):
   try:
     tab_size = int(tabsize)
@@ -166,7 +297,7 @@ def identify_language(code, tabsize):
   examiners['C++'] = CppExaminer(code)
   examiners['C#'] = CsharpExaminer(code)
   examiners['Fixed-Format-COBOL'] = CobolExaminer(code, True, tab_size)
-  examiners['Free-Format-COBOL'] = CobolExaminer(code, False, tab_size)
+  examiners['COBOL-2002'] = CobolExaminer(code, False, tab_size)
   examiners['Fortran-66'] = Fortran66Examiner(code,tab_size)
   examiners['Fortran-77'] = Fortran77Examiner(code,tab_size)
   examiners['Fortran-90'] = Fortran90Examiner(code,tab_size)
@@ -271,7 +402,7 @@ def tokenize(code, language, tabsize):
     examiner = CobolExaminer(code, True, tab_size)
     tokens = examiner.tokens
 
-  if language in ['free-format-cobol']:
+  if language in ['free-format-cobol', 'cobol-2002']:
     examiner = CobolExaminer(code, False, tab_size)
     tokens = examiner.tokens
 
@@ -346,7 +477,7 @@ def tokenize_confidence(code, language, tabsize):
     examiner = CobolExaminer(code, True, tab_size)
     confidences = examiner.confidences
 
-  if language in ['free-format-cobol']:
+  if language in ['free-format-cobol', 'cobol-2002']:
     examiner = CobolExaminer(code, False, tab_size)
     confidences = examiner.confidences
 
