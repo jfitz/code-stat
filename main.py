@@ -4,6 +4,7 @@ from flask import Flask, request, render_template
 from BasicExaminer import BasicExaminer
 from CExaminer import CExaminer
 from CobolExaminer import CobolExaminer
+from Cobol2002Examiner import Cobol2002Examiner
 from CppExaminer import CppExaminer
 from CsharpExaminer import CsharpExaminer
 from Fortran66Examiner import Fortran66Examiner
@@ -297,7 +298,7 @@ def identify_language(code, tabsize):
   examiners['C++'] = CppExaminer(code)
   examiners['C#'] = CsharpExaminer(code)
   examiners['Fixed-Format-COBOL'] = CobolExaminer(code, True, tab_size)
-  examiners['COBOL-2002'] = CobolExaminer(code, False, tab_size)
+  examiners['COBOL-2002'] = Cobol2002Examiner(code)
   examiners['Fortran-66'] = Fortran66Examiner(code,tab_size)
   examiners['Fortran-77'] = Fortran77Examiner(code,tab_size)
   examiners['Fortran-90'] = Fortran90Examiner(code,tab_size)
@@ -403,7 +404,7 @@ def tokenize(code, language, tabsize):
     tokens = examiner.tokens
 
   if language in ['free-format-cobol', 'cobol-2002']:
-    examiner = CobolExaminer(code, False, tab_size)
+    examiner = Cobol2002Examiner(code)
     tokens = examiner.tokens
 
   if language in ['fortran', 'for', 'ftn', 'fortran-66']:
@@ -478,7 +479,7 @@ def tokenize_confidence(code, language, tabsize):
     confidences = examiner.confidences
 
   if language in ['free-format-cobol', 'cobol-2002']:
-    examiner = CobolExaminer(code, False, tab_size)
+    examiner = Cobol2002Examiner(code)
     confidences = examiner.confidences
 
   if language in ['fortran', 'for', 'ftn', 'fortran-66']:
