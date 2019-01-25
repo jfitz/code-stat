@@ -1,8 +1,24 @@
 import string
+from Token import Token
 from Examiner import Examiner
-from TokenBuilders import *
-from FortranXTokenBuilders import *
-from Fortran66TokenBuilders import *
+from TokenBuilders import (
+  InvalidTokenBuilder,
+  WhitespaceTokenBuilder,
+  NewlineTokenBuilder,
+  IntegerTokenBuilder,
+  IntegerExponentTokenBuilder,
+  RealTokenBuilder,
+  RealExponentTokenBuilder,
+  ListTokenBuilder
+)
+from FortranXTokenBuilders import (
+  FortranIdentifierTokenBuilder,
+  LineNumberTokenBuilder,
+  FormatSpecifierTokenBuilder
+)
+from Fortran66TokenBuilders import (
+  HollerithStringTokenBuilder
+)
 from Tokenizer import Tokenizer
 
 class Fortran66Examiner(Examiner):
