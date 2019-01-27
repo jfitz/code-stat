@@ -20,7 +20,7 @@ from CobolTokenBuilders import (
 )
 from Tokenizer import Tokenizer
 
-class CobolExaminer(Examiner):
+class Cobol85Examiner(Examiner):
   def __init__(self, code, tab_size):
     super().__init__()
 
@@ -34,7 +34,6 @@ class CobolExaminer(Examiner):
     identifier_tb = CobolIdentifierTokenBuilder()
     string_tb = StringTokenBuilder(['"', "'"], True)
     picture_tb = PictureTokenBuilder()
-    star_comment_tb = StarCommentTokenBuilder()
 
     known_operators = [
       'ADD', 'SUBTRACT', 'MULTIPLY', 'DIVIDE',
@@ -78,9 +77,7 @@ class CobolExaminer(Examiner):
       'AT',
       'AUTHOR',
 
-      'BASIS',
       'BEFORE',
-      'BEGINNING',
       'BINARY',
       'BLANK',
       'BLOCK',
@@ -89,7 +86,6 @@ class CobolExaminer(Examiner):
 
       'CALL',
       'CANCEL',
-      'CBL',
       'CD',
       'CF',
       'CH',
@@ -104,22 +100,11 @@ class CobolExaminer(Examiner):
       'CODE-SET',
       'COLLATING',
       'COLUMN',
-      'COM-REG',
       'COMMA',
       'COMMON',
       'COMMUNICATION',
       'COMP',
-      'COMP-1',
-      'COMP-2',
-      'COMP-3',
-      'COMP-4',
-      'COMP-5',
       'COMPUTATIONAL',
-      'COMPUTATIONAL-1',
-      'COMPUTATIONAL-2',
-      'COMPUTATIONAL-3',
-      'COMPUTATIONAL-4',
-      'COMPUTATIONAL-5', 
       'COMPUTE',
       'CONFIGURATION',
       'CONTAINS',
@@ -135,11 +120,11 @@ class CobolExaminer(Examiner):
       'CURRENCY',
 
       'DATA',
+      'DATE',
       'DATE-COMPILED',
       'DATE-WRITTEN',
       'DAY',
       'DAY-OF-WEEK',
-      'DBCS',
       'DE',
       'DEBUG-CONTENTS',
       'DEBUG-ITEM',
@@ -158,17 +143,15 @@ class CobolExaminer(Examiner):
       'DESCENDING',
       'DESTINATION', 
       'DETAIL',
+      'DISABLE',
       'DISPLAY',
-      'DISPLAY-1',
       'DIVIDE',
       'DIVISION',
       'DOWN',
       'DUPLICATES',
       'DYNAMIC',
 
-      'EGCS',
       'EGI',
-      'EJECT',
       'ELSE',
       'EMI',
       'ENABLE',
@@ -180,7 +163,6 @@ class CobolExaminer(Examiner):
       'END-DIVIDE',
       'END-EVALUATE',
       'END-IF',
-      'END-INVOKE',
       'END-MULTIPLY',
       'END-OF-PAGE',
       'END-PERFORM',
@@ -194,9 +176,7 @@ class CobolExaminer(Examiner):
       'END-SUBTRACT',
       'END-UNSTRING',
       'END-WRITE',
-      'ENDING',
       'ENTER',
-      'ENTRY',
       'ENVIRONMENT',
       'EOP',
       'EQUAL',
@@ -219,13 +199,11 @@ class CobolExaminer(Examiner):
       'FOOTING',
       'FOR',
       'FROM',
-      'FUNCTION',
 
       'GENERATE',
       'GIVING',
       'GLOBAL',
       'GO',
-      'GOBACK',
       'GREATER',
       'GROUP',
 
@@ -235,31 +213,26 @@ class CobolExaminer(Examiner):
 
       'I-O',
       'I-O-CONTROL',
-      'ID',
       'IDENTIFICATION',
       'IF',
       'IN',
       'INDEX',
       'INDEXED',
       'INDICATE',
-      'INHERITS',
       'INITIAL',
       'INITIALIZE',
       'INITIATE',
       'INPUT',
       'INPUT-OUTPUT',
-      'INSERT',
       'INSPECT',
       'INSTALLATION',
       'INTO',
       'INVALID',
-      'INVOKE',
       'IS',
 
       'JUST',
       'JUSTIFIED',
       
-      'KANJI',
       'KEY',
 
       'LABEL',
@@ -276,7 +249,6 @@ class CobolExaminer(Examiner):
       'LINE-COUNTER',
       'LINES',
       'LINKAGE',
-      'LOCAL-STORAGE',
       'LOCK',
       'LOW-VALUE',
       'LOW-VALUES',
@@ -285,28 +257,21 @@ class CobolExaminer(Examiner):
       'MERGE',
       'MESSAGE',
       'METACLASS',
-      'METHOD',
-      'METHOD-ID',
       'MODE',
       'MODULES',
-      'MORE-LABELS', 
       'MOVE',
       'MULTIPLE',
       'MULTIPLY',
 
       'NATIVE',
-      'NATIVE_BINARY',
       'NEGATIVE',
       'NEXT',
       'NO',
       'NOT',
-      'NULL',
-      'NULLS',
       'NUMBER',
       'NUMERIC',
       'NUMERIC-EDITED',
 
-      'OBJECT',
       'OBJECT-COMPUTER',
       'OCCURS',
       'OF',
@@ -321,13 +286,11 @@ class CobolExaminer(Examiner):
       'OTHER',
       'OUTPUT',
       'OVERFLOW',
-      'OVERRIDE',
 
       'PACKED-DECIMAL',
       'PADDING',
       'PAGE',
       'PAGE-COUNTER',
-      'PASSWORD',
       'PERFORM',
       'PF',
       'PH',
@@ -339,10 +302,8 @@ class CobolExaminer(Examiner):
       'POSITIVE',
       'PRINTING',
       'PROCEDURE',
-      'PROCEDURE-POINTER',
       'PROCEDURES',
       'PROCEED',
-      'PROCESSING',
       'PROGRAM',
       'PROGRAM-ID',
       'PURGE',
@@ -354,19 +315,15 @@ class CobolExaminer(Examiner):
       'RANDOM',
       'RD',
       'READ',
-      'READY',
       'RECEIVE',
       'RECORD',
-      'RECORDING',
       'RECORDS',
-      'RECURSIVE',
       'REDEFINES',
       'REEL',
       'REFERENCE',
       'REFERENCES',
       'RELATIVE',
       'RELEASE',
-      'RELOAD',
       'REMAINDER',
       'REMOVAL',
       'RENAMES',
@@ -375,13 +332,10 @@ class CobolExaminer(Examiner):
       'REPORT',
       'REPORTING',
       'REPORTS',
-      'REPOSITORY',
       'RERUN',
       'RESERVE', 
       'RESET',
       'RETURN',
-      'RETURN-CODE',
-      'RETURNING',
       'REVERSED',
       'REWIND',
       'REWRITE',
@@ -399,29 +353,16 @@ class CobolExaminer(Examiner):
       'SEGMENT',
       'SEGMENT-LIMIT',
       'SELECT',
-      'SELF',
       'SEND',
       'SENTENCE',
       'SEPARATE',
       'SEQUENCE',
       'SEQUENTIAL',
-      'SERVICE',
       'SET',
-      'SHIFT-IN',
-      'SHIFT-OUT',
       'SIGN',
       'SIZE',
-      'SKIP1',
-      'SKIP2',
-      'SKIP3',
       'SORT',
-      'SORT-CONTROL',
-      'SORT-CORE-SIZE',
-      'SORT-FILE-SIZE',
       'SORT-MERGE',
-      'SORT-MESSAGE',
-      'SORT-MODE-SIZE',
-      'SORT-RETURN',
       'SOURCE',
       'SOURCE-COMPUTER',
       'SPACE',
@@ -439,14 +380,12 @@ class CobolExaminer(Examiner):
       'SUB-QUEUE-3',
       'SUBTRACT',
       'SUM',
-      'SUPER',
       'SUPPRESS',
       'SYMBOLIC',
       'SYNC',
       'SYNCHRONIZED',
 
       'TABLE',
-      'TALLY',
       'TALLYING',
       'TAPE',
       'TERMINAL',
@@ -462,7 +401,6 @@ class CobolExaminer(Examiner):
       'TITLE', 
       'TO',
       'TOP',
-      'TRACE',
       'TRAILING',
       'TRUE',
       'TYPE',
@@ -481,12 +419,10 @@ class CobolExaminer(Examiner):
       'VARYING',
 
       'WHEN',
-      'WHEN-COMPILED',
       'WITH',
       'WORDS',
       'WORKING-STORAGE',
       'WRITE',
-      'WRITE-ONLY',
 
       'ZERO',
       'ZEROES',
@@ -510,7 +446,6 @@ class CobolExaminer(Examiner):
       groupers_tb,
       identifier_tb,
       string_tb,
-      star_comment_tb,
       cobol_preprocessor_tb,
       self.unknown_operator_tb
     ]
@@ -533,9 +468,9 @@ class CobolExaminer(Examiner):
 
       # break apart the line based on fixed format
 
-      # The fixed-format COBOL line format is:
+      # The COBOL line format is:
       # 1-6: line number or blank (ignored)
-      # 7: space or *
+      # 7: space or one of *, /, D, d, $, -
       # 8-71: program text
       # 72-: identification, traditionally sequence number (ignored)
 
@@ -558,7 +493,7 @@ class CobolExaminer(Examiner):
         line_identification = line[72:]
 
       # tokenize the line indicator
-      if line_indicator in ['*', '/', 'D']:
+      if line_indicator in ['*', '/', 'D', 'd']:
         # the entire line is a comment (including DEBUG lines)
         self.tokens.append(Token(line[6:], 'comment'))
       else:

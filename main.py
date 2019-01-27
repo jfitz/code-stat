@@ -3,7 +3,7 @@ import codecs
 from flask import Flask, request, render_template
 from BasicExaminer import BasicExaminer
 from CExaminer import CExaminer
-from CobolExaminer import CobolExaminer
+from Cobol85Examiner import Cobol85Examiner
 from Cobol2002Examiner import Cobol2002Examiner
 from CppExaminer import CppExaminer
 from CsharpExaminer import CsharpExaminer
@@ -44,7 +44,7 @@ def languages():
     'C',
     'C++',
     'C#',
-    'Fixed-length COBOL',
+    'COBOL-85',
     'COBOL-2002',
     'FORTRAN-66',
     'FORTRAN-77',
@@ -297,7 +297,7 @@ def identify_language(code, tabsize):
   examiners['C'] = CExaminer(code)
   examiners['C++'] = CppExaminer(code)
   examiners['C#'] = CsharpExaminer(code)
-  examiners['Fixed-Format-COBOL'] = CobolExaminer(code, tab_size)
+  examiners['COBOL-85'] = Cobol85Examiner(code, tab_size)
   examiners['COBOL-2002'] = Cobol2002Examiner(code)
   examiners['Fortran-66'] = Fortran66Examiner(code, tab_size)
   examiners['Fortran-77'] = Fortran77Examiner(code, tab_size)
@@ -399,11 +399,11 @@ def tokenize(code, language, tabsize):
     examiner = CsharpExaminer(code)
     tokens = examiner.tokens
 
-  if language in ['fixed-format-cobol', 'cobol', 'cob', 'cbl']:
-    examiner = CobolExaminer(code, tab_size)
+  if language in ['cobol-85', 'cobol', 'cob', 'cbl']:
+    examiner = Cobol85Examiner(code, tab_size)
     tokens = examiner.tokens
 
-  if language in ['free-format-cobol', 'cobol-2002']:
+  if language in ['cobol-2002']:
     examiner = Cobol2002Examiner(code)
     tokens = examiner.tokens
 
@@ -474,11 +474,11 @@ def tokenize_confidence(code, language, tabsize):
     examiner = CsharpExaminer(code)
     confidences = examiner.confidences
 
-  if language in ['fixed-format-cobol', 'cobol', 'cob', 'cbl']:
-    examiner = CobolExaminer(code, tab_size)
+  if language in ['cobol-85', 'cobol', 'cob', 'cbl']:
+    examiner = Cobol85Examiner(code, tab_size)
     confidences = examiner.confidences
 
-  if language in ['free-format-cobol', 'cobol-2002']:
+  if language in ['cobol-2002']:
     examiner = Cobol2002Examiner(code)
     confidences = examiner.confidences
 
