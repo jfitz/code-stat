@@ -92,7 +92,6 @@ class Cobol85Examiner(Examiner):
       'CHARACTER',
       'CHARACTERS',
       'CLASS',
-      'CLASS-ID',
       'CLOCK-UNITS',
       'CLOSE',
       'COBOL',
