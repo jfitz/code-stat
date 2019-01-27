@@ -14,7 +14,8 @@ from TokenBuilders import (
   LeadCommentTokenBuilder
 )
 from RTokenBuilders import (
-  IdentifierTokenBuilder
+  IdentifierTokenBuilder,
+  ROperatorTokenBuilder
 )
 from Tokenizer import Tokenizer
 
@@ -48,7 +49,7 @@ class RExaminer(Examiner):
 
     stmt_separator_tb = ListTokenBuilder([';'], 'statement separator', False)
 
-    continuation_tb = ListTokenBuilder(['%>%'], 'line continuation', False)
+    user_operator_tb = ROperatorTokenBuilder()
 
     groupers = ['(', ')', ',', '[', ']']
 
@@ -71,7 +72,7 @@ class RExaminer(Examiner):
       real_tb,
       real_exponent_tb,
       keyword_tb,
-      continuation_tb,
+      user_operator_tb,
       known_operator_tb,
       groupers_tb,
       identifier_tb,
