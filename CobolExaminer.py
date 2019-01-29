@@ -37,9 +37,50 @@ class CobolExaminer(Examiner):
     token = None
 
     if line_indicator == ' ':
-      self.tokens.append(Token(' ', 'whitespace'))
+      token = Token(' ', 'whitespace')
     else:
       if line_indicator != '':
-        self.tokens.append(Token(line_indicator, 'invalid'))
+        token = Token(line_indicator, 'invalid')
 
     return token
+
+
+  def TokenizeLine(self, line, tokenizer):
+    # break apart the line based on fixed format
+    tokens = []
+
+    # The COBOL line format is:
+    # 1-6: line number or blank (ignored)
+    # 7: space or one of *, /, D, d, $, -
+    # 8-71: program text
+    # 72-: identification, traditionally sequence number (ignored)
+
+    line_number = line[:6]
+    line_indicator = line[6:7]
+    line_text = line[7:71]
+    line_identification = line[72:]
+
+    token = self.TokenizeLineNumber(line_number)
+    if token is not None:
+      tokens.append(token)
+
+    # tokenize the line indicator
+    if line_indicator in ['*', '/', 'D', 'd', '$']:
+      token = self.TokenizeAltLine(line, line_indicator)
+      if token is not None:
+        tokens.append(token)
+    else:
+      token = self.TokenizeLineIndicator(line_indicator)
+      if token is not None:
+        tokens.append(token)
+
+      # tokenize the code
+      tokens += tokenizer.tokenize(line_text)
+
+    # tokenize the line identification
+    if len(line_identification) > 0:
+      tokens.append(Token(line_identification, 'line identification'))
+
+    tokens.append(Token('\n', 'newline'))
+
+    return tokens

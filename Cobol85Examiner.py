@@ -461,41 +461,8 @@ class Cobol85Examiner(CobolExaminer):
       line = line.rstrip()
       line = self.tabs_to_spaces(line, tab_size)
 
-      # break apart the line based on fixed format
-
-      # The COBOL line format is:
-      # 1-6: line number or blank (ignored)
-      # 7: space or one of *, /, D, d, $, -
-      # 8-71: program text
-      # 72-: identification, traditionally sequence number (ignored)
-
-      line_number = line[:6]
-      line_indicator = line[6:7]
-      line_text = line[7:71]
-      line_identification = line[72:]
-
-      token = self.TokenizeLineNumber(line_number)
-      if token is not None:
-        self.tokens.append(token)
-
-      # tokenize the line indicator
-      if line_indicator in ['*', '/', 'D', 'd', '$']:
-        token = self.TokenizeAltLine(line, line_indicator)
-        if token is not None:
-          self.tokens.append(token)
-      else:
-        token = self.TokenizeLineIndicator(line_indicator)
-        if token is not None:
-          self.tokens.append(token)
-
-        # tokenize the code
-        self.tokens += tokenizer.tokenize(line_text)
-
-      # tokenize the line identification
-      if len(line_identification) > 0:
-        self.tokens.append(Token(line_identification, 'line identification'))
-
-      self.tokens.append(Token('\n', 'newline'))
+      tokens = self.TokenizeLine(line, tokenizer)
+      self.tokens += tokens
 
     self.tokens = self.combineAdjacentWhitespace(self.tokens)
 
