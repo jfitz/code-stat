@@ -1,6 +1,7 @@
 import string
 from Token import Token
 from Examiner import Examiner
+from CobolExaminer import CobolExaminer
 from TokenBuilders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
@@ -20,7 +21,7 @@ from CobolTokenBuilders import (
 )
 from Tokenizer import Tokenizer
 
-class Cobol74Examiner(Examiner):
+class Cobol74Examiner(CobolExaminer):
   def __init__(self, code, tab_size):
     super().__init__()
 
@@ -422,52 +423,34 @@ class Cobol74Examiner(Examiner):
       line = line.rstrip()
       line = self.tabs_to_spaces(line, tab_size)
 
-      line_number = line[:6]
-      line_indicator = ''
-      line_text = ''
-      line_identification = ''
-
       # break apart the line based on fixed format
 
       # The COBOL line format is:
       # 1-6: line number or blank (ignored)
       # 7: space or one of *, /, D, d, $, -
       # 8-71: program text
-      # 72-: identification, traditionally sequence number (ignored)
+      # 72-80: identification, traditionally sequence number (ignored)
 
-      if len(line_number) > 0:
-        if line_number.isspace():
-          self.tokens.append(Token(line_number, 'whitespace'))
-        else:
-          if line_number.isdigit():
-            self.tokens.append(Token(line_number, 'line number'))
-          else:
-            self.tokens.append(Token(line_number, 'line identification'))
+      line_number = line[:6]
+      line_indicator = line[6:7]
+      line_text = line[7:71]
+      line_identification = line[72:]
 
-      if len(line) > 6:
-        line_indicator = line[6]
-
-      if len(line) > 7:
-        line_text = line[7:71]
-
-      if len(line) > 72:
-        line_identification = line[72:]
+      token = self.TokenizeLineNumber(line_number)
+      if token is not None:
+        self.tokens.append(token)
 
       # tokenize the line indicator
-      if line_indicator in ['*', '/', 'D', 'd']:
-        # the entire line is a comment (including DEBUG lines)
-        self.tokens.append(Token(line[6:], 'comment'))
+      if line_indicator in ['*', '/', 'D', 'd', '$']:
+        token = self.TokenizeAltLine(line, line_indicator)
+        if token is not None:
+          self.tokens.append(token)
       else:
-        if line_indicator == '$':
-          self.tokens.append(Token(line[6:], 'preprocessor'))
-        else:
-          if line_indicator == ' ':
-            self.tokens.append(Token(' ', 'whitespace'))
-          else:
-            if line_indicator != '':
-              self.tokens.append(Token(line_indicator, 'invalid'))
+        token = self.TokenizeLineIndicator(line_indicator)
+        if token is not None:
+          self.tokens.append(token)
 
-        # tokenize the code    
+        # tokenize the code
         self.tokens += tokenizer.tokenize(line_text)
 
       # tokenize the line identification
