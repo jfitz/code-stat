@@ -415,16 +415,7 @@ class Cobol74Examiner(CobolExaminer):
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 
-    lines = code.split('\n')
-
-    self.tokens = []
-    for line in lines:
-      line = line.rstrip('\r')
-      line = line.rstrip()
-      line = self.tabs_to_spaces(line, tab_size)
-
-      tokens = self.TokenizeLine(line, tokenizer)
-      self.tokens += tokens
+    self.tokens = self.TokenizeCode(code, tab_size, tokenizer)
 
     self.tokens = self.combineAdjacentWhitespace(self.tokens)
 

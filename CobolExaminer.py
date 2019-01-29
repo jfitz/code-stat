@@ -84,3 +84,19 @@ class CobolExaminer(Examiner):
     tokens.append(Token('\n', 'newline'))
 
     return tokens
+
+
+  def TokenizeCode(self, code, tab_size, tokenizer):
+    lines = code.split('\n')
+
+    tokens = []
+
+    for line in lines:
+      line = line.rstrip('\r')
+      line = line.rstrip()
+      line = self.tabs_to_spaces(line, tab_size)
+
+      line_tokens = self.TokenizeLine(line, tokenizer)
+      tokens += line_tokens
+
+    return tokens
