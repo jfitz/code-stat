@@ -134,8 +134,6 @@ class Fortran90Examiner(Examiner):
     if len(tokens) > 0:
       operand_confidence = 1.0 - (two_operand_count / len(tokens))
 
-    self.confidences = {
-      'token': token_confidence,
-      'operator': operator_confidence,
-      'operand': operand_confidence
-    }
+    self.confidences['token'] = token_confidence
+    self.confidences['operator'] = operator_confidence
+    self.confidences['operand'] = operand_confidence

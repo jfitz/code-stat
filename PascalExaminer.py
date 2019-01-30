@@ -153,9 +153,7 @@ class PascalExaminer(Examiner):
     if num_operators > 0:
       operator_confidence = num_known_operators / num_operators
 
-    self.confidences = {
-        'program_end': program_end_confidence,
-        'begin_end': begin_end_confidence,
-        'token': token_confidence,
-        'operator': operator_confidence
-      }
+    self.confidences['program_end'] = program_end_confidence
+    self.confidences['begin_end'] = begin_end_confidence
+    self.confidences['token'] = token_confidence
+    self.confidences['operator'] = operator_confidence

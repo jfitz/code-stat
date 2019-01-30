@@ -139,8 +139,6 @@ class CsharpExaminer(Examiner):
     if num_operators > 0:
       operator_confidence = num_known_operators / num_operators
 
-    self.confidences = {
-      'brace_match': brace_match_confidence,
-      'token': token_confidence,
-      'operator': operator_confidence
-    }
+    self.confidences['brace_match'] = brace_match_confidence
+    self.confidences['token'] = token_confidence
+    self.confidences['operator'] = operator_confidence

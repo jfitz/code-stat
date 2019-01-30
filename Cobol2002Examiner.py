@@ -585,7 +585,5 @@ class Cobol2002Examiner(Examiner):
     if num_operators > 0:
       operator_confidence = num_known_operators / num_operators
 
-    self.confidences = {
-      'token': token_confidence,
-      'operator': operator_confidence
-    }
+    self.confidences['token'] = token_confidence
+    self.confidences['operator'] = operator_confidence

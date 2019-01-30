@@ -151,8 +151,6 @@ class BasicExaminer(Examiner):
     if num_lines > 0:
       line_format_confidence = num_lines_correct / num_lines
 
-    self.confidences = {
-      'line_format': line_format_confidence,
-      'token': token_confidence,
-      'operator': operator_confidence
-    }
+    self.confidences['line_format'] = line_format_confidence
+    self.confidences['token'] = token_confidence
+    self.confidences['operator'] = operator_confidence

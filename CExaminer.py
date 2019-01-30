@@ -174,9 +174,7 @@ class CExaminer(Examiner):
     # ratio = len(found_cpp_keywords) / len(cpp_keywords)
     # cpp_keyword_confidence = 1.0 - ratio ** (1.0 / 3.0)
 
-    self.confidences = {
-      'brace_match': brace_match_confidence,
-      'token': token_confidence,
-      'operator_1': operator_confidence_1,
-      'operator_2': operator_confidence_2
-    }
+    self.confidences['brace_match'] = brace_match_confidence
+    self.confidences['token'] = token_confidence
+    self.confidences['operator_1'] = operator_confidence_1
+    self.confidences['operator_2'] = operator_confidence_2

@@ -154,9 +154,7 @@ class PythonExaminer(Examiner):
     if num_lines > 0:
       line_format_2_confidence = num_lines_correct / num_lines
 
-    self.confidences = {
-      'token': token_confidence,
-      'operator': operator_confidence,
-      'line_format_1': line_format_1_confidence,
-      'line_format_2': line_format_2_confidence
-    }
+    self.confidences['token'] = token_confidence
+    self.confidences['operator'] = operator_confidence
+    self.confidences['line_format_1'] = line_format_1_confidence
+    self.confidences['line_format_2'] = line_format_2_confidence
