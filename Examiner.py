@@ -185,3 +185,14 @@ class Examiner:
       new_list.append(new_token)
 
     return new_list
+
+
+  def calc_token_confidence(self):
+    # unknown tokens reduce confidence
+    token_confidence = 1.0
+
+    if len(self.tokens) > 0:
+      num_known_tokens = self.count_valid_tokens(self.tokens)
+      token_confidence = num_known_tokens / len(self.tokens)
+
+    self.confidences['token'] = token_confidence

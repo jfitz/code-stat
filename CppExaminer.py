@@ -133,7 +133,6 @@ class CppExaminer(Examiner):
 
     self.tokens = tokenizer.tokenize(code)
       
-    num_known_tokens = self.count_valid_tokens(self.tokens)
     num_invalid_operators = self.count_invalid_operators(self.tokens)
     num_known_operators = self.count_known_operators(self.tokens)
 
@@ -148,11 +147,7 @@ class CppExaminer(Examiner):
     if not ok:
       brace_match_confidence *= 0.75
 
-    # unknown tokens reduce confidence
-    token_confidence = 1.0
-
-    if len(self.tokens) > 0:
-      token_confidence = num_known_tokens / len(self.tokens)
+    self.calc_token_confidence()
 
     # unknown operators reduce confidence
     operator_confidence_1 = 1.0
@@ -185,6 +180,5 @@ class CppExaminer(Examiner):
     # power_keyword_confidence = ratio ** (1.0 / 3.0)
 
     self.confidences['brace_match'] = brace_match_confidence
-    self.confidences['token'] = token_confidence
     self.confidences['operator_1'] = operator_confidence_1
     self.confidences['operator_2'] = operator_confidence_2

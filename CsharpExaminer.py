@@ -111,7 +111,6 @@ class CsharpExaminer(Examiner):
 
     self.tokens = tokenizer.tokenize(code)
       
-    num_known_tokens = self.count_valid_tokens(self.tokens)
     num_invalid_operators = self.count_invalid_operators(self.tokens)
     num_known_operators = self.count_known_operators(self.tokens)
 
@@ -126,11 +125,7 @@ class CsharpExaminer(Examiner):
     if not ok:
       brace_match_confidence *= 0.75
 
-    #  unknown tokens reduce confidence
-    token_confidence = 1.0
-
-    if len(self.tokens) > 0:
-      token_confidence = num_known_tokens / len(self.tokens)
+    self.calc_token_confidence()
 
     #  unknown operators reduce confidence
     operator_confidence = 1.0
@@ -140,5 +135,4 @@ class CsharpExaminer(Examiner):
       operator_confidence = num_known_operators / num_operators
 
     self.confidences['brace_match'] = brace_match_confidence
-    self.confidences['token'] = token_confidence
     self.confidences['operator'] = operator_confidence
