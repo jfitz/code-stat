@@ -196,3 +196,17 @@ class Examiner:
       token_confidence = num_known_tokens / len(self.tokens)
 
     self.confidences['token'] = token_confidence
+
+
+  def calc_operator_confidence(self):
+    #  unknown operators reduce confidence
+    num_invalid_operators = self.count_invalid_operators(self.tokens)
+    num_known_operators = self.count_known_operators(self.tokens)
+    num_operators = num_known_operators + num_invalid_operators
+
+    operator_confidence = 1.0
+
+    if num_operators > 0:
+      operator_confidence = num_known_operators / num_operators
+
+    self.confidences['operator'] = operator_confidence

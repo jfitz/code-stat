@@ -457,18 +457,7 @@ class Cobol85Examiner(CobolExaminer):
 
     self.tokens = self.combineAdjacentWhitespace(self.tokens)
 
-    num_invalid_operators = self.count_invalid_operators(self.tokens)
-    num_known_operators = self.count_known_operators(self.tokens)
-
     expected_keyword_confidence = self.CheckExpectedKeywords()
 
     self.calc_token_confidence()
-
-    #  unknown operators reduce confidence
-    operator_confidence = 1.0
-    num_operators = num_known_operators + num_invalid_operators
-
-    if num_operators > 0:
-      operator_confidence = num_known_operators / num_operators
-
-    self.confidences['operator'] = operator_confidence
+    self.calc_operator_confidence()

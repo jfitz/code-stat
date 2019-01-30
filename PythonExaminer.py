@@ -95,17 +95,8 @@ class PythonExaminer(Examiner):
 
     self.tokens = tokenizer.tokenize(code)
 
-    num_invalid_operators = self.count_invalid_operators(self.tokens)
-    num_known_operators = self.count_known_operators(self.tokens)
-
     self.calc_token_confidence()
-
-    # unknown operators reduce confidence
-    operator_confidence = 1.0
-    num_operators = num_known_operators + num_invalid_operators
-
-    if num_operators > 0:
-      operator_confidence = num_known_operators / num_operators
+    self.calc_operator_confidence()
 
     # line format 1 - lines without indent start with keyword
     lines = self.split_tokens(self.tokens)
@@ -149,6 +140,5 @@ class PythonExaminer(Examiner):
     if num_lines > 0:
       line_format_2_confidence = num_lines_correct / num_lines
 
-    self.confidences['operator'] = operator_confidence
     self.confidences['line_format_1'] = line_format_1_confidence
     self.confidences['line_format_2'] = line_format_2_confidence

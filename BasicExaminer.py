@@ -25,9 +25,6 @@ class BasicExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
-    num_invalid_operators = 0
-    num_known_operators = 0
-
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -115,19 +112,8 @@ class BasicExaminer(Examiner):
 
     self.tokens = tokenizer.tokenize(code)
 
-    num_invalid_operators = self.count_invalid_operators(self.tokens)
-    num_known_operators = self.count_known_operators(self.tokens)
-
     self.calc_token_confidence()
-
-    #  unknown operators reduce confidence
-    operator_confidence = 1.0
-    num_operators = num_known_operators + num_invalid_operators
-
-    if num_operators > 0:
-      operator_confidence = num_known_operators / num_operators
-
-    self.confidences['operator'] = operator_confidence
+    self.calc_operator_confidence()
 
     #  unknown identifiers (text of two or more, not FNx) reduce confidence
 

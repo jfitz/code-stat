@@ -110,9 +110,6 @@ class CsharpExaminer(Examiner):
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 
     self.tokens = tokenizer.tokenize(code)
-      
-    num_invalid_operators = self.count_invalid_operators(self.tokens)
-    num_known_operators = self.count_known_operators(self.tokens)
 
     # consider the number of matches for begin/end
     ok, num_begin, num_end = self.check_paired_tokens(self.tokens, ['{'], ['}'])
@@ -126,13 +123,6 @@ class CsharpExaminer(Examiner):
       brace_match_confidence *= 0.75
 
     self.calc_token_confidence()
-
-    #  unknown operators reduce confidence
-    operator_confidence = 1.0
-    num_operators = num_known_operators + num_invalid_operators
-
-    if num_operators > 0:
-      operator_confidence = num_known_operators / num_operators
+    self.calc_operator_confidence()
 
     self.confidences['brace_match'] = brace_match_confidence
-    self.confidences['operator'] = operator_confidence

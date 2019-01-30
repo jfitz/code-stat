@@ -108,9 +108,6 @@ class PascalExaminer(Examiner):
       if token.group not in ['whitespace', 'comment', 'newline']:
         last_token = token
 
-    num_invalid_operators = self.count_invalid_operators(self.tokens)
-    num_known_operators = self.count_known_operators(self.tokens)
-
     # program should begin with 'program'
     program_end_confidence = 0.0
     if first_token is not None:
@@ -140,14 +137,8 @@ class PascalExaminer(Examiner):
       begin_end_confidence *= 0.75
 
     self.calc_token_confidence()
+    self.calc_operator_confidence()
 
-    #  unknown operators reduce confidence
-    operator_confidence = 1.0
-    num_operators = num_known_operators + num_invalid_operators
-
-    if num_operators > 0:
-      operator_confidence = num_known_operators / num_operators
 
     self.confidences['program_end'] = program_end_confidence
     self.confidences['begin_end'] = begin_end_confidence
-    self.confidences['operator'] = operator_confidence

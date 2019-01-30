@@ -23,9 +23,6 @@ class Fortran77Examiner(Examiner):
   def __init__(self, code, tab_size):
     super().__init__()
 
-    num_invalid_operators = 0
-    num_known_operators = 0
-
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -157,17 +154,8 @@ class Fortran77Examiner(Examiner):
 
     self.tokens = self.combineAdjacentWhitespace(self.tokens)
 
-    num_invalid_operators = self.count_invalid_operators(self.tokens)
-    num_known_operators = self.count_known_operators(self.tokens)
-
     self.calc_token_confidence()
-
-    #  unknown operators reduce confidence
-    operator_confidence = 1.0
-    num_operators = num_known_operators + num_invalid_operators
-
-    if num_operators > 0:
-      operator_confidence = num_known_operators / num_operators
+    self.calc_operator_confidence()
 
     # two operands in a row is not FORTRAN
     tokens = self.drop_whitespace(self.tokens)
@@ -188,5 +176,4 @@ class Fortran77Examiner(Examiner):
     if len(tokens) > 0:
       operand_confidence = 1.0 - (two_operand_count / len(tokens))
 
-    self.confidences['operator'] = operator_confidence
     self.confidences['operand'] = operand_confidence
