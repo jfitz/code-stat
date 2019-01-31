@@ -97,6 +97,10 @@ class PascalExaminer(Examiner):
 
     self.tokens = tokenizer.tokenize(code)
 
+    self.calc_token_confidence()
+    self.calc_operator_confidence()
+    self.calc_paired_blockers_confidence(['begin', 'record', 'case'], ['end'])
+
     # get the first and last meaningful tokens
     first_token = None
     last_token = None
@@ -119,26 +123,4 @@ class PascalExaminer(Examiner):
       if last_token.text == '.':
         program_end_confidence += 0.25
 
-    # consider the number of matches for begin/end
-    ok, num_begin, num_end = self.check_paired_tokens(self.tokens, ['begin', 'record', 'case'], ['end'])
-    num_begin_end = num_begin + num_end
-    # assume no begin or end keywords
-    begin_end_confidence = 0.0
-    if num_begin_end > 0:
-      begin_end_confidence = 1.0
-      difference = num_begin - num_end
-      # match or -1 for turbo pascal which allows no starting begin
-      if difference not in [0, -1]:
-        # difference in counts reduces confidence
-        reduction = (abs(difference) / num_begin_end) * 0.1
-        begin_end_confidence -= reduction
-
-    if not ok:
-      begin_end_confidence *= 0.75
-
-    self.calc_token_confidence()
-    self.calc_operator_confidence()
-
-
     self.confidences['program_end'] = program_end_confidence
-    self.confidences['begin_end'] = begin_end_confidence

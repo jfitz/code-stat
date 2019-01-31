@@ -238,3 +238,18 @@ class Examiner:
       operator_confidence_2 = 1.0 - errors / num_operators
 
     self.confidences['operator_2'] = operator_confidence_2
+
+
+  def calc_paired_blockers_confidence(self, openers, closers):
+      # consider the number of matches for begin/end
+    ok, num_begin, num_end = self.check_paired_tokens(self.tokens, openers, closers)
+    num_begin_end = num_begin + num_end
+    paired_blocker_confidence = 0.0
+
+    if num_begin_end > 0:
+      paired_blocker_confidence = (num_begin + num_end) / num_begin_end
+
+    if not ok:
+      paired_blocker_confidence *= 0.75
+
+    self.confidences['paired_blockers_match'] = paired_blocker_confidence

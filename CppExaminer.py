@@ -132,23 +132,11 @@ class CppExaminer(Examiner):
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 
     self.tokens = tokenizer.tokenize(code)
-      
-    # consider the number of matches for begin/end
-    ok, num_begin, num_end = self.check_paired_tokens(self.tokens, ['{'], ['}'])
-    num_begin_end = num_begin + num_end
-    brace_match_confidence = 0.0
-
-    if num_begin_end > 0:
-      brace_match_confidence = (num_begin + num_end) / num_begin_end
-
-    if not ok:
-      brace_match_confidence *= 0.75
-
-    self.confidences['brace_match'] = brace_match_confidence
 
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
+    self.calc_paired_blockers_confidence(['{'], ['}'])
 
     # absence of power keywords reduces confidence
     power_keywords_found = {}
