@@ -14,6 +14,8 @@ class Examiner:
 
     self.tokens = []
     self.unknown_operator_tb = ListTokenBuilder(operators, 'invalid operator', True)
+    self.unary_operators = []
+    self.postfix_operators = []
     self.confidences = {}
 
 
@@ -210,3 +212,29 @@ class Examiner:
       operator_confidence = num_known_operators / num_operators
 
     self.confidences['operator'] = operator_confidence
+
+
+  def calc_operator_2_confidence(self):
+    # binary operators that follow operators reduce confidence
+    num_invalid_operators = self.count_invalid_operators(self.tokens)
+    num_known_operators = self.count_known_operators(self.tokens)
+    num_operators = num_known_operators + num_invalid_operators
+
+    operator_confidence_2 = 1.0
+
+    if num_operators > 0:
+      errors = 0
+      prev_token = Token('\n', 'newline')
+
+      for token in self.tokens:
+        if token.group == 'operator' and\
+          prev_token.group == 'operator' and\
+          prev_token.text not in self.postfix_operators and\
+          token.text not in self.unary_operators:
+          errors += 1
+
+        prev_token = token
+
+      operator_confidence_2 = 1.0 - errors / num_operators
+
+    self.confidences['operator_2'] = operator_confidence_2

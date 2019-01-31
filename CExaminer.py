@@ -57,13 +57,13 @@ class CExaminer(Examiner):
       '?', '{', '}'
     ]
 
-    unary_operators = [
+    self.unary_operators = [
       '+', '-', '*',
       '!', '&', '~',
       '++', '--'
     ]
 
-    postfix_operators = [
+    self.postfix_operators = [
       '++', '--', '&'
     ]
 
@@ -120,9 +120,6 @@ class CExaminer(Examiner):
 
     found_cpp_keywords = self.find_specific_keywords(self.tokens, cpp_keywords)
 
-    num_invalid_operators = self.count_invalid_operators(self.tokens)
-    num_known_operators = self.count_known_operators(self.tokens)
-
     # consider the number of matches for begin/end
     ok, num_begin, num_end = self.check_paired_tokens(self.tokens, ['{'], ['}'])
     num_begin_end = num_begin + num_end
@@ -134,27 +131,11 @@ class CExaminer(Examiner):
     if not ok:
       brace_match_confidence *= 0.75
 
+    self.confidences['brace_match'] = brace_match_confidence
+
     self.calc_token_confidence()
     self.calc_operator_confidence()
-
-    # unknown operators reduce confidence
-    operator_confidence_2 = 1.0
-    num_operators = num_known_operators + num_invalid_operators
-
-    if num_operators > 0:
-      errors = 0
-      prev_token = Token('\n', 'newline')
-
-      for token in self.tokens:
-        if token.group == 'operator' and\
-          prev_token.group == 'operator' and\
-          prev_token.text not in postfix_operators and\
-          token.text not in unary_operators:
-          errors += 1
-
-        prev_token = token
-
-      operator_confidence_2 = 1.0 - errors / num_operators
+    self.calc_operator_2_confidence()
 
     # C++ keywords reduce confidence
     # notice that they are tokenized as identifiers and not keywords
@@ -166,6 +147,3 @@ class CExaminer(Examiner):
 
     # ratio = len(found_cpp_keywords) / len(cpp_keywords)
     # cpp_keyword_confidence = 1.0 - ratio ** (1.0 / 3.0)
-
-    self.confidences['brace_match'] = brace_match_confidence
-    self.confidences['operator_2'] = operator_confidence_2
