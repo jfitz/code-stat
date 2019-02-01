@@ -114,13 +114,14 @@ class BasicExaminer(Examiner):
 
     self.calc_token_confidence()
     self.calc_operator_confidence()
+    self.calc_line_format_confidence()
 
-    #  unknown identifiers (text of two or more, not FNx) reduce confidence
 
-    # line format
+  def calc_line_format_confidence(self):
     lines = self.split_tokens(self.tokens)
     num_lines = 0
     num_lines_correct = 0
+
     for line in lines:
       if len(line) > 0:
         num_lines += 1
@@ -128,7 +129,7 @@ class BasicExaminer(Examiner):
         if line[0].group == 'line number':
           num_lines_correct += 1
     
-    line_format_confidence = 0
+    line_format_confidence = 0.0
 
     if num_lines > 0:
       line_format_confidence = num_lines_correct / num_lines

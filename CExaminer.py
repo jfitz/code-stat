@@ -87,14 +87,6 @@ class CExaminer(Examiner):
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
-    cpp_keywords = [
-      'private', 'protected', 'public',
-      'true', 'false',
-      'cin', 'cout',
-      'bool', 'class', 'friend', 'operator',
-      'try', 'catch', 'throw'
-    ]
-
     tokenbuilders = [
       whitespace_tb,
       newline_tb,
@@ -118,20 +110,7 @@ class CExaminer(Examiner):
 
     self.tokens = tokenizer.tokenize(code)
 
-    found_cpp_keywords = self.find_specific_keywords(self.tokens, cpp_keywords)
-
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
-
-    # C++ keywords reduce confidence
-    # notice that they are tokenized as identifiers and not keywords
-    found_cpp_keywords = {}
-    identifiers = self.find_identifiers()
-    for text in identifiers:
-      if text in cpp_keywords:
-        found_cpp_keywords[text] = True
-
-    # ratio = len(found_cpp_keywords) / len(cpp_keywords)
-    # cpp_keyword_confidence = 1.0 - ratio ** (1.0 / 3.0)

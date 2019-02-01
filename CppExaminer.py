@@ -101,14 +101,6 @@ class CppExaminer(Examiner):
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
-    power_keywords = [
-      'private', 'protected', 'public',
-      'true', 'false',
-      'cin', 'cout',
-      'bool', 'class', 'friend', 'operator',
-      'try', 'catch', 'throw'
-    ]
-
     tokenbuilders = [
       whitespace_tb,
       newline_tb,
@@ -137,12 +129,3 @@ class CppExaminer(Examiner):
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
-
-    # absence of power keywords reduces confidence
-    power_keywords_found = {}
-    for token in self.tokens:
-      if token.group == 'keyword' and token.text in power_keywords:
-        power_keywords_found[token.text] = True
-
-    # ratio = len(power_keywords_found) / len(power_keywords)
-    # power_keyword_confidence = ratio ** (1.0 / 3.0)

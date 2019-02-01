@@ -416,10 +416,7 @@ class Cobol74Examiner(CobolExaminer):
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 
     self.tokens = self.TokenizeCode(code, tab_size, tokenizer)
-
     self.tokens = self.combineAdjacentWhitespace(self.tokens)
-
-    expected_keyword_confidence = self.CheckExpectedKeywords()
 
     self.calc_token_confidence()
     self.calc_operator_confidence()

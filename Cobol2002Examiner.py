@@ -518,55 +518,7 @@ class Cobol2002Examiner(Examiner):
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 
-    lines = code.split('\n')
-
-    self.tokens = []
-    for line in lines:
-      line = line.rstrip('\r')
-      line = line.rstrip()
-
-      # in free-format COBOL, the entire line can contain tokens
-      self.tokens += tokenizer.tokenize(line)
-
-      self.tokens.append(Token('\n', 'newline'))
-
-    self.tokens = self.combineAdjacentWhitespace(self.tokens)
-
-    # check expected keywords
-    counts = {
-      'IDENTIFICATION': 0,
-      'ENVIRONMENT': 0,
-      'DATA': 0,
-      'PROCEDURE': 0
-    }
-
-    tokens = self.drop_whitespace(self.tokens)
-    tokens = self.drop_comments(tokens)
-
-    prev_text = ''
-    for token in tokens:
-      text = token.text
-
-      if text == 'DIVISION' and prev_text in ['IDENTIFICATION', 'ID']:
-        counts['IDENTIFICATION'] += 1
-      if text == 'DIVISION' and prev_text == 'ENVIRONMENT':
-        counts['ENVIRONMENT'] += 1
-      if text == 'DIVISION' and prev_text == 'DATA':
-        counts['DATA'] += 1
-      if text == 'DIVISION' and prev_text == 'PROCEDURE':
-        counts['PROCEDURE'] += 1
-
-      prev_text = text
-    
-    expected_keyword_confidence = 0.50
-    if counts['IDENTIFICATION'] == 1:
-      expected_keyword_confidence += 0.125
-    if counts['ENVIRONMENT'] == 1:
-      expected_keyword_confidence += 0.125
-    if counts['DATA'] == 1:
-      expected_keyword_confidence += 0.125
-    if counts['PROCEDURE'] == 1:
-      expected_keyword_confidence += 0.125
+    self.tokens += tokenizer.tokenize(code)
 
     self.calc_token_confidence()
     self.calc_operator_confidence()

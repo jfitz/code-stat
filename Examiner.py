@@ -241,7 +241,7 @@ class Examiner:
 
 
   def calc_paired_blockers_confidence(self, openers, closers):
-      # consider the number of matches for begin/end
+    # consider the number of matches for begin/end
     ok, num_begin, num_end = self.check_paired_tokens(self.tokens, openers, closers)
     num_begin_end = num_begin + num_end
     paired_blocker_confidence = 0.0
@@ -253,3 +253,7 @@ class Examiner:
       paired_blocker_confidence *= 0.75
 
     self.confidences['paired_blockers_match'] = paired_blocker_confidence
+
+
+  def calc_line_format_confidence(self):
+    self.confidences['line_format'] = 1.0
