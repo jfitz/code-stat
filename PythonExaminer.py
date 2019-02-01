@@ -108,7 +108,11 @@ class PythonExaminer(Examiner):
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
+    self.calc_line_format_1_confidence()
+    self.calc_line_format_2_confidence()
 
+
+  def calc_line_format_1_confidence(self):
     # line format 1 - lines without indent start with keyword
     lines = self.split_tokens(self.tokens)
     num_lines = 0
@@ -127,6 +131,10 @@ class PythonExaminer(Examiner):
 
     line_format_1_confidence = 1.0
 
+    self.confidences['line_format_1'] = line_format_1_confidence
+
+
+  def calc_line_format_2_confidence(self):
     # line format 2 - some keyword lines end in colon
     tokens = self.drop_whitespace(self.tokens)
     tokens = self.drop_comments(tokens)
@@ -151,5 +159,4 @@ class PythonExaminer(Examiner):
     if num_lines > 0:
       line_format_2_confidence = num_lines_correct / num_lines
 
-    self.confidences['line_format_1'] = line_format_1_confidence
     self.confidences['line_format_2'] = line_format_2_confidence
