@@ -49,10 +49,14 @@ class BasicExaminer(Examiner):
     known_operators = [
       '+', '-', '*', '/', '^',
       '=', '>', '>=', '<', '<=', '<>',
-      '#', '\\'
+      '#', '\\', '#'
     ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+
+    self.unary_operators = [
+      '+', '-', '#'
+    ]
 
     groupers = ['(', ')', ',', ';']
 
@@ -114,6 +118,7 @@ class BasicExaminer(Examiner):
 
     self.calc_token_confidence()
     self.calc_operator_confidence()
+    self.calc_operator_2_confidence()
     self.calc_line_format_confidence()
 
 

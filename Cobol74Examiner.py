@@ -46,6 +46,10 @@ class Cobol74Examiner(CobolExaminer):
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
+    self.unary_operators = [
+      '+', '-'
+    ]
+
     groupers = ['(', ')', ',']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
@@ -420,3 +424,4 @@ class Cobol74Examiner(CobolExaminer):
 
     self.calc_token_confidence()
     self.calc_operator_confidence()
+    self.calc_operator_2_confidence()

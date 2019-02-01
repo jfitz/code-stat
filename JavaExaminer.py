@@ -50,6 +50,16 @@ class JavaExaminer(Examiner):
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
+    self.unary_operators = [
+      '+', '-',
+      '!', '~',
+      '++', '--'
+    ]
+
+    self.postfix_operators = [
+      '++', '--'
+    ]
+
     groupers = ['(', ')', ',', '[', ']']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
@@ -96,4 +106,5 @@ class JavaExaminer(Examiner):
 
     self.calc_token_confidence()
     self.calc_operator_confidence()
+    self.calc_operator_2_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])

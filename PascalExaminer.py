@@ -55,6 +55,11 @@ class PascalExaminer(Examiner):
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', False)
 
+    self.unary_operators = [
+      '+', '-',
+      'not', '@', '^', '.'
+    ]
+
     groupers = ['(', ')', ',', '[', ']']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
@@ -99,6 +104,7 @@ class PascalExaminer(Examiner):
 
     self.calc_token_confidence()
     self.calc_operator_confidence()
+    self.calc_operator_2_confidence()
     self.calc_paired_blockers_confidence(['begin', 'record', 'case'], ['end'])
 
     # get the first and last meaningful tokens

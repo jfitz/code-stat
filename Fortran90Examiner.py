@@ -44,6 +44,10 @@ class Fortran90Examiner(Examiner):
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', False)
 
+    self.unary_operators = [
+      '+', '-'
+    ]
+
     continuation_tb = ListTokenBuilder(['&'], 'line continuation', False)
 
     stmt_separator_tb = ListTokenBuilder([';'], 'statement separator', False)
@@ -98,23 +102,5 @@ class Fortran90Examiner(Examiner):
 
     self.calc_token_confidence()
     self.calc_operator_confidence()
-
-    # two operands in a row is not FORTRAN
-    tokens = self.drop_whitespace(self.tokens)
-    tokens = self.drop_comments(tokens)
-
-    operands = ['number', 'string', 'identifier']
-
-    two_operand_count = 0
-    prev_token = Token('\n', 'newline')
-    for token in tokens:
-      if token.group in operands and prev_token.group in operands:
-        two_operand_count += 1
-
-      prev_token = token
-
-    operand_confidence = 1.0
-    if len(tokens) > 0:
-      operand_confidence = 1.0 - (two_operand_count / len(tokens))
-
-    self.confidences['operand'] = operand_confidence
+    self.calc_operator_2_confidence()
+    self.calc_operand_confidence()

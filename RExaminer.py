@@ -45,6 +45,11 @@ class RExaminer(Examiner):
         '=', '<-', '<<-', '->', '->>'
       ]
 
+    self.unary_operators = [
+      '+', '-',
+      '!', '@'
+    ]
+
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
     stmt_separator_tb = ListTokenBuilder([';'], 'statement separator', False)
@@ -88,3 +93,4 @@ class RExaminer(Examiner):
 
     self.calc_token_confidence()
     self.calc_operator_confidence()
+    self.calc_operator_2_confidence()

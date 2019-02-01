@@ -257,3 +257,25 @@ class Examiner:
 
   def calc_line_format_confidence(self):
     self.confidences['line_format'] = 1.0
+
+
+  def calc_operand_confidence(self):
+    # two operands in a row decreases confidence
+    tokens = self.drop_whitespace(self.tokens)
+    tokens = self.drop_comments(tokens)
+
+    operands = ['number', 'string', 'identifier', 'variable']
+
+    two_operand_count = 0
+    prev_token = Token('\n', 'newline')
+    for token in tokens:
+      if token.group in operands and prev_token.group in operands:
+        two_operand_count += 1
+
+      prev_token = token
+
+    operand_confidence = 1.0
+    if len(tokens) > 0:
+      operand_confidence = 1.0 - (two_operand_count / len(tokens))
+
+    self.confidences['operand'] = operand_confidence

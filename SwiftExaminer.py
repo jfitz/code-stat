@@ -31,8 +31,8 @@ class SwiftExaminer(Examiner):
 
     integer_tb = IntegerTokenBuilder(True)
     integer_exponent_tb = IntegerExponentTokenBuilder()
-    real_tb = RealTokenBuilder(False, False)
-    real_exponent_tb = RealExponentTokenBuilder(False, False)
+    real_tb = RealTokenBuilder(True, True)
+    real_exponent_tb = RealExponentTokenBuilder(True, True)
     identifier_tb = IdentifierTokenBuilder()
     attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute')
     string_tb = StringTokenBuilder(['"'], False)
@@ -45,14 +45,28 @@ class SwiftExaminer(Examiner):
         '+', '-', '*', '/', '%',
         '==', '!=', '>', '<', '>=', '<=',
         '&&', '||', '!', '&', '|', '^',
-        '~', '<<', '>>',
+        '~', '<<', '>>', '===',
         '=', '+=', '-=', '*=', '/=', '%=', '<<=', '>>=', '&=', '^=', '|=',
         '...', '..<', '?', ':',
-        '(', ')', '[', ']', '.', '++', '--',
-        ',', '{', '}', '->', '??'
+        '.', '++', '--',
+        '->', '??'
       ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+
+    self.unary_operators = [
+      '+', '-',
+      '!', '~',
+      '++', '--'
+    ]
+
+    self.postfix_operators = [
+      '++', '--'
+    ]
+
+    groupers = ['(', ')', ',', '[', ']', '{', '}']
+
+    groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     keywords = [
       'associatedtype', 'class', 'deinit', 'enum', 'extension', 'fileprivate',
@@ -84,6 +98,7 @@ class SwiftExaminer(Examiner):
       real_exponent_tb,
       keyword_tb,
       known_operator_tb,
+      groupers_tb,
       identifier_tb,
       attribute_tb,
       string_tb,
@@ -100,3 +115,4 @@ class SwiftExaminer(Examiner):
 
     self.calc_token_confidence()
     self.calc_operator_confidence()
+    self.calc_operator_2_confidence()

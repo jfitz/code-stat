@@ -60,7 +60,7 @@ class PictureTokenBuilder(TokenBuilder):
       result = True
 
     if num_rparens == num_lparens:
-      if c in ['9', 'X', 'Z', 'V', ',', '.'] and len(candidate) > 0:
+      if c in ['9', 'X', 'Z', 'V', ',', '.', '-'] and len(candidate) > 0:
         result = True
 
       if c in ['9', 'X', 'Z', 'V'] and candidate =='':

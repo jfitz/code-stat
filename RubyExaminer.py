@@ -54,10 +54,19 @@ class RubyExaminer(Examiner):
         '<<=', '>>=',
         '&&=', '&=', '||=', '|=', '^=',
         'not', 'and', 'or',
-        '.', '{', '}'
+        '.', '{', '}', '=>'
       ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+
+    self.unary_operators = [
+      '+', '-',
+      '!', '~'
+    ]
+
+    self.postfix_operators = [
+      '++', '--'
+    ]
 
     groupers = ['(', ')', ',', '[', ']']
 
@@ -99,3 +108,4 @@ class RubyExaminer(Examiner):
 
     self.calc_token_confidence()
     self.calc_operator_confidence()
+    self.calc_operator_2_confidence()

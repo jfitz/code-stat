@@ -48,10 +48,20 @@ class PythonExaminer(Examiner):
       '&', '|', '~', '<<', '>>',
       '**',
       '.', ':',
-      '++', '--', 'and', 'or', 'in', 'is'
+      '++', '--', 'and', 'or', 'in', 'is', 'not'
     ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+
+    self.unary_operators = [
+      '+', '-',
+      'not', '~',
+      '++', '--'
+    ]
+
+    self.postfix_operators = [
+      '++', '--'
+    ]
 
     groupers = ['(', ')', ',', '[', ']']
 
@@ -97,6 +107,7 @@ class PythonExaminer(Examiner):
 
     self.calc_token_confidence()
     self.calc_operator_confidence()
+    self.calc_operator_2_confidence()
 
     # line format 1 - lines without indent start with keyword
     lines = self.split_tokens(self.tokens)

@@ -62,6 +62,16 @@ class CsharpExaminer(Examiner):
       'checked', 'unchecked', 'typeof', 'new'
     ]
     
+    self.unary_operators = [
+      '+', '-',
+      '!', '~',
+      '++', '--'
+    ]
+
+    self.postfix_operators = [
+      '++', '--'
+    ]
+
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
     groupers = ['(', ')', ',', '[', ']']
@@ -113,4 +123,5 @@ class CsharpExaminer(Examiner):
 
     self.calc_token_confidence()
     self.calc_operator_confidence()
+    self.calc_operator_2_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])

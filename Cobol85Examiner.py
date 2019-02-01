@@ -46,6 +46,10 @@ class Cobol85Examiner(CobolExaminer):
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
+    self.unary_operators = [
+      '+', '-'
+    ]
+
     groupers = ['(', ')', ',']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
