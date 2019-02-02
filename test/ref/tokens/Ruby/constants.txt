@@ -8168,108 +8168,8 @@
         "value": " "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "s"
-    },
-    {
-        "type": "operator",
-        "value": "*"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "group",
-        "value": "("
-    },
-    {
-        "type": "identifier",
-        "value": "E"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "group",
-        "value": ")"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "z"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A\\s*[+-]?\\d+(E+?\\d+)?\\z/"
     },
     {
         "type": "whitespace",
@@ -8344,104 +8244,8 @@
         "value": " "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "s"
-    },
-    {
-        "type": "operator",
-        "value": "*"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "group",
-        "value": "("
-    },
-    {
-        "type": "identifier",
-        "value": "E"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "group",
-        "value": ")"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "z"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A\\s*[+-]?\\d+(E-\\d+)?\\z/"
     },
     {
         "type": "whitespace",
@@ -8508,152 +8312,8 @@
         "value": " "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "s"
-    },
-    {
-        "type": "operator",
-        "value": "*"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "operator",
-        "value": "."
-    },
-    {
-        "type": "group",
-        "value": "("
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "*"
-    },
-    {
-        "type": "group",
-        "value": ")"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "group",
-        "value": "("
-    },
-    {
-        "type": "identifier",
-        "value": "E"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "group",
-        "value": ")"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "z"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A\\s*[+-]?\\d+\\.(\\d*)?(E[+-]?\\d+)?\\z/"
     },
     {
         "type": "whitespace",
@@ -8720,152 +8380,8 @@
         "value": " "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "s"
-    },
-    {
-        "type": "operator",
-        "value": "*"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "group",
-        "value": "("
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "group",
-        "value": ")"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "operator",
-        "value": "."
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "*"
-    },
-    {
-        "type": "group",
-        "value": "("
-    },
-    {
-        "type": "identifier",
-        "value": "E"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "group",
-        "value": ")"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "z"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A\\s*[+-]?(\\d+)?\\.\\d*(E[+-]?\\d+)?\\z/"
     },
     {
         "type": "whitespace",
@@ -14688,28 +14204,8 @@
         "value": "("
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "number",
-        "value": "0"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "z"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/0+\\z/"
     },
     {
         "type": "group",
@@ -14740,28 +14236,8 @@
         "value": "("
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "operator",
-        "value": "."
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "z"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\.\\z/"
     },
     {
         "type": "group",
@@ -15500,76 +14976,8 @@
         "value": " "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "s"
-    },
-    {
-        "type": "operator",
-        "value": "*"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "%"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "z"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A\\s*[+-]?\\d+%\\z/"
     },
     {
         "type": "whitespace",
@@ -20408,32 +19816,8 @@
         "value": "    "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "string",
-        "value": "\".*\""
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "z"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A\".*\"\\z/"
     },
     {
         "type": "operator",
@@ -26148,72 +25532,8 @@
         "value": "    "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "identifier",
-        "value": "Z"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "invalid operator",
-        "value": "$"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "z"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A[A-Z]\\d?\\$?\\z/"
     },
     {
         "type": "operator",

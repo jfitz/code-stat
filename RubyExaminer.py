@@ -16,7 +16,8 @@ from TokenBuilders import (
 )
 from RubyTokenBuilders import (
   IdentifierTokenBuilder,
-  HereDocTokenBuilder
+  HereDocTokenBuilder,
+  RegexTokenBuilder
 )
 from Tokenizer import Tokenizer
 
@@ -72,6 +73,8 @@ class RubyExaminer(Examiner):
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
+    regex_tb = RegexTokenBuilder()
+
     keywords = [
       'BEGIN', 'END', 'alias', 'begin', 'break', 'case', 'class',
       'def', 'defined?', 'do', 'else', 'elsif', 'end', 'ensure',
@@ -94,6 +97,7 @@ class RubyExaminer(Examiner):
       symbol_tb,
       known_operator_tb,
       groupers_tb,
+      regex_tb,
       identifier_tb,
       string_tb,
       heredoc_tb,

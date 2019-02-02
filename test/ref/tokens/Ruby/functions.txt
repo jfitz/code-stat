@@ -2500,48 +2500,8 @@
         "value": "    "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "AFN"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "identifier",
-        "value": "Z"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "z"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\AFN[A-Z]\\z/"
     },
     {
         "type": "operator",

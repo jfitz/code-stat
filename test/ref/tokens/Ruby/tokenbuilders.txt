@@ -3876,32 +3876,8 @@
         "value": "    "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "s"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A\\s+/"
     },
     {
         "type": "operator",
@@ -5472,52 +5448,8 @@
         "value": "      "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A[+-]?\\d+/"
     },
     {
         "type": "group",
@@ -5532,60 +5464,8 @@
         "value": "      "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "operator",
-        "value": "."
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A[+-]?\\d+\\./"
     },
     {
         "type": "group",
@@ -5600,88 +5480,8 @@
         "value": "      "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "identifier",
-        "value": "E"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A[+-]?\\d+E[+-]?\\d+/"
     },
     {
         "type": "group",
@@ -5696,96 +5496,8 @@
         "value": "      "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "operator",
-        "value": "."
-    },
-    {
-        "type": "identifier",
-        "value": "E"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A[+-]?\\d+\\.E[+-]?\\d+/"
     },
     {
         "type": "group",
@@ -5800,72 +5512,8 @@
         "value": "      "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "operator",
-        "value": "."
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A[+-]?\\d+\\.\\d+/"
     },
     {
         "type": "group",
@@ -5880,108 +5528,8 @@
         "value": "      "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "operator",
-        "value": "."
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "identifier",
-        "value": "E"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A[+-]?\\d+\\.\\d+E[+-]?\\d+/"
     },
     {
         "type": "group",
@@ -5996,60 +5544,8 @@
         "value": "      "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "operator",
-        "value": "."
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A[+-]?\\.\\d+/"
     },
     {
         "type": "group",
@@ -6064,96 +5560,8 @@
         "value": "      "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "operator",
-        "value": "."
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "identifier",
-        "value": "E"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A[+-]?\\.\\d+E[+-]?\\d+/"
     },
     {
         "type": "newline",
@@ -7896,16 +7304,8 @@
         "value": "      "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "identifier",
-        "value": "PI"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/PI/"
     },
     {
         "type": "group",
@@ -7920,56 +7320,8 @@
         "value": "      "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "comment",
-        "value": "#./,"
-    },
-    {
-        "type": "newline",
-        "value": "\n"
-    },
-    {
-        "type": "whitespace",
-        "value": "      "
-    },
-    {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "z"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/#./"
     },
     {
         "type": "group",
@@ -7984,48 +7336,8 @@
         "value": "      "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "operator",
-        "value": "."
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "z"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A\\d+\\z/"
     },
     {
         "type": "group",
@@ -8040,76 +7352,8 @@
         "value": "      "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "identifier",
-        "value": "E"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "z"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A\\d+\\.\\z/"
     },
     {
         "type": "group",
@@ -8124,84 +7368,8 @@
         "value": "      "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "operator",
-        "value": "."
-    },
-    {
-        "type": "identifier",
-        "value": "E"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "z"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A\\d+E[+-]?\\d+\\z/"
     },
     {
         "type": "group",
@@ -8216,108 +7384,8 @@
         "value": "      "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "operator",
-        "value": "."
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "group",
-        "value": "("
-    },
-    {
-        "type": "identifier",
-        "value": "E"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "group",
-        "value": ")"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "z"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A\\d+\\.E[+-]?\\d+\\z/"
     },
     {
         "type": "group",
@@ -8332,96 +7400,24 @@
         "value": "      "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "operator",
-        "value": "."
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
+        "type": "regex",
+        "value": "/\\A\\d+\\.\\d+(E[+-]?\\d+)?\\z/"
     },
     {
         "type": "group",
-        "value": "("
+        "value": ","
     },
     {
-        "type": "identifier",
-        "value": "E"
+        "type": "newline",
+        "value": "\n"
     },
     {
-        "type": "group",
-        "value": "["
+        "type": "whitespace",
+        "value": "      "
     },
     {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "group",
-        "value": ")"
-    },
-    {
-        "type": "operator",
-        "value": "?"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "z"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A\\.\\d+(E[+-]?\\d+)?\\z/"
     },
     {
         "type": "newline",
@@ -9092,32 +8088,8 @@
         "value": " "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "number",
-        "value": "0"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "number",
-        "value": "9"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/[0-9]/"
     },
     {
         "type": "newline",
@@ -10512,36 +9484,8 @@
         "value": "      "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "operator",
-        "value": "+"
-    },
-    {
-        "type": "operator",
-        "value": "%"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A\\d+%/"
     },
     {
         "type": "newline",
@@ -11240,32 +10184,8 @@
         "value": " "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "number",
-        "value": "0"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "number",
-        "value": "9"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/[0-9]/"
     },
     {
         "type": "whitespace",
@@ -12052,48 +10972,8 @@
         "value": "      "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "identifier",
-        "value": "Z"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "z"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A[A-Z]\\z/"
     },
     {
         "type": "group",
@@ -12108,56 +10988,8 @@
         "value": "      "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "identifier",
-        "value": "Z"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "z"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A[A-Z]\\d\\z/"
     },
     {
         "type": "group",
@@ -12172,56 +11004,8 @@
         "value": "      "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "identifier",
-        "value": "Z"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "invalid operator",
-        "value": "$"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "z"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A[A-Z]\\$\\z/"
     },
     {
         "type": "group",
@@ -12236,64 +11020,8 @@
         "value": "      "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "identifier",
-        "value": "Z"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "invalid operator",
-        "value": "$"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "z"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A[A-Z]\\d\\$\\z/"
     },
     {
         "type": "group",
@@ -12308,56 +11036,8 @@
         "value": "      "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "identifier",
-        "value": "Z"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "operator",
-        "value": "%"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "z"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A[A-Z]\\%\\z/"
     },
     {
         "type": "group",
@@ -12372,64 +11052,8 @@
         "value": "      "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "identifier",
-        "value": "Z"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "d"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "operator",
-        "value": "%"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "z"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A[A-Z]\\d\\%\\z/"
     },
     {
         "type": "newline",
@@ -13012,32 +11636,8 @@
         "value": " "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "identifier",
-        "value": "Z"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/[A-Z]/"
     },
     {
         "type": "whitespace",
@@ -13136,32 +11736,8 @@
         "value": " "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "number",
-        "value": "0"
-    },
-    {
-        "type": "operator",
-        "value": "-"
-    },
-    {
-        "type": "number",
-        "value": "9"
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/[0-9]/"
     },
     {
         "type": "whitespace",
@@ -13724,32 +12300,100 @@
         "value": "    "
     },
     {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A\"[^\"]*\"/"
     },
     {
-        "type": "invalid operator",
-        "value": "\\"
+        "type": "operator",
+        "value": "."
     },
     {
         "type": "identifier",
-        "value": "A"
+        "value": "match"
     },
     {
-        "type": "string",
-        "value": "\"[^\""
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "{"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "|"
+    },
+    {
+        "type": "identifier",
+        "value": "m"
+    },
+    {
+        "type": "operator",
+        "value": "|"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "token"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "m"
+    },
+    {
+        "type": "group",
+        "value": "["
+    },
+    {
+        "type": "number",
+        "value": "0"
     },
     {
         "type": "group",
         "value": "]"
     },
     {
-        "type": "operator",
-        "value": "*"
+        "type": "whitespace",
+        "value": " "
     },
     {
-        "type": "string",
-        "value": "\"/.match(text) { |m| @token = m[0] }"
+        "type": "operator",
+        "value": "}"
     },
     {
         "type": "newline",
@@ -14004,48 +12648,8 @@
         "value": "    "
     },
     {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "invalid operator",
-        "value": "\\"
-    },
-    {
-        "type": "identifier",
-        "value": "A"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "operator",
-        "value": "^"
-    },
-    {
-        "type": "group",
-        "value": ","
-    },
-    {
-        "type": "statement separator",
-        "value": ";"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "group",
-        "value": "]"
-    },
-    {
-        "type": "operator",
-        "value": "*"
-    },
-    {
-        "type": "operator",
-        "value": "/"
+        "type": "regex",
+        "value": "/\\A[^,; ]*/"
     },
     {
         "type": "operator",
