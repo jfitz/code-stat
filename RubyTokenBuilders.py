@@ -62,17 +62,18 @@ class HereDocTokenBuilder(TokenBuilder):
     if len(candidate) < len(self.oper):
       result = self.oper.startswith(candidate)
     else:
-      result = True
+      if candidate.startswith(self.oper):
+        result = True
 
-      # if the last line begins with the marker from the first line
-      # stop accepting characters
-      lines = candidate.split('\n')
-      if len(lines) > 1:
-        first_line = lines[0]
-        last_line = lines[-1]
-        marker = first_line[len(self.oper):].rstrip()
-        if last_line.startswith(marker):
-          result = False
+        # if the last line begins with the marker from the first line
+        # stop accepting characters
+        lines = candidate.split('\n')
+        if len(lines) > 1:
+          first_line = lines[0]
+          last_line = lines[-1]
+          marker = first_line[len(self.oper):].rstrip()
+          if last_line.startswith(marker):
+            result = False
 
     return result
 

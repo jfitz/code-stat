@@ -1,3 +1,5 @@
+import argparse
+import cProfile
 import json
 import codecs
 from flask import Flask, request, render_template
@@ -538,4 +540,17 @@ def tokenize_confidence(code, language, tabsize):
   return retval
 
 if __name__ == '__main__':
-  app.run()
+  parser = argparse.ArgumentParser()
+  parser.add_argument('--tokenize', action='store', dest='tokenize')
+  args = parser.parse_args()
+
+  if args.tokenize is not None:
+    print('Tokenizing file ' + args.tokenize)
+    in_file = open(args.tokenize, 'r')
+    code = in_file.read()
+    in_file.close()
+    language = 'ruby'
+    tabsize = 4
+    cProfile.run('tokenize(code, language, tabsize)')
+  else:
+    app.run()
