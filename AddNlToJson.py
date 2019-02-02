@@ -16,7 +16,7 @@ for line in fileinput.input():
                 in_quotes = False
 
             print(char, end = '')
-            prev_was_escape = char == '\\'
+            prev_was_escape = (char == '\\' and not prev_was_escape)
             
         else:
             if char == '"':
