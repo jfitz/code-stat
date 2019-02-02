@@ -83,6 +83,18 @@ test\bin\run_test.ps1 -json -name calculator3 -action confidence -language Cshar
 test\bin\run_test.ps1 -json -name prime_test-java -action confidence -language Java -inputfile ".\test\data\Java\prime_test.java" -expected ".\test\ref\confidence\Java\prime_test.txt"
 test\bin\run_test.ps1 -json -name palindrome-java -action confidence -language Java -inputfile ".\test\data\Java\palindrome.java" -expected ".\test\ref\confidence\Java\palindrome.txt"
 
+test\bin\run_test.ps1 -json -name basic-ruby -action confidence -language Ruby -inputfile ".\test\data\Ruby\basic.rb" -expected ".\test\ref\confidence\Ruby\basic.txt"
+test\bin\run_test.ps1 -json -name constants-ruby -action confidence -language Ruby -inputfile ".\test\data\Ruby\constants.rb" -expected ".\test\ref\confidence\Ruby\constants.txt"
+test\bin\run_test.ps1 -json -name exceptions-ruby -action confidence -language Ruby -inputfile ".\test\data\Ruby\exceptions.rb" -expected ".\test\ref\confidence\Ruby\exceptions.txt"
+test\bin\run_test.ps1 -json -name expressions-ruby -action confidence -language Ruby -inputfile ".\test\data\Ruby\expressions.rb" -expected ".\test\ref\confidence\Ruby\expressions.txt"
+test\bin\run_test.ps1 -json -name functions-ruby -action confidence -language Ruby -inputfile ".\test\data\Ruby\functions.rb" -expected ".\test\ref\confidence\Ruby\functions.txt"
+test\bin\run_test.ps1 -json -name io-ruby -action confidence -language Ruby -inputfile ".\test\data\Ruby\io.rb" -expected ".\test\ref\confidence\Ruby\io.txt"
+test\bin\run_test.ps1 -json -name modifiers-ruby -action confidence -language Ruby -inputfile ".\test\data\Ruby\modifiers.rb" -expected ".\test\ref\confidence\Ruby\modifiers.txt"
+test\bin\run_test.ps1 -json -name operators-ruby -action confidence -language Ruby -inputfile ".\test\data\Ruby\operators.rb" -expected ".\test\ref\confidence\Ruby\operators.txt"
+test\bin\run_test.ps1 -json -name statements-ruby -action confidence -language Ruby -inputfile ".\test\data\Ruby\statements.rb" -expected ".\test\ref\confidence\Ruby\statements.txt"
+test\bin\run_test.ps1 -json -name tokenbuilders-ruby -action confidence -language Ruby -inputfile ".\test\data\Ruby\tokenbuilders.rb" -expected ".\test\ref\confidence\Ruby\tokenbuilders.txt"
+test\bin\run_test.ps1 -json -name tokenizers-ruby -action confidence -language Ruby -inputfile ".\test\data\Ruby\tokenizers.rb" -expected ".\test\ref\confidence\Ruby\tokenizers.txt"
+test\bin\run_test.ps1 -json -name tokens-ruby -action confidence -language Ruby -inputfile ".\test\data\Ruby\tokens.rb" -expected ".\test\ref\confidence\Ruby\tokens.txt"
 test\bin\run_test.ps1 -json -name webhook-ruby -action confidence -language Ruby -inputfile ".\test\data\Ruby\webhook.rb" -expected ".\test\ref\confidence\Ruby\webhook.txt"
 
 test\bin\run_test.ps1 -json -name family-main -action confidence -language Prolog -inputfile ".\test\data\Prolog\family-main.pl" -expected ".\test\ref\confidence\Prolog\family-main.txt"

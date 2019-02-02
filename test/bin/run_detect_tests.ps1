@@ -81,6 +81,18 @@ test\bin\run_test.ps1 -json -name calculator3 -action detect -inputfile ".\test\
 test\bin\run_test.ps1 -json -name prime_test-java -action detect -inputfile ".\test\data\Java\prime_test.java" -expected ".\test\ref\detect\Java\prime_test.txt"
 test\bin\run_test.ps1 -json -name palindrome-java -action detect -inputfile ".\test\data\Java\palindrome.java" -expected ".\test\ref\detect\Java\palindrome.txt"
 
+test\bin\run_test.ps1 -json -name basic-ruby -action detect -inputfile ".\test\data\Ruby\basic.rb" -expected ".\test\ref\detect\Ruby\basic.txt"
+test\bin\run_test.ps1 -json -name constants-ruby -action detect -inputfile ".\test\data\Ruby\constants.rb" -expected ".\test\ref\detect\Ruby\constants.txt"
+test\bin\run_test.ps1 -json -name exceptions-ruby -action detect -inputfile ".\test\data\Ruby\exceptions.rb" -expected ".\test\ref\detect\Ruby\exceptions.txt"
+test\bin\run_test.ps1 -json -name expressions-ruby -action detect -inputfile ".\test\data\Ruby\expressions.rb" -expected ".\test\ref\detect\Ruby\expressions.txt"
+test\bin\run_test.ps1 -json -name functions-ruby -action detect -inputfile ".\test\data\Ruby\functions.rb" -expected ".\test\ref\detect\Ruby\functions.txt"
+test\bin\run_test.ps1 -json -name io-ruby -action detect -inputfile ".\test\data\Ruby\io.rb" -expected ".\test\ref\detect\Ruby\io.txt"
+test\bin\run_test.ps1 -json -name modifiers-ruby -action detect -inputfile ".\test\data\Ruby\modifiers.rb" -expected ".\test\ref\detect\Ruby\modifiers.txt"
+test\bin\run_test.ps1 -json -name operators-ruby -action detect -inputfile ".\test\data\Ruby\operators.rb" -expected ".\test\ref\detect\Ruby\operators.txt"
+test\bin\run_test.ps1 -json -name statements-ruby -action detect -inputfile ".\test\data\Ruby\statements.rb" -expected ".\test\ref\detect\Ruby\statements.txt"
+test\bin\run_test.ps1 -json -name tokenbuilders-ruby -action detect -inputfile ".\test\data\Ruby\tokenbuilders.rb" -expected ".\test\ref\detect\Ruby\tokenbuilders.txt"
+test\bin\run_test.ps1 -json -name tokenizers-ruby -action detect -inputfile ".\test\data\Ruby\tokenizers.rb" -expected ".\test\ref\detect\Ruby\tokenizers.txt"
+test\bin\run_test.ps1 -json -name tokens-ruby -action detect -inputfile ".\test\data\Ruby\tokens.rb" -expected ".\test\ref\detect\Ruby\tokens.txt"
 test\bin\run_test.ps1 -json -name webhook-ruby -action detect -inputfile ".\test\data\Ruby\webhook.rb" -expected ".\test\ref\detect\Ruby\webhook.txt"
 
 test\bin\run_test.ps1 -json -name family-main -action detect -inputfile ".\test\data\Prolog\family-main.pl" -expected ".\test\ref\detect\Prolog\family-main.txt"

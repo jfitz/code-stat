@@ -1,0 +1,6410 @@
+﻿[
+    {
+        "type": "comment",
+        "value": "# abstract token"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "class"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AbstractToken"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "pretty_tokens"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "keywords"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "tokens"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "identifier",
+        "value": "pretty_tokens"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "["
+    },
+    {
+        "type": "group",
+        "value": "]"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "identifier",
+        "value": "keywords"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "each"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "do"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "|"
+    },
+    {
+        "type": "identifier",
+        "value": "token"
+    },
+    {
+        "type": "operator",
+        "value": "|"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "      "
+    },
+    {
+        "type": "identifier",
+        "value": "pretty_tokens"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<<"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "WhitespaceToken"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "new"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "' '"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "      "
+    },
+    {
+        "type": "identifier",
+        "value": "pretty_tokens"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<<"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "token"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "identifier",
+        "value": "token1"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "WhitespaceToken"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "new"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "' '"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "identifier",
+        "value": "token2"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "WhitespaceToken"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "new"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "' '"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "identifier",
+        "value": "tokens"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "each"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "do"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "|"
+    },
+    {
+        "type": "identifier",
+        "value": "token"
+    },
+    {
+        "type": "operator",
+        "value": "|"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "      "
+    },
+    {
+        "type": "identifier",
+        "value": "prev_is_variable"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "token1"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "variable"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "||"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "                         "
+    },
+    {
+        "type": "identifier",
+        "value": "token1"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "function"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "||"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "                         "
+    },
+    {
+        "type": "identifier",
+        "value": "token1"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "user_function"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "      "
+    },
+    {
+        "type": "identifier",
+        "value": "prev2_is_operand"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "token2"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "operand"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "||"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "token2"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "groupend"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "      "
+    },
+    {
+        "type": "identifier",
+        "value": "pretty_tokens"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<<"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "WhitespaceToken"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "new"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "' '"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "unless"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "identifier",
+        "value": "token"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "separator"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "||"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "token"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "groupstart"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "&&"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "prev_is_variable"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "||"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "identifier",
+        "value": "token"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "groupend"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "||"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "identifier",
+        "value": "token1"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "groupstart"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "||"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "token1"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "operator"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "&&"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "token1"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "to_s"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "!="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'NOT'"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "&&"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "!"
+    },
+    {
+        "type": "identifier",
+        "value": "prev2_is_operand"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "      "
+    },
+    {
+        "type": "identifier",
+        "value": "pretty_tokens"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<<"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "token"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "      "
+    },
+    {
+        "type": "identifier",
+        "value": "token2"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "token1"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "      "
+    },
+    {
+        "type": "identifier",
+        "value": "token1"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "token"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "identifier",
+        "value": "pretty_tokens"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "map"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "&"
+    },
+    {
+        "type": "symbol",
+        "value": ":to_s"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "join"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "initialize"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "to_s"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_break"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "false"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_whitespace"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "false"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_comment"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "false"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_keyword"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "false"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_operator"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "false"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_separator"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "false"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_function"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "false"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_text_constant"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "false"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_numeric_constant"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "false"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_boolean_constant"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "false"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_user_function"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "false"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_variable"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "false"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_statement_separator"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "false"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_groupstart"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "false"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_groupend"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "false"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_invalid"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "false"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "eql"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "other"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "=="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "other"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "to_s"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "=="
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "other"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "=="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "other"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "to_s"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "hash"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "hash"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "to_s"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "break"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_break"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "whitespace"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_whitespace"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "comment"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_comment"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "keyword"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_keyword"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "operator"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_operator"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "separator"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_separator"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "function"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_function"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "text_constant"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_text_constant"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "numeric_constant"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_numeric_constant"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "boolean_constant"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_boolean_constant"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "user_function"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_user_function"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "variable"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_variable"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "groupstart"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_groupstart"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "groupend"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_groupend"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "operand"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_function"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "||"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_text_constant"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "||"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_numeric_constant"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "||"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "      "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_boolean_constant"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "||"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_user_function"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "||"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_variable"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "statement_separator"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_statement_separator"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "invalid"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_invalid"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# invalid token"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "class"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "InvalidToken"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AbstractToken"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "initialize"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "super"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_invalid"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "true"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# break token"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "class"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "BreakToken"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AbstractToken"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "initialize"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "super"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_break"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "true"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# whitespace token"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "class"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "WhitespaceToken"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AbstractToken"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "initialize"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "super"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_whitespace"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "true"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# keyword token"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "class"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "KeywordToken"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AbstractToken"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "initialize"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "super"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_keyword"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "true"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# comment token"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "class"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CommentToken"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AbstractToken"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "initialize"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "super"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_comment"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "true"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# remark token"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "class"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "RemarkToken"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AbstractToken"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "initialize"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "super"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# statement separator token"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "class"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "StatementSeparatorToken"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AbstractToken"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "initialize"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "super"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_statement_separator"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "true"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# operator token"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "class"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "OperatorToken"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AbstractToken"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "initialize"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "super"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_operator"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "true"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "equals"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "=="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'='"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "comparison"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "=="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'<'"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "||"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "=="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'<='"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "||"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "      "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "=="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'>'"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "||"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "=="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'>='"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "||"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "      "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "=="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'='"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "||"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "=="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'<>'"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# group start token"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "class"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "GroupStartToken"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AbstractToken"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "initialize"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "super"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_groupstart"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "true"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# group end token"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "class"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "GroupEndToken"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AbstractToken"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "initialize"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "super"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_groupend"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "true"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# parameter separator token"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "class"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ParamSeparatorToken"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AbstractToken"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "initialize"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "super"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_separator"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "true"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# function token"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "class"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "FunctionToken"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AbstractToken"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "initialize"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "super"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_function"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "true"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# text constant token"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "class"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "TextConstantToken"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AbstractToken"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "initialize"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "super"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_text_constant"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "true"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "value"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "group",
+        "value": "["
+    },
+    {
+        "type": "number",
+        "value": "1."
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "operator",
+        "value": "-"
+    },
+    {
+        "type": "number",
+        "value": "2"
+    },
+    {
+        "type": "group",
+        "value": "]"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# numeric constant token"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "class"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "NumericConstantToken"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AbstractToken"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "initialize"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "super"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_numeric_constant"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "true"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "to_f"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "to_f"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "to_i"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "to_f"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "to_i"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# integer constant token"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "class"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "IntegerConstantToken"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AbstractToken"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "initialize"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "super"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_numeric_constant"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "true"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "to_f"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "to_f"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "to_i"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "to_i"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "to_f"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "to_i"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# boolean constant token"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "class"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "BooleanConstantToken"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AbstractToken"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "initialize"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "super"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_boolean_constant"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "true"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# user function token"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "class"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "UserFunctionToken"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AbstractToken"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "initialize"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "super"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_user_function"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "true"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "comment",
+        "value": "# variable token"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "class"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "VariableToken"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "<"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AbstractToken"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "initialize"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "super"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "identifier",
+        "value": "raise"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Exception"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'invalid token'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "unless"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "keyword",
+        "value": "class"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "to_s"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "=="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'String'"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "is_variable"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "true"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "def"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "content_type"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "return"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'TextConstant'"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "if"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "include"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'$'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "return"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'IntegerConstant'"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "if"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "invalid operator",
+        "value": "@"
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "include"
+    },
+    {
+        "type": "operator",
+        "value": "?"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'%'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "string",
+        "value": "'NumericConstant'"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    }
+]

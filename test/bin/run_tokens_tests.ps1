@@ -83,6 +83,18 @@ test\bin\run_test.ps1 -json -name calculator3 -action tokens -language Csharp -i
 test\bin\run_test.ps1 -json -name prime_test-java -action tokens -language Java -inputfile ".\test\data\Java\prime_test.java" -expected ".\test\ref\tokens\Java\prime_test.txt"
 test\bin\run_test.ps1 -json -name palindrome-java -action tokens -language Java -inputfile ".\test\data\Java\palindrome.java" -expected ".\test\ref\tokens\Java\palindrome.txt"
 
+test\bin\run_test.ps1 -json -name basic-ruby -action tokens -language Ruby -inputfile ".\test\data\Ruby\basic.rb" -expected ".\test\ref\tokens\Ruby\basic.txt"
+test\bin\run_test.ps1 -json -name constants-ruby -action tokens -language Ruby -inputfile ".\test\data\Ruby\constants.rb" -expected ".\test\ref\tokens\Ruby\constants.txt"
+test\bin\run_test.ps1 -json -name exceptions-ruby -action tokens -language Ruby -inputfile ".\test\data\Ruby\exceptions.rb" -expected ".\test\ref\tokens\Ruby\exceptions.txt"
+test\bin\run_test.ps1 -json -name expressions-ruby -action tokens -language Ruby -inputfile ".\test\data\Ruby\expressions.rb" -expected ".\test\ref\tokens\Ruby\expressions.txt"
+test\bin\run_test.ps1 -json -name functions-ruby -action tokens -language Ruby -inputfile ".\test\data\Ruby\functions.rb" -expected ".\test\ref\tokens\Ruby\functions.txt"
+test\bin\run_test.ps1 -json -name io-ruby -action tokens -language Ruby -inputfile ".\test\data\Ruby\io.rb" -expected ".\test\ref\tokens\Ruby\io.txt"
+test\bin\run_test.ps1 -json -name modifiers-ruby -action tokens -language Ruby -inputfile ".\test\data\Ruby\modifiers.rb" -expected ".\test\ref\tokens\Ruby\modifiers.txt"
+test\bin\run_test.ps1 -json -name operators-ruby -action tokens -language Ruby -inputfile ".\test\data\Ruby\operators.rb" -expected ".\test\ref\tokens\Ruby\operators.txt"
+test\bin\run_test.ps1 -json -name statements-ruby -action tokens -language Ruby -inputfile ".\test\data\Ruby\statements.rb" -expected ".\test\ref\tokens\Ruby\statements.txt"
+test\bin\run_test.ps1 -json -name tokenbuilders-ruby -action tokens -language Ruby -inputfile ".\test\data\Ruby\tokenbuilders.rb" -expected ".\test\ref\tokens\Ruby\tokenbuilders.txt"
+test\bin\run_test.ps1 -json -name tokenizers-ruby -action tokens -language Ruby -inputfile ".\test\data\Ruby\tokenizers.rb" -expected ".\test\ref\tokens\Ruby\tokenizers.txt"
+test\bin\run_test.ps1 -json -name tokens-ruby -action tokens -language Ruby -inputfile ".\test\data\Ruby\tokens.rb" -expected ".\test\ref\tokens\Ruby\tokens.txt"
 test\bin\run_test.ps1 -json -name webhook-ruby -action tokens -language Ruby -inputfile ".\test\data\Ruby\webhook.rb" -expected ".\test\ref\tokens\Ruby\webhook.txt"
 
 test\bin\run_test.ps1 -json -name family-main -action tokens -language Prolog -inputfile ".\test\data\Prolog\family-main.pl" -expected ".\test\ref\tokens\Prolog\family-main.txt"
