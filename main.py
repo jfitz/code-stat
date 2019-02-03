@@ -542,6 +542,7 @@ def tokenize_confidence(code, language, tabsize):
 if __name__ == '__main__':
   parser = argparse.ArgumentParser()
   parser.add_argument('--tokenize', action='store', dest='tokenize')
+  parser.add_argument('--confidence', action='store', dest='confidence')
   args = parser.parse_args()
 
   if args.tokenize is not None:
@@ -553,4 +554,13 @@ if __name__ == '__main__':
     tabsize = 4
     cProfile.run('tokenize(code, language, tabsize)')
   else:
-    app.run()
+    if args.confidence is not None:
+      print('Confidencing file ' + args.confidence)
+      in_file = open(args.confidence, 'r')
+      code = in_file.read()
+      in_file.close()
+      language = 'ruby'
+      tabsize = 4
+      cProfile.run('tokenize_confidence(code, language, tabsize)')
+    else:
+      app.run()
