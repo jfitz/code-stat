@@ -15,14 +15,17 @@ class IdentifierTokenBuilder(TokenBuilder):
   def accept(self, candidate, c):
     result = False
 
-    if c.isalpha():
-      result = True
+    if len(candidate) == 0:
+      result = c.isalpha() or c == '_' or c == '@'
 
-    if len(candidate) > 0 and c.isdigit():
-      result = True
+    if len(candidate) == 1:
+      if candidate == '@':
+        result = c.isalpha() or c == '_' or c == '@'
+      else:
+        result = c.isalpha() or c.isdigit() or c == '_'
 
-    if c == '_':
-      result = True
+    if len(candidate) > 1:
+      result = c.isalpha() or c.isdigit() or c == '_'
 
     return result
 
