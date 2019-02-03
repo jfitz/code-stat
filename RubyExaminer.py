@@ -55,7 +55,7 @@ class RubyExaminer(Examiner):
         '<<=', '>>=',
         '&&=', '&=', '||=', '|=', '^=',
         'not', 'and', 'or',
-        '.', '{', '}', '=>'
+        '.', '=>'
       ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
@@ -69,7 +69,7 @@ class RubyExaminer(Examiner):
       '++', '--'
     ]
 
-    groupers = ['(', ')', ',', '[', ']']
+    groupers = ['(', ')', ',', '[', ']', '{', '}']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
