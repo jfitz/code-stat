@@ -56,30 +56,26 @@ class PictureTokenBuilder(TokenBuilder):
     num_lparens = candidate.count('(')
     num_rparens = candidate.count(')')
 
-    if candidate == '' and c == 'S':
-      result = True
-
     if num_rparens == num_lparens:
-      if c in ['9', 'X', 'Z', 'V', ',', '.', '-'] and len(candidate) > 0:
-        result = True
+      if len(candidate) == 0:
+        result = c in ['S', '$', '9', 'X', 'Z', 'V']
 
-      if c in ['9', 'X', 'Z', 'V'] and candidate =='':
-        result = True
-
-      if c == '(' and len(candidate) > 0:
-        result = True
+      if len(candidate) > 0:
+        result = c in ['$', '9', 'X', 'Z', 'V', ',', '.', '-', '(']
 
     if num_rparens == num_lparens - 1:
-      if c.isdigit():
-        result = True
-
-      if c == ')':
-        result = True
+      result = c.isdigit() or c == ')'
 
     return result
 
   def get_score(self, line_printable_tokens):
     if self.token is None:
+      return 0
+
+    num_lparens = self.token.count('(')
+    num_rparens = self.token.count(')')
+
+    if num_lparens != num_rparens:
       return 0
 
     boost = 0
