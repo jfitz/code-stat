@@ -5,6 +5,7 @@ import codecs
 from flask import Flask, request, render_template
 from BasicExaminer import BasicExaminer
 from CExaminer import CExaminer
+from Cobol68Examiner import Cobol68Examiner
 from Cobol74Examiner import Cobol74Examiner
 from Cobol85Examiner import Cobol85Examiner
 from Cobol2002Examiner import Cobol2002Examiner
@@ -47,6 +48,7 @@ def languages():
     'C',
     'C++',
     'C#',
+    'COBOL-68',
     'COBOL-74',
     'COBOL-85',
     'COBOL-2002',
@@ -301,6 +303,7 @@ def identify_language(code, tabsize):
   examiners['C'] = CExaminer(code)
   examiners['C++'] = CppExaminer(code)
   examiners['C#'] = CsharpExaminer(code)
+  examiners['COBOL-68'] = Cobol68Examiner(code, tab_size)
   examiners['COBOL-74'] = Cobol74Examiner(code, tab_size)
   examiners['COBOL-85'] = Cobol85Examiner(code, tab_size)
   examiners['COBOL-2002'] = Cobol2002Examiner(code)
@@ -404,6 +407,10 @@ def tokenize(code, language, tabsize):
     examiner = CsharpExaminer(code)
     tokens = examiner.tokens
 
+  if language in ['cobol-68']:
+    examiner = Cobol68Examiner(code, tab_size)
+    tokens = examiner.tokens
+
   if language in ['cobol-74']:
     examiner = Cobol74Examiner(code, tab_size)
     tokens = examiner.tokens
@@ -481,6 +488,10 @@ def tokenize_confidence(code, language, tabsize):
 
   if language in ['c#', 'csharp']:
     examiner = CsharpExaminer(code)
+    confidences = examiner.confidences
+
+  if language in ['cobol-68']:
+    examiner = Cobol68Examiner(code, tab_size)
     confidences = examiner.confidences
 
   if language in ['cobol-74']:

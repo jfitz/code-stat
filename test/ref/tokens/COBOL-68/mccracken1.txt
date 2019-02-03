@@ -1,0 +1,1030 @@
+﻿[
+    {
+        "type": "whitespace",
+        "value": "       "
+    },
+    {
+        "type": "keyword",
+        "value": "IDENTIFICATION"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "DIVISION"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "       "
+    },
+    {
+        "type": "keyword",
+        "value": "PROGRAM-ID"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "           "
+    },
+    {
+        "type": "identifier",
+        "value": "COPIER"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "       "
+    },
+    {
+        "type": "keyword",
+        "value": "ENVIRONMENT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "DIVISION"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "           "
+    },
+    {
+        "type": "keyword",
+        "value": "INPUT-OUTPUT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "SECTION"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "           "
+    },
+    {
+        "type": "keyword",
+        "value": "FILE-CONTROL"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "               "
+    },
+    {
+        "type": "keyword",
+        "value": "SELECT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CARD-IN-FILE"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "ASSIGN"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "TO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "UT-S-CARDS"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "               "
+    },
+    {
+        "type": "keyword",
+        "value": "SELECT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "LINE-OUT-FILE"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "ASSIGN"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "TO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "UT-S-PRINTER"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "       "
+    },
+    {
+        "type": "keyword",
+        "value": "DATA"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "DIVISION"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "           "
+    },
+    {
+        "type": "keyword",
+        "value": "FILE"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "SECTION"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "           "
+    },
+    {
+        "type": "keyword",
+        "value": "FD"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CARD-IN-FILE"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "               "
+    },
+    {
+        "type": "keyword",
+        "value": "LABEL"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "RECORDS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "ARE"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "OMITTED"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "           "
+    },
+    {
+        "type": "number",
+        "value": "01"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CARD-IN-RECORD"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "PICTURE"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "picture",
+        "value": "X(80)"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "           "
+    },
+    {
+        "type": "keyword",
+        "value": "FD"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "LINE-OUT-FILE"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "               "
+    },
+    {
+        "type": "keyword",
+        "value": "LABEL"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "RECORDS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "ARE"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "OMITTED"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "           "
+    },
+    {
+        "type": "number",
+        "value": "01"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "LINE-OUT-RECORD"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "PICTURE"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "picture",
+        "value": "X(80)"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "           "
+    },
+    {
+        "type": "keyword",
+        "value": "WORKING-STORAGE"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "SECTION"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "           "
+    },
+    {
+        "type": "number",
+        "value": "01"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "OUT-OF-CARDS-FLAG"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "PICTURE"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "picture",
+        "value": "XXX"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "       "
+    },
+    {
+        "type": "keyword",
+        "value": "PROCEDURE"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "DIVISION"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "           "
+    },
+    {
+        "type": "identifier",
+        "value": "MAIN-LINE-ROUTINE"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "           "
+    },
+    {
+        "type": "keyword",
+        "value": "OPEN"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INPUT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CARD-IN-FILE"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "                "
+    },
+    {
+        "type": "keyword",
+        "value": "OUTPUT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "LINE-OUT-FILE"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "           "
+    },
+    {
+        "type": "keyword",
+        "value": "MOVE"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'NO'"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "TO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "OUT-OF-CARDS-FLAG"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "           "
+    },
+    {
+        "type": "keyword",
+        "value": "READ"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CARD-IN-FILE"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "               "
+    },
+    {
+        "type": "keyword",
+        "value": "AT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "END"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "MOVE"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'YES'"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "TO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "OUT-OF-CARDS-FLAG"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "           "
+    },
+    {
+        "type": "keyword",
+        "value": "PERFORM"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "PROCESS-WRITE-READ-PARAGRAPH"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "               "
+    },
+    {
+        "type": "keyword",
+        "value": "UNTIL"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "OUT-OF-CARDS-FLAG"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'YES'"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "           "
+    },
+    {
+        "type": "keyword",
+        "value": "CLOSE"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CARD-IN-FILE"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "LINE-OUT-FILE"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "           "
+    },
+    {
+        "type": "keyword",
+        "value": "STOP"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "RUN"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "       "
+    },
+    {
+        "type": "identifier",
+        "value": "PROCESS-WRITE-READ-PARAGRAPH"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "           "
+    },
+    {
+        "type": "keyword",
+        "value": "MOVE"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CARD-IN-RECORD"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "TO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "LINE-OUT-RECORD"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "           "
+    },
+    {
+        "type": "keyword",
+        "value": "WRITE"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "LINE-OUT-RECORD"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "           "
+    },
+    {
+        "type": "keyword",
+        "value": "READ"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CARD-IN-FILE"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "               "
+    },
+    {
+        "type": "keyword",
+        "value": "AT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "END"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "HOVE"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'YES'"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "TO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "OUT-OF-CARDS-FLAG"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    }
+]

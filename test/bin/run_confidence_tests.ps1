@@ -13,6 +13,10 @@ test\bin\run_test.ps1 -json -name rockt2 -action confidence -language BASIC -inp
 test\bin\run_test.ps1 -json -name diamond -action confidence -language C -inputfile ".\test\data\C\diamond.c" -expected ".\test\ref\confidence\C\diamond.txt"
 test\bin\run_test.ps1 -json -name prime_test -action confidence -language C -inputfile ".\test\data\C\prime_test.c" -expected ".\test\ref\confidence\C\prime_test.txt"
 
+test\bin\run_test.ps1 -json -name mccracken1-68 -action confidence -language COBOL-68 -inputfile ".\test\data\COBOL-68\mccracken1.cob" -expected ".\test\ref\confidence\COBOL-68\mccracken1.txt"
+test\bin\run_test.ps1 -json -name mccracken2-68 -action confidence -language COBOL-68 -inputfile ".\test\data\COBOL-68\mccracken2.cob" -expected ".\test\ref\confidence\COBOL-68\mccracken2.txt"
+test\bin\run_test.ps1 -json -name mccracken3-68 -action confidence -language COBOL-68 -inputfile ".\test\data\COBOL-68\mccracken3.cob" -expected ".\test\ref\confidence\COBOL-68\mccracken3.txt"
+
 test\bin\run_test.ps1 -json -name prog1-74 -action confidence -language COBOL-74 -inputfile ".\test\data\COBOL-74\PROG1.COB" -expected ".\test\ref\confidence\COBOL-74\PROG1.txt"
 test\bin\run_test.ps1 -json -name prog2-74 -action confidence -language COBOL-74 -inputfile ".\test\data\COBOL-74\PROG2.COB" -expected ".\test\ref\confidence\COBOL-74\PROG2.txt"
 test\bin\run_test.ps1 -json -name prog3-74 -action confidence -language COBOL-74 -inputfile ".\test\data\COBOL-74\PROG3.COB" -expected ".\test\ref\confidence\COBOL-74\PROG3.txt"
