@@ -389,10 +389,12 @@ class ListTokenBuilder(TokenBuilder):
       for legal in self.legals:
         if legal[:count] == token:
           result = True
+          break
     else:
       for legal in self.legals:
         if legal[:count].lower() == token.lower():
           result = True
+          break
 
     return result
 
