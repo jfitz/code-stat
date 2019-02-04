@@ -175,6 +175,31 @@ class RemarkTokenBuilder(TokenBuilder):
     return result
 
 
+# token reader for comment
+class BasicCommentTokenBuilder(TokenBuilder):
+  def __init__(self):
+    self.token = None
+
+
+  def get_tokens(self):
+    if self.token is None:
+      return None
+
+    return [Token(self.token, 'comment')]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if len(candidate) == 0:
+      result = c == "'"
+
+    if len(candidate) > 0:
+      result = c not in ['\n', '\r']
+
+    return result
+
+
 # token reader for number
 class LineNumberTokenBuilder(TokenBuilder):
   def __init__(self):
