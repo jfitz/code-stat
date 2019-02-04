@@ -25,7 +25,6 @@ class JavaExaminer(Examiner):
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
-    stmt_separator_tb = ListTokenBuilder([';'], 'statement separator', False)
 
     integer_tb = IntegerTokenBuilder(False)
     integer_exponent_tb = IntegerExponentTokenBuilder()
@@ -36,6 +35,8 @@ class JavaExaminer(Examiner):
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
+
+    terminators_tb = ListTokenBuilder([';'], 'statement terminator', False)
 
     known_operators = [
       '+', '-', '*', '/', '%',
@@ -84,7 +85,7 @@ class JavaExaminer(Examiner):
     tokenbuilders = [
       whitespace_tb,
       newline_tb,
-      stmt_separator_tb,
+      terminators_tb,
       integer_tb,
       integer_exponent_tb,
       real_tb,

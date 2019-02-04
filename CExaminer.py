@@ -46,13 +46,15 @@ class CExaminer(Examiner):
 
     c_preprocessor_tb = CPreProcessorTokenBuilder(directives)
 
+    terminators_tb = ListTokenBuilder([';'], 'statement terminator', False)
+
     known_operators = [
       '+', '-', '*', '/', '%',
       '=', '==', '!=', '>', '>=', '<', '<=',
       '+=', '-=', '*=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>=',
       '!', '&', '|', '~', '<<', '>>',
       '^',
-      '.', ':', ';',
+      '.', ':',
       '++', '--', '->', '&&', '||',
       '?', '{', '}'
     ]
@@ -90,6 +92,7 @@ class CExaminer(Examiner):
     tokenbuilders = [
       whitespace_tb,
       newline_tb,
+      terminators_tb,
       integer_tb,
       integer_exponent_tb,
       real_tb,
