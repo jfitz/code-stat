@@ -36,12 +36,16 @@ class Cobol2002Examiner(Examiner):
     picture_tb = PictureTokenBuilder()
     star_comment_tb = StarCommentTokenBuilder()
 
+    terminators = ['.']
+
+    terminators_tb = ListTokenBuilder(terminators, 'statement terminator', False)
+
     known_operators = [
       'ADD', 'SUBTRACT', 'MULTIPLY', 'DIVIDE',
       '+', '-', '*', '/', '**',
       '=', '<>', '>', '>=', '<', '<=',
       'AND', 'OR', 'NOT',
-      ':', '.'
+      ':'
     ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
@@ -504,6 +508,7 @@ class Cobol2002Examiner(Examiner):
     tokenbuilders = [
       whitespace_tb,
       newline_tb,
+      terminators_tb,
       integer_tb,
       integer_exponent_tb,
       real_tb,

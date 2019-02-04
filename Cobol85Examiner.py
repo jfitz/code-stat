@@ -36,12 +36,16 @@ class Cobol85Examiner(CobolExaminer):
     string_tb = StringTokenBuilder(['"', "'"], True)
     picture_tb = PictureTokenBuilder()
 
+    terminators = ['.']
+
+    terminators_tb = ListTokenBuilder(terminators, 'statement terminator', False)
+
     known_operators = [
       'ADD', 'SUBTRACT', 'MULTIPLY', 'DIVIDE',
       '+', '-', '*', '/', '**',
       '=', '<>', '>', '>=', '<', '<=',
       'AND', 'OR', 'NOT',
-      ':', '.'
+      ':'
     ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
@@ -440,6 +444,7 @@ class Cobol85Examiner(CobolExaminer):
     tokenbuilders = [
       whitespace_tb,
       newline_tb,
+      terminators_tb,
       integer_tb,
       integer_exponent_tb,
       real_tb,
