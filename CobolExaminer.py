@@ -39,8 +39,11 @@ class CobolExaminer(Examiner):
     if line_indicator == ' ':
       token = Token(' ', 'whitespace')
     else:
-      if line_indicator != '':
-        token = Token(line_indicator, 'invalid')
+      if line_indicator == '-':
+        token = Token(line_indicator, 'continuation line')
+      else:
+        if line_indicator != '':
+          token = Token(line_indicator, 'invalid')
 
     return token
 
