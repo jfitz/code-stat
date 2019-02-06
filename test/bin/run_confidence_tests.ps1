@@ -51,20 +51,9 @@ test\bin\run_test.ps1 -json -name hrdb -action confidence -language Cpp -inputfi
 test\bin\run_test.ps1 -json -name date_h -action confidence -language Cpp -inputfile ".\test\data\Cpp\date.h" -expected ".\test\ref\confidence\Cpp\date_h.txt"
 test\bin\run_test.ps1 -json -name date_cpp -action confidence -language Cpp -inputfile ".\test\data\Cpp\date.cpp" -expected ".\test\ref\confidence\Cpp\date_cpp.txt"
 
-test\bin\run_test.ps1 -json -name firework -action confidence -language Pascal -inputfile ".\test\data\Pascal\FIREWORK.PAS" -expected ".\test\ref\confidence\Pascal\FIREWORK.txt"
-test\bin\run_test.ps1 -json -name hello -action confidence -language Pascal -inputfile ".\test\data\Pascal\HELLO.PAS" -expected ".\test\ref\confidence\Pascal\HELLO.txt"
-test\bin\run_test.ps1 -json -name rose -action confidence -language Pascal -inputfile ".\test\data\Pascal\ROSE.PAS" -expected ".\test\ref\confidence\Pascal\ROSE.txt"
-test\bin\run_test.ps1 -json -name spider -action confidence -language Pascal -inputfile ".\test\data\Pascal\SPIDER.PAS" -expected ".\test\ref\confidence\Pascal\SPIDER.txt"
-test\bin\run_test.ps1 -json -name tpc16 -action confidence -language Pascal -inputfile ".\test\data\Pascal\TPC16.PAS" -expected ".\test\ref\confidence\Pascal\TPC16.txt"
-
-test\bin\run_test.ps1 -json -name polyglot-c -action confidence -language C -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\confidence\C\polyglot.txt"
-test\bin\run_test.ps1 -json -name polyglot-COBOL-85 -action confidence -language COBOL-85 -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\confidence\COBOL-85\polyglot.txt"
-test\bin\run_test.ps1 -json -name polyglot-pascal -action confidence -language Pascal -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\confidence\Pascal\polyglot.txt"
-
-test\bin\run_test.ps1 -json -name drone-3d -action confidence -language Python -inputfile ".\test\data\Python\drone_3d_trajectory_following.py" -expected ".\test\ref\confidence\Python\drone_3d_trajectory_following.txt"
-test\bin\run_test.ps1 -json -name quadrotor -action confidence -language Python -inputfile ".\test\data\Python\Quadrotor.py" -expected ".\test\ref\confidence\Python\Quadrotor.txt"
-test\bin\run_test.ps1 -json -name trajectory -action confidence -language Python -inputfile ".\test\data\Python\TrajectoryGenerator.py" -expected ".\test\ref\confidence\Python\TrajectoryGenerator.txt"
-test\bin\run_test.ps1 -json -name values-python -action confidence -language Python -inputfile ".\test\data\Python\values.py" -expected ".\test\ref\confidence\Python\values.txt"
+test\bin\run_test.ps1 -json -name calculator1 -action confidence -language Csharp -inputfile ".\test\data\Csharp\calculator1.cs" -expected ".\test\ref\confidence\Csharp\calculator1.txt"
+test\bin\run_test.ps1 -json -name calculator2 -action confidence -language Csharp -inputfile ".\test\data\Csharp\calculator2.cs" -expected ".\test\ref\confidence\Csharp\calculator2.txt"
+test\bin\run_test.ps1 -json -name calculator3 -action confidence -language Csharp -inputfile ".\test\data\Csharp\calculator3.cs" -expected ".\test\ref\confidence\Csharp\calculator3.txt"
 
 test\bin\run_test.ps1 -json -name hello-ftn66 -action confidence -language FORTRAN-66 -inputfile ".\test\data\FORTRAN-66\HELLO.FOR" -expected ".\test\ref\confidence\FORTRAN-66\HELLO.txt"
 test\bin\run_test.ps1 -json -name heron-ftn66 -action confidence -language FORTRAN-66 -inputfile ".\test\data\FORTRAN-66\HERON.FOR" -expected ".\test\ref\confidence\FORTRAN-66\HERON.txt"
@@ -80,12 +69,32 @@ test\bin\run_test.ps1 -json -name cylinder-ftn90 -action confidence -language Fo
 test\bin\run_test.ps1 -json -name gauss-ftn90 -action confidence -language Fortran-90 -inputfile ".\test\data\Fortran-90\gauss.f90" -expected ".\test\ref\confidence\Fortran-90\gauss.txt"
 test\bin\run_test.ps1 -json -name hello-ftn90 -action confidence -language Fortran-90 -inputfile ".\test\data\Fortran-90\hello.f90" -expected ".\test\ref\confidence\Fortran-90\hello.txt"
 
-test\bin\run_test.ps1 -json -name calculator1 -action confidence -language Csharp -inputfile ".\test\data\Csharp\calculator1.cs" -expected ".\test\ref\confidence\Csharp\calculator1.txt"
-test\bin\run_test.ps1 -json -name calculator2 -action confidence -language Csharp -inputfile ".\test\data\Csharp\calculator2.cs" -expected ".\test\ref\confidence\Csharp\calculator2.txt"
-test\bin\run_test.ps1 -json -name calculator3 -action confidence -language Csharp -inputfile ".\test\data\Csharp\calculator3.cs" -expected ".\test\ref\confidence\Csharp\calculator3.txt"
-
 test\bin\run_test.ps1 -json -name prime_test-java -action confidence -language Java -inputfile ".\test\data\Java\prime_test.java" -expected ".\test\ref\confidence\Java\prime_test.txt"
 test\bin\run_test.ps1 -json -name palindrome-java -action confidence -language Java -inputfile ".\test\data\Java\palindrome.java" -expected ".\test\ref\confidence\Java\palindrome.txt"
+
+test\bin\run_test.ps1 -json -name hello-objc -action confidence -language Objective-C -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\confidence\Objective-C\HelloWorld.txt"
+
+test\bin\run_test.ps1 -json -name firework -action confidence -language Pascal -inputfile ".\test\data\Pascal\FIREWORK.PAS" -expected ".\test\ref\confidence\Pascal\FIREWORK.txt"
+test\bin\run_test.ps1 -json -name hello -action confidence -language Pascal -inputfile ".\test\data\Pascal\HELLO.PAS" -expected ".\test\ref\confidence\Pascal\HELLO.txt"
+test\bin\run_test.ps1 -json -name rose -action confidence -language Pascal -inputfile ".\test\data\Pascal\ROSE.PAS" -expected ".\test\ref\confidence\Pascal\ROSE.txt"
+test\bin\run_test.ps1 -json -name spider -action confidence -language Pascal -inputfile ".\test\data\Pascal\SPIDER.PAS" -expected ".\test\ref\confidence\Pascal\SPIDER.txt"
+test\bin\run_test.ps1 -json -name tpc16 -action confidence -language Pascal -inputfile ".\test\data\Pascal\TPC16.PAS" -expected ".\test\ref\confidence\Pascal\TPC16.txt"
+
+test\bin\run_test.ps1 -json -name family-main -action confidence -language Prolog -inputfile ".\test\data\Prolog\family-main.pl" -expected ".\test\ref\confidence\Prolog\family-main.txt"
+test\bin\run_test.ps1 -json -name family-kb -action confidence -language Prolog -inputfile ".\test\data\Prolog\family-kb.pl" -expected ".\test\ref\confidence\Prolog\family-kb.txt"
+test\bin\run_test.ps1 -json -name family-menu -action confidence -language Prolog -inputfile ".\test\data\Prolog\family-menu.pl" -expected ".\test\ref\confidence\Prolog\family-menu.txt"
+test\bin\run_test.ps1 -json -name family-queries -action confidence -language Prolog -inputfile ".\test\data\Prolog\family-queries.pl" -expected ".\test\ref\confidence\Prolog\family-queries.txt"
+
+test\bin\run_test.ps1 -json -name drone-3d -action confidence -language Python -inputfile ".\test\data\Python\drone_3d_trajectory_following.py" -expected ".\test\ref\confidence\Python\drone_3d_trajectory_following.txt"
+test\bin\run_test.ps1 -json -name quadrotor -action confidence -language Python -inputfile ".\test\data\Python\Quadrotor.py" -expected ".\test\ref\confidence\Python\Quadrotor.txt"
+test\bin\run_test.ps1 -json -name trajectory -action confidence -language Python -inputfile ".\test\data\Python\TrajectoryGenerator.py" -expected ".\test\ref\confidence\Python\TrajectoryGenerator.txt"
+test\bin\run_test.ps1 -json -name values-python -action confidence -language Python -inputfile ".\test\data\Python\values.py" -expected ".\test\ref\confidence\Python\values.txt"
+
+test\bin\run_test.ps1 -json -name ETM-540-01 -action confidence -language R -inputfile ".\test\data\R\ETM-540-01.R" -expected ".\test\ref\confidence\R\ETM-540-01.txt"
+test\bin\run_test.ps1 -json -name ETM-540-02 -action confidence -language R -inputfile ".\test\data\R\ETM-540-02.R" -expected ".\test\ref\confidence\R\ETM-540-02.txt"
+test\bin\run_test.ps1 -json -name ETM-540-03 -action confidence -language R -inputfile ".\test\data\R\ETM-540-03.R" -expected ".\test\ref\confidence\R\ETM-540-03.txt"
+test\bin\run_test.ps1 -json -name ETM-540-04 -action confidence -language R -inputfile ".\test\data\R\ETM-540-04.R" -expected ".\test\ref\confidence\R\ETM-540-04.txt"
+test\bin\run_test.ps1 -json -name ETM-540-05 -action confidence -language R -inputfile ".\test\data\R\ETM-540-05.R" -expected ".\test\ref\confidence\R\ETM-540-05.txt"
 
 test\bin\run_test.ps1 -json -name basic-ruby -action confidence -language Ruby -inputfile ".\test\data\Ruby\basic.rb" -expected ".\test\ref\confidence\Ruby\basic.txt"
 test\bin\run_test.ps1 -json -name constants-ruby -action confidence -language Ruby -inputfile ".\test\data\Ruby\constants.rb" -expected ".\test\ref\confidence\Ruby\constants.txt"
@@ -101,11 +110,6 @@ test\bin\run_test.ps1 -json -name tokenizers-ruby -action confidence -language R
 test\bin\run_test.ps1 -json -name tokens-ruby -action confidence -language Ruby -inputfile ".\test\data\Ruby\tokens.rb" -expected ".\test\ref\confidence\Ruby\tokens.txt"
 test\bin\run_test.ps1 -json -name webhook-ruby -action confidence -language Ruby -inputfile ".\test\data\Ruby\webhook.rb" -expected ".\test\ref\confidence\Ruby\webhook.txt"
 
-test\bin\run_test.ps1 -json -name family-main -action confidence -language Prolog -inputfile ".\test\data\Prolog\family-main.pl" -expected ".\test\ref\confidence\Prolog\family-main.txt"
-test\bin\run_test.ps1 -json -name family-kb -action confidence -language Prolog -inputfile ".\test\data\Prolog\family-kb.pl" -expected ".\test\ref\confidence\Prolog\family-kb.txt"
-test\bin\run_test.ps1 -json -name family-menu -action confidence -language Prolog -inputfile ".\test\data\Prolog\family-menu.pl" -expected ".\test\ref\confidence\Prolog\family-menu.txt"
-test\bin\run_test.ps1 -json -name family-queries -action confidence -language Prolog -inputfile ".\test\data\Prolog\family-queries.pl" -expected ".\test\ref\confidence\Prolog\family-queries.txt"
-
 test\bin\run_test.ps1 -json -name AppDelegate -action confidence -language Swift -inputfile ".\test\data\Swift\AppDelegate.swift" -expected ".\test\ref\confidence\Swift\AppDelegate.txt"
 test\bin\run_test.ps1 -json -name Meal -action confidence -language Swift -inputfile ".\test\data\Swift\Meal.swift" -expected ".\test\ref\confidence\Swift\Meal.txt"
 test\bin\run_test.ps1 -json -name MealTableViewCell -action confidence -language Swift -inputfile ".\test\data\Swift\MealTableViewCell.swift" -expected ".\test\ref\confidence\Swift\MealTableViewCell.txt"
@@ -113,10 +117,8 @@ test\bin\run_test.ps1 -json -name MealTableViewController -action confidence -la
 test\bin\run_test.ps1 -json -name MealViewController -action confidence -language Swift -inputfile ".\test\data\Swift\MealViewController.swift" -expected ".\test\ref\confidence\Swift\MealViewController.txt"
 test\bin\run_test.ps1 -json -name RatingControl -action confidence -language Swift -inputfile ".\test\data\Swift\RatingControl.swift" -expected ".\test\ref\confidence\Swift\RatingControl.txt"
 
-test\bin\run_test.ps1 -json -name ETM-540-01 -action confidence -language R -inputfile ".\test\data\R\ETM-540-01.R" -expected ".\test\ref\confidence\R\ETM-540-01.txt"
-test\bin\run_test.ps1 -json -name ETM-540-02 -action confidence -language R -inputfile ".\test\data\R\ETM-540-02.R" -expected ".\test\ref\confidence\R\ETM-540-02.txt"
-test\bin\run_test.ps1 -json -name ETM-540-03 -action confidence -language R -inputfile ".\test\data\R\ETM-540-03.R" -expected ".\test\ref\confidence\R\ETM-540-03.txt"
-test\bin\run_test.ps1 -json -name ETM-540-04 -action confidence -language R -inputfile ".\test\data\R\ETM-540-04.R" -expected ".\test\ref\confidence\R\ETM-540-04.txt"
-test\bin\run_test.ps1 -json -name ETM-540-05 -action confidence -language R -inputfile ".\test\data\R\ETM-540-05.R" -expected ".\test\ref\confidence\R\ETM-540-05.txt"
+test\bin\run_test.ps1 -json -name polyglot-c -action confidence -language C -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\confidence\C\polyglot.txt"
+test\bin\run_test.ps1 -json -name polyglot-COBOL-85 -action confidence -language COBOL-85 -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\confidence\COBOL-85\polyglot.txt"
+test\bin\run_test.ps1 -json -name polyglot-pascal -action confidence -language Pascal -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\confidence\Pascal\polyglot.txt"
 
 Write-Output "Number of failures: $failures"

@@ -51,18 +51,9 @@ test\bin\run_test.ps1 -json -name hrdb -action detect -inputfile ".\test\data\Cp
 test\bin\run_test.ps1 -json -name date_h -action detect -inputfile ".\test\data\Cpp\date.h" -expected ".\test\ref\detect\Cpp\date_h.txt"
 test\bin\run_test.ps1 -json -name date_cpp -action detect -inputfile ".\test\data\Cpp\date.cpp" -expected ".\test\ref\detect\Cpp\date_cpp.txt"
 
-test\bin\run_test.ps1 -json -name firework -action detect -inputfile ".\test\data\Pascal\FIREWORK.PAS" -expected ".\test\ref\detect\Pascal\FIREWORK.txt"
-test\bin\run_test.ps1 -json -name hello -action detect -inputfile ".\test\data\Pascal\HELLO.PAS" -expected ".\test\ref\detect\Pascal\HELLO.txt"
-test\bin\run_test.ps1 -json -name rose -action detect -inputfile ".\test\data\Pascal\ROSE.PAS" -expected ".\test\ref\detect\Pascal\ROSE.txt"
-test\bin\run_test.ps1 -json -name spider -action detect -inputfile ".\test\data\Pascal\SPIDER.PAS" -expected ".\test\ref\detect\Pascal\SPIDER.txt"
-test\bin\run_test.ps1 -json -name tpc16 -action detect -inputfile ".\test\data\Pascal\TPC16.PAS" -expected ".\test\ref\detect\Pascal\TPC16.txt"
-
-test\bin\run_test.ps1 -json -name polyglot -action detect -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\detect\multiple\polyglot.txt"
-
-test\bin\run_test.ps1 -json -name drone-3d -action detect -inputfile ".\test\data\Python\drone_3d_trajectory_following.py" -expected ".\test\ref\detect\Python\drone_3d_trajectory_following.txt"
-test\bin\run_test.ps1 -json -name quadrotor -action detect -inputfile ".\test\data\Python\Quadrotor.py" -expected ".\test\ref\detect\Python\Quadrotor.txt"
-test\bin\run_test.ps1 -json -name trajectory -action detect -inputfile ".\test\data\Python\TrajectoryGenerator.py" -expected ".\test\ref\detect\Python\TrajectoryGenerator.txt"
-test\bin\run_test.ps1 -json -name values-python -action detect -inputfile ".\test\data\Python\values.py" -expected ".\test\ref\detect\Python\values.txt"
+test\bin\run_test.ps1 -json -name calculator1 -action detect -inputfile ".\test\data\Csharp\calculator1.cs" -expected ".\test\ref\detect\Csharp\calculator1.txt"
+test\bin\run_test.ps1 -json -name calculator2 -action detect -inputfile ".\test\data\Csharp\calculator2.cs" -expected ".\test\ref\detect\Csharp\calculator2.txt"
+test\bin\run_test.ps1 -json -name calculator3 -action detect -inputfile ".\test\data\Csharp\calculator3.cs" -expected ".\test\ref\detect\Csharp\calculator3.txt"
 
 test\bin\run_test.ps1 -json -name hello-ftn66 -action detect -inputfile ".\test\data\FORTRAN-66\HELLO.FOR" -expected ".\test\ref\detect\FORTRAN-66\HELLO.txt"
 test\bin\run_test.ps1 -json -name heron-ftn66 -action detect -inputfile ".\test\data\FORTRAN-66\HERON.FOR" -expected ".\test\ref\detect\FORTRAN-66\HERON.txt"
@@ -78,12 +69,32 @@ test\bin\run_test.ps1 -json -name cylinder-ftn90 -action detect -inputfile ".\te
 test\bin\run_test.ps1 -json -name gauss-ftn90 -action detect -inputfile ".\test\data\Fortran-90\gauss.f90" -expected ".\test\ref\detect\Fortran-90\gauss.txt"
 test\bin\run_test.ps1 -json -name hello-ftn90 -action detect -inputfile ".\test\data\Fortran-90\hello.f90" -expected ".\test\ref\detect\Fortran-90\hello.txt"
 
-test\bin\run_test.ps1 -json -name calculator1 -action detect -inputfile ".\test\data\Csharp\calculator1.cs" -expected ".\test\ref\detect\Csharp\calculator1.txt"
-test\bin\run_test.ps1 -json -name calculator2 -action detect -inputfile ".\test\data\Csharp\calculator2.cs" -expected ".\test\ref\detect\Csharp\calculator2.txt"
-test\bin\run_test.ps1 -json -name calculator3 -action detect -inputfile ".\test\data\Csharp\calculator3.cs" -expected ".\test\ref\detect\Csharp\calculator3.txt"
-
 test\bin\run_test.ps1 -json -name prime_test-java -action detect -inputfile ".\test\data\Java\prime_test.java" -expected ".\test\ref\detect\Java\prime_test.txt"
 test\bin\run_test.ps1 -json -name palindrome-java -action detect -inputfile ".\test\data\Java\palindrome.java" -expected ".\test\ref\detect\Java\palindrome.txt"
+
+test\bin\run_test.ps1 -json -name hello-objc -action detect -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\detect\Objective-C\HelloWorld.txt"
+
+test\bin\run_test.ps1 -json -name firework -action detect -inputfile ".\test\data\Pascal\FIREWORK.PAS" -expected ".\test\ref\detect\Pascal\FIREWORK.txt"
+test\bin\run_test.ps1 -json -name hello -action detect -inputfile ".\test\data\Pascal\HELLO.PAS" -expected ".\test\ref\detect\Pascal\HELLO.txt"
+test\bin\run_test.ps1 -json -name rose -action detect -inputfile ".\test\data\Pascal\ROSE.PAS" -expected ".\test\ref\detect\Pascal\ROSE.txt"
+test\bin\run_test.ps1 -json -name spider -action detect -inputfile ".\test\data\Pascal\SPIDER.PAS" -expected ".\test\ref\detect\Pascal\SPIDER.txt"
+test\bin\run_test.ps1 -json -name tpc16 -action detect -inputfile ".\test\data\Pascal\TPC16.PAS" -expected ".\test\ref\detect\Pascal\TPC16.txt"
+
+test\bin\run_test.ps1 -json -name family-main -action detect -inputfile ".\test\data\Prolog\family-main.pl" -expected ".\test\ref\detect\Prolog\family-main.txt"
+test\bin\run_test.ps1 -json -name family-kb -action detect -inputfile ".\test\data\Prolog\family-kb.pl" -expected ".\test\ref\detect\Prolog\family-kb.txt"
+test\bin\run_test.ps1 -json -name family-menu -action detect -inputfile ".\test\data\Prolog\family-menu.pl" -expected ".\test\ref\detect\Prolog\family-menu.txt"
+test\bin\run_test.ps1 -json -name family-queries -action detect -inputfile ".\test\data\Prolog\family-queries.pl" -expected ".\test\ref\detect\Prolog\family-queries.txt"
+
+test\bin\run_test.ps1 -json -name drone-3d -action detect -inputfile ".\test\data\Python\drone_3d_trajectory_following.py" -expected ".\test\ref\detect\Python\drone_3d_trajectory_following.txt"
+test\bin\run_test.ps1 -json -name quadrotor -action detect -inputfile ".\test\data\Python\Quadrotor.py" -expected ".\test\ref\detect\Python\Quadrotor.txt"
+test\bin\run_test.ps1 -json -name trajectory -action detect -inputfile ".\test\data\Python\TrajectoryGenerator.py" -expected ".\test\ref\detect\Python\TrajectoryGenerator.txt"
+test\bin\run_test.ps1 -json -name values-python -action detect -inputfile ".\test\data\Python\values.py" -expected ".\test\ref\detect\Python\values.txt"
+
+test\bin\run_test.ps1 -json -name ETM-540-01 -action detect -inputfile ".\test\data\R\ETM-540-01.R" -expected ".\test\ref\detect\R\ETM-540-01.txt"
+test\bin\run_test.ps1 -json -name ETM-540-02 -action detect -inputfile ".\test\data\R\ETM-540-02.R" -expected ".\test\ref\detect\R\ETM-540-02.txt"
+test\bin\run_test.ps1 -json -name ETM-540-03 -action detect -inputfile ".\test\data\R\ETM-540-03.R" -expected ".\test\ref\detect\R\ETM-540-03.txt"
+test\bin\run_test.ps1 -json -name ETM-540-04 -action detect -inputfile ".\test\data\R\ETM-540-04.R" -expected ".\test\ref\detect\R\ETM-540-04.txt"
+test\bin\run_test.ps1 -json -name ETM-540-05 -action detect -inputfile ".\test\data\R\ETM-540-05.R" -expected ".\test\ref\detect\R\ETM-540-05.txt"
 
 test\bin\run_test.ps1 -json -name basic-ruby -action detect -inputfile ".\test\data\Ruby\basic.rb" -expected ".\test\ref\detect\Ruby\basic.txt"
 test\bin\run_test.ps1 -json -name constants-ruby -action detect -inputfile ".\test\data\Ruby\constants.rb" -expected ".\test\ref\detect\Ruby\constants.txt"
@@ -99,11 +110,6 @@ test\bin\run_test.ps1 -json -name tokenizers-ruby -action detect -inputfile ".\t
 test\bin\run_test.ps1 -json -name tokens-ruby -action detect -inputfile ".\test\data\Ruby\tokens.rb" -expected ".\test\ref\detect\Ruby\tokens.txt"
 test\bin\run_test.ps1 -json -name webhook-ruby -action detect -inputfile ".\test\data\Ruby\webhook.rb" -expected ".\test\ref\detect\Ruby\webhook.txt"
 
-test\bin\run_test.ps1 -json -name family-main -action detect -inputfile ".\test\data\Prolog\family-main.pl" -expected ".\test\ref\detect\Prolog\family-main.txt"
-test\bin\run_test.ps1 -json -name family-kb -action detect -inputfile ".\test\data\Prolog\family-kb.pl" -expected ".\test\ref\detect\Prolog\family-kb.txt"
-test\bin\run_test.ps1 -json -name family-menu -action detect -inputfile ".\test\data\Prolog\family-menu.pl" -expected ".\test\ref\detect\Prolog\family-menu.txt"
-test\bin\run_test.ps1 -json -name family-queries -action detect -inputfile ".\test\data\Prolog\family-queries.pl" -expected ".\test\ref\detect\Prolog\family-queries.txt"
-
 test\bin\run_test.ps1 -json -name AppDelegate -action detect -inputfile ".\test\data\Swift\AppDelegate.swift" -expected ".\test\ref\detect\Swift\AppDelegate.txt"
 test\bin\run_test.ps1 -json -name Meal -action detect -inputfile ".\test\data\Swift\Meal.swift" -expected ".\test\ref\detect\Swift\Meal.txt"
 test\bin\run_test.ps1 -json -name MealTableViewCell -action detect -inputfile ".\test\data\Swift\MealTableViewCell.swift" -expected ".\test\ref\detect\Swift\MealTableViewCell.txt"
@@ -111,10 +117,6 @@ test\bin\run_test.ps1 -json -name MealTableViewController -action detect -inputf
 test\bin\run_test.ps1 -json -name MealViewController -action detect -inputfile ".\test\data\Swift\MealViewController.swift" -expected ".\test\ref\detect\Swift\MealViewController.txt"
 test\bin\run_test.ps1 -json -name RatingControl -action detect -inputfile ".\test\data\Swift\RatingControl.swift" -expected ".\test\ref\detect\Swift\RatingControl.txt"
 
-test\bin\run_test.ps1 -json -name ETM-540-01 -action detect -inputfile ".\test\data\R\ETM-540-01.R" -expected ".\test\ref\detect\R\ETM-540-01.txt"
-test\bin\run_test.ps1 -json -name ETM-540-02 -action detect -inputfile ".\test\data\R\ETM-540-02.R" -expected ".\test\ref\detect\R\ETM-540-02.txt"
-test\bin\run_test.ps1 -json -name ETM-540-03 -action detect -inputfile ".\test\data\R\ETM-540-03.R" -expected ".\test\ref\detect\R\ETM-540-03.txt"
-test\bin\run_test.ps1 -json -name ETM-540-04 -action detect -inputfile ".\test\data\R\ETM-540-04.R" -expected ".\test\ref\detect\R\ETM-540-04.txt"
-test\bin\run_test.ps1 -json -name ETM-540-05 -action detect -inputfile ".\test\data\R\ETM-540-05.R" -expected ".\test\ref\detect\R\ETM-540-05.txt"
+test\bin\run_test.ps1 -json -name polyglot -action detect -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\detect\multiple\polyglot.txt"
 
 Write-Output "Number of failures: $failures"
