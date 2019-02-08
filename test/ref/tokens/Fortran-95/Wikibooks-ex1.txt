@@ -1,0 +1,666 @@
+﻿[
+    {
+        "type": "keyword",
+        "value": "subroutine"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "swap_real"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "a1"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "a2"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "   "
+    },
+    {
+        "type": "keyword",
+        "value": "implicit"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "none"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "comment",
+        "value": "!  Input/Output\r"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "   "
+    },
+    {
+        "type": "keyword",
+        "value": "real"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "intent"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "inout"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "::"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "a1"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "a2"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "comment",
+        "value": "!  Locals\r"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "   "
+    },
+    {
+        "type": "keyword",
+        "value": "integer"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "::"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "N"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "comment",
+        "value": "!  Swap, using the internal subroutine\r"
+    },
+    {
+        "type": "newline",
+        "value": "\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "   "
+    },
+    {
+        "type": "identifier",
+        "value": "N"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "min"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "size"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "a1"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "size"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "a2"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "   "
+    },
+    {
+        "type": "keyword",
+        "value": "call"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "swap_e"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "a1"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "N"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "a2"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "N"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "contains"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "   "
+    },
+    {
+        "type": "identifier",
+        "value": "elemental"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "subroutine"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "swap_e"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "a1"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "a2"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "      "
+    },
+    {
+        "type": "keyword",
+        "value": "real"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "intent"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "inout"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "::"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "a1"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "a2"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "      "
+    },
+    {
+        "type": "keyword",
+        "value": "real"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "::"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "a"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "      "
+    },
+    {
+        "type": "identifier",
+        "value": "a"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "a1"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "      "
+    },
+    {
+        "type": "identifier",
+        "value": "a1"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "a2"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "      "
+    },
+    {
+        "type": "identifier",
+        "value": "a2"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "a"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "   "
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "subroutine"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "swap_e"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "end"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "subroutine"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "swap_real"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    }
+]

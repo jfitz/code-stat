@@ -14,6 +14,7 @@ from CsharpExaminer import CsharpExaminer
 from Fortran66Examiner import Fortran66Examiner
 from Fortran77Examiner import Fortran77Examiner
 from Fortran90Examiner import Fortran90Examiner
+from Fortran95Examiner import Fortran95Examiner
 from JavaExaminer import JavaExaminer
 from JavaScriptExaminer import JavaScriptExaminer
 from ObjectiveCExaminer import ObjectiveCExaminer
@@ -57,6 +58,7 @@ def languages():
     'FORTRAN-66',
     'FORTRAN-77',
     'Fortran-90',
+    'Fortran-95',
     'Java',
     'JavaScript',
     'Objective-C',
@@ -314,6 +316,7 @@ def identify_language(code, tabsize):
   examiners['Fortran-66'] = Fortran66Examiner(code, tab_size)
   examiners['Fortran-77'] = Fortran77Examiner(code, tab_size)
   examiners['Fortran-90'] = Fortran90Examiner(code)
+  examiners['Fortran-95'] = Fortran95Examiner(code)
   examiners['Objective-C'] = ObjectiveCExaminer(code)
   examiners['Java'] = JavaExaminer(code)
   examiners['JavaScript'] = JavaScriptExaminer(code)
@@ -441,6 +444,10 @@ def tokenize(code, language, tabsize):
     examiner = Fortran90Examiner(code)
     tokens = examiner.tokens
 
+  if language in ['f95', 'fortran-95']:
+    examiner = Fortran90Examiner(code)
+    tokens = examiner.tokens
+
   if language in ['java', 'jav']:
     examiner = JavaExaminer(code)
     tokens = examiner.tokens
@@ -529,6 +536,10 @@ def tokenize_confidence(code, language, tabsize):
     confidences = examiner.confidences
 
   if language in ['f90', 'fortran-90']:
+    examiner = Fortran90Examiner(code)
+    confidences = examiner.confidences
+
+  if language in ['f95', 'fortran-95']:
     examiner = Fortran90Examiner(code)
     confidences = examiner.confidences
 

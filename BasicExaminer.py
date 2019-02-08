@@ -10,14 +10,14 @@ from TokenBuilders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   ListTokenBuilder,
-  PrefixedIntegerTokenBuilder
+  PrefixedIntegerTokenBuilder,
+  LeadCommentTokenBuilder
 )
 from BasicTokenBuilders import (
   BasicSuffixedIntegerTokenBuilder,
   BasicSuffixedRealTokenBuilder,
   BasicVariableTokenBuilder,
   RemarkTokenBuilder,
-  BasicCommentTokenBuilder,
   LineNumberTokenBuilder
 )
 from Tokenizer import Tokenizer
@@ -43,7 +43,7 @@ class BasicExaminer(Examiner):
     variable_tb = BasicVariableTokenBuilder('%#!$&')
     string_tb = StringTokenBuilder(['"'], True)
     remark_tb = RemarkTokenBuilder()
-    comment_tb = BasicCommentTokenBuilder()
+    comment_tb = LeadCommentTokenBuilder("'")
     line_number_tb = LineNumberTokenBuilder()
 
     stmt_separator_tb = ListTokenBuilder([':'], 'statement separator', False)
