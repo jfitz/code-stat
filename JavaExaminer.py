@@ -10,10 +10,10 @@ from TokenBuilders import (
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
+  IdentifierTokenBuilder,
   ListTokenBuilder
 )
 from CXTokenBuilders import (
-  IdentifierTokenBuilder,
   SlashSlashCommentTokenBuilder,
   SlashStarCommentTokenBuilder
 )

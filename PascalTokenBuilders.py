@@ -1,29 +1,6 @@
 from Token import Token
 from TokenBuilders import TokenBuilder
 
-# token reader for identifier
-class IdentifierTokenBuilder(TokenBuilder):
-  def __init__(self):
-    self.token = None
-
-  def get_tokens(self):
-    if self.token is None:
-      return None
-
-    return [Token(self.token, 'identifier')]
-
-  def accept(self, candidate, c):
-    result = False
-
-    if c.isalpha():
-      result = True
-    if c.isdigit() and len(candidate) > 0:
-      result = True
-    if c == '_' and len(candidate) > 0:
-      result = True
-
-    return result
-
 # token reader for brace comment
 class BraceCommentTokenBuilder(TokenBuilder):
   def __init__(self):

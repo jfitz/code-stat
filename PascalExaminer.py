@@ -10,11 +10,11 @@ from TokenBuilders import (
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
+  IdentifierTokenBuilder,
   ListTokenBuilder,
   PrefixedIntegerTokenBuilder
 )
 from PascalTokenBuilders import (
-  IdentifierTokenBuilder,
   BraceCommentTokenBuilder,
   ParenStarCommentTokenBuilder
 )

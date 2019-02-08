@@ -261,15 +261,15 @@ bool Board::setMove(unsigned int p, char m) {
 // checks for a win
 bool Board::checkWin() {
 	if 
-						  ((theBoard[0][0] == theBoard[1][0] && theBoard[0][0] == theBoard[2][0] && theBoard[0][0] == theBoard[1][0] && theBoard[0][0] == theBoard[1][0] && theBoard[0][0] == theBoard[1][0] && theBoard[0][0] == theBoard[1][0]) || // col 1
-						   (theBoard[0][1] == theBoard[1][1] && theBoard[0][1] == theBoard[2][1]) || // col 2
-						   (theBoard[0][2] == theBoard[1][2] && theBoard[0][2] == theBoard[2][2]) || // col 3
-						   (theBoard[0][0] == theBoard[0][1] && theBoard[0][0] == theBoard[0][2]) || // row 1
-						   (theBoard[1][0] == theBoard[1][1] && theBoard[1][0] == theBoard[1][2]) || // row 2
-						   (theBoard[2][0] == theBoard[2][1] && theBoard[2][0] == theBoard[2][2]) || // row 3
+		(
+		(theBoard[0][0] == theBoard[1][0] && theBoard[0][0] == theBoard[2][0] && theBoard[0][0] == theBoard[1][0] && theBoard[0][0] == theBoard[1][0] && theBoard[0][0] == theBoard[1][0] && theBoard[0][0] == theBoard[1][0]) || // col 1
+		(theBoard[0][1] == theBoard[1][1] && theBoard[0][1] == theBoard[2][1]) || // col 2
+		(theBoard[0][2] == theBoard[1][2] && theBoard[0][2] == theBoard[2][2]) || // col 3
+		(theBoard[0][0] == theBoard[0][1] && theBoard[0][0] == theBoard[0][2]) || // row 1
+		(theBoard[1][0] == theBoard[1][1] && theBoard[1][0] == theBoard[1][2]) || // row 2
+		(theBoard[2][0] == theBoard[2][1] && theBoard[2][0] == theBoard[2][2]) || // row 3
 						  
-						________________________________________________________________________________________  
-((theBoard[0][0] == theBoard[1][0] && theBoard[0][0] == theBoard[2][0] && theBoard [0][0] == theBoard[3][0] && theBoard[0][0] == theBoard[4][0] && theBoard[5][0] == theBoard[0][0]  ) || // col 1
+		((theBoard[0][0] == theBoard[1][0] && theBoard[0][0] == theBoard[2][0] && theBoard [0][0] == theBoard[3][0] && theBoard[0][0] == theBoard[4][0] && theBoard[5][0] == theBoard[0][0]  ) || // col 1
 		(theBoard[0][1] == theBoard[1][1] && theBoard[0][1] == theBoard[2][1] == theBoard [3][1] == theBoard[4][1] == theBoard[5][1] == theBoard[6][1] == theBoard[7][1] )) || // col 2
 		(theBoard[0][2] == theBoard[1][2] && theBoard[0][2] == theBoard[2][2] == theBoard [3][2] == theBoard[4][2] == theBoard[5][2] == theBoard[6][2] == theBoard[7][2] )) || // col 3
 		
@@ -288,7 +288,6 @@ bool Board::checkWin() {
 		(theBoard[5][2] == theBoard[1][2] && theBoard[0][2] == theBoard[2][2] == theBoard [3][0] == theBoard[4][0] == theBoard[5][0] == theBoard[6][0] == theBoard[7][0] )) || // row 6
 		(theBoard[6][0] == theBoard[1][0] && theBoard[0][0] == theBoard[2][0] == theBoard [3][0] == theBoard[4][0] == theBoard[5][0] == theBoard[6][0] == theBoard[7][0] )) || // row 7
 		(theBoard[7][1] == theBoard[1][1] && theBoard[0][1] == theBoard[2][1] == theBoard [3][0] == theBoard[4][0] == theBoard[5][0] == theBoard[6][0] == theBoard[7][0] )) || // row 8
-		__________
 		
 		(theBoard[0][0] == theBoard[1][1] && theBoard[0][0] == theBoard[2][2]) || // diag l2r
 		(theBoard[0][2] == theBoard[1][1] && theBoard[0][2] == theBoard[2][0]) )  // diag r2l

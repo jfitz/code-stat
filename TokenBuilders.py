@@ -339,6 +339,29 @@ class RealExponentTokenBuilder(TokenBuilder):
     return len(self.token)
 
 
+# token reader for identifier
+class IdentifierTokenBuilder(TokenBuilder):
+  def __init__(self):
+    self.token = None
+
+  def get_tokens(self):
+    if self.token is None:
+      return None
+
+    return [Token(self.token, 'identifier')]
+
+  def accept(self, candidate, c):
+    result = False
+
+    if len(candidate) == 0:
+      result = c.isalpha() or c == '_'
+
+    if len(candidate) > 0:
+      result = c.isalpha() or c.isdigit() or c == '_'
+
+    return result
+
+
 # accept characters to match item in list
 class ListTokenBuilder(TokenBuilder):
   def __init__(self, legals, group, case_sensitive):

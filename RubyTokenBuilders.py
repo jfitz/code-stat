@@ -2,7 +2,7 @@ from Token import Token
 from TokenBuilders import TokenBuilder
 
 # token reader for identifier
-class IdentifierTokenBuilder(TokenBuilder):
+class RubyIdentifierTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = None
 

@@ -11,12 +11,12 @@ from TokenBuilders import (
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
+  IdentifierTokenBuilder,
   ListTokenBuilder,
   LeadCommentTokenBuilder,
   TripleQuoteCommentTokenBuilder
 )
 from PythonTokenBuilders import (
-  IdentifierTokenBuilder,
   RawTripleQuoteCommentTokenBuilder
 )
 from Tokenizer import Tokenizer

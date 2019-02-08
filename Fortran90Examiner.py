@@ -10,11 +10,9 @@ from TokenBuilders import (
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
+  IdentifierTokenBuilder,
   ListTokenBuilder,
   LeadCommentTokenBuilder
-)
-from Fortran90TokenBuilders import (
-  IdentifierTokenBuilder
 )
 from Tokenizer import Tokenizer
 

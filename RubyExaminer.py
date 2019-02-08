@@ -16,7 +16,7 @@ from TokenBuilders import (
   RegexTokenBuilder
 )
 from RubyTokenBuilders import (
-  IdentifierTokenBuilder,
+  RubyIdentifierTokenBuilder,
   HereDocTokenBuilder
 )
 from Tokenizer import Tokenizer
@@ -33,7 +33,7 @@ class RubyExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder()
     real_tb = RealTokenBuilder(False, False)
     real_exponent_tb = RealExponentTokenBuilder(False, False)
-    identifier_tb = IdentifierTokenBuilder()
+    identifier_tb = RubyIdentifierTokenBuilder()
     symbol_tb = PrefixedIdentifierTokenBuilder(':', 'symbol')
     string_tb = StringTokenBuilder(['"', "'"], False)
     heredoc_tb = HereDocTokenBuilder()

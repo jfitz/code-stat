@@ -10,11 +10,11 @@ from TokenBuilders import (
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
+  IdentifierTokenBuilder,
   ListTokenBuilder,
   LeadCommentTokenBuilder
 )
 from RTokenBuilders import (
-  IdentifierTokenBuilder,
   ROperatorTokenBuilder
 )
 from Tokenizer import Tokenizer

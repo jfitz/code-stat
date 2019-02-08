@@ -11,10 +11,10 @@ from TokenBuilders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   ListTokenBuilder,
+  IdentifierTokenBuilder,
   LeadCommentTokenBuilder
 )
 from PrologTokenBuilders import (
-  IdentifierTokenBuilder,
   PrologVariableTokenBuilder
 )
 from Tokenizer import Tokenizer
