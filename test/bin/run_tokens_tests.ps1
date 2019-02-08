@@ -72,6 +72,9 @@ test\bin\run_test.ps1 -json -name hello-ftn90 -action tokens -language Fortran-9
 test\bin\run_test.ps1 -json -name prime_test-java -action tokens -language Java -inputfile ".\test\data\Java\prime_test.java" -expected ".\test\ref\tokens\Java\prime_test.txt"
 test\bin\run_test.ps1 -json -name palindrome-java -action tokens -language Java -inputfile ".\test\data\Java\palindrome.java" -expected ".\test\ref\tokens\Java\palindrome.txt"
 
+test\bin\run_test.ps1 -json -name codestat-java -action tokens -language JavaScript -inputfile ".\test\data\JavaScript\codestat.js" -expected ".\test\ref\tokens\JavaScript\codestat.txt"
+test\bin\run_test.ps1 -json -name bing-java -action tokens -language JavaScript -inputfile ".\test\data\JavaScript\bing.js" -expected ".\test\ref\tokens\JavaScript\bing.txt"
+
 test\bin\run_test.ps1 -json -name hello-objc -action tokens -language Objective-C -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\tokens\Objective-C\HelloWorld.txt"
 
 test\bin\run_test.ps1 -json -name firework -action tokens -language Pascal -inputfile ".\test\data\Pascal\FIREWORK.PAS" -expected ".\test\ref\tokens\Pascal\FIREWORK.txt"

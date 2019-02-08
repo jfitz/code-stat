@@ -401,9 +401,10 @@ class ListTokenBuilder(TokenBuilder):
 
 # token reader for integer
 class PrefixedIntegerTokenBuilder(TokenBuilder):
-  def __init__(self, prefix, allowed_chars):
+  def __init__(self, prefix, case_sensitive, allowed_chars):
     self.token = None
     self.prefix = prefix
+    self.case_sensitive = case_sensitive
     self.allowed_chars = allowed_chars
 
 
@@ -417,11 +418,14 @@ class PrefixedIntegerTokenBuilder(TokenBuilder):
   def accept(self, candidate, c):
     result = False
 
-    if len(candidate) < len(self.prefix) and c == self.prefix[len(candidate)]:
-      result = True
+    if len(candidate) < len(self.prefix):
+      if self.case_sensitive:
+        result = c == self.prefix[len(candidate)]
+      else:
+        result = c.lower() == self.prefix[len(candidate)].lower()
     
-    if len(candidate) >= len(self.prefix) and c in self.allowed_chars:
-      result = True
+    if len(candidate) >= len(self.prefix):
+      result = c in self.allowed_chars
 
     return result
 
@@ -517,3 +521,47 @@ class PrefixedIdentifierTokenBuilder(TokenBuilder):
       result = c.isalpha() or c.isdigit() or c == '_'
 
     return result
+
+
+# token reader for identifier
+class RegexTokenBuilder(TokenBuilder):
+  def __init__(self):
+    self.token = None
+
+
+  def get_tokens(self):
+    if self.token is None:
+      return None
+
+    return [Token(self.token, 'regex')]
+
+
+  def accept(self, candidate, c):
+    result = False
+ 
+    if len(candidate) == 0:
+      result = c == '/'
+
+    if len(candidate) == 1:
+      result = True
+
+    if len(candidate) > 1:
+      result = candidate[-1] != candidate[0]
+
+    if c in ['\r', '\n']:
+      result = False
+
+    return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.token is None:
+      return 0
+
+    if len(self.token) < 3:
+      return 0
+
+    if self.token[-1] != self.token[0]:
+      return 0
+
+    return len(self.token)

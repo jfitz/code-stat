@@ -72,6 +72,9 @@ test\bin\run_test.ps1 -json -name hello-ftn90 -action confidence -language Fortr
 test\bin\run_test.ps1 -json -name prime_test-java -action confidence -language Java -inputfile ".\test\data\Java\prime_test.java" -expected ".\test\ref\confidence\Java\prime_test.txt"
 test\bin\run_test.ps1 -json -name palindrome-java -action confidence -language Java -inputfile ".\test\data\Java\palindrome.java" -expected ".\test\ref\confidence\Java\palindrome.txt"
 
+test\bin\run_test.ps1 -json -name codestat-java -action confidence -language JavaScript -inputfile ".\test\data\JavaScript\codestat.js" -expected ".\test\ref\confidence\JavaScript\codestat.txt"
+test\bin\run_test.ps1 -json -name bing-java -action confidence -language JavaScript -inputfile ".\test\data\JavaScript\bing.js" -expected ".\test\ref\confidence\JavaScript\bing.txt"
+
 test\bin\run_test.ps1 -json -name hello-objc -action confidence -language Objective-C -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\confidence\Objective-C\HelloWorld.txt"
 
 test\bin\run_test.ps1 -json -name firework -action confidence -language Pascal -inputfile ".\test\data\Pascal\FIREWORK.PAS" -expected ".\test\ref\confidence\Pascal\FIREWORK.txt"

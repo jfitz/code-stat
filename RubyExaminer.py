@@ -12,12 +12,12 @@ from TokenBuilders import (
   RealExponentTokenBuilder,
   ListTokenBuilder,
   LeadCommentTokenBuilder,
-  PrefixedIdentifierTokenBuilder
+  PrefixedIdentifierTokenBuilder,
+  RegexTokenBuilder
 )
 from RubyTokenBuilders import (
   IdentifierTokenBuilder,
-  HereDocTokenBuilder,
-  RegexTokenBuilder
+  HereDocTokenBuilder
 )
 from Tokenizer import Tokenizer
 

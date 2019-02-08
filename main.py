@@ -15,6 +15,7 @@ from Fortran66Examiner import Fortran66Examiner
 from Fortran77Examiner import Fortran77Examiner
 from Fortran90Examiner import Fortran90Examiner
 from JavaExaminer import JavaExaminer
+from JavaScriptExaminer import JavaScriptExaminer
 from ObjectiveCExaminer import ObjectiveCExaminer
 from PascalExaminer import PascalExaminer
 from PrologExaminer import PrologExaminer
@@ -57,6 +58,7 @@ def languages():
     'FORTRAN-77',
     'Fortran-90',
     'Java',
+    'JavaScript',
     'Objective-C',
     'Pascal',
     'Prolog',
@@ -314,6 +316,7 @@ def identify_language(code, tabsize):
   examiners['Fortran-90'] = Fortran90Examiner(code)
   examiners['Objective-C'] = ObjectiveCExaminer(code)
   examiners['Java'] = JavaExaminer(code)
+  examiners['JavaScript'] = JavaScriptExaminer(code)
   examiners['Pascal'] = PascalExaminer(code)
   examiners['Prolog'] = PrologExaminer(code)
   examiners['Python'] = PythonExaminer(code)
@@ -442,6 +445,10 @@ def tokenize(code, language, tabsize):
     examiner = JavaExaminer(code)
     tokens = examiner.tokens
 
+  if language in ['javascript', 'js']:
+    examiner = JavaScriptExaminer(code)
+    tokens = examiner.tokens
+
   if language in ['objective-c', 'objc']:
     examiner = ObjectiveCExaminer(code)
     tokens = examiner.tokens
@@ -527,6 +534,10 @@ def tokenize_confidence(code, language, tabsize):
 
   if language in ['java', 'jav']:
     examiner = JavaExaminer(code)
+    confidences = examiner.confidences
+
+  if language in ['javascript', 'js']:
+    examiner = JavaScriptExaminer(code)
     confidences = examiner.confidences
 
   if language in ['objective-c', 'objc']:
