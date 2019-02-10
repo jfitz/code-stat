@@ -245,10 +245,10 @@
       *
       *
        B20-PROCESS-PARA.
-           IF ER-PAY-CODE-IN = SPACES THEN
+           IF ER-PAY-CODE-IN EQUAL TO SPACES THEN
                ADD 1 TO WS-SALARY-TOT
                MOVE ER-SALARY-RATE TO DL-SALARY-OUT
-           ELSE IF ER-PAY-CODE-IN = "H" THEN
+           ELSE IF ER-PAY-CODE-IN EQUAL TO "H" THEN
                ADD 1 TO WS-HOURLY-TOT
                MOVE ER-HOURLY-RATE TO DL-HOURLY-OUT
            ELSE
@@ -256,7 +256,7 @@
            END-IF.
 
 
-           IF ER-PAY-CODE-IN = SPACES THEN
+           IF ER-PAY-CODE-IN EQUAL TO SPACES THEN
                MOVE "S" TO DL-PAY-CODE-OUT
            ELSE
                MOVE ER-PAY-CODE-IN TO DL-PAY-CODE-OUT
@@ -267,7 +267,7 @@
            MOVE ER-EMPL-MI-IN TO DL-EMPL-MI-OUT.
 
 
-           IF WS-LINES-USED >= 57 THEN
+           sWS-LINES-USED GREATER THAN OR EQUAL TO 57 THEN
                MOVE ZEROS TO WS-LINES-USED
                PERFORM C10-HEADINGS-PARA
            END-IF.

@@ -266,9 +266,9 @@
            MOVE SPACES TO WS-DETAIL-LINE
                           WS-DETAIL-LINE-TWO.
            
-           IF PR-SHIFT-NUMBER-IN = 3 THEN
+           IF PR-SHIFT-NUMBER-IN EQUAL TO 3 THEN
                COMPUTE WS-SHIFT = (.125 * PR-RATE-IN) * WS-TOTAL-HOURS
-           ELSE IF PR-SHIFT-NUMBER-IN = 2 THEN
+           ELSE IF PR-SHIFT-NUMBER-IN EQUAL TO 2 THEN
                    COMPUTE WS-SHIFT =
                        (.10 * PR-RATE-IN) * WS-TOTAL-HOURS
                ELSE
@@ -285,17 +285,17 @@
            COMPUTE WS-NYTD = PR-YEAR-TO-DATE-IN + WS-TOTAL-EARNINGS.
 
 
-           IF PR-YEAR-TO-DATE-IN >= 29700 THEN
+           IF PR-YEAR-TO-DATE-IN GREATER THAN OR EQUAL TO 29700 THEN
                MOVE ZERO TO WS-FICA
            END-IF.
 
 
-           IF WS-NYTD <= 29700 THEN
+           IF WS-NYTD LESS THAN OR EQUAL TO 29700 THEN
                COMPUTE WS-FICA = (29700 - WS-NYTD) * .0665
            END-IF.
 
 
-           IF PR-YEAR-TO-DATE-IN < 29700 AND WS-NYTD > 29700
+           IF PR-YEAR-TO-DATE-IN LESS THAN 29700 AND WS-NYTD GREATER THAN 29700
                COMPUTE WS-FICA = (29700 - PR-YEAR-TO-DATE-IN) * .0665
            END-IF.
 
@@ -328,7 +328,7 @@
            MOVE 1 TO WS-NUMBER.
            ADD WS-SPACING TO WS-LINES-IN-USE.
            
-           IF WS-LINES-IN-USE >= 60 THEN
+           IF WS-LINES-IN-USE GREATER THAN OR EQUAL TO 60 THEN
                MOVE ZERO TO WS-LINES-IN-USE
                PERFORM C10-HEADINGS-PARA
            END-IF.
@@ -345,7 +345,7 @@
            MOVE WS-ALL-TOTAL-EARNINGS TO WS-ALL-TOTAL-EARNINGS-OUT.
            MOVE WS-ALL-FICA TO WS-ALL-FICA-OUT.
            
-           IF WS-LINES-IN-USE >= 60 THEN
+           IF WS-LINES-IN-USE GREATER THAN OR EQUAL TO 60 THEN
                MOVE ZERO TO WS-LINES-IN-USE
                PERFORM C10-HEADINGS-PARA
            END-IF.

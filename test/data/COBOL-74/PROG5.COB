@@ -293,13 +293,13 @@
             IF WS-DEPT-NUM-IN-02 IS NOT EQUAL WS-PREV-DEPT
                 PERFORM C20-L1-DEPT-CTRL-BRK-PARA
             END-IF.
-            IF WS-DEPT-GRP-SWITCH = "Y"
+            IF WS-DEPT-GRP-SWITCH EQUAL TO "Y"
                 MOVE WS-DEPT-NUM-IN-02 TO WS-DEPT-NUM-OUT
                 MOVE "N" TO WS-DEPT-GRP-SWITCH
             ELSE
                 MOVE SPACES TO WS-DEPT-NUM-OUT
             END-IF.
-            IF WS-PLANT-GRP-SWITCH = "Y"
+            IF WS-PLANT-GRP-SWITCH EQUAL TO "Y"
                 MOVE WS-PLANT-CODE-IN-02 TO WS-PLANT-CODE-OUT
                 MOVE "N" TO WS-PLANT-GRP-SWITCH
             ELSE
@@ -318,7 +318,7 @@
             ADD WS-EARN-THIS-PER-IN-02 TO WS-DEPT-PER-TOT.
             ADD WS-YTD-EARNINGS-IN-02 TO WS-DEPT-YTD-TOT.
             ADD 2 TO WS-LINES-USED.
-            IF WS-LINES-USED > 65 THEN
+            IF WS-LINES-USED GREATER THAN 65 THEN
                 PERFORM C10-HEADINGS-PARA
                 MOVE ZERO TO WS-LINES-USED
             END-IF.            
@@ -335,7 +335,7 @@
            WRITE ER-REPORT-OUT FROM WS-REPORT-TOTAL
                AFTER ADVANCING 1 LINE.
            ADD 1 TO WS-LINES-USED.
-           IF WS-LINES-USED > 65 THEN
+           IF WS-LINES-USED GREATER THAN 65 THEN
                PERFORM C10-HEADINGS-PARA
                MOVE ZERO TO WS-LINES-USED
            END-IF. 

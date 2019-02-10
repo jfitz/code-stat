@@ -288,19 +288,19 @@
            SUBTRACT WS-EXEMPT-SUB-TOT FROM WS-ANN-EARN GIVING
                WS-EARNINGS ROUNDED.
            
-           IF WS-PR-MARITAL-STATUS-IN = 1 THEN
+           IF WS-PR-MARITAL-STATUS-IN EQUAL TO 1 THEN
                PERFORM C30-SINGLE-TAX-PARA
            ELSE
                MOVE "E" TO WS-ROW-FOUND-SWITCH
            END-IF.
  
-           IF WS-PR-MARITAL-STATUS-IN = 2 THEN
+           IF WS-PR-MARITAL-STATUS-IN EQUAL TO 2 THEN
                PERFORM C40-MARRIED-TAX-PARA
            ELSE
                MOVE "E" TO WS-ROW-FOUND-SWITCH
            END-IF.
   
-           IF WS-PR-MARITAL-STATUS-IN = 3 THEN
+           swWS-PR-MARITAL-STATUS-IN EQUAL TO 3 THEN
                PERFORM C60-TAX-EXEMPT-PARA
            END-IF.
 
@@ -325,7 +325,7 @@
            ADD 1 TO WS-PAGE-COUNT.
       *
        C20-TOTAL-PARA.
-           IF WS-LINES-USED >= 57 THEN
+           IF WS-LINES-USED GREATER THAN OR EQUAL TO 57 THEN
                PERFORM C10-HEADINGS-PARA
                MOVE ZEROS TO WS-LINES-USED
            END-IF.
@@ -342,8 +342,8 @@
            SET S-INDEX TO 1.
            SEARCH WS-SING-TAX-ROW
                AT END MOVE "E" TO WS-ROW-FOUND-SWITCH
-               WHEN WS-EARNINGS IS >= WS-SING-LOW  (S-INDEX) AND
-                                IS <= WS-SING-HIGH (S-INDEX)
+               WHEN WS-EARNINGS IS GREATER THAN OR EQUAL TO WS-SING-LOW(S-INDEX) AND
+                                IS LESS THAN OR EQUAL TO WS-SING-HIGH(S-INDEX)
                MOVE "Y" TO WS-ROW-FOUND-SWITCH.
            IF WS-ROW-FOUND THEN
                COMPUTE WS-ANN-TAX-AMT =
@@ -356,8 +356,8 @@
            SET M-INDEX TO 1.
            SEARCH WS-MARR-TAX-ROW
                AT END MOVE "E" TO WS-ROW-FOUND-SWITCH
-               WHEN WS-EARNINGS IS >= WS-MARR-LOW (M-INDEX) AND
-                                IS <= WS-MARR-HIGH (M-INDEX)
+               WHEN WS-EARNINGS IS GREATER THAN OR EQUAL TO WS-MARR-LOW (M-INDEX) AND
+                                IS LESS THAN OR EQUAL TO WS-MARR-HIGH (M-INDEX)
                MOVE "Y" TO WS-ROW-FOUND-SWITCH.
            IF WS-ROW-FOUND THEN
                COMPUTE WS-ANN-TAX-AMT =
@@ -381,7 +381,7 @@
            MOVE WS-EARNINGS TO WS-ADJ-EARN-OUT.
            MOVE WS-PER-TAX-AMT TO WS-FED-TAX-THIS-PER-OUT.
            MOVE WS-ANN-TAX-AMT TO WS-FED-TAX-AMT-OUT.
-           IF WS-LINES-USED >= 57 THEN
+           IF WS-LINES-USED GREATER THAN OR EQUAL TO 57 THEN
                PERFORM C10-HEADINGS-PARA
                MOVE ZEROS TO WS-LINES-USED
            END-IF.

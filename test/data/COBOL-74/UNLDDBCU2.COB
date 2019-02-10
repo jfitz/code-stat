@@ -382,7 +382,7 @@
       *    SET UP ADDRESSES IN THE SQLDA FOR DATA.                  *
       *                                                             *
       ***************************************************************
-           IF SQLD = ZERO THEN
+           IF SQLD EQUAL TO ZERO THEN
               WRITE MSGREC FROM MSGNOCOL
                       AFTER ADVANCING 2 LINES
               MOVE 'Y' TO ERR-FOUND
@@ -410,7 +410,7 @@
            EXEC SQL FETCH DT USING DESCRIPTOR :SQLDA END-EXEC.
       *                                          **NO ROWS FOUND
       *                                          **PRINT ERROR MESSAGE
-                IF SQLCODE = NOT-FOUND
+                IF SQLCODE EQUAL NOT-FOUND
                    WRITE MSGREC FROM MSG-NOROW
                       AFTER ADVANCING 2 LINES
                    MOVE 'Y' TO ERR-FOUND
@@ -432,7 +432,7 @@
       *                                                              *
       ****************************************************************
        IND-RESULT.
-           IF ERR-FOUND = 'N' THEN
+           IF ERR-FOUND EQUAL 'N' THEN
                 MOVE TNAME TO TABLENAM
                 MOVE ROWCOUNT TO ROWS
                 WRITE MSGREC FROM UNLOADED
@@ -454,7 +454,7 @@
                EXEC SQL FETCH DT USING DESCRIPTOR :SQLDA END-EXEC.
       *
        NULLCHK.
-               IF IND(INDCOUNT) < 0 THEN
+               IF IND(INDCOUNT) LESS THAN 0 THEN
                   SET ADDRESS OF LINKAREA-QMARK TO WORKINDPTR(INDCOUNT)
                   MOVE QMARK TO INDREC.
                ADD ONE TO INDCOUNT.
@@ -521,7 +521,7 @@
       *                                                              *
       ****************************************************************
            MOVE ZERO TO IND(I).
-           IF COLUMN-IND = ONE THEN
+           IF COLUMN-IND IS EQUAL TO ONE THEN
               SET SQLIND(I) TO ADDRESS OF IND(I)
               SET WORKINDPTR(I) TO RECPTR
               ADD ONE TO RECNUM
@@ -560,11 +560,11 @@
       *                                          **SQL ERROR
                 MOVE 'Y' TO ERR-FOUND.
                 MOVE SQLCODE TO MSG-PRINT-CODE.
-                IF SQLCODE < 0 THEN MOVE '-' TO MSG-MINUS.
+                IF SQLCODE LESS THAN 0 THEN MOVE '-' TO MSG-MINUS.
                 WRITE MSGREC FROM MSG-SQLERR
                    AFTER ADVANCING 2 LINES.
                 CALL 'DSNTIAR' USING SQLCA ERROR-MESSAGE ERROR-TEXT-LEN.
-                IF RETURN-CODE = ZERO
+                IF RETURN-CODE IS EQUAL TO ZERO
                    PERFORM ERROR-PRINT VARYING ERROR-INDEX
                       FROM 1 BY 1 UNTIL ERROR-INDEX GREATER THAN 8
                 ELSE

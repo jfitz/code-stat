@@ -436,10 +436,10 @@
            PERFORM B25-READ-PARA.
            IF MASTER-HOLD IS NOT EQUAL TO "999999999" AND
                TRANS-HOLD IS NOT EQUAL TO "999999999" THEN
-               IF MASTER-HOLD = TRANS-HOLD THEN
+               IF MASTER-HOLD IS EQUAL TO TRANS-HOLD THEN
                    MOVE "Y" TO GET-NEW-TRANS-SW
                    MOVE "Y" TO INCOMP-GRADE-SW
-                   IF REC-COUNT-TF = 1 THEN
+                   IF REC-COUNT-TF EQUAL 1 THEN
                        MOVE STUD-ID-3-SM TO STUD-ID-3-GR-OUT
                        MOVE STUD-ID-2-SM TO STUD-ID-2-GR-OUT
                        MOVE STUD-ID-4-SM TO STUD-ID-4-GR-OUT
@@ -497,8 +497,8 @@
            END-IF.
 
 
-           IF MASTER-HOLD < TRANS-HOLD THEN
-               IF INCOMP-GRADE-SW = "Y" THEN
+           IF MASTER-HOLD LESS THAN TRANS-HOLD THEN
+               IF INCOMP-GRADE-SW EQUAL TO "Y" THEN
                   MOVE CURR-SEM-CREDITS TO CURR-SEM-CREDITS-OUT
                   MOVE GP-ACCUM TO CURR-SEM-GP-OUT
                   COMPUTE CURR-SEM-GPA ROUNDED
@@ -536,7 +536,7 @@
             END-IF.
 
 
-            IF MASTER-HOLD > TRANS-HOLD THEN
+            IF MASTER-HOLD GREATER THAN TRANS-HOLD THEN
                MOVE "Y" TO GET-NEW-TRANS-SW
                MOVE STUD-ID-TF TO STUD-ID-EL
                MOVE DEPT-TF TO DEPT-EL
@@ -546,7 +546,7 @@
       *
       *
        B25-READ-PARA.
-           IF GET-NEW-MASTER-SW = "Y" THEN
+           IF GET-NEW-MASTER-SW EQUAL TO "Y" THEN
                MOVE "N" TO GET-NEW-MASTER-SW
                READ SORTED-MASTER-FILE INTO WS-SORTED-MASTER-REC
                    AT END
@@ -558,7 +558,7 @@
            END-IF.
 
 
-           IF GET-NEW-TRANS-SW = "Y" THEN
+           IF GET-NEW-TRANS-SW EQUAL TO "Y" THEN
                MOVE "N" TO GET-NEW-TRANS-SW
                READ TRANSACTION-FILE INTO WS-TRANSACTION-REC
                    AT END

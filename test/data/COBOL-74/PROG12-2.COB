@@ -230,9 +230,9 @@
            READ EARNINGS-FILE-IN INTO WS-ER-EARNINGS-REC-IN
                 AT END MOVE "Y" TO WS-EOF-SW.
            PERFORM B30-LOAD-TABLE-PARA
-                UNTIL WS-TABLE-LOAD-SW = "Y".
+                UNTIL WS-TABLE-LOAD-SW IS EQUAL TO "Y".
            PERFORM B20-PROCESS-PARA
-                UNTIL WS-EOF-SW = "Y". 
+                UNTIL WS-EOF-SW IS EQUAL TO "Y". 
            CLOSE EARNINGS-FILE-IN
                  INCOME-TAX-REPORT-OUT.
            STOP RUN.
@@ -266,7 +266,7 @@
            
            MOVE "N" TO WS-EOT-SW.
            PERFORM B40-SEARCH-TABLE-PARA
-               UNTIL WS-EOT-SW = "Y"        
+               UNTIL WS-EOT-SW IS EQUAL TO "Y"        
            MOVE WS-ANNUAL-EARN TO WS-ANNUAL-EARN-OUT
            MOVE WS-ER-EMPL-NUM-3-IN TO WS-SSN-3-OUT
            MOVE "-" TO WS-DASH-1-OUT
@@ -281,7 +281,7 @@
            MOVE WS-TAXABLE-EARN TO WS-TAXABLE-EARN-OUT.
 
 
-           IF WS-LINES-USED >= 57 THEN
+           IF WS-LINES-USED GREATER THAN OR EQUAL TO 57 THEN
                MOVE ZEROS TO WS-LINES-USED
                PERFORM C10-HEADINGS-PARA
            END-IF.
@@ -319,7 +319,7 @@
 
            PERFORM VARYING IT-STATUS-INDEX
                FROM 1 BY 1
-                   UNTIL WS-TABLE-LOAD-SW = "Y"
+                   UNTIL WS-TABLE-LOAD-SW IS EQUAL TO "Y"
                READ PAY-RATE-TABLE-FILE-IN
                    AT END MOVE "Y" TO WS-TABLE-LOAD-SW
                    NOT AT END
@@ -333,17 +333,17 @@
       *
        B40-SEARCH-TABLE-PARA.
            PERFORM VARYING IT-STATUS-INDEX FROM 1 BY 1 UNTIL
-               IT-STATUS-INDEX = 4 OR WS-EOT-SW = "Y"
+               IT-STATUS-INDEX EQUAL 4 OR WS-EOT-SW IS EQUAL TO "Y"
 
 
-               IF WS-ER-MAR-STAT-IN = IT-STATUS-CODE-IN(IT-STATUS-INDEX)
+               IF WS-ER-MAR-STAT-IN EQUAL TO IT-STATUS-CODE-IN(IT-STATUS-INDEX)
                    THEN
                PERFORM VARYING IT-RATE-INDEX FROM 1 BY 1
-                   UNTIL IT-RATE-INDEX = 8 OR WS-EOT-SW = "Y"
+                   UNTIL IT-RATE-INDEX EQUAL 8 OR WS-EOT-SW IS EQUAL TO "Y"
                    
-                   IF WS-TAXABLE-EARN >= 
+                   IF WS-TAXABLE-EARN GREATER THAN OR EQUAL TO 
                        IT-LL-IN(IT-STATUS-INDEX,IT-RATE-INDEX) AND
-                      WS-TAXABLE-EARN <
+                      WS-TAXABLE-EARN LESS THAN
                        IT-UL-IN(IT-STATUS-INDEX,IT-RATE-INDEX) THEN    
 
 
@@ -360,7 +360,7 @@
                     GIVING WS-PERC-TAX-EARN
 
 
-                    COMPUTE WS-TAX-HOLD = 
+                    COMPUTE WS-TAX-HOLD s 
                       (IT-ADDED-TAX-IN(IT-STATUS-INDEX,IT-RATE-INDEX) +
                       WS-PERC-TAX-EARN) / 12
 
@@ -378,7 +378,8 @@
 
                END-PERFORM
                END-IF
-               IF IT-STATUS-INDEX >= 3 AND IT-RATE-INDEX >= 7 THEN
+               IF IT-STATUS-INDEX GREATER THAN OR EQUAL TO 3 AND
+                  IT-RATE-INDEX GREATER THAN OR EQUAL TO 7 THEN
                    MOVE "Y" TO WS-EOT-SW
                END-IF
             END-PERFORM. 

@@ -119,7 +119,7 @@
       *
       *
        B15-FILE-MAINT-PARA.
-           IF STUD-EOF-SW = "N" THEN
+           IF STUD-EOF-SW EQUAL TO "N" THEN
                OPEN INPUT SEQ-STUD-FILE
                    OUTPUT IND-STUD-FILE
            ELSE
@@ -127,7 +127,7 @@
                      IND-STUD-FILE
            END-IF.
  
-           IF TRANS-EOF-SW = "N" THEN
+           IF TRANS-EOF-SW EQUAL TO "N" THEN
                OPEN INPUT SEQ-TRANS-FILE
                    OUTPUT IND-TRANS-FILE
            ELSE
