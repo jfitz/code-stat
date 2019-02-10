@@ -85,12 +85,17 @@ class Fortran77Examiner(Examiner):
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 
     lines = code.split('\n')
+    num_ok_lines = 0
 
     self.tokens = []
     for line in lines:
       line = line.rstrip('\r')
       line = line.rstrip()
       line = self.tabs_to_spaces(line, tab_size)
+
+      if len(line) <= 80:
+        num_ok_lines += 1
+
       line = line[:72]
 
       # The fixed-format FORTRAN line format is:
@@ -158,7 +163,12 @@ class Fortran77Examiner(Examiner):
 
     self.tokens = self.combineAdjacentWhitespace(self.tokens)
 
+    line_length_confidence = 1.0
+    if len(lines) > 0:
+      line_length_confidence = num_ok_lines / len(lines)
+
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     self.calc_operand_confidence()
+    self.confidences['line_length'] = line_length_confidence
