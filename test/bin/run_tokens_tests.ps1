@@ -19,6 +19,7 @@ test\bin\run_test.ps1 -json -name mccracken3-68 -action tokens -language COBOL-6
 
 test\bin\run_test.ps1 -json -name prog1-74 -action tokens -language COBOL-74 -inputfile ".\test\data\COBOL-74\PROG1.COB" -expected ".\test\ref\tokens\COBOL-74\PROG1.txt"
 test\bin\run_test.ps1 -json -name prog2-74 -action tokens -language COBOL-74 -inputfile ".\test\data\COBOL-74\PROG2.COB" -expected ".\test\ref\tokens\COBOL-74\PROG2.txt"
+test\bin\run_test.ps1 -json -name prog2A-74 -action tokens -language COBOL-74 -inputfile ".\test\data\COBOL-74\PROG2A.COB" -expected ".\test\ref\tokens\COBOL-74\PROG2A.txt"
 test\bin\run_test.ps1 -json -name prog3-74 -action tokens -language COBOL-74 -inputfile ".\test\data\COBOL-74\PROG3.COB" -expected ".\test\ref\tokens\COBOL-74\PROG3.txt"
 test\bin\run_test.ps1 -json -name prog4-74 -action tokens -language COBOL-74 -inputfile ".\test\data\COBOL-74\PROG4.COB" -expected ".\test\ref\tokens\COBOL-74\PROG4.txt"
 test\bin\run_test.ps1 -json -name prog5-74 -action tokens -language COBOL-74 -inputfile ".\test\data\COBOL-74\PROG5.COB" -expected ".\test\ref\tokens\COBOL-74\PROG5.txt"
@@ -31,6 +32,7 @@ test\bin\run_test.ps1 -json -name exec1-74 -action tokens -language COBOL-74 -in
 
 test\bin\run_test.ps1 -json -name prog1-85 -action tokens -language COBOL-85 -inputfile ".\test\data\COBOL-85\PROG1.COB" -expected ".\test\ref\tokens\COBOL-85\PROG1.txt"
 test\bin\run_test.ps1 -json -name prog2-85 -action tokens -language COBOL-85 -inputfile ".\test\data\COBOL-85\PROG2.COB" -expected ".\test\ref\tokens\COBOL-85\PROG2.txt"
+test\bin\run_test.ps1 -json -name prog2A-85 -action tokens -language COBOL-85 -inputfile ".\test\data\COBOL-85\PROG2A.COB" -expected ".\test\ref\tokens\COBOL-85\PROG2A.txt"
 test\bin\run_test.ps1 -json -name prog3-85 -action tokens -language COBOL-85 -inputfile ".\test\data\COBOL-85\PROG3.COB" -expected ".\test\ref\tokens\COBOL-85\PROG3.txt"
 test\bin\run_test.ps1 -json -name prog4-85 -action tokens -language COBOL-85 -inputfile ".\test\data\COBOL-85\PROG4.COB" -expected ".\test\ref\tokens\COBOL-85\PROG4.txt"
 test\bin\run_test.ps1 -json -name prog5-85 -action tokens -language COBOL-85 -inputfile ".\test\data\COBOL-85\PROG5.COB" -expected ".\test\ref\tokens\COBOL-85\PROG5.txt"

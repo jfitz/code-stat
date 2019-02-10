@@ -15,6 +15,7 @@ from TokenBuilders import (
 from CobolTokenBuilders import (
   CobolIdentifierTokenBuilder,
   PictureTokenBuilder,
+  CRPictureTokenBuilder,
   StarCommentTokenBuilder,
   CobolPreprocessorTokenBuilder
 )
@@ -34,6 +35,7 @@ class Cobol2002Examiner(Examiner):
     identifier_tb = CobolIdentifierTokenBuilder()
     string_tb = StringTokenBuilder(['"', "'"], True)
     picture_tb = PictureTokenBuilder()
+    cr_picture_tb = CRPictureTokenBuilder()
     star_comment_tb = StarCommentTokenBuilder()
 
     terminators = ['.']
@@ -514,6 +516,7 @@ class Cobol2002Examiner(Examiner):
       real_tb,
       real_exponent_tb,
       picture_tb,
+      cr_picture_tb,
       keyword_tb,
       known_operator_tb,
       groupers_tb,
