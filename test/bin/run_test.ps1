@@ -6,7 +6,8 @@ Param
     [string]$inputfile,
     [string]$expected,
     [switch]$json,
-    [int32]$tabsize
+    [int32]$tabsize,
+    [switch]$errors
 )
 
 Write-Output "****** ****** ******"
@@ -26,6 +27,10 @@ if ($PSBoundParameters.ContainsKey('language')) {
 
 if ($PSBoundParameters.ContainsKey('tabsize')) {
     $params += "tabsize=$tabsize"
+}
+
+if ($errors) {
+    $params += "errors"
 }
 
 if ($params.Count -gt 0) {

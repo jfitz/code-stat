@@ -17,6 +17,7 @@ class Examiner:
     self.unary_operators = []
     self.postfix_operators = []
     self.confidences = {}
+    self.errors = []
 
 
   def confidence(self):
@@ -232,7 +233,7 @@ class Examiner:
           prev_token.text not in self.postfix_operators and\
           token.text not in self.unary_operators:
           errors += 1
-          # print('FIRST: ' + prev_token.text + ' SECOND: ' + token.text)
+          self.errors.append({'FIRST': prev_token.text, 'SECOND': token.text})
 
         prev_token = token
 

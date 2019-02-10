@@ -169,7 +169,11 @@ def confidence():
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
 
-  json_text = tokenize_confidence(text, language.lower(), tabsize)
+  get_errors = False
+  if 'errors' in request.args:
+    get_errors = True
+
+  json_text = tokenize_confidence(text, language.lower(), tabsize, get_errors)
 
   return json_text
 
@@ -487,99 +491,124 @@ def tokenize(code, language, tabsize):
   return tokens
 
 
-def tokenize_confidence(code, language, tabsize):
+def tokenize_confidence(code, language, tabsize, get_errors):
   try:
     tab_size = int(tabsize)
   except ValueError:
     tab_size = 8
 
   confidences = {}
+  errors = []
 
   if language in ['basic', 'bas']:
     examiner = BasicExaminer(code)
     confidences = examiner.confidences
+    errors = examiner.errors
 
   if language in ['c']:
     examiner = CExaminer(code)
     confidences = examiner.confidences
+    errors = examiner.errors
 
   if language in ['c++', 'cpp']:
     examiner = CppExaminer(code)
     confidences = examiner.confidences
+    errors = examiner.errors
 
   if language in ['c#', 'csharp']:
     examiner = CsharpExaminer(code)
     confidences = examiner.confidences
+    errors = examiner.errors
 
   if language in ['cobol-68']:
     examiner = Cobol68Examiner(code, tab_size)
     confidences = examiner.confidences
+    errors = examiner.errors
 
   if language in ['cobol-74']:
     examiner = Cobol74Examiner(code, tab_size)
     confidences = examiner.confidences
+    errors = examiner.errors
 
   if language in ['cobol-85', 'cobol', 'cob', 'cbl']:
     examiner = Cobol85Examiner(code, tab_size)
     confidences = examiner.confidences
+    errors = examiner.errors
 
   if language in ['cobol-2002']:
     examiner = Cobol2002Examiner(code)
     confidences = examiner.confidences
+    errors = examiner.errors
 
   if language in ['fortran', 'for', 'ftn', 'fortran-66']:
     examiner = Fortran66Examiner(code, tab_size)
     confidences = examiner.confidences
+    errors = examiner.errors
 
   if language in ['f77', 'fortran-77']:
     examiner = Fortran77Examiner(code, tab_size)
     confidences = examiner.confidences
+    errors = examiner.errors
 
   if language in ['f90', 'fortran-90']:
     examiner = Fortran90Examiner(code)
     confidences = examiner.confidences
+    errors = examiner.errors
 
   if language in ['f95', 'fortran-95']:
     examiner = Fortran90Examiner(code)
     confidences = examiner.confidences
+    errors = examiner.errors
 
   if language in ['java', 'jav']:
     examiner = JavaExaminer(code)
     confidences = examiner.confidences
+    errors = examiner.errors
 
   if language in ['javascript', 'js']:
     examiner = JavaScriptExaminer(code)
     confidences = examiner.confidences
+    errors = examiner.errors
 
   if language in ['objective-c', 'objc']:
     examiner = ObjectiveCExaminer(code)
     confidences = examiner.confidences
+    errors = examiner.errors
 
   if language in ['pascal', 'pas']:
     examiner = PascalExaminer(code)
     confidences = examiner.confidences
+    errors = examiner.errors
 
   if language in ['prolog']:
     examiner = PrologExaminer(code)
     confidences = examiner.confidences
+    errors = examiner.errors
 
   if language in ['python', 'py']:
     examiner = PythonExaminer(code)
     confidences = examiner.confidences
+    errors = examiner.errors
 
   if language in ['r', 'rmd']:
     examiner = RExaminer(code)
     confidences = examiner.confidences
+    errors = examiner.errors
 
   if language in ['ruby', 'rb']:
     examiner = RubyExaminer(code)
     confidences = examiner.confidences
+    errors = examiner.errors
 
   if language in ['swift']:
     examiner = SwiftExaminer(code)
     confidences = examiner.confidences
+    errors = examiner.errors
 
-  retval = json.dumps(confidences)
+  if get_errors:
+    retval = json.dumps(errors)
+  else:
+    retval = json.dumps(confidences)
 
   return retval
 
