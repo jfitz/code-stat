@@ -14,6 +14,9 @@ from TokenBuilders import (
   ListTokenBuilder,
   LeadCommentTokenBuilder
 )
+from FortranXTokenBuilders import (
+  UserDefinedOperatorTokenBuilder
+)
 from Tokenizer import Tokenizer
 
 class Fortran90Examiner(Examiner):
@@ -37,7 +40,7 @@ class Fortran90Examiner(Examiner):
       '==', '>', '>=', '<', '<=', '/=',
       '.EQ.', '.NE.', '.LT.', '.LE.', '.GT.', '.GE.',
       '.AND.', '.OR.', '.NOT.', '.EQV.', '.NEQV.',
-      ':', '::'
+      ':', '::', '=>'
     ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', False)
@@ -45,6 +48,8 @@ class Fortran90Examiner(Examiner):
     self.unary_operators = [
       '+', '-'
     ]
+
+    user_operator_tb = UserDefinedOperatorTokenBuilder()
 
     continuation_tb = ListTokenBuilder(['&'], 'line continuation', False)
 
@@ -88,6 +93,7 @@ class Fortran90Examiner(Examiner):
       known_operator_tb,
       groupers_tb,
       identifier_tb,
+      user_operator_tb,
       string_tb,
       bang_comment_tb,
       self.unknown_operator_tb

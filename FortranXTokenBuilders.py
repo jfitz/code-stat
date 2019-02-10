@@ -62,13 +62,13 @@ class FormatSpecifierTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = None
     # 'p' patterns are approved, 't' patterns are for accept()
-    self.t1 = re.compile('\A\d+\Z')
-    self.p2 = re.compile('\A\d*[IFEDGAL]\Z')
-    self.p3 = re.compile('\A\d*[IFEDG]\d+\Z')
-    self.t4 = re.compile('\A\d*[IFEDG]\d+\.\Z')
-    self.p5 = re.compile('\A\d*[FEDG]\d+\.\d+\Z')
-    self.t6 = re.compile('\A\d*[FEDG]\d+\.\d+E\Z')
-    self.p7 = re.compile('\A\d*[FEDG]\d+\.\d+E\d+\Z')
+    self.t1 = re.compile(r'\A\d+\Z')
+    self.p2 = re.compile(r'\A\d*[IFEDGAL]\Z')
+    self.p3 = re.compile(r'\A\d*[IFEDG]\d+\Z')
+    self.t4 = re.compile(r'\A\d*[IFEDG]\d+\.\Z')
+    self.p5 = re.compile(r'\A\d*[FEDG]\d+\.\d+\Z')
+    self.t6 = re.compile(r'\A\d*[FEDG]\d+\.\d+E\Z')
+    self.p7 = re.compile(r'\A\d*[FEDG]\d+\.\d+E\d+\Z')
 
     self.approveds = [
       self.p2,
@@ -135,3 +135,45 @@ class FormatSpecifierTokenBuilder(TokenBuilder):
         score = len(self.token)
 
     return score
+
+
+# token reader for user-defined operator
+class UserDefinedOperatorTokenBuilder(TokenBuilder):
+  def __init__(self):
+    self.token = None
+
+
+  def get_tokens(self):
+    if self.token is None:
+      return None
+
+    return [Token(self.token, 'line number')]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if len(candidate) == 0:
+      result = c == '.'
+
+    if len(candidate) == 1:
+      result = c.isalpha() or c.isdigit()
+
+    if len(candidate) > 1:
+      if candidate[-1] != candidate[0]:
+        result = c.isalpha() or c.isdigit() or c == '.'
+
+    return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.token is None:
+      return 0
+
+    if len(self.token) < 3:
+      return 0
+
+    if self.token[-1] != self.token[0]:
+      return 0
+
+    return len(self.token)
