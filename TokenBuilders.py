@@ -1,3 +1,4 @@
+import re
 from Token import Token
 
 # generic TokenBuilder (to hold common functions)
@@ -550,6 +551,7 @@ class PrefixedIdentifierTokenBuilder(TokenBuilder):
 class RegexTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = None
+    self.pattern = re.compile('\A/.+/[a-z]*\Z')
 
 
   def get_tokens(self):
@@ -569,7 +571,20 @@ class RegexTokenBuilder(TokenBuilder):
       result = True
 
     if len(candidate) > 1:
-      result = candidate[-1] != candidate[0]
+      slash_count = 0
+      escaped = False
+      for ch in candidate:
+        if ch == '/' and not escaped:
+          slash_count += 1
+        if ch == '\\':
+          escaped = not escaped
+        else:
+          escaped = False
+
+      if slash_count < 2:
+        result = True
+      else:
+        result = c.isalpha()
 
     if c in ['\r', '\n']:
       result = False
@@ -584,7 +599,10 @@ class RegexTokenBuilder(TokenBuilder):
     if len(self.token) < 3:
       return 0
 
-    if self.token[-1] != self.token[0]:
+    if self.token[0] != '/':
+      return 0
+
+    if not self.pattern.match(self.token):
       return 0
 
     return len(self.token)
