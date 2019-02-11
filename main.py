@@ -272,28 +272,47 @@ def unwrap_cobol_lines(text):
 
   buffer = None
   for line in lines:
-    # rtrim
-    line = line.rstrip()
+    # remove line description (if any)
+    line = line[:72]
+
+    # force line length to 72 (used later when continuing strings)
+    while len(line) < 72:
+      line += ' '
 
     # if continuation (not comment, longer than 6, not space in column)
     if len(line) > 6 and line[6] == '-':
       # drop leading columns
       line = line[7:]
+
       # append to buffer
       if buffer is None:
         buffer = line
       else:
-        # for COBOL, drop leading spaces and the leading quote
+        # drop leading spaces and the leading quote
         line = line.lstrip()
-        if len(line) > 0 and line[0] in "'\"":
-          line = line[1:]
-        buffer += line
+
+        buffer2 = buffer.rstrip()
+        if len(buffer2) > 0:
+          # if the buffer ends with other than quote,
+          if buffer2[-1] not in "'\"":
+            # combine strings by dropping this line's opening quote
+            if len(line) > 0 and line[0] in "'\"":
+              line = line[1:]
+              buffer += line
+          else:
+            # previous line ends in quote
+            buffer = buffer2 + ' '  # space to separate string tokens
+            buffer += line
+        else:
+          buffer = line
     else:
       if buffer is not None:
-        unwrapped_lines += buffer
+        # now drop the extra spaces on the right
+        unwrapped_lines += buffer.rstrip()
         unwrapped_lines += '\n'
       buffer = line
-  if len(buffer) > 0:
+
+  if buffer is not None and len(buffer) > 0:
     unwrapped_lines += buffer
     unwrapped_lines += '\n'
 
