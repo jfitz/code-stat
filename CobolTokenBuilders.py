@@ -16,13 +16,7 @@ class CobolIdentifierTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
-    if c.isalpha():
-      result = True
-
-    if len(candidate) > 0 and c.isdigit():
-      result = True
+    result = c.isalpha() or c.isdigit()
 
     if len(candidate) > 0 and c == '-':
       result = True
