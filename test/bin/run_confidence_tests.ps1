@@ -43,10 +43,11 @@ test\bin\run_test.ps1 -json -name prog14-2-85 -action confidence -language COBOL
 test\bin\run_test.ps1 -json -name prog15-4-85 -action confidence -language COBOL-85 -inputfile ".\test\data\COBOL-85\PROG15-4.COB" -expected ".\test\ref\confidence\COBOL-85\PROG15-4.txt"
 test\bin\run_test.ps1 -json -name exec1-85 -action confidence -language COBOL-85 -tabsize 4 -inputfile ".\test\data\COBOL-85\UNLDDBCU2.COB" -expected ".\test\ref\confidence\COBOL-85\UNLDDBCU2.txt"
 
-test\bin\run_test.ps1 -json -name report_card -action confidence -language COBOL-2002 -tabsize 4 -inputfile ".\test\data\COBOL-2002\ReportCard.COB" -expected ".\test\ref\confidence\COBOL-2002\ReportCard.txt"
-test\bin\run_test.ps1 -json -name person -action confidence -language COBOL-2002 -tabsize 4 -inputfile ".\test\data\COBOL-2002\Person.COB" -expected ".\test\ref\confidence\COBOL-2002\Person.txt"
-test\bin\run_test.ps1 -json -name sales_report -action confidence -language COBOL-2002 -tabsize 4 -inputfile ".\test\data\COBOL-2002\SalesReport.COB" -expected ".\test\ref\confidence\COBOL-2002\SalesReport.txt"
-test\bin\run_test.ps1 -json -name report -action confidence -language COBOL-2002 -tabsize 4 -inputfile ".\test\data\COBOL-2002\Report.COB" -expected ".\test\ref\confidence\COBOL-2002\Report.txt"
+test\bin\run_test.ps1 -json -name report_card -action confidence -language COBOL-2002 -tabsize 4 -inputfile ".\test\data\COBOL-2002\ReportCard.cob" -expected ".\test\ref\confidence\COBOL-2002\ReportCard.txt"
+test\bin\run_test.ps1 -json -name person -action confidence -language COBOL-2002 -tabsize 4 -inputfile ".\test\data\COBOL-2002\Person.cob" -expected ".\test\ref\confidence\COBOL-2002\Person.txt"
+test\bin\run_test.ps1 -json -name sales_report -action confidence -language COBOL-2002 -tabsize 4 -inputfile ".\test\data\COBOL-2002\SalesReport.cob" -expected ".\test\ref\confidence\COBOL-2002\SalesReport.txt"
+test\bin\run_test.ps1 -json -name report -action confidence -language COBOL-2002 -tabsize 4 -inputfile ".\test\data\COBOL-2002\Report.cob" -expected ".\test\ref\confidence\COBOL-2002\Report.txt"
+test\bin\run_test.ps1 -json -name advent-of-code -action confidence -language COBOL-2002 -inputfile ".\test\data\COBOL-2002\AdventOfCode.cob" -expected ".\test\ref\confidence\COBOL-2002\AdventOfCode.txt"
 
 test\bin\run_test.ps1 -json -name checkers -action confidence -language Cpp -inputfile ".\test\data\Cpp\checkers.cpp" -expected ".\test\ref\confidence\Cpp\checkers.txt"
 test\bin\run_test.ps1 -json -name hrdb -action confidence -language Cpp -inputfile ".\test\data\Cpp\hrdb.cpp" -expected ".\test\ref\confidence\Cpp\hrdb.txt"
