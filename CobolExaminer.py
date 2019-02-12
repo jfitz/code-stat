@@ -155,12 +155,24 @@ class CobolExaminer(Examiner):
     errors = 0
     prev_token = Token('\n', 'newline')
     for token in tokens:
+
       if prev_token.group == 'keyword' and prev_token.text in ['PIC', 'PICTURE']:
         if token.group != 'picture':
           errors += 1
+          self.errors.append({
+            'TYPE': 'PICTURE',
+            'FIRST': prev_token.text,
+            'SECOND': token.text
+            })
+
       if token.group == 'picture':
         if prev_token.group != 'keyword' or prev_token.text not in ['PIC', 'PICTURE']:
           errors += 1
+          self.errors.append({
+            'TYPE': 'PICTURE',
+            'FIRST': prev_token.text,
+            'SECOND': token.text
+            })
   
     picture_confidence = 1.0
 

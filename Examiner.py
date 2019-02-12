@@ -244,7 +244,11 @@ class Examiner:
           prev_token.text not in self.postfix_operators and\
           token.text not in self.unary_operators:
           errors += 1
-          self.errors.append({'FIRST': prev_token.text, 'SECOND': token.text})
+          self.errors.append({
+            'TYPE': 'OPERATOR',
+            'FIRST': prev_token.text,
+            'SECOND': token.text
+            })
 
         prev_token = token
 
