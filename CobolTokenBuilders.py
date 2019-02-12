@@ -53,10 +53,10 @@ class PictureTokenBuilder(TokenBuilder):
 
     if num_rparens == num_lparens:
       if len(candidate) == 0:
-        result = c in ['S', '$', '9', 'X', 'Z', 'V']
+        result = c in ['S', '$', '9', 'A', 'N', 'X', 'Z', 'V']
 
       if len(candidate) > 0:
-        result = c in ['$', '9', 'X', 'Z', 'V', ',', '.', '-', '(']
+        result = c in ['$', '9', 'A', 'N', 'X', 'Z', 'V', ',', '.', '-', '(']
 
     if num_rparens == num_lparens - 1:
       result = c.isdigit() or c == ')'
