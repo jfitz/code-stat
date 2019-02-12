@@ -143,3 +143,28 @@ class CobolExaminer(Examiner):
       expected_keyword_confidence += 0.125
 
     return expected_keyword_confidence
+
+
+  def calc_line_format_confidence(self):
+    # check PICTURE keywords are followed by a picture element
+    # and picture elements are preceded by a PICTURE keyword
+    tokens = self.drop_whitespace(self.tokens)
+    tokens = self.drop_comments(tokens)
+    tokens = self.drop_tokens(tokens, ['newline'])
+
+    errors = 0
+    prev_token = Token('\n', 'newline')
+    for token in tokens:
+      if prev_token.group == 'keyword' and prev_token.text in ['PIC', 'PICTURE']:
+        if token.group != 'picture':
+          errors += 1
+      if token.group == 'picture':
+        if prev_token.group != 'keyword' or prev_token.text not in ['PIC', 'PICTURE']:
+          errors += 1
+  
+    picture_confidence = 1.0
+
+    if len(self.tokens) > 0:
+      picture_confidence = errors / len(self.tokens)
+
+    self.confidences['line_format'] = picture_confidence

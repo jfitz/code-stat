@@ -542,3 +542,4 @@ class Cobol2002Examiner(Examiner):
 
     self.calc_token_confidence()
     self.calc_operator_confidence()
+    self.calc_picture_confidence()

@@ -173,6 +173,17 @@ class Examiner:
     
     return new_list
 
+
+  def drop_tokens(self, tokens, types):
+    new_list = []
+
+    for token in tokens:
+      if token.group not in types:
+        new_list.append(token)
+    
+    return new_list
+
+
   def combineAdjacentWhitespace(self, tokens):
     new_list = []
 
@@ -281,3 +292,7 @@ class Examiner:
       operand_confidence = 1.0 - (two_operand_count / len(tokens))
 
     self.confidences['operand'] = operand_confidence
+
+
+  def calc_picture_confidence(self):
+    self.confidences['picture'] = 1.0

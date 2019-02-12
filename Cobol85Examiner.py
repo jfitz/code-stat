@@ -483,4 +483,5 @@ class Cobol85Examiner(CobolExaminer):
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
+    self.calc_picture_confidence()
     self.confidences['line_length'] = line_length_confidence
