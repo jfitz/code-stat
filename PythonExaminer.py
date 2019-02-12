@@ -35,7 +35,7 @@ class PythonExaminer(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(False, False)
     identifier_tb = IdentifierTokenBuilder()
     string_tb = StringTokenBuilder(['"', "'"], False)
-    raw_string_tb = PrefixedStringTokenBuilder('r', ['"', "'"])
+    raw_string_tb = PrefixedStringTokenBuilder('r', True, ['"', "'"])
 
     hash_comment_tb = LeadCommentTokenBuilder('#')
     triple_quote_comment_tb = TripleQuoteCommentTokenBuilder()

@@ -6,6 +6,7 @@ from TokenBuilders import (
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
   StringTokenBuilder,
+  PrefixedStringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
@@ -34,6 +35,8 @@ class Cobol2002Examiner(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(False, True)
     identifier_tb = CobolIdentifierTokenBuilder()
     string_tb = StringTokenBuilder(['"', "'"], True)
+    n_string_tb = PrefixedStringTokenBuilder('N', False, ['"', "'"])
+    nx_string_tb = PrefixedStringTokenBuilder('NX', False, ['"', "'"])
     picture_tb = PictureTokenBuilder()
     cr_picture_tb = CRPictureTokenBuilder()
     star_comment_tb = StarCommentTokenBuilder()
@@ -170,6 +173,7 @@ class Cobol2002Examiner(Examiner):
       'DETAIL',
       'DISPLAY',
       'DISPLAY-1',
+      'DISPLAY-OF',
       'DIVIDE',
       'DIVISION',
       'DOWN',
@@ -304,6 +308,8 @@ class Cobol2002Examiner(Examiner):
       'MULTIPLE',
       'MULTIPLY',
 
+      'NATIONAL',
+      'NATIONAL-OF',
       'NATIVE',
       'NATIVE_BINARY',
       'NEGATIVE',
@@ -522,6 +528,8 @@ class Cobol2002Examiner(Examiner):
       groupers_tb,
       identifier_tb,
       string_tb,
+      n_string_tb,
+      nx_string_tb,
       star_comment_tb,
       cobol_preprocessor_tb,
       self.unknown_operator_tb

@@ -39,7 +39,7 @@ class ObjectiveCExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder()
     directive_tb = DirectiveTokenBuilder()
     string_tb = StringTokenBuilder(['"', "'"], False)
-    prefixed_string_tb = PrefixedStringTokenBuilder('@', ['"'])
+    prefixed_string_tb = PrefixedStringTokenBuilder('@', False, ['"'])
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()

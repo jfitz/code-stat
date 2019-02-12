@@ -22,7 +22,7 @@
                05 WS-NEGATION PIC A(1).
                *> This could be 9(5) if we had a source with left padded
                *> zeros. Instead we must programically add them.
-               05 WS-FREQUENCYSTRING PIC N(5).
+               05 WS-FREQUENCYSTRING USAGE NATIONAL PIC N(5).
            01 WS-EOF PIC A(1).
 
        PROCEDURE DIVISION.

@@ -148,8 +148,9 @@ class StringTokenBuilder(TokenBuilder):
 
 # token reader for prefixed text literal (string)
 class PrefixedStringTokenBuilder(TokenBuilder):
-  def __init__(self, prefix, quotes):
+  def __init__(self, prefix, case_sensitive, quotes):
     self.prefix = prefix
+    self.case_sensitive = case_sensitive
     self.quotes = quotes
     self.token = ''
 
@@ -164,17 +165,20 @@ class PrefixedStringTokenBuilder(TokenBuilder):
   def accept(self, candidate, c):
     result = False
 
-    if len(candidate) == 0 and c in self.prefix:
+    if len(candidate) < len(self.prefix):
+      if self.case_sensitive:
+        result = c == self.prefix[len(candidate)]
+      else:
+        result = c.lower() == self.prefix[len(candidate)].lower()
+    
+    if len(candidate) == len(self.prefix):
+      result = c in self.quotes
+
+    if len(candidate) == len(self.prefix) + 1:
       result = True
 
-    if len(candidate) == 1 and c in self.quotes:
-      result = True
-
-    if len(candidate) == 2:
-      result = True
-
-    if len(candidate) > 2 and candidate[-1] != candidate[1]:
-      result = True
+    if len(candidate) > len(self.prefix) + 1:
+      result = candidate[-1] != candidate[len(self.prefix)]
 
     if c in ['\n', '\r']:
       result = False
@@ -551,7 +555,7 @@ class PrefixedIdentifierTokenBuilder(TokenBuilder):
 class RegexTokenBuilder(TokenBuilder):
   def __init__(self):
     self.token = None
-    self.pattern = re.compile('\A/.+/[a-z]*\Z')
+    self.pattern = re.compile('\\A/.+/[a-z]*\\Z')
 
 
   def get_tokens(self):
