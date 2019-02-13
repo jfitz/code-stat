@@ -81,8 +81,8 @@ test\bin\run_test.ps1 -json -name Wikibooks-ex4-ftn95 -action detect -inputfile 
 test\bin\run_test.ps1 -json -name prime_test-java -action detect -inputfile ".\test\data\Java\prime_test.java" -expected ".\test\ref\detect\Java\prime_test.txt"
 test\bin\run_test.ps1 -json -name palindrome-java -action detect -inputfile ".\test\data\Java\palindrome.java" -expected ".\test\ref\detect\Java\palindrome.txt"
 
-test\bin\run_test.ps1 -json -name codestat-java -action detect -inputfile ".\test\data\JavaScript\codestat.js" -expected ".\test\ref\detect\JavaScript\codestat.txt"
-test\bin\run_test.ps1 -json -name bing-java -action detect -inputfile ".\test\data\JavaScript\bing.js" -expected ".\test\ref\detect\JavaScript\bing.txt"
+test\bin\run_test.ps1 -json -name codestat-js -action detect -inputfile ".\test\data\JavaScript\codestat.js" -expected ".\test\ref\detect\JavaScript\codestat.txt"
+test\bin\run_test.ps1 -json -name bing-js -action detect -inputfile ".\test\data\JavaScript\bing.js" -expected ".\test\ref\detect\JavaScript\bing.txt"
 
 test\bin\run_test.ps1 -json -name hello-objc -action detect -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\detect\Objective-C\HelloWorld.txt"
 
