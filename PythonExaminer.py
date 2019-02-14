@@ -73,8 +73,11 @@ class PythonExaminer(Examiner):
     keywords = [
       'import', 'from', 'as', 'def', 'class',
       'None', 'False', 'True',
-      'if', 'else',
-      'for', 'while'
+      'if', 'elif', 'else', 'pass', 'while',
+      'for', 'while', 'return', 'assert', 'raise',
+      'break', 'continue', 'del',
+      'try', 'except', 'finally',
+      'global', 'lambda', 'nonlocal', 'with', 'yield'
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)

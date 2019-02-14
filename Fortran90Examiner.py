@@ -16,7 +16,9 @@ from TokenBuilders import (
   LeadCommentTokenBuilder
 )
 from FortranTokenBuilders import (
-  UserDefinedOperatorTokenBuilder
+  UserDefinedOperatorTokenBuilder,
+  KindIntegerTokenBuilder,
+  KindRealTokenBuilder
 )
 from Tokenizer import Tokenizer
 
@@ -29,8 +31,10 @@ class Fortran90Examiner(FortranExaminer):
 
     integer_tb = IntegerTokenBuilder(False)
     integer_exponent_tb = IntegerExponentTokenBuilder()
+    kind_integer_tb = KindIntegerTokenBuilder()
     real_tb = RealTokenBuilder(False, False)
     real_exponent_tb = RealExponentTokenBuilder(False, False)
+    kind_real_tb = KindRealTokenBuilder()
     identifier_tb = IdentifierTokenBuilder()
 
     bang_comment_tb = LeadCommentTokenBuilder('!')
@@ -72,10 +76,10 @@ class Fortran90Examiner(FortranExaminer):
       'CALL', 'RETURN', 'PAUSE', 'STOP', 'END',
       'INQUIRE', 'INTRINSIC', 'PARAMETER',
       'allocatable', 'allocate', 'case', 'contains', 'cycle', 'deallocate',
-      'elsewhere', 'exit', 'include', 'interface', 'intent', 'module',
+      'elsewhere', 'exit', 'include', 'interface', 'intent', 'kind', 'module',
       'namelist', 'nullify', 'only', 'operator', 'optional', 'pointer',
       'private', 'procedure', 'public', 'recursive', 'result', 'select',
-      'sequence', 'target', 'use', 'while', 'where',
+      'sequence', 'target', 'type', 'use', 'while', 'where',
       'enddo', 'none'
     ]
 
@@ -87,8 +91,10 @@ class Fortran90Examiner(FortranExaminer):
       stmt_separator_tb,
       integer_tb,
       integer_exponent_tb,
+      kind_integer_tb,
       real_tb,
       real_exponent_tb,
+      kind_real_tb,
       keyword_tb,
       continuation_tb,
       known_operator_tb,

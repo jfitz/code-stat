@@ -177,3 +177,63 @@ class UserDefinedOperatorTokenBuilder(TokenBuilder):
       return 0
 
     return len(self.token)
+
+
+# token reader for integer
+class KindIntegerTokenBuilder(TokenBuilder):
+  def __init__(self):
+    self.token = None
+
+
+  def get_tokens(self):
+    if self.token is None:
+      return None
+
+    return [Token(self.token, 'number')]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if c.isdigit():
+      result = True
+    
+    if len(candidate) > 0:
+      if candidate.count('_') == 0:
+        result = c.isdigit() or c == '_'
+
+      if candidate.count('_') > 0:
+        result = c.isdigit() or c.isalpha() or c == '_'
+
+    return result
+
+
+# token reader for real (no exponent)
+class KindRealTokenBuilder(TokenBuilder):
+  def __init__(self):
+    self.token = None
+
+
+  def get_tokens(self):
+    if self.token is None:
+      return None
+
+    return [Token(self.token, 'number')]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if c.isdigit():
+      result = True
+    
+    if len(candidate) > 0:
+      if candidate.count('_') == 0:
+        result = c.isdigit() or c == '.' or c == '_'
+        if c == '.' and '.' not in candidate:
+          result = True
+
+      if candidate.count('_') > 0:
+        result = c.isdigit() or c.isalpha() or c == '_'
+
+    return result
