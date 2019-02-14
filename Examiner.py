@@ -288,6 +288,11 @@ class Examiner:
     for token in tokens:
       if token.group in operands and prev_token.group in operands:
         two_operand_count += 1
+        self.errors.append({
+          'TYPE': 'OPERAND',
+          'FIRST': prev_token.text,
+          'SECOND': token.text
+          })
 
       prev_token = token
 

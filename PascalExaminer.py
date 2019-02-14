@@ -105,6 +105,7 @@ class PascalExaminer(Examiner):
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
+    self.calc_operand_confidence()
     self.calc_paired_blockers_confidence(['begin', 'record', 'case'], ['end'])
 
     # get the first and last meaningful tokens

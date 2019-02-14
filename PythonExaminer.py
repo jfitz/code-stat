@@ -108,6 +108,7 @@ class PythonExaminer(Examiner):
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
+    self.calc_operand_confidence()
     self.calc_line_format_1_confidence()
     self.calc_line_format_2_confidence()
 

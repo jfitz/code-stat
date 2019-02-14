@@ -445,5 +445,6 @@ class Cobol74Examiner(CobolExaminer):
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
+    # do not check for two operands in a row
     self.calc_picture_confidence()
     self.confidences['line_length'] = line_length_confidence

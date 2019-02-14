@@ -126,4 +126,5 @@ class ObjectiveCExaminer(Examiner):
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
+    # do not check for two operands in a row
     self.calc_paired_blockers_confidence(['{'], ['}'])
