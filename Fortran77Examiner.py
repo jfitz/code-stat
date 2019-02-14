@@ -1,6 +1,7 @@
 import string
 from Token import Token
 from Examiner import Examiner
+from FortranExaminer import FortranExaminer
 from TokenBuilders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
@@ -19,7 +20,7 @@ from FortranTokenBuilders import (
 )
 from Tokenizer import Tokenizer
 
-class Fortran77Examiner(Examiner):
+class Fortran77Examiner(FortranExaminer):
   def __init__(self, code, tab_size):
     super().__init__()
 
@@ -84,83 +85,19 @@ class Fortran77Examiner(Examiner):
     invalid_token_builder = InvalidTokenBuilder()
     tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
 
-    lines = code.split('\n')
     num_ok_lines = 0
-
-    self.tokens = []
+    lines = code.split('\n')
     for line in lines:
       line = line.rstrip('\r')
       line = line.rstrip()
-      line = self.tabs_to_spaces(line, tab_size)
-
       if len(line) <= 80:
         num_ok_lines += 1
 
-      line = line[:72]
+    line_length_confidence = 1.0
+    if len(lines) > 0:
+      line_length_confidence = num_ok_lines / len(lines)
 
-      # The fixed-format FORTRAN line format is:
-      # 1: space or C or *
-      # 2-6: line number or blank
-      # 7: continuation character
-      # 8-72: program text
-      # 73-: identification, traditionally sequence number (ignored)
-      line_indicator = ''
-      if len(line) > 0:
-        line_indicator = line[0]
-
-      if len(line_indicator) > 0:
-        if line_indicator.isspace():
-          self.tokens.append(Token(line_indicator, 'whitespace'))
-        else:
-          if line_indicator in 'C*':
-            self.tokens.append(Token(line, 'comment'))
-          else:
-            self.tokens.append(Token(line_indicator, 'invalid'))
-
-      if line_indicator not in 'C*':
-        line_number = ''
-        if len(line) > 2:
-          line_number = line[2:5]
-
-          if line_number.isspace():
-            self.tokens.append(Token(line_number, 'whitespace'))
-          else:
-            ln_2 = line_number.lstrip()
-            ln_3 = ln_2.rstrip()
-
-            front_space = ''
-            front_count = len(line_number) - len(ln_2)
-            if front_count > 0:
-              front_space = ' ' * front_count
-              self.tokens.append(Token(front_space, 'whitespace'))
-  
-            if ln_3.strip().isdigit():
-              self.tokens.append(Token(ln_3, 'line number'))
-            else:
-              self.tokens.append(Token(line_number, 'invalid'))
-
-            back_space = ''
-            back_count = len(ln_2) - len(ln_3)
-            if back_count > 0:
-              back_space = ' ' * back_count
-              self.tokens.append(Token(back_space, 'whitespace'))
-
-
-        line_continuation = ''
-        if len(line) > 5:
-          line_continuation = line[5]
-          if line_continuation.isspace():
-            self.tokens.append(Token(line_continuation, 'whitespace'))
-          else:
-            self.tokens.append(Token(line_continuation, 'line continuation'))
-
-        line_text = ''
-        if len(line) > 6:
-          line_text = line[6:]
-          self.tokens += tokenizer.tokenize(line_text)
-
-      self.tokens.append(Token('\n', 'newline'))
-
+    self.tokens = self.TokenizeCode(code, tab_size, tokenizer)
     self.tokens = self.combineAdjacentWhitespace(self.tokens)
 
     line_length_confidence = 1.0

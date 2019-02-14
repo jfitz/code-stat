@@ -1,6 +1,7 @@
 import string
 from Token import Token
 from Examiner import Examiner
+from FortranExaminer import FortranExaminer
 from TokenBuilders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
@@ -19,7 +20,7 @@ from FortranTokenBuilders import (
 )
 from Tokenizer import Tokenizer
 
-class Fortran90Examiner(Examiner):
+class Fortran90Examiner(FortranExaminer):
   def __init__(self, code):
     super().__init__()
 
