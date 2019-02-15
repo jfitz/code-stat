@@ -48,7 +48,7 @@ class CobolExaminer(Examiner):
     return token
 
 
-  def TokenizeLine(self, line, tokenizer):
+  def TokenizeLine(self, line, tokenizer, wide):
     # break apart the line based on fixed format
     tokens = []
 
@@ -60,8 +60,12 @@ class CobolExaminer(Examiner):
 
     line_number = line[:6]
     line_indicator = line[6:7]
-    line_text = line[7:71]
-    line_identification = line[72:]
+    if wide:
+      line_text = line[7:]
+      line_identification = ''
+    else:
+      line_text = line[7:71]
+      line_identification = line[72:]
 
     token = self.TokenizeLineNumber(line_number)
     if token is not None:
@@ -89,7 +93,7 @@ class CobolExaminer(Examiner):
     return tokens
 
 
-  def TokenizeCode(self, code, tab_size, tokenizer):
+  def TokenizeCode(self, code, tab_size, tokenizer, wide):
     lines = code.split('\n')
 
     tokens = []
@@ -99,7 +103,7 @@ class CobolExaminer(Examiner):
       line = line.rstrip()
       line = self.tabs_to_spaces(line, tab_size)
 
-      line_tokens = self.TokenizeLine(line, tokenizer)
+      line_tokens = self.TokenizeLine(line, tokenizer, wide)
       tokens += line_tokens
 
     return tokens

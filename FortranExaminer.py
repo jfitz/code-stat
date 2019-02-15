@@ -54,7 +54,7 @@ class FortranExaminer(Examiner):
     return token
 
 
-  def TokenizeLine(self, line, tokenizer):
+  def TokenizeLine(self, line, tokenizer, wide):
     # break apart the line based on fixed format
     tokens = []
 
@@ -68,8 +68,12 @@ class FortranExaminer(Examiner):
     line_indicator = line[0:1]
     line_number = line[1:5]
     line_continuation = line[5:6]
-    line_text = line[6:72]
-    line_identification = line[72:]
+    if wide:
+      line_text = line[6:]
+      line_identification = ''
+    else:
+      line_text = line[6:72]
+      line_identification = line[72:]
 
     # tokenize the line indicator
     if line_indicator in ['C', '*']:
@@ -99,7 +103,7 @@ class FortranExaminer(Examiner):
     return tokens
 
 
-  def TokenizeCode(self, code, tab_size, tokenizer):
+  def TokenizeCode(self, code, tab_size, tokenizer, wide):
     lines = code.split('\n')
 
     tokens = []
@@ -109,7 +113,7 @@ class FortranExaminer(Examiner):
       line = line.rstrip()
       line = self.tabs_to_spaces(line, tab_size)
 
-      line_tokens = self.TokenizeLine(line, tokenizer)
+      line_tokens = self.TokenizeLine(line, tokenizer, wide)
       tokens += line_tokens
 
     return tokens

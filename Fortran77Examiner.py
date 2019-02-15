@@ -21,7 +21,7 @@ from FortranTokenBuilders import (
 from Tokenizer import Tokenizer
 
 class Fortran77Examiner(FortranExaminer):
-  def __init__(self, code, tab_size):
+  def __init__(self, code, tab_size, wide):
     super().__init__()
 
     whitespace_tb = WhitespaceTokenBuilder()
@@ -92,14 +92,14 @@ class Fortran77Examiner(FortranExaminer):
     for line in lines:
       line = line.rstrip('\r')
       line = line.rstrip()
-      if len(line) <= 80:
+      if wide or len(line) <= 80:
         num_ok_lines += 1
 
     line_length_confidence = 1.0
     if len(lines) > 0:
       line_length_confidence = num_ok_lines / len(lines)
 
-    self.tokens = self.TokenizeCode(code, tab_size, tokenizer)
+    self.tokens = self.TokenizeCode(code, tab_size, tokenizer, wide)
     self.tokens = self.combineAdjacentWhitespace(self.tokens)
 
     line_length_confidence = 1.0

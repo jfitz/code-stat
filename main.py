@@ -123,10 +123,14 @@ def detect():
   tabsize = 8
   if 'tabsize' in request.args:
     tabsize = request.args['tabsize']
+  
+  wide = False
+  if 'wide' in request.args:
+    wide = True
 
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
-  detected_languages = identify_language(text, tabsize)
+  detected_languages = identify_language(text, tabsize, wide)
 
   json_text = json.dumps(detected_languages)
 
@@ -143,9 +147,13 @@ def tokens():
   if 'tabsize' in request.args:
     tabsize = request.args['tabsize']
 
+  wide = False
+  if 'wide' in request.args:
+    wide = True
+
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
-  tokens = tokenize(text, language.lower(), tabsize)
+  tokens = tokenize(text, language.lower(), tabsize, wide)
   token_list = []
 
   for token in tokens:
@@ -166,14 +174,18 @@ def confidence():
   if 'tabsize' in request.args:
     tabsize = request.args['tabsize']
 
-  request_bytes = request.get_data()
-  text = decode_bytes(request_bytes)
+  wide = False
+  if 'wide' in request.args:
+    wide = True
 
   get_errors = False
   if 'errors' in request.args:
     get_errors = True
 
-  json_text = tokenize_confidence(text, language.lower(), tabsize, get_errors)
+  request_bytes = request.get_data()
+  text = decode_bytes(request_bytes)
+
+  json_text = tokenize_confidence(text, language.lower(), tabsize, get_errors, wide)
 
   return json_text
 
@@ -319,7 +331,7 @@ def unwrap_cobol_lines(text):
   return unwrapped_lines
 
 
-def identify_language(code, tabsize):
+def identify_language(code, tabsize, wide):
   try:
     tab_size = int(tabsize)
   except ValueError:
@@ -332,12 +344,12 @@ def identify_language(code, tabsize):
   examiners['C'] = CExaminer(code)
   examiners['C++'] = CppExaminer(code)
   examiners['C#'] = CsharpExaminer(code)
-  examiners['COBOL-68'] = Cobol68Examiner(code, tab_size)
-  examiners['COBOL-74'] = Cobol74Examiner(code, tab_size)
-  examiners['COBOL-85'] = Cobol85Examiner(code, tab_size)
+  examiners['COBOL-68'] = Cobol68Examiner(code, tab_size, wide)
+  examiners['COBOL-74'] = Cobol74Examiner(code, tab_size, wide)
+  examiners['COBOL-85'] = Cobol85Examiner(code, tab_size, wide)
   examiners['COBOL-2002'] = Cobol2002Examiner(code)
-  examiners['Fortran-66'] = Fortran66Examiner(code, tab_size)
-  examiners['Fortran-77'] = Fortran77Examiner(code, tab_size)
+  examiners['Fortran-66'] = Fortran66Examiner(code, tab_size, wide)
+  examiners['Fortran-77'] = Fortran77Examiner(code, tab_size, wide)
   examiners['Fortran-90'] = Fortran90Examiner(code)
   examiners['Fortran-95'] = Fortran95Examiner(code)
   examiners['Objective-C'] = ObjectiveCExaminer(code)
@@ -415,7 +427,7 @@ def identify_language(code, tabsize):
 
   return retval
 
-def tokenize(code, language, tabsize):
+def tokenize(code, language, tabsize, wide):
   try:
     tab_size = int(tabsize)
   except ValueError:
@@ -440,15 +452,15 @@ def tokenize(code, language, tabsize):
     tokens = examiner.tokens
 
   if language in ['cobol-68']:
-    examiner = Cobol68Examiner(code, tab_size)
+    examiner = Cobol68Examiner(code, tab_size, wide)
     tokens = examiner.tokens
 
   if language in ['cobol-74']:
-    examiner = Cobol74Examiner(code, tab_size)
+    examiner = Cobol74Examiner(code, tab_size, wide)
     tokens = examiner.tokens
 
   if language in ['cobol-85', 'cobol', 'cob', 'cbl']:
-    examiner = Cobol85Examiner(code, tab_size)
+    examiner = Cobol85Examiner(code, tab_size, wide)
     tokens = examiner.tokens
 
   if language in ['cobol-2002']:
@@ -456,11 +468,11 @@ def tokenize(code, language, tabsize):
     tokens = examiner.tokens
 
   if language in ['fortran', 'for', 'ftn', 'fortran-66']:
-    examiner = Fortran66Examiner(code, tab_size)
+    examiner = Fortran66Examiner(code, tab_size, wide)
     tokens = examiner.tokens
 
   if language in ['f77', 'fortran-77']:
-    examiner = Fortran77Examiner(code, tab_size)
+    examiner = Fortran77Examiner(code, tab_size, wide)
     tokens = examiner.tokens
 
   if language in ['f90', 'fortran-90']:
@@ -510,7 +522,7 @@ def tokenize(code, language, tabsize):
   return tokens
 
 
-def tokenize_confidence(code, language, tabsize, get_errors):
+def tokenize_confidence(code, language, tabsize, get_errors, wide):
   try:
     tab_size = int(tabsize)
   except ValueError:
@@ -540,17 +552,17 @@ def tokenize_confidence(code, language, tabsize, get_errors):
     errors = examiner.errors
 
   if language in ['cobol-68']:
-    examiner = Cobol68Examiner(code, tab_size)
+    examiner = Cobol68Examiner(code, tab_size, wide)
     confidences = examiner.confidences
     errors = examiner.errors
 
   if language in ['cobol-74']:
-    examiner = Cobol74Examiner(code, tab_size)
+    examiner = Cobol74Examiner(code, tab_size, wide)
     confidences = examiner.confidences
     errors = examiner.errors
 
   if language in ['cobol-85', 'cobol', 'cob', 'cbl']:
-    examiner = Cobol85Examiner(code, tab_size)
+    examiner = Cobol85Examiner(code, tab_size, wide)
     confidences = examiner.confidences
     errors = examiner.errors
 
@@ -560,12 +572,12 @@ def tokenize_confidence(code, language, tabsize, get_errors):
     errors = examiner.errors
 
   if language in ['fortran', 'for', 'ftn', 'fortran-66']:
-    examiner = Fortran66Examiner(code, tab_size)
+    examiner = Fortran66Examiner(code, tab_size, wide)
     confidences = examiner.confidences
     errors = examiner.errors
 
   if language in ['f77', 'fortran-77']:
-    examiner = Fortran77Examiner(code, tab_size)
+    examiner = Fortran77Examiner(code, tab_size, wide)
     confidences = examiner.confidences
     errors = examiner.errors
 

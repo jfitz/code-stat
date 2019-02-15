@@ -7,7 +7,8 @@ Param
     [string]$expected,
     [switch]$json,
     [int32]$tabsize,
-    [switch]$errors
+    [switch]$errors,
+    [switch]$wide
 )
 
 Write-Output "****** ****** ******"
@@ -31,6 +32,10 @@ if ($PSBoundParameters.ContainsKey('tabsize')) {
 
 if ($errors) {
     $params += "errors"
+}
+
+if ($wide) {
+    $params += "wide"
 }
 
 if ($params.Count -gt 0) {

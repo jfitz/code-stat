@@ -29,6 +29,7 @@ test\bin\run_test.ps1 -json -name prog13-3-74 -action tokens -language COBOL-74 
 test\bin\run_test.ps1 -json -name prog14-2-74 -action tokens -language COBOL-74 -inputfile ".\test\data\COBOL-74\PROG14-2.COB" -expected ".\test\ref\tokens\COBOL-74\PROG14-2.txt"
 test\bin\run_test.ps1 -json -name prog15-4-74 -action tokens -language COBOL-74 -inputfile ".\test\data\COBOL-74\PROG15-4.COB" -expected ".\test\ref\tokens\COBOL-74\PROG15-4.txt"
 test\bin\run_test.ps1 -json -name exec1-74 -action tokens -language COBOL-74 -inputfile ".\test\data\COBOL-74\UNLDDBCU2.COB" -tabsize 4 -expected ".\test\ref\tokens\COBOL-74\UNLDDBCU2.txt"
+test\bin\run_test.ps1 -json -name P010-wide-74 -action tokens -language COBOL-74 -inputfile ".\test\data\COBOL-74\P010-wide.COB" -wide -expected ".\test\ref\tokens\COBOL-74\P010-wide.txt"
 
 test\bin\run_test.ps1 -json -name prog1-85 -action tokens -language COBOL-85 -inputfile ".\test\data\COBOL-85\PROG1.COB" -expected ".\test\ref\tokens\COBOL-85\PROG1.txt"
 test\bin\run_test.ps1 -json -name prog2-85 -action tokens -language COBOL-85 -inputfile ".\test\data\COBOL-85\PROG2.COB" -expected ".\test\ref\tokens\COBOL-85\PROG2.txt"
@@ -61,6 +62,7 @@ test\bin\run_test.ps1 -json -name calculator3 -action tokens -language Csharp -i
 test\bin\run_test.ps1 -json -name hello-ftn66 -action tokens -language FORTRAN-66 -inputfile ".\test\data\FORTRAN-66\HELLO.FOR" -expected ".\test\ref\tokens\FORTRAN-66\HELLO.txt"
 test\bin\run_test.ps1 -json -name heron-ftn66 -action tokens -language FORTRAN-66 -inputfile ".\test\data\FORTRAN-66\HERON.FOR" -expected ".\test\ref\tokens\FORTRAN-66\HERON.txt"
 test\bin\run_test.ps1 -json -name heron2-ftn66 -action tokens -language FORTRAN-66 -inputfile ".\test\data\FORTRAN-66\HERON2.FOR" -expected ".\test\ref\tokens\FORTRAN-66\HERON2.txt"
+test\bin\run_test.ps1 -json -name heron-wide-ftn66 -action tokens -language FORTRAN-66 -inputfile ".\test\data\FORTRAN-66\HERON-wide.FOR" -wide -expected ".\test\ref\tokens\FORTRAN-66\HERON-wide.txt"
 
 test\bin\run_test.ps1 -json -name hello-ftn77 -action tokens -language FORTRAN-77 -inputfile ".\test\data\FORTRAN-77\HELLO.F77" -expected ".\test\ref\tokens\FORTRAN-77\HELLO.txt"
 test\bin\run_test.ps1 -json -name complex-ftn77 -action tokens -language FORTRAN-77 -inputfile ".\test\data\FORTRAN-77\COMPLEX.F77" -expected ".\test\ref\tokens\FORTRAN-77\COMPLEX.txt"
