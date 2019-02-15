@@ -258,7 +258,7 @@ def unwrap_fortran_lines(text):
     # if continuation (not comment, longer than 6, not space in column 5)
     if len(line) > 5 and line[0] != 'C' and line[5] != ' ':
       # drop leading columns
-      line = line[5:]
+      line = line[6:]
       # append to buffer
       if buffer is None:
         buffer = line
