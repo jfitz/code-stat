@@ -46,7 +46,7 @@ class Fortran95Examiner(FortranExaminer):
       '==', '>', '>=', '<', '<=', '/=',
       '.EQ.', '.NE.', '.LT.', '.LE.', '.GT.', '.GE.',
       '.AND.', '.OR.', '.NOT.', '.EQV.', '.NEQV.',
-      ':', '::', '=>'
+      ':', '::', '=>', '%'
     ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', False)
