@@ -32,7 +32,7 @@ class Cobol68Examiner(CobolExaminer):
     integer_tb = IntegerTokenBuilder(False)
     integer_exponent_tb = IntegerExponentTokenBuilder()
     real_tb = RealTokenBuilder(False, True)
-    real_exponent_tb = RealExponentTokenBuilder(False, True)
+    real_exponent_tb = RealExponentTokenBuilder(False, True, 'E')
     identifier_tb = CobolIdentifierTokenBuilder()
     string_tb = StringTokenBuilder(['"', "'"], False)
     picture_tb = PictureTokenBuilder()

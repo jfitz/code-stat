@@ -32,7 +32,7 @@ class BasicExaminer(Examiner):
     integer_tb = IntegerTokenBuilder(False)
     integer_exponent_tb = IntegerExponentTokenBuilder()
     real_tb = RealTokenBuilder(False, False)
-    real_exponent_tb = RealExponentTokenBuilder(False, False)
+    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E')
     integer_suffix_tb = BasicSuffixedIntegerTokenBuilder('%')
     long_suffix_tb = BasicSuffixedIntegerTokenBuilder('&')
     single_suffix_tb = BasicSuffixedRealTokenBuilder(False, False, '!')

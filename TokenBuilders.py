@@ -285,10 +285,11 @@ class RealTokenBuilder(TokenBuilder):
 
 # token reader for real with exponent
 class RealExponentTokenBuilder(TokenBuilder):
-  def __init__(self, require_before, require_after):
+  def __init__(self, require_before, require_after, letter):
     self.token = None
     self.require_before = require_before
     self.require_after = require_after
+    self.letter = letter
 
 
   def get_tokens(self):
@@ -304,13 +305,19 @@ class RealExponentTokenBuilder(TokenBuilder):
     if c.isdigit():
       result = True
 
-    if c == '.' and '.' not in candidate and 'e' not in candidate.lower():
+    if c == '.' and\
+      '.' not in candidate and\
+      self.letter.lower() not in candidate.lower():
       result = True
 
-    if c.lower() == 'e' and len(candidate) > 0 and 'e' not in candidate.lower():
+    if c.lower() == self.letter.lower()\
+      and len(candidate) > 0 and\
+      self.letter.lower() not in candidate.lower():
       result = True
 
-    if c in ['+', '-'] and len(candidate) > 0 and candidate[-1].lower() == 'e':
+    if c in ['+', '-'] and\
+      len(candidate) > 0 and\
+      candidate[-1].lower() == self.letter.lower():
       result = True
 
     return result
@@ -327,7 +334,7 @@ class RealExponentTokenBuilder(TokenBuilder):
     if '.' not in self.token:
       return 0
 
-    if not 'e' in self.token.lower():
+    if not self.letter.lower() in self.token.lower():
       return 0
 
     if not self.token[-1].isdigit():

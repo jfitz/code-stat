@@ -33,7 +33,8 @@ class Fortran90Examiner(FortranExaminer):
     integer_exponent_tb = IntegerExponentTokenBuilder()
     kind_integer_tb = KindIntegerTokenBuilder()
     real_tb = RealTokenBuilder(False, False)
-    real_exponent_tb = RealExponentTokenBuilder(False, False)
+    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E')
+    double_exponent_tb = RealExponentTokenBuilder(False, False, 'D')
     kind_real_tb = KindRealTokenBuilder()
     identifier_tb = IdentifierTokenBuilder()
 
@@ -94,6 +95,7 @@ class Fortran90Examiner(FortranExaminer):
       kind_integer_tb,
       real_tb,
       real_exponent_tb,
+      double_exponent_tb,
       kind_real_tb,
       keyword_tb,
       continuation_tb,

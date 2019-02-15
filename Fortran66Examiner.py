@@ -32,7 +32,8 @@ class Fortran66Examiner(FortranExaminer):
     integer_tb = IntegerTokenBuilder(False)
     integer_exponent_tb = IntegerExponentTokenBuilder()
     real_tb = RealTokenBuilder(False, False)
-    real_exponent_tb = RealExponentTokenBuilder(False, False)
+    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E')
+    double_exponent_tb = RealExponentTokenBuilder(False, False, 'D')
     identifier_tb = FortranIdentifierTokenBuilder()
     string_tb = HollerithStringTokenBuilder()
     format_tb = FormatSpecifierTokenBuilder()
@@ -74,6 +75,7 @@ class Fortran66Examiner(FortranExaminer):
       integer_exponent_tb,
       real_tb,
       real_exponent_tb,
+      double_exponent_tb,
       keyword_tb,
       format_tb,
       known_operator_tb,

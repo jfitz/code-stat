@@ -32,7 +32,7 @@ class SwiftExaminer(Examiner):
     integer_tb = IntegerTokenBuilder(True)
     integer_exponent_tb = IntegerExponentTokenBuilder()
     real_tb = RealTokenBuilder(True, True)
-    real_exponent_tb = RealExponentTokenBuilder(True, True)
+    real_exponent_tb = RealExponentTokenBuilder(True, True, 'E')
     identifier_tb = IdentifierTokenBuilder()
     attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute')
     string_tb = StringTokenBuilder(['"'], False)

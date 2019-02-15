@@ -32,7 +32,7 @@ class Cobol2002Examiner(Examiner):
     integer_tb = IntegerTokenBuilder(False)
     integer_exponent_tb = IntegerExponentTokenBuilder()
     real_tb = RealTokenBuilder(False, True)
-    real_exponent_tb = RealExponentTokenBuilder(False, True)
+    real_exponent_tb = RealExponentTokenBuilder(False, True, 'E')
     identifier_tb = CobolIdentifierTokenBuilder()
     string_tb = StringTokenBuilder(['"', "'"], True)
     n_string_tb = PrefixedStringTokenBuilder('N', False, ['"', "'"])
