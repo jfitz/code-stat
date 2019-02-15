@@ -53,27 +53,36 @@ class Examiner:
     return detabbed_text
 
 
-  def count_valid_tokens(self, tokens):
+  def count_valid_tokens(self):
     num = 0
-    for token in tokens:
+    for token in self.tokens:
       if not token.group.startswith('invalid'):
         num += 1
 
     return num
 
 
-  def count_invalid_operators(self, tokens):
+  def invalid_operators(self):
+    tokens = []
+    for token in self.tokens:
+      if token.group == 'invalid operator':
+        tokens.append(token)
+
+    return tokens
+
+
+  def count_invalid_operators(self):
     num = 0
-    for token in tokens:
+    for token in self.tokens:
       if token.group == 'invalid operator':
         num += 1
 
     return num
 
 
-  def count_known_operators(self, tokens):
+  def count_known_operators(self):
     num = 0
-    for token in tokens:
+    for token in self.tokens:
       if token.group == 'operator':
         num += 1
 
@@ -98,18 +107,6 @@ class Examiner:
         found_identifiers.add(str(token))
 
     return found_identifiers
-
-
-  def find_specific_keywords(self, tokens, keywords):
-    found_keywords = set()
-
-    for token in tokens:
-      if token.group == 'keyword':
-        token_lower = str(token).lower()
-        if token_lower in keywords:
-          found_keywords.add(str(token))
-
-    return found_keywords
 
 
   def check_paired_tokens(self, tokens, open_tokens, close_tokens):
@@ -206,7 +203,7 @@ class Examiner:
     token_confidence = 1.0
 
     if len(self.tokens) > 0:
-      num_known_tokens = self.count_valid_tokens(self.tokens)
+      num_known_tokens = self.count_valid_tokens()
       token_confidence = num_known_tokens / len(self.tokens)
 
     self.confidences['token'] = token_confidence
@@ -214,9 +211,16 @@ class Examiner:
 
   def calc_operator_confidence(self):
     #  unknown operators reduce confidence
-    num_invalid_operators = self.count_invalid_operators(self.tokens)
-    num_known_operators = self.count_known_operators(self.tokens)
+    invalid_operators = self.invalid_operators()
+    num_invalid_operators = self.count_invalid_operators()
+    num_known_operators = self.count_known_operators()
     num_operators = num_known_operators + num_invalid_operators
+
+    for operator in invalid_operators:
+      self.errors.append({
+        'TYPE': 'OPERATOR',
+        'INVALID': operator.text
+      })
 
     operator_confidence = 1.0
 
@@ -228,8 +232,8 @@ class Examiner:
 
   def calc_operator_2_confidence(self):
     # binary operators that follow operators reduce confidence
-    num_invalid_operators = self.count_invalid_operators(self.tokens)
-    num_known_operators = self.count_known_operators(self.tokens)
+    num_invalid_operators = self.count_invalid_operators()
+    num_known_operators = self.count_known_operators()
     num_operators = num_known_operators + num_invalid_operators
 
     operator_confidence_2 = 1.0
