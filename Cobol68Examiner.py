@@ -386,6 +386,8 @@ class Cobol68Examiner(CobolExaminer):
 
     cobol_preprocessor_tb = CobolPreprocessorTokenBuilder()
     
+    invalid_token_builder = InvalidTokenBuilder()
+
     tokenbuilders = [
       whitespace_tb,
       newline_tb,
@@ -402,11 +404,11 @@ class Cobol68Examiner(CobolExaminer):
       identifier_tb,
       string_tb,
       cobol_preprocessor_tb,
-      self.unknown_operator_tb
+      self.unknown_operator_tb,
+      invalid_token_builder
     ]
 
-    invalid_token_builder = InvalidTokenBuilder()
-    tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
+    tokenizer = Tokenizer(tokenbuilders)
 
     num_ok_lines = 0
     lines = code.split('\n')

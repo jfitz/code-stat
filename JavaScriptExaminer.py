@@ -88,6 +88,8 @@ class JavaScriptExaminer(Examiner):
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
+    invalid_token_builder = InvalidTokenBuilder()
+
     tokenbuilders = [
       whitespace_tb,
       newline_tb,
@@ -107,12 +109,11 @@ class JavaScriptExaminer(Examiner):
       string_tb,
       slash_slash_comment_tb,
       slash_star_comment_tb,
-      self.unknown_operator_tb
+      self.unknown_operator_tb,
+      invalid_token_builder
     ]
 
-    invalid_token_builder = InvalidTokenBuilder()
-    tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
-
+    tokenizer = Tokenizer(tokenbuilders)
     self.tokens = tokenizer.tokenize(code)
 
     self.calc_token_confidence()

@@ -490,6 +490,7 @@ class LeadCommentTokenBuilder(TokenBuilder):
 
     return None
 
+
   def accept(self, candidate, c):
     result = False
 

@@ -513,6 +513,8 @@ class Cobol2002Examiner(Examiner):
 
     cobol_preprocessor_tb = CobolPreprocessorTokenBuilder()
     
+    invalid_token_builder = InvalidTokenBuilder()
+
     tokenbuilders = [
       whitespace_tb,
       newline_tb,
@@ -532,12 +534,11 @@ class Cobol2002Examiner(Examiner):
       nx_string_tb,
       inline_comment_tb,
       cobol_preprocessor_tb,
-      self.unknown_operator_tb
+      self.unknown_operator_tb,
+      invalid_token_builder
     ]
 
-    invalid_token_builder = InvalidTokenBuilder()
-    tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
-
+    tokenizer = Tokenizer(tokenbuilders)
     self.tokens += tokenizer.tokenize(code)
 
     self.calc_token_confidence()

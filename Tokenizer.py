@@ -1,9 +1,8 @@
 from Token import Token
 
 class Tokenizer():
-  def __init__(self, tokenbuilders, invalid_tokenbuilder):
+  def __init__(self, tokenbuilders):
     self.tokenbuilders = tokenbuilders
-    self.invalid_tokenbuilder = invalid_tokenbuilder
 
   def tokenize(self, text):
     tokens = []
@@ -17,10 +16,6 @@ class Tokenizer():
 
       if tokenbuilder is not None:
         new_tokens = tokenbuilder.get_tokens()
-      else:
-        if self.invalid_tokenbuilder != None:
-          tokenbuilder = self.invalid_tokenbuilder
-          new_tokens = self.try_invalid(text)
 
       if new_tokens == None:
         raise Exception("Cannot tokenize '" + text + "'")
@@ -28,6 +23,7 @@ class Tokenizer():
       for token in new_tokens:
         if token.group not in ['whitespace', 'comment']:
           line_printable_tokens.append(token)
+
         if token.group == 'newline':
           line_printable_tokens = []
 
@@ -36,7 +32,8 @@ class Tokenizer():
       text = text[count:]
     
     return tokens
-    
+
+
   def try_tokenbuilders(self, text, line_printable_tokens):
     # try all tokenbuilders
     for tokenbuilder in self.tokenbuilders:
@@ -55,6 +52,7 @@ class Tokenizer():
           winner_score = winner.get_score(line_printable_tokens)
 
     return winner
+
 
   def try_invalid(self, text):
     self.invalid_tokenbuilder.attempt(text)

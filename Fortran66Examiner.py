@@ -68,6 +68,8 @@ class Fortran66Examiner(FortranExaminer):
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
+    invalid_token_builder = InvalidTokenBuilder()
+
     tokenbuilders = [
       whitespace_tb,
       newline_tb,
@@ -82,11 +84,11 @@ class Fortran66Examiner(FortranExaminer):
       groupers_tb,
       identifier_tb,
       string_tb,
-      self.unknown_operator_tb
+      self.unknown_operator_tb,
+      invalid_token_builder
     ]
 
-    invalid_token_builder = InvalidTokenBuilder()
-    tokenizer = Tokenizer(tokenbuilders, invalid_token_builder)
+    tokenizer = Tokenizer(tokenbuilders)
 
     num_ok_lines = 0
     lines = code.split('\n')
