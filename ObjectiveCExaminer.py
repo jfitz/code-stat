@@ -38,7 +38,7 @@ class ObjectiveCExaminer(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E')
     identifier_tb = IdentifierTokenBuilder()
     directive_tb = DirectiveTokenBuilder()
-    string_tb = StringTokenBuilder(['"', "'"], False)
+    string_tb = StringTokenBuilder(['"', "'"], False, False)
     prefixed_string_tb = PrefixedStringTokenBuilder('@', False, ['"'])
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()

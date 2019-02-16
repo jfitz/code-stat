@@ -33,7 +33,7 @@ class Fortran77Examiner(FortranExaminer):
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E')
     double_exponent_tb = RealExponentTokenBuilder(False, False, 'D')
     identifier_tb = FortranIdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(["'", '"'], True)
+    string_tb = StringTokenBuilder(["'", '"'], True, False)
     format_tb = FormatSpecifierTokenBuilder()
 
     known_operators = [

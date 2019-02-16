@@ -39,7 +39,7 @@ class Fortran90Examiner(FortranExaminer):
     identifier_tb = IdentifierTokenBuilder()
 
     bang_comment_tb = LeadCommentTokenBuilder('!')
-    string_tb = StringTokenBuilder(["'", '"'], True)
+    string_tb = StringTokenBuilder(["'", '"'], True, False)
 
     known_operators = [
       '=', '+', '-', '*', '/', '**',

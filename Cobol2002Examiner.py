@@ -34,7 +34,7 @@ class Cobol2002Examiner(Examiner):
     real_tb = RealTokenBuilder(False, True)
     real_exponent_tb = RealExponentTokenBuilder(False, True, 'E')
     identifier_tb = CobolIdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(['"', "'"], True)
+    string_tb = StringTokenBuilder(['"', "'"], True, False)
     n_string_tb = PrefixedStringTokenBuilder('N', False, ['"', "'"])
     nx_string_tb = PrefixedStringTokenBuilder('NX', False, ['"', "'"])
     picture_tb = PictureTokenBuilder()

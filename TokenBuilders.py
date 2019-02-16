@@ -102,9 +102,10 @@ class NewlineTokenBuilder(TokenBuilder):
 
 # token reader for text literal (string)
 class StringTokenBuilder(TokenBuilder):
-  def __init__(self, quotes, quote_stuffing):
+  def __init__(self, quotes, quote_stuffing, allow_unterm):
     self.quotes = quotes
     self.quote_stuffing = quote_stuffing
+    self.allow_unterm = allow_unterm
     self.token = ''
 
 
@@ -144,6 +145,16 @@ class StringTokenBuilder(TokenBuilder):
       result = False
 
     return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.token is None:
+      return 0
+
+    if not self.allow_unterm and self.token[-1] != self.token[0]:
+      return 0
+
+    return len(self.token)
 
 
 # token reader for prefixed text literal (string)

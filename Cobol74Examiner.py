@@ -33,7 +33,7 @@ class Cobol74Examiner(CobolExaminer):
     real_tb = RealTokenBuilder(False, True)
     real_exponent_tb = RealExponentTokenBuilder(False, True, 'E')
     identifier_tb = CobolIdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(['"', "'"], True)
+    string_tb = StringTokenBuilder(['"', "'"], True, True)
     picture_tb = PictureTokenBuilder()
     cr_picture_tb = CRPictureTokenBuilder()
 

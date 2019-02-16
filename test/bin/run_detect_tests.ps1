@@ -43,6 +43,7 @@ test\bin\run_test.ps1 -json -name prog13-3-85 -action detect -inputfile ".\test\
 test\bin\run_test.ps1 -json -name prog14-2-85 -action detect -inputfile ".\test\data\COBOL-85\PROG14-2.COB" -expected ".\test\ref\detect\COBOL-85\PROG14-2.txt"
 test\bin\run_test.ps1 -json -name prog15-4-85 -action detect -inputfile ".\test\data\COBOL-85\PROG15-4.COB" -expected ".\test\ref\detect\COBOL-85\PROG15-4.txt"
 test\bin\run_test.ps1 -json -name exec1-85 -action detect -inputfile ".\test\data\COBOL-85\UNLDDBCU2.COB" -tabsize 4 -expected ".\test\ref\detect\COBOL-85\UNLDDBCU2.txt"
+test\bin\run_test.ps1 -json -name P010-85 -action detect -inputfile ".\test\data\COBOL-85\P010.cob" -expected ".\test\ref\detect\COBOL-85\P010.txt"
 
 test\bin\run_test.ps1 -json -name report_card -action detect -tabsize 4 -inputfile ".\test\data\COBOL-2002\ReportCard.cob" -expected ".\test\ref\detect\COBOL-2002\ReportCard.txt"
 test\bin\run_test.ps1 -json -name person -action detect -tabsize 4 -inputfile ".\test\data\COBOL-2002\Person.cob" -expected ".\test\ref\detect\COBOL-2002\Person.txt"

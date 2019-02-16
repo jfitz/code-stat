@@ -35,7 +35,7 @@ class SwiftExaminer(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E')
     identifier_tb = IdentifierTokenBuilder()
     attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute')
-    string_tb = StringTokenBuilder(['"'], False)
+    string_tb = StringTokenBuilder(['"'], False, False)
 
     triple_quote_comment_tb = TripleQuoteCommentTokenBuilder()
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
