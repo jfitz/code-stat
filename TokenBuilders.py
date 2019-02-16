@@ -469,7 +469,7 @@ class PrefixedIntegerTokenBuilder(TokenBuilder):
     if self.token is None:
       return 0
 
-    if len(self.token) < 2:
+    if len(self.token) <= len(self.prefix):
       return 0
 
     return len(self.token)
@@ -493,16 +493,26 @@ class LeadCommentTokenBuilder(TokenBuilder):
   def accept(self, candidate, c):
     result = False
 
+    if len(candidate) < len(self.lead):
+      result = c == self.lead[len(candidate)]
+    
     if candidate.startswith(self.lead):
-      result = True
-
-    if c == self.lead and candidate == '':
       result = True
 
     if c == '\n':
       result = False
 
     return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.token is None:
+      return 0
+
+    if len(self.token) < len(self.lead):
+      return 0
+
+    return len(self.token)
 
 
 # token reader for triple quote string
