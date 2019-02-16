@@ -17,7 +17,6 @@ from CobolTokenBuilders import (
   CobolIdentifierTokenBuilder,
   PictureTokenBuilder,
   CRPictureTokenBuilder,
-  StarCommentTokenBuilder,
   CobolPreprocessorTokenBuilder
 )
 from Tokenizer import Tokenizer

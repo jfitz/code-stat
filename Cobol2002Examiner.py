@@ -11,13 +11,13 @@ from TokenBuilders import (
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
-  ListTokenBuilder
+  ListTokenBuilder,
+  LeadCommentTokenBuilder
 )
 from CobolTokenBuilders import (
   CobolIdentifierTokenBuilder,
   PictureTokenBuilder,
   CRPictureTokenBuilder,
-  StarCommentTokenBuilder,
   CobolPreprocessorTokenBuilder
 )
 from Tokenizer import Tokenizer
@@ -39,7 +39,7 @@ class Cobol2002Examiner(Examiner):
     nx_string_tb = PrefixedStringTokenBuilder('NX', False, ['"', "'"])
     picture_tb = PictureTokenBuilder()
     cr_picture_tb = CRPictureTokenBuilder()
-    star_comment_tb = StarCommentTokenBuilder()
+    inline_comment_tb = LeadCommentTokenBuilder('*>')
 
     terminators = ['.']
 
@@ -530,7 +530,7 @@ class Cobol2002Examiner(Examiner):
       string_tb,
       n_string_tb,
       nx_string_tb,
-      star_comment_tb,
+      inline_comment_tb,
       cobol_preprocessor_tb,
       self.unknown_operator_tb
     ]

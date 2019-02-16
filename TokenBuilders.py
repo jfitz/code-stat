@@ -499,7 +499,7 @@ class LeadCommentTokenBuilder(TokenBuilder):
     if candidate.startswith(self.lead):
       result = True
 
-    if c == '\n':
+    if c in ['\n', '\r']:
       result = False
 
     return result
