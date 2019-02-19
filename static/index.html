@@ -109,12 +109,6 @@ function buildLanguageSelectOptions(languageSelect, names) {
 }
 
 function loadLanguageNames() {
-  var languageSelect = document.getElementById('language');
-
-  while (languageSelect.firstChild) {
-    languageSelect.removeChild(languageSelect.firstChild);
-  }
-
   var code = document.getElementById('code').value;
   var req = new XMLHttpRequest();
   req.open('GET', '/languages', true);
@@ -126,6 +120,8 @@ function loadLanguageNames() {
         var names = JSON.parse(results);
 
         names.sort();
+
+        var languageSelect = document.getElementById('language');
 
         buildLanguageSelectOptions(languageSelect, names);
       }
