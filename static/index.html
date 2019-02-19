@@ -121,9 +121,11 @@ function loadLanguageNames() {
 
         names.sort();
 
-        var languageSelect = document.getElementById('language');
+        var tokenizeLanguageSelect = document.getElementById('token_language');
+        buildLanguageSelectOptions(tokenizeLanguageSelect, names);
 
-        buildLanguageSelectOptions(languageSelect, names);
+        var confidenceLanguageSelect = document.getElementById('confidence_language');
+        buildLanguageSelectOptions(confidenceLanguageSelect, names);
       }
     }
   }
@@ -146,8 +148,11 @@ function detectLanguage() {
           var names = keysInObject(confidences).sort();
 
           // build list of names
-          var languageSelect = document.getElementById('language');
-          buildLanguageSelectOptions(languageSelect, names)
+          var tokenizeLanguageSelect = document.getElementById('token_language');
+          buildLanguageSelectOptions(tokenizeLanguageSelect, names)
+
+          var confidenceLanguageSelect = document.getElementById('confidence_language');
+          buildLanguageSelectOptions(confidenceLanguageSelect, names)
 
           // build list of names and confidence values
           var detectDiv = document.getElementById('detect_result');
@@ -156,7 +161,8 @@ function detectLanguage() {
 
           if (names.length > 0) {
             // find the most likely language
-            languageSelect.value = keyWithGreatestValue(confidences)
+            tokenizeLanguageSelect.value = keyWithGreatestValue(confidences)
+            confidenceLanguageSelect.value = keyWithGreatestValue(confidences)
           }
         } else {
           console.error(req.statusText);
@@ -248,7 +254,7 @@ function formatConfidence(confidences) {
 function showConfidence() {
   var results = '';
   var code = document.getElementById('code').value;
-  var language = document.getElementById('language').value;
+  var language = document.getElementById('confidence_language').value;
   // change 'C++' because the '+' character causes problems for requests
   // TODO: escape the request to allow '+'
   if (language == 'C++') {
@@ -317,7 +323,7 @@ function tokenize() {
 
   var results = '';
   var code = document.getElementById('code').value;
-  var language = document.getElementById('language').value;
+  var language = document.getElementById('token_language').value;
   // change 'C++' because the '+' character causes problems for requests
   // TODO: escape the request to allow '+'
   if (language == 'C++') {
@@ -384,18 +390,27 @@ function tokenize() {
 </head>
 <body onload="loadLanguageNames()">
 Welcome to the CodeStat page!
+<div id="code_input" style="border:1px solid black">
 <textarea style="width:100%;" rows="20" id="code"></textarea>
-<br/>
-<input type="button" OnClick="detectLanguage();" value="Detect language"/>
-<br/>
-<select name="language" id="language">
-<option>BASIC</option>
-</select>
-<input type="button" OnClick="tokenize();" value="Tokenize"/>
-<input type="button" OnClick="showConfidence();" value="Confidence"/>
-<div id="detect_result" style="border:1px solid black"></div>
-<div id="confidence_result" style="border:1px solid black"></div>
-<div id="tokens_details" style="border:1px solid black"></div>
+</div><br/>
+<div id="detect_input" style="border:1px solid black">
+  <input type="button" OnClick="detectLanguage();" value="Detect language"/>
+</div><br/>
+<div id="tokenize_input" style="border:1px solid black">
+  <select name="token_language" id="token_language">
+    <option>BASIC</option>
+  </select>
+  <input type="button" OnClick="tokenize();" value="Tokenize"/>
+</div><br/>
+<div id="confidence_input" style="border:1px solid black">
+  <select name="confidence_language" id="confidence_language">
+    <option>BASIC</option>
+  </select>
+  <input type="button" OnClick="showConfidence();" value="Confidence"/>
+</div><br/>
+<div id="detect_result" style="border:1px solid black"></div><br/>
+<div id="confidence_result" style="border:1px solid black"></div><br/>
+<div id="tokens_details" style="border:1px solid black"></div><br/>
 <div id="tokens_result" style="border:1px solid black"></div>
 </body>
 </HTML>
