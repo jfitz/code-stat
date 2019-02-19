@@ -121,9 +121,21 @@ function loadLanguageNames() {
 
         names.sort();
 
+        // checkboxes for detect list
+        HTML = '';
+
+        for (i = 0; i < names.length; i++) {
+          HTML += '<input type="checkbox">' + names[i] + '</input><br/>'
+        }
+
+        list_div = document.getElementById('detect_list');
+        list_div.innerHTML = HTML;
+
+        // names for tokenize drop-down
         var tokenizeLanguageSelect = document.getElementById('token_language');
         buildLanguageSelectOptions(tokenizeLanguageSelect, names);
 
+        // names for confidence drop-down
         var confidenceLanguageSelect = document.getElementById('confidence_language');
         buildLanguageSelectOptions(confidenceLanguageSelect, names);
       }
@@ -394,6 +406,8 @@ Welcome to the CodeStat page!
 <textarea style="width:100%;" rows="20" id="code"></textarea>
 </div><br/>
 <div id="detect_input" style="border:1px solid black">
+  <div id="detect_list" style="border:1px solid black">
+  </div><br/>
   <input type="button" OnClick="detectLanguage();" value="Detect language"/>
 </div><br/>
 <div id="tokenize_input" style="border:1px solid black">
