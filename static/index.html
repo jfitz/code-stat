@@ -117,7 +117,7 @@ function loadLanguageNames() {
 
   var code = document.getElementById('code').value;
   var req = new XMLHttpRequest();
-  req.open('GET', "/languages", true);
+  req.open('GET', '/languages', true);
 
   req.onload = function (e) {
     if (req.readyState === 4) {
@@ -139,8 +139,8 @@ function detectLanguage() {
     var results = '';
     var code = document.getElementById('code').value;
     var req = new XMLHttpRequest();
-    req.open('POST', "/detect", true);
-    req.setRequestHeader("Content-type", "text/plain");
+    req.open('POST', '/detect', true);
+    req.setRequestHeader('Content-type', 'text/plain');
 
     req.onload = function (e) {
       if (req.readyState === 4) {
@@ -262,10 +262,10 @@ function showConfidence() {
     language = 'Csharp';
   }
 
-  var query = "/confidence?language=" + language;
+  var query = '/confidence?language=' + language;
   var req = new XMLHttpRequest();
   req.open('POST', query, true);
-  req.setRequestHeader("Content-type", "text/plain");
+  req.setRequestHeader('Content-type', 'text/plain');
   req.onload = function (e) {
     if (req.readyState === 4) {
       if (req.status === 200) {
@@ -331,10 +331,10 @@ function tokenize() {
     language = 'Csharp';
   }
 
-  var query = "/tokens?language=" + language;
+  var query = '/tokens?language=' + language;
   var req = new XMLHttpRequest();
   req.open('POST', query, true);
-  req.setRequestHeader("Content-type", "text/plain");
+  req.setRequestHeader('Content-type', 'text/plain');
   req.onload = function (e) {
     if (req.readyState === 4) {
       if (req.status === 200) {
