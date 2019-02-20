@@ -13,6 +13,10 @@ test\bin\run_test.ps1 -json -name rockt2 -action detect -inputfile ".\test\data\
 test\bin\run_test.ps1 -json -name diamond -action detect -inputfile ".\test\data\C\diamond.c" -expected ".\test\ref\detect\C\diamond.txt"
 test\bin\run_test.ps1 -json -name prime_test -action detect -inputfile ".\test\data\C\prime_test.c" -expected ".\test\ref\detect\C\prime_test.txt"
 
+test\bin\run_test.ps1 -json -name fibo -action detect -inputfile ".\test\data\CBASIC\fibo.bas" -expected ".\test\ref\detect\CBASIC\fibo.txt"
+test\bin\run_test.ps1 -json -name demograf -action detect -inputfile ".\test\data\CBASIC\DEMOGRAF.BAS" -expected ".\test\ref\detect\CBASIC\DEMOGRAF.txt"
+test\bin\run_test.ps1 -json -name graphr -action detect -inputfile ".\test\data\CBASIC\GRAPHR.BAS" -expected ".\test\ref\detect\CBASIC\GRAPHR.txt"
+
 test\bin\run_test.ps1 -json -name mccracken1-68 -action detect -inputfile ".\test\data\COBOL-68\mccracken1.cob" -expected ".\test\ref\detect\COBOL-68\mccracken1.txt"
 test\bin\run_test.ps1 -json -name mccracken2-68 -action detect -inputfile ".\test\data\COBOL-68\mccracken2.cob" -expected ".\test\ref\detect\COBOL-68\mccracken2.txt"
 test\bin\run_test.ps1 -json -name mccracken3-68 -action detect -inputfile ".\test\data\COBOL-68\mccracken3.cob" -expected ".\test\ref\detect\COBOL-68\mccracken3.txt"

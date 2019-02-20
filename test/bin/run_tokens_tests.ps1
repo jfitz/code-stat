@@ -13,6 +13,10 @@ test\bin\run_test.ps1 -json -name rockt2 -action tokens -language BASIC -inputfi
 test\bin\run_test.ps1 -json -name diamond -action tokens -language C -inputfile ".\test\data\C\diamond.c" -expected ".\test\ref\tokens\C\diamond.txt"
 test\bin\run_test.ps1 -json -name prime_test -action tokens -language C -inputfile ".\test\data\C\prime_test.c" -expected ".\test\ref\tokens\C\prime_test.txt"
 
+test\bin\run_test.ps1 -json -name fibo -action tokens -language CBASIC -inputfile ".\test\data\CBASIC\fibo.bas" -expected ".\test\ref\tokens\CBASIC\fibo.txt"
+test\bin\run_test.ps1 -json -name demograf -action tokens -language CBASIC -inputfile ".\test\data\CBASIC\DEMOGRAF.BAS" -expected ".\test\ref\tokens\CBASIC\DEMOGRAF.txt"
+test\bin\run_test.ps1 -json -name graphr -action tokens -language CBASIC -inputfile ".\test\data\CBASIC\GRAPHR.BAS" -expected ".\test\ref\tokens\CBASIC\GRAPHR.txt"
+
 test\bin\run_test.ps1 -json -name mccracken1-68 -action tokens -language COBOL-68 -inputfile ".\test\data\COBOL-68\mccracken1.cob" -expected ".\test\ref\tokens\COBOL-68\mccracken1.txt"
 test\bin\run_test.ps1 -json -name mccracken2-68 -action tokens -language COBOL-68 -inputfile ".\test\data\COBOL-68\mccracken2.cob" -expected ".\test\ref\tokens\COBOL-68\mccracken2.txt"
 test\bin\run_test.ps1 -json -name mccracken3-68 -action tokens -language COBOL-68 -inputfile ".\test\data\COBOL-68\mccracken3.cob" -expected ".\test\ref\tokens\COBOL-68\mccracken3.txt"
