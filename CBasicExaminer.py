@@ -21,7 +21,8 @@ from BasicTokenBuilders import (
 )
 from CBasicTokenBuilders import (
   CBasicVariableTokenBuilder,
-  CBasicSuffixedIntegerTokenBuilder
+  CBasicSuffixedIntegerTokenBuilder,
+  CBasicLineContinuationTokenBuilder
 )
 from Tokenizer import Tokenizer
 
@@ -31,6 +32,7 @@ class CBasicExaminer(Examiner):
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
+    line_continuation_tb = CBasicLineContinuationTokenBuilder()
 
     integer_tb = IntegerTokenBuilder(False)
     integer_exponent_tb = IntegerExponentTokenBuilder()
@@ -105,6 +107,7 @@ class CBasicExaminer(Examiner):
       whitespace_tb,
       newline_tb,
       stmt_separator_tb,
+      line_continuation_tb,
       integer_tb,
       integer_exponent_tb,
       real_tb,

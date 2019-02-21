@@ -72,3 +72,45 @@ class CBasicSuffixedIntegerTokenBuilder(TokenBuilder):
       return 0
 
     return len(self.token)
+
+
+# token reader for line continuation (and comment)
+class CBasicLineContinuationTokenBuilder(TokenBuilder):
+  def __init__(self):
+    self.token = None
+
+
+  def get_tokens(self):
+    if self.token is None:
+      return None
+
+    # line continuation character
+    tokens = [Token(self.token[0], 'line continuation')]
+    rest = self.token[1:]
+
+    # whitespace before text
+    whitespace = ''
+    while rest.startswith(' '):
+      whitespace += rest[0]
+      rest = rest[1:]
+
+    if whitespace != '':
+      tokens.append(Token(whitespace, 'whitespace'))
+
+    # text (which may contain whitespace)
+    if rest != '':
+      tokens.append(Token(rest, 'comment'))
+    
+    return tokens
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if len(candidate) == 0:
+      result = c == '\\'
+
+    if len(candidate) > 0:
+      result = c not in ['\r', '\n']
+
+    return result
