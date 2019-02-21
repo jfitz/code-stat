@@ -8,7 +8,7 @@
     CLEAR 
     REM If the device supports color fill, use MAT
     REM FILL statements. Otherwise, use MAT PLOT
-    REM to draw figures. 
+    REM to draw figures.
 IN.FL: INPUT "DOES THIS DEVICE SUPPORT COLOR FILL? Y!N: ";FILL.FLG$
     IF FILL.FLG$ = "Y" OR FILL.FLG$ = "N" THEN GOTO OK.FL
     PRINT "ENTER Y OR N, PLEASE"
@@ -17,7 +17,7 @@ OK.FL: PRINT "THANK YOU"
     REM Initialize the arrays used for drawing the
     REM slices in the pie chart. Two 100-element arrays
     REM are constructed for drawing a full circle. Each
-    REM point in the arrays then represents one percent. 
+    REM point in the arrays then represents one percent.
     PRINT "CALCULATING OCCURRING --- PLEASE WAIT"
     DIM X.ARRAY(100)
     DIM Y.ARRAY(100)
@@ -44,10 +44,10 @@ OK.FL: PRINT "THANK YOU"
     REM and Y.ARRAY and places them in A.ARRAY and
     REM B.ARRAY. MAT FILL and MAT PLOT always begin
     REM drawing at the first elements of the arrays, so
-    REM the slice must be extracted from the arrays. 
+    REM the slice must be extracted from the arrays.
     REM The function makes provision for slices that
     REM exceed 71 points. MAT FILL and MAT PLOT allow
-    REM a maximum element number of 72. 
+    REM a maximum element number of 72.
 DEF DRAW.SLICE (BEG.PER,PER.CENT,COL.OR,ASCII.ID)
     REAL BEG.PER,PER.CENT,COL.OR
     STRING ASCII.ID
@@ -55,10 +55,10 @@ DEF DRAW.SLICE (BEG.PER,PER.CENT,COL.OR,ASCII.ID)
     SET COLOR COL.OR
     OVR.FLOW = 0 
 
-    REM Setup for slices greater than 71 percent. 
+    REM Setup for slices greater than 71 percent.
     IF PER.CENT > 71 THEN SAVE.PER = 71:0VR.FLOW = 1\
     ELSE SAVE.PER = PER.CENT 
-    REM Extract points from circle array. 
+    REM Extract points from circle array.
 BAK.UP: FOR CNT.ER = BEG.PER TO BEG.PER + SAVE.PER
     IN.DEX = CNT.ER
     IF CNT.ER > 100 THEN IN.DEX = CNT.ER - 100
@@ -66,19 +66,19 @@ BAK.UP: FOR CNT.ER = BEG.PER TO BEG.PER + SAVE.PER
     B.ARRAY(L.CIR) = Y.ARRAY(IN.DEX)
     L.CIR = L.CIR + 1
     NEXT CNT.ER 
-    REM OVER.FLOW is 1 for slices over 71 percent. 
+    REM OVER.FLOW is 1 for slices over 71 percent.
     IF OVR.FLOW <> 1 THEN GOTO OVER.A 
-    REM FILL.FLG$ is "N" for non-color-fill devices. 
+    REM FILL.FLG$ is "N" for non-color-fill devices.
     IF FILL.FLG$ = "N" THEN MAT PLOT L.CIR-1: A.ARRAY,B.ARRAY\
     ELSE MAT FILL L.CIR-1: A.ARRAY,B.ARRAY
-    OVR.FLOW = 0 BEG.PER = BEG. PER + 71
+    OVR.FLOW = 0 BEG.PER = BEG.PER + 71
     SAVE.PER = PER.CENT - 71
     IF FILL.FLG$ = "N" THEN L.CIR 0 ELSE L.CIR = 1
     GOTO BAK.UP 
 OVER.A: A.ARRAY(0) = .5
     B.ARRAY(0) = .5 
     REM The slice must be closed for MAT PLOT. MAT FILL
-    REM closes automatically. 
+    REM closes automatically.
     IF FILL.FLG$ = "N" THEN\
     A.ARRAY(L.CIR) = .5:\
     B.ARRAY(L.CIR) = .5:\
@@ -88,11 +88,11 @@ OVER.A: A.ARRAY(0) = .5
     REM Expand the viewport for printing the slice ID.
     REM The minimum character height is used to adjust
     REM the window so the slice ID will appear outside
-    REM the slice perimeter. 
+    REM the slice perimeter.
     SET VIEWPORT 1.0-Y.AXIS,1,0,1 ADJ.IT = MIN.HGT/1.45
     SET WINDOW -ADJ.IT,1+ADJ.IT,-ADJ.IT,1+ADJ.IT
     REM MID.PT is the center elements in the slice. This
-    REM is the position where the ID is printed. 
+    REM is the position where the ID is printed.
     MID.PT = INT(BEG.PER+(PER.CENT/2))
     X.AXIS = X.ARRAY(MID.PT)
     Y.AXIS = Y.ARRAY(MID.PT)
@@ -104,7 +104,7 @@ OVER.A: A.ARRAY(0) = .5
     REM and press the return key. Then type the slice
     REM description (up to 6 characters), the dollar
     REM value of the slice, and the color code for
-    REM the slice. 
+    REM the slice.
     REM The following entries illustrate: 
     REM 1 <return>
     REM RENT,550,1 <return>
@@ -120,10 +120,10 @@ OVER.A: A.ARRAY(0) = .5
     REM color 4. REM Terminate the input by typing ° in response
     REM to the prompt.
     REM After the 0 entry, the program calculates the
-    REM percentages and prints a listing of the entries. 
+    REM percentages and prints a listing of the entries.
     REM You can change your entries by entering the
     REM item number to change and typing in
-    REM the correct data. 
+    REM the correct data.
 START.IT: PRINT 
 GO.A:
     DIM ITM.DESC$(9)
@@ -155,7 +155,7 @@ NEW.IN: INPUT "DESC,AMOUNT,COLOR: ";DESC.IN$,VAL.IN,CLR.IN%
     PRINT
     GOTO IN.IT
 PRT.EM: TOT.VAL = 0 
-    REM Calculate the total for percentages. 
+    REM Calculate the total for percentages.
     FOR CNT.R = 1 TO 9 
     PRINT 
     TOT.VAL = TOT.VAL + ITM.VALUE(CNT.R)
@@ -184,7 +184,7 @@ PRT.EM: TOT.VAL = 0
     REM Determine the aspect ratio and square the device.
     REM A border is left around the viewport for the
     REM slice ID. The viewport is set to the right
-    REM of the device. 
+    REM of the device.
 
     IF ITM.VALUE(CNT.R) = 0 THEN GOTO NXT.CNT 
     ASK DEVICE X.AXIS,Y.AXIS
@@ -200,7 +200,7 @@ PRT.EM: TOT.VAL = 0
     GRAPHIC PRINT AT (0,1-(CNT.R/10):S.1$
     NXT.CNT: NEXT CNT.R 
     REM Is the graph filled? The percentage calculation
-    REM can be less than 100 percent due to roundoff. 
+    REM can be less than 100 percent due to roundoff.
     IF BEG.PER >= 100 THEN GOTO BAR.A
     PER.CENT = 100 - BEG.PER
     DESC.IN$ = " "
@@ -211,7 +211,7 @@ PRT.EM: TOT.VAL = 0
     REM data. The window range is set to 1/3 greater
     REM than the largest item in the array. This
     REM makes the longest bar extend to
-    REM 75% of the viewport. 
+    REM 75% of the viewport.
 BAR.A: KEY%=PAUSE
     DIM BAR.X(4)
     DIM BAR.Y(4)
@@ -225,7 +225,7 @@ BAR.A: KEY%=PAUSE
     GRAPHIC PRINT AT (.5,.99-MIN.HGT):"BAR CHART"
     SET JUSTIFY 0,0
     MAX.VAL = 0 
-    REM Determine the maximum percentage. 
+    REM Determine the maximum percentage.
     FOR CNT.R = 1 TO 9
     IF MAX.VAL < ITM.PERC(CNT.R) THEN\
     MAX.VAL = ITM.PERC(CNT.R)
@@ -233,18 +233,18 @@ BAR.A: KEY%=PAUSE
     MAX.VAL = 1.33 * MAX.VAL 
     REM Scale the window. The X axis is 1/3 larger
     REM than the largest item to be graphed.
-    REM The Y axis is scaled to 10 lines. 
+    REM The Y axis is scaled to 10 lines.
     SET WINDOW 0,MAX.VAL,0,10
     SET CHARACTER HEIGHT 0
     ASK CHARACTER HEIGHT MIN.HGT 
-    REM Draw the items. 
+    REM Draw the items.
     FOR CNT.R = 1 TO 9
     IF ITM.VALUE(CNT.R) = 0 THEN GOTO NXT.A
     SET COLOR ITM.COLOR(CNT.R)
     P.LINE = 10 - CNT.R
     S.1$ = ITM.DESC$(CNT.R)+"-"+STR$(ITM.PERC(CNT.R))+"%"
     IF ITM.VALUE(CNT.R) <> ITM.PERC(CNT.R) THEN\
-    S.1$ = S 1$+" $"+STR$(ITM. VALUE (CNT. R))
+    S.1$ = S.1$+" $"+STR$(ITM.VALUE (CNT.R))
     GRAPHIC PRINT AT (0,P.LINE): S.1$
     REM Set up the BAR.X and BAR.Y arrays to draw the
     REM bar. MAX.VAL is the percentage for the item.

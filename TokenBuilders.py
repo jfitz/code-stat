@@ -130,15 +130,15 @@ class StringTokenBuilder(TokenBuilder):
         result = True
       else:
         if self.quote_stuffing:
-          # string is terminated unless next is also a matching quote
           if c == candidate[0]:
             result = True
           else:
-            if candidate[-2:] == candidate[0] * 2:
+            # string is terminated unless next is also a matching quote
+            if len(candidate) > 2 and candidate[-2:] == candidate[0] * 2:
               result = True
-            if candidate[-3:] == candidate[0] * 3:
+            if len(candidate) > 3 and candidate[-3:] == candidate[0] * 3:
               result = False
-            if candidate[-4:] == candidate[0] * 2:
+            if len(candidate) > 4 and candidate[-4:] == candidate[0] * 2:
               result = True
 
     if c in ['\n', '\r']:
