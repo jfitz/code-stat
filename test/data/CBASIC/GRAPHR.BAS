@@ -15,16 +15,16 @@ IN.FL: INPUT "DOES THIS DEVICE SUPPORT COLOR FILL? Y!N: ";FILL.FLG$
     GOTO IN.FL
 OK.FL: PRINT "THANK YOU" 
     REM Initialize the arrays used for drawing the
-    REM slices in the pie chart. Two lOO-element arrays
+    REM slices in the pie chart. Two 100-element arrays
     REM are constructed for drawing a full circle. Each
     REM point in the arrays then represents one percent. 
     PRINT "CALCULATING OCCURRING --- PLEASE WAIT"
-    DIM X.ARRAY(lOO)
-    DIM Y.ARRAY(lOO)
+    DIM X.ARRAY(100)
+    DIM Y.ARRAY(100)
     DIM A.ARRAY(72)
     DIM B.ARRAY(72)
-    A.ARRAY(O) = .5
-    B.ARRAY(O) = .5
+    A.ARRAY(0) = .5
+    B.ARRAY(0) = .5
     L.CIR = 0
     FOR I.ANGLE = 0 TO 6.28-.0628 STEP .0628
     X.ARRAY(L.CIR) = .5 + (.5 * COS(I.ANGLE))
@@ -32,8 +32,8 @@ OK.FL: PRINT "THANK YOU"
     L.CIR = L.CIR + 1
     NEXT I.ANGLE 
     REM Close the circle 
-    X.ARRAY(L.CIR) = X.ARRAY(O)
-    Y.ARRAY(L.CIR) = Y.ARRAY(O)
+    X.ARRAY(L.CIR) = X.ARRAY(0)
+    Y.ARRAY(L.CIR) = Y.ARRAY(0)
     GOTO START.IT 
     REM This function draws a slice beginning at the
     REM point represented by BEG.PER and entending
@@ -69,14 +69,14 @@ BAK.UP: FOR CNT.ER = BEG.PER TO BEG.PER + SAVE.PER
     REM OVER.FLOW is 1 for slices over 71 percent. 
     IF OVR.FLOW <> 1 THEN GOTO OVER.A 
     REM FILL.FLG$ is "N" for non-color-fill devices. 
-    IF FILL.FLG$ = "N" THEN MAT PLOT L.CIR-l: A.ARRAY,B.ARRAY\
+    IF FILL.FLG$ = "N" THEN MAT PLOT L.CIR-1: A.ARRAY,B.ARRAY\
     ELSE MAT FILL L.CIR-1: A.ARRAY,B.ARRAY
     OVR.FLOW = 0 BEG.PER = BEG. PER + 71
     SAVE.PER = PER.CENT - 71
     IF FILL.FLG$ = "N" THEN L.CIR 0 ELSE L.CIR = 1
     GOTO BAK.UP 
-OVER.A: A.ARRAY(O) = .5
-    B.ARRAY(O) = .5 
+OVER.A: A.ARRAY(0) = .5
+    B.ARRAY(0) = .5 
     REM The slice must be closed for MAT PLOT. MAT FILL
     REM closes automatically. 
     IF FILL.FLG$ = "N" THEN\
@@ -89,8 +89,8 @@ OVER.A: A.ARRAY(O) = .5
     REM The minimum character height is used to adjust
     REM the window so the slice ID will appear outside
     REM the slice perimeter. 
-    SET VIEWPORT 1.0-Y.AXIS,1,0,1 ADJ.IT = MIN.HGT/l.45
-    SET WINDOW -ADJ.IT,l+ADJ.IT,-ADJ.IT,1+ADJ.IT 
+    SET VIEWPORT 1.0-Y.AXIS,1,0,1 ADJ.IT = MIN.HGT/1.45
+    SET WINDOW -ADJ.IT,1+ADJ.IT,-ADJ.IT,1+ADJ.IT
     REM MID.PT is the center elements in the slice. This
     REM is the position where the ID is printed. 
     MID.PT = INT(BEG.PER+(PER.CENT/2))
@@ -140,7 +140,7 @@ GO.A:
     PRINT " RETURN MEANS TO PRESS THE RETURN KEY"
     PRINT "THE FIELDS ARE SEPARATED BY COMMAS"
     PRINT
-IN.IT: INPUT "ITEM NUMBER(O TO FINISH): "; ITM.NUMBER%
+IN.IT: INPUT "ITEM NUMBER(0 TO FINISH): "; ITM.NUMBER%
     IF ITM.NUMBER% = 0 THEN GOTO PRT.EM
     IF ITM.NUMBER% > 0 AND ITM.NUMBER% < 10 THEN GOTO OKAY.IN
     PRINT "THE ITEM NUMBER MUST BE FROM 1 TO 9"
@@ -253,8 +253,8 @@ BAR.A: KEY%=PAUSE
     MAX.VAL = ITM.PERC(CNT.R)
     TOP = P.LINE - .1
     BOT = TOP - .4
-    BAR.Y(O) = BOT
-    BAR.Y(l) = TOP
+    BAR.Y(0) = BOT
+    BAR.Y(1) = TOP
     BAR.X(2) = MAX.VAL
     BAR.Y(2) = TOP
     BAR.X(3) = MAX.VAL

@@ -65,12 +65,12 @@ class CBasicExaminer(Examiner):
     keywords = [
       'AS', 'BUFF', 'CALL',  'CHAIN', 'CLOSE', 'COMMON', 'CONSOLE', 'CREATE',
       'DATA', 'DEF', 'DELETE', 'DIM', 'ELSE', 'END', 'FEND',
-      'FILE', 'FLOAT', 'FOR', 'GOSUB', 'GO', 'GOTO', 'IF', 'INITIALIZE',
-      'INPUT', 'INTEGER', 'LET', 'LINE', 'LPRINTER', 'MATCH', 'NEXT', 
-      'ON', 'OPEN', 'OUT', 'PEEK', 'POKE', 'PRIN', 'PRINT',
+      'FILE', 'FOR', 'GOSUB', 'GO', 'GOTO', 'IF', 'INITIALIZE',
+      'INPUT', 'INTEGER', 'LET', 'LINE', 'LPRINTER', 'NEXT', 
+      'ON', 'OPEN', 'OUT', 'POKE', 'PRINT',
       'RANDOMIZE', 'READ', 'REM', 'REMARK', 'RENAME',
       'RESTORE', 'RETURN', 'SAVEMEM', 'STEP', 'STOP', 'SUB',
-      'THEN', 'TO', 'USING', 'VA', 'VARPTR', 'WEND', 'WHILE', 'WIDTH',
+      'THEN', 'TO', 'USING', 'WEND', 'WHILE', 'WIDTH',
       'GRAPHIC', 'MAT', 'FILL', 'MAT', 'MARKER', 'PLOT', 'CHARACTER',
       'HEIGHT', 'SET', 'ASK', 'COLOR', 'COUNT', 'JUSTIFY', 'LINE', 'STYLE',
       'TYPE', 'TEXT', 'ANGLE', 'BOUNDS', 'DEVICE', 'VIEWPORT', 'WINDOW',
@@ -82,10 +82,10 @@ class CBasicExaminer(Examiner):
     functions = [
       'ASC', 'CHR$', 'STR$', 'TAB', 'COMMAND$', 'CONCHAR%', 'CONSTAT%',
       'ATN', 'COS', 'SIN', 'TAN',
-      'ABS', 'EXP', 'INT', 'LOG', 'RND', 'SGN', 'SQR',
-      'LEFT$', 'LEN', 'MID$', 'RIGHT$', 'VAL',
-      'FRE', 'INP', 'INT%', 'POS',
-      'RECL', 'RECS', 'SADD', 'SIZE', 'UCASE$'
+      'ABS', 'EXP', 'INT', 'FLOAT', 'LOG', 'RND', 'SGN', 'SQR',
+      'LEFT$', 'LEN', 'MID$', 'RIGHT$', 'MATCH', 'VAL',
+      'FRE', 'INP', 'INT%', 'PEEK', 'POS', 'TAB',
+      'RECL', 'RECS', 'SADD', 'SIZE', 'UCASE$', 'VARPTR'
     ]
 
     function_tb = ListTokenBuilder(functions, 'function', True)
