@@ -239,13 +239,34 @@ class IntegerExponentTokenBuilder(TokenBuilder):
   def accept(self, candidate, c):
     result = False
 
-    if c.isdigit():
-      result = True
+    if len(candidate) == 0:
+      result = c.isdigit()
     
-    if c.lower() == 'e' and len(candidate) > 0 and 'e' not in candidate.lower():
-      result = True
+    if len(candidate) > 0:
+      result = c.isdigit() or (
+        c.lower() == 'e' and 'e' not in candidate.lower()
+      ) or (
+        c in '+-' and candidate[-1].lower() == 'e'
+      )
 
     return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.token is None:
+      return 0
+
+    # must have digit, 'E', and digit
+    if len(self.token) < 3:
+      return 0
+
+    if 'e' not in self.token.lower():
+      return 0
+
+    if not self.token[-1].isdigit():
+      return 0
+
+    return len(self.token)
 
 
 # token reader for real (no exponent)

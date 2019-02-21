@@ -20,7 +20,8 @@ from BasicTokenBuilders import (
   LineNumberTokenBuilder
 )
 from CBasicTokenBuilders import (
-  CBasicVariableTokenBuilder
+  CBasicVariableTokenBuilder,
+  CBasicSuffixedIntegerTokenBuilder
 )
 from Tokenizer import Tokenizer
 
@@ -35,8 +36,8 @@ class CBasicExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder()
     real_tb = RealTokenBuilder(False, False)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E')
-    hex_constant_tb = BasicSuffixedIntegerTokenBuilder('H')
-    binary_constant_tb = BasicSuffixedIntegerTokenBuilder('B')
+    hex_constant_tb = CBasicSuffixedIntegerTokenBuilder('0123456789ABCDEF', 'H')
+    binary_constant_tb = CBasicSuffixedIntegerTokenBuilder('01', 'B')
     variable_tb = CBasicVariableTokenBuilder('%$')
     string_tb = StringTokenBuilder(['"'], True, False)
     remark_tb = RemarkTokenBuilder()
