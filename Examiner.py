@@ -53,15 +53,6 @@ class Examiner:
     return detabbed_text
 
 
-  def count_valid_tokens(self):
-    num = 0
-    for token in self.tokens:
-      if not token.group.startswith('invalid'):
-        num += 1
-
-    return num
-
-
   def invalid_operators(self):
     tokens = []
     for token in self.tokens:
@@ -200,10 +191,21 @@ class Examiner:
 
   def calc_token_confidence(self):
     # unknown tokens reduce confidence
+    num_invalid_tokens = 0
+
+    for token in self.tokens:
+      if token.group.startswith('invalid'):
+        num_invalid_tokens += 1
+
+        self.errors.append({
+          'TYPE': 'TOKEN',
+          'INVALID': token.text
+        })
+
     token_confidence = 1.0
 
     if len(self.tokens) > 0:
-      num_known_tokens = self.count_valid_tokens()
+      num_known_tokens = len(self.tokens) - num_invalid_tokens
       token_confidence = num_known_tokens / len(self.tokens)
 
     self.confidences['token'] = token_confidence
