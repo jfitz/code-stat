@@ -26,6 +26,7 @@ class PrologExaminer(Examiner):
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
     stmt_separator_tb = ListTokenBuilder([';'], 'statement separator', False)
+    stmt_terminator_tb = ListTokenBuilder(['.'], 'statement terminator', False)
 
     integer_tb = IntegerTokenBuilder(True)
     integer_exponent_tb = IntegerExponentTokenBuilder()
@@ -48,7 +49,7 @@ class PrologExaminer(Examiner):
         ':<',
         ':', '+', '-', '/\\', '\\/', 'xor',
         '?', '*', '/', '//', 'div', 'rdiv', '<<', '>>', 'mod', 'rem',
-        '**', '^', '+', '-', '\\', '.', '$'
+        '**', '^', '+', '-', '\\', '$'
       ]
 
     self.unary_operators = [
@@ -75,6 +76,7 @@ class PrologExaminer(Examiner):
       whitespace_tb,
       newline_tb,
       stmt_separator_tb,
+      stmt_terminator_tb,
       integer_tb,
       integer_exponent_tb,
       real_tb,

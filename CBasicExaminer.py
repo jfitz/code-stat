@@ -80,7 +80,7 @@ class CBasicExaminer(Examiner):
       'BEAM', 'CLEAR', 'CLIP', 'POSITION'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
 
     functions = [
       'ASC', 'CHR$', 'STR$', 'TAB', 'COMMAND$', 'CONCHAR%', 'CONSTAT%',
@@ -91,7 +91,7 @@ class CBasicExaminer(Examiner):
       'RECL', 'RECS', 'SADD', 'SIZE', 'UCASE$', 'VARPTR'
     ]
 
-    function_tb = ListTokenBuilder(functions, 'function', True)
+    function_tb = ListTokenBuilder(functions, 'function', False)
 
     directives = [
       '%LIST', '%NOLIST',
@@ -99,7 +99,7 @@ class CBasicExaminer(Examiner):
       '%INCLUDE', '%CHAIN'
     ]
 
-    directive_tb = ListTokenBuilder(directives, 'directive', True)
+    directive_tb = ListTokenBuilder(directives, 'directive', False)
 
     invalid_token_builder = InvalidTokenBuilder()
 

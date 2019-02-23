@@ -1,6 +1,7 @@
 import string
 from Token import Token
 from Examiner import Examiner
+from CobolExaminer import CobolExaminer
 from TokenBuilders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
@@ -22,7 +23,7 @@ from CobolTokenBuilders import (
 )
 from Tokenizer import Tokenizer
 
-class Cobol2002Examiner(Examiner):
+class Cobol2002Examiner(CobolExaminer):
   def __init__(self, code):
     super().__init__()
 
@@ -541,8 +542,11 @@ class Cobol2002Examiner(Examiner):
     tokenizer = Tokenizer(tokenbuilders)
     self.tokens += tokenizer.tokenize(code)
 
+    expected_keyword_confidence = self.CheckExpectedKeywords()
+
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     # do not check for two operands in a row
     self.calc_picture_confidence()
+    self.confidences['expected_keywords'] = expected_keyword_confidence

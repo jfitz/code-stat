@@ -8,7 +8,8 @@ Param
     [switch]$json,
     [int32]$tabsize,
     [switch]$errors,
-    [switch]$wide
+    [switch]$wide,
+    [switch]$tiebreak
 )
 
 Write-Output "****** ****** ******"
@@ -36,6 +37,10 @@ if ($errors) {
 
 if ($wide) {
     $params += "wide"
+}
+
+if ($tiebreak) {
+    $params += "tiebreak-keywords"
 }
 
 if ($params.Count -gt 0) {

@@ -136,15 +136,15 @@ class CobolExaminer(Examiner):
 
       prev_text = text
 
-    expected_keyword_confidence = 0.50
-    if counts['IDENTIFICATION'] == 1:
-      expected_keyword_confidence += 0.125
-    if counts['ENVIRONMENT'] == 1:
-      expected_keyword_confidence += 0.125
-    if counts['DATA'] == 1:
-      expected_keyword_confidence += 0.125
-    if counts['PROCEDURE'] == 1:
-      expected_keyword_confidence += 0.125
+    expected_keyword_confidence = 1.00
+    if counts['IDENTIFICATION'] != 1:
+      expected_keyword_confidence -= 0.01
+    if counts['ENVIRONMENT'] != 1:
+      expected_keyword_confidence != 0.01
+    if counts['DATA'] != 1:
+      expected_keyword_confidence -= 0.01
+    if counts['PROCEDURE'] != 1:
+      expected_keyword_confidence -= 0.01
 
     return expected_keyword_confidence
 

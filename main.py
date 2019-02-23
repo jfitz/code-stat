@@ -132,9 +132,17 @@ def detect():
   if 'wide' in request.args:
     wide = True
 
+  tiebreak_keywords = False
+  if 'tiebreak-keywords' in request.args:
+    tiebreak_keywords = True
+
+  tiebreak_tokens = False
+  if 'tiebreak-tokens' in request.args:
+    tiebreak_tokens = True
+
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
-  detected_languages = identify_language(text, tabsize, wide)
+  detected_languages = identify_language(text, tabsize, wide, tiebreak_keywords, tiebreak_tokens)
 
   json_text = json.dumps(detected_languages)
 
@@ -335,7 +343,7 @@ def unwrap_cobol_lines(text):
   return unwrapped_lines
 
 
-def identify_language(code, tabsize, wide):
+def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens):
   try:
     tab_size = int(tabsize)
   except ValueError:
@@ -378,53 +386,55 @@ def identify_language(code, tabsize, wide):
     if confidence > highest_confidence:
       highest_confidence = confidence
 
-  # count how many have the greatest value
-  high_names = []
-  for name in examiners:
-    confidence = examiners[name].confidence()
-    if confidence == highest_confidence:
-      high_names.append(name)
-
-  # if a tie among multiple examiners
-  if len(high_names) > 1:
-    lowest_token_count = None
-    for name in high_names:
-      count = len(examiners[name].tokens)
-      if lowest_token_count is None or count < lowest_token_count:
-        lowest_token_count = count
-
-    # assign confidence to number of tokens (fewer tokens are better)
-    for name in high_names:
-      count = len(examiners[name].tokens)
-      token_count_confidence = lowest_token_count / count
-      examiners[name].confidences['token_count'] = token_count_confidence
-
-    # recalculate confidence with new factor
-    for name in high_names:
+  if tiebreak_keywords:
+    # count how many have the greatest confidence
+    high_names = []
+    for name in examiners:
       confidence = examiners[name].confidence()
-      retval[name] = confidence
+      if confidence == highest_confidence:
+        high_names.append(name)
 
-  # count how many have the greatest value after token count confidence
-  high_names = []
-  for name in examiners:
-    confidence = examiners[name].confidence()
-    if confidence == highest_confidence:
-      high_names.append(name)
-
-  # if still a tie among multiple examiners
-  if len(high_names) > 1:
-    highest_keyword_count = 0
-    for name in high_names:
-      keyword_count = len(examiners[name].find_keywords())
-      if keyword_count > highest_keyword_count:
-        highest_keyword_count = keyword_count
-
-    if highest_keyword_count > 0:
-      # assign confidence to number of keywords (more is better)
+    # if a tie among multiple examiners
+    if len(high_names) > 1:
+      highest_keyword_count = 0
       for name in high_names:
-        count = len(examiners[name].find_keywords())
-        keyword_count_confidence = count / highest_keyword_count
-        examiners[name].confidences['keyword_count'] = keyword_count_confidence
+        keyword_count = len(examiners[name].find_keywords())
+        if keyword_count > highest_keyword_count:
+          highest_keyword_count = keyword_count
+
+      if highest_keyword_count > 0:
+        # assign confidence to number of keywords (more is better)
+        for name in high_names:
+          count = len(examiners[name].find_keywords())
+          keyword_count_confidence = count / highest_keyword_count
+          examiners[name].confidences['keyword_count'] = keyword_count_confidence
+
+        # recalculate confidence with new factor
+        for name in high_names:
+          confidence = examiners[name].confidence()
+          retval[name] = confidence
+
+  if tiebreak_tokens:
+    # count how many have the greatest confidence
+    high_names = []
+    for name in examiners:
+      confidence = examiners[name].confidence()
+      if confidence == highest_confidence:
+        high_names.append(name)
+
+    # if a tie among multiple examiners
+    if len(high_names) > 1:
+      lowest_token_count = None
+      for name in high_names:
+        count = len(examiners[name].tokens)
+        if lowest_token_count is None or count < lowest_token_count:
+          lowest_token_count = count
+
+      # assign confidence to number of tokens (fewer tokens are better)
+      for name in high_names:
+        count = len(examiners[name].tokens)
+        token_count_confidence = lowest_token_count / count
+        examiners[name].confidences['token_count'] = token_count_confidence
 
       # recalculate confidence with new factor
       for name in high_names:
