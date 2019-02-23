@@ -24,6 +24,7 @@ from PrologExaminer import PrologExaminer
 from PythonExaminer import PythonExaminer
 from RExaminer import RExaminer
 from RubyExaminer import RubyExaminer
+from Sql92Examiner import Sql92Examiner
 from SwiftExaminer import SwiftExaminer
 
 
@@ -68,6 +69,7 @@ def languages():
     'Prolog',
     'Python',
     'Ruby',
+    'SQL-92',
     'Swift'
   ]
 
@@ -363,6 +365,7 @@ def identify_language(code, tabsize, wide):
   examiners['Python'] = PythonExaminer(code)
   examiners['R'] = RExaminer(code)
   examiners['Ruby'] = RubyExaminer(code)
+  examiners['SQL-92'] = Sql92Examiner(code)
   examiners['Swift'] = SwiftExaminer(code)
 
   # get confidence values
@@ -522,6 +525,10 @@ def tokenize(code, language, tabsize, wide):
     examiner = RubyExaminer(code)
     tokens = examiner.tokens
 
+  if language in ['sql-92']:
+    examiner = Sql92Examiner(code)
+    tokens = examiner.tokens
+
   if language in ['swift']:
     examiner = SwiftExaminer(code)
     tokens = examiner.tokens
@@ -643,6 +650,11 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide):
     confidences = examiner.confidences
     errors = examiner.errors
 
+  if language in ['sql-92']:
+    examiner = Sql92Examiner(code)
+    confidences = examiner.confidences
+    errors = examiner.errors
+
   if language in ['swift']:
     examiner = SwiftExaminer(code)
     confidences = examiner.confidences
@@ -654,6 +666,7 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide):
     retval = json.dumps(confidences)
 
   return retval
+
 
 if __name__ == '__main__':
   parser = argparse.ArgumentParser()

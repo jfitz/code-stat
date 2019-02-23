@@ -129,6 +129,9 @@ test\bin\run_test.ps1 -json -name tokenizers-ruby -action detect -inputfile ".\t
 test\bin\run_test.ps1 -json -name tokens-ruby -action detect -inputfile ".\test\data\Ruby\tokens.rb" -expected ".\test\ref\detect\Ruby\tokens.txt"
 test\bin\run_test.ps1 -json -name webhook-ruby -action detect -inputfile ".\test\data\Ruby\webhook.rb" -expected ".\test\ref\detect\Ruby\webhook.txt"
 
+test\bin\run_test.ps1 -json -name microsoft-sql -action detect -inputfile ".\test\data\SQL-92\microsoft.sql" -expected ".\test\ref\detect\SQL-92\microsoft.txt"
+test\bin\run_test.ps1 -json -name table-sql -action detect -inputfile ".\test\data\SQL-92\table.sql" -expected ".\test\ref\detect\SQL-92\table.txt"
+
 test\bin\run_test.ps1 -json -name AppDelegate -action detect -inputfile ".\test\data\Swift\AppDelegate.swift" -expected ".\test\ref\detect\Swift\AppDelegate.txt"
 test\bin\run_test.ps1 -json -name Meal -action detect -inputfile ".\test\data\Swift\Meal.swift" -expected ".\test\ref\detect\Swift\Meal.txt"
 test\bin\run_test.ps1 -json -name MealTableViewCell -action detect -inputfile ".\test\data\Swift\MealTableViewCell.swift" -expected ".\test\ref\detect\Swift\MealTableViewCell.txt"
