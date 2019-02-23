@@ -63,6 +63,7 @@ class PictureTokenBuilder(TokenBuilder):
 
     return result
 
+
   def get_score(self, line_printable_tokens):
     if self.token is None:
       return 0
@@ -126,6 +127,7 @@ class CRPictureTokenBuilder(TokenBuilder):
 
     return result
 
+
   def get_score(self, line_printable_tokens):
     if self.token is None:
       return 0
@@ -181,3 +183,41 @@ class CobolPreprocessorTokenBuilder(TokenBuilder):
       result = False
 
     return result
+
+
+# token reader for PIC descriptor
+class AsteriskCommentTokenBuilder(TokenBuilder):
+  def __init__(self):
+    self.token = ''
+
+
+  def get_tokens(self):
+    if self.token is None:
+      return None
+
+    return [Token(self.token, 'comment')]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if len(candidate) == 0:
+      result = c == '*'
+
+    if len(candidate) > 0:
+      result = True
+
+    if c in ['\r', '\n']:
+      result = False
+
+    return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.token is None:
+      return 0
+
+    if len(line_printable_tokens) > 0:
+      return 0
+
+    return len(self.token)

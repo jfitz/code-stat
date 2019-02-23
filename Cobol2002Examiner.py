@@ -19,7 +19,8 @@ from CobolTokenBuilders import (
   CobolIdentifierTokenBuilder,
   PictureTokenBuilder,
   CRPictureTokenBuilder,
-  CobolPreprocessorTokenBuilder
+  CobolPreprocessorTokenBuilder,
+  AsteriskCommentTokenBuilder
 )
 from Tokenizer import Tokenizer
 
@@ -41,6 +42,7 @@ class Cobol2002Examiner(CobolExaminer):
     picture_tb = PictureTokenBuilder()
     cr_picture_tb = CRPictureTokenBuilder()
     inline_comment_tb = LeadCommentTokenBuilder('*>')
+    star_comment_tb = AsteriskCommentTokenBuilder()
 
     terminators = ['.']
 
@@ -534,6 +536,7 @@ class Cobol2002Examiner(CobolExaminer):
       n_string_tb,
       nx_string_tb,
       inline_comment_tb,
+      star_comment_tb,
       cobol_preprocessor_tb,
       self.unknown_operator_tb,
       invalid_token_builder
