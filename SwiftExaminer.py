@@ -61,7 +61,7 @@ class SwiftExaminer(Examiner):
     ]
 
     self.postfix_operators = [
-      '++', '--'
+      '++', '--', ':'
     ]
 
     groupers = ['(', ')', ',', '[', ']', '{', '}']

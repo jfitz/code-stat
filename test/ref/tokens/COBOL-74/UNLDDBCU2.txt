@@ -7564,64 +7564,8 @@
         "value": "                "
     },
     {
-        "type": "identifier",
-        "value": "EXEC"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "SQL"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "DECLARE"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "DT"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "CURSOR"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "keyword",
-        "value": "FOR"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "SEL"
-    },
-    {
-        "type": "whitespace",
-        "value": "  "
-    },
-    {
-        "type": "identifier",
-        "value": "END-EXEC"
+        "type": "exec block",
+        "value": "EXEC SQL DECLARE DT CURSOR FOR SEL  END-EXEC"
     },
     {
         "type": "statement terminator",
@@ -7636,48 +7580,8 @@
         "value": "                "
     },
     {
-        "type": "identifier",
-        "value": "EXEC"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "SQL"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "DECLARE"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "SEL"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "STATEMENT"
-    },
-    {
-        "type": "whitespace",
-        "value": "      "
-    },
-    {
-        "type": "identifier",
-        "value": "END-EXEC"
+        "type": "exec block",
+        "value": "EXEC SQL DECLARE SEL STATEMENT      END-EXEC"
     },
     {
         "type": "statement terminator",
@@ -7740,40 +7644,8 @@
         "value": "                "
     },
     {
-        "type": "identifier",
-        "value": "EXEC"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "SQL"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "INCLUDE"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "SQLCA"
-    },
-    {
-        "type": "whitespace",
-        "value": "  "
-    },
-    {
-        "type": "identifier",
-        "value": "END-EXEC"
+        "type": "exec block",
+        "value": "EXEC SQL INCLUDE SQLCA  END-EXEC"
     },
     {
         "type": "statement terminator",
@@ -8544,56 +8416,8 @@
         "value": "           "
     },
     {
-        "type": "identifier",
-        "value": "EXEC"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "SQL"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "WHENEVER"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "SQLERROR"
-    },
-    {
-        "type": "whitespace",
-        "value": "   "
-    },
-    {
-        "type": "identifier",
-        "value": "GOTO"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "DBERROR"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "END-EXEC"
+        "type": "exec block",
+        "value": "EXEC SQL WHENEVER SQLERROR   GOTO DBERROR END-EXEC"
     },
     {
         "type": "statement terminator",
@@ -8608,56 +8432,8 @@
         "value": "           "
     },
     {
-        "type": "identifier",
-        "value": "EXEC"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "SQL"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "WHENEVER"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "SQLWARNING"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "GOTO"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "DBERROR"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "END-EXEC"
+        "type": "exec block",
+        "value": "EXEC SQL WHENEVER SQLWARNING GOTO DBERROR END-EXEC"
     },
     {
         "type": "statement terminator",
@@ -8672,56 +8448,8 @@
         "value": "           "
     },
     {
-        "type": "identifier",
-        "value": "EXEC"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "SQL"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "WHENEVER"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "keyword",
-        "value": "NOT"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "FOUND"
-    },
-    {
-        "type": "whitespace",
-        "value": "  "
-    },
-    {
-        "type": "identifier",
-        "value": "CONTINUE"
-    },
-    {
-        "type": "whitespace",
-        "value": "     "
-    },
-    {
-        "type": "identifier",
-        "value": "END-EXEC"
+        "type": "exec block",
+        "value": "EXEC SQL WHENEVER NOT FOUND  CONTINUE     END-EXEC"
     },
     {
         "type": "statement terminator",
@@ -9544,80 +9272,8 @@
         "value": "           "
     },
     {
-        "type": "identifier",
-        "value": "EXEC"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "SQL"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "PREPARE"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "SEL"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "keyword",
-        "value": "INTO"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "operator",
-        "value": ":"
-    },
-    {
-        "type": "identifier",
-        "value": "SQLDA"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "keyword",
-        "value": "FROM"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "operator",
-        "value": ":"
-    },
-    {
-        "type": "identifier",
-        "value": "STMTBUF"
-    },
-    {
-        "type": "whitespace",
-        "value": "  "
-    },
-    {
-        "type": "identifier",
-        "value": "END-EXEC"
+        "type": "exec block",
+        "value": "EXEC SQL PREPARE SEL INTO :SQLDA FROM :STMTBUF  END-EXEC"
     },
     {
         "type": "statement terminator",
@@ -10256,40 +9912,8 @@
         "value": "           "
     },
     {
-        "type": "identifier",
-        "value": "EXEC"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "SQL"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "keyword",
-        "value": "OPEN"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "DT"
-    },
-    {
-        "type": "whitespace",
-        "value": "  "
-    },
-    {
-        "type": "identifier",
-        "value": "END-EXEC"
+        "type": "exec block",
+        "value": "EXEC SQL OPEN DT  END-EXEC"
     },
     {
         "type": "statement terminator",
@@ -10328,68 +9952,8 @@
         "value": "           "
     },
     {
-        "type": "identifier",
-        "value": "EXEC"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "SQL"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "FETCH"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "DT"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "keyword",
-        "value": "USING"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "DESCRIPTOR"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "operator",
-        "value": ":"
-    },
-    {
-        "type": "identifier",
-        "value": "SQLDA"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "END-EXEC"
+        "type": "exec block",
+        "value": "EXEC SQL FETCH DT USING DESCRIPTOR :SQLDA END-EXEC"
     },
     {
         "type": "statement terminator",
@@ -10716,64 +10280,8 @@
         "value": "           "
     },
     {
-        "type": "identifier",
-        "value": "EXEC"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "SQL"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "WHENEVER"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "keyword",
-        "value": "NOT"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "FOUND"
-    },
-    {
-        "type": "whitespace",
-        "value": "  "
-    },
-    {
-        "type": "identifier",
-        "value": "GOTO"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "CLOSEDT"
-    },
-    {
-        "type": "whitespace",
-        "value": "    "
-    },
-    {
-        "type": "identifier",
-        "value": "END-EXEC"
+        "type": "exec block",
+        "value": "EXEC SQL WHENEVER NOT FOUND  GOTO CLOSEDT    END-EXEC"
     },
     {
         "type": "statement terminator",
@@ -10816,40 +10324,8 @@
         "value": "           "
     },
     {
-        "type": "identifier",
-        "value": "EXEC"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "SQL"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "keyword",
-        "value": "CLOSE"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "DT"
-    },
-    {
-        "type": "whitespace",
-        "value": "  "
-    },
-    {
-        "type": "identifier",
-        "value": "END-EXEC"
+        "type": "exec block",
+        "value": "EXEC SQL CLOSE DT  END-EXEC"
     },
     {
         "type": "statement terminator",
@@ -11576,68 +11052,8 @@
         "value": "               "
     },
     {
-        "type": "identifier",
-        "value": "EXEC"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "SQL"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "FETCH"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "DT"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "keyword",
-        "value": "USING"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "DESCRIPTOR"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "operator",
-        "value": ":"
-    },
-    {
-        "type": "identifier",
-        "value": "SQLDA"
-    },
-    {
-        "type": "whitespace",
-        "value": " "
-    },
-    {
-        "type": "identifier",
-        "value": "END-EXEC"
+        "type": "exec block",
+        "value": "EXEC SQL FETCH DT USING DESCRIPTOR :SQLDA END-EXEC"
     },
     {
         "type": "statement terminator",

@@ -17,7 +17,8 @@ from CobolTokenBuilders import (
   CobolIdentifierTokenBuilder,
   PictureTokenBuilder,
   CRPictureTokenBuilder,
-  CobolPreprocessorTokenBuilder
+  CobolPreprocessorTokenBuilder,
+  ExecBlockTokenBuilder
 )
 from Tokenizer import Tokenizer
 
@@ -404,6 +405,8 @@ class Cobol74Examiner(CobolExaminer):
 
     cobol_preprocessor_tb = CobolPreprocessorTokenBuilder()
     
+    exec_tb = ExecBlockTokenBuilder()
+
     invalid_token_builder = InvalidTokenBuilder()
 
     tokenbuilders = [
@@ -422,6 +425,7 @@ class Cobol74Examiner(CobolExaminer):
       identifier_tb,
       string_tb,
       cobol_preprocessor_tb,
+      exec_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]

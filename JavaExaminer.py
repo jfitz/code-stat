@@ -46,7 +46,7 @@ class JavaExaminer(Examiner):
       '^',
       '.', ':',
       '++', '--', '&&', '||',
-      '?', '{', '}'
+      '?'
     ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
@@ -58,10 +58,10 @@ class JavaExaminer(Examiner):
     ]
 
     self.postfix_operators = [
-      '++', '--'
+      '++', '--', ':'
     ]
 
-    groupers = ['(', ')', ',', '[', ']']
+    groupers = ['(', ')', ',', '[', ']', '{', '}']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 

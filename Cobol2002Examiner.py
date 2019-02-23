@@ -20,7 +20,8 @@ from CobolTokenBuilders import (
   PictureTokenBuilder,
   CRPictureTokenBuilder,
   CobolPreprocessorTokenBuilder,
-  AsteriskCommentTokenBuilder
+  AsteriskCommentTokenBuilder,
+  ExecBlockTokenBuilder
 )
 from Tokenizer import Tokenizer
 
@@ -59,7 +60,7 @@ class Cobol2002Examiner(CobolExaminer):
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
     self.unary_operators = [
-      '+', '-'
+      '+', '-', 'NOT'
     ]
 
     groupers = ['(', ')', ',']
@@ -515,7 +516,9 @@ class Cobol2002Examiner(CobolExaminer):
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
 
     cobol_preprocessor_tb = CobolPreprocessorTokenBuilder()
-    
+
+    exec_tb = ExecBlockTokenBuilder()
+
     invalid_token_builder = InvalidTokenBuilder()
 
     tokenbuilders = [
@@ -538,6 +541,7 @@ class Cobol2002Examiner(CobolExaminer):
       inline_comment_tb,
       star_comment_tb,
       cobol_preprocessor_tb,
+      exec_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]

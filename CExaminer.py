@@ -56,7 +56,7 @@ class CExaminer(Examiner):
       '^',
       '.', ':',
       '++', '--', '->', '&&', '||',
-      '?', '{', '}'
+      '?'
     ]
 
     self.unary_operators = [
@@ -66,10 +66,10 @@ class CExaminer(Examiner):
     ]
 
     self.postfix_operators = [
-      '++', '--', '&'
+      '++', '--', '&', ':'
     ]
 
-    groupers = ['(', ')', ',', '[', ']']
+    groupers = ['(', ')', ',', '[', ']', '{', '}']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 

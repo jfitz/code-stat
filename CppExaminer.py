@@ -56,7 +56,7 @@ class CppExaminer(Examiner):
       '^',
       '.', ':',
       '++', '--', '->', '&&', '||',
-      '?', '{', '}',
+      '?',
       '::', '<=>', '.*', '->*',
       'new', 'delete', 'and', 'and_eq', 'bitand', 'bitor', 'compl',
       'not', 'not_eq', 'or', 'or_eq', 'xor', 'xor_eq'
@@ -69,10 +69,10 @@ class CppExaminer(Examiner):
     ]
 
     self.postfix_operators = [
-      '++', '--', '&'
+      '++', '--', '&', ':'
     ]
 
-    groupers = ['(', ')', ',', '[', ']']
+    groupers = ['(', ')', ',', '[', ']', '{', '}']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
