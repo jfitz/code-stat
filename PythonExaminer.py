@@ -24,6 +24,7 @@ from Tokenizer import Tokenizer
 class PythonExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
+    self.newlines_important = True
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
@@ -141,8 +142,10 @@ class PythonExaminer(Examiner):
 
   def calc_line_format_2_confidence(self):
     # line format 2 - some keyword lines end in colon
-    tokens = self.drop_whitespace(self.tokens)
-    tokens = self.drop_comments(tokens)
+    drop_types = ['whitespace', 'comment']
+
+    tokens = self.drop_tokens(self.tokens, drop_types)
+
     lines = self.split_tokens(tokens)
     num_lines = 0
     num_lines_correct = 0

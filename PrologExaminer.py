@@ -22,6 +22,7 @@ from Tokenizer import Tokenizer
 class PrologExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
+    self.newlines_important = True
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()

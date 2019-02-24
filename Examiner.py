@@ -18,6 +18,7 @@ class Examiner:
     self.postfix_operators = []
     self.confidences = {}
     self.errors = []
+    self.newlines_important = False
 
 
   def confidence(self):
@@ -142,26 +143,6 @@ class Examiner:
     return token_groups
 
 
-  def drop_whitespace(self, tokens):
-    new_list = []
-
-    for token in tokens:
-      if token.group != 'whitespace':
-        new_list.append(token)
-    
-    return new_list
-
-
-  def drop_comments(self, tokens):
-    new_list = []
-
-    for token in tokens:
-      if token.group != 'comment':
-        new_list.append(token)
-    
-    return new_list
-
-
   def drop_tokens(self, tokens, types):
     new_list = []
 
@@ -284,15 +265,18 @@ class Examiner:
 
   def calc_operand_confidence(self):
     # two operands in a row decreases confidence
-    tokens = self.drop_whitespace(self.tokens)
-    tokens = self.drop_comments(tokens)
+    drop_types = ['whitespace', 'comment', 'line continuation']
+    if not self.newlines_important:
+      drop_types.append('newline')
 
-    operands = ['number', 'string', 'identifier', 'variable']
+    tokens = self.drop_tokens(self.tokens, drop_types)
+
+    operand_types = ['number', 'string', 'identifier', 'variable']
 
     two_operand_count = 0
     prev_token = Token('\n', 'newline')
     for token in tokens:
-      if token.group in operands and prev_token.group in operands:
+      if token.group in operand_types and prev_token.group in operand_types:
         two_operand_count += 1
         self.errors.append({
           'TYPE': 'OPERAND',

@@ -118,8 +118,9 @@ class CobolExaminer(Examiner):
       'PROCEDURE': 0
     }
 
-    tokens = self.drop_whitespace(self.tokens)
-    tokens = self.drop_comments(tokens)
+    drop_types = ['newline', 'whitespace', 'comment', 'line continuation']
+
+    tokens = self.drop_tokens(self.tokens, drop_types)
 
     prev_text = ''
     for token in tokens:
@@ -152,9 +153,9 @@ class CobolExaminer(Examiner):
   def calc_line_format_confidence(self):
     # check PICTURE keywords are followed by a picture element
     # and picture elements are preceded by a PICTURE keyword
-    tokens = self.drop_whitespace(self.tokens)
-    tokens = self.drop_comments(tokens)
-    tokens = self.drop_tokens(tokens, ['newline'])
+    drop_types = ['newline', 'whitespace', 'comment', 'line continuation']
+
+    tokens = self.drop_tokens(self.tokens, drop_types)
 
     errors = 0
     prev_token = Token('\n', 'newline')

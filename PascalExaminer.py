@@ -69,8 +69,8 @@ class PascalExaminer(Examiner):
       'do', 'downto', 'else', 'end', 'false', 'file', 'for', 'forward',
       'function', 'goto', 'if', 'integer', 'label', 'nil', 'of', 'otherwise',
       'packed', 'procedure', 'program', 'real', 'record', 'repeat', 'reset',
-      'set', 'string', 'then', 'to', 'true', 'until', 'uses', 'value', 'var',
-      'while', 'with'
+      'set', 'string', 'then', 'to', 'true', 'type', 'until', 'uses',
+      'value', 'var', 'while', 'with'
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
