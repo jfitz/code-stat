@@ -277,7 +277,7 @@ class Examiner:
 
     tokens = self.drop_tokens(self.tokens, drop_types)
 
-    operand_types = ['number', 'string', 'identifier', 'variable']
+    operand_types = ['number', 'string', 'identifier', 'variable', 'symbol']
 
     two_operand_count = 0
     prev_token = Token('\n', 'newline')
