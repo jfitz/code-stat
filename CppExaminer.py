@@ -65,7 +65,8 @@ class CppExaminer(Examiner):
     self.unary_operators = [
       '+', '-', '*',
       '!', '&', '~',
-      '++', '--'
+      '++', '--',
+      'new', 'delete', 'compl', 'not'
     ]
 
     self.postfix_operators = [

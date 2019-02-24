@@ -59,14 +59,15 @@ class CsharpExaminer(Examiner):
       '++', '--', '->', '&&', '||',
       '?', '??', '?.', '?[',
       '=>',
-      'as', 'is', 'await', 'sizeof', 'delegate', 'default',
-      'checked', 'unchecked', 'typeof', 'new'
+      'as', 'is', 'await', 'sizeof',
+      'typeof', 'new'
     ]
     
     self.unary_operators = [
       '+', '-',
       '!', '~',
-      '++', '--'
+      '++', '--',
+      'new', 'sizeof', 'typeof'
     ]
 
     self.postfix_operators = [
@@ -81,8 +82,8 @@ class CsharpExaminer(Examiner):
 
     keywords = [
       'abstract', 'base', 'bool', 'break', 'byte',
-      'case', 'catch', 'char', 'class', 'const',
-      'continue', 'decimal', 'do', 'double',
+      'case', 'catch', 'char', 'checked', 'class', 'const',
+      'continue', 'decimal', 'default', 'delegate', 'do', 'double',
       'else', 'enum', 'event', 'explicit', 'extern', 'false',
       'finally', 'fixed', 'float', 'for', 'foreach', 'goto',
       'if', 'implicit', 'in', 'int', 'interface', 'internal',
@@ -91,7 +92,7 @@ class CsharpExaminer(Examiner):
       'readonly', 'ref', 'return', 'sbyte', 'sealed', 'short',
       'stackalloc', 'static', 'string', 'struct', 'switch',
       'this', 'throw', 'true', 'try', 'uint', 'ulong',
-      'unsafe', 'ushort', 'using', 'using static',
+      'unchecked', 'unsafe', 'ushort', 'using', 'using static',
       'virtual', 'void', 'volatile', 'while'
     ]
 

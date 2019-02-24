@@ -85,6 +85,10 @@ class RubyExaminer(Examiner):
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
+    array_markers = ['%w', '%q', '%Q', '%i', '%s', '%x']
+
+    array_marker_tb = ListTokenBuilder(array_markers, 'identifier', True)
+
     invalid_token_builder = InvalidTokenBuilder()
 
     tokenbuilders = [
@@ -101,6 +105,7 @@ class RubyExaminer(Examiner):
       groupers_tb,
       regex_tb,
       identifier_tb,
+      array_marker_tb,
       string_tb,
       heredoc_tb,
       hash_comment_tb,

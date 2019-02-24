@@ -225,11 +225,17 @@ class Examiner:
       errors = 0
       prev_token = Token('\n', 'newline')
 
-      for token in self.tokens:
+      drop_types = ['whitespace', 'comment', 'line continuation']
+      if not self.newlines_important:
+        drop_types.append('newline')
+
+      tokens = self.drop_tokens(self.tokens, drop_types)
+
+      for token in tokens:
         if token.group == 'operator' and\
           prev_token.group == 'operator' and\
           prev_token.text not in self.postfix_operators and\
-          token.text not in self.unary_operators:
+          token.text.lower() not in (op.lower() for op in self.unary_operators):
           errors += 1
           self.errors.append({
             'TYPE': 'OPERATOR',
