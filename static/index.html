@@ -117,7 +117,14 @@ function loadLanguageNames() {
     if (req.readyState === 4) {
       if (req.status === 200) {
         var results = req.responseText;
-        var names = JSON.parse(results);
+        var codesAndNames = JSON.parse(results);
+
+        names = []
+        for (var code in codesAndNames) {
+          if (codesAndNames.hasOwnProperty(code) ) {
+            names.push(codesAndNames[code]);
+          }
+        }
 
         names.sort();
 
@@ -330,7 +337,8 @@ function tokenize() {
     'statement terminator': 'goldenrod',
     'statement separator': 'goldenrod',
     'doc marker': 'orchid',
-    'here doc': 'hotpink'
+    'here doc': 'hotpink',
+    'exec block': 'crimson'
   };
 
   var results = '';

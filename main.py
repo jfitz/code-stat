@@ -48,30 +48,31 @@ app = Flask(__name__)
 
 @app.route('/languages', methods=['GET'])
 def languages():
-  names = [
-    'BASIC',
-    'C',
-    'C++',
-    'C#',
-    'CBASIC',
-    'COBOL-68',
-    'COBOL-74',
-    'COBOL-85',
-    'COBOL-2002',
-    'FORTRAN-66',
-    'FORTRAN-77',
-    'Fortran-90',
-    'Fortran-95',
-    'Java',
-    'JavaScript',
-    'Objective-C',
-    'Pascal',
-    'Prolog',
-    'Python',
-    'Ruby',
-    'SQL-92',
-    'Swift'
-  ]
+  names = {
+    'basic': 'BASIC',
+    'c': 'C',
+    'cplusplus': 'C++',
+    'csharp': 'C#',
+    'cbasic': 'CBASIC',
+    'cobol68': 'COBOL-68',
+    'cobol74': 'COBOL-74',
+    'cobol85': 'COBOL-85',
+    'cobol2002': 'COBOL-2002',
+    'fortran66': 'FORTRAN-66',
+    'fortran77': 'FORTRAN-77',
+    'fortran90': 'Fortran-90',
+    'fortran95': 'Fortran-95',
+    'java': 'Java',
+    'javascript': 'JavaScript',
+    'objectivec': 'Objective-C',
+    'pascal': 'Pascal',
+    'prolog': 'Prolog',
+    'python': 'Python',
+    'r': 'R',
+    'ruby': 'Ruby',
+    'sql92': 'SQL-92',
+    'swift': 'Swift'
+  }
 
   json_text = json.dumps(names)
   return json_text
