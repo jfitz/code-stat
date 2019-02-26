@@ -213,12 +213,12 @@ function colorize(token, htmlColors) {
   if (tokenType == 'newline') {
     tokenHtml = '<br/>'; 
   } else if (tokenType.startsWith('invalid')) {
-    var frontHtml = '<font color=red>';
-    var backHtml = '</font>';
+    var frontHtml = '<span style="color: white; background-color: red">';
+    var backHtml = '</span>';
     tokenHtml = frontHtml + tokenSafe + backHtml;
   } else if (tokenType in htmlColors) {
-    var frontHtml = '<font color=' + htmlColors[tokenType] + '>';
-    var backHtml = '</font>';
+    var frontHtml = '<span style="color: ' + htmlColors[tokenType] + '">';
+    var backHtml = '</span>';
     tokenHtml = frontHtml + tokenSafe + backHtml;
   } else {
     tokenHtml = tokenSafe;
@@ -327,7 +327,6 @@ function tokenize() {
     comment: 'yellowgreen',
     remark: 'yellowgreen',
     picture: 'hotpink',
-    invalid: 'red',
     directive: 'lightgreen',
     preprocessor: 'lightgreen',
     attribute: 'lightgreen',
