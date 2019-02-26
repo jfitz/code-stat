@@ -409,30 +409,57 @@ function tokenize() {
 </script>
 </head>
 <body onload="loadLanguageNames()">
-Welcome to the CodeStat page!
+Welcome to the CodeStat page!<br/>
+<br/>
+Enter some code, and press the 'Detect' button below. The web service will
+attempt to identify the language.<br/>
+<br/>
+The detection is not perfect, especially for short code fragments.<br/>
+<br/>
+Detection is built on tokenzation, and the tokenization is not perfect.
+(There is no attempt to handle C #define macros, for example.)<br/>
+<br/>
+You can tokenize for a specific language with the 'Tokenize' button further below.
+Before you press 'Tokenize', select the language.<br/>
+<br/>
 <div id="code_input" style="border:1px solid black">
 <textarea style="width:100%;" rows="20" id="code"></textarea>
 </div><br/>
+Select the languages you want to detect. (More languages take longer to process.)
 <div id="detect_input" style="border:1px solid black">
   <div id="detect_list" style="border:1px solid black">
   </div><br/>
   <input type="button" OnClick="detectLanguage();" value="Detect language"/>
 </div><br/>
+Tokenize the code according to rules for the language selected below.
 <div id="tokenize_input" style="border:1px solid black">
   <select name="token_language" id="token_language">
     <option>BASIC</option>
   </select>
   <input type="button" OnClick="tokenize();" value="Tokenize"/>
 </div><br/>
+Display confidence for the code according to rules for the language selected below.
 <div id="confidence_input" style="border:1px solid black">
   <select name="confidence_language" id="confidence_language">
     <option>BASIC</option>
   </select>
   <input type="button" OnClick="showConfidence();" value="Confidence"/>
 </div><br/>
-<div id="detect_result" style="border:1px solid black"></div><br/>
-<div id="confidence_result" style="border:1px solid black"></div><br/>
-<div id="tokens_details" style="border:1px solid black"></div><br/>
-<div id="tokens_result" style="border:1px solid black"></div>
+Here are the languages that this code could be:
+<div id="detect_result" style="border:1px solid black">
+  <br/>
+</div><br/>
+Here are the confidence factors for the code and the selected language
+<div id="confidence_result" style="border:1px solid black">
+  <br/>
+</div><br/>
+Counts for tokens
+<div id="tokens_details" style="border:1px solid black">
+  <br/>
+</div><br/>
+Tokens color-coded for the code and selected language
+<div id="tokens_result" style="border:1px solid black">
+  <br/>
+</div>
 </body>
 </HTML>
