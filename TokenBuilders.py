@@ -660,3 +660,44 @@ class RegexTokenBuilder(TokenBuilder):
       return 0
 
     return len(self.token)
+
+
+# token reader for prefix/suffix block
+class BlockTokenBuilder(TokenBuilder):
+  def __init__(self, prefix, suffix, tokentype):
+    self.token = ''
+    self.prefix = prefix
+    self.suffix = suffix
+    self.tokentype = tokentype
+
+
+  def get_tokens(self):
+    if self.token is None:
+      return None
+
+    return [Token(self.token, self.tokentype)]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if len(candidate) < len(self.prefix):
+      result = c.lower() == self.prefix[len(candidate)].lower()
+
+    if len(candidate) >= len(self.prefix):
+      result = not candidate.endswith(self.suffix)
+
+    return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.token is None:
+      return 0
+
+    if not self.token.startswith(self.prefix):
+      return 0
+
+    if not self.token.endswith(self.suffix):
+      return 0
+
+    return len(self.token)

@@ -85,6 +85,10 @@ test\bin\run_test.ps1 -json -name Wikibooks-ex2-ftn95 -action tokens -language F
 test\bin\run_test.ps1 -json -name Wikibooks-ex3-ftn95 -action tokens -language Fortran-95 -inputfile ".\test\data\Fortran-95\Wikibooks-ex3.f95" -expected ".\test\ref\tokens\Fortran-95\Wikibooks-ex3.txt"
 test\bin\run_test.ps1 -json -name Wikibooks-ex4-ftn95 -action tokens -language Fortran-95 -inputfile ".\test\data\Fortran-95\Wikibooks-ex4.f95" -expected ".\test\ref\tokens\Fortran-95\Wikibooks-ex4.txt"
 
+test\bin\run_test.ps1 -json -name knuth-html -action tokens -language HTML -inputfile ".\test\data\HTML\knuth.html" -expected ".\test\ref\tokens\HTML\knuth.txt"
+test\bin\run_test.ps1 -json -name developer-html -action tokens -language HTML -inputfile ".\test\data\HTML\developer-css.html" -expected ".\test\ref\tokens\HTML\developer-css.txt"
+test\bin\run_test.ps1 -json -name codestat-html -action tokens -language HTML -inputfile ".\test\data\HTML\codestat-css-javascript.html" -expected ".\test\ref\tokens\HTML\codestat-css-javascript.txt"
+
 test\bin\run_test.ps1 -json -name prime_test-java -action tokens -language Java -inputfile ".\test\data\Java\prime_test.java" -expected ".\test\ref\tokens\Java\prime_test.txt"
 test\bin\run_test.ps1 -json -name palindrome-java -action tokens -language Java -inputfile ".\test\data\Java\palindrome.java" -expected ".\test\ref\tokens\Java\palindrome.txt"
 

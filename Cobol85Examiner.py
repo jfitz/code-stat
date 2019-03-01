@@ -11,14 +11,14 @@ from TokenBuilders import (
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
-  ListTokenBuilder
+  ListTokenBuilder,
+  BlockTokenBuilder
 )
 from CobolTokenBuilders import (
   CobolIdentifierTokenBuilder,
   PictureTokenBuilder,
   CRPictureTokenBuilder,
-  CobolPreprocessorTokenBuilder,
-  ExecBlockTokenBuilder
+  CobolPreprocessorTokenBuilder
 )
 from Tokenizer import Tokenizer
 
@@ -443,7 +443,7 @@ class Cobol85Examiner(CobolExaminer):
 
     cobol_preprocessor_tb = CobolPreprocessorTokenBuilder()
     
-    exec_tb = ExecBlockTokenBuilder()
+    exec_tb = BlockTokenBuilder('EXEC', 'END-EXEC', 'exec block')
 
     invalid_token_builder = InvalidTokenBuilder()
 

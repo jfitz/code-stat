@@ -13,15 +13,15 @@ from TokenBuilders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   ListTokenBuilder,
-  LeadCommentTokenBuilder
+  LeadCommentTokenBuilder,
+  BlockTokenBuilder
 )
 from CobolTokenBuilders import (
   CobolIdentifierTokenBuilder,
   PictureTokenBuilder,
   CRPictureTokenBuilder,
   CobolPreprocessorTokenBuilder,
-  AsteriskCommentTokenBuilder,
-  ExecBlockTokenBuilder
+  AsteriskCommentTokenBuilder
 )
 from Tokenizer import Tokenizer
 
@@ -517,7 +517,7 @@ class Cobol2002Examiner(CobolExaminer):
 
     cobol_preprocessor_tb = CobolPreprocessorTokenBuilder()
 
-    exec_tb = ExecBlockTokenBuilder()
+    exec_tb = BlockTokenBuilder('EXEC', 'END-EXEC', 'exec block')
 
     invalid_token_builder = InvalidTokenBuilder()
 
