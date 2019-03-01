@@ -34,9 +34,6 @@ class HTMLExaminer(Examiner):
 
     groupers_tb = ListTokenBuilder(['<', '</', '>', '/>'], 'grouper', False)
     identifier_tb = HTMLIdentifierTokenBuilder()
-    # comment <!-- .* --> (spans lines)
-    # punctuation
-    # attribute &...;
 
     known_operators = [
       '='
@@ -85,6 +82,8 @@ class HTMLExaminer(Examiner):
 
     comment_tb = BlockTokenBuilder('<!--', '-->', 'comment')
 
+    script_tb = BlockTokenBuilder('<script', '</script>', 'script')
+
     invalid_token_builder = InvalidTokenBuilder()
 
     tokenbuilders = [
@@ -102,15 +101,13 @@ class HTMLExaminer(Examiner):
       identifier_tb,
       punctuation_tb,
       comment_tb,
+      script_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]
 
     tokenizer = Tokenizer(tokenbuilders)
     self.tokens = tokenizer.tokenize(code)
-
-    # TODO: combine adjacent identifiers and punctuation into text
-    # TODO: combine text and whitespace into text
 
     self.calc_token_confidence()
     self.calc_operator_confidence()

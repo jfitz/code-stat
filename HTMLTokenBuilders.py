@@ -16,16 +16,10 @@ class HTMLIdentifierTokenBuilder(TokenBuilder):
     result = False
 
     if len(candidate) == 0:
-      result = c.isalpha() or c == '$'
+      result = c.isalpha()
 
-    if len(candidate) == 1:
-      if candidate == '$':
-        result = c.isalpha() or c == '_'
-      else:
-        result = c.isalpha() or c in ['-', '_']
-
-    if len(candidate) > 1:
-      result = c.isalpha() or c in ['-', '_']
+    if len(candidate) > 0:
+      result = c.isalpha() or c == '-'
 
     return result
 
