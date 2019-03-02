@@ -52,12 +52,3 @@ class Tokenizer():
           winner_score = winner.get_score(line_printable_tokens)
 
     return winner
-
-
-  def try_invalid(self, text):
-    self.invalid_tokenbuilder.attempt(text)
-    tokens = self.invalid_tokenbuilder.get_tokens()
-    if tokens is None:
-      return None
-
-    return tokens

@@ -14,6 +14,7 @@ from TokenBuilders import (
 )
 from HTMLTokenBuilders import (
   HTMLIdentifierTokenBuilder,
+  HTMLListTokenBuilder,
   HTMLAttributeTokenBuilder
 )
 from Tokenizer import Tokenizer
@@ -78,7 +79,7 @@ class HTMLExaminer(Examiner):
       'wbr'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = HTMLListTokenBuilder(keywords, 'keyword', False)
 
     comment_tb = BlockTokenBuilder('<!--', '-->', 'comment')
 
