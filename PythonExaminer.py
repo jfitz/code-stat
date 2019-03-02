@@ -78,7 +78,8 @@ class PythonExaminer(Examiner):
       'for', 'while', 'return', 'assert', 'raise',
       'break', 'continue', 'del',
       'try', 'except', 'finally',
-      'global', 'lambda', 'nonlocal', 'with', 'yield'
+      'global', 'lambda', 'nonlocal', 'with', 'yield',
+      'print'
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
@@ -114,6 +115,7 @@ class PythonExaminer(Examiner):
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     self.calc_operand_confidence()
+    self.calc_keyword_confidence()
     self.calc_line_format_1_confidence()
     self.calc_line_format_2_confidence()
 
@@ -149,7 +151,10 @@ class PythonExaminer(Examiner):
     lines = self.split_tokens(tokens)
     num_lines = 0
     num_lines_correct = 0
-    python_keywords = ['class', 'def', 'for', 'while', 'else']
+    python_keywords = [
+      'class', 'def', 'for', 'while', 'else',
+      'print'
+    ]
 
     for line in lines:
       if len(line) > 1:

@@ -301,3 +301,11 @@ class Examiner:
 
   def calc_picture_confidence(self):
     self.confidences['picture'] = 1.0
+
+
+  def calc_keyword_confidence(self):
+    self.confidences['keyword'] = 0.0
+    keywords = self.find_keywords()
+
+    if len(keywords) > 0:
+      self.confidences['keyword'] = 1.0

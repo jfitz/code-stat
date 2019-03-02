@@ -134,5 +134,6 @@ class CBasicExaminer(Examiner):
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
-    # do not check for two operands in a row
+    # self.calc_operand_confidence()
+    self.calc_keyword_confidence()
     self.calc_line_format_confidence()

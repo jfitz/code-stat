@@ -62,9 +62,12 @@ class RExaminer(Examiner):
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     keywords = [
-      'if', 'else', 'repeat', 'while', 'function', 'for', 'in', 'next', 'break',
-      'TRUE', 'FALSE', 'NULL', 'Inf', 'NaN', 'NA', 'NA_integer_', 'NA_real_',
-      'NA_complex_', 'NA_character_'
+      'if', 'else', 'repeat', 'while',
+      'function', 'for', 'in', 'next', 'break',
+      'library', 'print', 'lapply', 'rep', 'list', 'matrix',
+      'colnames', 'rownames', 'cbind', 'dimnames', 'nrow', 'ncol', 'dim',
+      'TRUE', 'FALSE', 'NULL', 'Inf', 'NaN', 'NA',
+      'NA_integer_', 'NA_real_', 'NA_complex_', 'NA_character_'
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
@@ -97,3 +100,4 @@ class RExaminer(Examiner):
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     self.calc_operand_confidence()
+    self.calc_keyword_confidence()
