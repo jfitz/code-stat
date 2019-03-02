@@ -151,9 +151,8 @@ class PythonExaminer(Examiner):
     lines = self.split_tokens(tokens)
     num_lines = 0
     num_lines_correct = 0
-    python_keywords = [
-      'class', 'def', 'for', 'while', 'else',
-      'print'
+    colon_keywords = [
+      'class', 'def', 'for', 'while', 'else'
     ]
 
     for line in lines:
@@ -161,7 +160,7 @@ class PythonExaminer(Examiner):
         first_token = line[0]
         last_token = line[-1]
 
-        if first_token.group == 'keyword' and first_token.text in (keyword.lower() for keyword in python_keywords):
+        if first_token.group == 'keyword' and first_token.text in (keyword.lower() for keyword in colon_keywords):
           num_lines += 1
 
           if last_token.group == 'operator' and last_token.text == ':':
