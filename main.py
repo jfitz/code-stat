@@ -134,8 +134,6 @@ def detect():
   languages = []
   if 'languages' in request.args:
     languages = request.args['languages'].split(' ')
-    print(request.args['languages'])
-    print(str(languages))
 
   if len(languages) == 0:
     languages = list(codesAndNames.keys())
