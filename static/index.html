@@ -202,53 +202,99 @@ function buildLanguageList() {
   return codes;
 }
 
+function checkAllLanguage() {
+  for (var code in codesAndNames) {
+    if (codesAndNames.hasOwnProperty(code) ) {
+      var id = 'id_' + code;
+      var languageCheckbox = document.getElementById(id);
+      languageCheckbox.checked = true;
+    }
+  }
+}
+
+function uncheckAllLanguage() {
+  for (var code in codesAndNames) {
+    if (codesAndNames.hasOwnProperty(code) ) {
+      var id = 'id_' + code;
+      var languageCheckbox = document.getElementById(id);
+      languageCheckbox.checked = false;
+    }
+  }
+}
+
+function checkModernLanguage() {
+  var moderns = [
+    'c',
+    'cplusplus',
+    'csharp',
+    'cobol2002',
+    'fortran95',
+    'java',
+    'javascript',
+    'html',
+    'python',
+    'r',
+    'ruby',
+    'sql92',
+    'swift'
+  ];
+
+  for (var code in codesAndNames) {
+    if (codesAndNames.hasOwnProperty(code)) {
+      var id = 'id_' + code;
+      var languageCheckbox = document.getElementById(id);
+      languageCheckbox.checked = moderns.includes(code);
+    }
+  }
+}
+
 function detectLanguage() {
-    var results = '';
-    var code = document.getElementById('code').value;
+  var results = '';
+  var code = document.getElementById('code').value;
 
-    var languages = buildLanguageList();
-    var languageParam = 'languages=' + languages.join(' ');
+  var languages = buildLanguageList();
+  var languageParam = 'languages=' + languages.join(' ');
 
-    var req = new XMLHttpRequest();
-    var params = '/detect' + '?' + languageParam
-    req.open('POST', params, true);
-    req.setRequestHeader('Content-type', 'text/plain');
+  var req = new XMLHttpRequest();
+  var params = '/detect' + '?' + languageParam
+  req.open('POST', params, true);
+  req.setRequestHeader('Content-type', 'text/plain');
 
-    req.onload = function (e) {
-      if (req.readyState === 4) {
-        if (req.status === 200) {
-          results = req.responseText;
-          var confidences = JSON.parse(results);
-          var names = keysInObject(confidences).sort();
+  req.onload = function (e) {
+    if (req.readyState === 4) {
+      if (req.status === 200) {
+        results = req.responseText;
+        var confidences = JSON.parse(results);
+        var names = keysInObject(confidences).sort();
 
-          // build list of names
-          var tokenizeLanguageSelect = document.getElementById('token_language');
-          buildLanguageSelectOptions(tokenizeLanguageSelect, names)
+        // build list of names
+        var tokenizeLanguageSelect = document.getElementById('token_language');
+        buildLanguageSelectOptions(tokenizeLanguageSelect, names)
 
-          var confidenceLanguageSelect = document.getElementById('confidence_language');
-          buildLanguageSelectOptions(confidenceLanguageSelect, names)
+        var confidenceLanguageSelect = document.getElementById('confidence_language');
+        buildLanguageSelectOptions(confidenceLanguageSelect, names)
 
-          // build list of names and confidence values
-          var detectDiv = document.getElementById('detect_result');
-          var confidenceGridHtml = buildConfidenceGrid(confidences);
-          detectDiv.innerHTML = confidenceGridHtml;
+        // build list of names and confidence values
+        var detectDiv = document.getElementById('detect_result');
+        var confidenceGridHtml = buildConfidenceGrid(confidences);
+        detectDiv.innerHTML = confidenceGridHtml;
 
-          if (names.length > 0) {
-            // find the most likely language
-            tokenizeLanguageSelect.value = keyWithGreatestValue(confidences)
-            confidenceLanguageSelect.value = keyWithGreatestValue(confidences)
-          }
-        } else {
-          console.error(req.statusText);
+        if (names.length > 0) {
+          // find the most likely language
+          tokenizeLanguageSelect.value = keyWithGreatestValue(confidences)
+          confidenceLanguageSelect.value = keyWithGreatestValue(confidences)
         }
+      } else {
+        console.error(req.statusText);
       }
-    };
+    }
+  };
 
-    req.onerror = function (e) {
-      console.error(req.statusText);
-    };
+  req.onerror = function (e) {
+    console.error(req.statusText);
+  };
 
-    req.send(code);
+  req.send(code);
 }
 
 function textToSafeHtml(str) {
@@ -482,7 +528,13 @@ Before you press 'Tokenize', select the language.<br/>
 Select the languages you want to detect. (More languages take longer to process.)
 <div id="detect_input" style="border:1px solid black">
   <div id="detect_list" style="border:1px solid black">
-  </div><br/>
+  </div>
+  All unchecked implies that all languages will be checked.
+  <input type="button" OnClick="checkAllLanguage();" value="Check all"/>
+  <input type="button" OnClick="uncheckAllLanguage();" value="Uncheck all"/>
+  <input type="button" OnClick="checkModernLanguage();" value="Check only modern"/>
+  <br/>
+  <br/>
   <input type="button" OnClick="detectLanguage();" value="Detect language"/>
 </div><br/>
 Tokenize the code according to rules for the language selected below.
