@@ -96,23 +96,44 @@ function keyWithGreatestValue(o) {
 }
 
 function buildLanguageCheckboxes(codesAndNames) {
-  codes = [];
+  var codes = [];
   for (var code in codesAndNames) {
     if (codesAndNames.hasOwnProperty(code) ) {
       codes.push(code);
     }
   }
 
-  HTML = '';
+  var pairs = [];
 
-  for (i = 0; i < codes.length; i++) {
-    code = codes[i]
-    name = codesAndNames[code]
-    id = 'id_' + code
-    HTML += '<input type="checkbox" id="' + id + '">' + name + '</input><br/>'
+  // build start and end pairs for groups of languages
+  for (var i = 0; i < codes.length; i += 7) {
+    var pair = [i, i + 7];
+    pairs.push(pair);
   }
 
-  list_div = document.getElementById('detect_list');
+  // revise the last pair to use correct end index
+  var pair = pairs.pop();
+  pair[1] = codes.length;
+  pairs.push(pair);
+
+  var HTML = '';
+
+  // build inner div for each group of language names
+  paircount = pairs.length
+  for (pairindex = 0; pairindex < paircount; pairindex++) {
+    HTML += '<div style="display: inline-block; vertical-align: top">';
+    var pair = pairs[pairindex]
+    for (var i = pair[0]; i < pair[1]; i++) {
+      var code = codes[i]
+      var name = codesAndNames[code]
+      var id = 'id_' + code
+      HTML += '<input type="checkbox" id="' + id + '">' + name + '</input><br/>'
+    }
+  HTML += '</div>';
+  }
+
+  // push the list of inner divs into our page
+  var list_div = document.getElementById('detect_list');
   list_div.innerHTML = HTML;
 }
 
