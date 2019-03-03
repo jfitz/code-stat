@@ -4,15 +4,15 @@ from TokenBuilders import TokenBuilder
 # token reader for variable
 class CBasicVariableTokenBuilder(TokenBuilder):
   def __init__(self, suffixes):
-    self.token = None
+    self.text = None
     self.suffixes = suffixes
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'identifier')]
+    return [Token(self.text, 'identifier')]
 
 
   def accept(self, candidate, c):
@@ -33,16 +33,16 @@ class CBasicVariableTokenBuilder(TokenBuilder):
 # token reader for integer
 class CBasicSuffixedIntegerTokenBuilder(TokenBuilder):
   def __init__(self, allow_chars, suffix_char):
-    self.token = None
+    self.text = None
     self.allow_chars = allow_chars
     self.suffix_char = suffix_char
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'number')]
+    return [Token(self.text, 'number')]
 
 
   def accept(self, candidate, c):
@@ -62,31 +62,31 @@ class CBasicSuffixedIntegerTokenBuilder(TokenBuilder):
 
 
   def get_score(self, line_printable_tokens):
-    if self.token is None:
+    if self.text is None:
       return 0
 
-    if len(self.token) < 2:
+    if len(self.text) < 2:
       return 0
 
-    if self.token[-1].lower() != 'h':
+    if self.text[-1].lower() != 'h':
       return 0
 
-    return len(self.token)
+    return len(self.text)
 
 
 # token reader for line continuation (and comment)
 class CBasicLineContinuationTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = None
+    self.text = None
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
     # line continuation character
-    tokens = [Token(self.token[0], 'line continuation')]
-    rest = self.token[1:]
+    tokens = [Token(self.text[0], 'line continuation')]
+    rest = self.text[1:]
 
     # whitespace before text
     whitespace = ''

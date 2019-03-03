@@ -6,14 +6,14 @@ from TokenBuilders import TokenBuilder
 # token reader for identifier
 class FortranIdentifierTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = None
+    self.text = None
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'identifier')]
+    return [Token(self.text, 'identifier')]
 
 
   def accept(self, candidate, c):
@@ -31,14 +31,14 @@ class FortranIdentifierTokenBuilder(TokenBuilder):
 # token reader for number
 class LineNumberTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = None
+    self.text = None
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'line number')]
+    return [Token(self.text, 'line number')]
 
 
   def accept(self, candidate, c):
@@ -46,7 +46,7 @@ class LineNumberTokenBuilder(TokenBuilder):
 
 
   def get_score(self, line_printable_tokens):
-    if self.token is None:
+    if self.text is None:
       return 0
 
     boost = 0
@@ -54,13 +54,13 @@ class LineNumberTokenBuilder(TokenBuilder):
     if len(line_printable_tokens) > 0 and line_printable_tokens[-1].group == 'newline':
       boost += 0.5
 
-    return len(self.token) + boost
+    return len(self.text) + boost
 
 
 # token reader for FORMAT specifiers (but not Hollerith specifiers)
 class FormatSpecifierTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = None
+    self.text = None
     # 'p' patterns are approved, 't' patterns are for accept()
     self.t1 = re.compile(r'\A\d+\Z')
     self.p2 = re.compile(r'\A\d*[IFEDGAL]\Z')
@@ -79,10 +79,10 @@ class FormatSpecifierTokenBuilder(TokenBuilder):
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'format')]
+    return [Token(self.text, 'format')]
 
 
   def accept(self, candidate, c):
@@ -116,7 +116,7 @@ class FormatSpecifierTokenBuilder(TokenBuilder):
 
 
   def get_score(self, line_printable_tokens):
-    if self.token is None:
+    if self.text is None:
       return 0
 
     in_format = False
@@ -131,8 +131,8 @@ class FormatSpecifierTokenBuilder(TokenBuilder):
 
     # check token matches an approved pattern
     for p in self.approveds:
-      if p.match(self.token):
-        score = len(self.token)
+      if p.match(self.text):
+        score = len(self.text)
 
     return score
 
@@ -140,14 +140,14 @@ class FormatSpecifierTokenBuilder(TokenBuilder):
 # token reader for user-defined operator
 class UserDefinedOperatorTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = None
+    self.text = None
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'line number')]
+    return [Token(self.text, 'line number')]
 
 
   def accept(self, candidate, c):
@@ -167,29 +167,29 @@ class UserDefinedOperatorTokenBuilder(TokenBuilder):
 
 
   def get_score(self, line_printable_tokens):
-    if self.token is None:
+    if self.text is None:
       return 0
 
-    if len(self.token) < 3:
+    if len(self.text) < 3:
       return 0
 
-    if self.token[-1] != self.token[0]:
+    if self.text[-1] != self.text[0]:
       return 0
 
-    return len(self.token)
+    return len(self.text)
 
 
 # token reader for integer
 class KindIntegerTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = None
+    self.text = None
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'number')]
+    return [Token(self.text, 'number')]
 
 
   def accept(self, candidate, c):
@@ -211,14 +211,14 @@ class KindIntegerTokenBuilder(TokenBuilder):
 # token reader for real (no exponent)
 class KindRealTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = None
+    self.text = None
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'number')]
+    return [Token(self.text, 'number')]
 
 
   def accept(self, candidate, c):

@@ -5,13 +5,13 @@ from TokenBuilders import TokenBuilder
 class RawTripleQuoteCommentTokenBuilder(TokenBuilder):
   def __init__(self):
     self.prefix = 'r'
-    self.token = ''
+    self.text = ''
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'string')]
+    return [Token(self.text, 'string')]
 
   def accept(self, candidate, c):
     result = False

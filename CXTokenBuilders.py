@@ -4,14 +4,14 @@ from TokenBuilders import TokenBuilder
 # token reader for // comment
 class SlashSlashCommentTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = ''
+    self.text = ''
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    if self.token.startswith('//'):
-      return [Token(self.token, 'comment')]
+    if self.text.startswith('//'):
+      return [Token(self.text, 'comment')]
 
     return None
 
@@ -35,13 +35,13 @@ class SlashSlashCommentTokenBuilder(TokenBuilder):
 # token reader for /* */ comment
 class SlashStarCommentTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = ''
+    self.text = ''
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'comment')]
+    return [Token(self.text, 'comment')]
 
   def accept(self, candidate, c):
     result = False
@@ -64,16 +64,16 @@ class SlashStarCommentTokenBuilder(TokenBuilder):
 # token reader for preprocessor directives
 class CPreProcessorTokenBuilder(TokenBuilder):
   def __init__(self, prefixes):
-    self.token = ''
+    self.text = ''
     self.prefixes = prefixes
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    if self.token.startswith('#'):
-      return [Token(self.token, 'preprocessor')]
+    if self.text.startswith('#'):
+      return [Token(self.text, 'preprocessor')]
 
     return None
 
@@ -94,10 +94,10 @@ class CPreProcessorTokenBuilder(TokenBuilder):
 
 
   def get_score(self, line_printable_tokens):
-    if self.token is None:
+    if self.text is None:
       return 0
 
-    if self.token.startswith(self.prefixes):
-      return len(self.token)
+    if self.text.startswith(self.prefixes):
+      return len(self.text)
     
     return 0

@@ -4,13 +4,13 @@ from TokenBuilders import TokenBuilder
 # token reader for brace comment
 class BraceCommentTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = ''
+    self.text = ''
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'comment')]
+    return [Token(self.text, 'comment')]
 
   def accept(self, candidate, c):
     result = False
@@ -29,13 +29,13 @@ class BraceCommentTokenBuilder(TokenBuilder):
 # token reader for comment
 class ParenStarCommentTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = ''
+    self.text = ''
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'comment')]
+    return [Token(self.text, 'comment')]
 
   def accept(self, candidate, c):
     result = False

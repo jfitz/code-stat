@@ -5,14 +5,14 @@ from TokenBuilders import TokenBuilder
 # token reader for Hollerith string constant
 class HollerithStringTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = None
+    self.text = None
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'string')]
+    return [Token(self.text, 'string')]
 
 
   def accept(self, candidate, c):
@@ -43,10 +43,10 @@ class HollerithStringTokenBuilder(TokenBuilder):
 
 
   def get_score(self, line_printable_tokens):
-    if self.token is None:
+    if self.text is None:
       return 0
 
-    if len(self.token) < 3:
+    if len(self.text) < 3:
       return 0
 
-    return len(self.token)
+    return len(self.text)

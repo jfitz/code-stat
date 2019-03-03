@@ -4,15 +4,15 @@ from TokenBuilders import TokenBuilder
 # token reader for number
 class BasicSuffixedIntegerTokenBuilder(TokenBuilder):
   def __init__(self, suffix):
-    self.token = None
+    self.text = None
     self.suffix = suffix
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'number')]
+    return [Token(self.text, 'number')]
 
 
   def accept(self, candidate, c):
@@ -31,32 +31,32 @@ class BasicSuffixedIntegerTokenBuilder(TokenBuilder):
 
 
   def get_score(self, line_printable_tokens):
-    if self.token is None:
+    if self.text is None:
       return 0
 
-    if len(self.token) < 2:
+    if len(self.text) < 2:
       return 0
 
-    if not self.token.endswith(self.suffix):
+    if not self.text.endswith(self.suffix):
       return 0
 
-    return len(self.token)
+    return len(self.text)
 
 
 # token reader for real (no exponent)
 class BasicSuffixedRealTokenBuilder(TokenBuilder):
   def __init__(self, require_before, require_after, suffix):
-    self.token = None
+    self.text = None
     self.require_before = require_before
     self.require_after = require_after
     self.suffix = suffix
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'number')]
+    return [Token(self.text, 'number')]
 
 
   def accept(self, candidate, c):
@@ -78,41 +78,41 @@ class BasicSuffixedRealTokenBuilder(TokenBuilder):
 
 
   def get_score(self, line_printable_tokens):
-    if self.token is None:
+    if self.text is None:
       return 0
 
-    if len(self.token) < 2:
+    if len(self.text) < 2:
       return 0
 
-    if self.require_before and not self.token[0].isdigit():
+    if self.require_before and not self.text[0].isdigit():
       return 0
 
-    point_position = self.token.find('.')
+    point_position = self.text.find('.')
 
     if point_position == -1:
       return 0
 
-    if self.require_after and not self.token[point_position + 1].isdigit():
+    if self.require_after and not self.text[point_position + 1].isdigit():
       return 0
 
-    if not self.token.endswith(self.suffix):
+    if not self.text.endswith(self.suffix):
       return 0
 
-    return len(self.token)
+    return len(self.text)
 
 
 # token reader for variable
 class BasicVariableTokenBuilder(TokenBuilder):
   def __init__(self, suffixes):
-    self.token = None
+    self.text = None
     self.suffixes = suffixes
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'identifier')]
+    return [Token(self.text, 'identifier')]
 
 
   def accept(self, candidate, c):
@@ -133,23 +133,23 @@ class BasicVariableTokenBuilder(TokenBuilder):
 # token reader for REMARK comment
 class RemarkTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = ''
+    self.text = ''
 
 
   def get_tokens(self):
-    if self.token == None:
+    if self.text == None:
       return None
 
     token1 = Token('', 'comment')
     token2 = Token('', 'comment')
 
-    if self.token.startswith('REM'):
+    if self.text.startswith('REM'):
       token1 = Token('REM', 'keyword')
-      token2 = Token(self.token[3:], 'comment')
+      token2 = Token(self.text[3:], 'comment')
 
-    if self.token.startswith('REMARK'):
+    if self.text.startswith('REMARK'):
       token1 = Token('REMARK', 'keyword')
-      token2 = Token(self.token[6:], 'comment')
+      token2 = Token(self.text[6:], 'comment')
 
     return [token1, token2]
 
@@ -178,14 +178,14 @@ class RemarkTokenBuilder(TokenBuilder):
 # token reader for number
 class LineNumberTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = None
+    self.text = None
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'line number')]
+    return [Token(self.text, 'line number')]
 
 
   def accept(self, candidate, c):
@@ -193,7 +193,7 @@ class LineNumberTokenBuilder(TokenBuilder):
 
 
   def get_score(self, line_printable_tokens):
-    if self.token is None:
+    if self.text is None:
       return 0
 
     boost = 0
@@ -201,4 +201,4 @@ class LineNumberTokenBuilder(TokenBuilder):
     if len(line_printable_tokens) == 0:
       boost += 0.5
 
-    return len(self.token) + boost
+    return len(self.text) + boost

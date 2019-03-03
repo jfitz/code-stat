@@ -7,14 +7,14 @@ from TokenBuilders import (
 # token reader for identifier
 class HTMLIdentifierTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = None
+    self.text = None
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'identifier')]
+    return [Token(self.text, 'identifier')]
 
 
   def accept(self, candidate, c):
@@ -33,7 +33,7 @@ class HTMLIdentifierTokenBuilder(TokenBuilder):
 class HTMLListTokenBuilder(ListTokenBuilder):
 
   def get_score(self, line_printable_tokens):
-    if self.token is None:
+    if self.text is None:
       return 0
 
     # must have at least one preceding token
@@ -48,20 +48,20 @@ class HTMLListTokenBuilder(ListTokenBuilder):
     if prev_token.text not in ['<', '</']:
       return 0
 
-    return len(self.token)
+    return len(self.text)
 
 
 # token reader for attribute
 class HTMLAttributeTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = None
+    self.text = None
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'symbol')]
+    return [Token(self.text, 'symbol')]
 
 
   def accept(self, candidate, c):
@@ -77,17 +77,17 @@ class HTMLAttributeTokenBuilder(TokenBuilder):
 
 
   def get_score(self, line_printable_tokens):
-    if self.token is None:
+    if self.text is None:
       return 0
 
     # must have at least three chars
-    if len(self.token) < 3:
+    if len(self.text) < 3:
       return 0
 
-    if self.token[0] != '&':
+    if self.text[0] != '&':
       return 0
 
-    if self.token[-1] != ';':
+    if self.text[-1] != ';':
       return 0
 
-    return len(self.token)
+    return len(self.text)

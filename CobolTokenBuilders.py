@@ -5,14 +5,14 @@ from TokenBuilders import TokenBuilder
 # token reader for identifier
 class CobolIdentifierTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = None
+    self.text = None
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'identifier')]
+    return [Token(self.text, 'identifier')]
 
 
   def accept(self, candidate, c):
@@ -27,21 +27,21 @@ class CobolIdentifierTokenBuilder(TokenBuilder):
 # token reader for PIC descriptor
 class PictureTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = ''
+    self.text = ''
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
     tokens = None
-    if self.token[-1] == '.':
+    if self.text[-1] == '.':
       # a terminating dot is not part of the PIC
-      token1 = Token(self.token[:-1], 'picture')
+      token1 = Token(self.text[:-1], 'picture')
       token2 = Token('.', 'statement terminator')
       tokens = [token1, token2]
     else:
-      tokens = [Token(self.token, 'picture')]
+      tokens = [Token(self.text, 'picture')]
 
     return tokens
 
@@ -65,11 +65,11 @@ class PictureTokenBuilder(TokenBuilder):
 
 
   def get_score(self, line_printable_tokens):
-    if self.token is None:
+    if self.text is None:
       return 0
 
-    num_lparens = self.token.count('(')
-    num_rparens = self.token.count(')')
+    num_lparens = self.text.count('(')
+    num_rparens = self.text.count(')')
 
     if num_lparens != num_rparens:
       return 0
@@ -81,27 +81,27 @@ class PictureTokenBuilder(TokenBuilder):
      line_printable_tokens[-1].text in (name.upper() for name in ['PIC', 'PICTURE']):
       boost += 0.5
 
-    return len(self.token) + boost
+    return len(self.text) + boost
 
 
 # token reader for PIC descriptor
 class CRPictureTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = ''
+    self.text = ''
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
     tokens = None
-    if self.token[-1] == '.':
+    if self.text[-1] == '.':
       # a terminating dot is not part of the PIC
-      token1 = Token(self.token[:-1], 'picture')
+      token1 = Token(self.text[:-1], 'picture')
       token2 = Token('.', 'statement terminator')
       tokens = [token1, token2]
     else:
-      tokens = [Token(self.token, 'picture')]
+      tokens = [Token(self.text, 'picture')]
 
     return tokens
 
@@ -129,14 +129,14 @@ class CRPictureTokenBuilder(TokenBuilder):
 
 
   def get_score(self, line_printable_tokens):
-    if self.token is None:
+    if self.text is None:
       return 0
 
-    if self.token[-1] != 'R':
+    if self.text[-1] != 'R':
       return 0
 
-    num_lparens = self.token.count('(')
-    num_rparens = self.token.count(')')
+    num_lparens = self.text.count('(')
+    num_rparens = self.text.count(')')
 
     if num_lparens != num_rparens:
       return 0
@@ -148,21 +148,21 @@ class CRPictureTokenBuilder(TokenBuilder):
      line_printable_tokens[-1].text in (name.upper() for name in ['PIC', 'PICTURE']):
       boost += 0.5
 
-    return len(self.token) + boost
+    return len(self.text) + boost
 
 
 # token reader for >> directive
 class CobolPreprocessorTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = ''
+    self.text = ''
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    if self.token.startswith('>>'):
-      return [Token(self.token, 'preprocessor')]
+    if self.text.startswith('>>'):
+      return [Token(self.text, 'preprocessor')]
 
     return None
 
@@ -188,14 +188,14 @@ class CobolPreprocessorTokenBuilder(TokenBuilder):
 # token reader for asterisk comment
 class AsteriskCommentTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = ''
+    self.text = ''
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'comment')]
+    return [Token(self.text, 'comment')]
 
 
   def accept(self, candidate, c):
@@ -214,10 +214,10 @@ class AsteriskCommentTokenBuilder(TokenBuilder):
 
 
   def get_score(self, line_printable_tokens):
-    if self.token is None:
+    if self.text is None:
       return 0
 
     if len(line_printable_tokens) > 0:
       return 0
 
-    return len(self.token)
+    return len(self.text)

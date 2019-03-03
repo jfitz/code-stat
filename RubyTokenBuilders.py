@@ -4,13 +4,13 @@ from TokenBuilders import TokenBuilder
 # token reader for identifier
 class RubyIdentifierTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = None
+    self.text = None
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'identifier')]
+    return [Token(self.text, 'identifier')]
 
   def accept(self, candidate, c):
     result = False
@@ -36,15 +36,15 @@ class RubyIdentifierTokenBuilder(TokenBuilder):
 # token reader for identifier
 class HereDocTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = None
+    self.text = None
     self.oper = '<<-'
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
     # split the text into operator, marker, content, and marker tokens
-    lines = self.token.split('\n')
+    lines = self.text.split('\n')
     oper = lines[0][:3]
     marker = lines[-1]
     content = Token('\n'.join(lines[1:-1]), 'here doc')
@@ -85,10 +85,10 @@ class HereDocTokenBuilder(TokenBuilder):
 
 
   def get_score(self, line_printable_tokens):
-    if self.token is None:
+    if self.text is None:
       return 0
 
-    lines = self.token.split('\n')
+    lines = self.text.split('\n')
 
     if len(lines) < 2:
       return 0
@@ -104,4 +104,4 @@ class HereDocTokenBuilder(TokenBuilder):
     if last_line != marker:
       return 0
     
-    return len(self.token)
+    return len(self.text)

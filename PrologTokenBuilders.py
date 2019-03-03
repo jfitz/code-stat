@@ -4,13 +4,13 @@ from TokenBuilders import TokenBuilder
 # token reader for variable
 class PrologVariableTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = None
+    self.text = None
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'variable')]
+    return [Token(self.text, 'variable')]
 
   def accept(self, candidate, c):
     result = False

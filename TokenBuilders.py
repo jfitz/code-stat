@@ -4,7 +4,7 @@ from Token import Token
 # generic TokenBuilder (to hold common functions)
 class TokenBuilder:
   def attempt(self, text):
-    self.token = None
+    self.text = None
     candidate = ''
     i = 0
     accepted = True
@@ -16,7 +16,7 @@ class TokenBuilder:
       i += 1
 
     if len(candidate) > 0:
-      self.token = candidate
+      self.text = candidate
 
 
   def accept(self, candidate, c):
@@ -24,49 +24,49 @@ class TokenBuilder:
 
 
   def get_count(self):
-    if self.token is None:
+    if self.text is None:
       return 0
 
-    return len(self.token)
+    return len(self.text)
 
 
   def get_score(self, line_printable_tokens):
-    if self.token is None:
+    if self.text is None:
       return 0
 
-    return len(self.token)
+    return len(self.text)
 
 
 # accept any character (but only one)
 class InvalidTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = None
+    self.text = None
 
 
   def attempt(self, text):
-    self.token = None
+    self.text = None
     if len(text) > 0:
-      self.token = text[0]
+      self.text = text[0]
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'invalid')]
+    return [Token(self.text, 'invalid')]
   
 
 # token reader for whitespace
 class WhitespaceTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = None
+    self.text = None
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'whitespace')]
+    return [Token(self.text, 'whitespace')]
 
 
   def accept(self, candidate, c):
@@ -78,14 +78,14 @@ class WhitespaceTokenBuilder(TokenBuilder):
 # token reader for newline
 class NewlineTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = None
+    self.text = None
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'newline')]
+    return [Token(self.text, 'newline')]
 
 
   def accept(self, candidate, c):
@@ -106,14 +106,14 @@ class StringTokenBuilder(TokenBuilder):
     self.quotes = quotes
     self.quote_stuffing = quote_stuffing
     self.allow_unterm = allow_unterm
-    self.token = ''
+    self.text = ''
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'string')]
+    return [Token(self.text, 'string')]
 
 
   def accept(self, candidate, c):
@@ -148,13 +148,13 @@ class StringTokenBuilder(TokenBuilder):
 
 
   def get_score(self, line_printable_tokens):
-    if self.token is None:
+    if self.text is None:
       return 0
 
-    if not self.allow_unterm and self.token[-1] != self.token[0]:
+    if not self.allow_unterm and self.text[-1] != self.text[0]:
       return 0
 
-    return len(self.token)
+    return len(self.text)
 
 
 # token reader for prefixed text literal (string)
@@ -163,14 +163,14 @@ class PrefixedStringTokenBuilder(TokenBuilder):
     self.prefix = prefix
     self.case_sensitive = case_sensitive
     self.quotes = quotes
-    self.token = ''
+    self.text = ''
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'string')]
+    return [Token(self.text, 'string')]
 
 
   def accept(self, candidate, c):
@@ -200,15 +200,15 @@ class PrefixedStringTokenBuilder(TokenBuilder):
 # token reader for integer
 class IntegerTokenBuilder(TokenBuilder):
   def __init__(self, allow_underscore):
-    self.token = None
+    self.text = None
     self.allow_underscore = allow_underscore
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'number')]
+    return [Token(self.text, 'number')]
 
 
   def accept(self, candidate, c):
@@ -226,14 +226,14 @@ class IntegerTokenBuilder(TokenBuilder):
 # token reader for integer with exponent
 class IntegerExponentTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = None
+    self.text = None
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'number')]
+    return [Token(self.text, 'number')]
 
 
   def accept(self, candidate, c):
@@ -253,35 +253,35 @@ class IntegerExponentTokenBuilder(TokenBuilder):
 
 
   def get_score(self, line_printable_tokens):
-    if self.token is None:
+    if self.text is None:
       return 0
 
     # must have digit, 'E', and digit
-    if len(self.token) < 3:
+    if len(self.text) < 3:
       return 0
 
-    if 'e' not in self.token.lower():
+    if 'e' not in self.text.lower():
       return 0
 
-    if not self.token[-1].isdigit():
+    if not self.text[-1].isdigit():
       return 0
 
-    return len(self.token)
+    return len(self.text)
 
 
 # token reader for real (no exponent)
 class RealTokenBuilder(TokenBuilder):
   def __init__(self, require_before, require_after):
-    self.token = None
+    self.text = None
     self.require_before = require_before
     self.require_after = require_after
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'number')]
+    return [Token(self.text, 'number')]
 
 
   def accept(self, candidate, c):
@@ -297,38 +297,38 @@ class RealTokenBuilder(TokenBuilder):
 
 
   def get_score(self, line_printable_tokens):
-    if self.token is None:
+    if self.text is None:
       return 0
 
-    if len(self.token) < 2:
+    if len(self.text) < 2:
       return 0
 
-    if '.' not in self.token:
+    if '.' not in self.text:
       return 0
 
-    if self.require_before and not self.token[0].isdigit():
+    if self.require_before and not self.text[0].isdigit():
       return 0
 
-    if self.require_after and not self.token[-1].isdigit():
+    if self.require_after and not self.text[-1].isdigit():
       return 0
 
-    return len(self.token)
+    return len(self.text)
 
 
 # token reader for real with exponent
 class RealExponentTokenBuilder(TokenBuilder):
   def __init__(self, require_before, require_after, letter):
-    self.token = None
+    self.text = None
     self.require_before = require_before
     self.require_after = require_after
     self.letter = letter
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'number')]
+    return [Token(self.text, 'number')]
 
 
   def accept(self, candidate, c):
@@ -356,43 +356,43 @@ class RealExponentTokenBuilder(TokenBuilder):
 
 
   def get_score(self, line_printable_tokens):
-    if self.token is None:
+    if self.text is None:
       return 0
 
     # must have digit, decimal, 'E', and digit (or decimal, digit, 'E', digit)
-    if len(self.token) < 4:
+    if len(self.text) < 4:
       return 0
 
-    if '.' not in self.token:
+    if '.' not in self.text:
       return 0
 
-    if not self.letter.lower() in self.token.lower():
+    if not self.letter.lower() in self.text.lower():
       return 0
 
-    if not self.token[-1].isdigit():
+    if not self.text[-1].isdigit():
       return 0
 
-    if self.require_before and not self.token[0].isdigit():
+    if self.require_before and not self.text[0].isdigit():
       return 0
 
-    point_position = self.token.find('.')
+    point_position = self.text.find('.')
 
-    if self.require_after and not self.token[point_position + 1].isdigit():
+    if self.require_after and not self.text[point_position + 1].isdigit():
       return 0
 
-    return len(self.token)
+    return len(self.text)
 
 
 # token reader for identifier
 class IdentifierTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = None
+    self.text = None
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'identifier')]
+    return [Token(self.text, 'identifier')]
 
   def accept(self, candidate, c):
     result = False
@@ -412,11 +412,11 @@ class ListTokenBuilder(TokenBuilder):
     self.legals = legals
     self.group = group
     self.case_sensitive = case_sensitive
-    self.token = ''
+    self.text = ''
 
 
   def attempt(self, text):
-    self.token = None
+    self.text = None
     best_candidate = ''
     candidate = ''
     i = 0
@@ -437,14 +437,14 @@ class ListTokenBuilder(TokenBuilder):
             best_candidate = candidate
 
     if len(best_candidate) > 0:
-      self.token = best_candidate
+      self.text = best_candidate
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, self.group)]
+    return [Token(self.text, self.group)]
 
 
   def accept(self, candidate, c):
@@ -469,17 +469,17 @@ class ListTokenBuilder(TokenBuilder):
 # token reader for integer
 class PrefixedIntegerTokenBuilder(TokenBuilder):
   def __init__(self, prefix, case_sensitive, allowed_chars):
-    self.token = None
+    self.text = None
     self.prefix = prefix
     self.case_sensitive = case_sensitive
     self.allowed_chars = allowed_chars
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'number')]
+    return [Token(self.text, 'number')]
 
 
   def accept(self, candidate, c):
@@ -498,27 +498,27 @@ class PrefixedIntegerTokenBuilder(TokenBuilder):
 
 
   def get_score(self, line_printable_tokens):
-    if self.token is None:
+    if self.text is None:
       return 0
 
-    if len(self.token) <= len(self.prefix):
+    if len(self.text) <= len(self.prefix):
       return 0
 
-    return len(self.token)
+    return len(self.text)
 
 
 # token reader for ! comment
 class LeadCommentTokenBuilder(TokenBuilder):
   def __init__(self, lead):
-    self.token = ''
+    self.text = ''
     self.lead = lead
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    if self.token.startswith(self.lead):
-      return [Token(self.token, 'comment')]
+    if self.text.startswith(self.lead):
+      return [Token(self.text, 'comment')]
 
     return None
 
@@ -539,25 +539,25 @@ class LeadCommentTokenBuilder(TokenBuilder):
 
 
   def get_score(self, line_printable_tokens):
-    if self.token is None:
+    if self.text is None:
       return 0
 
-    if len(self.token) < len(self.lead):
+    if len(self.text) < len(self.lead):
       return 0
 
-    return len(self.token)
+    return len(self.text)
 
 
 # token reader for triple quote string
 class TripleQuoteCommentTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = ''
+    self.text = ''
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'string')]
+    return [Token(self.text, 'string')]
 
   def accept(self, candidate, c):
     result = False
@@ -580,15 +580,15 @@ class TripleQuoteCommentTokenBuilder(TokenBuilder):
 # token reader for identifier
 class PrefixedIdentifierTokenBuilder(TokenBuilder):
   def __init__(self, prefix, group):
-    self.token = None
+    self.text = None
     self.prefix = prefix
     self.group = group
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, self.group)]
+    return [Token(self.text, self.group)]
 
   def accept(self, candidate, c):
     result = False
@@ -604,15 +604,15 @@ class PrefixedIdentifierTokenBuilder(TokenBuilder):
 # token reader for identifier
 class RegexTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = None
+    self.text = None
     self.pattern = re.compile('\\A/.+/[a-z]*\\Z')
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'regex')]
+    return [Token(self.text, 'regex')]
 
 
   def accept(self, candidate, c):
@@ -647,35 +647,35 @@ class RegexTokenBuilder(TokenBuilder):
 
 
   def get_score(self, line_printable_tokens):
-    if self.token is None:
+    if self.text is None:
       return 0
 
-    if len(self.token) < 3:
+    if len(self.text) < 3:
       return 0
 
-    if self.token[0] != '/':
+    if self.text[0] != '/':
       return 0
 
-    if not self.pattern.match(self.token):
+    if not self.pattern.match(self.text):
       return 0
 
-    return len(self.token)
+    return len(self.text)
 
 
 # token reader for prefix/suffix block
 class BlockTokenBuilder(TokenBuilder):
   def __init__(self, prefix, suffix, tokentype):
-    self.token = ''
+    self.text = ''
     self.prefix = prefix
     self.suffix = suffix
-    self.tokentype = tokentype
+    self.texttype = tokentype
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, self.tokentype)]
+    return [Token(self.text, self.texttype)]
 
 
   def accept(self, candidate, c):
@@ -691,13 +691,13 @@ class BlockTokenBuilder(TokenBuilder):
 
 
   def get_score(self, line_printable_tokens):
-    if self.token is None:
+    if self.text is None:
       return 0
 
-    if not self.token.startswith(self.prefix):
+    if not self.text.startswith(self.prefix):
       return 0
 
-    if not self.token.endswith(self.suffix):
+    if not self.text.endswith(self.suffix):
       return 0
 
-    return len(self.token)
+    return len(self.text)

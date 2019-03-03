@@ -4,14 +4,14 @@ from TokenBuilders import TokenBuilder
 # token reader for user-defined operator
 class ROperatorTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.token = ''
+    self.text = ''
 
 
   def get_tokens(self):
-    if self.token is None:
+    if self.text is None:
       return None
 
-    return [Token(self.token, 'operator')]
+    return [Token(self.text, 'operator')]
 
 
   def accept(self, candidate, c):
@@ -33,17 +33,17 @@ class ROperatorTokenBuilder(TokenBuilder):
 
 
   def get_score(self, line_printable_tokens):
-    if self.token is None:
+    if self.text is None:
       return 0
 
     # must have at least two chars, start and end with percent
-    if len(self.token) < 2:
+    if len(self.text) < 2:
       return 0
 
-    if self.token[0] != '%':
+    if self.text[0] != '%':
       return 0
 
-    if self.token[-1] != '%':
+    if self.text[-1] != '%':
       return 0
 
-    return len(self.token)
+    return len(self.text)
