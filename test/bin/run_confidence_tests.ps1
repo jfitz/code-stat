@@ -55,10 +55,10 @@ test\bin\run_test.ps1 -json -name sales_report -action confidence -language COBO
 test\bin\run_test.ps1 -json -name report -action confidence -language COBOL-2002 -tabsize 4 -inputfile ".\test\data\COBOL-2002\Report.cob" -expected ".\test\ref\confidence\COBOL-2002\Report.txt"
 test\bin\run_test.ps1 -json -name advent-of-code -action confidence -language COBOL-2002 -inputfile ".\test\data\COBOL-2002\AdventOfCode.cob" -expected ".\test\ref\confidence\COBOL-2002\AdventOfCode.txt"
 
-test\bin\run_test.ps1 -json -name checkers -action confidence -language Cpp -inputfile ".\test\data\Cpp\checkers.cpp" -expected ".\test\ref\confidence\Cpp\checkers.txt"
-test\bin\run_test.ps1 -json -name hrdb -action confidence -language Cpp -inputfile ".\test\data\Cpp\hrdb.cpp" -expected ".\test\ref\confidence\Cpp\hrdb.txt"
-test\bin\run_test.ps1 -json -name date_h -action confidence -language Cpp -inputfile ".\test\data\Cpp\date.h" -expected ".\test\ref\confidence\Cpp\date_h.txt"
-test\bin\run_test.ps1 -json -name date_cpp -action confidence -language Cpp -inputfile ".\test\data\Cpp\date.cpp" -expected ".\test\ref\confidence\Cpp\date_cpp.txt"
+test\bin\run_test.ps1 -json -name checkers -action confidence -language Cplusplus -inputfile ".\test\data\Cplusplus\checkers.cpp" -expected ".\test\ref\confidence\Cplusplus\checkers.txt"
+test\bin\run_test.ps1 -json -name hrdb -action confidence -language Cplusplus -inputfile ".\test\data\Cplusplus\hrdb.cpp" -expected ".\test\ref\confidence\Cplusplus\hrdb.txt"
+test\bin\run_test.ps1 -json -name date_h -action confidence -language Cplusplus -inputfile ".\test\data\Cplusplus\date.h" -expected ".\test\ref\confidence\Cplusplus\date_h.txt"
+test\bin\run_test.ps1 -json -name date_cplusplus -action confidence -language Cplusplus -inputfile ".\test\data\Cplusplus\date.cpp" -expected ".\test\ref\confidence\Cplusplus\date_cpp.txt"
 
 test\bin\run_test.ps1 -json -name calculator1 -action confidence -language Csharp -inputfile ".\test\data\Csharp\calculator1.cs" -expected ".\test\ref\confidence\Csharp\calculator1.txt"
 test\bin\run_test.ps1 -json -name calculator2 -action confidence -language Csharp -inputfile ".\test\data\Csharp\calculator2.cs" -expected ".\test\ref\confidence\Csharp\calculator2.txt"

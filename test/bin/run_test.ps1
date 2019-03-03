@@ -2,6 +2,7 @@ Param
 (
     [string]$name,
     [string]$language,
+    [string]$languages,
     [string]$action,
     [string]$inputfile,
     [string]$expected,
@@ -25,6 +26,10 @@ $params = @()
 
 if ($PSBoundParameters.ContainsKey('language')) {
     $params += "language=$language"
+}
+
+if ($PSBoundParameters.ContainsKey('languages')) {
+    $params += "languages=$languages"
 }
 
 if ($PSBoundParameters.ContainsKey('tabsize')) {

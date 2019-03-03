@@ -55,10 +55,10 @@ test\bin\run_test.ps1 -json -name sales_report -action detect -tabsize 4 -tiebre
 test\bin\run_test.ps1 -json -name report -action detect -tabsize 4 -tiebreak -inputfile ".\test\data\COBOL-2002\Report.cob" -expected ".\test\ref\detect\COBOL-2002\Report.txt"
 test\bin\run_test.ps1 -json -name advent-of-code -action detect -tiebreak -inputfile ".\test\data\COBOL-2002\AdventOfCode.cob" -expected ".\test\ref\detect\COBOL-2002\AdventOfCode.txt"
 
-test\bin\run_test.ps1 -json -name checkers -action detect -tiebreak -inputfile ".\test\data\Cpp\checkers.cpp" -expected ".\test\ref\detect\Cpp\checkers.txt"
-test\bin\run_test.ps1 -json -name hrdb -action detect -tiebreak -inputfile ".\test\data\Cpp\hrdb.cpp" -expected ".\test\ref\detect\Cpp\hrdb.txt"
-test\bin\run_test.ps1 -json -name date_h -action detect -tiebreak -inputfile ".\test\data\Cpp\date.h" -expected ".\test\ref\detect\Cpp\date_h.txt"
-test\bin\run_test.ps1 -json -name date_cpp -action detect -tiebreak -inputfile ".\test\data\Cpp\date.cpp" -expected ".\test\ref\detect\Cpp\date_cpp.txt"
+test\bin\run_test.ps1 -json -name checkers -action detect -tiebreak -inputfile ".\test\data\Cplusplus\checkers.cpp" -expected ".\test\ref\detect\Cplusplus\checkers.txt"
+test\bin\run_test.ps1 -json -name hrdb -action detect -tiebreak -inputfile ".\test\data\Cplusplus\hrdb.cpp" -expected ".\test\ref\detect\Cplusplus\hrdb.txt"
+test\bin\run_test.ps1 -json -name date_h -action detect -tiebreak -inputfile ".\test\data\Cplusplus\date.h" -expected ".\test\ref\detect\Cplusplus\date_h.txt"
+test\bin\run_test.ps1 -json -name date_cplusplus -action detect -tiebreak -inputfile ".\test\data\Cplusplus\date.cpp" -expected ".\test\ref\detect\Cplusplus\date_cpp.txt"
 
 test\bin\run_test.ps1 -json -name calculator1 -action detect -tiebreak -inputfile ".\test\data\Csharp\calculator1.cs" -expected ".\test\ref\detect\Csharp\calculator1.txt"
 test\bin\run_test.ps1 -json -name calculator2 -action detect -tiebreak -inputfile ".\test\data\Csharp\calculator2.cs" -expected ".\test\ref\detect\Csharp\calculator2.txt"
@@ -144,5 +144,6 @@ test\bin\run_test.ps1 -json -name MealViewController -action detect -tiebreak -i
 test\bin\run_test.ps1 -json -name RatingControl -action detect -tiebreak -inputfile ".\test\data\Swift\RatingControl.swift" -expected ".\test\ref\detect\Swift\RatingControl.txt"
 
 test\bin\run_test.ps1 -json -name polyglot -action detect -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\detect\multiple\polyglot.txt"
+test\bin\run_test.ps1 -json -name polyglot-languages -action detect -languages c,cplusplus,cobol68,cobol74,cobol85,objectivec,pascal -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\detect\multiple\polyglot-languages.txt"
 
 Write-Output "Number of failures: $failures"

@@ -55,10 +55,10 @@ test\bin\run_test.ps1 -json -name sales_report -action tokens -language COBOL-20
 test\bin\run_test.ps1 -json -name report -action tokens -language COBOL-2002 -tabsize 4 -inputfile ".\test\data\COBOL-2002\Report.cob" -expected ".\test\ref\tokens\COBOL-2002\Report.txt"
 test\bin\run_test.ps1 -json -name advent-of-code -action tokens -language COBOL-2002 -tabsize 4 -inputfile ".\test\data\COBOL-2002\AdventOfCode.cob" -expected ".\test\ref\tokens\COBOL-2002\AdventOfCode.txt"
 
-test\bin\run_test.ps1 -json -name checkers -action tokens -language Cpp -inputfile ".\test\data\Cpp\checkers.cpp" -expected ".\test\ref\tokens\Cpp\checkers.txt"
-test\bin\run_test.ps1 -json -name hrdb -action tokens -language Cpp -inputfile ".\test\data\Cpp\hrdb.cpp" -expected ".\test\ref\tokens\Cpp\hrdb.txt"
-test\bin\run_test.ps1 -json -name date_h -action tokens -language Cpp -inputfile ".\test\data\Cpp\date.h" -expected ".\test\ref\tokens\Cpp\date_h.txt"
-test\bin\run_test.ps1 -json -name date_cpp -action tokens -language Cpp -inputfile ".\test\data\Cpp\date.cpp" -expected ".\test\ref\tokens\Cpp\date_cpp.txt"
+test\bin\run_test.ps1 -json -name checkers -action tokens -language Cplusplus -inputfile ".\test\data\Cplusplus\checkers.cpp" -expected ".\test\ref\tokens\Cplusplus\checkers.txt"
+test\bin\run_test.ps1 -json -name hrdb -action tokens -language Cplusplus -inputfile ".\test\data\Cplusplus\hrdb.cpp" -expected ".\test\ref\tokens\Cplusplus\hrdb.txt"
+test\bin\run_test.ps1 -json -name date_h -action tokens -language Cplusplus -inputfile ".\test\data\Cplusplus\date.h" -expected ".\test\ref\tokens\Cplusplus\date_h.txt"
+test\bin\run_test.ps1 -json -name date_cplusplus -action tokens -language Cplusplus -inputfile ".\test\data\Cplusplus\date.cpp" -expected ".\test\ref\tokens\Cplusplus\date_cpp.txt"
 
 test\bin\run_test.ps1 -json -name calculator1 -action tokens -language Csharp -inputfile ".\test\data\Csharp\calculator1.cs" -expected ".\test\ref\tokens\Csharp\calculator1.txt"
 test\bin\run_test.ps1 -json -name calculator2 -action tokens -language Csharp -inputfile ".\test\data\Csharp\calculator2.cs" -expected ".\test\ref\tokens\Csharp\calculator2.txt"

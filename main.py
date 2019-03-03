@@ -47,36 +47,36 @@ def decode_bytes(in_bytes):
 
 app = Flask(__name__)
 
+codesAndNames = {
+  'basic': 'BASIC',
+  'c': 'C',
+  'cplusplus': 'C++',
+  'csharp': 'C#',
+  'cbasic': 'CBASIC',
+  'cobol68': 'COBOL-68',
+  'cobol74': 'COBOL-74',
+  'cobol85': 'COBOL-85',
+  'cobol2002': 'COBOL-2002',
+  'fortran66': 'FORTRAN-66',
+  'fortran77': 'FORTRAN-77',
+  'fortran90': 'Fortran-90',
+  'fortran95': 'Fortran-95',
+  'java': 'Java',
+  'javascript': 'JavaScript',
+  'html': 'HTML',
+  'objectivec': 'Objective-C',
+  'pascal': 'Pascal',
+  'prolog': 'Prolog',
+  'python': 'Python',
+  'r': 'R',
+  'ruby': 'Ruby',
+  'sql92': 'SQL-92',
+  'swift': 'Swift'
+}
+
 @app.route('/languages', methods=['GET'])
 def languages():
-  names = {
-    'basic': 'BASIC',
-    'c': 'C',
-    'cplusplus': 'C++',
-    'csharp': 'C#',
-    'cbasic': 'CBASIC',
-    'cobol68': 'COBOL-68',
-    'cobol74': 'COBOL-74',
-    'cobol85': 'COBOL-85',
-    'cobol2002': 'COBOL-2002',
-    'fortran66': 'FORTRAN-66',
-    'fortran77': 'FORTRAN-77',
-    'fortran90': 'Fortran-90',
-    'fortran95': 'Fortran-95',
-    'java': 'Java',
-    'javascript': 'JavaScript',
-    'html': 'HTML',
-    'objectivec': 'Objective-C',
-    'pascal': 'Pascal',
-    'prolog': 'Prolog',
-    'python': 'Python',
-    'r': 'R',
-    'ruby': 'Ruby',
-    'sql92': 'SQL-92',
-    'swift': 'Swift'
-  }
-
-  json_text = json.dumps(names)
+  json_text = json.dumps(codesAndNames)
   return json_text
 
 
@@ -130,7 +130,16 @@ def detect():
   tabsize = 8
   if 'tabsize' in request.args:
     tabsize = request.args['tabsize']
-  
+
+  languages = []
+  if 'languages' in request.args:
+    languages = request.args['languages'].split(' ')
+    print(request.args['languages'])
+    print(str(languages))
+
+  if len(languages) == 0:
+    languages = list(codesAndNames.keys())
+
   wide = False
   if 'wide' in request.args:
     wide = True
@@ -145,7 +154,7 @@ def detect():
 
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
-  detected_languages = identify_language(text, tabsize, wide, tiebreak_keywords, tiebreak_tokens)
+  detected_languages = identify_language(text, tabsize, wide, tiebreak_keywords, tiebreak_tokens, languages)
 
   json_text = json.dumps(detected_languages)
 
@@ -346,7 +355,7 @@ def unwrap_cobol_lines(text):
   return unwrapped_lines
 
 
-def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens):
+def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, languages):
   try:
     tab_size = int(tabsize)
   except ValueError:
@@ -355,30 +364,78 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens):
   code = code.replace('\r\n','\n')
 
   examiners = {}
-  examiners['BASIC'] = BasicExaminer(code)
-  examiners['CBASIC'] = CBasicExaminer(code)
-  examiners['C'] = CExaminer(code)
-  examiners['C++'] = CppExaminer(code)
-  examiners['C#'] = CsharpExaminer(code)
-  examiners['COBOL-68'] = Cobol68Examiner(code, tab_size, wide)
-  examiners['COBOL-74'] = Cobol74Examiner(code, tab_size, wide)
-  examiners['COBOL-85'] = Cobol85Examiner(code, tab_size, wide)
-  examiners['COBOL-2002'] = Cobol2002Examiner(code)
-  examiners['Fortran-66'] = Fortran66Examiner(code, tab_size, wide)
-  examiners['Fortran-77'] = Fortran77Examiner(code, tab_size, wide)
-  examiners['Fortran-90'] = Fortran90Examiner(code)
-  examiners['Fortran-95'] = Fortran95Examiner(code)
-  examiners['HTML'] = HTMLExaminer(code)
-  examiners['Objective-C'] = ObjectiveCExaminer(code)
-  examiners['Java'] = JavaExaminer(code)
-  examiners['JavaScript'] = JavaScriptExaminer(code)
-  examiners['Pascal'] = PascalExaminer(code)
-  examiners['Prolog'] = PrologExaminer(code)
-  examiners['Python'] = PythonExaminer(code)
-  examiners['R'] = RExaminer(code)
-  examiners['Ruby'] = RubyExaminer(code)
-  examiners['SQL-92'] = Sql92Examiner(code)
-  examiners['Swift'] = SwiftExaminer(code)
+
+  if 'basic' in languages:
+    examiners['BASIC'] = BasicExaminer(code)
+
+  if 'cbasic' in languages:
+    examiners['CBASIC'] = CBasicExaminer(code)
+
+  if 'c' in languages:
+    examiners['C'] = CExaminer(code)
+
+  if 'cplusplus' in languages:
+    examiners['C++'] = CppExaminer(code)
+
+  if 'csharp' in languages:
+    examiners['C#'] = CsharpExaminer(code)
+
+  if 'cobol68' in languages:
+    examiners['COBOL-68'] = Cobol68Examiner(code, tab_size, wide)
+
+  if 'cobol74' in languages:
+    examiners['COBOL-74'] = Cobol74Examiner(code, tab_size, wide)
+
+  if 'cobol85' in languages:
+    examiners['COBOL-85'] = Cobol85Examiner(code, tab_size, wide)
+
+  if 'cobol2002' in languages:
+    examiners['COBOL-2002'] = Cobol2002Examiner(code)
+
+  if 'fortran66' in languages:
+    examiners['Fortran-66'] = Fortran66Examiner(code, tab_size, wide)
+
+  if 'fortran77' in languages:
+    examiners['Fortran-77'] = Fortran77Examiner(code, tab_size, wide)
+
+  if 'fortran90' in languages:
+    examiners['Fortran-90'] = Fortran90Examiner(code)
+
+  if 'fortran95' in languages:
+    examiners['Fortran-95'] = Fortran95Examiner(code)
+
+  if 'html' in languages:
+    examiners['HTML'] = HTMLExaminer(code)
+
+  if 'objectivec' in languages:
+    examiners['Objective-C'] = ObjectiveCExaminer(code)
+
+  if 'java' in languages:
+    examiners['Java'] = JavaExaminer(code)
+
+  if 'javascript' in languages:
+    examiners['JavaScript'] = JavaScriptExaminer(code)
+
+  if 'pascal' in languages:
+    examiners['Pascal'] = PascalExaminer(code)
+
+  if 'prolog' in languages:
+    examiners['Prolog'] = PrologExaminer(code)
+
+  if 'python' in languages:
+    examiners['Python'] = PythonExaminer(code)
+
+  if 'r' in languages:
+    examiners['R'] = RExaminer(code)
+
+  if 'ruby' in languages:
+    examiners['Ruby'] = RubyExaminer(code)
+
+  if 'sql92' in languages:
+    examiners['SQL-92'] = Sql92Examiner(code)
+
+  if 'swift' in languages:
+    examiners['Swift'] = SwiftExaminer(code)
 
   # get confidence values
   retval = {}
@@ -463,7 +520,7 @@ def tokenize(code, language, tabsize, wide):
     examiner = CExaminer(code)
     tokens = examiner.tokens
 
-  if language in ['c++', 'cpp']:
+  if language in ['c++', 'cplusplus']:
     examiner = CppExaminer(code)
     tokens = examiner.tokens
 
@@ -573,7 +630,7 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide):
     confidences = examiner.confidences
     errors = examiner.errors
 
-  if language in ['c++', 'cpp']:
+  if language in ['c++', 'cplusplus']:
     examiner = CppExaminer(code)
     confidences = examiner.confidences
     errors = examiner.errors

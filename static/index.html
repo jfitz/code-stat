@@ -95,6 +95,27 @@ function keyWithGreatestValue(o) {
   return greatestValueKey;
 }
 
+function buildLanguageCheckboxes(codesAndNames) {
+  codes = [];
+  for (var code in codesAndNames) {
+    if (codesAndNames.hasOwnProperty(code) ) {
+      codes.push(code);
+    }
+  }
+
+  HTML = '';
+
+  for (i = 0; i < codes.length; i++) {
+    code = codes[i]
+    name = codesAndNames[code]
+    id = 'id_' + code
+    HTML += '<input type="checkbox" id="' + id + '">' + name + '</input><br/>'
+  }
+
+  list_div = document.getElementById('detect_list');
+  list_div.innerHTML = HTML;
+}
+
 function buildLanguageSelectOptions(languageSelect, names) {
   while (languageSelect.firstChild) {
     languageSelect.removeChild(languageSelect.firstChild);
@@ -117,9 +138,9 @@ function loadLanguageNames() {
     if (req.readyState === 4) {
       if (req.status === 200) {
         var results = req.responseText;
-        var codesAndNames = JSON.parse(results);
+        codesAndNames = JSON.parse(results);  // store global
 
-        names = []
+        names = [];
         for (var code in codesAndNames) {
           if (codesAndNames.hasOwnProperty(code) ) {
             names.push(codesAndNames[code]);
@@ -129,14 +150,7 @@ function loadLanguageNames() {
         names.sort();
 
         // checkboxes for detect list
-        HTML = '';
-
-        for (i = 0; i < names.length; i++) {
-          HTML += '<input type="checkbox">' + names[i] + '</input><br/>'
-        }
-
-        list_div = document.getElementById('detect_list');
-        list_div.innerHTML = HTML;
+        buildLanguageCheckboxes(codesAndNames)
 
         // names for tokenize drop-down
         var tokenizeLanguageSelect = document.getElementById('token_language');
@@ -149,14 +163,34 @@ function loadLanguageNames() {
     }
   }
 
-  req.send()
+  req.send();
+}
+
+function buildLanguageList() {
+  var codes = [];
+  for (var code in codesAndNames) {
+    if (codesAndNames.hasOwnProperty(code) ) {
+      var id = 'id_' + code;
+      var languageCheckbox = document.getElementById(id);
+      if (languageCheckbox.checked) {
+        codes.push(code);
+      }
+    }
+  }
+
+  return codes;
 }
 
 function detectLanguage() {
     var results = '';
     var code = document.getElementById('code').value;
+
+    var languages = buildLanguageList();
+    var languageParam = 'languages=' + languages.join(' ');
+
     var req = new XMLHttpRequest();
-    req.open('POST', '/detect', true);
+    var params = '/detect' + '?' + languageParam
+    req.open('POST', params, true);
     req.setRequestHeader('Content-type', 'text/plain');
 
     req.onload = function (e) {
@@ -277,7 +311,7 @@ function showConfidence() {
   // change 'C++' because the '+' character causes problems for requests
   // TODO: escape the request to allow '+'
   if (language == 'C++') {
-    language = 'Cpp';
+    language = 'Cplusplus';
   }
   if (language == 'C#') {
     language = 'Csharp';
@@ -346,7 +380,7 @@ function tokenize() {
   // change 'C++' because the '+' character causes problems for requests
   // TODO: escape the request to allow '+'
   if (language == 'C++') {
-    language = 'Cpp';
+    language = 'Cplusplus';
   }
   if (language == 'C#') {
     language = 'Csharp';
