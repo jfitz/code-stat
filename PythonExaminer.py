@@ -73,7 +73,6 @@ class PythonExaminer(Examiner):
 
     keywords = [
       'import', 'from', 'as', 'def', 'class',
-      'None', 'False', 'True',
       'if', 'elif', 'else', 'pass', 'while',
       'for', 'while', 'return', 'assert', 'raise',
       'break', 'continue', 'del',
@@ -83,6 +82,12 @@ class PythonExaminer(Examiner):
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+
+    values = [
+      'False', 'None', 'True'
+    ]
+
+    values_tb = ListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -96,6 +101,7 @@ class PythonExaminer(Examiner):
       real_tb,
       real_exponent_tb,
       keyword_tb,
+      values_tb,
       known_operator_tb,
       groupers_tb,
       identifier_tb,
@@ -114,6 +120,7 @@ class PythonExaminer(Examiner):
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
+    self.calc_operator_3_confidence()
     self.calc_operand_confidence()
     self.calc_keyword_confidence()
     self.calc_line_format_1_confidence()

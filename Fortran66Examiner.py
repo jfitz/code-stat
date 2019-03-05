@@ -59,7 +59,6 @@ class Fortran66Examiner(FortranExaminer):
       'READ', 'WRITE', 'BACKSPACE', 'REWIND', 'ENDFILE', 'FORMAT',
       'DO', 'CONTINUE',
       'SUBROUTINE', 'FUNCTION', 'BLOCK DATA',
-      'INTEGER', 'REAL', 'COMPLEX', 'DOUBLE PRECISION', 'LOGICAL',
       'COMMON', 'DIMENSION', 'EQUIVALENCE',
       'DATA',
       'EXTERNAL',
@@ -67,6 +66,12 @@ class Fortran66Examiner(FortranExaminer):
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+
+    types = [
+      'INTEGER', 'REAL', 'COMPLEX', 'DOUBLE PRECISION', 'LOGICAL',
+    ]
+
+    types_tb = ListTokenBuilder(types, 'type', False)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -79,6 +84,7 @@ class Fortran66Examiner(FortranExaminer):
       real_exponent_tb,
       double_exponent_tb,
       keyword_tb,
+      types_tb,
       format_tb,
       known_operator_tb,
       groupers_tb,
@@ -96,6 +102,7 @@ class Fortran66Examiner(FortranExaminer):
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
+    # self.calc_operator_3_confidence()
     self.calc_operand_confidence()
     self.calc_keyword_confidence()
     if not wide:

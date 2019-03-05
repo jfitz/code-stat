@@ -266,6 +266,57 @@ class Examiner:
     self.confidences['operator_2'] = operator_confidence_2
 
 
+  def calc_operator_3_confidence(self):
+    # binary operators that follow operators reduce confidence
+    num_invalid_operators = self.count_invalid_operators()
+    num_known_operators = self.count_known_operators()
+    num_operators = num_known_operators + num_invalid_operators
+
+    operator_confidence_3 = 1.0
+
+    if num_operators > 0:
+      errors = 0
+      prev_token = Token('\n', 'newline')
+
+      drop_types = ['whitespace', 'comment', 'line continuation']
+      if not self.newlines_important:
+        drop_types.append('newline')
+
+      tokens = self.drop_tokens(self.tokens, drop_types)
+
+      operand_types = [
+        'number',
+        'string',
+        'variable',
+        'identifier',
+        'symbol',
+        'regex',
+        'type',
+        'value'
+        ]
+
+      for token in tokens:
+        prev_token_operand = prev_token.group in operand_types or\
+          (prev_token.group == 'group' and prev_token.text in [')', ']'])
+        token_unary_operator = token.text.lower() in (op.lower() for op in self.unary_operators)
+        if token.group == 'operator' and\
+          not prev_token_operand and\
+          prev_token.text not in self.postfix_operators and\
+          not token_unary_operator:
+          errors += 1
+          self.errors.append({
+            'TYPE': 'OPERATOR',
+            'FIRST': prev_token.text,
+            'SECOND': token.text
+            })
+
+        prev_token = token
+
+      operator_confidence_3 = 1.0 - errors / num_operators
+
+    self.confidences['operator_3'] = operator_confidence_3
+
+
   def calc_paired_blockers_confidence(self, openers, closers):
     # consider the number of matches for begin/end
     ok, num_begin, num_end = self.check_paired_tokens(self.tokens, openers, closers)

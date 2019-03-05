@@ -65,15 +65,27 @@ class PascalExaminer(Examiner):
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     keywords = [
-      'array', 'begin', 'boolean', 'break', 'case', 'char', 'const',
-      'do', 'downto', 'else', 'end', 'false', 'file', 'for', 'forward',
-      'function', 'goto', 'if', 'integer', 'label', 'nil', 'of', 'otherwise',
-      'packed', 'procedure', 'program', 'real', 'record', 'repeat', 'reset',
-      'set', 'string', 'then', 'to', 'true', 'type', 'until', 'uses',
+      'begin', 'break', 'case', 'const',
+      'do', 'downto', 'else', 'end', 'file', 'for', 'forward',
+      'function', 'goto', 'if', 'label', 'of', 'otherwise',
+      'packed', 'procedure', 'program', 'record', 'repeat', 'reset',
+      'set', 'string', 'then', 'to', 'type', 'until', 'uses',
       'value', 'var', 'while', 'with'
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
+
+    types = [
+      'array', 'boolean', 'char', 'integer', 'real'
+    ]
+
+    types_tb = ListTokenBuilder(types, 'type', False)
+
+    values = [
+      'false', 'nil', 'true'
+    ]
+
+    values_tb = ListTokenBuilder(values, 'value', False)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -90,6 +102,8 @@ class PascalExaminer(Examiner):
       binary_constant_tb,
       char_constant_tb,
       keyword_tb,
+      types_tb,
+      values_tb,
       string_tb,
       known_operator_tb,
       groupers_tb,
@@ -106,6 +120,7 @@ class PascalExaminer(Examiner):
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
+    self.calc_operator_3_confidence()
     self.calc_operand_confidence()
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['begin', 'record', 'case'], ['end'])

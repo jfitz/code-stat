@@ -123,6 +123,7 @@ class BasicExaminer(Examiner):
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
+    self.calc_operator_3_confidence()
     # self.calc_operand_confidence()
     self.calc_keyword_confidence()
     self.calc_line_format_confidence()

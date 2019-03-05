@@ -59,7 +59,7 @@ class SwiftExaminer(Examiner):
     self.unary_operators = [
       '+', '-',
       '!', '~',
-      '++', '--'
+      '++', '--', ':', '?'
     ]
 
     self.postfix_operators = [
@@ -77,8 +77,8 @@ class SwiftExaminer(Examiner):
       'typealias', 'var',
       'break', 'case', 'continue', 'default', 'defer', 'do', 'else', 'fallthrough',
       'for', 'guard', 'if', 'in', 'repeat', 'return', 'switch', 'where', 'while',
-      'as', 'Any', 'catch', 'false', 'is', 'nil', 'rethrows', 'super', 'self',
-      'Self', 'throw', 'throws', 'true', 'try',
+      'as', 'Any', 'catch', 'is', 'rethrows', 'super', 'self',
+      'throw', 'throws', 'try',
       '#available', '#colorLiteral', '#column', '#else', '#elseif', '#endif',
       '#file', '#fileLiteral', '#function', '#if', '#imageLiteral', '#line',
       '#selector', '#sourceLocation',
@@ -89,6 +89,19 @@ class SwiftExaminer(Examiner):
     ]
     
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+
+    types = [
+      'char', 'double', 'float', 'int',
+      'long', 'short',
+    ]
+
+    types_tb = ListTokenBuilder(types, 'type', True)
+
+    values = [
+      'nil', 'Self', 'false', 'true'
+    ]
+
+    values_tb = ListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -101,6 +114,8 @@ class SwiftExaminer(Examiner):
       real_tb,
       real_exponent_tb,
       keyword_tb,
+      types_tb,
+      values_tb,
       known_operator_tb,
       groupers_tb,
       identifier_tb,
@@ -120,5 +135,6 @@ class SwiftExaminer(Examiner):
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
+    self.calc_operator_3_confidence()
     # self.calc_operand_confidence()
     self.calc_keyword_confidence()

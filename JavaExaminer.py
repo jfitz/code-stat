@@ -66,21 +66,34 @@ class JavaExaminer(Examiner):
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     keywords = [
-      'abstract', 'assert', 'boolean', 'break', 'byte',
-      'case', 'catch', 'char', 'class', 'const',
-      'continue', 'default', 'do', 'double',
-      'else', 'enum', 'extends', 'false', 'final',
-      'finally', 'float', 'for', 'goto',
-      'if', 'implements', 'import', 'instanceof', 'int', 'interface',
-      'long', 'native', 'new', 'null', 'package',
+      'abstract', 'assert', 'break',
+      'case', 'catch', 'class', 'const',
+      'continue', 'default', 'do',
+      'else', 'enum', 'extends', 'final',
+      'finally', 'for', 'goto',
+      'if', 'implements', 'import', 'instanceof', 'interface',
+      'native', 'new', 'package',
       'private', 'protected', 'public',
-      'return', 'short',
+      'return',
       'static', 'strictfp', 'super', 'switch', 'synchronized',
-      'this', 'throw', 'throws', 'true', 'transient', 'try',
-      'void', 'volatile', 'while'
+      'throw', 'throws', 'transient', 'try',
+      'volatile', 'while'
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+
+    types = [
+      'boolean', 'byte', 'char', 'double', 'float', 'int', 'long',
+      'short', 'string', 'void'
+    ]
+
+    types_tb = ListTokenBuilder(types, 'type', True)
+
+    values = [
+      'false', 'null', 'this', 'true'
+    ]
+
+    values_tb = ListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -93,6 +106,8 @@ class JavaExaminer(Examiner):
       real_tb,
       real_exponent_tb,
       keyword_tb,
+      types_tb,
+      values_tb,
       known_operator_tb,
       groupers_tb,
       identifier_tb,
@@ -109,6 +124,7 @@ class JavaExaminer(Examiner):
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
+    self.calc_operator_3_confidence()
     # self.calc_operand_confidence()
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])

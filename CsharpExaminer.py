@@ -81,22 +81,35 @@ class CsharpExaminer(Examiner):
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     keywords = [
-      'abstract', 'base', 'bool', 'break', 'byte',
-      'case', 'catch', 'char', 'checked', 'class', 'const',
-      'continue', 'decimal', 'default', 'delegate', 'do', 'double',
-      'else', 'enum', 'event', 'explicit', 'extern', 'false',
-      'finally', 'fixed', 'float', 'for', 'foreach', 'goto',
-      'if', 'implicit', 'in', 'int', 'interface', 'internal',
-      'lock', 'long', 'namespace', 'null', 'object', 'operator',
+      'abstract', 'break',
+      'case', 'catch', 'checked', 'class', 'const',
+      'continue', 'default', 'delegate', 'do',
+      'else', 'enum', 'event', 'explicit', 'extern',
+      'finally', 'fixed', 'for', 'foreach', 'goto',
+      'if', 'implicit', 'in', 'interface', 'internal',
+      'lock', 'namespace', 'operator',
       'out', 'override', 'params', 'private', 'protected', 'public',
-      'readonly', 'ref', 'return', 'sbyte', 'sealed', 'short',
-      'stackalloc', 'static', 'string', 'struct', 'switch',
-      'this', 'throw', 'true', 'try', 'uint', 'ulong',
-      'unchecked', 'unsafe', 'ushort', 'using', 'using static',
-      'virtual', 'void', 'volatile', 'while'
+      'readonly', 'ref', 'return', 'sealed',
+      'stackalloc', 'static', 'struct', 'switch',
+      'throw', 'try',
+      'unchecked', 'unsafe', 'using', 'using static',
+      'virtual', 'volatile', 'while'
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+
+    types = [
+      'bool', 'byte', 'char', 'decimal', 'double', 'float', 'int', 'long', 'object',
+      'sbyte', 'short', 'string', 'uint', 'ulong', 'ushort', 'void'
+    ]
+
+    types_tb = ListTokenBuilder(types, 'type', True)
+
+    values = [
+      'base', 'false', 'null', 'this', 'true'
+    ]
+
+    values_tb = ListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -109,6 +122,8 @@ class CsharpExaminer(Examiner):
       real_tb,
       real_exponent_tb,
       keyword_tb,
+      types_tb,
+      values_tb,
       known_operator_tb,
       groupers_tb,
       identifier_tb,
@@ -127,6 +142,7 @@ class CsharpExaminer(Examiner):
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
+    self.calc_operator_3_confidence()
     # self.calc_operand_confidence()
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])

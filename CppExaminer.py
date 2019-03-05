@@ -65,7 +65,7 @@ class CppExaminer(Examiner):
     self.unary_operators = [
       '+', '-', '*',
       '!', '&', '~',
-      '++', '--',
+      '++', '--', ':',
       'new', 'delete', 'compl', 'not'
     ]
 
@@ -82,26 +82,39 @@ class CppExaminer(Examiner):
     keywords = [
       'alignas', 'alignof', 'asm', 'atomic_cancel',
       'atomic_commit', 'atomic_noexcept', 'auto',
-      'bool', 'break', 'case', 'catch', 'char', 'char8_t', 'char16_t',
-      'char32_t', 'class', 'concept', 'const', 'consteval',
+      'break', 'case', 'catch',
+      'class', 'concept', 'const', 'consteval',
       'constexpr', 'const_cast', 'continue', 'co_await', 'co_return',
-      'co_yield', 'decltype', 'default', 'do', 'double',
+      'co_yield', 'decltype', 'default', 'do',
       'dynamic_cast', 'else', 'enum', 'explicit', 'export', 'extern',
-      'false', 'float', 'for', 'friend', 'goto', 'if', 'import',
-      'inline', 'int', 'long', 'module', 'mutable', 'namespace',
+      'for', 'friend', 'goto', 'if', 'import',
+      'inline', 'module', 'mutable', 'namespace',
       'noexcept', 'nullptr', 'operator',
       'private', 'protected', 'public', 'reflexpr', 'register',
-      'reinterpret_cast', 'requires', 'return', 'short', 'signed',
+      'reinterpret_cast', 'requires', 'return', 'signed',
       'sizeof', 'static', 'static_assert', 'static_cast', 'struct',
-      'switch', 'synchronized', 'template', 'this', 'thread_local',
-      'throw', 'true', 'try', 'typedef', 'typeid', 'typename', 'union',
-      'unsigned', 'using', 'virtual', 'void', 'volatile', 'wchar_t',
-      'while', 'cout', 'cin',
+      'switch', 'synchronized', 'template', 'thread_local',
+      'throw', 'try', 'typedef', 'typeid', 'typename', 'union',
+      'unsigned', 'using', 'virtual', 'volatile',
+      'while',
       'override', 'axiom', 'final', 'audit', 'transaction_safe',
       'transaction_safe_dynamic'
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+
+    types = [
+      'bool', 'char', 'char8_t', 'char16_t', 'char32_t', 'double', 'float', 'int',
+      'long', 'short', 'void', 'wchar_t'
+    ]
+
+    types_tb = ListTokenBuilder(types, 'type', True)
+
+    values = [
+      'false', 'this', 'true', 'cout', 'cin'
+    ]
+
+    values_tb = ListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -114,6 +127,8 @@ class CppExaminer(Examiner):
       real_tb,
       real_exponent_tb,
       keyword_tb,
+      types_tb,
+      values_tb,
       known_operator_tb,
       groupers_tb,
       identifier_tb,
@@ -131,6 +146,7 @@ class CppExaminer(Examiner):
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
+    self.calc_operator_3_confidence()
     # self.calc_operand_confidence()
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])

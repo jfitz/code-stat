@@ -71,7 +71,6 @@ class Fortran90Examiner(FortranExaminer):
       'READ', 'WRITE', 'BACKSPACE', 'REWIND', 'ENDFILE', 'FORMAT', 'PRINT',
       'DO', 'CONTINUE',
       'PROGRAM', 'SUBROUTINE', 'FUNCTION', 'BLOCK DATA',
-      'INTEGER', 'REAL', 'COMPLEX', 'DOUBLE PRECISION', 'LOGICAL', 'CHARACTER',
       'IMPLICIT', 'SAVE',
       'COMMON', 'DIMENSION', 'EQUIVALENCE', 'DATA', 'EXTERNAL',
       'CALL', 'RETURN', 'PAUSE', 'STOP', 'END',
@@ -85,6 +84,12 @@ class Fortran90Examiner(FortranExaminer):
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
+
+    types = [
+      'INTEGER', 'REAL', 'COMPLEX', 'DOUBLE PRECISION', 'LOGICAL', 'CHARACTER',
+    ]
+
+    types_tb = ListTokenBuilder(types, 'type', False)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -100,6 +105,7 @@ class Fortran90Examiner(FortranExaminer):
       double_exponent_tb,
       kind_real_tb,
       keyword_tb,
+      types_tb,
       continuation_tb,
       known_operator_tb,
       groupers_tb,
@@ -117,5 +123,6 @@ class Fortran90Examiner(FortranExaminer):
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
+    # self.calc_operator_3_confidence()
     self.calc_operand_confidence()
     self.calc_keyword_confidence()

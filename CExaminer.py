@@ -62,7 +62,7 @@ class CExaminer(Examiner):
     self.unary_operators = [
       '+', '-', '*',
       '!', '&', '~',
-      '++', '--'
+      '++', '--', ':'
     ]
 
     self.postfix_operators = [
@@ -76,18 +76,24 @@ class CExaminer(Examiner):
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
     keywords = [
-      'int', 'char', 'float', 'double',
-      'signed', 'unsigned', 'short', 'long',
+      'signed', 'unsigned',
       'typedef', 'enum',
       'auto', 'extern', 'register', 'static',
       'for', 'while', 'do',
       'const', 'volatile', 'sizeof',
       'if', 'else', 'switch', 'case', 'default',
-      'struct', 'union', 'void', 'return',
+      'struct', 'union', 'return',
       'goto', 'continue', 'break'
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+
+    types = [
+      'char', 'double', 'float', 'int',
+      'long', 'short',
+    ]
+
+    types_tb = ListTokenBuilder(types, 'type', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -100,6 +106,7 @@ class CExaminer(Examiner):
       real_tb,
       real_exponent_tb,
       keyword_tb,
+      types_tb,
       groupers_tb,
       known_operator_tb,
       identifier_tb,
@@ -117,6 +124,7 @@ class CExaminer(Examiner):
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
+    self.calc_operator_3_confidence()
     # self.calc_operand_confidence()
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])

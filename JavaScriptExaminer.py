@@ -60,11 +60,11 @@ class JavaScriptExaminer(Examiner):
     self.unary_operators = [
       '+', '-',
       '!', '~',
-      '++', '--'
+      '++', '--', ':'
     ]
 
     self.postfix_operators = [
-      '++', '--'
+      '++', '--', ':'
     ]
 
     groupers = ['(', ')', ',', '[', ']', '{', '}']
@@ -77,16 +77,27 @@ class JavaScriptExaminer(Examiner):
       'break', 'case', 'catch', 'class', 'const', 'continue',
       'debugger', 'default', 'delete', 'do', 'else', 'export',
       'extends', 'finally', 'for', 'function', 'if', 'import',
-      'in', 'instanceof', 'new', 'return', 'super', 'switch',
+      'in', 'instanceof', 'new', 'return', 'switch',
       'this', 'throw', 'try', 'typeof', 'var', 'void', 'while',
       'with', 'yield',
-      'abstract', 'boolean', 'byte', 'char', 'double', 'final',
-      'float', 'goto', 'int', 'long', 'native', 'short', 'synchronized',
-      'throws', 'transient', 'volatile',
-      'null', 'true', 'false'
+      'abstract', 'final',
+      'goto', 'native', 'synchronized',
+      'throws', 'transient', 'volatile'
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+
+    types = [
+      'boolean', 'byte', 'char', 'double', 'float', 'int', 'long', 'short'
+    ]
+
+    types_tb = ListTokenBuilder(types, 'type', True)
+
+    values = [
+      'super', 'null', 'true', 'false'
+    ]
+
+    values_tb = ListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -102,6 +113,8 @@ class JavaScriptExaminer(Examiner):
       octal_constant_tb,
       binary_constant_tb,
       keyword_tb,
+      types_tb,
+      values_tb,
       known_operator_tb,
       groupers_tb,
       regex_tb,
@@ -119,6 +132,7 @@ class JavaScriptExaminer(Examiner):
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
+    self.calc_operator_3_confidence()
     # self.calc_operand_confidence()
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])

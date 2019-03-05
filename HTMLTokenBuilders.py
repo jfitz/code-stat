@@ -42,7 +42,7 @@ class HTMLListTokenBuilder(ListTokenBuilder):
 
     prev_token = line_printable_tokens[-1]
 
-    if prev_token.group != 'grouper':
+    if prev_token.group != 'group':
       return 0
 
     if prev_token.text not in ['<', '</']:

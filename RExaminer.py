@@ -65,12 +65,17 @@ class RExaminer(Examiner):
       'if', 'else', 'repeat', 'while',
       'function', 'for', 'in', 'next', 'break',
       'library', 'print', 'lapply', 'rep', 'list', 'matrix',
-      'colnames', 'rownames', 'cbind', 'dimnames', 'nrow', 'ncol', 'dim',
+      'colnames', 'rownames', 'cbind', 'dim'
+    ]
+
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+
+    values = [
       'TRUE', 'FALSE', 'NULL', 'Inf', 'NaN', 'NA',
       'NA_integer_', 'NA_real_', 'NA_complex_', 'NA_character_'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+    values_tb = ListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -83,6 +88,7 @@ class RExaminer(Examiner):
       real_tb,
       real_exponent_tb,
       keyword_tb,
+      values_tb,
       user_operator_tb,
       known_operator_tb,
       groupers_tb,
@@ -99,5 +105,6 @@ class RExaminer(Examiner):
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
+    # self.calc_operator_3_confidence()
     self.calc_operand_confidence()
     self.calc_keyword_confidence()
