@@ -170,6 +170,22 @@ class Examiner:
     return new_list
 
 
+  def calc_line_length_confidence(self, code, width):
+    num_ok_lines = 0
+    lines = code.split('\n')
+    for line in lines:
+      line = line.rstrip('\r')
+      line = line.rstrip()
+      if len(line) <= width:
+        num_ok_lines += 1
+
+    line_length_confidence = 1.0
+    if len(lines) > 0:
+      line_length_confidence = num_ok_lines / len(lines)
+
+    self.confidences['line_length'] = line_length_confidence
+
+
   def calc_token_confidence(self):
     # unknown tokens reduce confidence
     num_invalid_tokens = 0

@@ -90,28 +90,13 @@ class Fortran66Examiner(FortranExaminer):
 
     tokenizer = Tokenizer(tokenbuilders)
 
-    num_ok_lines = 0
-    lines = code.split('\n')
-    for line in lines:
-      line = line.rstrip('\r')
-      line = line.rstrip()
-      if wide or len(line) <= 80:
-        num_ok_lines += 1
-
-    line_length_confidence = 1.0
-    if len(lines) > 0:
-      line_length_confidence = num_ok_lines / len(lines)
-
     self.tokens = self.TokenizeCode(code, tab_size, tokenizer, wide)
     self.tokens = self.combineAdjacentWhitespace(self.tokens)
-
-    line_length_confidence = 1.0
-    if len(lines) > 0:
-      line_length_confidence = num_ok_lines / len(lines)
 
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     self.calc_operand_confidence()
     self.calc_keyword_confidence()
-    self.confidences['line_length'] = line_length_confidence
+    if not wide:
+      self.calc_line_length_confidence(code, 80)
