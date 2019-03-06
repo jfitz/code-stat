@@ -241,11 +241,17 @@ class Examiner:
       errors = 0
       prev_token = Token('\n', 'newline')
 
-      drop_types = ['whitespace', 'comment', 'line continuation']
-      if self.newlines_important == 'never':
-        drop_types.append('newline')
+      # remove tokens we don't care about
+      if self.newlines_important == 'always':
+        drop_types = ['whitespace', 'comment', 'line continuation']
+        tokens = self.drop_tokens(self.tokens, drop_types)
 
-      tokens = self.drop_tokens(self.tokens, drop_types)
+      if self.newlines_important == 'never':
+        drop_types = ['whitespace', 'comment', 'line continuation', 'newline']
+        tokens = self.drop_tokens(self.tokens, drop_types)
+
+      if self.newlines_important == 'parens':
+        tokens = self.drop_tokens_parens()
 
       for token in tokens:
         if token.group == 'operator' and\
@@ -278,11 +284,17 @@ class Examiner:
       errors = 0
       prev_token = Token('\n', 'newline')
 
-      drop_types = ['whitespace', 'comment', 'line continuation']
-      if self.newlines_important == 'never':
-        drop_types.append('newline')
+      # remove tokens we don't care about
+      if self.newlines_important == 'always':
+        drop_types = ['whitespace', 'comment', 'line continuation']
+        tokens = self.drop_tokens(self.tokens, drop_types)
 
-      tokens = self.drop_tokens(self.tokens, drop_types)
+      if self.newlines_important == 'never':
+        drop_types = ['whitespace', 'comment', 'line continuation', 'newline']
+        tokens = self.drop_tokens(self.tokens, drop_types)
+
+      if self.newlines_important == 'parens':
+        tokens = self.drop_tokens_parens()
 
       operand_types = [
         'number',
@@ -336,13 +348,46 @@ class Examiner:
     self.confidences['line_format'] = 1.0
 
 
+  def drop_tokens_parens(self):
+    new_list = []
+
+    # keep track of open and close parentheses
+    parens_count = 0
+
+    drop_types = ['whitespace', 'comment', 'line continuation']
+
+    for token in self.tokens:
+      if token.group in drop_types:
+        continue
+      
+      if token.group == 'newline' and parens_count > 0:
+        continue
+
+      if token.group == 'group' and token.text == '(':
+        parens_count += 1
+
+      if token.group == 'group' and token.text == ')':
+        parens_count -= 1
+
+      new_list.append(token)
+    
+    return new_list
+
   def calc_operand_confidence(self):
     # two operands in a row decreases confidence
-    drop_types = ['whitespace', 'comment', 'line continuation']
-    if self.newlines_important == 'never':
-      drop_types.append('newline')
+    tokens = self.tokens
 
-    tokens = self.drop_tokens(self.tokens, drop_types)
+    # remove tokens we don't care about
+    if self.newlines_important == 'always':
+      drop_types = ['whitespace', 'comment', 'line continuation']
+      tokens = self.drop_tokens(self.tokens, drop_types)
+
+    if self.newlines_important == 'never':
+      drop_types = ['whitespace', 'comment', 'line continuation', 'newline']
+      tokens = self.drop_tokens(self.tokens, drop_types)
+
+    if self.newlines_important == 'parens':
+      tokens = self.drop_tokens_parens()
 
     operand_types = ['number', 'string', 'identifier', 'variable', 'symbol']
 
