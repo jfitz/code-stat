@@ -5,7 +5,7 @@ from Examiner import Examiner
 class FortranExaminer(Examiner):
   def __init__(self):
     super().__init__()
-    self.newlines_important = True
+    self.newlines_important = 'always'
 
   def TokenizeLineNumber(self, line_number):
     tokens = []

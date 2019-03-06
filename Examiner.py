@@ -18,7 +18,7 @@ class Examiner:
     self.postfix_operators = []
     self.confidences = {}
     self.errors = []
-    self.newlines_important = False
+    self.newlines_important = 'never'
 
 
   def confidence(self):
@@ -242,7 +242,7 @@ class Examiner:
       prev_token = Token('\n', 'newline')
 
       drop_types = ['whitespace', 'comment', 'line continuation']
-      if not self.newlines_important:
+      if self.newlines_important == 'never':
         drop_types.append('newline')
 
       tokens = self.drop_tokens(self.tokens, drop_types)
@@ -279,7 +279,7 @@ class Examiner:
       prev_token = Token('\n', 'newline')
 
       drop_types = ['whitespace', 'comment', 'line continuation']
-      if not self.newlines_important:
+      if self.newlines_important == 'never':
         drop_types.append('newline')
 
       tokens = self.drop_tokens(self.tokens, drop_types)
@@ -339,7 +339,7 @@ class Examiner:
   def calc_operand_confidence(self):
     # two operands in a row decreases confidence
     drop_types = ['whitespace', 'comment', 'line continuation']
-    if not self.newlines_important:
+    if self.newlines_important == 'never':
       drop_types.append('newline')
 
     tokens = self.drop_tokens(self.tokens, drop_types)
