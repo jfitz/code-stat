@@ -140,12 +140,31 @@ class CobolExaminer(Examiner):
     expected_keyword_confidence = 1.00
     if counts['IDENTIFICATION'] != 1:
       expected_keyword_confidence -= 0.01
+      self.errors.append({
+        'TYPE': 'EXPECTED KEYWORD',
+        'MISSING': 'IDENTIFICATION or ID DIVISION'
+      })
+
     if counts['ENVIRONMENT'] != 1:
       expected_keyword_confidence != 0.01
+      self.errors.append({
+        'TYPE': 'EXPECTED KEYWORD',
+        'MISSING': 'ENVIRONMENT DIVISION'
+      })
+
     if counts['DATA'] != 1:
       expected_keyword_confidence -= 0.01
+      self.errors.append({
+        'TYPE': 'EXPECTED KEYWORD',
+        'MISSING': 'DATA DIVISION'
+      })
+
     if counts['PROCEDURE'] != 1:
       expected_keyword_confidence -= 0.01
+      self.errors.append({
+        'TYPE': 'EXPECTED KEYWORD',
+        'MISSING': 'PROCEDURE DIVISION'
+      })
 
     return expected_keyword_confidence
 

@@ -178,6 +178,13 @@ class Examiner:
       line = line.rstrip()
       if len(line) <= width:
         num_ok_lines += 1
+      else:
+        self.errors.append({
+          'TYPE': 'LENGTH',
+          'LONG': line,
+          'WIDTH': width
+        })
+
 
     line_length_confidence = 1.0
     if len(lines) > 0:
