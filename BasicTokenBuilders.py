@@ -3,9 +3,9 @@ from TokenBuilders import TokenBuilder
 
 # token reader for number
 class BasicSuffixedIntegerTokenBuilder(TokenBuilder):
-  def __init__(self, suffix):
+  def __init__(self, suffixes):
     self.text = None
-    self.suffix = suffix
+    self.suffixes = suffixes
 
 
   def get_tokens(self):
@@ -21,10 +21,10 @@ class BasicSuffixedIntegerTokenBuilder(TokenBuilder):
     if c.isdigit():
       result = True
 
-    if len(candidate) > 0 and c == self.suffix:
+    if len(candidate) > 0 and c in self.suffixes:
       result = True
 
-    if candidate.endswith(self.suffix):
+    if len(candidate) > 0 and candidate[-1] in self.suffixes:
       result = False
     
     return result
@@ -37,7 +37,7 @@ class BasicSuffixedIntegerTokenBuilder(TokenBuilder):
     if len(self.text) < 2:
       return 0
 
-    if not self.text.endswith(self.suffix):
+    if self.text[-1] not in self.suffixes:
       return 0
 
     return len(self.text)
@@ -45,11 +45,11 @@ class BasicSuffixedIntegerTokenBuilder(TokenBuilder):
 
 # token reader for real (no exponent)
 class BasicSuffixedRealTokenBuilder(TokenBuilder):
-  def __init__(self, require_before, require_after, suffix):
+  def __init__(self, require_before, require_after, suffixes):
     self.text = None
     self.require_before = require_before
     self.require_after = require_after
-    self.suffix = suffix
+    self.suffixes = suffixes
 
 
   def get_tokens(self):
@@ -68,10 +68,10 @@ class BasicSuffixedRealTokenBuilder(TokenBuilder):
     if c == '.' and '.' not in candidate:
       result = True
 
-    if len(candidate) > 0 and c == self.suffix:
+    if len(candidate) > 0 and c in self.suffixes:
       result = True
 
-    if candidate.endswith(self.suffix):
+    if len(candidate) > 0 and candidate[-1] in self.suffixes:
       result = False
 
     return result
@@ -95,7 +95,7 @@ class BasicSuffixedRealTokenBuilder(TokenBuilder):
     if self.require_after and not self.text[point_position + 1].isdigit():
       return 0
 
-    if not self.text.endswith(self.suffix):
+    if self.text[-1] not in self.suffixes:
       return 0
 
     return len(self.text)

@@ -33,10 +33,8 @@ class BasicExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder()
     real_tb = RealTokenBuilder(False, False)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E')
-    integer_suffix_tb = BasicSuffixedIntegerTokenBuilder('%')
-    long_suffix_tb = BasicSuffixedIntegerTokenBuilder('&')
-    single_suffix_tb = BasicSuffixedRealTokenBuilder(False, False, '!')
-    double_suffix_tb = BasicSuffixedRealTokenBuilder(False, False, '#')
+    integer_suffix_tb = BasicSuffixedIntegerTokenBuilder(['%', '&', 'S', 'I', 'L', 'D', 'F', 'R'])
+    float_suffix_tb = BasicSuffixedRealTokenBuilder(False, False, ['!', '#'])
     hex_constant_tb = PrefixedIntegerTokenBuilder('&H', True, '0123456789ABCDEFabcdef_')
     octal_constant_tb = PrefixedIntegerTokenBuilder('&O', True, '01234567_')
     binary_constant_tb = PrefixedIntegerTokenBuilder('&B', True, '01_')
@@ -51,13 +49,13 @@ class BasicExaminer(Examiner):
     known_operators = [
       '+', '-', '*', '/', '^',
       '=', '>', '>=', '<', '<=', '<>',
-      '#', '\\', '#'
+      '#', '\\', '#', 'AND', 'OR', 'NOT'
     ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
     self.unary_operators = [
-      '+', '-', '#'
+      '+', '-', '#', 'NOT'
     ]
 
     groupers = ['(', ')', ',', ';']
@@ -65,8 +63,10 @@ class BasicExaminer(Examiner):
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     keywords = [
-      'AS', 'CHANGE', 'CLOSE', 'DATA', 'DEF', 'DIM', 'ELSE', 'END', 'ERROR',
-      'FILE', 'FOR', 'GOSUB', 'GO', 'GOTO', 'IF', 'INPUT', 'LET', 'MAT', 'NEXT', 
+      'AS', 'CHANGE', 'CLOSE', 'DATA', 'DEF', 'DIM', 'ELSE', 'END',
+      'ERROR', 'ERRNO', 'ERRLN',
+      'FILE', 'FOR', 'GOSUB', 'GO', 'GOTO', 'IF', 'INPUT', 'LET', 'LINE',
+      'MAT', 'NEXT', 
       'ON', 'ONERR', 'OPEN', 'OUTPUT', 'PEEK', 'POKE', 'PRINT',
       'RANDOMIZE', 'READ', 'REM', 'REMARK',
       'RESTORE', 'RETURN', 'STEP', 'STOP', 'THEN', 'TO', 'USING'
@@ -75,7 +75,7 @@ class BasicExaminer(Examiner):
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
     functions = [
-      'ASC', 'CHR$', 'STR$', 'TAB',
+      'ASC', 'CHR', 'CHR$', 'STR$', 'TAB', 'POS',
       'ATN', 'COS', 'SIN', 'TAN',
       'ABS', 'EXP', 'INT', 'LOG', 'RND', 'SGN', 'SQR',
       'LEFT', 'LEFT$', 'LEN', 'MID', 'MID$', 'RIGHT', 'RIGHT$', 'VAL',
@@ -95,10 +95,8 @@ class BasicExaminer(Examiner):
       stmt_separator_tb,
       integer_tb,
       integer_exponent_tb,
-      single_suffix_tb,
-      double_suffix_tb,
+      float_suffix_tb,
       integer_suffix_tb,
-      long_suffix_tb,
       real_tb,
       real_exponent_tb,
       hex_constant_tb,
@@ -124,7 +122,7 @@ class BasicExaminer(Examiner):
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     self.calc_operator_3_confidence()
-    # self.calc_operand_confidence()
+    self.calc_operand_confidence()
     self.calc_keyword_confidence()
     self.calc_line_format_confidence()
 
