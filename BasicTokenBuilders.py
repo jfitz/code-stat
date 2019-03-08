@@ -1,3 +1,4 @@
+import itertools
 from Token import Token
 from TokenBuilders import TokenBuilder
 
@@ -38,6 +39,55 @@ class BasicSuffixedIntegerTokenBuilder(TokenBuilder):
       return 0
 
     if self.text[-1] not in self.suffixes:
+      return 0
+
+    return len(self.text)
+
+
+# token reader for number
+class BasicSuffixed2IntegerTokenBuilder(TokenBuilder):
+  def __init__(self, suffix):
+    self.text = None
+    self.suffix = suffix
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'number')]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    groups = ["".join(x) for _, x in itertools.groupby(candidate, key=str.isdigit)]
+
+    if len(groups) < 2:
+      result = c.isdigit()
+
+    if len(groups) == 1 and not c.isdigit():
+      result = c == self.suffix[0]
+
+    if len(groups) == 2 and len(groups[1]) < len(self.suffix):
+      result = c == self.suffix[len(groups[1])]
+    
+    return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(self.text) < 3:
+      return 0
+
+    groups = ["".join(x) for _, x in itertools.groupby(self.text, key=str.isdigit)]
+
+    if len(groups) != 2:
+      return 0
+
+    if groups[1] != self.suffix:
       return 0
 
     return len(self.text)
