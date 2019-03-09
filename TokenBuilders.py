@@ -151,6 +151,9 @@ class StringTokenBuilder(TokenBuilder):
     if self.text is None:
       return 0
 
+    if len(self.text) < 2:
+      return 0
+
     if not self.allow_unterm and self.text[-1] != self.text[0]:
       return 0
 
@@ -575,6 +578,19 @@ class TripleQuoteCommentTokenBuilder(TokenBuilder):
       result = False
 
     return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(self.text) < 6:
+      return 0
+
+    if self.text[:3] != self.text[-3:]:
+      return 0
+  
+    return len(self.text)
 
 
 # token reader for identifier
