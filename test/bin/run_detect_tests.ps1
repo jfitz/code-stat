@@ -133,8 +133,11 @@ test\bin\run_test.ps1 -json -name tokenizers-ruby -action detect -tiebreak -inpu
 test\bin\run_test.ps1 -json -name tokens-ruby -action detect -tiebreak -inputfile ".\test\data\Ruby\tokens.rb" -expected ".\test\ref\detect\Ruby\tokens.txt"
 test\bin\run_test.ps1 -json -name webhook-ruby -action detect -tiebreak -inputfile ".\test\data\Ruby\webhook.rb" -expected ".\test\ref\detect\Ruby\webhook.txt"
 
-test\bin\run_test.ps1 -json -name microsoft-sql -action detect -tiebreak -inputfile ".\test\data\SQL-92\microsoft.sql" -expected ".\test\ref\detect\SQL-92\microsoft.txt"
-test\bin\run_test.ps1 -json -name table-sql -action detect -tiebreak -inputfile ".\test\data\SQL-92\table.sql" -expected ".\test\ref\detect\SQL-92\table.txt"
+test\bin\run_test.ps1 -json -name microsoft-sql-92 -action detect -tiebreak -inputfile ".\test\data\SQL-92\microsoft.sql" -expected ".\test\ref\detect\SQL-92\microsoft.txt"
+test\bin\run_test.ps1 -json -name table-sql-92 -action detect -tiebreak -inputfile ".\test\data\SQL-92\table.sql" -expected ".\test\ref\detect\SQL-92\table.txt"
+
+test\bin\run_test.ps1 -json -name microsoft-sql-99 -action detect -tiebreak -inputfile ".\test\data\SQL-99\microsoft.sql" -expected ".\test\ref\detect\SQL-99\microsoft.txt"
+test\bin\run_test.ps1 -json -name table-sql-99 -action detect -tiebreak -inputfile ".\test\data\SQL-99\table.sql" -expected ".\test\ref\detect\SQL-99\table.txt"
 
 test\bin\run_test.ps1 -json -name AppDelegate -action detect -tiebreak -inputfile ".\test\data\Swift\AppDelegate.swift" -expected ".\test\ref\detect\Swift\AppDelegate.txt"
 test\bin\run_test.ps1 -json -name Meal -action detect -tiebreak -inputfile ".\test\data\Swift\Meal.swift" -expected ".\test\ref\detect\Swift\Meal.txt"

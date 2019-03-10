@@ -26,6 +26,7 @@ from PythonExaminer import PythonExaminer
 from RExaminer import RExaminer
 from RubyExaminer import RubyExaminer
 from Sql92Examiner import Sql92Examiner
+from Sql99Examiner import Sql99Examiner
 from SwiftExaminer import SwiftExaminer
 
 
@@ -71,6 +72,7 @@ codesAndNames = {
   'r': 'R',
   'ruby': 'Ruby',
   'sql92': 'SQL-92',
+  'sql99': 'SQL-99',
   'swift': 'Swift'
 }
 
@@ -432,6 +434,9 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
   if 'sql92' in languages:
     examiners['SQL-92'] = Sql92Examiner(code)
 
+  if 'sql99' in languages:
+    examiners['SQL-99'] = Sql99Examiner(code)
+
   if 'swift' in languages:
     examiners['Swift'] = SwiftExaminer(code)
 
@@ -602,6 +607,10 @@ def tokenize(code, language, tabsize, wide):
     examiner = Sql92Examiner(code)
     tokens = examiner.tokens
 
+  if language in ['sql-99']:
+    examiner = Sql99Examiner(code)
+    tokens = examiner.tokens
+
   if language in ['swift']:
     examiner = SwiftExaminer(code)
     tokens = examiner.tokens
@@ -730,6 +739,11 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide):
 
   if language in ['sql-92']:
     examiner = Sql92Examiner(code)
+    confidences = examiner.confidences
+    errors = examiner.errors
+
+  if language in ['sql-99']:
+    examiner = Sql99Examiner(code)
     confidences = examiner.confidences
     errors = examiner.errors
 
