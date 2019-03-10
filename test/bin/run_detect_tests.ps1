@@ -142,6 +142,9 @@ test\bin\run_test.ps1 -json -name table-sql-99 -action detect -tiebreak -inputfi
 test\bin\run_test.ps1 -json -name microsoft-sql-2003 -action detect -tiebreak -inputfile ".\test\data\SQL-2003\microsoft.sql" -expected ".\test\ref\detect\SQL-2003\microsoft.txt"
 test\bin\run_test.ps1 -json -name table-sql-2003 -action detect -tiebreak -inputfile ".\test\data\SQL-2003\table.sql" -expected ".\test\ref\detect\SQL-2003\table.txt"
 
+test\bin\run_test.ps1 -json -name microsoft-sql-2008 -action detect -tiebreak -inputfile ".\test\data\SQL-2008\microsoft.sql" -expected ".\test\ref\detect\SQL-2008\microsoft.txt"
+test\bin\run_test.ps1 -json -name table-sql-2008 -action detect -tiebreak -inputfile ".\test\data\SQL-2008\table.sql" -expected ".\test\ref\detect\SQL-2008\table.txt"
+
 test\bin\run_test.ps1 -json -name AppDelegate -action detect -tiebreak -inputfile ".\test\data\Swift\AppDelegate.swift" -expected ".\test\ref\detect\Swift\AppDelegate.txt"
 test\bin\run_test.ps1 -json -name Meal -action detect -tiebreak -inputfile ".\test\data\Swift\Meal.swift" -expected ".\test\ref\detect\Swift\Meal.txt"
 test\bin\run_test.ps1 -json -name MealTableViewCell -action detect -tiebreak -inputfile ".\test\data\Swift\MealTableViewCell.swift" -expected ".\test\ref\detect\Swift\MealTableViewCell.txt"
