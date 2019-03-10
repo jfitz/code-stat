@@ -139,6 +139,9 @@ test\bin\run_test.ps1 -json -name table-sql-92 -action tokens -language SQL-92 -
 test\bin\run_test.ps1 -json -name microsoft-sql-99 -action tokens -language SQL-99 -inputfile ".\test\data\SQL-99\microsoft.sql" -expected ".\test\ref\tokens\SQL-99\microsoft.txt"
 test\bin\run_test.ps1 -json -name table-sql-99 -action tokens -language SQL-99 -inputfile ".\test\data\SQL-99\table.sql" -expected ".\test\ref\tokens\SQL-99\table.txt"
 
+test\bin\run_test.ps1 -json -name microsoft-sql- -action tokens -language SQL-2003 -inputfile ".\test\data\SQL-2003\microsoft.sql" -expected ".\test\ref\tokens\SQL-2003\microsoft.txt"
+test\bin\run_test.ps1 -json -name table-sql-2003 -action tokens -language SQL-2003 -inputfile ".\test\data\SQL-2003\table.sql" -expected ".\test\ref\tokens\SQL-2003\table.txt"
+
 test\bin\run_test.ps1 -json -name AppDelegate -action tokens -language Swift -inputfile ".\test\data\Swift\AppDelegate.swift" -expected ".\test\ref\tokens\Swift\AppDelegate.txt"
 test\bin\run_test.ps1 -json -name Meal -action tokens -language Swift -inputfile ".\test\data\Swift\Meal.swift" -expected ".\test\ref\tokens\Swift\Meal.txt"
 test\bin\run_test.ps1 -json -name MealTableViewCell -action tokens -language Swift -inputfile ".\test\data\Swift\MealTableViewCell.swift" -expected ".\test\ref\tokens\Swift\MealTableViewCell.txt"
