@@ -1,0 +1,11622 @@
+﻿[
+    {
+        "type": "keyword",
+        "value": "CREATE"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "TABLE"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "string",
+        "value": "\"AGENTS\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "   "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "string",
+        "value": "\"AGENT_CODE\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "CHAR"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "6"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "NOT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "NULL"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "PRIMARY"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "KEY"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "string",
+        "value": "\"AGENT_NAME\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "CHAR"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "40"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "string",
+        "value": "\"WORKING_AREA\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "CHAR"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "35"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "string",
+        "value": "\"COMMISSION\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "NUMBER"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "10"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "number",
+        "value": "2"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "string",
+        "value": "\"PHONE_NO\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "CHAR"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "15"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "string",
+        "value": "\"COUNTRY\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "VARCHAR2"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "25"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t "
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AGENTS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'A007'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Ramasundar'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Bangalore'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'0.15'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'077-25814763'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "''"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AGENTS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'A003'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Alex '"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'London'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'0.13'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'075-12458969'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "''"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AGENTS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'A008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Alford'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'New York'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'0.12'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'044-25874365'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "''"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AGENTS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'A011'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Ravi Kumar'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Bangalore'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'0.15'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'077-45625874'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "''"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AGENTS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'A010'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Santakumar'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Chennai'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'0.14'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'007-22388644'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "''"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AGENTS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'A012'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Lucida'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'San Jose'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'0.12'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'044-52981425'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "''"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AGENTS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'A005'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Anderson'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Brisban'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'0.13'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'045-21447739'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "''"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AGENTS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'A001'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Subbarao'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Bangalore'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'0.14'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'077-12346674'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "''"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AGENTS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'A002'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Mukesh'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Mumbai'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'0.11'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'029-12358964'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "''"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AGENTS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'A006'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'McDen'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'London'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'0.15'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'078-22255588'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "''"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AGENTS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'A004'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Ivan'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Torento'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'0.15'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'008-22544166'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "''"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AGENTS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'A009'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Benjamin'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Hampshair'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'0.11'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'008-22536178'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "''"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "CREATE"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "TABLE"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "string",
+        "value": "\"CUSTOMER\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "   "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "string",
+        "value": "\"CUST_CODE\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "VARCHAR2"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "6"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "NOT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "NULL"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "PRIMARY"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "KEY"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "string",
+        "value": "\"CUST_NAME\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "VARCHAR2"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "40"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "NOT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "NULL"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "string",
+        "value": "\"CUST_CITY\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "CHAR"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "35"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "string",
+        "value": "\"WORKING_AREA\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "VARCHAR2"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "35"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "NOT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "NULL"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "string",
+        "value": "\"CUST_COUNTRY\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "VARCHAR2"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "20"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "NOT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "NULL"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "string",
+        "value": "\"GRADE\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "NUMBER"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "string",
+        "value": "\"OPENING_AMT\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "NUMBER"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "12"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "number",
+        "value": "2"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "NOT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "NULL"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "string",
+        "value": "\"RECEIVE_AMT\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "NUMBER"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "12"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "number",
+        "value": "2"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "NOT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "NULL"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "string",
+        "value": "\"PAYMENT_AMT\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "NUMBER"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "12"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "number",
+        "value": "2"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "NOT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "NULL"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "string",
+        "value": "\"OUTSTANDING_AMT\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "NUMBER"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "12"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "number",
+        "value": "2"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "NOT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "NULL"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "string",
+        "value": "\"PHONE_NO\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "VARCHAR2"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "17"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "NOT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "NULL"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "string",
+        "value": "\"AGENT_CODE\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "CHAR"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "6"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "NOT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "NULL"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "REFERENCES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AGENTS"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "whitespace",
+        "value": "   "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'C00013'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Holmes'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'London'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'London'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'UK'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'2'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'6000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'5000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'4000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'BBBBBBB'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A003'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'C00001'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Micheal'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'New York'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'New York'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'USA'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'2'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'3000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'5000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'2000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'6000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'CCCCCCC'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A008'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'C00020'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Albert'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'New York'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'New York'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'USA'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'3'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'5000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'6000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'6000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'BBBBSBB'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A008'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'C00025'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Ravindran'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Bangalore'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Bangalore'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'India'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'2'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'5000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'4000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'8000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'AVAVAVA'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A011'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'C00024'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Cook'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'London'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'London'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'UK'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'2'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'4000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'9000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'6000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'FSDDSDF'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A006'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'C00015'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Stuart'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'London'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'London'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'UK'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'1'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'6000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'8000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'3000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'11000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'GFSGERS'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A003'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'C00002'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Bolt'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'New York'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'New York'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'USA'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'3'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'5000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'9000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'3000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'DDNRDRH'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A008'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'C00018'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Fleming'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Brisban'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Brisban'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Australia'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'2'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'9000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'5000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'NHBGVFC'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A005'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'C00021'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Jacks'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Brisban'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Brisban'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Australia'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'1'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'WERTGDF'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A005'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'C00019'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Yearannaidu'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Chennai'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Chennai'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'India'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'1'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'8000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'8000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'ZZZZBFV'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A010'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'C00005'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Sasikant'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Mumbai'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Mumbai'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'India'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'1'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'11000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'11000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'147-25896312'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A002'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'C00007'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Ramanathan'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Chennai'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Chennai'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'India'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'1'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'11000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'9000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'9000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'GHRDWSD'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A010'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'C00022'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Avinash'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Mumbai'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Mumbai'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'India'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'2'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'11000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'9000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'9000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'113-12345678'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "string",
+        "value": "'A002'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'C00004'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Winston'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Brisban'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Brisban'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Australia'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'1'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'5000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'8000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'6000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'AAAAAAA'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A005'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'C00023'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Karl'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'London'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'London'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'UK'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'0'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'4000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'6000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'3000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'AAAABAA'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A006'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'C00006'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Shilton'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Torento'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Torento'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Canada'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'1'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'10000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'6000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'11000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'DDDDDDD'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A004'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'C00010'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Charles'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Hampshair'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Hampshair'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'UK'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'3'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'6000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'4000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'5000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'5000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'MMMMMMM'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A009'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'C00017'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Srinivas'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Bangalore'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Bangalore'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'India'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'2'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'8000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'4000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'3000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'9000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'AAAAAAB'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A007'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'C00012'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Steven'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'San Jose'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'San Jose'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'USA'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'1'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'5000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'9000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'3000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'KRFYGJK'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A012'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'C00008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Karolina'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Torento'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Torento'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Canada'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'1'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'9000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'5000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'HJKORED'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A004'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'C00003'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Martin'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Torento'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Torento'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Canada'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'2'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'8000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'8000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'MJYURFD'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A004'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'C00009'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Ramesh'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Mumbai'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Mumbai'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'India'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'3'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'8000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'3000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'12000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Phone No'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A002'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'C00014'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Rangarappa'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Bangalore'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Bangalore'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'India'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'2'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'8000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'11000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'12000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'AAAATGF'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A001'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'C00016'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Venkatpati'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Bangalore'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Bangalore'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'India'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'2'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'8000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'11000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'12000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'JRTVFDD'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A007'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'C00011'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Sundariya'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Chennai'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'Chennai'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'India'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'3'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'11000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'7000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'11000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'PPHGRTS'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A010'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "CREATE"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "TABLE"
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "string",
+        "value": "\"ORDERS\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "   "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "string",
+        "value": "\"ORD_NUM\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "NUMBER"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "6"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "number",
+        "value": "0"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "NOT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "NULL"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "PRIMARY"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "KEY"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "string",
+        "value": "\"ORD_AMOUNT\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "NUMBER"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "12"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "number",
+        "value": "2"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "NOT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "NULL"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "string",
+        "value": "\"ADVANCE_AMOUNT\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "NUMBER"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "12"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "number",
+        "value": "2"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "NOT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "NULL"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "string",
+        "value": "\"ORD_DATE\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "DATE"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "NOT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "NULL"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "string",
+        "value": "\"CUST_CODE\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "VARCHAR2"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "6"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "NOT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "NULL"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "REFERENCES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "CUSTOMER"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "string",
+        "value": "\"AGENT_CODE\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "CHAR"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "6"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "NOT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "NULL"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "REFERENCES"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "AGENTS"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "\t"
+    },
+    {
+        "type": "string",
+        "value": "\"ORD_DESCRIPTION\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "VARCHAR2"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "60"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "NOT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "NULL"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "   "
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200100'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'1000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'600.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'08/01/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00013'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A003'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200110'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'3000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'500.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'04/15/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00019'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A010'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200107'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'4500.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'900.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'08/30/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00007'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A010'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200112'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'2000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'400.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'05/30/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00016'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A007'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200113'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'4000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'600.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'06/10/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00022'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A002'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200102'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'2000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'300.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'05/25/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00012'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A012'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200114'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'3500.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'2000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'08/15/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00002'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200122'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'2500.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'400.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'09/16/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00003'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A004'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200118'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'500.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'100.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'07/20/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00023'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A006'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200119'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'4000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'700.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'09/16/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00007'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A010'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200121'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'1500.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'600.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'09/23/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A004'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200130'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'2500.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'400.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'07/30/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00025'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A011'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200134'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'4200.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'1800.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'09/25/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00004'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A005'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200108'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'4000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'600.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'02/15/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A004'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200103'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'1500.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'700.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'05/15/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00021'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A005'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200105'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'2500.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'500.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'07/18/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00025'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A011'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200109'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'3500.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'800.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'07/30/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00011'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A010'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200101'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'3000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'1000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'07/15/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00001'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200111'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'1000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'300.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'07/10/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00020'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200104'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'1500.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'500.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'03/13/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00006'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A004'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200106'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'2500.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'700.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'04/20/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00005'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A002'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200125'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'2000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'600.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'10/10/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00018'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A005'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200117'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'800.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'200.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'10/20/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00014'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A001'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200123'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'500.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'100.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'09/16/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00022'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A002'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200120'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'500.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'100.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'07/20/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00009'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A002'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200116'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'500.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'100.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'07/13/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00010'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A009'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200124'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'500.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'100.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'06/20/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00017'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A007'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200126'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'500.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'100.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'06/24/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00022'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A002'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200129'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'2500.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'500.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'07/20/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00024'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A006'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200127'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'2500.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'400.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'07/20/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00015'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A003'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200128'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'3500.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'1500.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'07/20/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00009'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A002'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200135'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'2000.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'800.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'09/16/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00007'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A010'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200131'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'900.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'150.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'08/26/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00012'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A012'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "INSERT"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "INTO"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "ORDERS"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "VALUES"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'200133'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'1200.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'400.00'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'06/29/2008'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'C00009'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A002'"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'SOD'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    }
+]

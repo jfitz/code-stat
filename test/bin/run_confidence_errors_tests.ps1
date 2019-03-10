@@ -145,6 +145,12 @@ test\bin\run_test.ps1 -json -name table-sql-2003 -action confidence -errors -lan
 test\bin\run_test.ps1 -json -name microsoft-sql-2008 -action confidence -errors -language SQL-2008 -inputfile ".\test\data\SQL-2008\microsoft.sql" -expected ".\test\ref\confidence-errors\SQL-2008\microsoft.txt"
 test\bin\run_test.ps1 -json -name table-sql-2008 -action confidence -errors -language SQL-2008 -inputfile ".\test\data\SQL-2008\table.sql" -expected ".\test\ref\confidence-errors\SQL-2008\table.txt"
 
+test\bin\run_test.ps1 -json -name microsoft-sql-2011 -action confidence -errors -language SQL-2011 -inputfile ".\test\data\SQL-2011\microsoft.sql" -expected ".\test\ref\confidence-errors\SQL-2011\microsoft.txt"
+test\bin\run_test.ps1 -json -name table-sql-2011 -action confidence -errors -language SQL-2011 -inputfile ".\test\data\SQL-2011\table.sql" -expected ".\test\ref\confidence-errors\SQL-2011\table.txt"
+
+test\bin\run_test.ps1 -json -name microsoft-sql-2016 -action confidence -errors -language SQL-2016 -inputfile ".\test\data\SQL-2016\microsoft.sql" -expected ".\test\ref\confidence-errors\SQL-2016\microsoft.txt"
+test\bin\run_test.ps1 -json -name table-sql-2016 -action confidence -errors -language SQL-2016 -inputfile ".\test\data\SQL-2016\table.sql" -expected ".\test\ref\confidence-errors\SQL-2016\table.txt"
+
 test\bin\run_test.ps1 -json -name AppDelegate -action confidence -errors -language Swift -inputfile ".\test\data\Swift\AppDelegate.swift" -expected ".\test\ref\confidence-errors\Swift\AppDelegate.txt"
 test\bin\run_test.ps1 -json -name Meal -action confidence -errors -language Swift -inputfile ".\test\data\Swift\Meal.swift" -expected ".\test\ref\confidence-errors\Swift\Meal.txt"
 test\bin\run_test.ps1 -json -name MealTableViewCell -action confidence -errors -language Swift -inputfile ".\test\data\Swift\MealTableViewCell.swift" -expected ".\test\ref\confidence-errors\Swift\MealTableViewCell.txt"
