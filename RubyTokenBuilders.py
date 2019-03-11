@@ -34,6 +34,63 @@ class RubyIdentifierTokenBuilder(TokenBuilder):
 
 
 # token reader for identifier
+class RubyParamGrouperTokenBuilder(TokenBuilder):
+  def __init__(self):
+    self.text = None
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'group')]
+
+  def accept(self, candidate, c):
+    result = False
+
+    if len(candidate) == 0:
+      result = c == '|'
+
+    return result
+
+
+  def token_is_do(self, token):
+    return (token.group == 'keyword' and token.text == 'do') or\
+      (token.group == 'group' and token.text == '{')
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    boost = 0.0
+
+    if len(line_printable_tokens) > 0 and self.token_is_do(line_printable_tokens[-1]):
+      # simple case: previous token is keyword:'do' or group:'{'
+      boost = 0.5
+
+    else:
+      # complex case: previous token is identifier,
+      #  all tokens to prior 'do' or '{' are identifier or group
+      #  exactly one group:'|' in prior
+      param_bar_count = 0
+
+      for token in reversed(line_printable_tokens):
+        if self.token_is_do(token):
+          break
+
+        if token.group not in ['identifier', 'group']:
+          return 0
+
+        if token.group == 'group' and token.text == '|':
+          param_bar_count += 1
+
+      if param_bar_count == 1:
+        boost = 0.5
+
+    return len(self.text) + boost
+
+
+# token reader for identifier
 class HereDocTokenBuilder(TokenBuilder):
   def __init__(self):
     self.text = None

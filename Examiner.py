@@ -280,7 +280,7 @@ class Examiner:
 
 
   def calc_operator_3_confidence(self):
-    # binary operators that follow operators reduce confidence
+    # binary operators that follow non-operands reduce confidence
     num_invalid_operators = self.count_invalid_operators()
     num_known_operators = self.count_known_operators()
     num_operators = num_known_operators + num_invalid_operators

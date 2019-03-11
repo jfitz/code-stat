@@ -17,6 +17,7 @@ from TokenBuilders import (
 )
 from RubyTokenBuilders import (
   RubyIdentifierTokenBuilder,
+  RubyParamGrouperTokenBuilder,
   HereDocTokenBuilder
 )
 from Tokenizer import Tokenizer
@@ -36,6 +37,7 @@ class RubyExaminer(Examiner):
     identifier_tb = RubyIdentifierTokenBuilder()
     symbol_tb = PrefixedIdentifierTokenBuilder(':', 'symbol')
     string_tb = StringTokenBuilder(['"', "'"], False, False)
+    param_group_tb = RubyParamGrouperTokenBuilder()
     heredoc_tb = HereDocTokenBuilder()
 
     hash_comment_tb = LeadCommentTokenBuilder('#')
@@ -102,6 +104,7 @@ class RubyExaminer(Examiner):
       keyword_tb,
       symbol_tb,
       known_operator_tb,
+      param_group_tb,
       groupers_tb,
       regex_tb,
       identifier_tb,
