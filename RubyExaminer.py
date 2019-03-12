@@ -18,7 +18,8 @@ from TokenBuilders import (
 from RubyTokenBuilders import (
   RubyIdentifierTokenBuilder,
   RubyParamGrouperTokenBuilder,
-  HereDocTokenBuilder
+  HereDocTokenBuilder,
+  RubyFollowTokenBuilder
 )
 from Tokenizer import Tokenizer
 
@@ -56,7 +57,7 @@ class RubyExaminer(Examiner):
         '=', '**=', '*=', '/=', '%=', '+=', '-=',
         '<<=', '>>=',
         '&&=', '&=', '||=', '|=', '^=',
-        'not', 'and', 'or',
+        'not', 'and', 'or', 'in',
         '.', '=>'
       ]
 
@@ -64,7 +65,8 @@ class RubyExaminer(Examiner):
 
     self.unary_operators = [
       '+', '-',
-      '!', '~'
+      '!', '~',
+      '&', '*'
     ]
 
     self.postfix_operators = [
@@ -80,16 +82,26 @@ class RubyExaminer(Examiner):
     keywords = [
       'BEGIN', 'END', 'alias', 'begin', 'break', 'case', 'class',
       'def', 'defined?', 'do', 'else', 'elsif', 'end', 'ensure',
-      'false', 'for', 'if', 'in', 'module', 'next', 'nil', 'redo',
-      'rescue', 'retry', 'return', 'self', 'super', 'then', 'true',
+      'for', 'if', 'module', 'next', 'redo',
+      'rescue', 'retry', 'return', 'then',
       'undef', 'unless', 'until', 'when', 'while', 'yield'
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
+    values = [
+      'nil', 'self', 'true', 'false', 'super'
+    ]
+
+    values_tb = ListTokenBuilder(values, 'value', True)
+
     array_markers = ['%w', '%q', '%Q', '%i', '%s', '%x']
 
     array_marker_tb = ListTokenBuilder(array_markers, 'identifier', True)
+
+    operator_def_tb = RubyFollowTokenBuilder(known_operators, 'identifier', True, 'keyword', 'def')
+
+    keyword_iden_tb = RubyFollowTokenBuilder(keywords, 'identifier', True, 'operator', '.')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -102,8 +114,11 @@ class RubyExaminer(Examiner):
       real_tb,
       real_exponent_tb,
       keyword_tb,
+      values_tb,
       symbol_tb,
       known_operator_tb,
+      operator_def_tb,
+      keyword_iden_tb,
       param_group_tb,
       groupers_tb,
       regex_tb,
@@ -122,6 +137,6 @@ class RubyExaminer(Examiner):
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
-    # self.calc_operator_3_confidence()
+    self.calc_operator_3_confidence()
     # self.calc_operand_confidence()
     self.calc_keyword_confidence()
