@@ -16,6 +16,7 @@ from TokenBuilders import (
 from FortranTokenBuilders import (
   FortranIdentifierTokenBuilder,
   LineNumberTokenBuilder,
+  FortranIORefTokenBuilder,
   FormatSpecifierTokenBuilder
 )
 from Tokenizer import Tokenizer
@@ -34,6 +35,7 @@ class Fortran77Examiner(FortranExaminer):
     double_exponent_tb = RealExponentTokenBuilder(False, False, 'D')
     identifier_tb = FortranIdentifierTokenBuilder()
     string_tb = StringTokenBuilder(["'", '"'], True, False)
+    ioref_tb = FortranIORefTokenBuilder()
     format_tb = FormatSpecifierTokenBuilder()
 
     known_operators = [
@@ -88,6 +90,7 @@ class Fortran77Examiner(FortranExaminer):
       known_operator_tb,
       groupers_tb,
       identifier_tb,
+      ioref_tb,
       string_tb,
       self.unknown_operator_tb,
       invalid_token_builder

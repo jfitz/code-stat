@@ -73,7 +73,7 @@ class RubyExaminer(Examiner):
       '++', '--'
     ]
 
-    groupers = ['(', ')', ',', '[', ']', '{', '}']
+    groupers = ['(', ')', ',', '[', ']', '{', '}', 'end']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
@@ -81,7 +81,7 @@ class RubyExaminer(Examiner):
 
     keywords = [
       'BEGIN', 'END', 'alias', 'begin', 'break', 'case', 'class',
-      'def', 'defined?', 'do', 'else', 'elsif', 'end', 'ensure',
+      'def', 'defined?', 'do', 'else', 'elsif', 'ensure',
       'for', 'if', 'module', 'next', 'redo',
       'rescue', 'retry', 'return', 'then',
       'undef', 'unless', 'until', 'when', 'while', 'yield'
@@ -100,8 +100,8 @@ class RubyExaminer(Examiner):
     array_marker_tb = ListTokenBuilder(array_markers, 'identifier', True)
 
     operator_def_tb = RubyFollowTokenBuilder(known_operators, 'identifier', True, 'keyword', 'def')
-
     keyword_iden_tb = RubyFollowTokenBuilder(keywords, 'identifier', True, 'operator', '.')
+    group_iden_tb = RubyFollowTokenBuilder(groupers, 'identifier3', True, 'operator', '.')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -114,13 +114,14 @@ class RubyExaminer(Examiner):
       real_tb,
       real_exponent_tb,
       keyword_tb,
+      keyword_iden_tb,
       values_tb,
       symbol_tb,
       known_operator_tb,
       operator_def_tb,
-      keyword_iden_tb,
       param_group_tb,
       groupers_tb,
+      group_iden_tb,
       regex_tb,
       identifier_tb,
       array_marker_tb,

@@ -18,7 +18,8 @@ from TokenBuilders import (
 from FortranTokenBuilders import (
   UserDefinedOperatorTokenBuilder,
   KindIntegerTokenBuilder,
-  KindRealTokenBuilder
+  KindRealTokenBuilder,
+  FortranIORefTokenBuilder
 )
 from Tokenizer import Tokenizer
 
@@ -37,6 +38,7 @@ class Fortran95Examiner(FortranExaminer):
     double_exponent_tb = RealExponentTokenBuilder(False, False, 'D')
     kind_real_tb = KindRealTokenBuilder()
     identifier_tb = IdentifierTokenBuilder()
+    ioref_tb = FortranIORefTokenBuilder()
 
     bang_comment_tb = LeadCommentTokenBuilder('!')
     string_tb = StringTokenBuilder(["'", '"'], True, False)
@@ -110,6 +112,7 @@ class Fortran95Examiner(FortranExaminer):
       known_operator_tb,
       groupers_tb,
       identifier_tb,
+      ioref_tb,
       user_operator_tb,
       string_tb,
       bang_comment_tb,
