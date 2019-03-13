@@ -22,12 +22,12 @@ class RubyIdentifierTokenBuilder(TokenBuilder):
       if candidate == '@':
         result = c.isalpha() or c == '_' or c == '@'
       else:
-        result = c.isalpha() or c.isdigit() or c == '_' or c == '?'
+        result = c.isalpha() or c.isdigit() or c in ['_', '?', '!']
 
     if len(candidate) > 1:
-      result = c.isalpha() or c.isdigit() or c == '_' or c == '?'
+      result = c.isalpha() or c.isdigit() or c in ['_', '?', '!']
 
-    if len(candidate) > 1 and candidate[-1] == '?':
+    if len(candidate) > 1 and candidate[-1] in ['?', '!']:
       result = False
 
     return result
