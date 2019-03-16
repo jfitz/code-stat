@@ -49,11 +49,23 @@ test\bin\run_test.ps1 -json -name prog15-4-85 -action detect -tiebreak -inputfil
 test\bin\run_test.ps1 -json -name exec1-85 -action detect -tiebreak -inputfile ".\test\data\COBOL-85\UNLDDBCU2.COB" -tabsize 4 -expected ".\test\ref\detect\COBOL-85\UNLDDBCU2.txt"
 test\bin\run_test.ps1 -json -name P010-85 -action detect -tiebreak -inputfile ".\test\data\COBOL-85\P010.cob" -expected ".\test\ref\detect\COBOL-85\P010.txt"
 
-test\bin\run_test.ps1 -json -name report_card -action detect -tabsize 4 -tiebreak -inputfile ".\test\data\COBOL-2002\ReportCard.cob" -expected ".\test\ref\detect\COBOL-2002\ReportCard.txt"
-test\bin\run_test.ps1 -json -name person -action detect -tabsize 4 -tiebreak -inputfile ".\test\data\COBOL-2002\Person.cob" -expected ".\test\ref\detect\COBOL-2002\Person.txt"
-test\bin\run_test.ps1 -json -name sales_report -action detect -tabsize 4 -tiebreak -inputfile ".\test\data\COBOL-2002\SalesReport.cob" -expected ".\test\ref\detect\COBOL-2002\SalesReport.txt"
-test\bin\run_test.ps1 -json -name report -action detect -tabsize 4 -tiebreak -inputfile ".\test\data\COBOL-2002\Report.cob" -expected ".\test\ref\detect\COBOL-2002\Report.txt"
-test\bin\run_test.ps1 -json -name advent-of-code -action detect -tiebreak -inputfile ".\test\data\COBOL-2002\AdventOfCode.cob" -expected ".\test\ref\detect\COBOL-2002\AdventOfCode.txt"
+test\bin\run_test.ps1 -json -name report-card-cob2002 -action detect -tabsize 4 -tiebreak -inputfile ".\test\data\COBOL-2002\ReportCard.cob" -expected ".\test\ref\detect\COBOL-2002\ReportCard.txt"
+test\bin\run_test.ps1 -json -name person-cob2002 -action detect -tabsize 4 -tiebreak -inputfile ".\test\data\COBOL-2002\Person.cob" -expected ".\test\ref\detect\COBOL-2002\Person.txt"
+test\bin\run_test.ps1 -json -name sales-report-cob2002 -action detect -tabsize 4 -tiebreak -inputfile ".\test\data\COBOL-2002\SalesReport.cob" -expected ".\test\ref\detect\COBOL-2002\SalesReport.txt"
+test\bin\run_test.ps1 -json -name report-cob2002 -action detect -tabsize 4 -tiebreak -inputfile ".\test\data\COBOL-2002\Report.cob" -expected ".\test\ref\detect\COBOL-2002\Report.txt"
+test\bin\run_test.ps1 -json -name advent-of-code-cob2002 -action detect -tiebreak -inputfile ".\test\data\COBOL-2002\AdventOfCode.cob" -expected ".\test\ref\detect\COBOL-2002\AdventOfCode.txt"
+
+test\bin\run_test.ps1 -json -name report-card-cob2014 -action detect -tabsize 4 -tiebreak -inputfile ".\test\data\COBOL-2014\ReportCard.cob" -expected ".\test\ref\detect\COBOL-2014\ReportCard.txt"
+test\bin\run_test.ps1 -json -name person-cob2014 -action detect -tabsize 4 -tiebreak -inputfile ".\test\data\COBOL-2014\Person.cob" -expected ".\test\ref\detect\COBOL-2014\Person.txt"
+test\bin\run_test.ps1 -json -name sales-report-cob2014 -action detect -tabsize 4 -tiebreak -inputfile ".\test\data\COBOL-2014\SalesReport.cob" -expected ".\test\ref\detect\COBOL-2014\SalesReport.txt"
+test\bin\run_test.ps1 -json -name report-cob2014 -action detect -tabsize 4 -tiebreak -inputfile ".\test\data\COBOL-2014\Report.cob" -expected ".\test\ref\detect\COBOL-2014\Report.txt"
+test\bin\run_test.ps1 -json -name advent-of-code-cob2014 -action detect -tiebreak -inputfile ".\test\data\COBOL-2014\AdventOfCode.cob" -expected ".\test\ref\detect\COBOL-2014\AdventOfCode.txt"
+
+test\bin\run_test.ps1 -json -name report-card-cob2014-ACU -action detect -tabsize 4 -tiebreak -inputfile ".\test\data\COBOL-2014-ACU\ReportCard.cob" -expected ".\test\ref\detect\COBOL-2014-ACU\ReportCard.txt"
+test\bin\run_test.ps1 -json -name person-cob2014-ACU -action detect -tabsize 4 -tiebreak -inputfile ".\test\data\COBOL-2014-ACU\Person.cob" -expected ".\test\ref\detect\COBOL-2014-ACU\Person.txt"
+test\bin\run_test.ps1 -json -name sales-report-cob2014-ACU -action detect -tabsize 4 -tiebreak -inputfile ".\test\data\COBOL-2014-ACU\SalesReport.cob" -expected ".\test\ref\detect\COBOL-2014-ACU\SalesReport.txt"
+test\bin\run_test.ps1 -json -name report-cob2014-ACU -action detect -tabsize 4 -tiebreak -inputfile ".\test\data\COBOL-2014-ACU\Report.cob" -expected ".\test\ref\detect\COBOL-2014-ACU\Report.txt"
+test\bin\run_test.ps1 -json -name advent-of-code-cob2014-ACU -action detect -tiebreak -inputfile ".\test\data\COBOL-2014-ACU\AdventOfCode.cob" -expected ".\test\ref\detect\COBOL-2014-ACU\AdventOfCode.txt"
 
 test\bin\run_test.ps1 -json -name checkers -action detect -tiebreak -inputfile ".\test\data\Cplusplus\checkers.cpp" -expected ".\test\ref\detect\Cplusplus\checkers.txt"
 test\bin\run_test.ps1 -json -name hrdb -action detect -tiebreak -inputfile ".\test\data\Cplusplus\hrdb.cpp" -expected ".\test\ref\detect\Cplusplus\hrdb.txt"
