@@ -158,7 +158,7 @@ class Cobol2014Examiner(CobolExaminer):
       'ELSE',
       'EMI', 'ENABLE', 'END',
       'END-ACCEPT', 'END-ADD', 'END-CALL', 'END-COMPUTE', 'END-DELETE', 'END-DISPLAY',
-      'END-DIVIDE', 'END-EVALUATE', 'END-IF',
+      'END-DIVIDE', 'END-EVALUATE', 'END-EXEC', 'END-IF',
       'END-INVOKE',
       'END-MULTIPLY',
       'END-OF-PAGE',
@@ -176,6 +176,7 @@ class Cobol2014Examiner(CobolExaminer):
       'EVERY',
       'EXCEPTION', 'EXCEPTION-OBJECT',
       'EXCLUSIVE',
+      'EXEC',
       'EXIT', 'EXPANDS', 'EXTEND',
       'EXTERN', 'EXTERNAL',
       'FACTORY',
@@ -325,6 +326,68 @@ class Cobol2014Examiner(CobolExaminer):
       'ZERO', 'ZEROES', 'ZEROS'
     ]
 
+    ibm_keywords = [
+      'ABSENT', 'PASSWORD', 'UNBOUNDED'
+    ]
+
+    gnu_keywords = [
+      'ARGUMENT-NUMBER', 'ARGUMENT-VALUE',
+      'ASCII', 'EBCDIC',
+      'BINARY-C-LONG', 'BINARY-SEQUENTIAL',
+      'CARD-PUNCH', 'CARD-READER', 'CASSETTE',
+      'CHAIN', 'CHAINING',
+      'COLOR',
+      'COMMAND-LINE',
+      'COMMIT',
+      'COMP-1', 'COMP-2', 'COMP-3', 'COMP-4', 'COMP-5', 'COMP-6', 'COMP-X',
+      'COMPUTATIONAL-1', 'COMPUTATIONAL-2', 'COMPUTATIONAL-3',
+      'COMPUTATIONAL-4', 'COMPUTATIONAL-5', 'COMPUTATIONAL-6',
+      'COMPUTATIONAL-X',
+      'CONVERSION',
+      'CRT-UNDER',
+      'DISC', 'DISK',
+      'EBCDIC',
+      'ECHO',
+      'END-CHAIN',
+      'ENTRY',
+      'ENVIRONMENT-NAME', 'ENVIRONMENT-VALUE',
+      'ESCAPE',
+      'F',
+      'FILE-ID', 'FIXED',
+      'FLOAT-DECIMAL-7',
+      'ID', 'IGNORE',
+      'KEPT', 'KEYBOARD',
+      'LEFT-JUSTIFY', 'LEFTLINE', 'LINE-SEQUENTIAL', 'LOWER',
+      'MAGNETIC-TAPE',
+      'NAME', 'NO-ECHO', 'NOTHING', 'NULLS',
+      'OVERLINE',
+      'PRINT', 'PRINTER', 'PRINTER-1',
+      'PROCEDURE-POINTER', 'PROCEDURES',
+      'PROMPT',
+      'PROTECTED',
+      'RECORDING', 'REVERSE',
+      'RIGHT-JUSTIFY',
+      'ROLLBACK',
+      'S',
+      'SCROLL',
+      'SIGNED-INT', 'SIGNED-LONG', 'SIGNED-SHORT',
+      'SPACE-FILL',
+      'STATIC',
+      'STDCALL', 'SYSTEM-OFFSET',
+      'TAB',
+      'TIME-OUT',
+      'TRAILING-SIGN',
+      'U',
+      'UNSIGNED-INT', 'UNSIGNED-LONG', 'UNSIGNED-SHORT',
+      'UPDATE', 'UPPER',
+      'USER',
+      'V',
+      'VARIABLE',
+      'WAIT',
+      'WRAP',
+      'ZERO-FILL'
+    ]
+
     acu_keywords = [
       '3-D',
       'ACTION',
@@ -370,7 +433,7 @@ class Cobol2014Examiner(CobolExaminer):
       'FINISH-REASON',
       'FIXED-FONT', 'FIXED-WIDTH', 'FLAT', 'FLAT-BUTTONS',
       'FLOAT', 'FLOATING', 'FONT', 'FRAME', 'FRAMED', 'FULL-HEIGHT',
-      'GO-BACK', 'GO-FORWARD', 'GO-HOME', 'GO-SEARCH',
+      'GRID', 'GO-BACK', 'GO-FORWARD', 'GO-HOME', 'GO-SEARCH',
       'GRAPHICAL', 'GRID', 'GROUP-VALUE',
       'HANDLE', 'HAS-CHILDREN', 'HEADING-COLOR', 'HEADING-DIVIDER-COLOR',
       'HEADING-FONT',
@@ -417,6 +480,12 @@ class Cobol2014Examiner(CobolExaminer):
 
     if extension.lower() == 'acu':
       keywords += acu_keywords
+
+    if extension.lower() == 'ibm':
+      keywords += ibm_keywords
+
+    if extension.lower() == 'gnu':
+      keywords += gnu_keywords
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
 
