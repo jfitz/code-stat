@@ -406,16 +406,16 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
     examiners['COBOL-2002'] = Cobol2002Examiner(code)
 
   if 'cobol2014' in languages:
-    examiners['COBOL-2014'] = Cobol2014Examiner(code, '')
+    examiners['COBOL-2014'] = Cobol2014Examiner(code, '2014', '')
 
   if 'cobol2014acu' in languages:
-    examiners['COBOL-2014-ACU'] = Cobol2014Examiner(code, 'acu')
+    examiners['COBOL-2014-ACU'] = Cobol2014Examiner(code, '2014', 'acu')
 
   if 'cobol2014ibm' in languages:
-    examiners['COBOL-2014-IBM'] = Cobol2014Examiner(code, 'ibm')
+    examiners['COBOL-2014-IBM'] = Cobol2014Examiner(code, '2014', 'ibm')
 
   if 'cobol2014gnu' in languages:
-    examiners['COBOL-2014-GNU'] = Cobol2014Examiner(code, 'gnu')
+    examiners['COBOL-2014-GNU'] = Cobol2014Examiner(code, '2014', 'gnu')
 
   if 'fortran66' in languages:
     examiners['Fortran-66'] = Fortran66Examiner(code, tab_size, wide)
@@ -589,19 +589,19 @@ def tokenize(code, language, tabsize, wide):
     tokens = examiner.tokens
 
   if language in ['cobol-2014']:
-    examiner = Cobol2014Examiner(code, '')
+    examiner = Cobol2014Examiner(code, '2014', '')
     tokens = examiner.tokens
 
   if language in ['cobol-2014-acu']:
-    examiner = Cobol2014Examiner(code, 'acu')
+    examiner = Cobol2014Examiner(code, '2014', 'acu')
     tokens = examiner.tokens
 
   if language in ['cobol-2014-ibm']:
-    examiner = Cobol2014Examiner(code, 'ibm')
+    examiner = Cobol2014Examiner(code, '2014', 'ibm')
     tokens = examiner.tokens
 
   if language in ['cobol-2014-gnu']:
-    examiner = Cobol2014Examiner(code, 'gnu')
+    examiner = Cobol2014Examiner(code, '2014', 'gnu')
     tokens = examiner.tokens
 
   if language in ['fortran', 'for', 'ftn', 'fortran-66']:
@@ -742,22 +742,22 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide):
     errors = examiner.errors
 
   if language in ['cobol-2014']:
-    examiner = Cobol2014Examiner(code, '')
+    examiner = Cobol2014Examiner(code, '2014', '')
     confidences = examiner.confidences
     errors = examiner.errors
 
   if language in ['cobol-2014-acu']:
-    examiner = Cobol2014Examiner(code, 'acu')
+    examiner = Cobol2014Examiner(code, '2014', 'acu')
     confidences = examiner.confidences
     errors = examiner.errors
 
   if language in ['cobol-2014-ibm']:
-    examiner = Cobol2014Examiner(code, 'ibm')
+    examiner = Cobol2014Examiner(code, '2014', 'ibm')
     confidences = examiner.confidences
     errors = examiner.errors
 
   if language in ['cobol-2014-gnu']:
-    examiner = Cobol2014Examiner(code, 'gnu')
+    examiner = Cobol2014Examiner(code, '2014', 'gnu')
     confidences = examiner.confidences
     errors = examiner.errors
 

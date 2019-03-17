@@ -26,7 +26,7 @@ from CobolTokenBuilders import (
 from Tokenizer import Tokenizer
 
 class Cobol2014Examiner(CobolExaminer):
-  def __init__(self, code, extension):
+  def __init__(self, code, year, extension):
     super().__init__()
 
     whitespace_tb = WhitespaceTokenBuilder()
@@ -106,7 +106,6 @@ class Cobol2014Examiner(CobolExaminer):
       'BY',
       'BYTE-LENGTH',
       'CALL', 'CANCEL',
-      'CAPACITY',
       'CBL',
       'CD',
       'CENTER',
@@ -183,11 +182,9 @@ class Cobol2014Examiner(CobolExaminer):
       'FALSE',
       'FD', 'FILE', 'FILE-CONTROL',
       'FILLER', 'FINAL', 'FIRST',
-      'FLOAT-BINARY-128', 'FLOAT-BINARY-32', 'FLOAT-BINARY-64',
-      'FLOAT-DECIMAL-16', 'FLOAT-DECIMAL-34',
-      'FLOAT-EXTENDED', 'FLOAT-INFINITY', 'FLOAT-LONG', 'FLOAT-NOT-A-NUMBER', 'FLOAT-SHORT',
+      'FLOAT-EXTENDED', 'FLOAT-LONG', 'FLOAT-SHORT',
       'FOOTING', 'FOR', 'FOREGROUND-COLOR', 'FOREVER', 'FORMAT', 'FREE', 'FROM', 'FULL',
-      'FUNCTION', 'FUNCTION-ID', 'FUNCTION-POINTER',
+      'FUNCTION', 'FUNCTION-ID',
       'GENERATE', 'GET', 'GIVING', 'GLOBAL', 'GO',
       'GOBACK',
       'GREATER', 'GROUP', 'GROUP-USAGE',
@@ -203,7 +200,6 @@ class Cobol2014Examiner(CobolExaminer):
       'INSERT',
       'INSPECT',
       'INTERFACE', 'INTERFACE-ID',
-      'INTERMEDIATE',
       'INSTALLATION', 'INTO', 'INTRINSIC', 'INVALID',
       'INVOKE',
       'IS',
@@ -228,7 +224,6 @@ class Cobol2014Examiner(CobolExaminer):
       'NATIONAL', 'NATIONAL-EDITED', 'NATIONAL-OF',
       'NATIVE',
       'NATIVE_BINARY',
-      'NEAREST-AWAY-FROM-ZERO', 'NEAREST-EVEN', 'NEAREST-TOWARD-ZERO',
       'NEGATIVE', 'NESTED', 'NEW', 'NEXT', 'NO',
       'NONE', 'NORMAL', 'NOT',
       'NULL', 'NULLS',
@@ -243,16 +238,15 @@ class Cobol2014Examiner(CobolExaminer):
       'OVERRIDE',
       'PACKED-DECIMAL', 'PADDING',
       'PAGE', 'PAGE-COUNTER', 'PARAGRAPH',
-      'PASSWORD',
       'PERFORM', 'PF', 'PH', 'PHYSICAL', 'PIC', 'PICTURE',
       'PLUS', 'POINTER', 'POSITION', 'POSITIVE',
-      'PREFIXED', 'PRESENT', 'PREVIOUS',
+      'PRESENT', 'PREVIOUS',
       'PRINTING',
       'PROCEDURE', 'PROCEDURE-POINTER', 'PROCEDURES',
       'PROCEED',
       'PROCESSING',
       'PROGRAM', 'PROGRAM-ID', 'PROGRAM-POINTER',
-      'PROHIBITED', 'PROPERTY', 'PROTOTYPE',
+      'PROPERTY', 'PROTOTYPE',
       'PURGE',
       'QUEUE', 'QUOTE', 'QUOTES',
       'RAISE', 'RAISING', 'RANDOM', 'RD', 'READ',
@@ -282,7 +276,6 @@ class Cobol2014Examiner(CobolExaminer):
       'SET',
       'SHARING',
       'SHIFT-IN', 'SHIFT-OUT',
-      'SHORT',
       'SIGN', 'SIGNED', 'SIZE',
       'SKIP1', 'SKIP2', 'SKIP3',
       'SORT',
@@ -291,7 +284,7 @@ class Cobol2014Examiner(CobolExaminer):
       'SORT-MESSAGE', 'SORT-MODE-SIZE', 'SORT-RETURN',
       'SOURCE', 'SOURCE-COMPUTER', 'SOURCES', 'SPACE', 'SPACES', 'SPECIAL-NAMES',
       'STANDARD',
-      'STANDARD-1', 'STANDARD-2', 'STANDARD-BINARY', 'STANDARD-DECIMAL',
+      'STANDARD-1', 'STANDARD-2',
       'START',
       'STATEMENT',
       'STATUS', 'STEP,' 'STOP', 'STRING', 'STRONG',
@@ -307,11 +300,9 @@ class Cobol2014Examiner(CobolExaminer):
       'TEXT', 'THAN', 'THEN', 'THROUGH', 'THRU', 'TIME', 'TIMES',
       'TITLE', 'TO',
       'TOP',
-      'TOWARD-GREATER', 'TOWARD-LESSER',
       'TRACE',
       'TRAILING',
       'TRUE',
-      'TRUNCATION',
       'TYPE', 'TYPEDEF',
       'UCS-4', 'UNDERLINE',
       'UNIT', 'UNIVERSAL', 'UNLOCK', 'UNSIGNED', 'UNSTRING',
@@ -326,11 +317,25 @@ class Cobol2014Examiner(CobolExaminer):
       'ZERO', 'ZEROES', 'ZEROS'
     ]
 
-    ibm_keywords = [
+    keywords_2014 = [
+      'AWAY-FROM-ZERO', 'NEAREST-AWAY-FROM-ZERO', 'NEAREST-EVEN',
+      'NEAREST-TOWARD-ZERO', 'TOWARD-GREATER', 'TOWARD-LESSER',
+      'CAPACITY',
+      'FLOAT-BINARY-128', 'FLOAT-BINARY-32', 'FLOAT-BINARY-64',
+      'FLOAT-DECIMAL-16', 'FLOAT-DECIMAL-34',
+      'FLOAT-INFINITY', 'FLOAT-NOT-A-NUMBER',
+      'FUNCTION-POINTER',
+      'INTERMEDIATE',
+      'PHYSICAL', 'PREFIXED', 'PROHIBITED',
+      'SHORT', 'STANDARD-BINARY', 'STANDARD-DECIMAL',
+      'TRUNCATION'
+    ]
+
+    keywords_ibm = [
       'ABSENT', 'PASSWORD', 'UNBOUNDED'
     ]
 
-    gnu_keywords = [
+    keywords_gnu = [
       'ARGUMENT-NUMBER', 'ARGUMENT-VALUE',
       'ASCII', 'EBCDIC',
       'BINARY-C-LONG', 'BINARY-SEQUENTIAL',
@@ -388,7 +393,7 @@ class Cobol2014Examiner(CobolExaminer):
       'ZERO-FILL'
     ]
 
-    acu_keywords = [
+    keywords_acu = [
       '3-D',
       'ACTION',
       'ACTIVE-X',
@@ -478,14 +483,17 @@ class Cobol2014Examiner(CobolExaminer):
       'WEB-BROWSER', 'WIDTH', 'WIDTH-IN-CELLS', 'WINDOW', 'X', 'Y'
     ]
 
+    if year == '2014':
+      keywords += keywords_2014
+
     if extension.lower() == 'acu':
-      keywords += acu_keywords
+      keywords += keywords_acu
 
     if extension.lower() == 'ibm':
-      keywords += ibm_keywords
+      keywords += keywords_ibm
 
     if extension.lower() == 'gnu':
-      keywords += gnu_keywords
+      keywords += keywords_gnu
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
 
