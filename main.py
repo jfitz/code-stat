@@ -6,9 +6,7 @@ from flask import Flask, request, render_template
 from BasicExaminer import BasicExaminer
 from CBasicExaminer import CBasicExaminer
 from CExaminer import CExaminer
-from Cobol68Examiner import Cobol68Examiner
-from Cobol74Examiner import Cobol74Examiner
-from Cobol85Examiner import Cobol85Examiner
+from CobolFixedFormatExaminer import CobolFixedFormatExaminer
 from CobolFreeFormatExaminer import CobolFreeFormatExaminer
 from CppExaminer import CppExaminer
 from CsharpExaminer import CsharpExaminer
@@ -393,13 +391,13 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
     examiners['C#'] = CsharpExaminer(code)
 
   if 'cobol68' in languages:
-    examiners['COBOL-68'] = Cobol68Examiner(code, tab_size, wide)
+    examiners['COBOL-68'] = CobolFixedFormatExaminer(code, '68', '', tab_size, wide)
 
   if 'cobol74' in languages:
-    examiners['COBOL-74'] = Cobol74Examiner(code, tab_size, wide)
+    examiners['COBOL-74'] = CobolFixedFormatExaminer(code, '74', '', tab_size, wide)
 
   if 'cobol85' in languages:
-    examiners['COBOL-85'] = Cobol85Examiner(code, tab_size, wide)
+    examiners['COBOL-85'] = CobolFixedFormatExaminer(code, '85', '', tab_size, wide)
 
   if 'cobol2002' in languages:
     examiners['COBOL-2002'] = CobolFreeFormatExaminer(code, '2002', '')
@@ -572,15 +570,15 @@ def tokenize(code, language, tabsize, wide):
     tokens = examiner.tokens
 
   if language in ['cobol-68']:
-    examiner = Cobol68Examiner(code, tab_size, wide)
+    examiner = CobolFixedFormatExaminer(code, '68', '', tab_size, wide)
     tokens = examiner.tokens
 
   if language in ['cobol-74']:
-    examiner = Cobol74Examiner(code, tab_size, wide)
+    examiner = CobolFixedFormatExaminer(code, '74', '', tab_size, wide)
     tokens = examiner.tokens
 
   if language in ['cobol-85']:
-    examiner = Cobol85Examiner(code, tab_size, wide)
+    examiner = CobolFixedFormatExaminer(code, '85', '', tab_size, wide)
     tokens = examiner.tokens
 
   if language in ['cobol-2002']:
@@ -721,17 +719,17 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide):
     errors = examiner.errors
 
   if language in ['cobol-68']:
-    examiner = Cobol68Examiner(code, tab_size, wide)
+    examiner = CobolFixedFormatExaminer(code, '68', '', tab_size, wide)
     confidences = examiner.confidences
     errors = examiner.errors
 
   if language in ['cobol-74']:
-    examiner = Cobol74Examiner(code, tab_size, wide)
+    examiner = CobolFixedFormatExaminer(code, '74', '', tab_size, wide)
     confidences = examiner.confidences
     errors = examiner.errors
 
   if language in ['cobol-85', 'cobol', 'cob', 'cbl']:
-    examiner = Cobol85Examiner(code, tab_size, wide)
+    examiner = CobolFixedFormatExaminer(code, '85', '', tab_size, wide)
     confidences = examiner.confidences
     errors = examiner.errors
 

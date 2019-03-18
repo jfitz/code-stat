@@ -11,7 +11,8 @@ from TokenBuilders import (
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
-  ListTokenBuilder
+  ListTokenBuilder,
+  BlockTokenBuilder
 )
 from CobolTokenBuilders import (
   CobolIdentifierTokenBuilder,
@@ -21,8 +22,8 @@ from CobolTokenBuilders import (
 )
 from Tokenizer import Tokenizer
 
-class Cobol68Examiner(CobolExaminer):
-  def __init__(self, code, tab_size, wide):
+class CobolFixedFormatExaminer(CobolExaminer):
+  def __init__(self, code, year, extension, tab_size, wide):
     super().__init__()
 
     whitespace_tb = WhitespaceTokenBuilder()
@@ -33,7 +34,7 @@ class Cobol68Examiner(CobolExaminer):
     real_tb = RealTokenBuilder(False, True)
     real_exponent_tb = RealExponentTokenBuilder(False, True, 'E')
     identifier_tb = CobolIdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(['"', "'"], False, True)
+    string_tb = StringTokenBuilder(['"', "'"], True, True)
     picture_tb = PictureTokenBuilder()
     cr_picture_tb = CRPictureTokenBuilder()
 
@@ -44,7 +45,7 @@ class Cobol68Examiner(CobolExaminer):
     known_operators = [
       'ADD', 'SUBTRACT', 'MULTIPLY', 'DIVIDE',
       '+', '-', '*', '/', '**',
-      '=', '>', '<',
+      '=', '<>', '>', '>=', '<', '<=',
       'AND', 'OR', 'NOT',
       ':'
     ]
@@ -61,7 +62,6 @@ class Cobol68Examiner(CobolExaminer):
 
     keywords = [
       'ACCEPT', 'ACCESS',
-      'ACTUAL',
       'ADD', 'ADDRESS', 'ADVANCING',
       'AFTER', 'ALL',
       'ALPHABETIC', 'ALPHABETIC-LOWER', 'ALPHABETIC-UPPER',
@@ -102,13 +102,10 @@ class Cobol68Examiner(CobolExaminer):
       'ENVIRONMENT',
       'EQUAL', 'ERROR', 'ESI',
       'EVERY',
-      'EXAMINE',
       'EXIT', 'EXTEND',
       'FD', 'FILE', 'FILE-CONTROL',
-      'FILE-LIMITS',
       'FILLER', 'FINAL', 'FIRST', 'FOOTING', 'FOR', 'FROM',
-      'GENERATE', 'GIVING', 'GLOBAL', 'GO',
-      'GOBACK',
+      'GENERATE', 'GIVING', 'GLOBAL', 'GO', 'GOBACK',
       'GREATER', 'GROUP',
       'HEADING', 'HIGH-VALUE', 'HIGH-VALUES',
       'I-O', 'I-O-CONTROL',
@@ -127,9 +124,7 @@ class Cobol68Examiner(CobolExaminer):
       'MODE', 'MODULES',
       'MOVE', 'MULTIPLE', 'MULTIPLY',
       'NEGATIVE', 'NEXT', 'NO',
-      'NOMINAL',
       'NOT',
-      'NOTE',
       'NUMBER', 'NUMERIC', 'NUMERIC-EDITED',
       'OBJECT-COMPUTER', 'OCCURS', 'OF', 'OFF', 'OMITTED', 'ON',
       'OPEN', 'OPTIONAL', 'OR',
@@ -139,7 +134,6 @@ class Cobol68Examiner(CobolExaminer):
       'PLUS', 'POINTER', 'POSITION', 'POSITIVE',
       'PROCEDURE',
       'PROCEED',
-      'PROCESSING',
       'PROGRAM', 'PROGRAM-ID',
       'QUEUE', 'QUOTE', 'QUOTES',
       'RANDOM', 'RD', 'READ',
@@ -148,13 +142,11 @@ class Cobol68Examiner(CobolExaminer):
       'REDEFINES', 'REEL', 'REFERENCE',
       'RELATIVE', 'RELEASE',
       'REMAINDER',
-      'REMARKS',
       'RENAMES', 'REPLACE', 'REPLACING', 'REPORT', 'REPORTING', 'REPORTS',
       'RERUN', 'RESERVE', 'RESET', 'RETURN',
       'REVERSED', 'REWIND', 'REWRITE',
       'RF', 'RH', 'RIGHT', 'ROUNDED', 'RUN',
       'SAME', 'SD', 'SEARCH', 'SECTION', 'SECURITY',
-      'SEEK',
       'SEGMENT', 'SEGMENT-LIMIT', 'SELECT',
       'SEND', 'SENTENCE',
       'SEQUENCE', 'SEQUENTIAL',
@@ -172,7 +164,6 @@ class Cobol68Examiner(CobolExaminer):
       'TAPE', 'TERMINAL', 'TERMINATE', 'TEST',
       'TEXT', 'THAN', 'THEN', 'THROUGH', 'THRU', 'TIME', 'TIMES',
       'TITLE', 'TO',
-      'TODAY',
       'TYPE',
       'UNIT', 'UNSTRING', 'UNTIL', 'UP', 'UPON', 'USAGE', 'USE', 'USING',
       'VALUE', 'VALUES', 'VARYING',
@@ -181,10 +172,85 @@ class Cobol68Examiner(CobolExaminer):
       'ZERO', 'ZEROES', 'ZEROS'
     ]
 
+    keywords_68_only = [
+      'ACTUAL',
+      'FILE-LIMITS',
+      'NOMINAL',
+      'PROCESSING',
+      'NOTE',
+      'REMARKS',
+      'SEEK',
+      'TODAY'
+    ]
+
+    keywords_74 = [
+      'ALSO',
+      'BOTTOM',
+      'CODE-SET',
+      'COLLATING',
+      'COMMON',
+      'DAY',
+      'DELETE',
+      'DEBUGGING',
+      'DUPLICATES', 'DYNAMIC',
+      'END-OF-PAGE',
+      'EOP',
+      'EXCEPTION',
+      'INSPECT',
+      'LINAGE', 'LINAGE-COUNTER',
+      'NATIVE',
+      'ORGANIZATION',
+      'PACKED-DECIMAL', 'PADDING',
+      'PRINTING',
+      'PROCEDURES',
+      'REFERENCES',
+      'REMOVAL',
+      'SEPARATE',
+      'SORT-MERGE',
+      'STANDARD-1', 'STANDARD-2', 'START',
+      'TALLYING',
+      'TOP',
+      'TRAILING',
+    ]
+
+    keywords_85 = [
+      'ALPHABET',
+      'ANY',
+      'BINARY',
+      'CONTENT', 'CONTINUE',
+      'CONVERTING',
+      'DAY-OF-WEEK',
+      'END-ADD', 'END-CALL', 'END-COMPUTE', 'END-DELETE', 'END-DIVIDE',
+      'END-EVALUATE', 'END-IF',
+      'END-MULTIPLY',
+      'END-PERFORM', 'END-READ', 'END-RECEIVE', 'END-RETURN', 'END-REWRITE',
+      'END-SEARCH', 'END-START', 'END-STRING', 'END-SUBTRACT', 'END-UNSTRING',
+      'END-WRITE',
+      'EVALUATE',
+      'EXTERNAL',
+      'FALSE',
+      'INITIALIZE',
+      'ORDER',
+      'OTHER',
+      'PURGE',
+      'TRUE'
+    ]
+
+    if year == '68':
+      keywords += keywords_68_only
+
+    if year in ['68', '74']:
+      keywords += keywords_74
+
+    if year in ['68', '74', '85']:
+      keywords += keywords_85
+
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
 
     cobol_preprocessor_tb = CobolPreprocessorTokenBuilder()
     
+    exec_tb = BlockTokenBuilder('EXEC', 'END-EXEC', 'exec block')
+
     invalid_token_builder = InvalidTokenBuilder()
 
     tokenbuilders = [
@@ -203,6 +269,7 @@ class Cobol68Examiner(CobolExaminer):
       identifier_tb,
       string_tb,
       cobol_preprocessor_tb,
+      exec_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]
@@ -219,8 +286,8 @@ class Cobol68Examiner(CobolExaminer):
     self.calc_operator_2_confidence()
     # self.calc_operator_3_confidence()
     # self.calc_operand_confidence()
-    self.calc_picture_confidence()
     self.calc_keyword_confidence()
+    self.calc_picture_confidence()
     if not wide:
       self.calc_line_length_confidence(code, 80)
     self.confidences['expected_keywords'] = expected_keyword_confidence
