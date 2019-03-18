@@ -9,8 +9,7 @@ from CExaminer import CExaminer
 from Cobol68Examiner import Cobol68Examiner
 from Cobol74Examiner import Cobol74Examiner
 from Cobol85Examiner import Cobol85Examiner
-from Cobol2002Examiner import Cobol2002Examiner
-from Cobol2014Examiner import Cobol2014Examiner
+from CobolFreeFormatExaminer import CobolFreeFormatExaminer
 from CppExaminer import CppExaminer
 from CsharpExaminer import CsharpExaminer
 from Fortran66Examiner import Fortran66Examiner
@@ -403,19 +402,19 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
     examiners['COBOL-85'] = Cobol85Examiner(code, tab_size, wide)
 
   if 'cobol2002' in languages:
-    examiners['COBOL-2002'] = Cobol2002Examiner(code)
+    examiners['COBOL-2002'] = CobolFreeFormatExaminer(code, '2002', '')
 
   if 'cobol2014' in languages:
-    examiners['COBOL-2014'] = Cobol2014Examiner(code, '2014', '')
+    examiners['COBOL-2014'] = CobolFreeFormatExaminer(code, '2014', '')
 
   if 'cobol2014acu' in languages:
-    examiners['COBOL-2014-ACU'] = Cobol2014Examiner(code, '2014', 'acu')
+    examiners['COBOL-2014-ACU'] = CobolFreeFormatExaminer(code, '2014', 'acu')
 
   if 'cobol2014ibm' in languages:
-    examiners['COBOL-2014-IBM'] = Cobol2014Examiner(code, '2014', 'ibm')
+    examiners['COBOL-2014-IBM'] = CobolFreeFormatExaminer(code, '2014', 'ibm')
 
   if 'cobol2014gnu' in languages:
-    examiners['COBOL-2014-GNU'] = Cobol2014Examiner(code, '2014', 'gnu')
+    examiners['COBOL-2014-GNU'] = CobolFreeFormatExaminer(code, '2014', 'gnu')
 
   if 'fortran66' in languages:
     examiners['Fortran-66'] = Fortran66Examiner(code, tab_size, wide)
@@ -585,23 +584,23 @@ def tokenize(code, language, tabsize, wide):
     tokens = examiner.tokens
 
   if language in ['cobol-2002']:
-    examiner = Cobol2002Examiner(code)
+    examiner = CobolFreeFormatExaminer(code, '2002', '')
     tokens = examiner.tokens
 
   if language in ['cobol-2014']:
-    examiner = Cobol2014Examiner(code, '2014', '')
+    examiner = CobolFreeFormatExaminer(code, '2014', '')
     tokens = examiner.tokens
 
   if language in ['cobol-2014-acu']:
-    examiner = Cobol2014Examiner(code, '2014', 'acu')
+    examiner = CobolFreeFormatExaminer(code, '2014', 'acu')
     tokens = examiner.tokens
 
   if language in ['cobol-2014-ibm']:
-    examiner = Cobol2014Examiner(code, '2014', 'ibm')
+    examiner = CobolFreeFormatExaminer(code, '2014', 'ibm')
     tokens = examiner.tokens
 
   if language in ['cobol-2014-gnu']:
-    examiner = Cobol2014Examiner(code, '2014', 'gnu')
+    examiner = CobolFreeFormatExaminer(code, '2014', 'gnu')
     tokens = examiner.tokens
 
   if language in ['fortran', 'for', 'ftn', 'fortran-66']:
@@ -737,27 +736,27 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide):
     errors = examiner.errors
 
   if language in ['cobol-2002']:
-    examiner = Cobol2002Examiner(code)
+    examiner = CobolFreeFormatExaminer(code, '2002', '')
     confidences = examiner.confidences
     errors = examiner.errors
 
   if language in ['cobol-2014']:
-    examiner = Cobol2014Examiner(code, '2014', '')
+    examiner = CobolFreeFormatExaminer(code, '2014', '')
     confidences = examiner.confidences
     errors = examiner.errors
 
   if language in ['cobol-2014-acu']:
-    examiner = Cobol2014Examiner(code, '2014', 'acu')
+    examiner = CobolFreeFormatExaminer(code, '2014', 'acu')
     confidences = examiner.confidences
     errors = examiner.errors
 
   if language in ['cobol-2014-ibm']:
-    examiner = Cobol2014Examiner(code, '2014', 'ibm')
+    examiner = CobolFreeFormatExaminer(code, '2014', 'ibm')
     confidences = examiner.confidences
     errors = examiner.errors
 
   if language in ['cobol-2014-gnu']:
-    examiner = Cobol2014Examiner(code, '2014', 'gnu')
+    examiner = CobolFreeFormatExaminer(code, '2014', 'gnu')
     confidences = examiner.confidences
     errors = examiner.errors
 

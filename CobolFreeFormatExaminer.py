@@ -25,7 +25,7 @@ from CobolTokenBuilders import (
 )
 from Tokenizer import Tokenizer
 
-class Cobol2014Examiner(CobolExaminer):
+class CobolFreeFormatExaminer(CobolExaminer):
   def __init__(self, code, year, extension):
     super().__init__()
 
