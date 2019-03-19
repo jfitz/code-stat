@@ -17,12 +17,13 @@ from FortranTokenBuilders import (
   FortranIdentifierTokenBuilder,
   LineNumberTokenBuilder,
   FortranIORefTokenBuilder,
-  FormatSpecifierTokenBuilder
+  FormatSpecifierTokenBuilder,
+  HollerithStringTokenBuilder
 )
 from Tokenizer import Tokenizer
 
-class Fortran77Examiner(FortranExaminer):
-  def __init__(self, code, tab_size, wide):
+class FortranFixedFormatExaminer(FortranExaminer):
+  def __init__(self, code, year, tab_size, wide):
     super().__init__()
 
     whitespace_tb = WhitespaceTokenBuilder()
@@ -34,6 +35,7 @@ class Fortran77Examiner(FortranExaminer):
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E')
     double_exponent_tb = RealExponentTokenBuilder(False, False, 'D')
     identifier_tb = FortranIdentifierTokenBuilder()
+    hollerith_tb = HollerithStringTokenBuilder()
     string_tb = StringTokenBuilder(["'", '"'], True, False)
     ioref_tb = FortranIORefTokenBuilder()
     format_tb = FormatSpecifierTokenBuilder()
@@ -55,22 +57,37 @@ class Fortran77Examiner(FortranExaminer):
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     keywords = [
-      'IF', 'THEN', 'ELSE', 'ENDIF', 'END IF', 'GO', 'TO', 'GOTO', 'GO TO',
-      'ASSIGN',
-      'READ', 'WRITE', 'BACKSPACE', 'REWIND', 'ENDFILE', 'FORMAT', 'PRINT',
+      'IF', 'GO', 'TO', 'GOTO', 'GO TO', 'ASSIGN',
+      'READ', 'WRITE', 'BACKSPACE', 'REWIND', 'ENDFILE', 'FORMAT',
       'DO', 'CONTINUE',
-      'PROGRAM', 'SUBROUTINE', 'FUNCTION', 'BLOCK DATA',
+      'SUBROUTINE', 'FUNCTION', 'BLOCK DATA',
+      'COMMON', 'DIMENSION', 'EQUIVALENCE',
+      'DATA', 'EXTERNAL',
+      'CALL', 'RETURN', 'PAUSE', 'STOP', 'END'
+    ]
+
+    keywords_77 = [
+      'THEN', 'ELSE', 'ENDIF', 'END IF',
+      'PRINT', 'PROGRAM',
       'IMPLICIT', 'SAVE',
-      'COMMON', 'DIMENSION', 'EQUIVALENCE', 'DATA', 'EXTERNAL',
-      'CALL', 'RETURN', 'PAUSE', 'STOP', 'END',
       'INQUIRE', 'INTRINSIC', 'PARAMETER'
     ]
+
+    if year == '77':
+      keywords += keywords_77
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
     types = [
-      'INTEGER', 'REAL', 'COMPLEX', 'DOUBLE PRECISION', 'LOGICAL', 'CHARACTER',
+      'INTEGER', 'REAL', 'COMPLEX', 'DOUBLE PRECISION', 'LOGICAL'
     ]
+
+    types_77 = [
+      'CHARACTER'
+    ]
+
+    if year == '77':
+      types += types_77
 
     types_tb = ListTokenBuilder(types, 'type', False)
 
@@ -90,11 +107,31 @@ class Fortran77Examiner(FortranExaminer):
       known_operator_tb,
       groupers_tb,
       identifier_tb,
-      ioref_tb,
-      string_tb,
+      hollerith_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]
+
+    if year == '77':
+      tokenbuilders = [
+        whitespace_tb,
+        newline_tb,
+        integer_tb,
+        integer_exponent_tb,
+        real_tb,
+        real_exponent_tb,
+        double_exponent_tb,
+        keyword_tb,
+        types_tb,
+        format_tb,
+        known_operator_tb,
+        groupers_tb,
+        identifier_tb,
+        ioref_tb,
+        string_tb,
+        self.unknown_operator_tb,
+        invalid_token_builder
+      ]
 
     tokenizer = Tokenizer(tokenbuilders)
 

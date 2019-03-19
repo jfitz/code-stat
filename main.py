@@ -10,8 +10,7 @@ from CobolFixedFormatExaminer import CobolFixedFormatExaminer
 from CobolFreeFormatExaminer import CobolFreeFormatExaminer
 from CppExaminer import CppExaminer
 from CsharpExaminer import CsharpExaminer
-from Fortran66Examiner import Fortran66Examiner
-from Fortran77Examiner import Fortran77Examiner
+from FortranFixedFormatExaminer import FortranFixedFormatExaminer
 from FortranFreeFormatExaminer import FortranFreeFormatExaminer
 from HTMLExaminer import HTMLExaminer
 from JavaExaminer import JavaExaminer
@@ -409,10 +408,10 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
     examiners['COBOL-2014-GNU'] = CobolFreeFormatExaminer(code, '2014', 'gnu')
 
   if 'fortran66' in languages:
-    examiners['Fortran-66'] = Fortran66Examiner(code, tab_size, wide)
+    examiners['Fortran-66'] = FortranFixedFormatExaminer(code, '66', tab_size, wide)
 
   if 'fortran77' in languages:
-    examiners['Fortran-77'] = Fortran77Examiner(code, tab_size, wide)
+    examiners['Fortran-77'] = FortranFixedFormatExaminer(code, '77', tab_size, wide)
 
   if 'fortran90' in languages:
     examiners['Fortran-90'] = FortranFreeFormatExaminer(code, '90')
@@ -596,11 +595,11 @@ def tokenize(code, language, tabsize, wide):
     tokens = examiner.tokens
 
   if language in ['fortran', 'for', 'ftn', 'fortran-66']:
-    examiner = Fortran66Examiner(code, tab_size, wide)
+    examiner = FortranFixedFormatExaminer(code, '66', tab_size, wide)
     tokens = examiner.tokens
 
   if language in ['f77', 'fortran-77']:
-    examiner = Fortran77Examiner(code, tab_size, wide)
+    examiner = FortranFixedFormatExaminer(code, '77', tab_size, wide)
     tokens = examiner.tokens
 
   if language in ['f90', 'fortran-90']:
@@ -753,12 +752,12 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide):
     errors = examiner.errors
 
   if language in ['fortran', 'for', 'ftn', 'fortran-66']:
-    examiner = Fortran66Examiner(code, tab_size, wide)
+    examiner = FortranFixedFormatExaminer(code, '66', tab_size, wide)
     confidences = examiner.confidences
     errors = examiner.errors
 
   if language in ['f77', 'fortran-77']:
-    examiner = Fortran77Examiner(code, tab_size, wide)
+    examiner = FortranFixedFormatExaminer(code, '77', tab_size, wide)
     confidences = examiner.confidences
     errors = examiner.errors
 
