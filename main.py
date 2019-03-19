@@ -23,12 +23,7 @@ from PrologExaminer import PrologExaminer
 from PythonExaminer import PythonExaminer
 from RExaminer import RExaminer
 from RubyExaminer import RubyExaminer
-from Sql92Examiner import Sql92Examiner
-from Sql99Examiner import Sql99Examiner
-from Sql2003Examiner import Sql2003Examiner
-from Sql2008Examiner import Sql2008Examiner
-from Sql2011Examiner import Sql2011Examiner
-from Sql2016Examiner import Sql2016Examiner
+from SqlExaminer import SqlExaminer
 from SwiftExaminer import SwiftExaminer
 
 
@@ -454,22 +449,22 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
     examiners['Ruby'] = RubyExaminer(code)
 
   if 'sql92' in languages:
-    examiners['SQL-92'] = Sql92Examiner(code)
+    examiners['SQL-92'] = SqlExaminer(code, '92', '')
 
   if 'sql99' in languages:
-    examiners['SQL-99'] = Sql99Examiner(code)
+    examiners['SQL-99'] = SqlExaminer(code, '99', '')
 
   if 'sql2003' in languages:
-    examiners['SQL-2003'] = Sql2003Examiner(code)
+    examiners['SQL-2003'] = SqlExaminer(code, '2003', '')
 
   if 'sql2008' in languages:
-    examiners['SQL-2008'] = Sql2008Examiner(code)
+    examiners['SQL-2008'] = SqlExaminer(code, '2008', '')
 
   if 'sql2011' in languages:
-    examiners['SQL-2011'] = Sql2011Examiner(code)
+    examiners['SQL-2011'] = SqlExaminer(code, '2011', '')
 
   if 'sql2016' in languages:
-    examiners['SQL-2016'] = Sql2016Examiner(code)
+    examiners['SQL-2016'] = SqlExaminer(code, '2016', '')
 
   if 'swift' in languages:
     examiners['Swift'] = SwiftExaminer(code)
@@ -654,27 +649,27 @@ def tokenize(code, language, tabsize, wide):
     tokens = examiner.tokens
 
   if language in ['sql-92']:
-    examiner = Sql92Examiner(code)
+    examiner = SqlExaminer(code, '92', '')
     tokens = examiner.tokens
 
   if language in ['sql-99']:
-    examiner = Sql99Examiner(code)
+    examiner = SqlExaminer(code, '99', '')
     tokens = examiner.tokens
 
   if language in ['sql-2003']:
-    examiner = Sql2003Examiner(code)
+    examiner = SqlExaminer(code, '2003', '')
     tokens = examiner.tokens
 
   if language in ['sql-2008']:
-    examiner = Sql2008Examiner(code)
+    examiner = SqlExaminer(code, '2008', '')
     tokens = examiner.tokens
 
   if language in ['sql-2011']:
-    examiner = Sql2011Examiner(code)
+    examiner = SqlExaminer(code, '2011', '')
     tokens = examiner.tokens
 
   if language in ['sql-2016']:
-    examiner = Sql2016Examiner(code)
+    examiner = SqlExaminer(code, '2016', '')
     tokens = examiner.tokens
 
   if language in ['swift']:
@@ -824,32 +819,32 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide):
     errors = examiner.errors
 
   if language in ['sql-92']:
-    examiner = Sql92Examiner(code)
+    examiner = SqlExaminer(code, '92', '')
     confidences = examiner.confidences
     errors = examiner.errors
 
   if language in ['sql-99']:
-    examiner = Sql99Examiner(code)
+    examiner = SqlExaminer(code, '99', '')
     confidences = examiner.confidences
     errors = examiner.errors
 
   if language in ['sql-2003']:
-    examiner = Sql2003Examiner(code)
+    examiner = SqlExaminer(code, '2003', '')
     confidences = examiner.confidences
     errors = examiner.errors
 
   if language in ['sql-2008']:
-    examiner = Sql2008Examiner(code)
+    examiner = SqlExaminer(code, '2008', '')
     confidences = examiner.confidences
     errors = examiner.errors
 
   if language in ['sql-2011']:
-    examiner = Sql2011Examiner(code)
+    examiner = SqlExaminer(code, '2011', '')
     confidences = examiner.confidences
     errors = examiner.errors
 
   if language in ['sql-2016']:
-    examiner = Sql2016Examiner(code)
+    examiner = SqlExaminer(code, '2016', '')
     confidences = examiner.confidences
     errors = examiner.errors
 

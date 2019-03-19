@@ -239,10 +239,10 @@ class CobolFixedFormatExaminer(CobolExaminer):
     if year == '68':
       keywords += keywords_68_only
 
-    if year in ['68', '74']:
+    if year in ['74', '85']:
       keywords += keywords_74
 
-    if year in ['68', '74', '85']:
+    if year in ['85']:
       keywords += keywords_85
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)

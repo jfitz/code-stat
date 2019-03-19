@@ -17,8 +17,8 @@ from TokenBuilders import (
 # from SqlTokenBuilders import ()
 from Tokenizer import Tokenizer
 
-class Sql92Examiner(Examiner):
-  def __init__(self, code):
+class SqlExaminer(Examiner):
+  def __init__(self, code, year, extension):
     super().__init__()
 
     whitespace_tb = WhitespaceTokenBuilder()
@@ -52,11 +52,9 @@ class Sql92Examiner(Examiner):
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     keywords = [
-      'ABSOLUTE',
-      'ACTION', 'ADD',
+      'ABSOLUTE', 'ACTION', 'ADD',
       'ALL', 'ALLOCATE', 'ALTER', 'AND', 'ANY', 'ARE',
       'AS',
-      'ASC',
       'ASSERTION',
       'AT',
       'AUTHORIZATION',
@@ -81,8 +79,7 @@ class Sql92Examiner(Examiner):
       'COLLATION',
       'COLUMN', 'COMMIT', 'CONDITION', 'CONNECT',
       'CONNECTION',
-      'CONSTRAINT',
-      'CONSTRAINTS',
+      'CONSTRAINT', 'CONSTRAINTS',
       'CONTAINS',
       'CONTINUE',
       'CONVERT',
@@ -98,12 +95,14 @@ class Sql92Examiner(Examiner):
       'DECIMAL', 'DECLARE', 'DEFAULT',
       'DEFERRABLE', 'DEFERRED',
       'DELETE',
+      'DEPTH',
       'DESC',
       'DESCRIBE',
       'DESCRIPTOR',
       'DETERMINISTIC',
       'DIAGNOSTICS',
       'DISCONNECT', 'DISTINCT',
+      'DO',
       'DOMAIN',
       'DOUBLE', 'DROP',
       'ELSE',
@@ -121,12 +120,14 @@ class Sql92Examiner(Examiner):
       'FOUND',
       'FROM', 'FULL', 'FUNCTION',
       'FUSION',
+      'GENERAL',
       'GET', 'GLOBAL',
       'GO', 'GOTO',
       'GRANT', 'GROUP',
       'HANDLER', 'HAVING',
       'HOUR',
       'IDENTITY',
+      'IF',
       'IMMEDIATE',
       'IN', 'INDICATOR',
       'INITIALLY',
@@ -143,7 +144,6 @@ class Sql92Examiner(Examiner):
       'LEADING',
       'LEFT', 'LEVEL', 'LIKE',
       'LOCAL',
-      'LOWER',
       'MATCH',
       'MAX',
       'MIN',
@@ -154,8 +154,7 @@ class Sql92Examiner(Examiner):
       'NEXT',
       'NO',
       'NOT',
-      'NULL',
-      'NULLIF',
+      'NULL', 'NULLIF',
       'NUMERIC',
       'OCTET_LENGTH',
       'OF',
@@ -163,14 +162,11 @@ class Sql92Examiner(Examiner):
       'ONLY', 'OPEN',
       'OPTION',
       'OR', 'ORDER',
-      'OUT', 'OUTER',
       'OUTPUT',
       'OVERLAPS',
       'PAD',
       'PARAMETER',
       'PARTIAL',
-      'PATH',
-      'POSITION',
       'PRECISION',
       'PREPARE',
       'PRESERVE',
@@ -179,7 +175,6 @@ class Sql92Examiner(Examiner):
       'PRIVILEGES',
       'PROCEDURE',
       'PUBLIC',
-      'RANGE',
       'READ',
       'REAL',
       'REFERENCES',
@@ -187,7 +182,8 @@ class Sql92Examiner(Examiner):
       'RESTRICT',
       'RETURN', 'RETURNS', 'REVOKE', 'RIGHT',
       'ROLLBACK',
-      'ROUTINE',
+      'ROLLUP',
+      'READS',
       'ROWS',
       'SCHEMA',
       'SCROLL',
@@ -230,6 +226,194 @@ class Sql92Examiner(Examiner):
       'YEAR',
       'ZONE'
     ]
+
+    keywords_99 = [
+      'AFTER',
+      'ARRAY',
+      'ASENSITIVE',
+      'ASYMMETRIC',
+      'ATOMIC',
+      'BINARY',
+      'BLOB', 'BOOLEAN',
+      'BREADTH',
+      'CLOB',
+      'CLOSE',
+      'CONSTRUCTOR',
+      'CUBE',
+      'CURRENT_DEFAULT_TRANSFORM_GROUP',
+      'CURRENT_ROLE',
+      'CURRENT_TRANSFORM_GROUP_FOR_TYPE',
+      'CYCLE',
+      'DYNAMIC',
+      'EACH',
+      'ELSEIF',
+      'EQUALS',
+      'FILTER',
+      'FREE',
+      'GROUPING',
+      'HOLD',
+      'ITERATE',
+      'LARGE',
+      'LATERAL',
+      'LEAVE',
+      'LOCALTIME', 'LOCALTIMESTAMP',
+      'LOCATOR',
+      'LOOP',
+      'MAP',
+      'METHOD',
+      'MODIFIES',
+      'NCLOB', 'NEW',
+      'NONE',
+      'OBJECT',
+      'OLD',
+      'ORDINALITY',
+      'OUT', 'OUTER',
+      'PARTITION',
+      'RECURSIVE', 'REF',
+      'REFERENCING',
+      'RELEASE', 'REPEAT', 'REGIONAL',
+      'RESULT',
+      'ROW',
+      'SAVEPOINT',
+      'SCOPE',
+      'SEARCH',
+      'SENSITIVE',
+      'SETS',
+      'SIGNAL',
+      'SIMILAR',
+      'SPECIFICTYPE',
+      'START',
+      'STATE',
+      'STATIC',
+      'SYMMETRIC', 'SYSTEM',
+      'TREAT', 'TRIGGER',
+      'UNDER',
+      'UNNEST', 'UNTIL',
+      'WHILE',
+      'WINDOW',
+      'WITHIN', 'WITHOUT'
+    ]
+
+    keywords_2003 = [
+      'BIGINT',
+      'CALLED',
+      'ELEMENT',
+      'LOWER',
+      'MEMBER', 'MERGE',
+      'MULTISET',
+      'OVERLAY',
+      'RANGE',
+      'SUBMULTISET',
+      'TABLESAMPLE'
+    ]
+
+    keywords_2008 = [
+      'ABS',
+      'ARRAY_AGG',
+      'AVG',
+      'BEGIN_FRAME', 'BEGIN_PARTITION',
+      'CARDINALITY',
+      'CEIL', 'CEILING',
+      'CONVERT',
+      'CORR',
+      'COVAR_POP', 'COVAR_SAMPLE',
+      'CUME_DIST',
+      'CURRENT_CATALOG',
+      'CURRENT_SCHEMA',
+      'DENSE_RANK',
+      'END_EXEC',
+      'EVERY',
+      'INTERSECTION',
+      'LIKE_REGEX',
+      'LN',
+      'MOD',
+      'NORMALIZE',
+      'OCTET_LENGTH',
+      'OFFSET',
+      'PERCENT_RANK', 'PERCENTILE_CONT', 'PERCENTILE_DISC',
+      'POSITION',
+      'POSITION_REGEX', 'POWER',
+      'RANK',
+      'REGR_AVGX', 'REGR_AVGY', 'REGR_COUNT', 'REGR_INTERCEPT', 'REGR_R2',
+      'REGR_SLOPE', 'REGR_SXX', 'REGR_SXY', 'REGR_SYY',
+      'ROW_NUMBER',
+      'SQRT',
+      'STDDEV_POP', 'STDDEV_SAMP',
+      'SUBSTRING_REGEX',
+      'SUM',
+      'TRANSLATE',
+      'TRANSLATE_REGEX',
+      'TRIM',
+      'TRUNCATE',
+      'UESCAPE',
+      'UPPER',
+      'VAR_POP', 'VAR_SAMP',
+      'WIDTH_BUCKET'
+    ]
+
+    keywords_2011 = [
+      'ARRAY_MAX_CARDINALITY',
+      'EXP',
+      'FIRST_VALUE',
+      'FRAME_ROW',
+      'GROUPS',
+      'INITIAL',
+      'LAST_VALUE',
+      'LEAD',
+      'MATCH_NUMBER', 'MATCH_RECOGNIZE', 'MATCHES',
+      'OMIT',
+      'PERCENT',
+      'PERIOD', 'PORTION',
+      'PRECEDES',
+      'TRIM_ARRAY',
+      'VALUE_OF',
+      'VERSIONING'
+    ]
+
+    keywords_2016 = [
+      'ACOS',
+      'ASIN',
+      'ATAN',
+      'CLASSIFIER',
+      'COS', 'COSH',
+      'DECFLOAT',
+      'DEFINE',
+      'EMPTY',
+      'EQUALS',
+      'JSON_ARRY', 'JSON_ARRAYAGG', 'JSON_EXISTS', 'JSON_OBJECT',
+      'JSON_OBJECTAGG', 'JSON_QUERY', 'JSON_TABLE', 'JSON_TABLE_PRIMITIVE',
+      'JSON_VALUE',
+      'LAG',
+      'LISTAGG',
+      'LOG', 'LOG10',
+      'NTH_VALUE', 'NTILE',
+      'OCCURRENCES_REGEX',
+      'ONE',
+      'OVER',
+      'PATTERN', 'PER',
+      'PTF',
+      'RUNNING',
+      'SEEK',
+      'SHOW',
+      'SIN', 'SINH',
+      'SUBSET',
+      'TAN', 'TANH'
+    ]
+
+    if year in ['99', '2003', '2008', '2011', '2016']:
+      keywords += keywords_99
+
+    if year in ['2003', '2008', '2011', '2016']:
+      keywords += keywords_2003
+
+    if year in ['2008', '2011', '2016']:
+      keywords += keywords_2008
+
+    if year in ['2011', '2016']:
+      keywords += keywords_2011
+
+    if year in ['2016']:
+      keywords += keywords_2016
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
 
