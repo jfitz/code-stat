@@ -12,8 +12,7 @@ from CppExaminer import CppExaminer
 from CsharpExaminer import CsharpExaminer
 from Fortran66Examiner import Fortran66Examiner
 from Fortran77Examiner import Fortran77Examiner
-from Fortran90Examiner import Fortran90Examiner
-from Fortran95Examiner import Fortran95Examiner
+from FortranFreeFormatExaminer import FortranFreeFormatExaminer
 from HTMLExaminer import HTMLExaminer
 from JavaExaminer import JavaExaminer
 from JavaScriptExaminer import JavaScriptExaminer
@@ -416,10 +415,10 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
     examiners['Fortran-77'] = Fortran77Examiner(code, tab_size, wide)
 
   if 'fortran90' in languages:
-    examiners['Fortran-90'] = Fortran90Examiner(code)
+    examiners['Fortran-90'] = FortranFreeFormatExaminer(code, '90')
 
   if 'fortran95' in languages:
-    examiners['Fortran-95'] = Fortran95Examiner(code)
+    examiners['Fortran-95'] = FortranFreeFormatExaminer(code, '95')
 
   if 'html' in languages:
     examiners['HTML'] = HTMLExaminer(code)
@@ -605,11 +604,11 @@ def tokenize(code, language, tabsize, wide):
     tokens = examiner.tokens
 
   if language in ['f90', 'fortran-90']:
-    examiner = Fortran90Examiner(code)
+    examiner = FortranFreeFormatExaminer(code, '90')
     tokens = examiner.tokens
 
   if language in ['f95', 'fortran-95']:
-    examiner = Fortran90Examiner(code)
+    examiner = FortranFreeFormatExaminer(code, '95')
     tokens = examiner.tokens
 
   if language in ['html', 'php']:
@@ -764,12 +763,12 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide):
     errors = examiner.errors
 
   if language in ['f90', 'fortran-90']:
-    examiner = Fortran90Examiner(code)
+    examiner = FortranFreeFormatExaminer(code, '90')
     confidences = examiner.confidences
     errors = examiner.errors
 
   if language in ['f95', 'fortran-95']:
-    examiner = Fortran90Examiner(code)
+    examiner = FortranFreeFormatExaminer(code, '95')
     confidences = examiner.confidences
     errors = examiner.errors
 

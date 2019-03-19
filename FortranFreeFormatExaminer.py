@@ -23,8 +23,8 @@ from FortranTokenBuilders import (
 )
 from Tokenizer import Tokenizer
 
-class Fortran95Examiner(FortranExaminer):
-  def __init__(self, code):
+class FortranFreeFormatExaminer(FortranExaminer):
+  def __init__(self, code, year):
     super().__init__()
 
     whitespace_tb = WhitespaceTokenBuilder()
@@ -81,9 +81,15 @@ class Fortran95Examiner(FortranExaminer):
       'namelist', 'nullify', 'only', 'operator', 'optional', 'pointer',
       'private', 'procedure', 'public', 'recursive', 'result', 'select',
       'sequence', 'target', 'type', 'use', 'while', 'where',
-      'enddo', 'none',
+      'enddo', 'none'
+    ]
+
+    keywords_95 = [
       'FORALL', 'PURE', 'ELEMENTAL'
     ]
+
+    if year == '95':
+      keywords += keywords_95
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
 
