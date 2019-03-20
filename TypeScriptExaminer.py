@@ -143,3 +143,4 @@ class TypeScriptExaminer(Examiner):
     # self.calc_operand_confidence()
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
+    self.calc_statistics()

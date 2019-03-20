@@ -148,3 +148,4 @@ class PascalExaminer(Examiner):
         program_end_confidence += 0.25
 
     self.confidences['program_end'] = program_end_confidence
+    self.calc_statistics()

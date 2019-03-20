@@ -179,3 +179,4 @@ class PythonExaminer(Examiner):
       line_format_2_confidence = num_lines_correct / num_lines
 
     self.confidences['line_format_2'] = line_format_2_confidence
+    self.calc_statistics()

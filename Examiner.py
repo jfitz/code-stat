@@ -18,6 +18,7 @@ class Examiner:
     self.postfix_operators = []
     self.confidences = {}
     self.errors = []
+    self.statistics = {}
     self.newlines_important = 'never'
 
 
@@ -428,3 +429,14 @@ class Examiner:
 
     if len(keywords) > 0:
       self.confidences['keyword'] = 1.0
+
+
+  def calc_statistics(self):
+    self.statistics = {}
+
+    for token in self.tokens:
+      ctype = token.group
+      if ctype in self.statistics:
+        self.statistics[ctype] += 1
+      else:
+        self.statistics[ctype] = 1

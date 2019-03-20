@@ -146,3 +146,4 @@ class FortranFixedFormatExaminer(FortranExaminer):
     self.calc_keyword_confidence()
     if not wide:
       self.calc_line_length_confidence(code, 80)
+    self.calc_statistics()

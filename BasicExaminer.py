@@ -132,6 +132,7 @@ class BasicExaminer(Examiner):
     self.calc_operand_confidence()
     self.calc_keyword_confidence()
     self.calc_line_format_confidence()
+    self.calc_statistics()
 
 
   def calc_line_format_confidence(self):

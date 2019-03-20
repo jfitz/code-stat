@@ -141,3 +141,4 @@ class RubyExaminer(Examiner):
     self.calc_operator_3_confidence()
     # self.calc_operand_confidence()
     self.calc_keyword_confidence()
+    self.calc_statistics()

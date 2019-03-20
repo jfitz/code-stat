@@ -291,3 +291,4 @@ class CobolFixedFormatExaminer(CobolExaminer):
     if not wide:
       self.calc_line_length_confidence(code, 80)
     self.confidences['expected_keywords'] = expected_keyword_confidence
+    self.calc_statistics()

@@ -569,3 +569,4 @@ class CobolFreeFormatExaminer(CobolExaminer):
     self.calc_keyword_confidence()
     self.calc_picture_confidence()
     self.confidences['expected_keywords'] = expected_keyword_confidence
+    self.calc_statistics()

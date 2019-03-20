@@ -219,6 +219,28 @@ def confidence():
   return json_text
 
 
+@app.route('/statistics', methods=['POST'])
+def statistics():
+  language = ''
+  if 'language' in request.args:
+    language = request.args['language']
+
+  tabsize = 8
+  if 'tabsize' in request.args:
+    tabsize = request.args['tabsize']
+
+  wide = False
+  if 'wide' in request.args:
+    wide = True
+
+  request_bytes = request.get_data()
+  text = decode_bytes(request_bytes)
+
+  json_text = tokenize_statistics(text, language.lower(), tabsize, wide)
+
+  return json_text
+
+
 def tabs_to_spaces(text, tab_size):
   column = 0
   detabbed_text = ''
@@ -869,6 +891,155 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide):
     retval = json.dumps(errors)
   else:
     retval = json.dumps(confidences)
+
+  return retval
+
+
+def tokenize_statistics(code, language, tabsize, wide):
+  try:
+    tab_size = int(tabsize)
+  except ValueError:
+    tab_size = 8
+
+  statistics = {}
+
+  if language in ['basic', 'bas']:
+    examiner = BasicExaminer(code)
+    statistics = examiner.statistics
+
+  if language in ['c']:
+    examiner = CExaminer(code)
+    statistics = examiner.statistics
+
+  if language in ['c++', 'cplusplus']:
+    examiner = CppExaminer(code)
+    statistics = examiner.statistics
+
+  if language in ['c#', 'csharp']:
+    examiner = CsharpExaminer(code)
+    statistics = examiner.statistics
+
+  if language in ['cbasic']:
+    examiner = CBasicExaminer(code)
+    statistics = examiner.statistics
+
+  if language in ['cobol-68']:
+    examiner = CobolFixedFormatExaminer(code, '68', '', tab_size, wide)
+    statistics = examiner.statistics
+
+  if language in ['cobol-74']:
+    examiner = CobolFixedFormatExaminer(code, '74', '', tab_size, wide)
+    statistics = examiner.statistics
+
+  if language in ['cobol-85', 'cobol', 'cob', 'cbl']:
+    examiner = CobolFixedFormatExaminer(code, '85', '', tab_size, wide)
+    statistics = examiner.statistics
+
+  if language in ['cobol-2002']:
+    examiner = CobolFreeFormatExaminer(code, '2002', '')
+    statistics = examiner.statistics
+
+  if language in ['cobol-2014']:
+    examiner = CobolFreeFormatExaminer(code, '2014', '')
+    statistics = examiner.statistics
+
+  if language in ['cobol-2014-acu']:
+    examiner = CobolFreeFormatExaminer(code, '2014', 'acu')
+    statistics = examiner.statistics
+
+  if language in ['cobol-2014-ibm']:
+    examiner = CobolFreeFormatExaminer(code, '2014', 'ibm')
+    statistics = examiner.statistics
+
+  if language in ['cobol-2014-gnu']:
+    examiner = CobolFreeFormatExaminer(code, '2014', 'gnu')
+    statistics = examiner.statistics
+
+  if language in ['fortran', 'for', 'ftn', 'fortran-66']:
+    examiner = FortranFixedFormatExaminer(code, '66', tab_size, wide)
+    statistics = examiner.statistics
+
+  if language in ['f77', 'fortran-77']:
+    examiner = FortranFixedFormatExaminer(code, '77', tab_size, wide)
+    statistics = examiner.statistics
+
+  if language in ['f90', 'fortran-90']:
+    examiner = FortranFreeFormatExaminer(code, '90')
+    statistics = examiner.statistics
+
+  if language in ['f95', 'fortran-95']:
+    examiner = FortranFreeFormatExaminer(code, '95')
+    statistics = examiner.statistics
+
+  if language in ['html', 'php']:
+    examiner = HTMLExaminer(code)
+    statistics = examiner.statistics
+
+  if language in ['java', 'jav']:
+    examiner = JavaExaminer(code)
+    statistics = examiner.statistics
+
+  if language in ['javascript', 'js']:
+    examiner = JavaScriptExaminer(code)
+    statistics = examiner.statistics
+
+  if language in ['objective-c', 'objc']:
+    examiner = ObjectiveCExaminer(code)
+    statistics = examiner.statistics
+
+  if language in ['pascal', 'pas']:
+    examiner = PascalExaminer(code)
+    statistics = examiner.statistics
+
+  if language in ['prolog']:
+    examiner = PrologExaminer(code)
+    statistics = examiner.statistics
+
+  if language in ['python', 'py']:
+    examiner = PythonExaminer(code)
+    statistics = examiner.statistics
+
+  if language in ['r', 'rmd']:
+    examiner = RExaminer(code)
+    statistics = examiner.statistics
+
+  if language in ['ruby', 'rb']:
+    examiner = RubyExaminer(code)
+    statistics = examiner.statistics
+
+  if language in ['sql-92']:
+    examiner = SqlExaminer(code, '92', '')
+    statistics = examiner.statistics
+
+  if language in ['sql-99']:
+    examiner = SqlExaminer(code, '99', '')
+    statistics = examiner.statistics
+
+  if language in ['sql-2003']:
+    examiner = SqlExaminer(code, '2003', '')
+    statistics = examiner.statistics
+
+  if language in ['sql-2008']:
+    examiner = SqlExaminer(code, '2008', '')
+    statistics = examiner.statistics
+
+  if language in ['sql-2011']:
+    examiner = SqlExaminer(code, '2011', '')
+    statistics = examiner.statistics
+
+  if language in ['sql-2016']:
+    examiner = SqlExaminer(code, '2016', '')
+    statistics = examiner.statistics
+
+  if language in ['swift']:
+    examiner = SwiftExaminer(code)
+    statistics = examiner.statistics
+
+  if language in ['typescript']:
+    examiner = TypeScriptExaminer(code)
+    statistics = examiner.statistics
+
+  retval = json.dumps(statistics)
 
   return retval
 
