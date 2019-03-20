@@ -252,11 +252,18 @@ function detectLanguage() {
   var results = '';
   var code = document.getElementById('code').value;
 
+  var languageParam = ''
   var languages = buildLanguageList();
-  var languageParam = 'languages=' + languages.join(' ');
+  if (languages.length > 0) {
+    languageParam = 'languages=' + languages.join(' ');
+  }
 
   var req = new XMLHttpRequest();
-  var params = '/detect' + '?' + languageParam
+  var params = '/detect'
+  if (languageParam.length > 0) {
+    params += '?' + languageParam
+  }
+
   req.open('POST', params, true);
   req.setRequestHeader('Content-type', 'text/plain');
 
