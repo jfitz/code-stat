@@ -23,6 +23,7 @@ from RExaminer import RExaminer
 from RubyExaminer import RubyExaminer
 from SqlExaminer import SqlExaminer
 from SwiftExaminer import SwiftExaminer
+from TypeScriptExaminer import TypeScriptExaminer
 
 
 def decode_bytes(in_bytes):
@@ -76,7 +77,8 @@ codesAndNames = {
   'sql2008': 'SQL-2008',
   'sql2011': 'SQL-2011',
   'sql2016': 'SQL-2016',
-  'swift': 'Swift'
+  'swift': 'Swift',
+  'typescript': 'TypeScript'
 }
 
 @app.route('/languages', methods=['GET'])
@@ -467,6 +469,9 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
   if 'swift' in languages:
     examiners['Swift'] = SwiftExaminer(code)
 
+  if 'typescript' in languages:
+    examiners['TypeScript'] = TypeScriptExaminer(code)
+
   # get confidence values
   retval = {}
   highest_confidence = 0
@@ -674,6 +679,10 @@ def tokenize(code, language, tabsize, wide):
     examiner = SwiftExaminer(code)
     tokens = examiner.tokens
 
+  if language in ['typescript']:
+    examiner = TypeScriptExaminer(code)
+    tokens = examiner.tokens
+
   return tokens
 
 
@@ -848,6 +857,11 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide):
 
   if language in ['swift']:
     examiner = SwiftExaminer(code)
+    confidences = examiner.confidences
+    errors = examiner.errors
+
+  if language in ['typescript']:
+    examiner = TypeScriptExaminer(code)
     confidences = examiner.confidences
     errors = examiner.errors
 

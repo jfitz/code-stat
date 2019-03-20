@@ -13,13 +13,13 @@ from TokenBuilders import (
   ListTokenBuilder,
   LeadCommentTokenBuilder,
   PrefixedIdentifierTokenBuilder,
-  RegexTokenBuilder
+  RegexTokenBuilder,
+  FollowTokenBuilder
 )
 from RubyTokenBuilders import (
   RubyIdentifierTokenBuilder,
   RubyParamGrouperTokenBuilder,
-  HereDocTokenBuilder,
-  RubyFollowTokenBuilder
+  HereDocTokenBuilder
 )
 from Tokenizer import Tokenizer
 
@@ -99,9 +99,9 @@ class RubyExaminer(Examiner):
 
     array_marker_tb = ListTokenBuilder(array_markers, 'identifier', True)
 
-    operator_def_tb = RubyFollowTokenBuilder(known_operators, 'identifier', True, 'keyword', 'def')
-    keyword_iden_tb = RubyFollowTokenBuilder(keywords, 'identifier', True, 'operator', '.')
-    group_iden_tb = RubyFollowTokenBuilder(groupers, 'identifier3', True, 'operator', '.')
+    operator_def_tb = FollowTokenBuilder(known_operators, 'identifier', True, 'keyword', 'def')
+    keyword_iden_tb = FollowTokenBuilder(keywords, 'identifier', True, 'operator', '.')
+    group_iden_tb = FollowTokenBuilder(groupers, 'identifier', True, 'operator', '.')
 
     invalid_token_builder = InvalidTokenBuilder()
 

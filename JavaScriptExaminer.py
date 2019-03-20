@@ -47,7 +47,7 @@ class JavaScriptExaminer(Examiner):
     known_operators = [
       '+', '-', '*', '/', '%',
       '=', '==', '!=', '===', '!==', '>', '>=', '<', '<=',
-      '+=', '-=', '*=', '/=', '%=', '**=', '&=', '|=', '^=', '<<=', '>>=', '>>>=',
+      '+=', '-=', '*=', '/=', '%=', '**=', '&=', '|=', '^=', '<<=', '>>=',
       '!', '&', '|', '~', '<<', '>>', '>>>', '>>>=',
       '^', '**',
       '.', ':',
@@ -78,7 +78,7 @@ class JavaScriptExaminer(Examiner):
       'debugger', 'default', 'delete', 'do', 'else', 'export',
       'extends', 'finally', 'for', 'function', 'if', 'import',
       'in', 'instanceof', 'new', 'return', 'switch',
-      'this', 'throw', 'try', 'typeof', 'var', 'void', 'while',
+      'throw', 'try', 'typeof', 'var', 'void', 'while',
       'with', 'yield',
       'abstract', 'final',
       'goto', 'native', 'synchronized',
@@ -94,7 +94,7 @@ class JavaScriptExaminer(Examiner):
     types_tb = ListTokenBuilder(types, 'type', True)
 
     values = [
-      'super', 'null', 'true', 'false'
+      'this', 'super', 'null', 'true', 'false'
     ]
 
     values_tb = ListTokenBuilder(values, 'value', True)

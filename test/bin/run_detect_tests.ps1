@@ -183,6 +183,9 @@ test\bin\run_test.ps1 -json -name MealTableViewController -action detect -tiebre
 test\bin\run_test.ps1 -json -name MealViewController -action detect -tiebreak -inputfile ".\test\data\Swift\MealViewController.swift" -expected ".\test\ref\detect\Swift\MealViewController.txt"
 test\bin\run_test.ps1 -json -name RatingControl -action detect -tiebreak -inputfile ".\test\data\Swift\RatingControl.swift" -expected ".\test\ref\detect\Swift\RatingControl.txt"
 
+test\bin\run_test.ps1 -json -name TimeReporter-ts -action detect -language TypeScript -inputfile ".\test\data\TypeScript\TimeReporter.ts" -expected ".\test\ref\detect\TypeScript\TimeReporter.txt"
+test\bin\run_test.ps1 -json -name ImageBoard-ts -action detect -language TypeScript -inputfile ".\test\data\TypeScript\ImageBoard.ts" -expected ".\test\ref\detect\TypeScript\ImageBoard.txt"
+
 test\bin\run_test.ps1 -json -name polyglot -action detect -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\detect\multiple\polyglot.txt"
 test\bin\run_test.ps1 -json -name polyglot-languages -action detect -languages c,cplusplus,cobol68,cobol74,cobol85,objectivec,pascal -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\detect\multiple\polyglot-languages.txt"
 
