@@ -74,14 +74,7 @@ class PictureTokenBuilder(TokenBuilder):
     if num_lparens != num_rparens:
       return 0
 
-    boost = 0
-
-    if len(line_printable_tokens) > 0 and \
-     line_printable_tokens[-1].group == 'keyword' and \
-     line_printable_tokens[-1].text in (name.upper() for name in ['PIC', 'PICTURE']):
-      boost += 0.5
-
-    return len(self.text) + boost
+    return len(self.text)
 
 
 # token reader for PIC descriptor
@@ -141,14 +134,7 @@ class CRPictureTokenBuilder(TokenBuilder):
     if num_lparens != num_rparens:
       return 0
 
-    boost = 0
-
-    if len(line_printable_tokens) > 0 and \
-     line_printable_tokens[-1].group == 'keyword' and \
-     line_printable_tokens[-1].text in (name.upper() for name in ['PIC', 'PICTURE']):
-      boost += 0.5
-
-    return len(self.text) + boost
+    return len(self.text)
 
 
 # token reader for >> directive

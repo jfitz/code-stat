@@ -2,6 +2,14 @@ from Token import Token
 from Examiner import Examiner
 
 
+def all_nines(s):
+  for c in s:
+    if c != '9':
+      return False
+  
+  return True
+
+
 class CobolExaminer(Examiner):
   def __init__(self):
     super().__init__()
@@ -107,6 +115,18 @@ class CobolExaminer(Examiner):
       tokens += line_tokens
 
     return tokens
+
+
+  def ConvertNumbersToPictures(self):
+    prev_token = Token('newline', '\n')
+
+    for token in self.tokens:
+      if token.group == 'number' and all_nines(token.text) and\
+        prev_token.group == 'keyword' and prev_token.text in ['PIC', 'PICTURE']:
+        token.group = 'picture'
+
+      if token.group not in ['whitespace', 'comment', 'newline']:
+        prev_token = token
 
 
   def CheckExpectedKeywords(self):

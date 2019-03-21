@@ -279,6 +279,8 @@ class CobolFixedFormatExaminer(CobolExaminer):
     self.tokens = self.TokenizeCode(code, tab_size, tokenizer, wide)
     self.tokens = self.combineAdjacentWhitespace(self.tokens)
 
+    self.ConvertNumbersToPictures()
+
     expected_keyword_confidence = self.CheckExpectedKeywords()
 
     self.calc_token_confidence()

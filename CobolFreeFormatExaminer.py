@@ -559,6 +559,8 @@ class CobolFreeFormatExaminer(CobolExaminer):
     tokenizer = Tokenizer(tokenbuilders)
     self.tokens += tokenizer.tokenize(code)
 
+    self.ConvertNumbersToPictures()
+
     expected_keyword_confidence = self.CheckExpectedKeywords()
 
     self.calc_token_confidence()
