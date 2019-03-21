@@ -121,7 +121,7 @@ class FortranExaminer(Examiner):
 
 
   def ConvertNumbersToLineNumbers(self):
-    prev_token = Token('newline', '\n')
+    prev_token = Token('\n', 'newline')
 
     for token in self.tokens:
       if token.group == 'number' and\

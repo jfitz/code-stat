@@ -1,5 +1,6 @@
 import string
 from Examiner import Examiner
+from Token import Token
 from TokenBuilders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
@@ -16,8 +17,7 @@ from TokenBuilders import (
 from BasicTokenBuilders import (
   BasicSuffixedIntegerTokenBuilder,
   BasicSuffixedRealTokenBuilder,
-  RemarkTokenBuilder,
-  LineNumberTokenBuilder
+  RemarkTokenBuilder
 )
 from CBasicTokenBuilders import (
   CBasicVariableTokenBuilder,
@@ -44,7 +44,6 @@ class CBasicExaminer(Examiner):
     string_tb = StringTokenBuilder(['"'], True, False)
     remark_tb = RemarkTokenBuilder()
     comment_tb = LeadCommentTokenBuilder("'")
-    line_number_tb = LineNumberTokenBuilder()
 
     stmt_separator_tb = ListTokenBuilder([':'], 'statement separator', False)
 
@@ -114,7 +113,6 @@ class CBasicExaminer(Examiner):
       real_exponent_tb,
       hex_constant_tb,
       binary_constant_tb,
-      line_number_tb,
       string_tb,
       known_operator_tb,
       groupers_tb,
@@ -131,6 +129,8 @@ class CBasicExaminer(Examiner):
     tokenizer = Tokenizer(tokenbuilders)
     self.tokens = tokenizer.tokenize(code)
 
+    self.ConvertNumbersToLineNumbers()
+
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
@@ -139,3 +139,26 @@ class CBasicExaminer(Examiner):
     self.calc_keyword_confidence()
     self.calc_line_format_confidence()
     self.calc_statistics()
+
+
+  def ConvertNumbersToLineNumbers(self):
+    prev_token = Token('\n', 'newline')
+
+    prev_line_continuation = False
+    line_continuation = False
+
+    for token in self.tokens:
+      if token.group == 'number' and\
+        prev_token.group == 'newline' and\
+        not prev_line_continuation:
+        token.group = 'line number'
+
+      if token.group == 'line continuation':
+        line_continuation = True
+
+      if token.group not in ['whitespace', 'comment']:
+        prev_token = token
+
+      if token.group == 'newline':
+        prev_line_continuation = line_continuation
+        line_continuation = False

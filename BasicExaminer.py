@@ -1,5 +1,6 @@
 import string
 from Examiner import Examiner
+from Token import Token
 from TokenBuilders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
@@ -18,8 +19,7 @@ from BasicTokenBuilders import (
   BasicSuffixed2IntegerTokenBuilder,
   BasicSuffixedRealTokenBuilder,
   BasicVariableTokenBuilder,
-  RemarkTokenBuilder,
-  LineNumberTokenBuilder
+  RemarkTokenBuilder
 )
 from Tokenizer import Tokenizer
 
@@ -46,7 +46,6 @@ class BasicExaminer(Examiner):
     string_tb = StringTokenBuilder(['"'], True, False)
     remark_tb = RemarkTokenBuilder()
     comment_tb = LeadCommentTokenBuilder("'")
-    line_number_tb = LineNumberTokenBuilder()
 
     stmt_separator_tb = ListTokenBuilder([':'], 'statement separator', False)
 
@@ -109,7 +108,6 @@ class BasicExaminer(Examiner):
       hex_constant_tb,
       octal_constant_tb,
       binary_constant_tb,
-      line_number_tb,
       string_tb,
       known_operator_tb,
       groupers_tb,
@@ -125,6 +123,8 @@ class BasicExaminer(Examiner):
     tokenizer = Tokenizer(tokenbuilders)
     self.tokens = tokenizer.tokenize(code)
 
+    self.ConvertNumbersToLineNumbers()
+
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
@@ -133,6 +133,18 @@ class BasicExaminer(Examiner):
     self.calc_keyword_confidence()
     self.calc_line_format_confidence()
     self.calc_statistics()
+
+
+  def ConvertNumbersToLineNumbers(self):
+    prev_token = Token('\n', 'newline')
+
+    for token in self.tokens:
+      if token.group == 'number' and\
+        prev_token.group == 'newline':
+        token.group = 'line number'
+
+      if token.group not in ['whitespace', 'comment']:
+        prev_token = token
 
 
   def calc_line_format_confidence(self):
