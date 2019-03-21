@@ -28,35 +28,6 @@ class FortranIdentifierTokenBuilder(TokenBuilder):
     return result
 
 
-# token reader for number
-class LineNumberTokenBuilder(TokenBuilder):
-  def __init__(self):
-    self.text = None
-
-
-  def get_tokens(self):
-    if self.text is None:
-      return None
-
-    return [Token(self.text, 'line number')]
-
-
-  def accept(self, candidate, c):
-    return c.isdigit()
-
-
-  def get_score(self, line_printable_tokens):
-    if self.text is None:
-      return 0
-
-    boost = 0
-
-    if len(line_printable_tokens) > 0 and line_printable_tokens[-1].group == 'newline':
-      boost += 0.5
-
-    return len(self.text) + boost
-
-
 # token reader for FORMAT specifiers (but not Hollerith specifiers)
 class FormatSpecifierTokenBuilder(TokenBuilder):
   def __init__(self):

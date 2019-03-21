@@ -129,6 +129,8 @@ class FortranFreeFormatExaminer(FortranExaminer):
     tokenizer = Tokenizer(tokenbuilders)
     self.tokens = tokenizer.tokenize(code)
 
+    self.ConvertNumbersToLineNumbers()
+
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()

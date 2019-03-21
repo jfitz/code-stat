@@ -118,3 +118,15 @@ class FortranExaminer(Examiner):
       tokens += line_tokens
 
     return tokens
+
+
+  def ConvertNumbersToLineNumbers(self):
+    prev_token = Token('newline', '\n')
+
+    for token in self.tokens:
+      if token.group == 'number' and\
+        prev_token.group == 'newline':
+        token.group = 'line number'
+
+      if token.group not in ['whitespace', 'comment']:
+        prev_token = token

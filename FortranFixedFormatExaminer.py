@@ -15,7 +15,6 @@ from TokenBuilders import (
 )
 from FortranTokenBuilders import (
   FortranIdentifierTokenBuilder,
-  LineNumberTokenBuilder,
   FortranIORefTokenBuilder,
   FormatSpecifierTokenBuilder,
   HollerithStringTokenBuilder
@@ -134,6 +133,8 @@ class FortranFixedFormatExaminer(FortranExaminer):
       ]
 
     tokenizer = Tokenizer(tokenbuilders)
+
+    self.ConvertNumbersToLineNumbers()
 
     self.tokens = self.TokenizeCode(code, tab_size, tokenizer, wide)
     self.tokens = self.combineAdjacentWhitespace(self.tokens)
