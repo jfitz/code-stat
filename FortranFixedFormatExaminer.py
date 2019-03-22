@@ -15,7 +15,6 @@ from TokenBuilders import (
 )
 from FortranTokenBuilders import (
   FortranIdentifierTokenBuilder,
-  FortranIORefTokenBuilder,
   FormatSpecifierTokenBuilder,
   HollerithStringTokenBuilder
 )
@@ -36,7 +35,6 @@ class FortranFixedFormatExaminer(FortranExaminer):
     identifier_tb = FortranIdentifierTokenBuilder()
     hollerith_tb = HollerithStringTokenBuilder()
     string_tb = StringTokenBuilder(["'", '"'], True, False)
-    ioref_tb = FortranIORefTokenBuilder()
     format_tb = FormatSpecifierTokenBuilder()
 
     known_operators = [
@@ -126,7 +124,6 @@ class FortranFixedFormatExaminer(FortranExaminer):
         known_operator_tb,
         groupers_tb,
         identifier_tb,
-        ioref_tb,
         string_tb,
         self.unknown_operator_tb,
         invalid_token_builder
@@ -134,10 +131,11 @@ class FortranFixedFormatExaminer(FortranExaminer):
 
     tokenizer = Tokenizer(tokenbuilders)
 
-    self.ConvertNumbersToLineNumbers()
-
     self.tokens = self.TokenizeCode(code, tab_size, tokenizer, wide)
     self.tokens = self.combineAdjacentWhitespace(self.tokens)
+
+    self.ConvertNumbersToLineNumbers()
+    self.ConvertStarsToIOChannels()
 
     self.calc_token_confidence()
     self.calc_operator_confidence()

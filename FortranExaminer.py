@@ -130,3 +130,39 @@ class FortranExaminer(Examiner):
 
       if token.group not in ['whitespace', 'comment']:
         prev_token = token
+
+
+  def ConvertStarsToIOChannels(self):
+    prev_tokens = [
+      Token('\n', 'newline'),
+      Token('\n', 'newline'),
+      Token('\n', 'newline'),
+      Token('\n', 'newline')
+    ]
+
+    for token in self.tokens:
+      if token.group == 'operator' and token.text == '*' and\
+        prev_tokens[-1].group == 'keyword' and\
+        prev_tokens[-1].text.lower() in ['read', 'write', 'print']:
+        token.group = 'number'
+
+      if token.group == 'operator' and token.text == '*' and\
+        prev_tokens[-1].group == 'group' and\
+        prev_tokens[-1].text == '(' and\
+        prev_tokens[-2].group == 'keyword' and\
+        prev_tokens[-2].text.lower() in ['read', 'write', 'print']:
+        token.group = 'number'
+
+      if token.group == 'operator' and token.text == '*' and\
+        prev_tokens[-1].group == 'group' and\
+        prev_tokens[-1].text == ',' and\
+        prev_tokens[-2].group == 'number' and\
+        prev_tokens[-3].group == 'group' and\
+        prev_tokens[-3].text == '(' and\
+        prev_tokens[-4].group == 'keyword' and\
+        prev_tokens[-4].text.lower() in ['read', 'write', 'print']:
+        token.group = 'number'
+
+      if token.group not in ['whitespace', 'comment']:
+        prev_tokens.append(token)
+        prev_tokens.pop(0)
