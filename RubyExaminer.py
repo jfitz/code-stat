@@ -18,7 +18,6 @@ from TokenBuilders import (
 )
 from RubyTokenBuilders import (
   RubyIdentifierTokenBuilder,
-  RubyParamGrouperTokenBuilder,
   HereDocTokenBuilder
 )
 from Tokenizer import Tokenizer
@@ -38,7 +37,6 @@ class RubyExaminer(Examiner):
     identifier_tb = RubyIdentifierTokenBuilder()
     symbol_tb = PrefixedIdentifierTokenBuilder(':', 'symbol')
     string_tb = StringTokenBuilder(['"', "'"], False, False)
-    param_group_tb = RubyParamGrouperTokenBuilder()
     heredoc_tb = HereDocTokenBuilder()
 
     hash_comment_tb = LeadCommentTokenBuilder('#')
@@ -119,7 +117,6 @@ class RubyExaminer(Examiner):
       symbol_tb,
       known_operator_tb,
       operator_def_tb,
-      param_group_tb,
       groupers_tb,
       group_iden_tb,
       regex_tb,
@@ -135,6 +132,8 @@ class RubyExaminer(Examiner):
     tokenizer = Tokenizer(tokenbuilders)
     self.tokens = tokenizer.tokenize(code)
 
+    self.ConvertBarsToGroups()
+
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
@@ -142,3 +141,29 @@ class RubyExaminer(Examiner):
     # self.calc_operand_confidence()
     self.calc_keyword_confidence()
     self.calc_statistics()
+
+
+  def ConvertBarsToGroups(self):
+    bar_count = 2
+
+    for token in self.tokens:
+      if token.group in ['whitespace', 'comment']:
+        continue
+
+      if bar_count < 2:
+        if token.group == 'operator' and token.text == '|':
+          token.group = 'group'
+          bar_count += 1
+          continue
+
+        if token.group == 'identifier':
+          continue
+  
+        if token.group ==  'group' and token.text == ',':
+          continue
+
+        bar_count = 2
+
+      if (token.group == 'keyword' and token.text == 'do') or \
+         (token.group == 'group' and token.text == '{'):
+        bar_count = 0
