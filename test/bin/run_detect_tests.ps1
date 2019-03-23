@@ -114,6 +114,10 @@ test\bin\run_test.ps1 -json -name geo4060-ftn2003 -action detect -inputfile ".\t
 test\bin\run_test.ps1 -json -name temp-sub-ftn2003 -action detect -inputfile ".\test\data\Fortran-2003\temp_sub.for" -expected ".\test\ref\detect\Fortran-2003\temp_sub.txt"
 test\bin\run_test.ps1 -json -name temp-func-ftn2003 -action detect -inputfile ".\test\data\Fortran-2003\temp_func.for" -expected ".\test\ref\detect\Fortran-2003\temp_func.txt"
 
+test\bin\run_test.ps1 -json -name geo4060-ftn2008 -action detect -inputfile ".\test\data\Fortran-2008\geo4060.for" -expected ".\test\ref\detect\Fortran-2008\geo4060.txt"
+test\bin\run_test.ps1 -json -name temp-sub-ftn2008 -action detect -inputfile ".\test\data\Fortran-2008\temp_sub.for" -expected ".\test\ref\detect\Fortran-2008\temp_sub.txt"
+test\bin\run_test.ps1 -json -name temp-func-ftn2008 -action detect -inputfile ".\test\data\Fortran-2008\temp_func.for" -expected ".\test\ref\detect\Fortran-2008\temp_func.txt"
+
 test\bin\run_test.ps1 -json -name knuth-html -action detect -inputfile ".\test\data\HTML\knuth.html" -expected ".\test\ref\detect\HTML\knuth.txt"
 test\bin\run_test.ps1 -json -name developer-html -action detect -inputfile ".\test\data\HTML\developer-css.html" -expected ".\test\ref\detect\HTML\developer-css.txt"
 test\bin\run_test.ps1 -json -name codestat-html -action detect -inputfile ".\test\data\HTML\codestat-css-javascript.html" -expected ".\test\ref\detect\HTML\codestat-css-javascript.txt"

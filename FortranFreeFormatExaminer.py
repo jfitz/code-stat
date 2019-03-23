@@ -95,16 +95,20 @@ class FortranFreeFormatExaminer(FortranExaminer):
       'block', 'contiguous'
     ]
 
-    if year in ['95', '2003']:
+    if year in ['95', '2003', '2008']:
       keywords += keywords_95
 
-    if year in [2003]:
+    if year in ['2003', '2008']:
       keywords += keywords_2003
+
+    if year in ['2008']:
+      keywords += keywords_2008
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
 
     types = [
-      'INTEGER', 'REAL', 'COMPLEX', 'DOUBLE PRECISION', 'LOGICAL', 'CHARACTER'
+      'INTEGER', 'REAL', 'COMPLEX', 'DOUBLE PRECISION', 'DOUBLEPRECISION',
+      'DOUBLE', 'PRECISION', 'LOGICAL', 'CHARACTER'
     ]
 
     types_tb = ListTokenBuilder(types, 'type', False)

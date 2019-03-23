@@ -63,6 +63,7 @@ codesAndNames = {
   'fortran90': 'Fortran-90',
   'fortran95': 'Fortran-95',
   'fortran2003': 'Fortran-2003',
+  'fortran2008': 'Fortran-2008',
   'java': 'Java',
   'javascript': 'JavaScript',
   'html': 'HTML',
@@ -447,6 +448,9 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
   if 'fortran2003' in languages:
     examiners['Fortran-2003'] = FortranFreeFormatExaminer(code, '2003')
 
+  if 'fortran2008' in languages:
+    examiners['Fortran-2008'] = FortranFreeFormatExaminer(code, '2008')
+
   if 'html' in languages:
     examiners['HTML'] = HTMLExaminer(code)
 
@@ -645,6 +649,10 @@ def tokenize(code, language, tabsize, wide):
     examiner = FortranFreeFormatExaminer(code, '2003')
     tokens = examiner.tokens
 
+  if language in ['f08', 'fortran-2008']:
+    examiner = FortranFreeFormatExaminer(code, '2008')
+    tokens = examiner.tokens
+
   if language in ['html', 'php']:
     examiner = HTMLExaminer(code)
     tokens = examiner.tokens
@@ -812,6 +820,11 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide):
 
   if language in ['f03', 'fortran-2003']:
     examiner = FortranFreeFormatExaminer(code, '2003')
+    confidences = examiner.confidences
+    errors = examiner.errors
+
+  if language in ['f08', 'fortran-2008']:
+    examiner = FortranFreeFormatExaminer(code, '2008')
     confidences = examiner.confidences
     errors = examiner.errors
 
@@ -986,6 +999,10 @@ def tokenize_statistics(code, language, tabsize, wide):
 
   if language in ['f03', 'fortran-2003']:
     examiner = FortranFreeFormatExaminer(code, '2003')
+    statistics = examiner.statistics
+
+  if language in ['f08', 'fortran-2008']:
+    examiner = FortranFreeFormatExaminer(code, '2008')
     statistics = examiner.statistics
 
   if language in ['html', 'php']:
