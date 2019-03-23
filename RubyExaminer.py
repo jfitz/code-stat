@@ -14,8 +14,7 @@ from TokenBuilders import (
   ListTokenBuilder,
   LeadCommentTokenBuilder,
   PrefixedIdentifierTokenBuilder,
-  RegexTokenBuilder,
-  FollowTokenBuilder
+  RegexTokenBuilder
 )
 from RubyTokenBuilders import (
   RubyIdentifierTokenBuilder,
@@ -163,18 +162,6 @@ class RubyExaminer(Examiner):
       if (token.group == 'keyword' and token.text == 'do') or \
          (token.group == 'group' and token.text == '{'):
         bar_count = 0
-
-
-  def ConvertKeywordsToIdentifiers(self):
-    prev_token = Token('\n', 'newline')
-
-    for token in self.tokens:
-      if token.group == 'keyword' and\
-        prev_token.group == 'operator' and prev_token.text == '.':
-        token.group = 'identifier'
-
-      if token.group not in ['whitespace', 'comment', 'newline']:
-        prev_token = token
 
 
   def ConvertOperatorsToIdentifiers(self):

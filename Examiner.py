@@ -171,6 +171,18 @@ class Examiner:
     return new_list
 
 
+  def ConvertKeywordsToIdentifiers(self):
+    prev_token = Token('\n', 'newline')
+
+    for token in self.tokens:
+      if token.group == 'keyword' and\
+        prev_token.group == 'operator' and prev_token.text == '.':
+        token.group = 'identifier'
+
+      if token.group not in ['whitespace', 'comment', 'newline']:
+        prev_token = token
+
+
   def calc_line_length_confidence(self, code, width):
     num_ok_lines = 0
     lines = code.split('\n')

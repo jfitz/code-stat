@@ -13,8 +13,7 @@ from TokenBuilders import (
   IdentifierTokenBuilder,
   ListTokenBuilder,
   PrefixedIntegerTokenBuilder,
-  RegexTokenBuilder,
-  FollowTokenBuilder
+  RegexTokenBuilder
 )
 from CXTokenBuilders import (
   SlashSlashCommentTokenBuilder,
@@ -103,8 +102,6 @@ class TypeScriptExaminer(Examiner):
 
     values_tb = ListTokenBuilder(values, 'value', True)
 
-    keyword_iden_tb = FollowTokenBuilder(keywords, 'identifier', True, 'operator', '.')
-
     invalid_token_builder = InvalidTokenBuilder()
 
     tokenbuilders = [
@@ -119,7 +116,6 @@ class TypeScriptExaminer(Examiner):
       octal_constant_tb,
       binary_constant_tb,
       keyword_tb,
-      keyword_iden_tb,
       types_tb,
       values_tb,
       known_operator_tb,
@@ -135,6 +131,8 @@ class TypeScriptExaminer(Examiner):
 
     tokenizer = Tokenizer(tokenbuilders)
     self.tokens = tokenizer.tokenize(code)
+
+    self.ConvertKeywordsToIdentifiers()
 
     self.calc_token_confidence()
     self.calc_operator_confidence()
