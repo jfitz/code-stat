@@ -74,25 +74,37 @@ class FortranFreeFormatExaminer(FortranExaminer):
       'COMMON', 'DIMENSION', 'EQUIVALENCE', 'DATA', 'EXTERNAL',
       'CALL', 'RETURN', 'STOP', 'END',
       'INQUIRE', 'INTRINSIC', 'PARAMETER',
-      'allocatable', 'allocate', 'case', 'contains', 'cycle', 'deallocate',
+      'allocate', 'case', 'contains', 'cycle', 'deallocate',
       'elsewhere', 'exit', 'include', 'interface', 'intent', 'kind', 'module',
       'namelist', 'nullify', 'only', 'operator', 'optional', 'pointer',
       'private', 'procedure', 'public', 'recursive', 'result', 'select',
       'sequence', 'target', 'type', 'use', 'while', 'where',
-      'enddo', 'none'
+      'enddo', 'end do', 'none'
     ]
 
     keywords_95 = [
       'FORALL', 'PURE', 'ELEMENTAL'
     ]
 
-    if year == '95':
+    keywords_2003 = [
+      'abstract', 'allocatable', 'associate', 'bind', 'class', 'enum', 'end enum',
+      'import', 'protected', 'select type', 'type guard', 'value', 'wait'
+    ]
+
+    keywords_2008 = [
+      'block', 'contiguous'
+    ]
+
+    if year in ['95', '2003']:
       keywords += keywords_95
+
+    if year in [2003]:
+      keywords += keywords_2003
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
 
     types = [
-      'INTEGER', 'REAL', 'COMPLEX', 'DOUBLE PRECISION', 'LOGICAL', 'CHARACTER',
+      'INTEGER', 'REAL', 'COMPLEX', 'DOUBLE PRECISION', 'LOGICAL', 'CHARACTER'
     ]
 
     types_tb = ListTokenBuilder(types, 'type', False)

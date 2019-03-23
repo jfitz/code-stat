@@ -110,6 +110,10 @@ test\bin\run_test.ps1 -json -name Wikibooks-ex2-ftn95 -action statistics -langua
 test\bin\run_test.ps1 -json -name Wikibooks-ex3-ftn95 -action statistics -language Fortran-95 -inputfile ".\test\data\Fortran-95\Wikibooks-ex3.f95" -expected ".\test\ref\statistics\Fortran-95\Wikibooks-ex3.txt"
 test\bin\run_test.ps1 -json -name Wikibooks-ex4-ftn95 -action statistics -language Fortran-95 -inputfile ".\test\data\Fortran-95\Wikibooks-ex4.f95" -expected ".\test\ref\statistics\Fortran-95\Wikibooks-ex4.txt"
 
+test\bin\run_test.ps1 -json -name geo4060-ftn2003 -action statistics -language Fortran-2003 -inputfile ".\test\data\Fortran-2003\geo4060.for" -expected ".\test\ref\statistics\Fortran-2003\geo4060.txt"
+test\bin\run_test.ps1 -json -name temp-sub-ftn2003 -action statistics -language Fortran-2003 -inputfile ".\test\data\Fortran-2003\temp_sub.for" -expected ".\test\ref\statistics\Fortran-2003\temp_sub.txt"
+test\bin\run_test.ps1 -json -name temp-func-ftn2003 -action statistics -language Fortran-2003 -inputfile ".\test\data\Fortran-2003\temp_func.for" -expected ".\test\ref\statistics\Fortran-2003\temp_func.txt"
+
 test\bin\run_test.ps1 -json -name knuth-html -action statistics -language HTML -inputfile ".\test\data\HTML\knuth.html" -expected ".\test\ref\statistics\HTML\knuth.txt"
 test\bin\run_test.ps1 -json -name developer-html -action statistics -language HTML -inputfile ".\test\data\HTML\developer-css.html" -expected ".\test\ref\statistics\HTML\developer-css.txt"
 test\bin\run_test.ps1 -json -name codestat-html -action statistics -language HTML -inputfile ".\test\data\HTML\codestat-css-javascript.html" -expected ".\test\ref\statistics\HTML\codestat-css-javascript.txt"
