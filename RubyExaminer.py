@@ -1,6 +1,7 @@
 import string
 import math
 from Examiner import Examiner
+from Token import Token
 from TokenBuilders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
@@ -97,10 +98,6 @@ class RubyExaminer(Examiner):
 
     array_marker_tb = ListTokenBuilder(array_markers, 'identifier', True)
 
-    operator_def_tb = FollowTokenBuilder(known_operators, 'identifier', True, 'keyword', 'def')
-    keyword_iden_tb = FollowTokenBuilder(keywords, 'identifier', True, 'operator', '.')
-    group_iden_tb = FollowTokenBuilder(groupers, 'identifier', True, 'operator', '.')
-
     invalid_token_builder = InvalidTokenBuilder()
 
     tokenbuilders = [
@@ -112,13 +109,10 @@ class RubyExaminer(Examiner):
       real_tb,
       real_exponent_tb,
       keyword_tb,
-      keyword_iden_tb,
       values_tb,
       symbol_tb,
       known_operator_tb,
-      operator_def_tb,
       groupers_tb,
-      group_iden_tb,
       regex_tb,
       identifier_tb,
       array_marker_tb,
@@ -133,6 +127,8 @@ class RubyExaminer(Examiner):
     self.tokens = tokenizer.tokenize(code)
 
     self.ConvertBarsToGroups()
+    self.ConvertKeywordsToIdentifiers()
+    self.ConvertOperatorsToIdentifiers()
 
     self.calc_token_confidence()
     self.calc_operator_confidence()
@@ -167,3 +163,27 @@ class RubyExaminer(Examiner):
       if (token.group == 'keyword' and token.text == 'do') or \
          (token.group == 'group' and token.text == '{'):
         bar_count = 0
+
+
+  def ConvertKeywordsToIdentifiers(self):
+    prev_token = Token('\n', 'newline')
+
+    for token in self.tokens:
+      if token.group == 'keyword' and\
+        prev_token.group == 'operator' and prev_token.text == '.':
+        token.group = 'identifier'
+
+      if token.group not in ['whitespace', 'comment', 'newline']:
+        prev_token = token
+
+
+  def ConvertOperatorsToIdentifiers(self):
+    prev_token = Token('\n', 'newline')
+
+    for token in self.tokens:
+      if token.group == 'operator' and\
+        prev_token.group == 'keyword' and prev_token.text == 'def':
+        token.group = 'identifier'
+
+      if token.group not in ['whitespace', 'comment', 'newline']:
+        prev_token = token
