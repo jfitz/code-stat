@@ -194,6 +194,10 @@ test\bin\run_test.ps1 -json -name RatingControl -action tokens -language Swift -
 test\bin\run_test.ps1 -json -name TimeReporter-ts -action tokens -language TypeScript -inputfile ".\test\data\TypeScript\TimeReporter.ts" -expected ".\test\ref\tokens\TypeScript\TimeReporter.txt"
 test\bin\run_test.ps1 -json -name ImageBoard-ts -action tokens -language TypeScript -inputfile ".\test\data\TypeScript\ImageBoard.ts" -expected ".\test\ref\tokens\TypeScript\ImageBoard.txt"
 
+test\bin\run_test.ps1 -json -name spider-vb6 -action tokens -language VisualBasic-6 -inputfile ".\test\data\VisualBasic-6\spider.bas" -expected ".\test\ref\tokens\VisualBasic-6\spider.txt"
+test\bin\run_test.ps1 -json -name azure_metadata-vb6 -action tokens -language VisualBasic-6 -inputfile ".\test\data\VisualBasic-6\azure_metadata.bas" -expected ".\test\ref\tokens\VisualBasic-6\azure_metadata.txt"
+test\bin\run_test.ps1 -json -name diffie_hellman-vb6 -action tokens -language VisualBasic-6 -inputfile ".\test\data\VisualBasic-6\diffie_hellman.bas" -expected ".\test\ref\tokens\VisualBasic-6\diffie_hellman.txt"
+
 test\bin\run_test.ps1 -json -name polyglot-c -action tokens -language C -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\tokens\C\polyglot.txt"
 test\bin\run_test.ps1 -json -name polyglot-COBOL-85 -action tokens -language COBOL-85 -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\tokens\COBOL-85\polyglot.txt"
 test\bin\run_test.ps1 -json -name polyglot-pascal -action tokens -language Pascal -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\tokens\Pascal\polyglot.txt"

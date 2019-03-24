@@ -194,6 +194,10 @@ test\bin\run_test.ps1 -json -name RatingControl -action confidence -language Swi
 test\bin\run_test.ps1 -json -name TimeReporter-ts -action confidence -language TypeScript -inputfile ".\test\data\TypeScript\TimeReporter.ts" -expected ".\test\ref\confidence\TypeScript\TimeReporter.txt"
 test\bin\run_test.ps1 -json -name ImageBoard-ts -action confidence -language TypeScript -inputfile ".\test\data\TypeScript\ImageBoard.ts" -expected ".\test\ref\confidence\TypeScript\ImageBoard.txt"
 
+test\bin\run_test.ps1 -json -name spider-vb6 -action confidence -language VisualBasic-6 -inputfile ".\test\data\VisualBasic-6\spider.bas" -expected ".\test\ref\confidence\VisualBasic-6\spider.txt"
+test\bin\run_test.ps1 -json -name azure_metadata-vb6 -action confidence -language VisualBasic-6 -inputfile ".\test\data\VisualBasic-6\azure_metadata.bas" -expected ".\test\ref\confidence\VisualBasic-6\azure_metadata.txt"
+test\bin\run_test.ps1 -json -name diffie_hellman-vb6 -action confidence -language VisualBasic-6 -inputfile ".\test\data\VisualBasic-6\diffie_hellman.bas" -expected ".\test\ref\confidence\VisualBasic-6\diffie_hellman.txt"
+
 test\bin\run_test.ps1 -json -name polyglot-c -action confidence -language C -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\confidence\C\polyglot.txt"
 test\bin\run_test.ps1 -json -name polyglot-COBOL-85 -action confidence -language COBOL-85 -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\confidence\COBOL-85\polyglot.txt"
 test\bin\run_test.ps1 -json -name polyglot-pascal -action confidence -language Pascal -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\confidence\Pascal\polyglot.txt"
