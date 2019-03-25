@@ -25,6 +25,7 @@ from SqlExaminer import SqlExaminer
 from SwiftExaminer import SwiftExaminer
 from TypeScriptExaminer import TypeScriptExaminer
 from VisualBasic6Examiner import VisualBasic6Examiner
+from VisualBasicNETExaminer import VisualBasicNETExaminer
 
 
 def decode_bytes(in_bytes):
@@ -82,7 +83,8 @@ codesAndNames = {
   'sql2016': 'SQL-2016',
   'swift': 'Swift',
   'typescript': 'TypeScript',
-  'visualbasic6': 'VisualBasic-6'
+  'visualbasic6': 'VisualBasic-6',
+  'visualbasicnet': 'VisualBasic-NET'
 }
 
 @app.route('/languages', methods=['GET'])
@@ -507,6 +509,9 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
   if 'visualbasic6' in languages:
     examiners['VisualBasic-6'] = VisualBasic6Examiner(code)
 
+  if 'visualbasicnet' in languages:
+    examiners['VisualBasic-NET'] = VisualBasicNETExaminer(code)
+
   # get confidence values
   retval = {}
   highest_confidence = 0
@@ -730,6 +735,10 @@ def tokenize(code, language, tabsize, wide):
     examiner = VisualBasic6Examiner(code)
     tokens = examiner.tokens
 
+  if language in ['visualbasic-net']:
+    examiner = VisualBasicNETExaminer(code)
+    tokens = examiner.tokens
+
   return tokens
 
 
@@ -927,6 +936,11 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide):
     confidences = examiner.confidences
     errors = examiner.errors
 
+  if language in ['visualbasic-net']:
+    examiner = VisualBasicNETExaminer(code)
+    confidences = examiner.confidences
+    errors = examiner.errors
+
   if get_errors:
     retval = json.dumps(errors)
   else:
@@ -1089,6 +1103,10 @@ def tokenize_statistics(code, language, tabsize, wide):
 
   if language in ['visualbasic-6']:
     examiner = VisualBasic6Examiner(code)
+    statistics = examiner.statistics
+
+  if language in ['visualbasic-net']:
+    examiner = VisualBasicNETExaminer(code)
     statistics = examiner.statistics
 
   retval = json.dumps(statistics)

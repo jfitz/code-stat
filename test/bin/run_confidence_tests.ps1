@@ -198,6 +198,8 @@ test\bin\run_test.ps1 -json -name spider-vb6 -action confidence -language Visual
 test\bin\run_test.ps1 -json -name azure_metadata-vb6 -action confidence -language VisualBasic-6 -inputfile ".\test\data\VisualBasic-6\azure_metadata.bas" -expected ".\test\ref\confidence\VisualBasic-6\azure_metadata.txt"
 test\bin\run_test.ps1 -json -name diffie_hellman-vb6 -action confidence -language VisualBasic-6 -inputfile ".\test\data\VisualBasic-6\diffie_hellman.bas" -expected ".\test\ref\confidence\VisualBasic-6\diffie_hellman.txt"
 
+test\bin\run_test.ps1 -json -name word-processor-vbnet -action confidence -language VisualBasic-NET -inputfile ".\test\data\VisualBasic-NET\WordProcessor.bas" -expected ".\test\ref\confidence\VisualBasic-NET\WordProcessor.txt"
+
 test\bin\run_test.ps1 -json -name polyglot-c -action confidence -language C -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\confidence\C\polyglot.txt"
 test\bin\run_test.ps1 -json -name polyglot-COBOL-85 -action confidence -language COBOL-85 -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\confidence\COBOL-85\polyglot.txt"
 test\bin\run_test.ps1 -json -name polyglot-pascal -action confidence -language Pascal -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\confidence\Pascal\polyglot.txt"

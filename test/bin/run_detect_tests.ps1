@@ -198,6 +198,8 @@ test\bin\run_test.ps1 -json -name spider-vb6 -action detect -inputfile ".\test\d
 test\bin\run_test.ps1 -json -name azure_metadata-vb6 -action detect -inputfile ".\test\data\VisualBasic-6\azure_metadata.bas" -expected ".\test\ref\detect\VisualBasic-6\azure_metadata.txt"
 test\bin\run_test.ps1 -json -name diffie_hellman-vb6 -action detect -inputfile ".\test\data\VisualBasic-6\diffie_hellman.bas" -expected ".\test\ref\detect\VisualBasic-6\diffie_hellman.txt"
 
+test\bin\run_test.ps1 -json -name word-processor-vbnet -action detect -language VisualBasic-NET -inputfile ".\test\data\VisualBasic-NET\WordProcessor.bas" -expected ".\test\ref\detect\VisualBasic-NET\WordProcessor.txt"
+
 test\bin\run_test.ps1 -json -name polyglot -action detect -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\detect\multiple\polyglot.txt"
 test\bin\run_test.ps1 -json -name polyglot-languages -action detect -languages c,cplusplus,cobol68,cobol74,cobol85,objectivec,pascal -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\detect\multiple\polyglot-languages.txt"
 

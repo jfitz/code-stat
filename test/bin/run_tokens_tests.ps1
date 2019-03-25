@@ -198,6 +198,8 @@ test\bin\run_test.ps1 -json -name spider-vb6 -action tokens -language VisualBasi
 test\bin\run_test.ps1 -json -name azure_metadata-vb6 -action tokens -language VisualBasic-6 -inputfile ".\test\data\VisualBasic-6\azure_metadata.bas" -expected ".\test\ref\tokens\VisualBasic-6\azure_metadata.txt"
 test\bin\run_test.ps1 -json -name diffie_hellman-vb6 -action tokens -language VisualBasic-6 -inputfile ".\test\data\VisualBasic-6\diffie_hellman.bas" -expected ".\test\ref\tokens\VisualBasic-6\diffie_hellman.txt"
 
+test\bin\run_test.ps1 -json -name word-processor-vbnet -action tokens -language VisualBasic-NET -inputfile ".\test\data\VisualBasic-NET\WordProcessor.bas" -expected ".\test\ref\tokens\VisualBasic-NET\WordProcessor.txt"
+
 test\bin\run_test.ps1 -json -name polyglot-c -action tokens -language C -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\tokens\C\polyglot.txt"
 test\bin\run_test.ps1 -json -name polyglot-COBOL-85 -action tokens -language COBOL-85 -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\tokens\COBOL-85\polyglot.txt"
 test\bin\run_test.ps1 -json -name polyglot-pascal -action tokens -language Pascal -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\tokens\Pascal\polyglot.txt"
