@@ -151,9 +151,7 @@ def detect():
   if len(languages) == 0:
     languages = list(codesAndNames.keys())
 
-  wide = False
-  if 'wide' in request.args:
-    wide = True
+  wide = 'wide' in request.args
 
   tiebreak_keywords = False
   if 'tiebreak-keywords' in request.args:
@@ -182,9 +180,7 @@ def tokens():
   if 'tabsize' in request.args:
     tabsize = request.args['tabsize']
 
-  wide = False
-  if 'wide' in request.args:
-    wide = True
+  wide = 'wide' in request.args
 
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
@@ -209,13 +205,9 @@ def confidence():
   if 'tabsize' in request.args:
     tabsize = request.args['tabsize']
 
-  wide = False
-  if 'wide' in request.args:
-    wide = True
+  wide = 'wide' in request.args
 
-  get_errors = False
-  if 'errors' in request.args:
-    get_errors = True
+  get_errors = 'errors' in request.args
 
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
@@ -235,9 +227,7 @@ def statistics():
   if 'tabsize' in request.args:
     tabsize = request.args['tabsize']
 
-  wide = False
-  if 'wide' in request.args:
-    wide = True
+  wide = 'wide' in request.args
 
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
