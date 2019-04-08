@@ -452,3 +452,23 @@ class Examiner:
         self.statistics[ctype] += 1
       else:
         self.statistics[ctype] = 1
+
+    # count source lines
+    # (lines with tokens other than space or comment or line number or line description)
+    drop_types = ['whitespace', 'comment', 'line number', 'line identification']
+    tokens = self.drop_tokens(self.tokens, drop_types)
+    line_count = 0
+    token_count = 0
+
+    for token in tokens:
+      if token.group == 'newline':
+        if token_count > 0:
+          line_count += 1
+        token_count = 0
+      else:
+        token_count += 1
+
+    if token_count > 0:
+      line_count += 1
+
+    self.statistics['source lines'] = line_count
