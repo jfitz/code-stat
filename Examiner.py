@@ -472,3 +472,28 @@ class Examiner:
       line_count += 1
 
     self.statistics['source lines'] = line_count
+
+    # check group items are balanced
+    parens_bias = 0
+    bracket_bias = 0
+    brace_bias = 0
+    for token in self.tokens:
+      if token.group == 'group':
+        if token.text == '(':
+          parens_bias += 1
+        if token.text == ')':
+          parens_bias -= 1
+
+        if token.text == '[':
+          bracket_bias += 1
+        if token.text == ']':
+          bracket_bias -= 1
+
+        if token.text == '{':
+          brace_bias += 1
+        if token.text == '}':
+          brace_bias -= 1
+
+    self.statistics['parentheses bias'] = parens_bias
+    self.statistics['bracket bias'] = bracket_bias
+    self.statistics['brace bias'] = brace_bias
