@@ -5052,12 +5052,28 @@
         "value": "StateTracker"
     },
     {
-        "type": "operator",
-        "value": "<"
+        "type": "type",
+        "value": "<'T>"
     },
     {
-        "type": "string",
-        "value": "'T>(initialElement: '"
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "initialElement"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "'"
     },
     {
         "type": "identifier",
@@ -12212,16 +12228,8 @@
         "value": "list"
     },
     {
-        "type": "operator",
-        "value": "<"
-    },
-    {
-        "type": "identifier",
-        "value": "Employee"
-    },
-    {
-        "type": "operator",
-        "value": ">"
+        "type": "type",
+        "value": "<Employee>"
     },
     {
         "type": "newline",
@@ -12288,16 +12296,8 @@
         "value": "list"
     },
     {
-        "type": "operator",
-        "value": "<"
-    },
-    {
-        "type": "identifier",
-        "value": "Employee"
-    },
-    {
-        "type": "operator",
-        "value": ">"
+        "type": "type",
+        "value": "<Employee>"
     },
     {
         "type": "whitespace",
@@ -13368,24 +13368,8 @@
         "value": "1600."
     },
     {
-        "type": "operator",
-        "value": "<"
-    },
-    {
-        "type": "identifier",
-        "value": "meter"
-    },
-    {
-        "type": "operator",
-        "value": "/"
-    },
-    {
-        "type": "identifier",
-        "value": "mile"
-    },
-    {
-        "type": "operator",
-        "value": ">"
+        "type": "type",
+        "value": "<meter/mile>"
     },
     {
         "type": "newline",
@@ -13432,16 +13416,8 @@
         "value": "50."
     },
     {
-        "type": "operator",
-        "value": "<"
-    },
-    {
-        "type": "identifier",
-        "value": "mile"
-    },
-    {
-        "type": "operator",
-        "value": ">"
+        "type": "type",
+        "value": "<mile>"
     },
     {
         "type": "whitespace",
@@ -14280,16 +14256,8 @@
         "value": "Event"
     },
     {
-        "type": "operator",
-        "value": "<"
-    },
-    {
         "type": "type",
-        "value": "int"
-    },
-    {
-        "type": "operator",
-        "value": ">"
+        "value": "<int>"
     },
     {
         "type": "group",

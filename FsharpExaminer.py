@@ -19,7 +19,8 @@ from TokenBuilders import (
 from CXTokenBuilders import (
   SlashSlashCommentTokenBuilder,
   TripleSlashCommentTokenBuilder,
-  CPreProcessorTokenBuilder
+  CPreProcessorTokenBuilder,
+  ClassTypeTokenBuilder
 )
 from Tokenizer import Tokenizer
 
@@ -38,7 +39,8 @@ class FsharpExaminer(Examiner):
     real_tb = RealTokenBuilder(False, False)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E')
     identifier_tb = IdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(['"', "'"], False, False)
+    class_type_tb = ClassTypeTokenBuilder()
+    string_tb = StringTokenBuilder(['"'], False, False)
     triple_quote_string_tb = TripleQuoteCommentTokenBuilder()
     prefixed_string_tb = PrefixedStringTokenBuilder('@', False, ['"'])
 
@@ -135,6 +137,7 @@ class FsharpExaminer(Examiner):
       known_operator_tb,
       groupers_tb,
       identifier_tb,
+      class_type_tb,
       string_tb,
       triple_quote_string_tb,
       prefixed_string_tb,
