@@ -551,6 +551,35 @@ class LeadCommentTokenBuilder(TokenBuilder):
     return len(self.text)
 
 
+# token reader for (* *) comment
+class ParenStarCommentTokenBuilder(TokenBuilder):
+  def __init__(self):
+    self.text = ''
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'comment')]
+
+  def accept(self, candidate, c):
+    result = False
+
+    if c == '(' and len(candidate) == 0:
+      result = True
+
+    if c == '*' and len(candidate) == 1:
+      result = True
+
+    if c == ')' and len(candidate) > 2 and candidate[-1] == '*':
+      result = True
+
+    if candidate.startswith('(*') and (candidate[-2] != '*' or candidate[-1] != ')'):
+      result = True
+
+    return result
+
+
 # token reader for triple quote string
 class TripleQuoteCommentTokenBuilder(TokenBuilder):
   def __init__(self):

@@ -12,11 +12,11 @@ from TokenBuilders import (
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
   ListTokenBuilder,
-  PrefixedIntegerTokenBuilder
+  PrefixedIntegerTokenBuilder,
+  ParenStarCommentTokenBuilder
 )
 from PascalTokenBuilders import (
-  BraceCommentTokenBuilder,
-  ParenStarCommentTokenBuilder
+  BraceCommentTokenBuilder
 )
 from Tokenizer import Tokenizer
 

@@ -6,14 +6,13 @@ class SlashSlashCommentTokenBuilder(TokenBuilder):
   def __init__(self):
     self.text = ''
 
+
   def get_tokens(self):
     if self.text is None:
       return None
 
-    if self.text.startswith('//'):
-      return [Token(self.text, 'comment')]
+    return [Token(self.text, 'comment')]
 
-    return None
 
   def accept(self, candidate, c):
     result = False
@@ -32,16 +31,73 @@ class SlashSlashCommentTokenBuilder(TokenBuilder):
 
     return result
 
-# token reader for /* */ comment
-class SlashStarCommentTokenBuilder(TokenBuilder):
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if self.text.startswith('//'):
+      return len(self.text)
+    
+    return 0
+
+
+# token reader for // comment
+class TripleSlashCommentTokenBuilder(TokenBuilder):
   def __init__(self):
     self.text = ''
+
 
   def get_tokens(self):
     if self.text is None:
       return None
 
     return [Token(self.text, 'comment')]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if candidate == '':
+      result = c == '/'
+
+    if candidate == '/':
+      result = c == '/'
+
+    if candidate == '//':
+      result = c == '/'
+
+    if candidate.startswith('///'):
+      result = True
+
+    if c in ['\n', '\r']:
+      result = False
+
+    return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if self.text.startswith('///'):
+      return len(self.text)
+    
+    return 0
+
+
+# token reader for /* */ comment
+class SlashStarCommentTokenBuilder(TokenBuilder):
+  def __init__(self):
+    self.text = ''
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'comment')]
+
 
   def accept(self, candidate, c):
     result = False
@@ -59,6 +115,16 @@ class SlashStarCommentTokenBuilder(TokenBuilder):
       result = True
 
     return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if self.text.startswith('/*') and self.text.endswith('*/'):
+      return len(self.text)
+    
+    return 0
 
 
 # token reader for preprocessor directives
