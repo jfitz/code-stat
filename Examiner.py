@@ -102,6 +102,18 @@ class Examiner:
     return found_identifiers
 
 
+  def convert_identifiers_to_functions(self):
+    prev_token = Token('\n', 'newline')
+
+    for token in self.tokens:
+      if token.group == 'identifier' and\
+        prev_token.group == 'group' and prev_token.text == '(':
+        token.group = 'function'
+
+      if token.group not in ['whitespace', 'comment', 'newline']:
+        prev_token = token
+
+
   def check_paired_tokens(self, tokens, open_tokens, close_tokens):
     level = 0
     min_level = 0
@@ -353,7 +365,7 @@ class Examiner:
     # consider the number of matches for begin/end
     ok, num_begin, num_end = self.check_paired_tokens(self.tokens, openers, closers)
     num_begin_end = num_begin + num_end
-    paired_blocker_confidence = 0.0
+    paired_blocker_confidence = 1.0
 
     if num_begin_end > 0:
       paired_blocker_confidence = (num_begin + num_end) / num_begin_end

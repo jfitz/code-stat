@@ -165,7 +165,7 @@ class VisualBasicNETExaminer(Examiner):
     self.tokens = tokenizer.tokenize(code)
 
     self.ConvertKeywordsToIdentifiers()
-    self.ConvertFunctionsToIdentifiers()
+    self.convert_functions_to_identifiers()
 
     self.calc_token_confidence()
     self.calc_operator_confidence()
@@ -176,7 +176,7 @@ class VisualBasicNETExaminer(Examiner):
     self.calc_statistics()
 
 
-  def ConvertFunctionsToIdentifiers(self):
+  def convert_functions_to_identifiers(self):
     prev_token = Token('\n', 'newline')
 
     for token in self.tokens:
