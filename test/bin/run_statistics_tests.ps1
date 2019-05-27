@@ -150,6 +150,7 @@ test\bin\run_test.ps1 -json -name prime_test-java -action statistics -language J
 test\bin\run_test.ps1 -json -name palindrome-java -action statistics -language Java -inputfile ".\test\data\Java\palindrome.java" -expected ".\test\ref\statistics\Java\palindrome.txt"
 
 # JavaScript
+test\bin\run_test.ps1 -json -name values-js -action statistics -language JavaScript -inputfile ".\test\data\JavaScript\values.js" -expected ".\test\ref\statistics\JavaScript\values.txt"
 test\bin\run_test.ps1 -json -name codestat-js -action statistics -language JavaScript -inputfile ".\test\data\JavaScript\codestat.js" -expected ".\test\ref\statistics\JavaScript\codestat.txt"
 test\bin\run_test.ps1 -json -name bing-js -action statistics -language JavaScript -inputfile ".\test\data\JavaScript\bing.js" -expected ".\test\ref\statistics\JavaScript\bing.txt"
 

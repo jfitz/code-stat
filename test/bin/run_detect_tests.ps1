@@ -150,6 +150,7 @@ test\bin\run_test.ps1 -json -name prime_test-java -action detect -tiebreak -inpu
 test\bin\run_test.ps1 -json -name palindrome-java -action detect -tiebreak -inputfile ".\test\data\Java\palindrome.java" -expected ".\test\ref\detect\Java\palindrome.txt"
 
 # JavaScript
+test\bin\run_test.ps1 -json -name values-js -action detect -inputfile ".\test\data\JavaScript\values.js" -expected ".\test\ref\detect\JavaScript\values.txt"
 test\bin\run_test.ps1 -json -name codestat-js -action detect -tiebreak -inputfile ".\test\data\JavaScript\codestat.js" -expected ".\test\ref\detect\JavaScript\codestat.txt"
 test\bin\run_test.ps1 -json -name bing-js -action detect -tiebreak -inputfile ".\test\data\JavaScript\bing.js" -expected ".\test\ref\detect\JavaScript\bing.txt"
 

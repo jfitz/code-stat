@@ -146,6 +146,7 @@ test\bin\run_test.ps1 -json -name developer-html -action tokens -language HTML -
 test\bin\run_test.ps1 -json -name codestat-html -action tokens -language HTML -inputfile ".\test\data\HTML\codestat-css-javascript.html" -expected ".\test\ref\tokens\HTML\codestat-css-javascript.txt"
 
 # Java
+test\bin\run_test.ps1 -json -name values-js -action tokens -language JavaScript -inputfile ".\test\data\JavaScript\values.js" -expected ".\test\ref\tokens\JavaScript\values.txt"
 test\bin\run_test.ps1 -json -name prime_test-java -action tokens -language Java -inputfile ".\test\data\Java\prime_test.java" -expected ".\test\ref\tokens\Java\prime_test.txt"
 test\bin\run_test.ps1 -json -name palindrome-java -action tokens -language Java -inputfile ".\test\data\Java\palindrome.java" -expected ".\test\ref\tokens\Java\palindrome.txt"
 

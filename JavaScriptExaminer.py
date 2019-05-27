@@ -32,7 +32,7 @@ class JavaScriptExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder()
     real_tb = RealTokenBuilder(False, False)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E')
-    hex_constant_tb = PrefixedIntegerTokenBuilder('0H', False, '0123456789ABCDEFabcdef')
+    hex_constant_tb = PrefixedIntegerTokenBuilder('0X', False, '0123456789ABCDEFabcdef')
     octal_constant_tb = PrefixedIntegerTokenBuilder('0O', False, '01234567')
     binary_constant_tb = PrefixedIntegerTokenBuilder('0B', False, '01')
 
