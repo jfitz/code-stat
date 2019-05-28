@@ -280,6 +280,7 @@ class CobolFixedFormatExaminer(CobolExaminer):
     self.tokens = self.combineAdjacentWhitespace(self.tokens)
 
     self.convert_numbers_to_pictures()
+    self.convert_numbers_to_levels()
 
     expected_keyword_confidence = self.check_expected_keywords()
 

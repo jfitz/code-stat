@@ -560,6 +560,7 @@ class CobolFreeFormatExaminer(CobolExaminer):
     self.tokens += tokenizer.tokenize(code)
 
     self.convert_numbers_to_pictures()
+    self.convert_numbers_to_levels()
 
     expected_keyword_confidence = self.check_expected_keywords()
 

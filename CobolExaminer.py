@@ -14,6 +14,7 @@ class CobolExaminer(Examiner):
   def __init__(self):
     super().__init__()
 
+
   def convert_numbers_to_pictures(self):
     prev_token = Token('newline', '\n')
 
@@ -23,6 +24,18 @@ class CobolExaminer(Examiner):
         token.group = 'picture'
 
       if token.group not in ['whitespace', 'comment', 'newline']:
+        prev_token = token
+
+
+  def convert_numbers_to_levels(self):
+    prev_token = Token('newline', '\n')
+
+    for token in self.tokens:
+      if token.group == 'number' and token.text.isdigit() and len(token.text) <= 2 and\
+        prev_token.group == 'newline':
+        token.group = 'level'
+
+      if token.group not in ['whitespace', 'line number']:
         prev_token = token
 
 
