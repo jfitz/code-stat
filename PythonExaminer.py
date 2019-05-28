@@ -125,12 +125,12 @@ class PythonExaminer(Examiner):
     # self.calc_value_value_confidence()
     # self.calc_value_value_different_confidence()
     self.calc_keyword_confidence()
-    self.calc_line_format_1_confidence()
-    self.calc_line_format_2_confidence()
+    self.calc_line_format_confidence()
+    # self.calc_keyword_indent_confidence()
 
 
-  def calc_line_format_1_confidence(self):
-    # line format 1 - lines without indent start with keyword
+  def calc_keyword_indent_confidence(self):
+    # lines without indent start with keyword
     lines = self.split_tokens(self.tokens)
     num_lines = 0
     num_lines_correct = 0
@@ -141,18 +141,16 @@ class PythonExaminer(Examiner):
         if line[0].group in ['keyword', 'whitespace', 'comment', 'string']:
           num_lines_correct += 1
     
-    line_format_1_confidence = 0.0
+    keyword_indent_confidence = 0.0
 
     if num_lines > 0:
-      line_format_1_confidence = num_lines_correct / num_lines
+      keyword_indent_confidence = num_lines_correct / num_lines
 
-    line_format_1_confidence = 1.0
-
-    self.confidences['line_format_1'] = line_format_1_confidence
+    self.confidences['keyword indent'] = keyword_indent_confidence
 
 
-  def calc_line_format_2_confidence(self):
-    # line format 2 - some keyword lines end in colon
+  def calc_line_format_confidence(self):
+    # some keyword lines end in colon
     drop_types = ['whitespace', 'comment']
 
     tokens = self.drop_tokens(self.tokens, drop_types)
@@ -180,5 +178,5 @@ class PythonExaminer(Examiner):
     if num_lines > 0:
       line_format_2_confidence = num_lines_correct / num_lines
 
-    self.confidences['line_format_2'] = line_format_2_confidence
+    self.confidences['line format'] = line_format_2_confidence
     self.calc_statistics()

@@ -377,7 +377,7 @@ class Examiner:
 
 
   def calc_line_format_confidence(self):
-    self.confidences['line_format'] = 1.0
+    self.confidences['line format'] = 1.0
 
 
   def drop_tokens_parens(self):

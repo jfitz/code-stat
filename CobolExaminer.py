@@ -119,4 +119,4 @@ class CobolExaminer(Examiner):
     if len(self.tokens) > 0:
       picture_confidence = errors / len(self.tokens)
 
-    self.confidences['line_format'] = picture_confidence
+    self.confidences['line format'] = picture_confidence
