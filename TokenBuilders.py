@@ -126,21 +126,30 @@ class StringTokenBuilder(TokenBuilder):
       result = True
 
     if len(candidate) > 1:
-      if candidate[-1] != candidate[0]:
-        result = True
+      if self.quote_stuffing:
+          # a quote character is accepted, even after closing quote
+        if c == candidate[0]:
+          result = True
+        else:
+          # if number of quote is even, string is closed
+          count = candidate.count(candidate[0])
+          result = count % 2 == 1
       else:
-        if self.quote_stuffing:
-          if c == candidate[0]:
-            result = True
+        # no quote stuffing, stop on second quote
+        # assume escaped quotes are allowed
+        quote_count = 0
+        escaped = False
+        for ch in candidate:
+          if ch == candidate[0] and not escaped:
+            quote_count += 1
+          if ch == '\\':
+            escaped = not escaped
           else:
-            # string is terminated unless next is also a matching quote
-            if len(candidate) > 2 and candidate[-2:] == candidate[0] * 2:
-              result = True
-            if len(candidate) > 3 and candidate[-3:] == candidate[0] * 3:
-              result = False
-            if len(candidate) > 4 and candidate[-4:] == candidate[0] * 2:
-              result = True
+            escaped = False
 
+        result = quote_count < 2
+
+    # newline breaks a string
     if c in ['\n', '\r']:
       result = False
 

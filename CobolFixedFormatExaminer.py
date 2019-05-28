@@ -276,18 +276,20 @@ class CobolFixedFormatExaminer(CobolExaminer):
 
     tokenizer = Tokenizer(tokenbuilders)
 
-    self.tokens = self.TokenizeCode(code, tab_size, tokenizer, wide)
+    self.tokens = self.tokenize_code(code, tab_size, tokenizer, wide)
     self.tokens = self.combineAdjacentWhitespace(self.tokens)
 
-    self.ConvertNumbersToPictures()
+    self.convert_numbers_to_pictures()
 
-    expected_keyword_confidence = self.CheckExpectedKeywords()
+    expected_keyword_confidence = self.check_expected_keywords()
 
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     # self.calc_operator_3_confidence()
     # self.calc_operand_confidence()
+    # self.calc_value_value_confidence()
+    # self.calc_value_value_different_confidence()
     self.calc_keyword_confidence()
     self.calc_picture_confidence()
     if not wide:

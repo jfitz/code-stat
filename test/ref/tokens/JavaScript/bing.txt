@@ -4585,11 +4585,119 @@
     },
     {
         "type": "string",
-        "value": "\"\\\""
+        "value": "\"\\\"ScriptSrc = '\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
     },
     {
         "type": "identifier",
-        "value": "ScriptSrc"
+        "value": "escape"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "n"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "srcElement"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "src"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "replace"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "regex",
+        "value": "/'/g"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"\""
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"'\\\"\""
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "n"
     },
     {
         "type": "whitespace",
@@ -4605,63 +4713,43 @@
     },
     {
         "type": "string",
-        "value": "'\" + escape(n.srcElement.src.replace(/'"
+        "value": "\"\""
     },
     {
-        "type": "regex",
-        "value": "/g, \"\")) + \"'\\\"\" : (n = \"\" + n, f = '\"' + escape(n.replace(/"
+        "type": "whitespace",
+        "value": " "
     },
     {
-        "type": "string",
-        "value": "\"/g, \""
+        "type": "operator",
+        "value": "+"
     },
     {
-        "type": "string",
-        "value": "\")) + '\""
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "n"
     },
     {
         "type": "group",
         "value": ","
     },
     {
-        "type": "string",
-        "value": "\"Meta\""
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "f"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
     },
     {
         "type": "operator",
-        "value": ":"
-    },
-    {
-        "type": "string",
-        "value": "\"' + escape(t) + '\""
-    },
-    {
-        "type": "group",
-        "value": ","
-    },
-    {
-        "type": "string",
-        "value": "\"Line\""
-    },
-    {
-        "type": "operator",
-        "value": ":"
-    },
-    {
-        "type": "string",
-        "value": "' + i + '"
-    },
-    {
-        "type": "group",
-        "value": ","
-    },
-    {
-        "type": "string",
-        "value": "\"Char\""
-    },
-    {
-        "type": "operator",
-        "value": ":"
+        "value": "="
     },
     {
         "type": "whitespace",
@@ -4669,39 +4757,407 @@
     },
     {
         "type": "string",
-        "value": "' + r, u && u.stack && (e = new RegExp(regexEscape(getHref()), \"g\"), f += '"
+        "value": "'\"'"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "escape"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "n"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "replace"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "regex",
+        "value": "/\"/g"
     },
     {
         "type": "group",
         "value": ","
     },
     {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
         "type": "string",
-        "value": "\"Stack\""
+        "value": "\"\""
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
     },
     {
         "type": "operator",
-        "value": ":"
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
     },
     {
         "type": "string",
-        "value": "\"' + escape(u.stack.replace(e, \""
+        "value": "'\",\"Meta\":\"'"
     },
     {
-        "type": "identifier",
-        "value": "self"
-    },
-    {
-        "type": "string",
-        "value": "\").replace(/\""
+        "type": "whitespace",
+        "value": " "
     },
     {
         "type": "operator",
-        "value": "/"
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
     },
     {
         "type": "identifier",
-        "value": "g"
+        "value": "escape"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "t"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'\",\"Line\":'"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "i"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "',\"Char\": '"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "r"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "u"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "&&"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "u"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "stack"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "&&"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "e"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "new"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "RegExp"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "regexEscape"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "getHref"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"g\""
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "f"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "',\"Stack\":\"'"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "escape"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "u"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "stack"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "replace"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "e"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "\"self\""
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "replace"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "regex",
+        "value": "/\"/g"
     },
     {
         "type": "group",

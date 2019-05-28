@@ -56,7 +56,7 @@ class RubyExaminer(Examiner):
         '<<=', '>>=',
         '&&=', '&=', '||=', '|=', '^=',
         'not', 'and', 'or', 'in',
-        '.', '=>'
+        '.', '=>', '::'
       ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
@@ -125,20 +125,22 @@ class RubyExaminer(Examiner):
     tokenizer = Tokenizer(tokenbuilders)
     self.tokens = tokenizer.tokenize(code)
 
-    self.ConvertBarsToGroups()
-    self.ConvertKeywordsToIdentifiers()
-    self.ConvertOperatorsToIdentifiers()
+    self.convert_bars_to_groups()
+    self.convert_keywords_to_identifiers()
+    self.convert_operators_to_identifiers()
 
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     self.calc_operator_3_confidence()
     # self.calc_operand_confidence()
+    # self.calc_value_value_confidence()
+    # self.calc_value_value_different_confidence()
     self.calc_keyword_confidence()
     self.calc_statistics()
 
 
-  def ConvertBarsToGroups(self):
+  def convert_bars_to_groups(self):
     bar_count = 2
 
     for token in self.tokens:
@@ -164,7 +166,7 @@ class RubyExaminer(Examiner):
         bar_count = 0
 
 
-  def ConvertOperatorsToIdentifiers(self):
+  def convert_operators_to_identifiers(self):
     prev_token = Token('\n', 'newline')
 
     for token in self.tokens:

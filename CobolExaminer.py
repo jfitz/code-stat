@@ -14,7 +14,7 @@ class CobolExaminer(Examiner):
   def __init__(self):
     super().__init__()
 
-  def TokenizeLineNumber(self, line_number):
+  def tokenize_line_number(self, line_number):
     token = None
 
     if len(line_number) > 0:
@@ -29,7 +29,7 @@ class CobolExaminer(Examiner):
     return token
 
 
-  def TokenizeAltLine(self, line, line_indicator):
+  def tokenize_alt_line(self, line, line_indicator):
     token = None
 
     if line_indicator in ['*', '/', 'D', 'd']:
@@ -41,7 +41,7 @@ class CobolExaminer(Examiner):
     return token
 
 
-  def TokenizeLineIndicator(self, line_indicator):
+  def tokenize_line_indicator(self, line_indicator):
     token = None
 
     if line_indicator == ' ':
@@ -56,7 +56,7 @@ class CobolExaminer(Examiner):
     return token
 
 
-  def TokenizeLine(self, line, tokenizer, wide):
+  def tokenize_line(self, line, tokenizer, wide):
     # break apart the line based on fixed format
     tokens = []
 
@@ -75,17 +75,17 @@ class CobolExaminer(Examiner):
       line_text = line[7:71]
       line_identification = line[72:]
 
-    token = self.TokenizeLineNumber(line_number)
+    token = self.tokenize_line_number(line_number)
     if token is not None:
       tokens.append(token)
 
     # tokenize the line indicator
     if line_indicator in ['*', '/', 'D', 'd', '$']:
-      token = self.TokenizeAltLine(line, line_indicator)
+      token = self.tokenize_alt_line(line, line_indicator)
       if token is not None:
         tokens.append(token)
     else:
-      token = self.TokenizeLineIndicator(line_indicator)
+      token = self.tokenize_line_indicator(line_indicator)
       if token is not None:
         tokens.append(token)
 
@@ -101,7 +101,7 @@ class CobolExaminer(Examiner):
     return tokens
 
 
-  def TokenizeCode(self, code, tab_size, tokenizer, wide):
+  def tokenize_code(self, code, tab_size, tokenizer, wide):
     lines = code.split('\n')
 
     tokens = []
@@ -111,13 +111,13 @@ class CobolExaminer(Examiner):
       line = line.rstrip()
       line = self.tabs_to_spaces(line, tab_size)
 
-      line_tokens = self.TokenizeLine(line, tokenizer, wide)
+      line_tokens = self.tokenize_line(line, tokenizer, wide)
       tokens += line_tokens
 
     return tokens
 
 
-  def ConvertNumbersToPictures(self):
+  def convert_numbers_to_pictures(self):
     prev_token = Token('newline', '\n')
 
     for token in self.tokens:
@@ -129,8 +129,7 @@ class CobolExaminer(Examiner):
         prev_token = token
 
 
-  def CheckExpectedKeywords(self):
-    # check expected keywords
+  def check_expected_keywords(self):
     counts = {
       'IDENTIFICATION': 0,
       'ENVIRONMENT': 0,

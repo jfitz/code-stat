@@ -144,6 +144,8 @@ class CsharpExaminer(Examiner):
     self.calc_operator_2_confidence()
     self.calc_operator_3_confidence()
     # self.calc_operand_confidence()
+    # self.calc_value_value_confidence()
+    # self.calc_value_value_different_confidence()
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_statistics()
