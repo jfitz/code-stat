@@ -638,11 +638,13 @@ class PrefixedIdentifierTokenBuilder(TokenBuilder):
     self.prefix = prefix
     self.group = group
 
+
   def get_tokens(self):
     if self.text is None:
       return None
 
     return [Token(self.text, self.group)]
+
 
   def accept(self, candidate, c):
     result = False
@@ -653,6 +655,19 @@ class PrefixedIdentifierTokenBuilder(TokenBuilder):
       result = c.isalpha() or c.isdigit() or c == '_'
 
     return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(self.text) < 2:
+      return 0
+
+    if not self.text.startswith(self.prefix):
+      return 0
+
+    return len(self.text)
 
 
 # token reader for identifier

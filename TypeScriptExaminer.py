@@ -138,9 +138,8 @@ class TypeScriptExaminer(Examiner):
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     self.calc_operator_3_confidence()
-    # self.calc_operand_confidence()
-    # self.calc_value_value_confidence()
-    # self.calc_value_value_different_confidence()
+    operand_types = ['number', 'string', 'symbol']
+    self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_statistics()

@@ -568,9 +568,8 @@ class CobolFreeFormatExaminer(CobolExaminer):
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     # self.calc_operator_3_confidence()
-    # self.calc_operand_confidence()
-    # self.calc_value_value_confidence()
-    # self.calc_value_value_different_confidence()
+    operand_types = ['number', 'string', 'symbol']
+    # self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()
     self.calc_picture_confidence()
     self.confidences['expected_keywords'] = expected_keyword_confidence

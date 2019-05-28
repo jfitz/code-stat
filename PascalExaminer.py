@@ -121,9 +121,8 @@ class PascalExaminer(Examiner):
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     self.calc_operator_3_confidence()
-    self.calc_operand_confidence()
-    # self.calc_value_value_confidence()
-    # self.calc_value_value_different_confidence()
+    operand_types = ['number', 'string', 'identifier', 'variable', 'symbol']
+    self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['begin', 'record', 'case'], ['end'])
 

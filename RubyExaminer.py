@@ -32,8 +32,8 @@ class RubyExaminer(Examiner):
 
     integer_tb = IntegerTokenBuilder(True)
     integer_exponent_tb = IntegerExponentTokenBuilder()
-    real_tb = RealTokenBuilder(False, False)
-    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E')
+    real_tb = RealTokenBuilder(True, True)
+    real_exponent_tb = RealExponentTokenBuilder(True, True, 'E')
     identifier_tb = RubyIdentifierTokenBuilder()
     symbol_tb = PrefixedIdentifierTokenBuilder(':', 'symbol')
     string_tb = StringTokenBuilder(['"', "'"], False, False)
@@ -133,9 +133,8 @@ class RubyExaminer(Examiner):
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     self.calc_operator_3_confidence()
-    # self.calc_operand_confidence()
-    # self.calc_value_value_confidence()
-    # self.calc_value_value_different_confidence()
+    operand_types = ['number', 'string', 'symbol']
+    self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()
     self.calc_statistics()
 

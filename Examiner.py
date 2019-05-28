@@ -406,7 +406,7 @@ class Examiner:
     return new_list
 
 
-  def calc_operand_confidence(self):
+  def calc_operand_confidence(self, operand_types):
     # two operands in a row decreases confidence
     tokens = self.tokens
 
@@ -421,8 +421,6 @@ class Examiner:
 
     if self.newlines_important == 'parens':
       tokens = self.drop_tokens_parens()
-
-    operand_types = ['number', 'string', 'identifier', 'variable', 'symbol']
 
     two_operand_count = 0
     prev_token = Token('\n', 'newline')
@@ -442,44 +440,6 @@ class Examiner:
       operand_confidence = 1.0 - (two_operand_count / len(tokens))
 
     self.confidences['operand'] = operand_confidence
-
-
-  def calc_value_value_confidence(self):
-    # two values in a row decreases confidence
-    tokens = self.tokens
-
-    # remove tokens we don't care about
-    if self.newlines_important == 'always':
-      drop_types = ['whitespace', 'comment', 'line continuation']
-      tokens = self.drop_tokens(self.tokens, drop_types)
-
-    if self.newlines_important == 'never':
-      drop_types = ['whitespace', 'comment', 'line continuation', 'newline']
-      tokens = self.drop_tokens(self.tokens, drop_types)
-
-    if self.newlines_important == 'parens':
-      tokens = self.drop_tokens_parens()
-
-    value_types = ['number', 'string', 'symbol']
-
-    two_value_count = 0
-    prev_token = Token('\n', 'newline')
-    for token in tokens:
-      if token.group in value_types and prev_token.group in value_types:
-        two_value_count += 1
-        self.errors.append({
-          'TYPE': 'VALUE VALUE',
-          'FIRST': prev_token.text,
-          'SECOND': token.text
-          })
-
-      prev_token = token
-
-    value_value_confidence = 1.0
-    if len(tokens) > 0:
-      value_value_confidence = 1.0 - (two_value_count / len(tokens))
-
-    self.confidences['value value'] = value_value_confidence
 
 
   def calc_value_value_different_confidence(self):
