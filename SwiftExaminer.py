@@ -21,6 +21,27 @@ from CXTokenBuilders import (
 )
 from Tokenizer import Tokenizer
 
+class SwiftSymbolTokenBuilder(PrefixedIdentifierTokenBuilder):
+  def __init__(self, prefix, group):
+    super(SwiftSymbolTokenBuilder, self).__init__(prefix, group)
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(self.text) < 2:
+      return 0
+
+    types = ['identifier', 'number']
+    if len(line_printable_tokens) > 0 and line_printable_tokens[-1].group in types:
+      return 0
+
+    if not self.text.startswith(self.prefix):
+      return 0
+
+    return len(self.text)
+
+
 class SwiftExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
@@ -35,7 +56,7 @@ class SwiftExaminer(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E')
     identifier_tb = IdentifierTokenBuilder()
     attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute')
-    symbol_tb = PrefixedIdentifierTokenBuilder('.', 'symbol')
+    symbol_tb = SwiftSymbolTokenBuilder('.', 'symbol')
     string_tb = StringTokenBuilder(['"', "'"], False, False)
 
     triple_quote_comment_tb = TripleQuoteCommentTokenBuilder()
