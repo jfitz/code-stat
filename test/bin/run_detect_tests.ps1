@@ -229,6 +229,7 @@ test\bin\run_test.ps1 -json -name MealTableViewCell -action detect -tiebreak -in
 test\bin\run_test.ps1 -json -name MealTableViewController -action detect -tiebreak -inputfile ".\test\data\Swift\MealTableViewController.swift" -expected ".\test\ref\detect\Swift\MealTableViewController.txt"
 test\bin\run_test.ps1 -json -name MealViewController -action detect -tiebreak -inputfile ".\test\data\Swift\MealViewController.swift" -expected ".\test\ref\detect\Swift\MealViewController.txt"
 test\bin\run_test.ps1 -json -name RatingControl -action detect -tiebreak -inputfile ".\test\data\Swift\RatingControl.swift" -expected ".\test\ref\detect\Swift\RatingControl.txt"
+test\bin\run_test.ps1 -json -name URLExtensions -action detect -language Swift -inputfile ".\test\data\Swift\URLExtensions.swift" -expected ".\test\ref\detect\Swift\URLExtensions.txt"
 
 # TypeScript
 test\bin\run_test.ps1 -json -name TimeReporter-ts -action detect -inputfile ".\test\data\TypeScript\TimeReporter.ts" -expected ".\test\ref\detect\TypeScript\TimeReporter.txt"

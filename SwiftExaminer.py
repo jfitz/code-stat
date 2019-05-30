@@ -10,6 +10,7 @@ from TokenBuilders import (
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
+  PrefixedIntegerTokenBuilder,
   IdentifierTokenBuilder,
   ListTokenBuilder,
   PrefixedIdentifierTokenBuilder,
@@ -19,28 +20,11 @@ from CXTokenBuilders import (
   SlashSlashCommentTokenBuilder,
   SlashStarCommentTokenBuilder
 )
+from SwiftTokenBuilders import (
+  SwiftArgumentTokenBuilder,
+  SwiftSymbolTokenBuilder
+)
 from Tokenizer import Tokenizer
-
-class SwiftSymbolTokenBuilder(PrefixedIdentifierTokenBuilder):
-  def __init__(self, prefix, group):
-    super(SwiftSymbolTokenBuilder, self).__init__(prefix, group)
-
-  def get_score(self, line_printable_tokens):
-    if self.text is None:
-      return 0
-
-    if len(self.text) < 2:
-      return 0
-
-    types = ['identifier', 'number']
-    if len(line_printable_tokens) > 0 and line_printable_tokens[-1].group in types:
-      return 0
-
-    if not self.text.startswith(self.prefix):
-      return 0
-
-    return len(self.text)
-
 
 class SwiftExaminer(Examiner):
   def __init__(self, code):
@@ -54,6 +38,7 @@ class SwiftExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder()
     real_tb = RealTokenBuilder(True, True)
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E')
+    argument_tb = SwiftArgumentTokenBuilder()
     identifier_tb = IdentifierTokenBuilder()
     attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute')
     symbol_tb = SwiftSymbolTokenBuilder('.', 'symbol')
@@ -79,7 +64,7 @@ class SwiftExaminer(Examiner):
 
     self.unary_operators = [
       '+', '-',
-      '!', '~',
+      '!', '~', '&',
       '++', '--', ':', '?'
     ]
 
@@ -98,8 +83,8 @@ class SwiftExaminer(Examiner):
       'typealias', 'var',
       'break', 'case', 'continue', 'default', 'defer', 'do', 'else', 'fallthrough',
       'for', 'guard', 'if', 'in', 'repeat', 'return', 'switch', 'where', 'while',
-      'as', 'Any', 'catch', 'is', 'rethrows', 'super', 'self',
-      'throw', 'throws', 'try',
+      'as', 'Any', 'catch', 'is', 'rethrows', 'super',
+      'throw', 'throws', 'try', 'try?', 'try!',
       '#available', '#colorLiteral', '#column', '#else', '#elseif', '#endif',
       '#file', '#fileLiteral', '#function', '#if', '#imageLiteral', '#line',
       '#selector', '#sourceLocation',
@@ -134,6 +119,7 @@ class SwiftExaminer(Examiner):
       integer_exponent_tb,
       real_tb,
       real_exponent_tb,
+      argument_tb,
       keyword_tb,
       types_tb,
       values_tb,

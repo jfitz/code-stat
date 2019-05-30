@@ -229,6 +229,7 @@ test\bin\run_test.ps1 -json -name MealTableViewCell -action tokens -language Swi
 test\bin\run_test.ps1 -json -name MealTableViewController -action tokens -language Swift -inputfile ".\test\data\Swift\MealTableViewController.swift" -expected ".\test\ref\tokens\Swift\MealTableViewController.txt"
 test\bin\run_test.ps1 -json -name MealViewController -action tokens -language Swift -inputfile ".\test\data\Swift\MealViewController.swift" -expected ".\test\ref\tokens\Swift\MealViewController.txt"
 test\bin\run_test.ps1 -json -name RatingControl -action tokens -language Swift -inputfile ".\test\data\Swift\RatingControl.swift" -expected ".\test\ref\tokens\Swift\RatingControl.txt"
+test\bin\run_test.ps1 -json -name URLExtensions -action tokens -language Swift -inputfile ".\test\data\Swift\URLExtensions.swift" -expected ".\test\ref\tokens\Swift\URLExtensions.txt"
 
 # TypeScript
 test\bin\run_test.ps1 -json -name TimeReporter-ts -action tokens -language TypeScript -inputfile ".\test\data\TypeScript\TimeReporter.ts" -expected ".\test\ref\tokens\TypeScript\TimeReporter.txt"
