@@ -175,6 +175,7 @@ test\bin\run_test.ps1 -json -name drone-3d -action confidence -errors -language 
 test\bin\run_test.ps1 -json -name quadrotor -action confidence -errors -language Python -inputfile ".\test\data\Python\Quadrotor.py" -expected ".\test\ref\confidence-errors\Python\Quadrotor.txt"
 test\bin\run_test.ps1 -json -name trajectory -action confidence -errors -language Python -inputfile ".\test\data\Python\TrajectoryGenerator.py" -expected ".\test\ref\confidence-errors\Python\TrajectoryGenerator.txt"
 test\bin\run_test.ps1 -json -name values-python -action confidence -errors -language Python -inputfile ".\test\data\Python\values.py" -expected ".\test\ref\confidence-errors\Python\values.txt"
+test\bin\run_test.ps1 -json -name examiner -action confidence -errors -language Python -inputfile ".\test\data\Python\Examiner.py" -expected ".\test\ref\confidence-errors\Python\Examiner.txt"
 
 # R
 test\bin\run_test.ps1 -json -name ETM-540-01 -action confidence -errors -language R -inputfile ".\test\data\R\ETM-540-01.R" -expected ".\test\ref\confidence-errors\R\ETM-540-01.txt"

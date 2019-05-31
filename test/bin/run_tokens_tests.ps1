@@ -175,6 +175,7 @@ test\bin\run_test.ps1 -json -name drone-3d -action tokens -language Python -inpu
 test\bin\run_test.ps1 -json -name quadrotor -action tokens -language Python -inputfile ".\test\data\Python\Quadrotor.py" -expected ".\test\ref\tokens\Python\Quadrotor.txt"
 test\bin\run_test.ps1 -json -name trajectory -action tokens -language Python -inputfile ".\test\data\Python\TrajectoryGenerator.py" -expected ".\test\ref\tokens\Python\TrajectoryGenerator.txt"
 test\bin\run_test.ps1 -json -name values-python -action tokens -language Python -inputfile ".\test\data\Python\values.py" -expected ".\test\ref\tokens\Python\values.txt"
+test\bin\run_test.ps1 -json -name examiner -action tokens -language Python -inputfile ".\test\data\Python\Examiner.py" -expected ".\test\ref\tokens\Python\Examiner.txt"
 
 # R
 test\bin\run_test.ps1 -json -name ETM-540-01 -action tokens -language R -inputfile ".\test\data\R\ETM-540-01.R" -expected ".\test\ref\tokens\R\ETM-540-01.txt"

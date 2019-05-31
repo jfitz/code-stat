@@ -150,11 +150,18 @@ class PythonExaminer(Examiner):
 
   def calc_line_format_confidence(self):
     # some keyword lines end in colon
+
+    # unwrap lines
+
+    # drop tokens not used by interpreter
     drop_types = ['whitespace', 'comment']
 
     tokens = self.drop_tokens(self.tokens, drop_types)
 
+    # split into lines
     lines = self.split_tokens(tokens)
+
+    # check certain lines end in colon
     num_lines = 0
     num_lines_correct = 0
     colon_keywords = [
