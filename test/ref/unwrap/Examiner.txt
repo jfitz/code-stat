@@ -16,8 +16,6 @@ class Examiner:
     self.unknown_operator_tb = ListTokenBuilder(operators, 'invalid operator', True)
     self.unary_operators = []
     self.postfix_operators = []
-    self.adjective_operators = []
-    self.keyword_postfix = []
     self.confidences = {}
     self.errors = []
     self.statistics = {}
@@ -108,8 +106,7 @@ class Examiner:
     prev_token = Token('\n', 'newline')
 
     for token in self.tokens:
-      if token.group == 'identifier' and\
-        prev_token.group == 'group' and prev_token.text == '(':
+      if token.group == 'identifier' and        prev_token.group == 'group' and prev_token.text == '(':
         token.group = 'function'
 
       if token.group not in ['whitespace', 'comment', 'newline']:
@@ -168,7 +165,7 @@ class Examiner:
     return new_list
 
 
-  def combine_adjacent_whitespace(self, tokens):
+  def combineAdjacentWhitespace(self, tokens):
     new_list = []
 
     new_token = None
@@ -189,8 +186,7 @@ class Examiner:
     prev_token = Token('\n', 'newline')
 
     for token in self.tokens:
-      if token.group == 'keyword' and\
-        prev_token.group == 'operator' and prev_token.text == '.':
+      if token.group == 'keyword' and        prev_token.group == 'operator' and prev_token.text == '.':
         token.group = 'identifier'
 
       if token.group not in ['whitespace', 'comment', 'newline']:
@@ -220,8 +216,8 @@ class Examiner:
     self.confidences['line_length'] = line_length_confidence
 
 
-  # unknown tokens reduce confidence
   def calc_token_confidence(self):
+    # unknown tokens reduce confidence
     num_invalid_tokens = 0
 
     for token in self.tokens:
@@ -242,8 +238,8 @@ class Examiner:
     self.confidences['token'] = token_confidence
 
 
-  #  unknown operators reduce confidence
   def calc_operator_confidence(self):
+    #  unknown operators reduce confidence
     invalid_operators = self.invalid_operators()
     num_invalid_operators = self.count_invalid_operators()
     num_known_operators = self.count_known_operators()
@@ -263,8 +259,8 @@ class Examiner:
     self.confidences['operator'] = operator_confidence
 
 
-  # binary operators that follow operators reduce confidence
   def calc_operator_2_confidence(self):
+    # binary operators that follow operators reduce confidence
     num_invalid_operators = self.count_invalid_operators()
     num_known_operators = self.count_known_operators()
     num_operators = num_known_operators + num_invalid_operators
@@ -285,15 +281,10 @@ class Examiner:
         tokens = self.drop_tokens(self.tokens, drop_types)
 
       if self.newlines_important == 'parens':
-        drop_types = ['whitespace', 'comment', 'line continuation']
-        tokens = self.drop_tokens_parens(drop_types)
+        tokens = self.drop_tokens_parens()
 
       for token in tokens:
-        if token.group == 'operator' and\
-          prev_token.group == 'operator' and\
-          prev_token.text not in self.adjective_operators and\
-          prev_token.text not in self.postfix_operators and\
-          token.text.lower() not in (op.lower() for op in self.unary_operators):
+        if token.group == 'operator' and          prev_token.group == 'operator' and          prev_token.text not in self.postfix_operators and          token.text.lower() not in (op.lower() for op in self.unary_operators):
           errors += 1
           self.errors.append({
             'TYPE': 'OPERATOR',
@@ -308,8 +299,8 @@ class Examiner:
     self.confidences['operator_2'] = operator_confidence_2
 
 
-  # binary operators that follow non-operands reduce confidence
   def calc_operator_3_confidence(self):
+    # binary operators that follow non-operands reduce confidence
     num_invalid_operators = self.count_invalid_operators()
     num_known_operators = self.count_known_operators()
     num_operators = num_known_operators + num_invalid_operators
@@ -330,8 +321,7 @@ class Examiner:
         tokens = self.drop_tokens(self.tokens, drop_types)
 
       if self.newlines_important == 'parens':
-        drop_types = ['whitespace', 'comment', 'line continuation']
-        tokens = self.drop_tokens_parens(drop_types)
+        tokens = self.drop_tokens_parens()
 
       operand_types = [
         'number',
@@ -345,15 +335,9 @@ class Examiner:
         ]
 
       for token in tokens:
-        prev_token_operand = prev_token.group in operand_types or\
-          (prev_token.group == 'group' and prev_token.text in [')', ']', '}'])
+        prev_token_operand = prev_token.group in operand_types or          (prev_token.group == 'group' and prev_token.text in [')', ']', '}'])
         token_unary_operator = token.text.lower() in (op.lower() for op in self.unary_operators)
-        if token.group == 'operator' and\
-          not prev_token_operand and\
-          prev_token.text not in self.adjective_operators and\
-          prev_token.text not in self.postfix_operators and\
-          not (prev_token.group == 'keyword' and token.text in self.keyword_postfix) and\
-          not token_unary_operator:
+        if token.group == 'operator' and          not prev_token_operand and          prev_token.text not in self.postfix_operators and          not token_unary_operator:
           errors += 1
           self.errors.append({
             'TYPE': 'OPERATOR',
@@ -387,28 +371,13 @@ class Examiner:
     self.confidences['line format'] = 1.0
 
 
-  # unwrap lines (drop line continuation tokens and tokens including newline)
-  def unwrap_lines(self, tokens):
-    tokens = []
-    include = True
-    for token in self.tokens:
-      if token.group == 'line continuation':
-        include = False
-      
-      if include:
-        tokens.append(token)
-
-      if token.group == 'newline':
-        include = True
-    
-    return tokens
-
-
-  def drop_tokens_parens(self, drop_types):
+  def drop_tokens_parens(self):
     new_list = []
 
     # keep track of open and close parentheses
     parens_count = 0
+
+    drop_types = ['whitespace', 'comment', 'line continuation']
 
     for token in self.tokens:
       if token.group in drop_types:
@@ -428,8 +397,8 @@ class Examiner:
     return new_list
 
 
-  # two operands in a row decreases confidence
   def calc_operand_confidence(self, operand_types):
+    # two operands in a row decreases confidence
     tokens = self.tokens
 
     # remove tokens we don't care about
@@ -442,8 +411,7 @@ class Examiner:
       tokens = self.drop_tokens(self.tokens, drop_types)
 
     if self.newlines_important == 'parens':
-      drop_types = ['whitespace', 'comment', 'line continuation']
-      tokens = self.drop_tokens_parens(drop_types)
+      tokens = self.drop_tokens_parens()
 
     two_operand_count = 0
     prev_token = Token('\n', 'newline')
@@ -465,8 +433,8 @@ class Examiner:
     self.confidences['operand'] = operand_confidence
 
 
-  # two values in a row decreases confidence
   def calc_value_value_different_confidence(self):
+    # two values in a row decreases confidence
     tokens = self.tokens
 
     # remove tokens we don't care about
@@ -479,17 +447,14 @@ class Examiner:
       tokens = self.drop_tokens(self.tokens, drop_types)
 
     if self.newlines_important == 'parens':
-      drop_types = ['whitespace', 'comment', 'line continuation']
-      tokens = self.drop_tokens_parens(drop_types)
+      tokens = self.drop_tokens_parens()
 
     value_types = ['number', 'string', 'symbol']
 
     two_value_count = 0
     prev_token = Token('\n', 'newline')
     for token in tokens:
-      if token.group in value_types and\
-        prev_token.group in value_types and\
-        not token.group == prev_token.group:
+      if token.group in value_types and        prev_token.group in value_types and        not token.group == prev_token.group:
         two_value_count += 1
         self.errors.append({
           'TYPE': 'VALUE VALUE DIFFERENT',
@@ -572,16 +537,3 @@ class Examiner:
     self.statistics['parentheses bias'] = parens_bias
     self.statistics['bracket bias'] = bracket_bias
     self.statistics['brace bias'] = brace_bias
-
-
-  def unwrapped_code(self):
-    tokens = self.unwrap_lines(self.tokens)
-    text = ''
-
-    for token in tokens:
-      if token.group == 'newline':
-        text += '\n'
-      else:
-        text += token.text
-
-    return text

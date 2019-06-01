@@ -506,6 +506,10 @@ def unwrap_lines(text, language):
     lines = split_lines(text)
     unwrapped_text = unwrap_cobol_lines(lines)
 
+  if language in ['python', 'py']:
+    examiner = PythonExaminer(text)
+    unwrapped_text = examiner.unwrapped_code()
+
   return unwrapped_text
 
 
