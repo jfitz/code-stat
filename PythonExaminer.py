@@ -143,6 +143,11 @@ class PythonExaminer(Examiner):
 
         if line[0].group in ['keyword', 'whitespace', 'comment', 'string']:
           num_lines_correct += 1
+        else:
+          self.errors.append({
+            'TYPE': 'MISSING INDENT',
+            'KEYWORD': line[0].text
+          })
     
     keyword_indent_confidence = 0.0
 
@@ -156,11 +161,22 @@ class PythonExaminer(Examiner):
     # certain keyword lines end in colon
 
     # unwrap lines (drop line continuation tokens and tokens including newline)
+    tokens = []
+    include = True
+    for token in self.tokens:
+      if token.group == 'line continuation':
+        include = False
+      
+      if include:
+        tokens.append(token)
+
+      if token.group == 'newline':
+        include = True
 
     # drop tokens not used by interpreter
     drop_types = ['whitespace', 'comment']
 
-    tokens = self.drop_tokens(self.tokens, drop_types)
+    tokens = self.drop_tokens(tokens, drop_types)
 
     # split into lines
     lines = self.split_tokens(tokens)
@@ -169,7 +185,7 @@ class PythonExaminer(Examiner):
     num_lines = 0
     num_lines_correct = 0
     colon_keywords = [
-      'class', 'def', 'for', 'while', 'else'
+      'class', 'def', 'for', 'while', 'if', 'else', 'elif'
     ]
 
     for line in lines:
@@ -182,6 +198,12 @@ class PythonExaminer(Examiner):
 
           if last_token.group == 'operator' and last_token.text == ':':
             num_lines_correct += 1
+          else:
+            self.errors.append({
+              'TYPE': 'LINE FORMAT',
+              'FIRST': first_token.text,
+              'SECOND': "END '" + last_token.text + "' NOT ':'"
+            })
 
     line_format_2_confidence = 1.0
 
