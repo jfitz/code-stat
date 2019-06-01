@@ -220,8 +220,8 @@ class Examiner:
     self.confidences['line_length'] = line_length_confidence
 
 
+  # unknown tokens reduce confidence
   def calc_token_confidence(self):
-    # unknown tokens reduce confidence
     num_invalid_tokens = 0
 
     for token in self.tokens:
@@ -242,8 +242,8 @@ class Examiner:
     self.confidences['token'] = token_confidence
 
 
+  #  unknown operators reduce confidence
   def calc_operator_confidence(self):
-    #  unknown operators reduce confidence
     invalid_operators = self.invalid_operators()
     num_invalid_operators = self.count_invalid_operators()
     num_known_operators = self.count_known_operators()
@@ -263,8 +263,8 @@ class Examiner:
     self.confidences['operator'] = operator_confidence
 
 
+  # binary operators that follow operators reduce confidence
   def calc_operator_2_confidence(self):
-    # binary operators that follow operators reduce confidence
     num_invalid_operators = self.count_invalid_operators()
     num_known_operators = self.count_known_operators()
     num_operators = num_known_operators + num_invalid_operators
@@ -308,8 +308,8 @@ class Examiner:
     self.confidences['operator_2'] = operator_confidence_2
 
 
+  # binary operators that follow non-operands reduce confidence
   def calc_operator_3_confidence(self):
-    # binary operators that follow non-operands reduce confidence
     num_invalid_operators = self.count_invalid_operators()
     num_known_operators = self.count_known_operators()
     num_operators = num_known_operators + num_invalid_operators
@@ -387,6 +387,23 @@ class Examiner:
     self.confidences['line format'] = 1.0
 
 
+  # unwrap lines (drop line continuation tokens and tokens including newline)
+  def unwrap_lines(self, tokens):
+    tokens = []
+    include = True
+    for token in self.tokens:
+      if token.group == 'line continuation':
+        include = False
+      
+      if include:
+        tokens.append(token)
+
+      if token.group == 'newline':
+        include = True
+    
+    return tokens
+
+
   def drop_tokens_parens(self, drop_types):
     new_list = []
 
@@ -411,8 +428,8 @@ class Examiner:
     return new_list
 
 
+  # two operands in a row decreases confidence
   def calc_operand_confidence(self, operand_types):
-    # two operands in a row decreases confidence
     tokens = self.tokens
 
     # remove tokens we don't care about
@@ -448,8 +465,8 @@ class Examiner:
     self.confidences['operand'] = operand_confidence
 
 
+  # two values in a row decreases confidence
   def calc_value_value_different_confidence(self):
-    # two values in a row decreases confidence
     tokens = self.tokens
 
     # remove tokens we don't care about

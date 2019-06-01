@@ -160,18 +160,7 @@ class PythonExaminer(Examiner):
   def calc_line_format_confidence(self):
     # certain keyword lines end in colon
 
-    # unwrap lines (drop line continuation tokens and tokens including newline)
-    tokens = []
-    include = True
-    for token in self.tokens:
-      if token.group == 'line continuation':
-        include = False
-      
-      if include:
-        tokens.append(token)
-
-      if token.group == 'newline':
-        include = True
+    tokens = self.unwrap_lines(self.tokens)
 
     # drop tokens not used by interpreter
     drop_types = ['whitespace', 'comment']
