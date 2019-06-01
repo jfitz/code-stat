@@ -7,7 +7,7 @@ class FortranExaminer(Examiner):
     super().__init__()
     self.newlines_important = 'always'
 
-  def TokenizeLineNumber(self, line_number):
+  def tokenize_line_number(self, line_number):
     tokens = []
 
     if len(line_number) > 0:
@@ -40,22 +40,7 @@ class FortranExaminer(Examiner):
     return tokens
 
 
-  def TokenizeLineIndicator(self, line_indicator):
-    token = None
-
-    if line_indicator == ' ':
-      token = Token(' ', 'whitespace')
-    else:
-      if line_indicator in 'C*':
-        token = Token(line_indicator, 'comment')
-      else:
-        if line_indicator != '':
-          token = Token(line_indicator, 'invalid')
-
-    return token
-
-
-  def TokenizeLine(self, line, tokenizer, wide):
+  def tokenize_line(self, line, tokenizer, wide):
     # break apart the line based on fixed format
     tokens = []
 
@@ -83,7 +68,7 @@ class FortranExaminer(Examiner):
       if len(line_indicator) > 0 and line_indicator != ' ':
         tokens.append(Token(line, 'invalid'))
       else:
-        tokens += self.TokenizeLineNumber(line_number)
+        tokens += self.tokenize_line_number(line_number)
 
         # tokenize line continuation character
         if len(line_continuation) > 0:
@@ -104,7 +89,7 @@ class FortranExaminer(Examiner):
     return tokens
 
 
-  def TokenizeCode(self, code, tab_size, tokenizer, wide):
+  def tokenize_code(self, code, tab_size, tokenizer, wide):
     lines = code.split('\n')
 
     tokens = []
@@ -114,13 +99,13 @@ class FortranExaminer(Examiner):
       line = line.rstrip()
       line = self.tabs_to_spaces(line, tab_size)
 
-      line_tokens = self.TokenizeLine(line, tokenizer, wide)
+      line_tokens = self.tokenize_line(line, tokenizer, wide)
       tokens += line_tokens
 
     return tokens
 
 
-  def ConvertNumbersToLineNumbers(self):
+  def convert_numbers_to_lineNumbers(self):
     prev_token = Token('\n', 'newline')
 
     for token in self.tokens:
@@ -132,7 +117,7 @@ class FortranExaminer(Examiner):
         prev_token = token
 
 
-  def ConvertStarsToIOChannels(self):
+  def convert_stars_to_io_channels(self):
     prev_tokens = [
       Token('\n', 'newline'),
       Token('\n', 'newline'),

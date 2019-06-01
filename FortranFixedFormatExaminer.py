@@ -131,11 +131,11 @@ class FortranFixedFormatExaminer(FortranExaminer):
 
     tokenizer = Tokenizer(tokenbuilders)
 
-    self.tokens = self.TokenizeCode(code, tab_size, tokenizer, wide)
-    self.tokens = self.combineAdjacentWhitespace(self.tokens)
+    self.tokens = self.tokenize_code(code, tab_size, tokenizer, wide)
+    self.tokens = self.combine_adjacent_whitespace(self.tokens)
 
-    self.ConvertNumbersToLineNumbers()
-    self.ConvertStarsToIOChannels()
+    self.convert_numbers_to_lineNumbers()
+    self.convert_stars_to_io_channels()
 
     self.calc_token_confidence()
     self.calc_operator_confidence()

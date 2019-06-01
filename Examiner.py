@@ -16,6 +16,8 @@ class Examiner:
     self.unknown_operator_tb = ListTokenBuilder(operators, 'invalid operator', True)
     self.unary_operators = []
     self.postfix_operators = []
+    self.adjective_operators = []
+    self.keyword_postfix = []
     self.confidences = {}
     self.errors = []
     self.statistics = {}
@@ -166,7 +168,7 @@ class Examiner:
     return new_list
 
 
-  def combineAdjacentWhitespace(self, tokens):
+  def combine_adjacent_whitespace(self, tokens):
     new_list = []
 
     new_token = None
@@ -283,11 +285,13 @@ class Examiner:
         tokens = self.drop_tokens(self.tokens, drop_types)
 
       if self.newlines_important == 'parens':
-        tokens = self.drop_tokens_parens()
+        drop_types = ['whitespace', 'comment', 'line continuation']
+        tokens = self.drop_tokens_parens(drop_types)
 
       for token in tokens:
         if token.group == 'operator' and\
           prev_token.group == 'operator' and\
+          prev_token.text not in self.adjective_operators and\
           prev_token.text not in self.postfix_operators and\
           token.text.lower() not in (op.lower() for op in self.unary_operators):
           errors += 1
@@ -326,7 +330,8 @@ class Examiner:
         tokens = self.drop_tokens(self.tokens, drop_types)
 
       if self.newlines_important == 'parens':
-        tokens = self.drop_tokens_parens()
+        drop_types = ['whitespace', 'comment', 'line continuation']
+        tokens = self.drop_tokens_parens(drop_types)
 
       operand_types = [
         'number',
@@ -345,7 +350,9 @@ class Examiner:
         token_unary_operator = token.text.lower() in (op.lower() for op in self.unary_operators)
         if token.group == 'operator' and\
           not prev_token_operand and\
+          prev_token.text not in self.adjective_operators and\
           prev_token.text not in self.postfix_operators and\
+          not (prev_token.group == 'keyword' and token.text in self.keyword_postfix) and\
           not token_unary_operator:
           errors += 1
           self.errors.append({
@@ -380,13 +387,11 @@ class Examiner:
     self.confidences['line format'] = 1.0
 
 
-  def drop_tokens_parens(self):
+  def drop_tokens_parens(self, drop_types):
     new_list = []
 
     # keep track of open and close parentheses
     parens_count = 0
-
-    drop_types = ['whitespace', 'comment', 'line continuation']
 
     for token in self.tokens:
       if token.group in drop_types:
@@ -420,7 +425,8 @@ class Examiner:
       tokens = self.drop_tokens(self.tokens, drop_types)
 
     if self.newlines_important == 'parens':
-      tokens = self.drop_tokens_parens()
+      drop_types = ['whitespace', 'comment', 'line continuation']
+      tokens = self.drop_tokens_parens(drop_types)
 
     two_operand_count = 0
     prev_token = Token('\n', 'newline')
@@ -456,7 +462,8 @@ class Examiner:
       tokens = self.drop_tokens(self.tokens, drop_types)
 
     if self.newlines_important == 'parens':
-      tokens = self.drop_tokens_parens()
+      drop_types = ['whitespace', 'comment', 'line continuation']
+      tokens = self.drop_tokens_parens(drop_types)
 
     value_types = ['number', 'string', 'symbol']
 

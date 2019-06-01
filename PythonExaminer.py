@@ -61,10 +61,14 @@ class PythonExaminer(Examiner):
     ]
 
     self.postfix_operators = [
-      '++', '--'
+      '++', '--', ':'
     ]
 
-    groupers = ['(', ')', ',', '[', ']']
+    self.adjective_operators = ['not']
+
+    self.keyword_postfix = [':']
+
+    groupers = ['(', ')', ',', '[', ']', '{', '}']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
@@ -149,9 +153,9 @@ class PythonExaminer(Examiner):
 
 
   def calc_line_format_confidence(self):
-    # some keyword lines end in colon
+    # certain keyword lines end in colon
 
-    # unwrap lines
+    # unwrap lines (drop line continuation tokens and tokens including newline)
 
     # drop tokens not used by interpreter
     drop_types = ['whitespace', 'comment']
