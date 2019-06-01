@@ -6,11 +6,17 @@ from flask import Flask, request, render_template
 from BasicExaminer import BasicExaminer
 from CBasicExaminer import CBasicExaminer
 from CExaminer import CExaminer
-from CobolFixedFormatExaminer import CobolFixedFormatExaminer
+from CobolFixedFormatExaminer import (
+  CobolFixedFormatExaminer,
+  unwrap_cobol_lines
+)
 from CobolFreeFormatExaminer import CobolFreeFormatExaminer
 from CppExaminer import CppExaminer
 from CsharpExaminer import CsharpExaminer
-from FortranFixedFormatExaminer import FortranFixedFormatExaminer
+from FortranFixedFormatExaminer import (
+  FortranFixedFormatExaminer,
+  unwrap_fortran_lines
+)
 from FortranFreeFormatExaminer import FortranFreeFormatExaminer
 from FsharpExaminer import FsharpExaminer
 from HTMLExaminer import HTMLExaminer
@@ -131,11 +137,8 @@ def unwrap():
 
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
-  unwrapped_text = text
-  if language.lower() == 'fortran':
-    unwrapped_text = unwrap_fortran_lines(text)
-  if language.lower() == 'cobol':
-    unwrapped_text = unwrap_cobol_lines(text)
+
+  unwrapped_text = unwrap_lines(text, language.lower())
 
   return unwrapped_text
 
@@ -291,93 +294,6 @@ def truncate_lines(text, column):
     truncated_lines += '\n'
 
   return truncated_lines
-
-
-def unwrap_fortran_lines(text):
-  unwrapped_lines = ''
-
-  # break into lines
-  lines = split_lines(text)
-
-  buffer = None
-  for line in lines:
-    # rtrim
-    line = line.rstrip()
-
-    # if continuation (not comment, longer than 6, not space in column 5)
-    if len(line) > 5 and line[0] != 'C' and line[5] != ' ':
-      # drop leading columns
-      line = line[6:]
-      # append to buffer
-      if buffer is None:
-        buffer = line
-      else:
-        buffer += line
-    else:
-      if buffer is not None:
-        unwrapped_lines += buffer
-        unwrapped_lines += '\n'
-      buffer = line
-  if len(buffer) > 0:
-    unwrapped_lines += buffer
-    unwrapped_lines += '\n'
-
-  return unwrapped_lines
-
-
-def unwrap_cobol_lines(text):
-  unwrapped_lines = ''
-
-  # break into lines
-  lines = split_lines(text)
-
-  buffer = None
-  for line in lines:
-    # remove line description (if any)
-    line = line[:72]
-
-    # force line length to 72 (used later when continuing strings)
-    while len(line) < 72:
-      line += ' '
-
-    # if continuation (not comment, longer than 6, not space in column)
-    if len(line) > 6 and line[6] == '-':
-      # drop leading columns
-      line = line[7:]
-
-      # append to buffer
-      if buffer is None:
-        buffer = line
-      else:
-        # drop leading spaces and the leading quote
-        line = line.lstrip()
-
-        buffer2 = buffer.rstrip()
-        if len(buffer2) > 0:
-          # if the buffer ends with other than quote,
-          if buffer2[-1] not in "'\"":
-            # combine strings by dropping this line's opening quote
-            if len(line) > 0 and line[0] in "'\"":
-              line = line[1:]
-              buffer += line
-          else:
-            # previous line ends in quote
-            buffer = buffer2 + ' '  # space to separate string tokens
-            buffer += line
-        else:
-          buffer = line
-    else:
-      if buffer is not None:
-        # now drop the extra spaces on the right
-        unwrapped_lines += buffer.rstrip()
-        unwrapped_lines += '\n'
-      buffer = line
-
-  if buffer is not None and len(buffer) > 0:
-    unwrapped_lines += buffer
-    unwrapped_lines += '\n'
-
-  return unwrapped_lines
 
 
 def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, languages):
@@ -573,6 +489,25 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
         retval[name] = confidence
 
   return retval
+
+
+def unwrap_lines(text, language):
+  # only the fixed-format versions can be unwrapped
+  cobol_names = ['cobol', 'cobol-68', 'cobol-74', 'cobol-85']
+  fortran_names = ['fortran', 'fortran-66', 'fortran-77']
+
+  unwrapped_text = text
+
+  if language in fortran_names:
+    lines = split_lines(text)
+    unwrapped_text = unwrap_fortran_lines(lines)
+
+  if language in cobol_names:
+    lines = split_lines(text)
+    unwrapped_text = unwrap_cobol_lines(lines)
+
+  return unwrapped_text
+
 
 def tokenize(code, language, tabsize, wide):
   try:
