@@ -14,6 +14,9 @@ test\bin\run_test.ps1 -json -name rockt2 -action confidence -errors -language BA
 # C
 test\bin\run_test.ps1 -json -name diamond -action confidence -errors -language C -inputfile ".\test\data\C\diamond.c" -expected ".\test\ref\confidence-errors\C\diamond.txt"
 test\bin\run_test.ps1 -json -name prime_test -action confidence -errors -language C -inputfile ".\test\data\C\prime_test.c" -expected ".\test\ref\confidence-errors\C\prime_test.txt"
+test\bin\run_test.ps1 -json -name c-decl -action confidence -errors -language C -inputfile ".\test\data\C\c-decl.c" -expected ".\test\ref\confidence-errors\C\c-decl-c.txt"
+test\bin\run_test.ps1 -json -name parser-h -action confidence -errors -language C -inputfile ".\test\data\C\parser.h" -expected ".\test\ref\confidence-errors\C\parser-h.txt"
+test\bin\run_test.ps1 -json -name parser-c -action confidence -errors -language C -inputfile ".\test\data\C\parser.c" -expected ".\test\ref\confidence-errors\C\parser-c.txt"
 
 # CBASIC
 test\bin\run_test.ps1 -json -name fibo -action confidence -errors -language CBASIC -inputfile ".\test\data\CBASIC\fibo.bas" -expected ".\test\ref\confidence-errors\CBASIC\fibo.txt"

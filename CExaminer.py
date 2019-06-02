@@ -129,3 +129,4 @@ class CExaminer(Examiner):
     self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
+    self.calc_statistics()
