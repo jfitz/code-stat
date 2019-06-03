@@ -48,6 +48,7 @@ class SqlExaminer(Examiner):
     ]
 
     groupers = ['(', ')', ',']
+    group_ends = [')']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
@@ -442,7 +443,7 @@ class SqlExaminer(Examiner):
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
-    self.calc_operator_3_confidence()
+    self.calc_operator_3_confidence(group_ends)
     # operand_types = ['number', 'string', 'symbol']
     # self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()

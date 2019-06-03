@@ -309,7 +309,7 @@ class Examiner:
 
 
   # binary operators that follow non-operands reduce confidence
-  def calc_operator_3_confidence(self):
+  def calc_operator_3_confidence(self, group_ends):
     num_invalid_operators = self.count_invalid_operators()
     num_known_operators = self.count_known_operators()
     num_operators = num_known_operators + num_invalid_operators
@@ -346,8 +346,10 @@ class Examiner:
 
       for token in tokens:
         prev_token_operand = prev_token.group in operand_types or\
-          (prev_token.group == 'group' and prev_token.text in [')', ']', '}'])
+          (prev_token.group == 'group' and prev_token.text in group_ends)
+  
         token_unary_operator = token.text.lower() in (op.lower() for op in self.unary_operators)
+  
         if token.group == 'operator' and\
           not prev_token_operand and\
           prev_token.text not in self.adjective_operators and\

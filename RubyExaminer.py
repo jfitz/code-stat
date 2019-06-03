@@ -72,6 +72,7 @@ class RubyExaminer(Examiner):
     ]
 
     groupers = ['(', ')', ',', '[', ']', '{', '}', 'end']
+    group_ends = [')', ']', '}', 'end']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
@@ -132,7 +133,7 @@ class RubyExaminer(Examiner):
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
-    self.calc_operator_3_confidence()
+    self.calc_operator_3_confidence(group_ends)
     operand_types = ['number', 'string', 'symbol']
     self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()
