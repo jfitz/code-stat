@@ -12,12 +12,12 @@ from TokenBuilders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
+  PreProcessorTokenBuilder,
   ListTokenBuilder
 )
 from CXTokenBuilders import (
   SlashSlashCommentTokenBuilder,
-  SlashStarCommentTokenBuilder,
-  CPreProcessorTokenBuilder
+  SlashStarCommentTokenBuilder
 )
 from Tokenizer import Tokenizer
 
@@ -45,7 +45,7 @@ class CsharpExaminer(Examiner):
       '#line', '#region', '#endregion', '#pragma'
     )
 
-    c_preprocessor_tb = CPreProcessorTokenBuilder(directives)
+    preprocessor_tb = PreProcessorTokenBuilder(directives)
 
     terminators_tb = ListTokenBuilder([';'], 'statement terminator', False)
 
@@ -131,7 +131,7 @@ class CsharpExaminer(Examiner):
       prefixed_string_tb,
       slash_slash_comment_tb,
       slash_star_comment_tb,
-      c_preprocessor_tb,
+      preprocessor_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]

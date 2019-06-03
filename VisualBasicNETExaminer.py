@@ -13,6 +13,7 @@ from TokenBuilders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
+  PreProcessorTokenBuilder,
   ListTokenBuilder,
   LeadCommentTokenBuilder
 )
@@ -23,9 +24,6 @@ from BasicTokenBuilders import (
 from VisualBasicTokenBuilders import (
   VisualBasicVariableTokenBuilder,
   RemarkTokenBuilder
-)
-from CXTokenBuilders import (
-  CPreProcessorTokenBuilder
 )
 from Tokenizer import Tokenizer
 
@@ -54,7 +52,7 @@ class VisualBasicNETExaminer(Examiner):
       '#Const'
     )
 
-    c_preprocessor_tb = CPreProcessorTokenBuilder(directives)
+    preprocessor_tb = PreProcessorTokenBuilder(directives)
 
     known_operators = [
       '&', '&=', '*', '*=', '/', '/=', '\\', '\\=', '^', '^=',
@@ -156,7 +154,7 @@ class VisualBasicNETExaminer(Examiner):
       string_tb,
       remark_tb,
       comment_tb,
-      c_preprocessor_tb,
+      preprocessor_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]

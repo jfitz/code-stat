@@ -14,12 +14,12 @@ from TokenBuilders import (
   IdentifierTokenBuilder,
   ListTokenBuilder,
   ParenStarCommentTokenBuilder,
+  PreProcessorTokenBuilder,
   TripleQuoteCommentTokenBuilder
 )
 from CXTokenBuilders import (
   SlashSlashCommentTokenBuilder,
   TripleSlashCommentTokenBuilder,
-  CPreProcessorTokenBuilder,
   ClassTypeTokenBuilder
 )
 from Tokenizer import Tokenizer
@@ -54,7 +54,7 @@ class FsharpExaminer(Examiner):
       '#line', '#region', '#endregion', '#pragma'
     )
 
-    c_preprocessor_tb = CPreProcessorTokenBuilder(directives)
+    preprocessor_tb = PreProcessorTokenBuilder(directives)
 
     known_operators = [
       'and', 'as', 'in', 'new', 'not', 'of', 'or', 'when', 
@@ -144,7 +144,7 @@ class FsharpExaminer(Examiner):
       triple_slash_comment_tb,
       slash_slash_comment_tb,
       parens_star_comment_tb,
-      c_preprocessor_tb,
+      preprocessor_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]

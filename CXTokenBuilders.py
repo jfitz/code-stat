@@ -129,9 +129,10 @@ class SlashStarCommentTokenBuilder(TokenBuilder):
 
 # token reader for preprocessor directives
 class CPreProcessorTokenBuilder(TokenBuilder):
-  def __init__(self, prefixes):
+  def __init__(self, prefixes, continuation_chars):
     self.text = ''
     self.prefixes = prefixes
+    self.continuation_chars = continuation_chars
 
 
   def get_tokens(self):
@@ -147,14 +148,22 @@ class CPreProcessorTokenBuilder(TokenBuilder):
   def accept(self, candidate, c):
     result = False
 
-    if candidate.startswith('#'):
+    newline_chars = ['\n', '\r']
+
+    if len(candidate) == 0:
+      result = c == '#'
+
+    if len(candidate) > 0:
       result = True
 
-    if c == '#' and candidate == '':
-      result = True
+      if c in newline_chars:
+        result = False
 
-    if c in ['\n', '\r']:
-      result = False
+        if candidate[-1] in self.continuation_chars:
+          result = True
+
+        if len(candidate) > 1 and candidate[-2] in self.continuation_chars:
+          result = candidate[-1] in newline_chars and c != candidate[-1]
 
     return result
 

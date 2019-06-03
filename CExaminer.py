@@ -17,7 +17,8 @@ from TokenBuilders import (
 from CXTokenBuilders import (
   SlashSlashCommentTokenBuilder,
   SlashStarCommentTokenBuilder,
-  CPreProcessorTokenBuilder
+  CPreProcessorTokenBuilder,
+  ClassTypeTokenBuilder
 )
 from Tokenizer import Tokenizer
 
@@ -35,6 +36,8 @@ class CExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder()
     string_tb = StringTokenBuilder(['"', "'"], False, False)
 
+    class_type_tb = ClassTypeTokenBuilder()
+
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
 
@@ -44,7 +47,10 @@ class CExaminer(Examiner):
       '#line', '#error', '#include', '#pragma'
     )
 
-    c_preprocessor_tb = CPreProcessorTokenBuilder(directives)
+    continuation_chars = ['\\']
+    line_continuation_tb = ListTokenBuilder(continuation_chars, 'line continuation', False)
+
+    c_preprocessor_tb = CPreProcessorTokenBuilder(directives, continuation_chars)
 
     terminators_tb = ListTokenBuilder([';'], 'statement terminator', False)
 
@@ -56,7 +62,7 @@ class CExaminer(Examiner):
       '^',
       '.', ':',
       '++', '--', '->', '&&', '||',
-      '?'
+      '?', '##'
     ]
 
     self.unary_operators = [
@@ -95,10 +101,17 @@ class CExaminer(Examiner):
 
     types_tb = ListTokenBuilder(types, 'type', True)
 
+    values = [
+      '...'
+    ]
+
+    values_tb = ListTokenBuilder(values, 'value', True)
+
     invalid_token_builder = InvalidTokenBuilder()
 
     tokenbuilders = [
       whitespace_tb,
+      line_continuation_tb,
       newline_tb,
       terminators_tb,
       integer_tb,
@@ -107,9 +120,11 @@ class CExaminer(Examiner):
       real_exponent_tb,
       keyword_tb,
       types_tb,
+      values_tb,
       groupers_tb,
       known_operator_tb,
       identifier_tb,
+      class_type_tb,
       string_tb,
       slash_slash_comment_tb,
       slash_star_comment_tb,
@@ -125,7 +140,7 @@ class CExaminer(Examiner):
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     self.calc_operator_3_confidence()
-    operand_types = ['number', 'string', 'symbol']
+    operand_types = ['number', 'symbol']
     self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])

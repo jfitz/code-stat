@@ -17,7 +17,8 @@ from TokenBuilders import (
 from CXTokenBuilders import (
   SlashSlashCommentTokenBuilder,
   SlashStarCommentTokenBuilder,
-  CPreProcessorTokenBuilder
+  CPreProcessorTokenBuilder,
+  ClassTypeTokenBuilder
 )
 from Tokenizer import Tokenizer
 
@@ -35,6 +36,8 @@ class CppExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder()
     string_tb = StringTokenBuilder(['"', "'"], False, False)
 
+    class_type_tb = ClassTypeTokenBuilder()
+
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
 
@@ -44,7 +47,10 @@ class CppExaminer(Examiner):
       '#line', '#error', '#include', '#pragma'
     )
 
-    c_preprocessor_tb = CPreProcessorTokenBuilder(directives)
+    continuation_chars = ['\\']
+    line_continuation_tb = ListTokenBuilder(continuation_chars, 'line continuation', False)
+
+    c_preprocessor_tb = CPreProcessorTokenBuilder(directives, continuation_chars)
 
     terminators_tb = ListTokenBuilder([';'], 'statement terminator', False)
 
@@ -56,7 +62,7 @@ class CppExaminer(Examiner):
       '^',
       '.', ':',
       '++', '--', '->', '&&', '||',
-      '?',
+      '?', '##',
       '::', '<=>', '.*', '->*',
       'new', 'delete', 'and', 'and_eq', 'bitand', 'bitor', 'compl',
       'not', 'not_eq', 'or', 'or_eq', 'xor', 'xor_eq'
@@ -122,6 +128,7 @@ class CppExaminer(Examiner):
 
     tokenbuilders = [
       whitespace_tb,
+      line_continuation_tb,
       newline_tb,
       terminators_tb,
       integer_tb,
@@ -134,6 +141,7 @@ class CppExaminer(Examiner):
       known_operator_tb,
       groupers_tb,
       identifier_tb,
+      class_type_tb,
       string_tb,
       slash_slash_comment_tb,
       slash_star_comment_tb,

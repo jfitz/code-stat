@@ -770,4 +770,45 @@ class BlockTokenBuilder(TokenBuilder):
       return 0
 
     return len(self.text)
+
+
+# token reader for preprocessor directives
+class PreProcessorTokenBuilder(TokenBuilder):
+  def __init__(self, prefixes):
+    self.text = ''
+    self.prefixes = prefixes
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    if self.text.startswith('#'):
+      return [Token(self.text, 'preprocessor')]
+
+    return None
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if candidate.startswith('#'):
+      result = True
+
+    if c == '#' and candidate == '':
+      result = True
+
+    if c in ['\n', '\r']:
+      result = False
+
+    return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if self.text.startswith(self.prefixes):
+      return len(self.text)
     
+    return 0
