@@ -17,8 +17,7 @@ from TokenBuilders import (
 from CobolTokenBuilders import (
   CobolIdentifierTokenBuilder,
   PictureTokenBuilder,
-  CRPictureTokenBuilder,
-  CobolPreprocessorTokenBuilder
+  CRPictureTokenBuilder
 )
 from Tokenizer import Tokenizer
 
@@ -248,8 +247,6 @@ class CobolFixedFormatExaminer(CobolExaminer):
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
 
-    cobol_preprocessor_tb = CobolPreprocessorTokenBuilder()
-    
     exec_tb = BlockTokenBuilder('EXEC', 'END-EXEC', 'exec block')
 
     invalid_token_builder = InvalidTokenBuilder()
@@ -269,7 +266,6 @@ class CobolFixedFormatExaminer(CobolExaminer):
       groupers_tb,
       identifier_tb,
       string_tb,
-      cobol_preprocessor_tb,
       exec_tb,
       self.unknown_operator_tb,
       invalid_token_builder

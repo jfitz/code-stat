@@ -14969,7 +14969,15 @@
     },
     {
         "type": "preprocessor",
-        "value": "#if COMPILED"
+        "value": "#if"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "COMPILED"
     },
     {
         "type": "newline",

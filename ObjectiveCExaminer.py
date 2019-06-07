@@ -18,7 +18,6 @@ from TokenBuilders import (
 from CXTokenBuilders import (
   SlashSlashCommentTokenBuilder,
   SlashStarCommentTokenBuilder,
-  CPreProcessorTokenBuilder,
   ClassTypeTokenBuilder
 )
 from ObjectiveCTokenBuilders import (
@@ -56,7 +55,7 @@ class ObjectiveCExaminer(Examiner):
     continuation_chars = ['\\']
     line_continuation_tb = ListTokenBuilder(continuation_chars, 'line continuation', False)
 
-    c_preprocessor_tb = CPreProcessorTokenBuilder(directives, continuation_chars)
+    c_preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', True)
 
     terminators_tb = ListTokenBuilder([';'], 'statement terminator', False)
 

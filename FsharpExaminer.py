@@ -14,7 +14,6 @@ from TokenBuilders import (
   IdentifierTokenBuilder,
   ListTokenBuilder,
   ParenStarCommentTokenBuilder,
-  PreProcessorTokenBuilder,
   TripleQuoteCommentTokenBuilder
 )
 from CXTokenBuilders import (
@@ -54,7 +53,7 @@ class FsharpExaminer(Examiner):
       '#line', '#region', '#endregion', '#pragma'
     )
 
-    preprocessor_tb = PreProcessorTokenBuilder(directives)
+    preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', True)
 
     known_operators = [
       'and', 'as', 'in', 'new', 'not', 'of', 'or', 'when', 

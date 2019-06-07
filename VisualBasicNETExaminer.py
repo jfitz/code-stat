@@ -13,7 +13,6 @@ from TokenBuilders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
-  PreProcessorTokenBuilder,
   ListTokenBuilder,
   LeadCommentTokenBuilder
 )
@@ -52,7 +51,7 @@ class VisualBasicNETExaminer(Examiner):
       '#Const'
     )
 
-    preprocessor_tb = PreProcessorTokenBuilder(directives)
+    preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', True)
 
     known_operators = [
       '&', '&=', '*', '*=', '/', '/=', '\\', '\\=', '^', '^=',

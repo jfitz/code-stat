@@ -12,7 +12,6 @@ from TokenBuilders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
-  PreProcessorTokenBuilder,
   ListTokenBuilder
 )
 from CXTokenBuilders import (
@@ -45,7 +44,7 @@ class CsharpExaminer(Examiner):
       '#line', '#region', '#endregion', '#pragma'
     )
 
-    preprocessor_tb = PreProcessorTokenBuilder(directives)
+    preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', True)
 
     terminators_tb = ListTokenBuilder([';'], 'statement terminator', False)
 

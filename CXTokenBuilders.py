@@ -127,57 +127,6 @@ class SlashStarCommentTokenBuilder(TokenBuilder):
     return 0
 
 
-# token reader for preprocessor directives
-class CPreProcessorTokenBuilder(TokenBuilder):
-  def __init__(self, prefixes, continuation_chars):
-    self.text = ''
-    self.prefixes = prefixes
-    self.continuation_chars = continuation_chars
-
-
-  def get_tokens(self):
-    if self.text is None:
-      return None
-
-    if self.text.startswith('#'):
-      return [Token(self.text, 'preprocessor')]
-
-    return None
-
-
-  def accept(self, candidate, c):
-    result = False
-
-    newline_chars = ['\n', '\r']
-
-    if len(candidate) == 0:
-      result = c == '#'
-
-    if len(candidate) > 0:
-      result = True
-
-      if c in newline_chars:
-        result = False
-
-        if candidate[-1] in self.continuation_chars:
-          result = True
-
-        if len(candidate) > 1 and candidate[-2] in self.continuation_chars:
-          result = candidate[-1] in newline_chars and c != candidate[-1]
-
-    return result
-
-
-  def get_score(self, line_printable_tokens):
-    if self.text is None:
-      return 0
-
-    if self.text.startswith(self.prefixes):
-      return len(self.text)
-    
-    return 0
-
-
 # token reader for <name> class identifier
 class ClassTypeTokenBuilder(TokenBuilder):
   def __init__(self):

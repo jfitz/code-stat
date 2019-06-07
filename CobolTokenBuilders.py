@@ -140,6 +140,7 @@ class CRPictureTokenBuilder(TokenBuilder):
 # token reader for >> directive
 class CobolPreprocessorTokenBuilder(TokenBuilder):
   def __init__(self):
+    self.prefix = '>>'
     self.text = ''
 
 
@@ -147,7 +148,7 @@ class CobolPreprocessorTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    if self.text.startswith('>>'):
+    if self.text.startswith(self.prefix):
       return [Token(self.text, 'preprocessor')]
 
     return None
@@ -156,19 +157,29 @@ class CobolPreprocessorTokenBuilder(TokenBuilder):
   def accept(self, candidate, c):
     result = False
 
-    if candidate.startswith('>>'):
-      result = True
+    if len(candidate) == 0:
+      result = c == self.prefix[0]
 
-    if c == '>' and candidate == '>':
-      result = True
+    if len(candidate) == 1:
+      result = c == self.prefix[1]
 
-    if c == '>' and candidate == '':
+    if candidate.startswith(self.prefix):
       result = True
 
     if c in ['\n', '\r']:
       result = False
 
     return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if self.text.startswith(self.prefix):
+      return len(self.text)
+    
+    return 0
 
 
 # token reader for asterisk comment
