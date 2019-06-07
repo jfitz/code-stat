@@ -42,7 +42,7 @@ class SlashSlashCommentTokenBuilder(TokenBuilder):
     return 0
 
 
-# token reader for // comment
+# token reader for /// comment
 class TripleSlashCommentTokenBuilder(TokenBuilder):
   def __init__(self):
     self.text = ''

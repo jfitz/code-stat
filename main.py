@@ -3,6 +3,7 @@ import cProfile
 import json
 import codecs
 from flask import Flask, request, render_template
+from AdaExaminer import AdaExaminer
 from BasicExaminer import BasicExaminer
 from CBasicExaminer import CBasicExaminer
 from CExaminer import CExaminer
@@ -54,6 +55,10 @@ def decode_bytes(in_bytes):
 app = Flask(__name__)
 
 codesAndNames = {
+  'ada83': 'Ada-83',
+  'ada95': 'Ada-95',
+  'ada2005': 'Ada-2005',
+  'ada2012': 'Ada-2012',
   'basic': 'BASIC',
   'c': 'C',
   'cplusplus': 'C++',
@@ -306,6 +311,18 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
 
   examiners = {}
 
+  if 'ada83' in languages:
+    examiners['Ada-83'] = AdaExaminer(code, '83')
+
+  if 'ada95' in languages:
+    examiners['Ada-95'] = AdaExaminer(code, '95')
+
+  if 'ada2005' in languages:
+    examiners['Ada-2005'] = AdaExaminer(code, '2005')
+
+  if 'ada2012' in languages:
+    examiners['Ada-2012'] = AdaExaminer(code, '2012')
+
   if 'basic' in languages:
     examiners['BASIC'] = BasicExaminer(code)
 
@@ -521,6 +538,22 @@ def tokenize(code, language, tabsize, wide):
 
   tokens = []
 
+  if language in ['ada-83', 'ada']:
+    examiner = AdaExaminer(code, '83')
+    tokens = examiner.tokens
+
+  if language in ['ada-95', 'ada']:
+    examiner = AdaExaminer(code, '95')
+    tokens = examiner.tokens
+
+  if language in ['ada-2005', 'ada']:
+    examiner = AdaExaminer(code, '2005')
+    tokens = examiner.tokens
+
+  if language in ['ada-2012', 'ada']:
+    examiner = AdaExaminer(code, '2012')
+    tokens = examiner.tokens
+
   if language in ['basic', 'bas']:
     examiner = BasicExaminer(code)
     tokens = examiner.tokens
@@ -688,6 +721,26 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide):
 
   confidences = {}
   errors = []
+
+  if language in ['ada-83', 'ada']:
+    examiner = AdaExaminer(code, '83')
+    confidences = examiner.confidences
+    errors = examiner.errors
+
+  if language in ['ada-95', 'ada']:
+    examiner = AdaExaminer(code, '95')
+    confidences = examiner.confidences
+    errors = examiner.errors
+
+  if language in ['ada-2005', 'ada']:
+    examiner = AdaExaminer(code, '2005')
+    confidences = examiner.confidences
+    errors = examiner.errors
+
+  if language in ['ada-2012', 'ada']:
+    examiner = AdaExaminer(code, '2012')
+    confidences = examiner.confidences
+    errors = examiner.errors
 
   if language in ['basic', 'bas']:
     examiner = BasicExaminer(code)
@@ -899,6 +952,22 @@ def tokenize_statistics(code, language, tabsize, wide):
     tab_size = 8
 
   statistics = {}
+
+  if language in ['ada-83', 'ada']:
+    examiner = AdaExaminer(code, '83')
+    statistics = examiner.statistics
+
+  if language in ['ada-95', 'ada']:
+    examiner = AdaExaminer(code, '95')
+    statistics = examiner.statistics
+
+  if language in ['ada-2005', 'ada']:
+    examiner = AdaExaminer(code, '2005')
+    statistics = examiner.statistics
+
+  if language in ['ada-2012', 'ada']:
+    examiner = AdaExaminer(code, '2012')
+    statistics = examiner.statistics
 
   if language in ['basic', 'bas']:
     examiner = BasicExaminer(code)

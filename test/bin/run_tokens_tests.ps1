@@ -2,6 +2,26 @@ Set-StrictMode -Version Latest
 
 [int]$failures = 0
 
+# Ada-83
+test\bin\run_test.ps1 -json -name adabkend-adb-83 -action tokens -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\tokens\Ada-83\adabkend-adb.txt"
+test\bin\run_test.ps1 -json -name adabkend-ads-83 -action tokens -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.ads" -expected ".\test\ref\tokens\Ada-83\adabkend-ads.txt"
+test\bin\run_test.ps1 -json -name signup-adb-83 -action tokens -language Ada-83 -inputfile ".\test\data\Ada-83\signup.adb" -expected ".\test\ref\tokens\Ada-83\signup-adb.txt"
+
+# Ada-95
+test\bin\run_test.ps1 -json -name adabkend-adb-95 -action tokens -language Ada-95 -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\tokens\Ada-95\adabkend-adb.txt"
+test\bin\run_test.ps1 -json -name adabkend-ads-95 -action tokens -language Ada-95 -inputfile ".\test\data\Ada-83\adabkend.ads" -expected ".\test\ref\tokens\Ada-95\adabkend-ads.txt"
+test\bin\run_test.ps1 -json -name signup-adb-95 -action tokens -language Ada-95 -inputfile ".\test\data\Ada-83\signup.adb" -expected ".\test\ref\tokens\Ada-95\signup-adb.txt"
+
+# Ada-2005
+test\bin\run_test.ps1 -json -name adabkend-adb-2005 -action tokens -language Ada-2005 -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\tokens\Ada-2005\adabkend-adb.txt"
+test\bin\run_test.ps1 -json -name adabkend-ads-2005 -action tokens -language Ada-2005 -inputfile ".\test\data\Ada-83\adabkend.ads" -expected ".\test\ref\tokens\Ada-2005\adabkend-ads.txt"
+test\bin\run_test.ps1 -json -name signup-adb-2005 -action tokens -language Ada-2005 -inputfile ".\test\data\Ada-83\signup.adb" -expected ".\test\ref\tokens\Ada-2005\signup-adb.txt"
+
+# Ada-2012
+test\bin\run_test.ps1 -json -name adabkend-adb-2012 -action tokens -language Ada-2012 -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\tokens\Ada-2012\adabkend-adb.txt"
+test\bin\run_test.ps1 -json -name adabkend-ads-2012 -action tokens -language Ada-2012 -inputfile ".\test\data\Ada-83\adabkend.ads" -expected ".\test\ref\tokens\Ada-2012\adabkend-ads.txt"
+test\bin\run_test.ps1 -json -name signup-adb-2012 -action tokens -language Ada-2012 -inputfile ".\test\data\Ada-83\signup.adb" -expected ".\test\ref\tokens\Ada-2012\signup-adb.txt"
+
 # BASIC
 test\bin\run_test.ps1 -json -name values -action tokens -language BASIC -inputfile ".\test\data\BASIC\values.bas" -expected ".\test\ref\tokens\BASIC\values.txt"
 test\bin\run_test.ps1 -json -name simple -action tokens -language BASIC -inputfile ".\test\data\BASIC\simple.bas" -expected ".\test\ref\tokens\BASIC\simple.txt"

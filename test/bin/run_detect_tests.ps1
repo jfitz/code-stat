@@ -2,6 +2,11 @@ Set-StrictMode -Version Latest
 
 [int]$failures = 0
 
+# Ada-83
+test\bin\run_test.ps1 -json -name adabkend-adb -action detect -tiebreak -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\detect\Ada-83\adabkend-adb.txt"
+test\bin\run_test.ps1 -json -name adabkend-ads -action detect -tiebreak -inputfile ".\test\data\Ada-83\adabkend.ads" -expected ".\test\ref\detect\Ada-83\adabkend-ads.txt"
+test\bin\run_test.ps1 -json -name signup-adb -action detect -tiebreak -inputfile ".\test\data\Ada-83\signup.adb" -expected ".\test\ref\detect\Ada-83\signup-adb.txt"
+
 # BASIC
 test\bin\run_test.ps1 -json -name values -action detect -tiebreak -inputfile ".\test\data\BASIC\values.bas" -expected ".\test\ref\detect\BASIC\values.txt"
 test\bin\run_test.ps1 -json -name simple -action detect -tiebreak -inputfile ".\test\data\BASIC\simple.bas" -expected ".\test\ref\detect\BASIC\simple.txt"
