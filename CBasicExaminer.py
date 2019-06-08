@@ -11,6 +11,7 @@ from TokenBuilders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   ListTokenBuilder,
+  SingleCharacterTokenBuilder,
   PrefixedIntegerTokenBuilder,
   LeadCommentTokenBuilder
 )
@@ -45,7 +46,7 @@ class CBasicExaminer(Examiner):
     remark_tb = RemarkTokenBuilder()
     comment_tb = LeadCommentTokenBuilder("'")
 
-    stmt_separator_tb = ListTokenBuilder([':'], 'statement separator', False)
+    stmt_separator_tb = SingleCharacterTokenBuilder(':', 'statement separator')
 
     known_operators = [
       '+', '-', '*', '/', '^',

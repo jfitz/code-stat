@@ -13,6 +13,7 @@ from TokenBuilders import (
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
   ListTokenBuilder,
+  SingleCharacterTokenBuilder,
   LeadCommentTokenBuilder
 )
 from FortranTokenBuilders import (
@@ -56,10 +57,8 @@ class FortranFreeFormatExaminer(FortranExaminer):
     ]
 
     user_operator_tb = UserDefinedOperatorTokenBuilder()
-
-    continuation_tb = ListTokenBuilder(['&'], 'line continuation', False)
-
-    stmt_separator_tb = ListTokenBuilder([';'], 'statement separator', False)
+    continuation_tb = SingleCharacterTokenBuilder('&', 'line continuation')
+    stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator')
 
     groupers = ['(', ')', ',', '[', ']']
     group_ends = [')', ']', '}']

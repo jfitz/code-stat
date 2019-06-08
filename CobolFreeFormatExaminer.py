@@ -13,6 +13,7 @@ from TokenBuilders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   ListTokenBuilder,
+  SingleCharacterTokenBuilder,
   LeadCommentTokenBuilder,
   BlockTokenBuilder
 )
@@ -45,9 +46,7 @@ class CobolFreeFormatExaminer(CobolExaminer):
     inline_comment_tb = LeadCommentTokenBuilder('*>')
     star_comment_tb = AsteriskCommentTokenBuilder()
 
-    terminators = ['.']
-
-    terminators_tb = ListTokenBuilder(terminators, 'statement terminator', False)
+    terminators_tb = SingleCharacterTokenBuilder('.', 'statement terminator')
 
     known_operators = [
       'ADD', 'SUBTRACT', 'MULTIPLY', 'DIVIDE',

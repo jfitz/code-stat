@@ -12,7 +12,8 @@ from TokenBuilders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
-  ListTokenBuilder
+  ListTokenBuilder,
+  SingleCharacterTokenBuilder
 )
 from CXTokenBuilders import (
   SlashSlashCommentTokenBuilder,
@@ -46,7 +47,7 @@ class CsharpExaminer(Examiner):
 
     preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', True)
 
-    terminators_tb = ListTokenBuilder([';'], 'statement terminator', False)
+    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
 
     known_operators = [
       '+', '-', '*', '/', '%',

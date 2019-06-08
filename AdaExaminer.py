@@ -12,7 +12,8 @@ from TokenBuilders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
-  ListTokenBuilder
+  ListTokenBuilder,
+  SingleCharacterTokenBuilder
 )
 from AdaTokenBuilders import (
   AdaCharTokenBuilder,
@@ -37,7 +38,7 @@ class AdaExaminer(Examiner):
 
     dash_dash_comment_tb = DashDashCommentTokenBuilder()
 
-    terminators_tb = ListTokenBuilder([';'], 'statement terminator', False)
+    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
 
     known_operators = [
       'and', 'or', 'xor',

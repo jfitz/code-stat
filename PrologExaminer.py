@@ -11,6 +11,7 @@ from TokenBuilders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   ListTokenBuilder,
+  SingleCharacterTokenBuilder,
   IdentifierTokenBuilder,
   LeadCommentTokenBuilder
 )
@@ -26,8 +27,8 @@ class PrologExaminer(Examiner):
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
-    stmt_separator_tb = ListTokenBuilder([';'], 'statement separator', False)
-    stmt_terminator_tb = ListTokenBuilder(['.'], 'statement terminator', False)
+    stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator')
+    stmt_terminator_tb = SingleCharacterTokenBuilder('.', 'statement terminator')
 
     integer_tb = IntegerTokenBuilder(True)
     integer_exponent_tb = IntegerExponentTokenBuilder()

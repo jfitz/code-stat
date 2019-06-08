@@ -421,6 +421,24 @@ class IdentifierTokenBuilder(TokenBuilder):
     return result
 
 
+class SingleCharacterTokenBuilder(TokenBuilder):
+  def __init__(self, legals, group):
+    self.legals = legals
+    self.group = group
+    self.text = ''
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, self.group)]
+
+
+  def accept(self, candidate, c):
+    return len(candidate) == 0 and c in self.legals
+
+
 # accept characters to match item in list
 class ListTokenBuilder(TokenBuilder):
   def __init__(self, legals, group, case_sensitive):

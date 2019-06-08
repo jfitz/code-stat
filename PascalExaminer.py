@@ -12,6 +12,7 @@ from TokenBuilders import (
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
   ListTokenBuilder,
+  SingleCharacterTokenBuilder,
   PrefixedIntegerTokenBuilder,
   ParenStarCommentTokenBuilder
 )
@@ -26,7 +27,7 @@ class PascalExaminer(Examiner):
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
-    stmt_separator_tb = ListTokenBuilder([';'], 'statement separator', False)
+    stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator')
 
     integer_tb = IntegerTokenBuilder(False)
     integer_exponent_tb = IntegerExponentTokenBuilder()

@@ -13,6 +13,7 @@ from TokenBuilders import (
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
   ListTokenBuilder,
+  SingleCharacterTokenBuilder,
   LeadCommentTokenBuilder,
   TripleQuoteCommentTokenBuilder
 )
@@ -28,7 +29,7 @@ class PythonExaminer(Examiner):
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
-    stmt_separator_tb = ListTokenBuilder([';'], 'statement separator', False)
+    stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator')
 
     integer_tb = IntegerTokenBuilder(True)
     integer_exponent_tb = IntegerExponentTokenBuilder()

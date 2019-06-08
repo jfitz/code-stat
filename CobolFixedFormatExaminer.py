@@ -12,6 +12,7 @@ from TokenBuilders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   ListTokenBuilder,
+  SingleCharacterTokenBuilder,
   BlockTokenBuilder
 )
 from CobolTokenBuilders import (
@@ -37,9 +38,7 @@ class CobolFixedFormatExaminer(CobolExaminer):
     picture_tb = PictureTokenBuilder()
     cr_picture_tb = CRPictureTokenBuilder()
 
-    terminators = ['.']
-
-    terminators_tb = ListTokenBuilder(terminators, 'statement terminator', False)
+    terminators_tb = SingleCharacterTokenBuilder('.', 'statement terminator')
 
     known_operators = [
       'ADD', 'SUBTRACT', 'MULTIPLY', 'DIVIDE',

@@ -12,6 +12,7 @@ from TokenBuilders import (
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
   ListTokenBuilder,
+  SingleCharacterTokenBuilder,
   LeadCommentTokenBuilder
 )
 from RTokenBuilders import (
@@ -52,9 +53,7 @@ class RExaminer(Examiner):
     ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
-
-    stmt_separator_tb = ListTokenBuilder([';'], 'statement separator', False)
-
+    stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator')
     user_operator_tb = ROperatorTokenBuilder()
 
     groupers = ['(', ')', ',', '[', ']']

@@ -13,7 +13,8 @@ from TokenBuilders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
-  ListTokenBuilder
+  ListTokenBuilder,
+  SingleCharacterTokenBuilder
 )
 from CXTokenBuilders import (
   SlashSlashCommentTokenBuilder,
@@ -52,12 +53,9 @@ class ObjectiveCExaminer(Examiner):
       '#import', '#line', '#error', '#include', '#pragma'
     )
 
-    continuation_chars = ['\\']
-    line_continuation_tb = ListTokenBuilder(continuation_chars, 'line continuation', False)
-
+    line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation')
     c_preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', True)
-
-    terminators_tb = ListTokenBuilder([';'], 'statement terminator', False)
+    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
 
     known_operators = [
       '+', '-', '*', '/', '%',

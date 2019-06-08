@@ -11,6 +11,7 @@ from TokenBuilders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   ListTokenBuilder,
+  SingleCharacterTokenBuilder,
   PrefixedIntegerTokenBuilder,
   LeadCommentTokenBuilder
 )
@@ -31,9 +32,7 @@ class SqlExaminer(Examiner):
     string_tb = StringTokenBuilder(["'", '"'], True, False)
     identifier_tb = IdentifierTokenBuilder()
 
-    terminators = [';']
-
-    terminators_tb = ListTokenBuilder(terminators, 'statement terminator', False)
+    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
 
     known_operators = [
       '=', '>', '>=', '<', '<=', '<>', '!=',

@@ -12,6 +12,7 @@ from TokenBuilders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   ListTokenBuilder,
+  SingleCharacterTokenBuilder,
   LeadCommentTokenBuilder,
   PrefixedIdentifierTokenBuilder,
   RegexTokenBuilder
@@ -28,7 +29,7 @@ class RubyExaminer(Examiner):
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
-    stmt_separator_tb = ListTokenBuilder([';'], 'statement separator', False)
+    stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator')
 
     integer_tb = IntegerTokenBuilder(True)
     integer_exponent_tb = IntegerExponentTokenBuilder()

@@ -12,6 +12,7 @@ from TokenBuilders import (
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
   ListTokenBuilder,
+  SingleCharacterTokenBuilder,
   PrefixedIntegerTokenBuilder,
   RegexTokenBuilder
 )
@@ -42,7 +43,7 @@ class JavaScriptExaminer(Examiner):
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
 
-    terminators_tb = ListTokenBuilder([';'], 'statement terminator', False)
+    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
 
     known_operators = [
       '+', '-', '*', '/', '%',

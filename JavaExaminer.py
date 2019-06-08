@@ -11,7 +11,8 @@ from TokenBuilders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
-  ListTokenBuilder
+  ListTokenBuilder,
+  SingleCharacterTokenBuilder
 )
 from CXTokenBuilders import (
   SlashSlashCommentTokenBuilder,
@@ -36,7 +37,7 @@ class JavaExaminer(Examiner):
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
 
-    terminators_tb = ListTokenBuilder([';'], 'statement terminator', False)
+    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
 
     known_operators = [
       '+', '-', '*', '/', '%',
