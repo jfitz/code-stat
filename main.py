@@ -1134,6 +1134,7 @@ if __name__ == '__main__':
   parser = argparse.ArgumentParser()
   parser.add_argument('--tokenize', action='store', dest='tokenize')
   parser.add_argument('--confidence', action='store', dest='confidence')
+  parser.add_argument('--detect', action='store', dest='detect')
   args = parser.parse_args()
 
   if args.tokenize is not None:
@@ -1143,7 +1144,8 @@ if __name__ == '__main__':
     in_file.close()
     language = 'ruby'
     tabsize = 4
-    cProfile.run('tokenize(code, language, tabsize)')
+    wide = False
+    cProfile.run('tokenize(code, language, tabsize, wide)')
   else:
     if args.confidence is not None:
       print('Confidencing file ' + args.confidence)
@@ -1152,6 +1154,19 @@ if __name__ == '__main__':
       in_file.close()
       language = 'ruby'
       tabsize = 4
+      wide = False
       cProfile.run('tokenize_confidence(code, language, tabsize)')
     else:
-      app.run()
+      if args.detect is not None:
+        print('Detecting file ' + args.detect)
+        in_file = open(args.detect, 'r')
+        code = in_file.read()
+        in_file.close()
+        tabsize = 4
+        wide = False
+        tiebreak_keywords = True
+        tiebreak_tokens = False
+        languages = list(codesAndNames.keys())
+        cProfile.run('identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, languages)')
+      else:
+        app.run()

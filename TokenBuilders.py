@@ -172,7 +172,10 @@ class StringTokenBuilder(TokenBuilder):
 # token reader for prefixed text literal (string)
 class PrefixedStringTokenBuilder(TokenBuilder):
   def __init__(self, prefix, case_sensitive, quotes):
-    self.prefix = prefix
+    if case_sensitive:
+      self.prefix = prefix
+    else:
+      self.prefix = prefix.lower()
     self.case_sensitive = case_sensitive
     self.quotes = quotes
     self.text = ''
@@ -192,7 +195,7 @@ class PrefixedStringTokenBuilder(TokenBuilder):
       if self.case_sensitive:
         result = c == self.prefix[len(candidate)]
       else:
-        result = c.lower() == self.prefix[len(candidate)].lower()
+        result = c.lower() == self.prefix[len(candidate)]
     
     if len(candidate) == len(self.prefix):
       result = c in self.quotes
@@ -421,7 +424,10 @@ class IdentifierTokenBuilder(TokenBuilder):
 # accept characters to match item in list
 class ListTokenBuilder(TokenBuilder):
   def __init__(self, legals, group, case_sensitive):
-    self.legals = legals
+    if case_sensitive:
+      self.legals = legals
+    else:
+      self.legals = list(map(str.lower, legals))
     self.group = group
     self.case_sensitive = case_sensitive
     self.text = ''
@@ -445,7 +451,7 @@ class ListTokenBuilder(TokenBuilder):
           if candidate in self.legals:
             best_candidate = candidate
         else:
-          if candidate.lower() in (legal.lower() for legal in self.legals):
+          if candidate.lower() in self.legals:
             best_candidate = candidate
 
     if len(best_candidate) > 0:
@@ -471,7 +477,7 @@ class ListTokenBuilder(TokenBuilder):
           break
     else:
       for legal in self.legals:
-        if legal[:count].lower() == token.lower():
+        if legal[:count] == token.lower():
           result = True
           break
 
@@ -482,7 +488,10 @@ class ListTokenBuilder(TokenBuilder):
 class PrefixedIntegerTokenBuilder(TokenBuilder):
   def __init__(self, prefix, case_sensitive, allowed_chars):
     self.text = None
-    self.prefix = prefix
+    if case_sensitive:
+      self.prefix = prefix
+    else:
+      self.prefix = prefix.lower()
     self.case_sensitive = case_sensitive
     self.allowed_chars = allowed_chars
 
@@ -501,7 +510,7 @@ class PrefixedIntegerTokenBuilder(TokenBuilder):
       if self.case_sensitive:
         result = c == self.prefix[len(candidate)]
       else:
-        result = c.lower() == self.prefix[len(candidate)].lower()
+        result = c.lower() == self.prefix[len(candidate)]
     
     if len(candidate) >= len(self.prefix):
       result = c in self.allowed_chars
