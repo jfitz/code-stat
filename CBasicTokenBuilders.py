@@ -34,8 +34,8 @@ class CBasicVariableTokenBuilder(TokenBuilder):
 class CBasicSuffixedIntegerTokenBuilder(TokenBuilder):
   def __init__(self, allow_chars, suffix_char):
     self.text = None
-    self.allow_chars = allow_chars
-    self.suffix_char = suffix_char
+    self.allow_chars = allow_chars.lower()
+    self.suffix_char = suffix_char.lower()
 
 
   def get_tokens(self):
@@ -52,10 +52,10 @@ class CBasicSuffixedIntegerTokenBuilder(TokenBuilder):
       result = c.isdigit()
     
     if len(candidate) > 0:
-      result = c.lower() in self.allow_chars.lower() or\
-               c.lower() in self.suffix_char.lower()
+      result = c.lower() in self.allow_chars or\
+               c.lower() in self.suffix_char
 
-    if len(candidate) > 0 and candidate[-1].lower() in self.suffix_char.lower():
+    if len(candidate) > 0 and candidate[-1].lower() in self.suffix_char:
       result = False
 
     return result
@@ -68,7 +68,7 @@ class CBasicSuffixedIntegerTokenBuilder(TokenBuilder):
     if len(self.text) < 2:
       return 0
 
-    if self.text[-1].lower() != 'h':
+    if self.text[-1].lower() not in self.suffix_char:
       return 0
 
     return len(self.text)

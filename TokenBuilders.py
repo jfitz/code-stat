@@ -336,7 +336,7 @@ class RealExponentTokenBuilder(TokenBuilder):
     self.text = None
     self.require_before = require_before
     self.require_after = require_after
-    self.letter = letter
+    self.letter = letter.lower()
 
 
   def get_tokens(self):
@@ -354,17 +354,17 @@ class RealExponentTokenBuilder(TokenBuilder):
 
     if c == '.' and\
       '.' not in candidate and\
-      self.letter.lower() not in candidate.lower():
+      self.letter not in candidate.lower():
       result = True
 
-    if c.lower() == self.letter.lower()\
+    if c.lower() == self.letter\
       and len(candidate) > 0 and\
-      self.letter.lower() not in candidate.lower():
+      self.letter not in candidate.lower():
       result = True
 
     if c in ['+', '-'] and\
       len(candidate) > 0 and\
-      candidate[-1].lower() == self.letter.lower():
+      candidate[-1].lower() == self.letter:
       result = True
 
     return result
@@ -762,7 +762,7 @@ class RegexTokenBuilder(TokenBuilder):
 class BlockTokenBuilder(TokenBuilder):
   def __init__(self, prefix, suffix, tokentype):
     self.text = ''
-    self.prefix = prefix
+    self.prefix = prefix.lower()
     self.suffix = suffix
     self.texttype = tokentype
 
@@ -778,7 +778,7 @@ class BlockTokenBuilder(TokenBuilder):
     result = False
 
     if len(candidate) < len(self.prefix):
-      result = c.lower() == self.prefix[len(candidate)].lower()
+      result = c.lower() == self.prefix[len(candidate)]
 
     if len(candidate) >= len(self.prefix):
       result = not candidate.endswith(self.suffix)
