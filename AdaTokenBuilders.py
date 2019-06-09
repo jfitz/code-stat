@@ -1,5 +1,8 @@
 from Token import Token
-from TokenBuilders import TokenBuilder
+from TokenBuilders import (
+  TokenBuilder,
+  CharTokenBuilder
+)
 
 # token reader for -- comment
 class DashDashCommentTokenBuilder(TokenBuilder):
@@ -43,37 +46,9 @@ class DashDashCommentTokenBuilder(TokenBuilder):
 
 
 # token reader for single-character text literal (string)
-class AdaCharTokenBuilder(TokenBuilder):
+class AdaCharTokenBuilder(CharTokenBuilder):
   def __init__(self, quotes):
-    self.quotes = quotes
-    self.text = ''
-
-
-  def get_tokens(self):
-    if self.text is None:
-      return None
-
-    return [Token(self.text, 'string')]
-
-
-  def accept(self, candidate, c):
-    result = False
-
-    if len(candidate) == 0 and c in self.quotes:
-      result = True
-
-    if len(candidate) == 1:
-      result = True
-
-    if len(candidate) == 2:
-      result = c == candidate[0]
-
-    # newline breaks a string
-    if c in ['\n', '\r']:
-      result = False
-
-    return result
-
+    super().__init__(quotes)
 
   def get_score(self, line_printable_tokens):
     if self.text is None:

@@ -212,6 +212,52 @@ class PrefixedStringTokenBuilder(TokenBuilder):
     return result
 
 
+# token reader for single-character text literal (string)
+class CharTokenBuilder(TokenBuilder):
+  def __init__(self, quotes):
+    self.quotes = quotes
+    self.text = ''
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'string')]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if len(candidate) == 0 and c in self.quotes:
+      result = True
+
+    if len(candidate) == 1:
+      result = True
+
+    if len(candidate) == 2:
+      result = c == candidate[0]
+
+    # newline breaks a string
+    if c in ['\n', '\r']:
+      result = False
+
+    return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(self.text) < 2:
+      return 0
+
+    if self.text[-1] != self.text[0]:
+      return 0
+
+    return len(self.text)
+
+
 # token reader for integer
 class IntegerTokenBuilder(TokenBuilder):
   def __init__(self, allow_underscore):
@@ -465,6 +511,7 @@ class ListTokenBuilder(TokenBuilder):
       if accepted:
         candidate += c
         i += 1
+
         if self.case_sensitive:
           if candidate in self.legals:
             best_candidate = candidate
@@ -500,6 +547,21 @@ class ListTokenBuilder(TokenBuilder):
           break
 
     return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    score = 0
+    if self.case_sensitive:
+      if self.text in self.legals:
+        score = len(self.text)
+    else:
+      if self.text.lower() in self.legals:
+        score = len(self.text)
+
+    return score
 
 
 # token reader for integer
@@ -763,7 +825,7 @@ class BlockTokenBuilder(TokenBuilder):
   def __init__(self, prefix, suffix, tokentype):
     self.text = ''
     self.prefix = prefix.lower()
-    self.suffix = suffix
+    self.suffix = suffix.lower()
     self.texttype = tokentype
 
 
@@ -781,7 +843,7 @@ class BlockTokenBuilder(TokenBuilder):
       result = c.lower() == self.prefix[len(candidate)]
 
     if len(candidate) >= len(self.prefix):
-      result = not candidate.endswith(self.suffix)
+      result = not candidate.lower().endswith(self.suffix)
 
     return result
 
@@ -790,10 +852,10 @@ class BlockTokenBuilder(TokenBuilder):
     if self.text is None:
       return 0
 
-    if not self.text.startswith(self.prefix):
+    if not self.text.lower().startswith(self.prefix):
       return 0
 
-    if not self.text.endswith(self.suffix):
+    if not self.text.lower().endswith(self.suffix):
       return 0
 
     return len(self.text)

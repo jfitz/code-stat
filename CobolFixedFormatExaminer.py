@@ -261,11 +261,11 @@ class CobolFixedFormatExaminer(CobolExaminer):
       picture_tb,
       cr_picture_tb,
       keyword_tb,
+      exec_tb,
       known_operator_tb,
       groupers_tb,
       identifier_tb,
       string_tb,
-      exec_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]

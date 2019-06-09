@@ -21,6 +21,9 @@ from CXTokenBuilders import (
   TripleSlashCommentTokenBuilder,
   ClassTypeTokenBuilder
 )
+from FsharpTokenBuilders import (
+  FsharpCharTokenBuilder
+)
 from Tokenizer import Tokenizer
 
 # `` as identifier delimiters
@@ -42,6 +45,7 @@ class FsharpExaminer(Examiner):
     string_tb = StringTokenBuilder(['"'], False, False)
     triple_quote_string_tb = TripleQuoteCommentTokenBuilder()
     prefixed_string_tb = PrefixedStringTokenBuilder('@', False, ['"'])
+    char_tb = FsharpCharTokenBuilder(["'"])
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     parens_star_comment_tb = ParenStarCommentTokenBuilder()
@@ -142,6 +146,7 @@ class FsharpExaminer(Examiner):
       string_tb,
       triple_quote_string_tb,
       prefixed_string_tb,
+      char_tb,
       triple_slash_comment_tb,
       slash_slash_comment_tb,
       parens_star_comment_tb,
