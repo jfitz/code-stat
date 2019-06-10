@@ -342,7 +342,7 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
   if 'ada2005' in languages:
     examiners['Ada-2005'] = AdaExaminer(code, '2005')
 
-  if 'ada2012' in languages:
+  if 'ada2012' in languages or 'ada' in languages:
     examiners['Ada-2012'] = AdaExaminer(code, '2012')
 
   if 'basic' in languages:
@@ -372,7 +372,7 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
   if 'cobol2002' in languages:
     examiners['COBOL-2002'] = CobolFreeFormatExaminer(code, '2002', '')
 
-  if 'cobol2014' in languages:
+  if 'cobol2014' in languages or 'cobol' in languages:
     examiners['COBOL-2014'] = CobolFreeFormatExaminer(code, '2014', '')
 
   if 'cobol2014acu' in languages:
@@ -399,7 +399,7 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
   if 'fortran2003' in languages:
     examiners['Fortran-2003'] = FortranFreeFormatExaminer(code, '2003')
 
-  if 'fortran2008' in languages:
+  if 'fortran2008' in languages or 'fortran' in languages:
     examiners['Fortran-2008'] = FortranFreeFormatExaminer(code, '2008')
 
   if 'fsharp' in languages:
@@ -447,7 +447,7 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
   if 'sql2011' in languages:
     examiners['SQL-2011'] = SqlExaminer(code, '2011', '')
 
-  if 'sql2016' in languages:
+  if 'sql2016' in languages or 'sql' in languages:
     examiners['SQL-2016'] = SqlExaminer(code, '2016', '')
 
   if 'swift' in languages:
@@ -560,15 +560,15 @@ def tokenize(code, language, tabsize, wide):
 
   tokens = []
 
-  if language in ['ada-83', 'ada']:
+  if language in ['ada-83']:
     examiner = AdaExaminer(code, '83')
     tokens = examiner.tokens
 
-  if language in ['ada-95', 'ada']:
+  if language in ['ada-95']:
     examiner = AdaExaminer(code, '95')
     tokens = examiner.tokens
 
-  if language in ['ada-2005', 'ada']:
+  if language in ['ada-2005']:
     examiner = AdaExaminer(code, '2005')
     tokens = examiner.tokens
 
@@ -588,7 +588,7 @@ def tokenize(code, language, tabsize, wide):
     examiner = CppExaminer(code)
     tokens = examiner.tokens
 
-  if language in ['c#', 'csharp']:
+  if language in ['csharp', 'c#', 'cs']:
     examiner = CsharpExaminer(code)
     tokens = examiner.tokens
 
@@ -612,7 +612,7 @@ def tokenize(code, language, tabsize, wide):
     examiner = CobolFreeFormatExaminer(code, '2002', '')
     tokens = examiner.tokens
 
-  if language in ['cobol-2014']:
+  if language in ['cobol-2014', 'cobol', 'cob', 'cbl']:
     examiner = CobolFreeFormatExaminer(code, '2014', '')
     tokens = examiner.tokens
 
@@ -628,31 +628,31 @@ def tokenize(code, language, tabsize, wide):
     examiner = CobolFreeFormatExaminer(code, '2014', 'gnu')
     tokens = examiner.tokens
 
-  if language in ['fortran', 'for', 'ftn', 'fortran-66']:
+  if language in ['fortran-66']:
     examiner = FortranFixedFormatExaminer(code, '66', tab_size, wide)
     tokens = examiner.tokens
 
-  if language in ['f77', 'fortran-77']:
+  if language in ['fortran-77', 'f77']:
     examiner = FortranFixedFormatExaminer(code, '77', tab_size, wide)
     tokens = examiner.tokens
 
-  if language in ['f90', 'fortran-90']:
+  if language in ['fortran-90', 'f90']:
     examiner = FortranFreeFormatExaminer(code, '90')
     tokens = examiner.tokens
 
-  if language in ['f95', 'fortran-95']:
+  if language in ['fortran-95', 'f95']:
     examiner = FortranFreeFormatExaminer(code, '95')
     tokens = examiner.tokens
 
-  if language in ['f03', 'fortran-2003']:
+  if language in ['fortran-2003', 'f03']:
     examiner = FortranFreeFormatExaminer(code, '2003')
     tokens = examiner.tokens
 
-  if language in ['f08', 'fortran-2008']:
+  if language in ['fortran-2008', 'f08', 'fortran', 'for', 'ftn']:
     examiner = FortranFreeFormatExaminer(code, '2008')
     tokens = examiner.tokens
 
-  if language in ['fs', 'fsharp']:
+  if language in ['fsharp', 'fs']:
     examiner = FsharpExaminer(code)
     tokens = examiner.tokens
 
@@ -712,7 +712,7 @@ def tokenize(code, language, tabsize, wide):
     examiner = SqlExaminer(code, '2011', '')
     tokens = examiner.tokens
 
-  if language in ['sql-2016']:
+  if language in ['sql-2016', 'sql']:
     examiner = SqlExaminer(code, '2016', '')
     tokens = examiner.tokens
 
@@ -724,11 +724,11 @@ def tokenize(code, language, tabsize, wide):
     examiner = TypeScriptExaminer(code)
     tokens = examiner.tokens
 
-  if language in ['visualbasic-6']:
+  if language in ['visualbasic-6', 'vb', 'vba']:
     examiner = VisualBasic6Examiner(code)
     tokens = examiner.tokens
 
-  if language in ['visualbasic-net']:
+  if language in ['visualbasic-net', 'vb.net']:
     examiner = VisualBasicNETExaminer(code)
     tokens = examiner.tokens
 
@@ -744,17 +744,17 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide):
   confidences = {}
   errors = []
 
-  if language in ['ada-83', 'ada']:
+  if language in ['ada-83']:
     examiner = AdaExaminer(code, '83')
     confidences = examiner.confidences
     errors = examiner.errors
 
-  if language in ['ada-95', 'ada']:
+  if language in ['ada-95']:
     examiner = AdaExaminer(code, '95')
     confidences = examiner.confidences
     errors = examiner.errors
 
-  if language in ['ada-2005', 'ada']:
+  if language in ['ada-2005']:
     examiner = AdaExaminer(code, '2005')
     confidences = examiner.confidences
     errors = examiner.errors
@@ -799,7 +799,7 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide):
     confidences = examiner.confidences
     errors = examiner.errors
 
-  if language in ['cobol-85', 'cobol', 'cob', 'cbl']:
+  if language in ['cobol-85']:
     examiner = CobolFixedFormatExaminer(code, '85', '', tab_size, wide)
     confidences = examiner.confidences
     errors = examiner.errors
@@ -809,7 +809,7 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide):
     confidences = examiner.confidences
     errors = examiner.errors
 
-  if language in ['cobol-2014']:
+  if language in ['cobol-2014', 'cobol', 'cob', 'cbl']:
     examiner = CobolFreeFormatExaminer(code, '2014', '')
     confidences = examiner.confidences
     errors = examiner.errors
@@ -829,32 +829,32 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide):
     confidences = examiner.confidences
     errors = examiner.errors
 
-  if language in ['fortran', 'for', 'ftn', 'fortran-66']:
+  if language in ['fortran-66']:
     examiner = FortranFixedFormatExaminer(code, '66', tab_size, wide)
     confidences = examiner.confidences
     errors = examiner.errors
 
-  if language in ['f77', 'fortran-77']:
+  if language in ['fortran-77', 'f77']:
     examiner = FortranFixedFormatExaminer(code, '77', tab_size, wide)
     confidences = examiner.confidences
     errors = examiner.errors
 
-  if language in ['f90', 'fortran-90']:
+  if language in ['fortran-90', 'f90']:
     examiner = FortranFreeFormatExaminer(code, '90')
     confidences = examiner.confidences
     errors = examiner.errors
 
-  if language in ['f95', 'fortran-95']:
+  if language in ['fortran-95', 'f95']:
     examiner = FortranFreeFormatExaminer(code, '95')
     confidences = examiner.confidences
     errors = examiner.errors
 
-  if language in ['f03', 'fortran-2003']:
+  if language in ['fortran-2003', 'f03']:
     examiner = FortranFreeFormatExaminer(code, '2003')
     confidences = examiner.confidences
     errors = examiner.errors
 
-  if language in ['f08', 'fortran-2008']:
+  if language in ['fortran-2008', 'f08', 'fortran', 'for', 'ftn']:
     examiner = FortranFreeFormatExaminer(code, '2008')
     confidences = examiner.confidences
     errors = examiner.errors
@@ -934,7 +934,7 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide):
     confidences = examiner.confidences
     errors = examiner.errors
 
-  if language in ['sql-2016']:
+  if language in ['sql-2016', 'sql']:
     examiner = SqlExaminer(code, '2016', '')
     confidences = examiner.confidences
     errors = examiner.errors
@@ -975,15 +975,15 @@ def tokenize_statistics(code, language, tabsize, wide):
 
   statistics = {}
 
-  if language in ['ada-83', 'ada']:
+  if language in ['ada-83']:
     examiner = AdaExaminer(code, '83')
     statistics = examiner.statistics
 
-  if language in ['ada-95', 'ada']:
+  if language in ['ada-95']:
     examiner = AdaExaminer(code, '95')
     statistics = examiner.statistics
 
-  if language in ['ada-2005', 'ada']:
+  if language in ['ada-2005']:
     examiner = AdaExaminer(code, '2005')
     statistics = examiner.statistics
 
@@ -1019,7 +1019,7 @@ def tokenize_statistics(code, language, tabsize, wide):
     examiner = CobolFixedFormatExaminer(code, '74', '', tab_size, wide)
     statistics = examiner.statistics
 
-  if language in ['cobol-85', 'cobol', 'cob', 'cbl']:
+  if language in ['cobol-85']:
     examiner = CobolFixedFormatExaminer(code, '85', '', tab_size, wide)
     statistics = examiner.statistics
 
@@ -1027,7 +1027,7 @@ def tokenize_statistics(code, language, tabsize, wide):
     examiner = CobolFreeFormatExaminer(code, '2002', '')
     statistics = examiner.statistics
 
-  if language in ['cobol-2014']:
+  if language in ['cobol-2014', 'cobol', 'cob', 'cbl']:
     examiner = CobolFreeFormatExaminer(code, '2014', '')
     statistics = examiner.statistics
 
@@ -1043,27 +1043,27 @@ def tokenize_statistics(code, language, tabsize, wide):
     examiner = CobolFreeFormatExaminer(code, '2014', 'gnu')
     statistics = examiner.statistics
 
-  if language in ['fortran', 'for', 'ftn', 'fortran-66']:
+  if language in ['fortran-66']:
     examiner = FortranFixedFormatExaminer(code, '66', tab_size, wide)
     statistics = examiner.statistics
 
-  if language in ['f77', 'fortran-77']:
+  if language in ['fortran-77', 'f77']:
     examiner = FortranFixedFormatExaminer(code, '77', tab_size, wide)
     statistics = examiner.statistics
 
-  if language in ['f90', 'fortran-90']:
+  if language in ['fortran-90', 'f90']:
     examiner = FortranFreeFormatExaminer(code, '90')
     statistics = examiner.statistics
 
-  if language in ['f95', 'fortran-95']:
+  if language in ['fortran-95', 'f95']:
     examiner = FortranFreeFormatExaminer(code, '95')
     statistics = examiner.statistics
 
-  if language in ['f03', 'fortran-2003']:
+  if language in ['fortran-2003', 'f03']:
     examiner = FortranFreeFormatExaminer(code, '2003')
     statistics = examiner.statistics
 
-  if language in ['f08', 'fortran-2008']:
+  if language in ['fortran-2008', 'f08', 'fortran', 'for', 'ftn']:
     examiner = FortranFreeFormatExaminer(code, '2008')
     statistics = examiner.statistics
 
@@ -1127,7 +1127,7 @@ def tokenize_statistics(code, language, tabsize, wide):
     examiner = SqlExaminer(code, '2011', '')
     statistics = examiner.statistics
 
-  if language in ['sql-2016']:
+  if language in ['sql-2016', 'sql']:
     examiner = SqlExaminer(code, '2016', '')
     statistics = examiner.statistics
 
