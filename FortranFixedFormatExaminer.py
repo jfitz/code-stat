@@ -1,4 +1,5 @@
 import string
+from CodeStatException import CodeStatException
 from Token import Token
 from Examiner import Examiner
 from FortranExaminer import FortranExaminer
@@ -23,6 +24,9 @@ from Tokenizer import Tokenizer
 class FortranFixedFormatExaminer(FortranExaminer):
   def __init__(self, code, year, tab_size, wide):
     super().__init__()
+
+    if year is not None and year not in ['66', '1966', '77', '1977']:
+      raise CodeStatException('Unknown year for language')
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
@@ -71,7 +75,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
       'INQUIRE', 'INTRINSIC', 'PARAMETER'
     ]
 
-    if year == '77':
+    if year in ['77', '1977']:
       keywords += keywords_77
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
@@ -84,7 +88,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
       'CHARACTER'
     ]
 
-    if year == '77':
+    if year in ['77', '1977']:
       types += types_77
 
     types_tb = ListTokenBuilder(types, 'type', False)

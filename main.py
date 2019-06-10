@@ -2,7 +2,8 @@ import argparse
 import cProfile
 import json
 import codecs
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, Response
+from CodeStatException import CodeStatException
 from AdaExaminer import AdaExaminer
 from BasicExaminer import BasicExaminer
 from CBasicExaminer import CBasicExaminer
@@ -173,11 +174,16 @@ def detect():
 
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
-  detected_languages = identify_language(text, tabsize, wide, tiebreak_keywords, tiebreak_tokens, languages)
 
-  json_text = json.dumps(detected_languages)
+  http_status = 200
+  try:
+    detected_languages = identify_language(text, tabsize, wide, tiebreak_keywords, tiebreak_tokens, languages)
+    json_text = json.dumps(detected_languages)
+  except CodeStatException as e:
+    http_status = 450
+    json_text = str(e)
 
-  return json_text
+  return Response(json_text, status=http_status, mimetype='application/json')
 
 
 @app.route('/tokens', methods=['POST'])
@@ -194,15 +200,21 @@ def tokens():
 
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
-  tokens = tokenize(text, language.lower(), tabsize, wide)
-  token_list = []
 
-  for token in tokens:
-    token_list.append(token.toDict())
+  http_status = 200
+  try:
+    tokens = tokenize(text, language.lower(), tabsize, wide)
+    token_list = []
 
-  json_text = json.dumps(token_list)
+    for token in tokens:
+      token_list.append(token.toDict())
 
-  return json_text
+    json_text = json.dumps(token_list)
+  except CodeStatException as e:
+    http_status = 450
+    json_text = str(e)
+
+  return Response(json_text, status=http_status, mimetype='application/json')
 
 
 @app.route('/confidence', methods=['POST'])
@@ -222,9 +234,14 @@ def confidence():
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
 
-  json_text = tokenize_confidence(text, language.lower(), tabsize, get_errors, wide)
+  http_status = 200
+  try:
+    json_text = tokenize_confidence(text, language.lower(), tabsize, get_errors, wide)
+  except CodeStatException as e:
+    http_status = 450
+    json_text = str(e)
 
-  return json_text
+  return Response(json_text, status=http_status, mimetype='application/json')
 
 
 @app.route('/statistics', methods=['POST'])
@@ -242,9 +259,14 @@ def statistics():
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
 
-  json_text = tokenize_statistics(text, language.lower(), tabsize, wide)
+  http_status = 200
+  try:
+    json_text = tokenize_statistics(text, language.lower(), tabsize, wide)
+  except CodeStatException as e:
+    http_status = 450
+    json_text = str(e)
 
-  return json_text
+  return Response(json_text, status=http_status, mimetype='application/json')
 
 
 def tabs_to_spaces(text, tab_size):

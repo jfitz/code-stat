@@ -1,4 +1,5 @@
 import string
+from CodeStatException import CodeStatException
 from Examiner import Examiner
 from TokenBuilders import (
   InvalidTokenBuilder,
@@ -21,6 +22,9 @@ from Tokenizer import Tokenizer
 class SqlExaminer(Examiner):
   def __init__(self, code, year, extension):
     super().__init__()
+
+    if year is not None and year not in ['92', '1992', '99', '1999', '2003', '2008', '2011', '2016']:
+      raise CodeStatException('Unknown year for language')
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
@@ -400,7 +404,7 @@ class SqlExaminer(Examiner):
       'TAN', 'TANH'
     ]
 
-    if year in ['99', '2003', '2008', '2011', '2016']:
+    if year in ['99', '1999', '2003', '2008', '2011', '2016']:
       keywords += keywords_99
 
     if year in ['2003', '2008', '2011', '2016']:

@@ -1,4 +1,5 @@
 import string
+from CodeStatException import CodeStatException
 from Token import Token
 from Examiner import Examiner
 from FortranExaminer import FortranExaminer
@@ -26,6 +27,9 @@ from Tokenizer import Tokenizer
 class FortranFreeFormatExaminer(FortranExaminer):
   def __init__(self, code, year):
     super().__init__()
+
+    if year is not None and year not in ['90', '1990', '95', '1995', '2003', '2008']:
+      raise CodeStatException('Unknown year for language')
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()

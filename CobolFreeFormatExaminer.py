@@ -1,4 +1,5 @@
 import string
+from CodeStatException import CodeStatException
 from Token import Token
 from Examiner import Examiner
 from CobolExaminer import CobolExaminer
@@ -29,6 +30,9 @@ from Tokenizer import Tokenizer
 class CobolFreeFormatExaminer(CobolExaminer):
   def __init__(self, code, year, extension):
     super().__init__()
+
+    if year is not None and year not in ['2002', '2014']:
+      raise CodeStatException('Unknown year for language')
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()

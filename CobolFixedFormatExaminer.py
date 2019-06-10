@@ -1,4 +1,5 @@
 import string
+from CodeStatException import CodeStatException
 from Token import Token
 from Examiner import Examiner
 from CobolExaminer import CobolExaminer
@@ -25,6 +26,9 @@ from Tokenizer import Tokenizer
 class CobolFixedFormatExaminer(CobolExaminer):
   def __init__(self, code, year, extension, tab_size, wide):
     super().__init__()
+
+    if year is not None and year not in ['68', '1968', '74', '1974', '85', '1985']:
+      raise CodeStatException('Unknown year for language')
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
@@ -235,13 +239,13 @@ class CobolFixedFormatExaminer(CobolExaminer):
       'TRUE'
     ]
 
-    if year == '68':
+    if year in ['68', '1968']:
       keywords += keywords_68_only
 
-    if year in ['74', '85']:
+    if year in ['74', '1974', '85', '1985']:
       keywords += keywords_74
 
-    if year in ['85']:
+    if year in ['85', '1985']:
       keywords += keywords_85
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)

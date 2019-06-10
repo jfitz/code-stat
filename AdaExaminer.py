@@ -1,5 +1,6 @@
 import string
 import math
+from CodeStatException import CodeStatException
 from Token import Token
 from Examiner import Examiner
 from TokenBuilders import (
@@ -24,6 +25,9 @@ from Tokenizer import Tokenizer
 class AdaExaminer(Examiner):
   def __init__(self, code, year):
     super().__init__()
+
+    if year is not None and year not in ['83', '1983', '95', '1995', '2005', '2012']:
+      raise CodeStatException('Unknown year for language')
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
@@ -134,7 +138,7 @@ class AdaExaminer(Examiner):
       'some'
     ]
 
-    if year in ['95', '2005', '2012']:
+    if year in ['95', '1995', '2005', '2012']:
       keywords += keywords_95
 
     if year in ['2005', '2012']:
