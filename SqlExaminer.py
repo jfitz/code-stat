@@ -38,6 +38,8 @@ class SqlExaminer(Examiner):
 
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
 
+    comment_tb = LeadCommentTokenBuilder('--')
+
     known_operators = [
       '=', '>', '>=', '<', '<=', '<>', '!=',
       'AND', 'OR', 'NOT',
@@ -436,6 +438,7 @@ class SqlExaminer(Examiner):
       groupers_tb,
       keyword_tb,
       identifier_tb,
+      comment_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]

@@ -193,6 +193,10 @@ def tokens():
   if 'language' in request.args:
     language = request.args['language']
 
+  comment = ''
+  if 'comment' in request.args:
+    comment = request.args['comment']
+
   tabsize = 8
   if 'tabsize' in request.args:
     tabsize = request.args['tabsize']
@@ -204,7 +208,7 @@ def tokens():
 
   http_status = 200
   try:
-    tokens = tokenize(text, language.lower(), tabsize, wide)
+    tokens = tokenize(text, language.lower(), tabsize, wide, comment)
     token_list = []
 
     for token in tokens:
@@ -224,6 +228,10 @@ def confidence():
   if 'language' in request.args:
     language = request.args['language']
 
+  comment = ''
+  if 'comment' in request.args:
+    comment = request.args['comment']
+
   tabsize = 8
   if 'tabsize' in request.args:
     tabsize = request.args['tabsize']
@@ -237,7 +245,7 @@ def confidence():
 
   http_status = 200
   try:
-    json_text = tokenize_confidence(text, language.lower(), tabsize, get_errors, wide)
+    json_text = tokenize_confidence(text, language.lower(), tabsize, get_errors, wide, comment)
   except CodeStatException as e:
     http_status = 450
     json_text = str(e)
@@ -251,6 +259,10 @@ def statistics():
   if 'language' in request.args:
     language = request.args['language']
 
+  comment = ''
+  if 'comment' in request.args:
+    comment = request.args['comment']
+
   tabsize = 8
   if 'tabsize' in request.args:
     tabsize = request.args['tabsize']
@@ -262,7 +274,7 @@ def statistics():
 
   http_status = 200
   try:
-    json_text = tokenize_statistics(text, language.lower(), tabsize, wide)
+    json_text = tokenize_statistics(text, language.lower(), tabsize, wide, comment)
   except CodeStatException as e:
     http_status = 450
     json_text = str(e)
@@ -553,7 +565,7 @@ def unwrap_lines(text, language):
   return unwrapped_text
 
 
-def tokenize(code, language, tabsize, wide):
+def tokenize(code, language, tabsize, wide, comment):
   try:
     tab_size = int(tabsize)
   except ValueError:
@@ -562,7 +574,7 @@ def tokenize(code, language, tabsize, wide):
   tokens = []
 
   if language in ['generic']:
-    examiner = GenericCodeExaminer(code)
+    examiner = GenericCodeExaminer(code, comment)
     tokens = examiner.tokens
 
   if language in ['ada-83']:
@@ -740,7 +752,7 @@ def tokenize(code, language, tabsize, wide):
   return tokens
 
 
-def tokenize_confidence(code, language, tabsize, get_errors, wide):
+def tokenize_confidence(code, language, tabsize, get_errors, wide, comment):
   try:
     tab_size = int(tabsize)
   except ValueError:
@@ -750,7 +762,7 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide):
   errors = []
 
   if language in ['generic']:
-    examiner = GenericCodeExaminer(code)
+    examiner = GenericCodeExaminer(code, comment)
     confidences = examiner.confidences
     errors = examiner.errors
 
@@ -977,7 +989,7 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide):
   return retval
 
 
-def tokenize_statistics(code, language, tabsize, wide):
+def tokenize_statistics(code, language, tabsize, wide, comment):
   try:
     tab_size = int(tabsize)
   except ValueError:
@@ -986,7 +998,7 @@ def tokenize_statistics(code, language, tabsize, wide):
   statistics = {}
 
   if language in ['generic']:
-    examiner = GenericCodeExaminer(code)
+    examiner = GenericCodeExaminer(code, comment)
     statistics = examiner.statistics
 
   if language in ['ada-83']:

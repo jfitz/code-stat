@@ -8,7 +8,16 @@ from TokenBuilders import (
   NewlineTokenBuilder,
   StringTokenBuilder,
   ListTokenBuilder,
-  TripleQuoteStringTokenBuilder
+  TripleQuoteStringTokenBuilder,
+  LeadCommentTokenBuilder,
+  ParenStarCommentTokenBuilder
+)
+from PascalTokenBuilders import (
+  BraceCommentTokenBuilder
+)
+from CXTokenBuilders import (
+  SlashSlashCommentTokenBuilder,
+  SlashStarCommentTokenBuilder
 )
 from GenericTokenBuilders import (
   GenericIdentifierTokenBuilder,
@@ -17,7 +26,7 @@ from GenericTokenBuilders import (
 from Tokenizer import Tokenizer
 
 class GenericCodeExaminer(Examiner):
-  def __init__(self, code):
+  def __init__(self, code, comment):
     super().__init__()
 
     whitespace_tb = WhitespaceTokenBuilder()
@@ -26,7 +35,41 @@ class GenericCodeExaminer(Examiner):
     number_tb = GenericNumberTokenBuilder()
     identifier_tb = GenericIdentifierTokenBuilder()
     string_tb = StringTokenBuilder(['"', "'"], False, False)
-    tripe_string_tb = TripleQuoteStringTokenBuilder()
+    triple_string_tb = TripleQuoteStringTokenBuilder()
+
+    comment_tbs = []
+
+    if comment == 'ada':
+      comment_tbs = [LeadCommentTokenBuilder('--')]
+    if comment == 'hash':
+      comment_tbs = [LeadCommentTokenBuilder('#')]
+    if comment == 'bang':
+      comment_tbs = [LeadCommentTokenBuilder('!')]
+    if comment == 'cobol-inline':
+      comment_tbs = [LeadCommentTokenBuilder('*>')]
+    if comment == 'percent':
+      comment_tbs = [LeadCommentTokenBuilder('%')]
+    if comment == 'cobol':
+      pass
+    if comment == 'fortran':
+      pass
+    if comment == 'basic':
+      comment_tbs = [
+        LeadCommentTokenBuilder("REM"),
+        LeadCommentTokenBuilder("'")
+      ]
+    if comment == 'c':
+      comment_tbs = [SlashStarCommentTokenBuilder()]
+    if comment == 'cpp':
+      comment_tbs = [
+        SlashSlashCommentTokenBuilder(),
+        SlashStarCommentTokenBuilder()
+      ]
+    if comment == 'pascal':
+      comment_tbs = [
+        BraceCommentTokenBuilder(),
+        ParenStarCommentTokenBuilder()
+      ]
 
     known_operators = [
       '+', '-', '*', '/', '%',
@@ -49,18 +92,23 @@ class GenericCodeExaminer(Examiner):
 
     invalid_token_builder = InvalidTokenBuilder()
 
-    tokenbuilders = [
-      whitespace_tb,
-      newline_tb,
-      number_tb,
-      groupers_tb,
-      known_operator_tb,
-      identifier_tb,
-      string_tb,
-      tripe_string_tb,
-      self.unknown_operator_tb,
-      invalid_token_builder
+    tokenbuilders1 = [
+        whitespace_tb,
+        newline_tb,
+        number_tb,
+        groupers_tb,
+        known_operator_tb,
+        identifier_tb,
+        string_tb,
+        triple_string_tb
     ]
+
+    tokenbuilders2 = [
+        self.unknown_operator_tb,
+        invalid_token_builder
+      ]
+
+    tokenbuilders = tokenbuilders1 + comment_tbs + tokenbuilders2
 
     tokenizer = Tokenizer(tokenbuilders)
     self.tokens = tokenizer.tokenize(code)

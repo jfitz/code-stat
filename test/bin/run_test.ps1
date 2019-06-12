@@ -2,14 +2,15 @@ Param
 (
     [string]$name,
     [string]$language,
+    [string]$comment,
+    [switch]$wide,
     [string]$languages,
     [string]$action,
+    [switch]$errors,
     [string]$inputfile,
     [string]$expected,
     [switch]$json,
     [int32]$tabsize,
-    [switch]$errors,
-    [switch]$wide,
     [switch]$tiebreak
 )
 
@@ -28,6 +29,14 @@ if ($PSBoundParameters.ContainsKey('language')) {
     $params += "language=$language"
 }
 
+if ($PSBoundParameters.ContainsKey('comment')) {
+    $params += "comment=$comment"
+}
+
+if ($wide) {
+    $params += "wide"
+}
+
 if ($PSBoundParameters.ContainsKey('languages')) {
     $params += "languages=$languages"
 }
@@ -38,10 +47,6 @@ if ($PSBoundParameters.ContainsKey('tabsize')) {
 
 if ($errors) {
     $params += "errors"
-}
-
-if ($wide) {
-    $params += "wide"
 }
 
 if ($tiebreak) {

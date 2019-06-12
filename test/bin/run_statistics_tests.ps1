@@ -16,6 +16,20 @@ test\bin\run_test.ps1 -json -name basic -action statistics -language generic -in
 test\bin\run_test.ps1 -json -name microsoft -action statistics -language generic -inputfile ".\test\data\SQL-92\microsoft.sql" -expected ".\test\ref\statistics\generic\microsoft.txt"
 test\bin\run_test.ps1 -json -name spider -action statistics -language generic -inputfile ".\test\data\VisualBasic-6\spider.bas" -expected ".\test\ref\statistics\generic\spider.txt"
 
+# generic with comments
+test\bin\run_test.ps1 -json -name adabkend-adb -action statistics -language generic -comment ada -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\statistics\generic-comments\adabkend-adb.txt"
+test\bin\run_test.ps1 -json -name rockt2 -action statistics -language generic -comment basic -inputfile ".\test\data\BASIC\rockt2.bas" -expected ".\test\ref\statistics\generic-comments\rockt2.txt"
+test\bin\run_test.ps1 -json -name parser -action statistics -language generic -comment c -inputfile ".\test\data\C\parser.c" -expected ".\test\ref\statistics\generic-comments\parser.txt"
+test\bin\run_test.ps1 -json -name PROG13-3 -action statistics -language generic -comment cobol -inputfile ".\test\data\COBOL-85\PROG13-3.cob" -expected ".\test\ref\statistics\generic-comments\prog13-3.txt"
+test\bin\run_test.ps1 -json -name calculator3 -action statistics -language generic -comment cpp -inputfile ".\test\data\Csharp\calculator3.cs" -expected ".\test\ref\statistics\generic-comments\calculator3.txt"
+test\bin\run_test.ps1 -json -name heron -action statistics -language generic -comment fortran -inputfile ".\test\data\FORTRAN-77\HERON.F77" -expected ".\test\ref\statistics\generic-comments\heron.txt"
+test\bin\run_test.ps1 -json -name bing -action statistics -language generic -comment hash -inputfile ".\test\data\JavaScript\bing.js" -expected ".\test\ref\statistics\generic-comments\bing.txt"
+test\bin\run_test.ps1 -json -name family-main -action statistics -language generic -comment percent -inputfile ".\test\data\Prolog\family-main.pl" -expected ".\test\ref\statistics\generic-comments\family-main.txt"
+test\bin\run_test.ps1 -json -name ETM-540-05 -action statistics -language generic -comment hash -inputfile ".\test\data\R\ETM-540-05.R" -expected ".\test\ref\statistics\generic-comments\etm-540-05.txt"
+test\bin\run_test.ps1 -json -name basic -action statistics -language generic -comment hash -inputfile ".\test\data\Ruby\basic.rb" -expected ".\test\ref\statistics\generic-comments\basic.txt"
+test\bin\run_test.ps1 -json -name microsoft -action statistics -language generic -comment ada -inputfile ".\test\data\SQL-92\microsoft.sql" -expected ".\test\ref\statistics\generic-comments\microsoft.txt"
+test\bin\run_test.ps1 -json -name spider -action statistics -language generic -comment basic -inputfile ".\test\data\VisualBasic-6\spider.bas" -expected ".\test\ref\statistics\generic-comments\spider.txt"
+
 # Ada-83
 test\bin\run_test.ps1 -json -name adabkend-adb-83 -action statistics -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\statistics\Ada-83\adabkend-adb.txt"
 test\bin\run_test.ps1 -json -name adabkend-ads-83 -action statistics -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.ads" -expected ".\test\ref\statistics\Ada-83\adabkend-ads.txt"
