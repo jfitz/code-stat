@@ -14,7 +14,7 @@ from TokenBuilders import (
   IdentifierTokenBuilder,
   ListTokenBuilder,
   ParenStarCommentTokenBuilder,
-  TripleQuoteCommentTokenBuilder
+  TripleQuoteStringTokenBuilder
 )
 from CXTokenBuilders import (
   SlashSlashCommentTokenBuilder,
@@ -43,7 +43,7 @@ class FsharpExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder()
     class_type_tb = ClassTypeTokenBuilder()
     string_tb = StringTokenBuilder(['"'], False, False)
-    triple_quote_string_tb = TripleQuoteCommentTokenBuilder()
+    triple_quote_string_tb = TripleQuoteStringTokenBuilder()
     prefixed_string_tb = PrefixedStringTokenBuilder('@', False, ['"'])
     char_tb = FsharpCharTokenBuilder(["'"])
 

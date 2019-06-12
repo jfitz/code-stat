@@ -4,6 +4,7 @@ import json
 import codecs
 from flask import Flask, request, render_template, Response
 from CodeStatException import CodeStatException
+from GenericCodeExaminer import GenericCodeExaminer
 from AdaExaminer import AdaExaminer
 from BasicExaminer import BasicExaminer
 from CBasicExaminer import CBasicExaminer
@@ -560,6 +561,10 @@ def tokenize(code, language, tabsize, wide):
 
   tokens = []
 
+  if language in ['generic']:
+    examiner = GenericCodeExaminer(code)
+    tokens = examiner.tokens
+
   if language in ['ada-83']:
     examiner = AdaExaminer(code, '83')
     tokens = examiner.tokens
@@ -743,6 +748,11 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide):
 
   confidences = {}
   errors = []
+
+  if language in ['generic']:
+    examiner = GenericCodeExaminer(code)
+    confidences = examiner.confidences
+    errors = examiner.errors
 
   if language in ['ada-83']:
     examiner = AdaExaminer(code, '83')
@@ -975,6 +985,10 @@ def tokenize_statistics(code, language, tabsize, wide):
 
   statistics = {}
 
+  if language in ['generic']:
+    examiner = GenericCodeExaminer(code)
+    statistics = examiner.statistics
+
   if language in ['ada-83']:
     examiner = AdaExaminer(code, '83')
     statistics = examiner.statistics
@@ -1164,7 +1178,7 @@ if __name__ == '__main__':
     in_file = open(args.tokenize, 'r')
     code = in_file.read()
     in_file.close()
-    language = 'ruby'
+    language = 'generic'
     tabsize = 4
     wide = False
     cProfile.run('tokenize(code, language, tabsize, wide)')

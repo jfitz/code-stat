@@ -15,7 +15,7 @@ from TokenBuilders import (
   ListTokenBuilder,
   SingleCharacterTokenBuilder,
   PrefixedIdentifierTokenBuilder,
-  TripleQuoteCommentTokenBuilder
+  TripleQuoteStringTokenBuilder
 )
 from CXTokenBuilders import (
   SlashSlashCommentTokenBuilder,
@@ -45,7 +45,7 @@ class SwiftExaminer(Examiner):
     symbol_tb = SwiftSymbolTokenBuilder('.', 'symbol')
     string_tb = StringTokenBuilder(['"', "'"], False, False)
 
-    triple_quote_comment_tb = TripleQuoteCommentTokenBuilder()
+    triple_quote_comment_tb = TripleQuoteStringTokenBuilder()
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
 

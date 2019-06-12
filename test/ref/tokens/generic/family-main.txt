@@ -1,0 +1,846 @@
+﻿[
+    {
+        "type": "operator",
+        "value": "%"
+    },
+    {
+        "type": "identifier",
+        "value": "main"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "pl"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "number",
+        "value": "-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "["
+    },
+    {
+        "type": "identifier",
+        "value": "family"
+    },
+    {
+        "type": "group",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "identifier",
+        "value": "print_query_true"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Q"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "number",
+        "value": "-"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "identifier",
+        "value": "forall"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Q"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "writeln"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "true"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "Q"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "identifier",
+        "value": "print_query_false"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Q"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "number",
+        "value": "-"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "identifier",
+        "value": "forall"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "\\"
+    },
+    {
+        "type": "number",
+        "value": "+"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Q"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "writeln"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "false"
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "identifier",
+        "value": "Q"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "identifier",
+        "value": "run_opt"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "number",
+        "value": "-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "identifier",
+        "value": "write"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'>   Enter a query followed by a period.'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "nl"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "identifier",
+        "value": "read"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Query"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "identifier",
+        "value": "print_query_true"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Query"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "identifier",
+        "value": "print_query_false"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Query"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "identifier",
+        "value": "run_opt"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "2"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "number",
+        "value": "-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "write"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'Goodbye'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "nl"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "halt"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "identifier",
+        "value": "run_opt"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "_"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "number",
+        "value": "-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "write"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'Invalid option'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "nl"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "halt"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "whitespace",
+        "value": "  "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "identifier",
+        "value": "main"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": ":"
+    },
+    {
+        "type": "number",
+        "value": "-"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "identifier",
+        "value": "nl"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "identifier",
+        "value": "write"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'>   Enter a selection followed by a period.'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "nl"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "identifier",
+        "value": "write"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'>   1. Run a query'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "nl"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "identifier",
+        "value": "write"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "'>   2. Exit'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "nl"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "nl"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "identifier",
+        "value": "read"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Choice"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "identifier",
+        "value": "run_opt"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "Choice"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "main"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    }
+]

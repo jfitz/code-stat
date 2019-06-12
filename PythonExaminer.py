@@ -15,7 +15,7 @@ from TokenBuilders import (
   ListTokenBuilder,
   SingleCharacterTokenBuilder,
   LeadCommentTokenBuilder,
-  TripleQuoteCommentTokenBuilder
+  TripleQuoteStringTokenBuilder
 )
 from PythonTokenBuilders import (
   RawTripleQuoteCommentTokenBuilder
@@ -40,7 +40,7 @@ class PythonExaminer(Examiner):
     raw_string_tb = PrefixedStringTokenBuilder('r', True, ['"', "'"])
 
     hash_comment_tb = LeadCommentTokenBuilder('#')
-    triple_quote_comment_tb = TripleQuoteCommentTokenBuilder()
+    triple_quote_comment_tb = TripleQuoteStringTokenBuilder()
     raw_triple_quote_comment_tb = RawTripleQuoteCommentTokenBuilder()
 
     known_operators = [

@@ -2,6 +2,20 @@ Set-StrictMode -Version Latest
 
 [int]$failures = 0
 
+# generic
+test\bin\run_test.ps1 -json -name adabkend-adb -action tokens -language generic -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\tokens\generic\adabkend-adb.txt"
+test\bin\run_test.ps1 -json -name rockt2 -action tokens -language generic -inputfile ".\test\data\BASIC\rockt2.bas" -expected ".\test\ref\tokens\generic\rockt2.txt"
+test\bin\run_test.ps1 -json -name parser -action tokens -language generic -inputfile ".\test\data\C\parser.c" -expected ".\test\ref\tokens\generic\parser.txt"
+test\bin\run_test.ps1 -json -name PROG13-3 -action tokens -language generic -inputfile ".\test\data\COBOL-85\PROG13-3.cob" -expected ".\test\ref\tokens\generic\prog13-3.txt"
+test\bin\run_test.ps1 -json -name calculator3 -action tokens -language generic -inputfile ".\test\data\Csharp\calculator3.cs" -expected ".\test\ref\tokens\generic\calculator3.txt"
+test\bin\run_test.ps1 -json -name heron -action tokens -language generic -inputfile ".\test\data\FORTRAN-77\HERON.F77" -expected ".\test\ref\tokens\generic\heron.txt"
+test\bin\run_test.ps1 -json -name bing -action tokens -language generic -inputfile ".\test\data\JavaScript\bing.js" -expected ".\test\ref\tokens\generic\bing.txt"
+test\bin\run_test.ps1 -json -name family-main -action tokens -language generic -inputfile ".\test\data\Prolog\family-main.pl" -expected ".\test\ref\tokens\generic\family-main.txt"
+test\bin\run_test.ps1 -json -name ETM-540-05 -action tokens -language generic -inputfile ".\test\data\R\ETM-540-05.R" -expected ".\test\ref\tokens\generic\etm-540-05.txt"
+test\bin\run_test.ps1 -json -name basic -action tokens -language generic -inputfile ".\test\data\Ruby\basic.rb" -expected ".\test\ref\tokens\generic\basic.txt"
+test\bin\run_test.ps1 -json -name microsoft -action tokens -language generic -inputfile ".\test\data\SQL-92\microsoft.sql" -expected ".\test\ref\tokens\generic\microsoft.txt"
+test\bin\run_test.ps1 -json -name spider -action tokens -language generic -inputfile ".\test\data\VisualBasic-6\spider.bas" -expected ".\test\ref\tokens\generic\spider.txt"
+
 # Ada-83
 test\bin\run_test.ps1 -json -name adabkend-adb-83 -action tokens -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\tokens\Ada-83\adabkend-adb.txt"
 test\bin\run_test.ps1 -json -name adabkend-ads-83 -action tokens -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.ads" -expected ".\test\ref\tokens\Ada-83\adabkend-ads.txt"
@@ -23,18 +37,18 @@ test\bin\run_test.ps1 -json -name adabkend-ads-2012 -action tokens -language Ada
 test\bin\run_test.ps1 -json -name signup-adb-2012 -action tokens -language Ada-2012 -inputfile ".\test\data\Ada-83\signup.adb" -expected ".\test\ref\tokens\Ada-2012\signup-adb.txt"
 
 # BASIC
-test\bin\run_test.ps1 -json -name values -action tokens -language BASIC -inputfile ".\test\data\BASIC\values.bas" -expected ".\test\ref\tokens\BASIC\values.txt"
-test\bin\run_test.ps1 -json -name simple -action tokens -language BASIC -inputfile ".\test\data\BASIC\simple.bas" -expected ".\test\ref\tokens\BASIC\simple.txt"
-test\bin\run_test.ps1 -json -name 3dplot -action tokens -language BASIC -inputfile ".\test\data\BASIC\3dplot.bas" -expected ".\test\ref\tokens\BASIC\3dplot.txt"
-test\bin\run_test.ps1 -json -name batnum -action tokens -language BASIC -inputfile ".\test\data\BASIC\batnum.bas" -expected ".\test\ref\tokens\BASIC\batnum.txt"
-test\bin\run_test.ps1 -json -name life -action tokens -language BASIC -inputfile ".\test\data\BASIC\life.bas" -expected ".\test\ref\tokens\BASIC\life.txt"
-test\bin\run_test.ps1 -json -name income -action tokens -language BASIC -inputfile ".\test\data\BASIC\income.bas" -expected ".\test\ref\tokens\BASIC\income.txt"
-test\bin\run_test.ps1 -json -name rockt2 -action tokens -language BASIC -inputfile ".\test\data\BASIC\rockt2.bas" -expected ".\test\ref\tokens\BASIC\rockt2.txt"
+test\bin\run_test.ps1 -json -name values-bas -action tokens -language BASIC -inputfile ".\test\data\BASIC\values.bas" -expected ".\test\ref\tokens\BASIC\values.txt"
+test\bin\run_test.ps1 -json -name simple-bas -action tokens -language BASIC -inputfile ".\test\data\BASIC\simple.bas" -expected ".\test\ref\tokens\BASIC\simple.txt"
+test\bin\run_test.ps1 -json -name 3dplot-bas -action tokens -language BASIC -inputfile ".\test\data\BASIC\3dplot.bas" -expected ".\test\ref\tokens\BASIC\3dplot.txt"
+test\bin\run_test.ps1 -json -name batnum-bas -action tokens -language BASIC -inputfile ".\test\data\BASIC\batnum.bas" -expected ".\test\ref\tokens\BASIC\batnum.txt"
+test\bin\run_test.ps1 -json -name life-bas -action tokens -language BASIC -inputfile ".\test\data\BASIC\life.bas" -expected ".\test\ref\tokens\BASIC\life.txt"
+test\bin\run_test.ps1 -json -name income-bas -action tokens -language BASIC -inputfile ".\test\data\BASIC\income.bas" -expected ".\test\ref\tokens\BASIC\income.txt"
+test\bin\run_test.ps1 -json -name rockt2-bas -action tokens -language BASIC -inputfile ".\test\data\BASIC\rockt2.bas" -expected ".\test\ref\tokens\BASIC\rockt2.txt"
 
 # C
-test\bin\run_test.ps1 -json -name diamond -action tokens -language C -inputfile ".\test\data\C\diamond.c" -expected ".\test\ref\tokens\C\diamond.txt"
-test\bin\run_test.ps1 -json -name prime_test -action tokens -language C -inputfile ".\test\data\C\prime_test.c" -expected ".\test\ref\tokens\C\prime_test.txt"
-test\bin\run_test.ps1 -json -name c-decl -action tokens -language C -inputfile ".\test\data\C\c-decl.c" -expected ".\test\ref\tokens\C\c-decl-c.txt"
+test\bin\run_test.ps1 -json -name diamond-c -action tokens -language C -inputfile ".\test\data\C\diamond.c" -expected ".\test\ref\tokens\C\diamond.txt"
+test\bin\run_test.ps1 -json -name prime_test-c -action tokens -language C -inputfile ".\test\data\C\prime_test.c" -expected ".\test\ref\tokens\C\prime_test.txt"
+test\bin\run_test.ps1 -json -name decl-c -action tokens -language C -inputfile ".\test\data\C\c-decl.c" -expected ".\test\ref\tokens\C\c-decl-c.txt"
 test\bin\run_test.ps1 -json -name parser-h -action tokens -language C -inputfile ".\test\data\C\parser.h" -expected ".\test\ref\tokens\C\parser-h.txt"
 test\bin\run_test.ps1 -json -name parser-c -action tokens -language C -inputfile ".\test\data\C\parser.c" -expected ".\test\ref\tokens\C\parser-c.txt"
 
@@ -114,16 +128,16 @@ test\bin\run_test.ps1 -json -name report-cob2014-GNU -action tokens -language CO
 test\bin\run_test.ps1 -json -name advent-of-code-cob2014-GNU -action tokens -language COBOL-2014-GNU -tabsize 4 -inputfile ".\test\data\COBOL-2014-GNU\AdventOfCode.cob" -expected ".\test\ref\tokens\COBOL-2014-GNU\AdventOfCode.txt"
 
 # C++
-test\bin\run_test.ps1 -json -name checkers -action tokens -language Cplusplus -inputfile ".\test\data\Cplusplus\checkers.cpp" -expected ".\test\ref\tokens\Cplusplus\checkers.txt"
-test\bin\run_test.ps1 -json -name hrdb -action tokens -language Cplusplus -inputfile ".\test\data\Cplusplus\hrdb.cpp" -expected ".\test\ref\tokens\Cplusplus\hrdb.txt"
-test\bin\run_test.ps1 -json -name date_h -action tokens -language Cplusplus -inputfile ".\test\data\Cplusplus\date.h" -expected ".\test\ref\tokens\Cplusplus\date_h.txt"
-test\bin\run_test.ps1 -json -name date_cplusplus -action tokens -language Cplusplus -inputfile ".\test\data\Cplusplus\date.cpp" -expected ".\test\ref\tokens\Cplusplus\date_cpp.txt"
-test\bin\run_test.ps1 -json -name inherit_cplusplus -action tokens -language Cplusplus -inputfile ".\test\data\Cplusplus\inherit.cpp" -expected ".\test\ref\tokens\Cplusplus\inherit.txt"
+test\bin\run_test.ps1 -json -name checkers-cpp -action tokens -language Cplusplus -inputfile ".\test\data\Cplusplus\checkers.cpp" -expected ".\test\ref\tokens\Cplusplus\checkers.txt"
+test\bin\run_test.ps1 -json -name hrdb-cpp -action tokens -language Cplusplus -inputfile ".\test\data\Cplusplus\hrdb.cpp" -expected ".\test\ref\tokens\Cplusplus\hrdb.txt"
+test\bin\run_test.ps1 -json -name date-h-cpp -action tokens -language Cplusplus -inputfile ".\test\data\Cplusplus\date.h" -expected ".\test\ref\tokens\Cplusplus\date_h.txt"
+test\bin\run_test.ps1 -json -name date-cplusplus-cpp -action tokens -language Cplusplus -inputfile ".\test\data\Cplusplus\date.cpp" -expected ".\test\ref\tokens\Cplusplus\date_cpp.txt"
+test\bin\run_test.ps1 -json -name inherit-cplusplus-cpp -action tokens -language Cplusplus -inputfile ".\test\data\Cplusplus\inherit.cpp" -expected ".\test\ref\tokens\Cplusplus\inherit.txt"
 
 # C#
-test\bin\run_test.ps1 -json -name calculator1 -action tokens -language Csharp -inputfile ".\test\data\Csharp\calculator1.cs" -expected ".\test\ref\tokens\Csharp\calculator1.txt"
-test\bin\run_test.ps1 -json -name calculator2 -action tokens -language Csharp -inputfile ".\test\data\Csharp\calculator2.cs" -expected ".\test\ref\tokens\Csharp\calculator2.txt"
-test\bin\run_test.ps1 -json -name calculator3 -action tokens -language Csharp -inputfile ".\test\data\Csharp\calculator3.cs" -expected ".\test\ref\tokens\Csharp\calculator3.txt"
+test\bin\run_test.ps1 -json -name calculator1-cs -action tokens -language Csharp -inputfile ".\test\data\Csharp\calculator1.cs" -expected ".\test\ref\tokens\Csharp\calculator1.txt"
+test\bin\run_test.ps1 -json -name calculator2-cs -action tokens -language Csharp -inputfile ".\test\data\Csharp\calculator2.cs" -expected ".\test\ref\tokens\Csharp\calculator2.txt"
+test\bin\run_test.ps1 -json -name calculator3-cs -action tokens -language Csharp -inputfile ".\test\data\Csharp\calculator3.cs" -expected ".\test\ref\tokens\Csharp\calculator3.txt"
 
 # FORTRAN-66
 test\bin\run_test.ps1 -json -name hello-ftn66 -action tokens -language FORTRAN-66 -inputfile ".\test\data\FORTRAN-66\HELLO.FOR" -expected ".\test\ref\tokens\FORTRAN-66\HELLO.txt"
@@ -181,31 +195,31 @@ test\bin\run_test.ps1 -json -name bing-js -action tokens -language JavaScript -i
 test\bin\run_test.ps1 -json -name hello-objc -action tokens -language Objective-C -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\tokens\Objective-C\HelloWorld.txt"
 
 # Pascal
-test\bin\run_test.ps1 -json -name firework -action tokens -language Pascal -inputfile ".\test\data\Pascal\FIREWORK.PAS" -expected ".\test\ref\tokens\Pascal\FIREWORK.txt"
-test\bin\run_test.ps1 -json -name hello -action tokens -language Pascal -inputfile ".\test\data\Pascal\HELLO.PAS" -expected ".\test\ref\tokens\Pascal\HELLO.txt"
-test\bin\run_test.ps1 -json -name rose -action tokens -language Pascal -inputfile ".\test\data\Pascal\ROSE.PAS" -expected ".\test\ref\tokens\Pascal\ROSE.txt"
-test\bin\run_test.ps1 -json -name spider -action tokens -language Pascal -inputfile ".\test\data\Pascal\SPIDER.PAS" -expected ".\test\ref\tokens\Pascal\SPIDER.txt"
-test\bin\run_test.ps1 -json -name tpc16 -action tokens -language Pascal -inputfile ".\test\data\Pascal\TPC16.PAS" -expected ".\test\ref\tokens\Pascal\TPC16.txt"
+test\bin\run_test.ps1 -json -name firework-pas -action tokens -language Pascal -inputfile ".\test\data\Pascal\FIREWORK.PAS" -expected ".\test\ref\tokens\Pascal\FIREWORK.txt"
+test\bin\run_test.ps1 -json -name hello-pas -action tokens -language Pascal -inputfile ".\test\data\Pascal\HELLO.PAS" -expected ".\test\ref\tokens\Pascal\HELLO.txt"
+test\bin\run_test.ps1 -json -name rose-pas -action tokens -language Pascal -inputfile ".\test\data\Pascal\ROSE.PAS" -expected ".\test\ref\tokens\Pascal\ROSE.txt"
+test\bin\run_test.ps1 -json -name spider-pas -action tokens -language Pascal -inputfile ".\test\data\Pascal\SPIDER.PAS" -expected ".\test\ref\tokens\Pascal\SPIDER.txt"
+test\bin\run_test.ps1 -json -name tpc16-pas -action tokens -language Pascal -inputfile ".\test\data\Pascal\TPC16.PAS" -expected ".\test\ref\tokens\Pascal\TPC16.txt"
 
 # Prolog
-test\bin\run_test.ps1 -json -name family-main -action tokens -language Prolog -inputfile ".\test\data\Prolog\family-main.pl" -expected ".\test\ref\tokens\Prolog\family-main.txt"
-test\bin\run_test.ps1 -json -name family-kb -action tokens -language Prolog -inputfile ".\test\data\Prolog\family-kb.pl" -expected ".\test\ref\tokens\Prolog\family-kb.txt"
-test\bin\run_test.ps1 -json -name family-menu -action tokens -language Prolog -inputfile ".\test\data\Prolog\family-menu.pl" -expected ".\test\ref\tokens\Prolog\family-menu.txt"
-test\bin\run_test.ps1 -json -name family-queries -action tokens -language Prolog -inputfile ".\test\data\Prolog\family-queries.pl" -expected ".\test\ref\tokens\Prolog\family-queries.txt"
+test\bin\run_test.ps1 -json -name family-main-prolog -action tokens -language Prolog -inputfile ".\test\data\Prolog\family-main.pl" -expected ".\test\ref\tokens\Prolog\family-main.txt"
+test\bin\run_test.ps1 -json -name family-kb-prolog -action tokens -language Prolog -inputfile ".\test\data\Prolog\family-kb.pl" -expected ".\test\ref\tokens\Prolog\family-kb.txt"
+test\bin\run_test.ps1 -json -name family-menu-prolog -action tokens -language Prolog -inputfile ".\test\data\Prolog\family-menu.pl" -expected ".\test\ref\tokens\Prolog\family-menu.txt"
+test\bin\run_test.ps1 -json -name family-queries-prolog -action tokens -language Prolog -inputfile ".\test\data\Prolog\family-queries.pl" -expected ".\test\ref\tokens\Prolog\family-queries.txt"
 
 # Python
-test\bin\run_test.ps1 -json -name drone-3d -action tokens -language Python -inputfile ".\test\data\Python\drone_3d_trajectory_following.py" -expected ".\test\ref\tokens\Python\drone_3d_trajectory_following.txt"
-test\bin\run_test.ps1 -json -name quadrotor -action tokens -language Python -inputfile ".\test\data\Python\Quadrotor.py" -expected ".\test\ref\tokens\Python\Quadrotor.txt"
-test\bin\run_test.ps1 -json -name trajectory -action tokens -language Python -inputfile ".\test\data\Python\TrajectoryGenerator.py" -expected ".\test\ref\tokens\Python\TrajectoryGenerator.txt"
+test\bin\run_test.ps1 -json -name drone-3d-python -action tokens -language Python -inputfile ".\test\data\Python\drone_3d_trajectory_following.py" -expected ".\test\ref\tokens\Python\drone_3d_trajectory_following.txt"
+test\bin\run_test.ps1 -json -name quadrotor-python -action tokens -language Python -inputfile ".\test\data\Python\Quadrotor.py" -expected ".\test\ref\tokens\Python\Quadrotor.txt"
+test\bin\run_test.ps1 -json -name trajectory-python -action tokens -language Python -inputfile ".\test\data\Python\TrajectoryGenerator.py" -expected ".\test\ref\tokens\Python\TrajectoryGenerator.txt"
 test\bin\run_test.ps1 -json -name values-python -action tokens -language Python -inputfile ".\test\data\Python\values.py" -expected ".\test\ref\tokens\Python\values.txt"
-test\bin\run_test.ps1 -json -name examiner -action tokens -language Python -inputfile ".\test\data\Python\Examiner.py" -expected ".\test\ref\tokens\Python\Examiner.txt"
+test\bin\run_test.ps1 -json -name examiner-python -action tokens -language Python -inputfile ".\test\data\Python\Examiner.py" -expected ".\test\ref\tokens\Python\Examiner.txt"
 
 # R
-test\bin\run_test.ps1 -json -name ETM-540-01 -action tokens -language R -inputfile ".\test\data\R\ETM-540-01.R" -expected ".\test\ref\tokens\R\ETM-540-01.txt"
-test\bin\run_test.ps1 -json -name ETM-540-02 -action tokens -language R -inputfile ".\test\data\R\ETM-540-02.R" -expected ".\test\ref\tokens\R\ETM-540-02.txt"
-test\bin\run_test.ps1 -json -name ETM-540-03 -action tokens -language R -inputfile ".\test\data\R\ETM-540-03.R" -expected ".\test\ref\tokens\R\ETM-540-03.txt"
-test\bin\run_test.ps1 -json -name ETM-540-04 -action tokens -language R -inputfile ".\test\data\R\ETM-540-04.R" -expected ".\test\ref\tokens\R\ETM-540-04.txt"
-test\bin\run_test.ps1 -json -name ETM-540-05 -action tokens -language R -inputfile ".\test\data\R\ETM-540-05.R" -expected ".\test\ref\tokens\R\ETM-540-05.txt"
+test\bin\run_test.ps1 -json -name ETM-540-01-r -action tokens -language R -inputfile ".\test\data\R\ETM-540-01.R" -expected ".\test\ref\tokens\R\ETM-540-01.txt"
+test\bin\run_test.ps1 -json -name ETM-540-02-r -action tokens -language R -inputfile ".\test\data\R\ETM-540-02.R" -expected ".\test\ref\tokens\R\ETM-540-02.txt"
+test\bin\run_test.ps1 -json -name ETM-540-03-r -action tokens -language R -inputfile ".\test\data\R\ETM-540-03.R" -expected ".\test\ref\tokens\R\ETM-540-03.txt"
+test\bin\run_test.ps1 -json -name ETM-540-04-r -action tokens -language R -inputfile ".\test\data\R\ETM-540-04.R" -expected ".\test\ref\tokens\R\ETM-540-04.txt"
+test\bin\run_test.ps1 -json -name ETM-540-05-r -action tokens -language R -inputfile ".\test\data\R\ETM-540-05.R" -expected ".\test\ref\tokens\R\ETM-540-05.txt"
 
 # Ruby
 test\bin\run_test.ps1 -json -name basic-ruby -action tokens -language Ruby -inputfile ".\test\data\Ruby\basic.rb" -expected ".\test\ref\tokens\Ruby\basic.txt"
@@ -226,7 +240,7 @@ test\bin\run_test.ps1 -json -name webhook-ruby -action tokens -language Ruby -in
 test\bin\run_test.ps1 -json -name microsoft-sql-92 -action tokens -language SQL-92 -inputfile ".\test\data\SQL-92\microsoft.sql" -expected ".\test\ref\tokens\SQL-92\microsoft.txt"
 test\bin\run_test.ps1 -json -name table-sql-92 -action tokens -language SQL-92 -inputfile ".\test\data\SQL-92\table.sql" -expected ".\test\ref\tokens\SQL-92\table.txt"
 
-# SQL-92
+# SQL-99
 test\bin\run_test.ps1 -json -name microsoft-sql-99 -action tokens -language SQL-99 -inputfile ".\test\data\SQL-99\microsoft.sql" -expected ".\test\ref\tokens\SQL-99\microsoft.txt"
 test\bin\run_test.ps1 -json -name table-sql-99 -action tokens -language SQL-99 -inputfile ".\test\data\SQL-99\table.sql" -expected ".\test\ref\tokens\SQL-99\table.txt"
 

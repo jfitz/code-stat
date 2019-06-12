@@ -679,7 +679,7 @@ class ParenStarCommentTokenBuilder(TokenBuilder):
 
 
 # token reader for triple quote string
-class TripleQuoteCommentTokenBuilder(TokenBuilder):
+class TripleQuoteStringTokenBuilder(TokenBuilder):
   def __init__(self):
     self.text = ''
 
