@@ -38,14 +38,18 @@ class PythonExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder()
     string_tb = StringTokenBuilder(['"', "'"], False, False)
     raw_string_tb = PrefixedStringTokenBuilder('r', True, ['"', "'"])
+    byte_string_tb = PrefixedStringTokenBuilder('b', True, ['"', "'"])
+    unicode_string_tb = PrefixedStringTokenBuilder('u', True, ['"', "'"])
+    fast_string_tb = PrefixedStringTokenBuilder('f', True, ['"', "'"])
 
     hash_comment_tb = LeadCommentTokenBuilder('#')
     triple_quote_comment_tb = TripleQuoteStringTokenBuilder()
     raw_triple_quote_comment_tb = RawTripleQuoteCommentTokenBuilder()
 
     known_operators = [
-      '+', '-', '*', '/', '%',
-      '=', '==', '>', '>=', '<', '<=',
+      '+', '-', '*', '/', '%', '@',
+      '=', ':=',
+      '==', '>', '>=', '<', '<=',
       '+=', '-=', '*=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>=',
       '&', '|', '~', '<<', '>>',
       '**',
@@ -113,6 +117,9 @@ class PythonExaminer(Examiner):
       identifier_tb,
       string_tb,
       raw_string_tb,
+      byte_string_tb,
+      unicode_string_tb,
+      fast_string_tb,
       hash_comment_tb,
       triple_quote_comment_tb,
       raw_triple_quote_comment_tb,
