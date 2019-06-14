@@ -125,9 +125,9 @@ class CppExaminer(Examiner):
     invalid_token_builder = InvalidTokenBuilder()
 
     tokenbuilders = [
+      newline_tb,
       whitespace_tb,
       line_continuation_tb,
-      newline_tb,
       terminators_tb,
       integer_tb,
       integer_exponent_tb,

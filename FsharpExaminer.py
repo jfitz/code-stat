@@ -130,8 +130,8 @@ class FsharpExaminer(Examiner):
     invalid_token_builder = InvalidTokenBuilder()
 
     tokenbuilders = [
-      whitespace_tb,
       newline_tb,
+      whitespace_tb,
       integer_tb,
       integer_exponent_tb,
       real_tb,

@@ -95,9 +95,9 @@ class FortranFixedFormatExaminer(FortranExaminer):
 
     invalid_token_builder = InvalidTokenBuilder()
 
-    tokenbuilders = [
-      whitespace_tb,
+    tokenbuilders1 = [
       newline_tb,
+      whitespace_tb,
       integer_tb,
       integer_exponent_tb,
       real_tb,
@@ -108,31 +108,19 @@ class FortranFixedFormatExaminer(FortranExaminer):
       format_tb,
       known_operator_tb,
       groupers_tb,
-      identifier_tb,
-      hollerith_tb,
+      identifier_tb
+    ]
+
+    tokenbuilders2 = [
       self.unknown_operator_tb,
       invalid_token_builder
     ]
 
-    if year == '77':
-      tokenbuilders = [
-        whitespace_tb,
-        newline_tb,
-        integer_tb,
-        integer_exponent_tb,
-        real_tb,
-        real_exponent_tb,
-        double_exponent_tb,
-        keyword_tb,
-        types_tb,
-        format_tb,
-        known_operator_tb,
-        groupers_tb,
-        identifier_tb,
-        string_tb,
-        self.unknown_operator_tb,
-        invalid_token_builder
-      ]
+    if year in ['66', '1966']:
+      tokenbuilders = tokenbuilders1 + [hollerith_tb] + tokenbuilders2
+
+    if year in ['77', '1977']:
+      tokenbuilders = tokenbuilders1 + [string_tb] + tokenbuilders2
 
     tokenizer = Tokenizer(tokenbuilders)
 

@@ -255,8 +255,8 @@ class CobolFixedFormatExaminer(CobolExaminer):
     invalid_token_builder = InvalidTokenBuilder()
 
     tokenbuilders = [
-      whitespace_tb,
       newline_tb,
+      whitespace_tb,
       terminators_tb,
       integer_tb,
       integer_exponent_tb,
@@ -265,11 +265,11 @@ class CobolFixedFormatExaminer(CobolExaminer):
       picture_tb,
       cr_picture_tb,
       keyword_tb,
-      exec_tb,
       known_operator_tb,
       groupers_tb,
       identifier_tb,
       string_tb,
+      exec_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]

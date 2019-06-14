@@ -166,8 +166,8 @@ class AdaExaminer(Examiner):
     invalid_token_builder = InvalidTokenBuilder()
 
     tokenbuilders = [
-      whitespace_tb,
       newline_tb,
+      whitespace_tb,
       terminators_tb,
       integer_tb,
       integer_exponent_tb,
@@ -176,8 +176,8 @@ class AdaExaminer(Examiner):
       keyword_tb,
       types_tb,
       values_tb,
-      groupers_tb,
       known_operator_tb,
+      groupers_tb,
       identifier_tb,
       string_tb,
       char_tb,

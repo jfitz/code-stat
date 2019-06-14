@@ -120,8 +120,9 @@ class FortranFreeFormatExaminer(FortranExaminer):
     invalid_token_builder = InvalidTokenBuilder()
 
     tokenbuilders = [
-      whitespace_tb,
       newline_tb,
+      whitespace_tb,
+      continuation_tb,
       stmt_separator_tb,
       integer_tb,
       integer_exponent_tb,
@@ -132,11 +133,10 @@ class FortranFreeFormatExaminer(FortranExaminer):
       kind_real_tb,
       keyword_tb,
       types_tb,
-      continuation_tb,
       known_operator_tb,
+      user_operator_tb,
       groupers_tb,
       identifier_tb,
-      user_operator_tb,
       string_tb,
       bang_comment_tb,
       self.unknown_operator_tb,

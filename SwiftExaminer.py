@@ -114,8 +114,8 @@ class SwiftExaminer(Examiner):
     invalid_token_builder = InvalidTokenBuilder()
 
     tokenbuilders = [
-      whitespace_tb,
       newline_tb,
+      whitespace_tb,
       stmt_separator_tb,
       integer_tb,
       integer_exponent_tb,

@@ -1190,7 +1190,7 @@ if __name__ == '__main__':
     in_file = open(args.tokenize, 'r')
     code = in_file.read()
     in_file.close()
-    language = 'generic'
+    language = 'ruby'
     tabsize = 4
     wide = False
     cProfile.run('tokenize(code, language, tabsize, wide)')

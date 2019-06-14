@@ -95,8 +95,8 @@ class BasicExaminer(Examiner):
     invalid_token_builder = InvalidTokenBuilder()
 
     tokenbuilders = [
-      whitespace_tb,
       newline_tb,
+      whitespace_tb,
       stmt_separator_tb,
       integer_tb,
       integer_exponent_tb,
@@ -110,12 +110,12 @@ class BasicExaminer(Examiner):
       hex_constant_tb,
       octal_constant_tb,
       binary_constant_tb,
-      string_tb,
-      known_operator_tb,
-      groupers_tb,
       keyword_tb,
+      known_operator_tb,
       function_tb,
       variable_tb,
+      groupers_tb,
+      string_tb,
       remark_tb,
       comment_tb,
       self.unknown_operator_tb,
