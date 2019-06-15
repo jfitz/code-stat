@@ -492,6 +492,12 @@ class ListTokenBuilder(TokenBuilder):
       self.legals = legals
     else:
       self.legals = list(map(str.lower, legals))
+
+    self.abbrevs = {}
+    for legal in self.legals:
+      for i in range(len(legal)):
+        self.abbrevs[legal[:i+1]] = 1
+
     self.group = group
     self.case_sensitive = case_sensitive
     self.text = ''
@@ -499,28 +505,27 @@ class ListTokenBuilder(TokenBuilder):
 
   def attempt(self, text):
     self.text = None
-    best_candidate = ''
+    best_candidate = None
     candidate = ''
     i = 0
-    accepted = True
 
-    while i < len(text) and accepted:
+    while i < len(text):
       c = text[i]
-      accepted = self.accept(candidate, c)
 
-      if accepted:
-        candidate += c
-        i += 1
+      if not self.accept(candidate, c):
+        break
 
-        if self.case_sensitive:
-          if candidate in self.legals:
-            best_candidate = candidate
-        else:
-          if candidate.lower() in self.legals:
-            best_candidate = candidate
+      candidate += c
+      i += 1
 
-    if len(best_candidate) > 0:
-      self.text = best_candidate
+      if self.case_sensitive:
+        if candidate in self.legals:
+          best_candidate = candidate
+      else:
+        if candidate.lower() in self.legals:
+          best_candidate = candidate
+
+    self.text = best_candidate
 
 
   def get_tokens(self):
@@ -532,19 +537,12 @@ class ListTokenBuilder(TokenBuilder):
 
   def accept(self, candidate, c):
     token = candidate + c
-    count = len(token)
     result = False
 
     if self.case_sensitive:
-      for legal in self.legals:
-        if legal[:count] == token:
-          result = True
-          break
+      result = token in self.abbrevs
     else:
-      for legal in self.legals:
-        if legal[:count] == token.lower():
-          result = True
-          break
+      result = token.lower() in self.abbrevs
 
     return result
 
