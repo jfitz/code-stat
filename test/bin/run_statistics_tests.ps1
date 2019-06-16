@@ -142,7 +142,7 @@ test\bin\run_test.ps1 -json -name report-cob2014-GNU -action statistics -languag
 test\bin\run_test.ps1 -json -name advent-of-code-cob2014-GNU -action statistics -language COBOL-2014-GNU -inputfile ".\test\data\COBOL-2014-GNU\AdventOfCode.cob" -expected ".\test\ref\statistics\COBOL-2014-GNU\AdventOfCode.txt"
 
 # C++
-test\bin\run_test.ps1 -json -name checkers-cpp -action statistics -language Cpluplus -inputfile ".\test\data\Cplusplus\checkers.cpp" -expected ".\test\ref\statistics\Cplusplus\checkers.txt"
+test\bin\run_test.ps1 -json -name checkers-cpp -action statistics -language Cplusplus -inputfile ".\test\data\Cplusplus\checkers.cpp" -expected ".\test\ref\statistics\Cplusplus\checkers.txt"
 test\bin\run_test.ps1 -json -name hrdb-cpp -action statistics -language Cplusplus -inputfile ".\test\data\Cplusplus\hrdb.cpp" -expected ".\test\ref\statistics\Cplusplus\hrdb.txt"
 test\bin\run_test.ps1 -json -name date-h-cpp -action statistics -language Cplusplus -inputfile ".\test\data\Cplusplus\date.h" -expected ".\test\ref\statistics\Cplusplus\date_h.txt"
 test\bin\run_test.ps1 -json -name date-cplusplus-cpp -action statistics -language Cplusplus -inputfile ".\test\data\Cplusplus\date.cpp" -expected ".\test\ref\statistics\Cplusplus\date_cpp.txt"

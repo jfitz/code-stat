@@ -571,6 +571,7 @@ def tokenize(code, language, tabsize, wide, comment):
   except ValueError:
     tab_size = 8
 
+  examiner = None
   tokens = []
 
   if language in ['generic']:
@@ -749,6 +750,10 @@ def tokenize(code, language, tabsize, wide, comment):
     examiner = VisualBasicNETExaminer(code)
     tokens = examiner.tokens
 
+  if examiner is None:
+    examiner = GenericCodeExaminer(code, '')
+    tokens = examiner.tokens
+
   return tokens
 
 
@@ -758,6 +763,7 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide, comment):
   except ValueError:
     tab_size = 8
 
+  examiner = None
   confidences = {}
   errors = []
 
@@ -981,6 +987,11 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide, comment):
     confidences = examiner.confidences
     errors = examiner.errors
 
+  if examiner is None:
+    examiner = GenericCodeExaminer(code, '')
+    confidences = examiner.confidences
+    errors = examiner.errors
+
   if get_errors:
     retval = json.dumps(errors)
   else:
@@ -995,6 +1006,7 @@ def tokenize_statistics(code, language, tabsize, wide, comment):
   except ValueError:
     tab_size = 8
 
+  examiner = None
   statistics = {}
 
   if language in ['generic']:
@@ -1171,6 +1183,10 @@ def tokenize_statistics(code, language, tabsize, wide, comment):
 
   if language in ['visualbasic-net']:
     examiner = VisualBasicNETExaminer(code)
+    statistics = examiner.statistics
+
+  if examiner is None:
+    examiner = GenericCodeExaminer(code, '')
     statistics = examiner.statistics
 
   retval = json.dumps(statistics)
