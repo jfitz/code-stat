@@ -7,12 +7,14 @@ class TokenBuilder:
     self.text = None
     candidate = ''
     i = 0
-    accepted = True
-    while i < len(text) and accepted:
+
+    while i < len(text):
       c = text[i]
-      accepted = self.accept(candidate, c)
-      if accepted:
-        candidate += c
+
+      if not self.accept(candidate, c):
+        break
+
+      candidate += c
       i += 1
 
     if len(candidate) > 0:
