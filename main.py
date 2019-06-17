@@ -22,6 +22,7 @@ from FortranFixedFormatExaminer import (
 )
 from FortranFreeFormatExaminer import FortranFreeFormatExaminer
 from FsharpExaminer import FsharpExaminer
+from GoExaminer import GoExaminer
 from HTMLExaminer import HTMLExaminer
 from JavaExaminer import JavaExaminer
 from JavaScriptExaminer import JavaScriptExaminer
@@ -81,6 +82,7 @@ codesAndNames = {
   'fortran2003': 'Fortran-2003',
   'fortran2008': 'Fortran-2008',
   'fsharp': 'F#',
+  'go': 'Go',
   'java': 'Java',
   'javascript': 'JavaScript',
   'html': 'HTML',
@@ -418,6 +420,9 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
   if 'fsharp' in languages:
     examiners['F#'] = FsharpExaminer(code)
 
+  if 'go' in languages:
+    examiners['Go'] = GoExaminer(code)
+
   if 'html' in languages:
     examiners['HTML'] = HTMLExaminer(code)
 
@@ -570,6 +575,10 @@ def unwrap_lines(text, language):
     examiner = CppExaminer(text)
     unwrapped_text = examiner.unwrapped_code()
 
+  if language in ['go', 'golang']:
+    examiner = GoExaminer(text)
+    unwrapped_text = examiner.unwrapped_code()
+
   if language in ['objective-c', 'objc']:
     examiner = ObjectiveCExaminer(text)
     unwrapped_text = examiner.unwrapped_code()
@@ -688,6 +697,10 @@ def tokenize(code, language, tabsize, wide, comment):
 
   if language in ['fsharp', 'fs']:
     examiner = FsharpExaminer(code)
+    tokens = examiner.tokens
+
+  if language in ['go', 'golang']:
+    examiner = GoExaminer(code)
     tokens = examiner.tokens
 
   if language in ['html', 'php']:
@@ -903,8 +916,13 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide, comment):
     confidences = examiner.confidences
     errors = examiner.errors
 
-  if language in ['fs', 'fsharp']:
+  if language in ['fsharp', 'fs']:
     examiner = FsharpExaminer(code)
+    confidences = examiner.confidences
+    errors = examiner.errors
+
+  if language in ['go', 'golang']:
+    examiner = GoExaminer(code)
     confidences = examiner.confidences
     errors = examiner.errors
 
@@ -1121,8 +1139,12 @@ def tokenize_statistics(code, language, tabsize, wide, comment):
     examiner = FortranFreeFormatExaminer(code, '2008')
     statistics = examiner.statistics
 
-  if language in ['fs', 'fsharp']:
+  if language in ['fsharp', 'fs']:
     examiner = FsharpExaminer(code)
+    statistics = examiner.statistics
+
+  if language in ['go', 'golang']:
+    examiner = GoExaminer(code)
     statistics = examiner.statistics
 
   if language in ['html', 'php']:

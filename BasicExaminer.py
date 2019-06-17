@@ -125,7 +125,7 @@ class BasicExaminer(Examiner):
     tokenizer = Tokenizer(tokenbuilders)
     self.tokens = tokenizer.tokenize(code)
 
-    self.ConvertNumbersToLineNumbers()
+    self.convert_numbers_to_line_numbers()
 
     self.calc_token_confidence()
     self.calc_operator_confidence()
@@ -138,7 +138,7 @@ class BasicExaminer(Examiner):
     self.calc_statistics()
 
 
-  def ConvertNumbersToLineNumbers(self):
+  def convert_numbers_to_line_numbers(self):
     prev_token = Token('\n', 'newline')
 
     for token in self.tokens:

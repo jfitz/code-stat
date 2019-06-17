@@ -191,6 +191,9 @@ test\bin\run_test.ps1 -json -name temp-func-ftn2008 -action tokens -language For
 # F#
 test\bin\run_test.ps1 -json -name samples-fs -action tokens -language Fsharp -inputfile ".\test\data\Fsharp\samples.fs" -expected ".\test\ref\tokens\Fsharp\samples.txt"
 
+# Go
+test\bin\run_test.ps1 -json -name find-cli-go -action tokens -language Go -inputfile ".\test\data\Go\find-cli.go" -expected ".\test\ref\tokens\Go\find-cli.txt"
+
 # HTML
 test\bin\run_test.ps1 -json -name knuth-html -action tokens -language HTML -inputfile ".\test\data\HTML\knuth.html" -expected ".\test\ref\tokens\HTML\knuth.txt"
 test\bin\run_test.ps1 -json -name developer-html -action tokens -language HTML -inputfile ".\test\data\HTML\developer-css.html" -expected ".\test\ref\tokens\HTML\developer-css.txt"

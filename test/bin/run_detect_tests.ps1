@@ -148,6 +148,9 @@ test\bin\run_test.ps1 -json -name temp-func-ftn2008 -action detect -inputfile ".
 # F#
 test\bin\run_test.ps1 -json -name samples-fs -action detect -inputfile ".\test\data\Fsharp\samples.fs" -expected ".\test\ref\detect\Fsharp\samples.txt"
 
+# Go
+test\bin\run_test.ps1 -json -name find-cli-go -action detect -inputfile ".\test\data\Go\find-cli.go" -expected ".\test\ref\detect\Go\find-cli.txt"
+
 # HTML
 test\bin\run_test.ps1 -json -name knuth-html -action detect -inputfile ".\test\data\HTML\knuth.html" -expected ".\test\ref\detect\HTML\knuth.txt"
 test\bin\run_test.ps1 -json -name developer-html -action detect -inputfile ".\test\data\HTML\developer-css.html" -expected ".\test\ref\detect\HTML\developer-css.txt"

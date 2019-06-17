@@ -191,6 +191,9 @@ test\bin\run_test.ps1 -json -name temp-func-ftn2008 -action confidence -language
 # F#
 test\bin\run_test.ps1 -json -name samples-fs -action confidence -language Fsharp -inputfile ".\test\data\Fsharp\samples.fs" -expected ".\test\ref\confidence\Fsharp\samples.txt"
 
+# Go
+test\bin\run_test.ps1 -json -name find-cli-go -action confidence -language Go -inputfile ".\test\data\Go\find-cli.go" -expected ".\test\ref\confidence\Go\find-cli.txt"
+
 # HTML
 test\bin\run_test.ps1 -json -name knuth-html -action confidence -language HTML -inputfile ".\test\data\HTML\knuth.html" -expected ".\test\ref\confidence\HTML\knuth.txt"
 test\bin\run_test.ps1 -json -name developer-html -action confidence -language HTML -inputfile ".\test\data\HTML\developer-css.html" -expected ".\test\ref\confidence\HTML\developer-css.txt"
