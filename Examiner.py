@@ -393,16 +393,34 @@ class Examiner:
   def unwrap_lines(self, tokens):
     tokens = []
     include = True
+    prev_tokens = [
+      Token('', 'newline'),
+      Token('', 'newline'),
+      Token('', 'newline')
+    ]
+
     for token in self.tokens:
       if token.group == 'line continuation':
         include = False
-      
-      if include:
+        prev_tokens.append(token)
+        prev_tokens = prev_tokens[1:]
+
+      if token.group == 'whitespace' and\
+        prev_tokens[-1].group == 'newline' and\
+        prev_tokens[-2].group == 'line continuation':
+        if prev_tokens[-3].group != 'whitespace':
+          tokens.append(Token(' ', 'whitespace'))
+      elif include:
         tokens.append(token)
+        prev_tokens.append(token)
+        prev_tokens = prev_tokens[1:]
 
       if token.group == 'newline':
+        if not include:
+          prev_tokens.append(token)
+          prev_tokens = prev_tokens[1:]
         include = True
-    
+
     return tokens
 
 
