@@ -1,5 +1,10 @@
 from PL1Examiner import PL1Examiner
 from TokenBuilders import InvalidTokenBuilder
+from PL1TokenBuilders import (
+  PL1CommentStartTokenBuilder,
+  PL1CommentMiddleTokenBuilder,
+  PL1CommentEndTokenBuilder
+)
 from Token import Token
 from Tokenizer import Tokenizer
 
@@ -37,10 +42,21 @@ class PL1FixedFormatExaminer(PL1Examiner):
       invalid_token_builder
     ]
 
-    tokenizer = Tokenizer(tokenbuilders)
+    comment_start_tb = PL1CommentStartTokenBuilder()
+    comment_middle_tb = PL1CommentMiddleTokenBuilder()
+    comment_end_tb = PL1CommentEndTokenBuilder()
 
-    self.tokens = self.tokenize_code(code, tab_size, tokenizer, wide)
+    type1_tokenbuilders = [comment_start_tb]
+    tokenbuilders1 = tokenbuilders + type1_tokenbuilders + [invalid_token_builder]
+    tokenizer1 = Tokenizer(tokenbuilders1)
+
+    type2_tokenbuilders = [comment_start_tb, comment_middle_tb, comment_end_tb]
+    tokenbuilders2 = tokenbuilders + type2_tokenbuilders + [invalid_token_builder]
+    tokenizer2 = Tokenizer(tokenbuilders2)
+
+    self.tokens = self.tokenize_code(code, tab_size, tokenizer1, tokenizer2, wide)
     self.tokens = self.combine_adjacent_whitespace(self.tokens)
+    self.tokens = self.convert_broken_comments_to_comments(self.tokens)
 
     self.calc_token_confidence()
     self.calc_operator_confidence()
@@ -57,11 +73,9 @@ class PL1FixedFormatExaminer(PL1Examiner):
     # break apart the line based on fixed format
     tokens = []
 
-    # The fixed-format FORTRAN line format is:
+    # The fixed-format PL/1 line format is:
     # 1: space or C or *
-    # 2-6: line number or blank
-    # 7: continuation character
-    # 8-72: program text
+    # 2-72: program text
     # 73-: identification, traditionally sequence number (ignored)
 
     line_indicator = line[0:1]
@@ -91,17 +105,37 @@ class PL1FixedFormatExaminer(PL1Examiner):
     return tokens
 
 
-  def tokenize_code(self, code, tab_size, tokenizer, wide):
+  def tokenize_code(self, code, tab_size, tokenizer1, tokenizer2, wide):
     lines = code.split('\n')
 
     tokens = []
+
+    mode = 1
 
     for line in lines:
       line = line.rstrip('\r')
       line = line.rstrip()
       line = self.tabs_to_spaces(line, tab_size)
 
-      line_tokens = self.tokenize_line(line, tokenizer, wide)
+      if mode == 1:
+        line_tokens = self.tokenize_line(line, tokenizer1, wide)
+      else:
+        line_tokens = self.tokenize_line(line, tokenizer2, wide)
+
+      for token in line_tokens:
+        if token.group == 'comment-end':
+          mode = 1
+        if token.group == 'comment-start':
+          mode = 2
+
       tokens += line_tokens
+
+    return tokens
+
+
+  def convert_broken_comments_to_comments(self, tokens):
+    for token in tokens:
+      if token.group in ['comment-start', 'comment-middle', 'comment-end']:
+        token.group = 'comment'
 
     return tokens
