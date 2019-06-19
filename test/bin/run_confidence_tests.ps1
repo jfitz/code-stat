@@ -218,6 +218,11 @@ test\bin\run_test.ps1 -json -name rose-pas -action confidence -language Pascal -
 test\bin\run_test.ps1 -json -name spider-pas -action confidence -language Pascal -inputfile ".\test\data\Pascal\SPIDER.PAS" -expected ".\test\ref\confidence\Pascal\SPIDER.txt"
 test\bin\run_test.ps1 -json -name tpc16-pas -action confidence -language Pascal -inputfile ".\test\data\Pascal\TPC16.PAS" -expected ".\test\ref\confidence\Pascal\TPC16.txt"
 
+# PL/1
+test\bin\run_test.ps1 -json -name bpgpli-pl1 -action confidence -language PL1-Fixed -inputfile ".\test\data\PL1\BPGPLI.pl1" -expected ".\test\ref\confidence\PL1\BPGPLI.txt"
+test\bin\run_test.ps1 -json -name checkdt-pl1 -action confidence -language PL1-Free -inputfile ".\test\data\PL1\CHECKDT.pl1" -expected ".\test\ref\confidence\PL1\CHECKDT.txt"
+test\bin\run_test.ps1 -json -name mainfact-pl1 -action confidence -language PL1 -inputfile ".\test\data\PL1\MAINFACT.pl1" -expected ".\test\ref\confidence\PL1\MAINFACT.txt"
+
 # Prolog
 test\bin\run_test.ps1 -json -name family-main-prolog -action confidence -language Prolog -inputfile ".\test\data\Prolog\family-main.pl" -expected ".\test\ref\confidence\Prolog\family-main.txt"
 test\bin\run_test.ps1 -json -name family-kb-prolog -action confidence -language Prolog -inputfile ".\test\data\Prolog\family-kb.pl" -expected ".\test\ref\confidence\Prolog\family-kb.txt"

@@ -28,6 +28,8 @@ from JavaExaminer import JavaExaminer
 from JavaScriptExaminer import JavaScriptExaminer
 from ObjectiveCExaminer import ObjectiveCExaminer
 from PascalExaminer import PascalExaminer
+from PL1FixedFormatExaminer import PL1FixedFormatExaminer
+from PL1FreeFormatExaminer import PL1FreeFormatExaminer
 from PrologExaminer import PrologExaminer
 from PythonExaminer import PythonExaminer
 from RExaminer import RExaminer
@@ -88,6 +90,8 @@ codesAndNames = {
   'html': 'HTML',
   'objectivec': 'Objective-C',
   'pascal': 'Pascal',
+  'pl1-fixed': 'PL/1-Fixed',
+  'pl1-free': 'PL/1-Free',
   'prolog': 'Prolog',
   'python': 'Python',
   'r': 'R',
@@ -324,14 +328,14 @@ def split_lines(text):
   return lines
 
 
-def truncate_lines(text, column):
+def truncate_lines(text, width):
   truncated_lines = ''
 
   # break into lines
   lines = split_lines(text)
 
   for line in lines:
-    line = line[:column]
+    line = line[:width]
     truncated_lines += line
     truncated_lines += '\n'
 
@@ -437,6 +441,12 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
 
   if 'pascal' in languages:
     examiners['Pascal'] = PascalExaminer(code)
+
+  if 'pl1-fixed' in languages:
+    examiners['PL/1-Fixed'] = PL1FixedFormatExaminer(code, tab_size, wide)
+
+  if 'pl1-free' in languages:
+    examiners['PL/1-Free'] = PL1FreeFormatExaminer(code)
 
   if 'prolog' in languages:
     examiners['Prolog'] = PrologExaminer(code)
@@ -723,6 +733,14 @@ def tokenize(code, language, tabsize, wide, comment):
     examiner = PascalExaminer(code)
     tokens = examiner.tokens
 
+  if language in ['pl1-fixed']:
+    examiner = PL1FixedFormatExaminer(code, tab_size, wide)
+    tokens = examiner.tokens
+
+  if language in ['pl1-free', 'pl1']:
+    examiner = PL1FreeFormatExaminer(code)
+    tokens = examiner.tokens
+
   if language in ['prolog']:
     examiner = PrologExaminer(code)
     tokens = examiner.tokens
@@ -951,6 +969,16 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide, comment):
     confidences = examiner.confidences
     errors = examiner.errors
 
+  if language in ['pl1-fixed']:
+    examiner = PL1FixedFormatExaminer(code, tab_size, wide)
+    confidences = examiner.confidences
+    errors = examiner.errors
+
+  if language in ['pl1-free', 'pl1']:
+    examiner = PL1FreeFormatExaminer(code)
+    confidences = examiner.confidences
+    errors = examiner.errors
+
   if language in ['prolog']:
     examiner = PrologExaminer(code)
     confidences = examiner.confidences
@@ -1165,6 +1193,14 @@ def tokenize_statistics(code, language, tabsize, wide, comment):
 
   if language in ['pascal', 'pas']:
     examiner = PascalExaminer(code)
+    statistics = examiner.statistics
+
+  if language in ['pl1-fixed']:
+    examiner = PL1FixedFormatExaminer(code, tab_size, wide)
+    statistics = examiner.statistics
+
+  if language in ['pl1-free', 'pl1']:
+    examiner = PL1FreeFormatExaminer(code)
     statistics = examiner.statistics
 
   if language in ['prolog']:

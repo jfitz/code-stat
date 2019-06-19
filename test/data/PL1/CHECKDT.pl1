@@ -1,0 +1,65 @@
+CHECKDT:PROC OPTIONS(MAIN) REORDER;                  
+    DCL CHKDATE RETURNS(BIT(1)) ENTRY;                
+    DCL VERIFY BUILTIN;                               
+    DCL MOD BUILTIN;                                  
+    DCL DT CHAR(10) INIT('31/13/2005');               
+    DCL FLG BIT(1) INIT('1'B);                        
+    FLG=CHKDATE(DT);                                  
+    CHKDATE:PROC(DT1) RETURNS(BIT(1));                
+       PUT SKIP LIST('CHAND');                        
+       DCL DT1 CHAR(10);                              
+       IF VERIFY(DT1,'0123456789/') THEN              
+         DO;                                          
+            PUT SKIP LIST('ESWAR');                   
+            RETURN ('0'B);                            
+         END;                                         
+       ELSE                                           
+         DO;                                          
+                  DCL MM PIC'(2)9';                                        
+       DCL DD PIC'(2)9';                                        
+       DCL YY PIC'(4)9';                                        
+       MM=SUBSTR(DT1,4,2);                                      
+       DD=SUBSTR(DT1,1,2);                                      
+       YY=SUBSTR(DT1,7,4);                                      
+       IF MM=01|MM=03|MM=05|MM=07|MM=08|MM=10|MM=12 THEN        
+         DO;                                                    
+            PUT SKIP LIST('MOULI');                             
+            IF DD>=32 THEN                                      
+              DO;                                               
+                PUT SKIP LIST('PARTHA');                        
+                RETURN('0'B);                                   
+              END;                                              
+            ELSE                                                
+               RETURN ('1'B);                                   
+         END;                                                   
+ ELSE                                             
+   IF MM=04|MM=06|MM=09|MM=11 THEN                
+    DO;                                           
+       IF DD>=31 THEN                             
+          RETURN ('0'B);                          
+       ELSE                                       
+          RETURN ('1'B);                          
+    END;                                          
+ ELSE                                             
+    IF MM=02 THEN                                 
+    DO;                                           
+        IF MOD(YY,400)=0 THEN                     
+        DO;                                       
+             IF DD>=30 THEN                       
+                  RETURN ('0'B);                  
+             ELSE                                 
+                  RETURN ('1'B);   
+                   END;                                         
+                   ELSE                                         
+                     IF DD>=29 THEN                             
+                        RETURN ('0'B);                          
+                     ELSE                                       
+                        RETURN ('1'B);                          
+               END;                                             
+         END;                                                   
+    END CHKDATE;                                                
+    IF FLG='0'B THEN                                            
+       PUT SKIP LIST('FALSE');                                  
+    ELSE                                                        
+       PUT SKIP LIST('TRUE');                                   
+ END CHECKDT; 

@@ -1,0 +1,23 @@
+ MAINFACT:PROC OPTIONS(MAIN) REORDER;         
+ FACT:PROC(NUM) RETURNS(FIXED BIN(15,0));     
+    DCL FCT FIXED BIN(15,0) INIT(1);          
+    DCL NUM FIXED BIN(15,0);                  
+    DO WHILE(NUM>0);                          
+       FCT=FCT*NUM;                           
+       NUM=NUM-1;                             
+    END;                                      
+    RETURN (FCT);                             
+ END FACT;                                    
+ FACT1:PROC(NUM1) RECURSIVE;                  
+    DCL NUM1 FIXED BIN(15,0);                 
+    IF NUM1 <=1 THEN                          
+      RETURN(1);                              
+    ELSE                                      
+       RETURN(NUM1*FACT1(NUM1-1));            
+ END FACT1; 
+ DCL ANS FIXED BIN(15,0);
+ ANS=FACT(6);           
+ PUT SKIP LIST(ANS);    
+ ANS=FACT1(5);          
+ PUT SKIP LIST(ANS);    
+ END MAINFACT;
