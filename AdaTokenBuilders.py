@@ -60,6 +60,18 @@ class AdaCharTokenBuilder(CharTokenBuilder):
     if self.text[-1] != self.text[0]:
       return 0
 
+    if '\\' in self.text:
+      # at most four chars (two quotes, backslash, and one other)
+      if len(self.text) > 4:
+        return 0
+      # backslash must be first char (and may repeat for second)
+      if self.text[1] != '\\':
+        return 0
+    else:
+      # at most three chars (two quotes, one character)
+      if len(self.text) > 3:
+        return 0
+
     if len(line_printable_tokens) > 0 and line_printable_tokens[-1].group == 'identifier':
       return 0
 

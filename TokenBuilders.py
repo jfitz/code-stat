@@ -237,8 +237,20 @@ class CharTokenBuilder(TokenBuilder):
     if len(candidate) == 1:
       result = True
 
-    if len(candidate) == 2:
-      result = c == candidate[0]
+    if len(candidate) > 1:
+      # no quote stuffing, stop on second quote
+      # assume escaped quotes are allowed
+      quote_count = 0
+      escaped = False
+      for ch in candidate:
+        if ch == candidate[0] and not escaped:
+          quote_count += 1
+        if ch == '\\':
+          escaped = not escaped
+        else:
+          escaped = False
+
+      result = quote_count < 2
 
     # newline breaks a string
     if c in ['\n', '\r']:
@@ -256,6 +268,18 @@ class CharTokenBuilder(TokenBuilder):
 
     if self.text[-1] != self.text[0]:
       return 0
+
+    if '\\' in self.text:
+      # at most four chars (two quotes, backslash, and one other)
+      if len(self.text) > 4:
+        return 0
+      # backslash must be first char (and may repeat for second)
+      if self.text[1] != '\\':
+        return 0
+    else:
+      # at most three chars (two quotes, one character)
+      if len(self.text) > 3:
+        return 0
 
     return len(self.text)
 
