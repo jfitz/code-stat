@@ -68,7 +68,7 @@ class RustExaminer(Examiner):
     self.postfix_operators = [
     ]
 
-    groupers = ['(', ')', ',', '[', ']', '{', '}', ':', '::', '=>', '|(', ')|']
+    groupers = ['(', ')', ',', '[', ']', '{', '}', ':', '::', '=>']
     group_ends = [')', ']', '}', ')|']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
@@ -182,6 +182,8 @@ class RustExaminer(Examiner):
     tokenizer = Tokenizer(tokenbuilders)
     self.tokens = tokenizer.tokenize(code)
 
+    self.convert_bars_to_groups()
+
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
@@ -223,3 +225,21 @@ class RustExaminer(Examiner):
       line_format_confidence = 1.0 - (line_bracket_count / num_bracket_count)
 
     self.confidences['line format'] = line_format_confidence
+
+
+  def convert_bars_to_groups(self):
+    converting = False
+    prev_token = Token('\n', 'newline')
+
+    for token in self.tokens:
+      if token.group == 'operator' and token.text == '|':
+        if not converting:
+          if prev_token.group == 'group' and prev_token.text == '(':
+            converting = True
+            token.group = 'group'
+        else:
+          token.group = 'group'
+          converting = False
+
+      if token.group not in ['whitespace']:
+        prev_token = token
