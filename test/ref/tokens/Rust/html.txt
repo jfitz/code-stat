@@ -1,0 +1,5286 @@
+﻿[
+    {
+        "type": "comment",
+        "value": "//! A simple parser for a tiny subset of HTML."
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "comment",
+        "value": "//!"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "comment",
+        "value": "//! Can parse basic opening and closing tags, and text nodes."
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "comment",
+        "value": "//!"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "comment",
+        "value": "//! Not yet supported:"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "comment",
+        "value": "//!"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "comment",
+        "value": "//! * Comments"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "comment",
+        "value": "//! * Doctypes and processing instructions"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "comment",
+        "value": "//! * Self-closing tags"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "comment",
+        "value": "//! * Non-well-formed markup"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "comment",
+        "value": "//! * Character entities"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "use"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "dom"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "use"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "std"
+    },
+    {
+        "type": "group",
+        "value": "::"
+    },
+    {
+        "type": "identifier",
+        "value": "collections"
+    },
+    {
+        "type": "group",
+        "value": "::"
+    },
+    {
+        "type": "identifier",
+        "value": "HashMap"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "comment",
+        "value": "/// Parse an HTML document and return the root element."
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "pub"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "fn"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "parse"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "source"
+    },
+    {
+        "type": "group",
+        "value": ":"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "String"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "->"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "dom"
+    },
+    {
+        "type": "group",
+        "value": "::"
+    },
+    {
+        "type": "identifier",
+        "value": "Node"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "let"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "mut"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "nodes"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Parser"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "pos"
+    },
+    {
+        "type": "group",
+        "value": ":"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "0"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "input"
+    },
+    {
+        "type": "group",
+        "value": ":"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "source"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "parse_nodes"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "comment",
+        "value": "// If the document contains a root element, just return it. Otherwise, create one."
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "if"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "nodes"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "len"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "=="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "identifier",
+        "value": "nodes"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "swap_remove"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "0"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "else"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "identifier",
+        "value": "dom"
+    },
+    {
+        "type": "group",
+        "value": "::"
+    },
+    {
+        "type": "identifier",
+        "value": "elem"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"html\""
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "to_string"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "HashMap"
+    },
+    {
+        "type": "group",
+        "value": "::"
+    },
+    {
+        "type": "identifier",
+        "value": "new"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "nodes"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "struct"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Parser"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "identifier",
+        "value": "pos"
+    },
+    {
+        "type": "group",
+        "value": ":"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "type",
+        "value": "usize"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "identifier",
+        "value": "input"
+    },
+    {
+        "type": "group",
+        "value": ":"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "String"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "keyword",
+        "value": "impl"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Parser"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "comment",
+        "value": "/// Parse a sequence of sibling nodes."
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "fn"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "parse_nodes"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "&"
+    },
+    {
+        "type": "keyword",
+        "value": "mut"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "->"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Vec"
+    },
+    {
+        "type": "operator",
+        "value": "<"
+    },
+    {
+        "type": "identifier",
+        "value": "dom"
+    },
+    {
+        "type": "group",
+        "value": "::"
+    },
+    {
+        "type": "identifier",
+        "value": "Node"
+    },
+    {
+        "type": "operator",
+        "value": ">"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "keyword",
+        "value": "let"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "mut"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "nodes"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "vec"
+    },
+    {
+        "type": "operator",
+        "value": "!"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "keyword",
+        "value": "loop"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "            "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "consume_whitespace"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "            "
+    },
+    {
+        "type": "keyword",
+        "value": "if"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "eof"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "||"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "starts_with"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "string",
+        "value": "\"</\""
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "                "
+    },
+    {
+        "type": "keyword",
+        "value": "break"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "            "
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "            "
+    },
+    {
+        "type": "identifier",
+        "value": "nodes"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "push"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "parse_node"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "identifier",
+        "value": "nodes"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "comment",
+        "value": "/// Parse a single node."
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "fn"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "parse_node"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "&"
+    },
+    {
+        "type": "keyword",
+        "value": "mut"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "->"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "dom"
+    },
+    {
+        "type": "group",
+        "value": "::"
+    },
+    {
+        "type": "identifier",
+        "value": "Node"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "keyword",
+        "value": "match"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "next_char"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "            "
+    },
+    {
+        "type": "string",
+        "value": "'<'"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "=>"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "parse_element"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "            "
+    },
+    {
+        "type": "number",
+        "value": "_"
+    },
+    {
+        "type": "whitespace",
+        "value": "   "
+    },
+    {
+        "type": "group",
+        "value": "=>"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "parse_text"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "comment",
+        "value": "/// Parse a single element, including its open tag, contents, and closing tag."
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "fn"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "parse_element"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "&"
+    },
+    {
+        "type": "keyword",
+        "value": "mut"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "->"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "dom"
+    },
+    {
+        "type": "group",
+        "value": "::"
+    },
+    {
+        "type": "identifier",
+        "value": "Node"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "comment",
+        "value": "// Opening tag."
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "identifier",
+        "value": "assert_eq"
+    },
+    {
+        "type": "operator",
+        "value": "!"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "consume_char"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'<'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "keyword",
+        "value": "let"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "tag_name"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "parse_tag_name"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "keyword",
+        "value": "let"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "attrs"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "parse_attributes"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "identifier",
+        "value": "assert_eq"
+    },
+    {
+        "type": "operator",
+        "value": "!"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "consume_char"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'>'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "comment",
+        "value": "// Contents."
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "keyword",
+        "value": "let"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "children"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "parse_nodes"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "comment",
+        "value": "// Closing tag."
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "identifier",
+        "value": "assert_eq"
+    },
+    {
+        "type": "operator",
+        "value": "!"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "consume_char"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'<'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "identifier",
+        "value": "assert_eq"
+    },
+    {
+        "type": "operator",
+        "value": "!"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "consume_char"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'/'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "identifier",
+        "value": "assert_eq"
+    },
+    {
+        "type": "operator",
+        "value": "!"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "parse_tag_name"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "tag_name"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "identifier",
+        "value": "assert_eq"
+    },
+    {
+        "type": "operator",
+        "value": "!"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "consume_char"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'>'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "identifier",
+        "value": "dom"
+    },
+    {
+        "type": "group",
+        "value": "::"
+    },
+    {
+        "type": "identifier",
+        "value": "elem"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "tag_name"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "attrs"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "children"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "comment",
+        "value": "/// Parse a tag or attribute name."
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "fn"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "parse_tag_name"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "&"
+    },
+    {
+        "type": "keyword",
+        "value": "mut"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "->"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "String"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "consume_while"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "|"
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "|"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "match"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "            "
+    },
+    {
+        "type": "string",
+        "value": "'a'"
+    },
+    {
+        "type": "operator",
+        "value": "..."
+    },
+    {
+        "type": "string",
+        "value": "'z'"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "|"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'A'"
+    },
+    {
+        "type": "operator",
+        "value": "..."
+    },
+    {
+        "type": "string",
+        "value": "'Z'"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "|"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'0'"
+    },
+    {
+        "type": "operator",
+        "value": "..."
+    },
+    {
+        "type": "string",
+        "value": "'9'"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "=>"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "true"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "            "
+    },
+    {
+        "type": "number",
+        "value": "_"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "=>"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "false"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "comment",
+        "value": "/// Parse a list of name=\"value\" pairs, separated by whitespace."
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "fn"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "parse_attributes"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "&"
+    },
+    {
+        "type": "keyword",
+        "value": "mut"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "->"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "dom"
+    },
+    {
+        "type": "group",
+        "value": "::"
+    },
+    {
+        "type": "identifier",
+        "value": "AttrMap"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "keyword",
+        "value": "let"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "mut"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "attributes"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "HashMap"
+    },
+    {
+        "type": "group",
+        "value": "::"
+    },
+    {
+        "type": "identifier",
+        "value": "new"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "keyword",
+        "value": "loop"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "            "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "consume_whitespace"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "            "
+    },
+    {
+        "type": "keyword",
+        "value": "if"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "next_char"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "=="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'>'"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "                "
+    },
+    {
+        "type": "keyword",
+        "value": "break"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "            "
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "            "
+    },
+    {
+        "type": "keyword",
+        "value": "let"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "name"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "value"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "parse_attr"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "            "
+    },
+    {
+        "type": "identifier",
+        "value": "attributes"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "insert"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "name"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "value"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "identifier",
+        "value": "attributes"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "comment",
+        "value": "/// Parse a single name=\"value\" pair."
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "fn"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "parse_attr"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "&"
+    },
+    {
+        "type": "keyword",
+        "value": "mut"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "->"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "String"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "String"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "keyword",
+        "value": "let"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "name"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "parse_tag_name"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "identifier",
+        "value": "assert_eq"
+    },
+    {
+        "type": "operator",
+        "value": "!"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "consume_char"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'='"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "keyword",
+        "value": "let"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "value"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "parse_attr_value"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "name"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "value"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "comment",
+        "value": "/// Parse a quoted value."
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "fn"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "parse_attr_value"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "&"
+    },
+    {
+        "type": "keyword",
+        "value": "mut"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "->"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "String"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "keyword",
+        "value": "let"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "open_quote"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "consume_char"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "identifier",
+        "value": "assert"
+    },
+    {
+        "type": "operator",
+        "value": "!"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "open_quote"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "=="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'\"'"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "||"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "open_quote"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "=="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'\\'"
+    },
+    {
+        "type": "invalid",
+        "value": "'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "keyword",
+        "value": "let"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "value"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "consume_while"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "|"
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "|"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "!="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "open_quote"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "identifier",
+        "value": "assert_eq"
+    },
+    {
+        "type": "operator",
+        "value": "!"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "consume_char"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "open_quote"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "identifier",
+        "value": "value"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "comment",
+        "value": "/// Parse a text node."
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "fn"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "parse_text"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "&"
+    },
+    {
+        "type": "keyword",
+        "value": "mut"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "->"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "dom"
+    },
+    {
+        "type": "group",
+        "value": "::"
+    },
+    {
+        "type": "identifier",
+        "value": "Node"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "identifier",
+        "value": "dom"
+    },
+    {
+        "type": "group",
+        "value": "::"
+    },
+    {
+        "type": "identifier",
+        "value": "text"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "consume_while"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "|"
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "operator",
+        "value": "|"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "c"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "!="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "'<'"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "comment",
+        "value": "/// Consume and discard zero or more whitespace characters."
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "fn"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "consume_whitespace"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "&"
+    },
+    {
+        "type": "keyword",
+        "value": "mut"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "consume_while"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "char"
+    },
+    {
+        "type": "group",
+        "value": "::"
+    },
+    {
+        "type": "identifier",
+        "value": "is_whitespace"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "comment",
+        "value": "/// Consume characters until `test` returns false."
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "fn"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "consume_while"
+    },
+    {
+        "type": "type",
+        "value": "<F>"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "&"
+    },
+    {
+        "type": "keyword",
+        "value": "mut"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "test"
+    },
+    {
+        "type": "group",
+        "value": ":"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "F"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "->"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "String"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "            "
+    },
+    {
+        "type": "keyword",
+        "value": "where"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "F"
+    },
+    {
+        "type": "group",
+        "value": ":"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "Fn"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "char"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "->"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "bool"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "keyword",
+        "value": "let"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "mut"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "result"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "String"
+    },
+    {
+        "type": "group",
+        "value": "::"
+    },
+    {
+        "type": "identifier",
+        "value": "new"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "keyword",
+        "value": "while"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "!"
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "eof"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "&&"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "test"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "next_char"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "            "
+    },
+    {
+        "type": "identifier",
+        "value": "result"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "push"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "consume_char"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "identifier",
+        "value": "result"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "comment",
+        "value": "/// Return the current character, and advance self.pos to the next character."
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "fn"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "consume_char"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "&"
+    },
+    {
+        "type": "keyword",
+        "value": "mut"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "->"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "char"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "keyword",
+        "value": "let"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "keyword",
+        "value": "mut"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "iter"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "input"
+    },
+    {
+        "type": "group",
+        "value": "["
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "pos"
+    },
+    {
+        "type": "operator",
+        "value": ".."
+    },
+    {
+        "type": "group",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "char_indices"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "keyword",
+        "value": "let"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "_"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "cur_char"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "iter"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "next"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "unwrap"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "keyword",
+        "value": "let"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "next_pos"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "number",
+        "value": "_"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "iter"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "next"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "unwrap_or"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "number",
+        "value": "1"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "string",
+        "value": "' '"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "pos"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "+="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "next_pos"
+    },
+    {
+        "type": "statement terminator",
+        "value": ";"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "identifier",
+        "value": "cur_char"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "comment",
+        "value": "/// Read the current character without consuming it."
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "fn"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "next_char"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "&"
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "->"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "char"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "input"
+    },
+    {
+        "type": "group",
+        "value": "["
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "pos"
+    },
+    {
+        "type": "operator",
+        "value": ".."
+    },
+    {
+        "type": "group",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "chars"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "next"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "unwrap"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "comment",
+        "value": "/// Does the current input start with the given string?"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "fn"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "starts_with"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "&"
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "group",
+        "value": ","
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "s"
+    },
+    {
+        "type": "group",
+        "value": ":"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "&"
+    },
+    {
+        "type": "identifier",
+        "value": "str"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "->"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "bool"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "input"
+    },
+    {
+        "type": "group",
+        "value": "["
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "pos"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": ".."
+    },
+    {
+        "type": "group",
+        "value": "]"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "starts_with"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "identifier",
+        "value": "s"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "comment",
+        "value": "/// Return true if all input is consumed."
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "keyword",
+        "value": "fn"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "eof"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "operator",
+        "value": "&"
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": "->"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "identifier",
+        "value": "bool"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "group",
+        "value": "{"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "        "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "pos"
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "operator",
+        "value": ">="
+    },
+    {
+        "type": "whitespace",
+        "value": " "
+    },
+    {
+        "type": "value",
+        "value": "self"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "input"
+    },
+    {
+        "type": "operator",
+        "value": "."
+    },
+    {
+        "type": "identifier",
+        "value": "len"
+    },
+    {
+        "type": "group",
+        "value": "("
+    },
+    {
+        "type": "group",
+        "value": ")"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "whitespace",
+        "value": "    "
+    },
+    {
+        "type": "group",
+        "value": "}"
+    },
+    {
+        "type": "newline",
+        "value": "\r\n"
+    },
+    {
+        "type": "group",
+        "value": "}"
+    }
+]

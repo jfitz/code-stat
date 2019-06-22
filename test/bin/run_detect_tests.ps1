@@ -215,6 +215,12 @@ test\bin\run_test.ps1 -json -name tokenizers-ruby -action detect -tiebreak -inpu
 test\bin\run_test.ps1 -json -name tokens-ruby -action detect -tiebreak -inputfile ".\test\data\Ruby\tokens.rb" -expected ".\test\ref\detect\Ruby\tokens.txt"
 test\bin\run_test.ps1 -json -name webhook-ruby -action detect -tiebreak -inputfile ".\test\data\Ruby\webhook.rb" -expected ".\test\ref\detect\Ruby\webhook.txt"
 
+# Rust
+test\bin\run_test.ps1 -json -name dom-rust -action detect -inputfile ".\test\data\Rust\dom.rs" -expected ".\test\ref\detect\Rust\dom.txt"
+test\bin\run_test.ps1 -json -name html-rust -action detect -inputfile ".\test\data\Rust\html.rs" -expected ".\test\ref\detect\Rust\html.txt"
+test\bin\run_test.ps1 -json -name geometry-rust -action detect -inputfile ".\test\data\Rust\geometry.rs" -expected ".\test\ref\detect\Rust\geometry.txt"
+test\bin\run_test.ps1 -json -name scene-rust -action detect -inputfile ".\test\data\Rust\scene.rs" -expected ".\test\ref\detect\Rust\scene.txt"
+
 # SQL-92
 test\bin\run_test.ps1 -json -name microsoft-sql-92 -action detect -tiebreak -inputfile ".\test\data\SQL-92\microsoft.sql" -expected ".\test\ref\detect\SQL-92\microsoft.txt"
 test\bin\run_test.ps1 -json -name table-sql-92 -action detect -tiebreak -inputfile ".\test\data\SQL-92\table.sql" -expected ".\test\ref\detect\SQL-92\table.txt"

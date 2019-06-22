@@ -258,6 +258,12 @@ test\bin\run_test.ps1 -json -name tokenizers-ruby -action confidence -language R
 test\bin\run_test.ps1 -json -name tokens-ruby -action confidence -language Ruby -inputfile ".\test\data\Ruby\tokens.rb" -expected ".\test\ref\confidence\Ruby\tokens.txt"
 test\bin\run_test.ps1 -json -name webhook-ruby -action confidence -language Ruby -inputfile ".\test\data\Ruby\webhook.rb" -expected ".\test\ref\confidence\Ruby\webhook.txt"
 
+# Rust
+test\bin\run_test.ps1 -json -name dom-rust -action confidence -language Rust -inputfile ".\test\data\Rust\dom.rs" -expected ".\test\ref\confidence\Rust\dom.txt"
+test\bin\run_test.ps1 -json -name html-rust -action confidence -language Rust -inputfile ".\test\data\Rust\html.rs" -expected ".\test\ref\confidence\Rust\html.txt"
+test\bin\run_test.ps1 -json -name geometry-rust -action confidence -language Rust -inputfile ".\test\data\Rust\geometry.rs" -expected ".\test\ref\confidence\Rust\geometry.txt"
+test\bin\run_test.ps1 -json -name scene-rust -action confidence -language Rust -inputfile ".\test\data\Rust\scene.rs" -expected ".\test\ref\confidence\Rust\scene.txt"
+
 # SQL-92
 test\bin\run_test.ps1 -json -name microsoft-sql-92 -action confidence -language SQL-92 -inputfile ".\test\data\SQL-92\microsoft.sql" -expected ".\test\ref\confidence\SQL-92\microsoft.txt"
 test\bin\run_test.ps1 -json -name table-sql-92 -action confidence -language SQL-92 -inputfile ".\test\data\SQL-92\table.sql" -expected ".\test\ref\confidence\SQL-92\table.txt"

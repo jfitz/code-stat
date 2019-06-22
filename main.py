@@ -34,6 +34,7 @@ from PrologExaminer import PrologExaminer
 from PythonExaminer import PythonExaminer
 from RExaminer import RExaminer
 from RubyExaminer import RubyExaminer
+from RustExaminer import RustExaminer
 from SqlExaminer import SqlExaminer
 from SwiftExaminer import SwiftExaminer
 from TypeScriptExaminer import TypeScriptExaminer
@@ -96,6 +97,7 @@ codesAndNames = {
   'python': 'Python',
   'r': 'R',
   'ruby': 'Ruby',
+  'rust': 'Rust',
   'sql92': 'SQL-92',
   'sql99': 'SQL-99',
   'sql2003': 'SQL-2003',
@@ -460,6 +462,9 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
   if 'ruby' in languages:
     examiners['Ruby'] = RubyExaminer(code)
 
+  if 'rust' in languages:
+    examiners['Rust'] = RustExaminer(code)
+
   if 'sql92' in languages:
     examiners['SQL-92'] = SqlExaminer(code, '92', '')
 
@@ -757,6 +762,10 @@ def tokenize(code, language, tabsize, wide, comment):
     examiner = RubyExaminer(code)
     tokens = examiner.tokens
 
+  if language in ['rust', 'rs']:
+    examiner = RustExaminer(code)
+    tokens = examiner.tokens
+
   if language in ['sql-92']:
     examiner = SqlExaminer(code, '92', '')
     tokens = examiner.tokens
@@ -999,6 +1008,11 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide, comment):
     confidences = examiner.confidences
     errors = examiner.errors
 
+  if language in ['rust', 'rs']:
+    examiner = RustExaminer(code)
+    confidences = examiner.confidences
+    errors = examiner.errors
+
   if language in ['sql-92']:
     examiner = SqlExaminer(code, '92', '')
     confidences = examiner.confidences
@@ -1217,6 +1231,10 @@ def tokenize_statistics(code, language, tabsize, wide, comment):
 
   if language in ['ruby', 'rb']:
     examiner = RubyExaminer(code)
+    statistics = examiner.statistics
+
+  if language in ['rust', 'rs']:
+    examiner = RustExaminer(code)
     statistics = examiner.statistics
 
   if language in ['sql-92']:
