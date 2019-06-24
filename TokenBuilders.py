@@ -206,7 +206,19 @@ class PrefixedStringTokenBuilder(TokenBuilder):
       result = True
 
     if len(candidate) > len(self.prefix) + 1:
-      result = candidate[-1] != candidate[len(self.prefix)]
+      # no quote stuffing, stop on second quote
+      # assume escaped quotes are allowed
+      quote_count = 0
+      escaped = False
+      for ch in candidate:
+        if ch == candidate[len(self.prefix)] and not escaped:
+          quote_count += 1
+        if ch == '\\':
+          escaped = not escaped
+        else:
+          escaped = False
+
+      result = quote_count < 2
 
     if c in ['\n', '\r']:
       result = False
@@ -284,11 +296,92 @@ class CharTokenBuilder(TokenBuilder):
     return len(self.text)
 
 
+# token reader for single-character text literal (string)
+class PrefixedCharTokenBuilder(TokenBuilder):
+  def __init__(self, prefix, case_sensitive, quotes):
+    self.quotes = quotes
+    self.case_sensitive = case_sensitive
+    if case_sensitive:
+      self.prefix = prefix
+    else:
+      self.prefix = prefix.lower()
+    self.text = ''
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'string')]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if len(candidate) < len(self.prefix):
+      if self.case_sensitive:
+        result = c == self.prefix[len(candidate)]
+      else:
+        result = c.lower() == self.prefix[len(candidate)]
+    
+    if len(candidate) == len(self.prefix):
+      result = c in self.quotes
+
+    if len(candidate) == len(self.prefix) + 1:
+      result = True
+
+    if len(candidate) > len(self.prefix) + 1:
+      # no quote stuffing, stop on second quote
+      # assume escaped quotes are allowed
+      quote_count = 0
+      escaped = False
+      for ch in candidate:
+        if ch == candidate[len(self.prefix)] and not escaped:
+          quote_count += 1
+        if ch == '\\':
+          escaped = not escaped
+        else:
+          escaped = False
+
+      result = quote_count < 2
+
+    # newline breaks a string
+    if c in ['\n', '\r']:
+      result = False
+
+    return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(self.text) < 2:
+      return 0
+
+    if self.text[-1] != self.text[0]:
+      return 0
+
+    if '\\' in self.text:
+      # at most four chars (two quotes, backslash, and one other)
+      if len(self.text) > 4:
+        return 0
+      # backslash must be first char (and may repeat for second)
+      if self.text[1] != '\\':
+        return 0
+    else:
+      # at most three chars (two quotes, one character)
+      if len(self.text) > 3:
+        return 0
+
+    return len(self.text)
+
+
 # token reader for integer
 class IntegerTokenBuilder(TokenBuilder):
   def __init__(self, allow_underscore):
-    self.text = None
     self.allow_underscore = allow_underscore
+    self.text = None
 
 
   def get_tokens(self):
@@ -314,8 +407,8 @@ class IntegerTokenBuilder(TokenBuilder):
 # token reader for integer with exponent
 class IntegerExponentTokenBuilder(TokenBuilder):
   def __init__(self, allow_underscore):
-    self.text = None
     self.allow_underscore = allow_underscore
+    self.text = None
 
 
   def get_tokens(self):
@@ -365,10 +458,10 @@ class IntegerExponentTokenBuilder(TokenBuilder):
 # token reader for real (no exponent)
 class RealTokenBuilder(TokenBuilder):
   def __init__(self, require_before, require_after, allow_underscore):
-    self.text = None
     self.require_before = require_before
     self.require_after = require_after
     self.allow_underscore = allow_underscore
+    self.text = None
 
 
   def get_tokens(self):
@@ -416,11 +509,11 @@ class RealTokenBuilder(TokenBuilder):
 # token reader for real with exponent
 class RealExponentTokenBuilder(TokenBuilder):
   def __init__(self, require_before, require_after, letter, allow_underscore):
-    self.text = None
     self.require_before = require_before
     self.require_after = require_after
     self.letter = letter.lower()
     self.allow_underscore = allow_underscore
+    self.text = None
 
 
   def get_tokens(self):
@@ -607,13 +700,13 @@ class ListTokenBuilder(TokenBuilder):
 # token reader for integer
 class PrefixedIntegerTokenBuilder(TokenBuilder):
   def __init__(self, prefix, case_sensitive, allowed_chars):
-    self.text = None
     if case_sensitive:
       self.prefix = prefix
     else:
       self.prefix = prefix.lower()
     self.case_sensitive = case_sensitive
     self.allowed_chars = allowed_chars
+    self.text = None
 
 
   def get_tokens(self):
@@ -651,8 +744,8 @@ class PrefixedIntegerTokenBuilder(TokenBuilder):
 # token reader for ! comment
 class LeadCommentTokenBuilder(TokenBuilder):
   def __init__(self, lead):
-    self.text = ''
     self.lead = lead
+    self.text = ''
 
   def get_tokens(self):
     if self.text is None:
@@ -763,9 +856,9 @@ class TripleQuoteStringTokenBuilder(TokenBuilder):
 # token reader for identifier
 class PrefixedIdentifierTokenBuilder(TokenBuilder):
   def __init__(self, prefix, group):
-    self.text = None
     self.prefix = prefix
     self.group = group
+    self.text = None
 
 
   def get_tokens(self):
@@ -802,8 +895,8 @@ class PrefixedIdentifierTokenBuilder(TokenBuilder):
 # token reader for identifier
 class RegexTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.text = None
     self.pattern = re.compile('\\A/.+/[a-z]*\\Z')
+    self.text = None
 
 
   def get_tokens(self):
@@ -863,10 +956,10 @@ class RegexTokenBuilder(TokenBuilder):
 # token reader for prefix/suffix block
 class BlockTokenBuilder(TokenBuilder):
   def __init__(self, prefix, suffix, tokentype):
-    self.text = ''
     self.prefix = prefix.lower()
     self.suffix = suffix.lower()
     self.texttype = tokentype
+    self.text = ''
 
 
   def get_tokens(self):
