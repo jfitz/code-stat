@@ -33,9 +33,9 @@ class AdaExaminer(Examiner):
     newline_tb = NewlineTokenBuilder()
 
     integer_tb = IntegerTokenBuilder(False)
-    integer_exponent_tb = IntegerExponentTokenBuilder()
-    real_tb = RealTokenBuilder(True, True)
-    real_exponent_tb = RealExponentTokenBuilder(True, True, 'E')
+    integer_exponent_tb = IntegerExponentTokenBuilder(False)
+    real_tb = RealTokenBuilder(True, True, False)
+    real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', False)
     identifier_tb = IdentifierTokenBuilder()
     string_tb = StringTokenBuilder(['"'], True, False)
     char_tb = AdaCharTokenBuilder(["'"])

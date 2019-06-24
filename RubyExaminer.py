@@ -32,9 +32,9 @@ class RubyExaminer(Examiner):
     stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator')
 
     integer_tb = IntegerTokenBuilder(True)
-    integer_exponent_tb = IntegerExponentTokenBuilder()
-    real_tb = RealTokenBuilder(True, True)
-    real_exponent_tb = RealExponentTokenBuilder(True, True, 'E')
+    integer_exponent_tb = IntegerExponentTokenBuilder(False)
+    real_tb = RealTokenBuilder(True, True, False)
+    real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', False)
     identifier_tb = RubyIdentifierTokenBuilder()
     symbol_tb = PrefixedIdentifierTokenBuilder(':', 'symbol')
     string_tb = StringTokenBuilder(['"', "'"], False, False)

@@ -29,9 +29,9 @@ class TypeScriptExaminer(Examiner):
     newline_tb = NewlineTokenBuilder()
 
     integer_tb = IntegerTokenBuilder(False)
-    integer_exponent_tb = IntegerExponentTokenBuilder()
-    real_tb = RealTokenBuilder(False, False)
-    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E')
+    integer_exponent_tb = IntegerExponentTokenBuilder(False)
+    real_tb = RealTokenBuilder(False, False, False)
+    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', False)
     hex_constant_tb = PrefixedIntegerTokenBuilder('0H', False, '0123456789ABCDEFabcdef')
     octal_constant_tb = PrefixedIntegerTokenBuilder('0O', False, '01234567')
     binary_constant_tb = PrefixedIntegerTokenBuilder('0B', False, '01')

@@ -32,9 +32,9 @@ class GoExaminer(Examiner):
     line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation')
 
     integer_tb = IntegerTokenBuilder(False)
-    integer_exponent_tb = IntegerExponentTokenBuilder()
-    real_tb = RealTokenBuilder(False, False)
-    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E')
+    integer_exponent_tb = IntegerExponentTokenBuilder(False)
+    real_tb = RealTokenBuilder(False, False, False)
+    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', False)
     identifier_tb = IdentifierTokenBuilder()
     string_tb = StringTokenBuilder(['"', '`'], False, False)
     char_tb = CharTokenBuilder("'")

@@ -34,9 +34,9 @@ class RustExaminer(Examiner):
     line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation')
 
     integer_tb = IntegerTokenBuilder(True)
-    integer_exponent_tb = IntegerExponentTokenBuilder()
-    real_tb = RealTokenBuilder(False, False)
-    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E')
+    integer_exponent_tb = IntegerExponentTokenBuilder(False)
+    real_tb = RealTokenBuilder(False, False, True)
+    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', True)
     octal_integer_tb = PrefixedIntegerTokenBuilder('0o', True, '01234567')
     hex_integer_tb = PrefixedIntegerTokenBuilder('0x', True, '0123456789ABCDEFabcdef')
     identifier_tb = IdentifierTokenBuilder()

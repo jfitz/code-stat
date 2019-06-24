@@ -27,9 +27,9 @@ class PL1Examiner(Examiner):
     self.newline_tb = NewlineTokenBuilder()
 
     self.integer_tb = IntegerTokenBuilder(False)
-    self.integer_exponent_tb = IntegerExponentTokenBuilder()
-    self.real_tb = RealTokenBuilder(False, False)
-    self.real_exponent_tb = RealExponentTokenBuilder(False, False, 'E')
+    self.integer_exponent_tb = IntegerExponentTokenBuilder(False)
+    self.real_tb = RealTokenBuilder(False, False, False)
+    self.real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', False)
     self.identifier_tb = IdentifierTokenBuilder()
     self.string_tb = StringTokenBuilder(['"', "'"], False, False)
 

@@ -36,9 +36,9 @@ class SwiftExaminer(Examiner):
     stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator')
 
     integer_tb = IntegerTokenBuilder(True)
-    integer_exponent_tb = IntegerExponentTokenBuilder()
-    real_tb = RealTokenBuilder(True, True)
-    real_exponent_tb = RealExponentTokenBuilder(True, True, 'E')
+    integer_exponent_tb = IntegerExponentTokenBuilder(False)
+    real_tb = RealTokenBuilder(True, True, False)
+    real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', False)
     argument_tb = SwiftArgumentTokenBuilder()
     identifier_tb = IdentifierTokenBuilder()
     attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute')

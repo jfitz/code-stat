@@ -304,16 +304,18 @@ class IntegerTokenBuilder(TokenBuilder):
     if c.isdigit():
       result = True
     
-    if c == '_' and self.allow_underscore:
-      result = True
+    if c == '_':
+      result = self.allow_underscore and\
+        len(candidate) > 0 and candidate[-1].isdigit()
 
     return result
 
 
 # token reader for integer with exponent
 class IntegerExponentTokenBuilder(TokenBuilder):
-  def __init__(self):
+  def __init__(self, allow_underscore):
     self.text = None
+    self.allow_underscore = allow_underscore
 
 
   def get_tokens(self):
@@ -329,6 +331,10 @@ class IntegerExponentTokenBuilder(TokenBuilder):
     if len(candidate) == 0:
       result = c.isdigit()
     
+    if c == '_':
+      result = self.allow_underscore and\
+        len(candidate) > 0 and candidate[-1].isdigit()
+
     if len(candidate) > 0:
       result = c.isdigit() or (
         c.lower() == 'e' and 'e' not in candidate.lower()
@@ -358,10 +364,11 @@ class IntegerExponentTokenBuilder(TokenBuilder):
 
 # token reader for real (no exponent)
 class RealTokenBuilder(TokenBuilder):
-  def __init__(self, require_before, require_after):
+  def __init__(self, require_before, require_after, allow_underscore):
     self.text = None
     self.require_before = require_before
     self.require_after = require_after
+    self.allow_underscore = allow_underscore
 
 
   def get_tokens(self):
@@ -379,6 +386,10 @@ class RealTokenBuilder(TokenBuilder):
     
     if c == '.' and '.' not in candidate:
       result = True
+
+    if c == '_':
+      result = self.allow_underscore and\
+        len(candidate) > 0 and candidate[-1].isdigit()
 
     return result
 
@@ -404,11 +415,12 @@ class RealTokenBuilder(TokenBuilder):
 
 # token reader for real with exponent
 class RealExponentTokenBuilder(TokenBuilder):
-  def __init__(self, require_before, require_after, letter):
+  def __init__(self, require_before, require_after, letter, allow_underscore):
     self.text = None
     self.require_before = require_before
     self.require_after = require_after
     self.letter = letter.lower()
+    self.allow_underscore = allow_underscore
 
 
   def get_tokens(self):
@@ -428,6 +440,10 @@ class RealExponentTokenBuilder(TokenBuilder):
       '.' not in candidate and\
       self.letter not in candidate.lower():
       result = True
+
+    if c == '_':
+      result = self.allow_underscore and\
+        len(candidate) > 0 and candidate[-1].isdigit()
 
     if c.lower() == self.letter\
       and len(candidate) > 0 and\

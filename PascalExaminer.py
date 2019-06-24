@@ -30,9 +30,9 @@ class PascalExaminer(Examiner):
     stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator')
 
     integer_tb = IntegerTokenBuilder(False)
-    integer_exponent_tb = IntegerExponentTokenBuilder()
-    real_tb = RealTokenBuilder(True, True)
-    real_exponent_tb = RealExponentTokenBuilder(True, True, 'E')
+    integer_exponent_tb = IntegerExponentTokenBuilder(False)
+    real_tb = RealTokenBuilder(True, True, False)
+    real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', False)
     hex_constant_tb = PrefixedIntegerTokenBuilder('$', True, '0123456789ABCDEFabcdef')
     octal_constant_tb = PrefixedIntegerTokenBuilder('&', True, '01234567')
     binary_constant_tb = PrefixedIntegerTokenBuilder('%', True, '01')

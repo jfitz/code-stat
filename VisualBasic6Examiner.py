@@ -16,10 +16,6 @@ from TokenBuilders import (
   ListTokenBuilder,
   LeadCommentTokenBuilder
 )
-from BasicTokenBuilders import (
-  BasicSuffixedIntegerTokenBuilder,
-  BasicSuffixedRealTokenBuilder
-)
 from VisualBasicTokenBuilders import (
   VisualBasicVariableTokenBuilder,
   RemarkTokenBuilder
@@ -34,9 +30,9 @@ class VisualBasic6Examiner(Examiner):
     newline_tb = NewlineTokenBuilder()
 
     integer_tb = IntegerTokenBuilder(False)
-    integer_exponent_tb = IntegerExponentTokenBuilder()
-    real_tb = RealTokenBuilder(False, False)
-    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E')
+    integer_exponent_tb = IntegerExponentTokenBuilder(False)
+    real_tb = RealTokenBuilder(False, False, False)
+    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', False)
     variable_tb = VisualBasicVariableTokenBuilder(['$', '%', '#', '!'])
     identifier_tb = IdentifierTokenBuilder()
     string_tb = StringTokenBuilder(['"'], False, False)

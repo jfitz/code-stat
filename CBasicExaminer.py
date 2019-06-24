@@ -16,8 +16,6 @@ from TokenBuilders import (
   LeadCommentTokenBuilder
 )
 from BasicTokenBuilders import (
-  BasicSuffixedIntegerTokenBuilder,
-  BasicSuffixedRealTokenBuilder,
   RemarkTokenBuilder
 )
 from CBasicTokenBuilders import (
@@ -36,9 +34,9 @@ class CBasicExaminer(Examiner):
     line_continuation_tb = CBasicLineContinuationTokenBuilder()
 
     integer_tb = IntegerTokenBuilder(False)
-    integer_exponent_tb = IntegerExponentTokenBuilder()
-    real_tb = RealTokenBuilder(False, False)
-    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E')
+    integer_exponent_tb = IntegerExponentTokenBuilder(False)
+    real_tb = RealTokenBuilder(False, False, False)
+    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', False)
     hex_constant_tb = CBasicSuffixedIntegerTokenBuilder('0123456789ABCDEF', 'H')
     binary_constant_tb = CBasicSuffixedIntegerTokenBuilder('01', 'B')
     variable_tb = CBasicVariableTokenBuilder('%$')

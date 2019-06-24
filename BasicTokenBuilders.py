@@ -4,9 +4,10 @@ from TokenBuilders import TokenBuilder
 
 # token reader for number
 class BasicSuffixedIntegerTokenBuilder(TokenBuilder):
-  def __init__(self, suffixes):
+  def __init__(self, suffixes, allow_underscore):
     self.text = None
     self.suffixes = suffixes
+    self.allow_underscore = allow_underscore
 
 
   def get_tokens(self):
@@ -21,6 +22,10 @@ class BasicSuffixedIntegerTokenBuilder(TokenBuilder):
 
     if c.isdigit():
       result = True
+
+    if c == '_':
+      result = self.allow_underscore and\
+        len(candidate) > 0 and candidate[-1].isdigit()
 
     if len(candidate) > 0 and c in self.suffixes:
       result = True
@@ -95,11 +100,12 @@ class BasicSuffixed2IntegerTokenBuilder(TokenBuilder):
 
 # token reader for real (no exponent)
 class BasicSuffixedRealTokenBuilder(TokenBuilder):
-  def __init__(self, require_before, require_after, suffixes):
+  def __init__(self, require_before, require_after, suffixes, allow_underscore):
     self.text = None
     self.require_before = require_before
     self.require_after = require_after
     self.suffixes = suffixes
+    self.allow_underscore = allow_underscore
 
 
   def get_tokens(self):
@@ -117,6 +123,10 @@ class BasicSuffixedRealTokenBuilder(TokenBuilder):
     
     if c == '.' and '.' not in candidate:
       result = True
+
+    if c == '_':
+      result = self.allow_underscore and\
+        len(candidate) > 0 and candidate[-1].isdigit()
 
     if len(candidate) > 0 and c in self.suffixes:
       result = True
