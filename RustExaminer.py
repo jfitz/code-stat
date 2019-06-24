@@ -20,7 +20,7 @@ from TokenBuilders import (
 )
 from CXTokenBuilders import (
   SlashSlashCommentTokenBuilder,
-  SlashStarCommentTokenBuilder,
+  NestedSlashStarCommentTokenBuilder,
   ClassTypeTokenBuilder
 )
 from Tokenizer import Tokenizer
@@ -47,7 +47,7 @@ class RustExaminer(Examiner):
     class_type_tb = ClassTypeTokenBuilder()
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
-    slash_star_comment_tb = SlashStarCommentTokenBuilder()
+    slash_star_comment_tb = NestedSlashStarCommentTokenBuilder()
 
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
 

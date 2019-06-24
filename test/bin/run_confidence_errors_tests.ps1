@@ -263,6 +263,9 @@ test\bin\run_test.ps1 -json -name dom-rust -action confidence -errors -language 
 test\bin\run_test.ps1 -json -name html-rust -action confidence -errors -language Rust -inputfile ".\test\data\Rust\html.rs" -expected ".\test\ref\confidence-errors\Rust\html.txt"
 test\bin\run_test.ps1 -json -name geometry-rust -action confidence -errors -language Rust -inputfile ".\test\data\Rust\geometry.rs" -expected ".\test\ref\confidence-errors\Rust\geometry.txt"
 test\bin\run_test.ps1 -json -name scene-rust -action confidence -errors -language Rust -inputfile ".\test\data\Rust\scene.rs" -expected ".\test\ref\confidence-errors\Rust\scene.txt"
+test\bin\run_test.ps1 -json -name comments-1-rust -action confidence -errors -language Rust -inputfile ".\test\data\Rust\nested_comments_1.rs" -expected ".\test\ref\confidence-errors\Rust\nested_comments_1.txt"
+test\bin\run_test.ps1 -json -name comments-2-rust -action confidence -errors -language Rust -inputfile ".\test\data\Rust\nested_comments_2.rs" -expected ".\test\ref\confidence-errors\Rust\nested_comments_2.txt"
+test\bin\run_test.ps1 -json -name comments-3-rust -action confidence -errors -language Rust -inputfile ".\test\data\Rust\nested_comments_3.rs" -expected ".\test\ref\confidence-errors\Rust\nested_comments_3.txt"
 
 # SQL-92
 test\bin\run_test.ps1 -json -name microsoft-sql-92 -action confidence -errors -language SQL-92 -inputfile ".\test\data\SQL-92\microsoft.sql" -expected ".\test\ref\confidence-errors\SQL-92\microsoft.txt"
