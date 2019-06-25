@@ -17,7 +17,6 @@ from TokenBuilders import (
 )
 from BasicTokenBuilders import (
   BasicSuffixedIntegerTokenBuilder,
-  BasicSuffixed2IntegerTokenBuilder,
   BasicSuffixedRealTokenBuilder,
   BasicVariableTokenBuilder,
   RemarkTokenBuilder
@@ -35,10 +34,7 @@ class BasicExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder(False)
     real_tb = RealTokenBuilder(False, False, False)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', False)
-    integer_suffix_tb = BasicSuffixedIntegerTokenBuilder(['%', '&', 'S', 'I', 'L', 'F', 'D', 'R'], False)
-    integer_suffix_us_tb = BasicSuffixed2IntegerTokenBuilder('US')
-    integer_suffix_ui_tb = BasicSuffixed2IntegerTokenBuilder('UI')
-    integer_suffix_ul_tb = BasicSuffixed2IntegerTokenBuilder('UL')
+    integer_suffix_tb = BasicSuffixedIntegerTokenBuilder(['%', '&', 'S', 'I', 'L', 'F', 'D', 'R', 'US', 'UI', 'UL'], False)
     float_suffix_tb = BasicSuffixedRealTokenBuilder(False, False, ['!', '#', 'F', 'D', 'R'], False)
     hex_constant_tb = PrefixedIntegerTokenBuilder('&H', True, '0123456789ABCDEFabcdef_')
     octal_constant_tb = PrefixedIntegerTokenBuilder('&O', True, '01234567_')
@@ -102,9 +98,6 @@ class BasicExaminer(Examiner):
       integer_exponent_tb,
       float_suffix_tb,
       integer_suffix_tb,
-      integer_suffix_us_tb,
-      integer_suffix_ui_tb,
-      integer_suffix_ul_tb,
       real_tb,
       real_exponent_tb,
       hex_constant_tb,

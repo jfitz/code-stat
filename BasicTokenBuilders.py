@@ -2,11 +2,20 @@ import itertools
 from Token import Token
 from TokenBuilders import TokenBuilder
 
+def digit_or_underscore(c):
+  return c.isdigit() or c == '_'
+
 # token reader for number
 class BasicSuffixedIntegerTokenBuilder(TokenBuilder):
   def __init__(self, suffixes, allow_underscore):
     self.text = None
     self.suffixes = suffixes
+
+    self.abbrevs = {}
+    for suffix in self.suffixes:
+      for i in range(len(suffix)):
+        self.abbrevs[suffix[:i+1]] = 1
+
     self.allow_underscore = allow_underscore
 
 
@@ -20,19 +29,21 @@ class BasicSuffixedIntegerTokenBuilder(TokenBuilder):
   def accept(self, candidate, c):
     result = False
 
-    if c.isdigit():
-      result = True
+    groups = ["".join(x) for _, x in itertools.groupby(candidate, key=digit_or_underscore)]
 
-    if c == '_':
-      result = self.allow_underscore and\
-        len(candidate) > 0 and candidate[-1].isdigit()
+    if len(groups) == 0:
+      result = c.isdigit()
 
-    if len(candidate) > 0 and c in self.suffixes:
-      result = True
+    if len(groups) == 1:
+      if self.allow_underscore:
+        result = c.isdigit() or c == '_' or c in self.abbrevs
+      else:
+        result = c.isdigit() or c in self.abbrevs
 
-    if len(candidate) > 0 and candidate[-1] in self.suffixes:
-      result = False
-    
+    if len(groups) == 2:
+      suffix = groups[1] + c
+      result = suffix in self.abbrevs
+
     return result
 
 
@@ -43,56 +54,12 @@ class BasicSuffixedIntegerTokenBuilder(TokenBuilder):
     if len(self.text) < 2:
       return 0
 
-    if self.text[-1] not in self.suffixes:
-      return 0
-
-    return len(self.text)
-
-
-# token reader for number
-class BasicSuffixed2IntegerTokenBuilder(TokenBuilder):
-  def __init__(self, suffix):
-    self.text = None
-    self.suffix = suffix
-
-
-  def get_tokens(self):
-    if self.text is None:
-      return None
-
-    return [Token(self.text, 'number')]
-
-
-  def accept(self, candidate, c):
-    result = False
-
-    groups = ["".join(x) for _, x in itertools.groupby(candidate, key=str.isdigit)]
-
-    if len(groups) < 2:
-      result = c.isdigit()
-
-    if len(groups) == 1 and not c.isdigit():
-      result = c == self.suffix[0]
-
-    if len(groups) == 2 and len(groups[1]) < len(self.suffix):
-      result = c == self.suffix[len(groups[1])]
-    
-    return result
-
-
-  def get_score(self, line_printable_tokens):
-    if self.text is None:
-      return 0
-
-    if len(self.text) < 3:
-      return 0
-
-    groups = ["".join(x) for _, x in itertools.groupby(self.text, key=str.isdigit)]
+    groups = ["".join(x) for _, x in itertools.groupby(self.text, key=digit_or_underscore)]
 
     if len(groups) != 2:
       return 0
 
-    if groups[1] != self.suffix:
+    if groups[1] not in self.suffixes:
       return 0
 
     return len(self.text)
