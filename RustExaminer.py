@@ -24,7 +24,8 @@ from CXTokenBuilders import (
   ClassTypeTokenBuilder
 )
 from RustTokenBuilders import (
-  RustRawStringTokenBuilder
+  RustRawStringTokenBuilder,
+  RustAttributeTokenBuilder
 )
 from Tokenizer import Tokenizer
 
@@ -43,6 +44,7 @@ class RustExaminer(Examiner):
     octal_integer_tb = PrefixedIntegerTokenBuilder('0o', True, '01234567')
     hex_integer_tb = PrefixedIntegerTokenBuilder('0x', True, '0123456789ABCDEFabcdef')
     identifier_tb = IdentifierTokenBuilder()
+    attribute_tb = RustAttributeTokenBuilder()
     string_tb = StringTokenBuilder(['"'], False, False)
     bstring_tb = PrefixedStringTokenBuilder('b', True, ['"', "'"])
     rstring_tb = RustRawStringTokenBuilder()
@@ -61,7 +63,7 @@ class RustExaminer(Examiner):
       '+=', '-=', '*=', '/=', '%=', '^=', '&=', '|-', '<<=', '>>=',
       '=', '==', '!=', '>', '<', '>=', '<=',
       '@', '.', '..', '...', '->', '#', '$', '?',
-      'in', 'mod'
+      'in'
     ]
 
     self.unary_operators = [
@@ -95,12 +97,12 @@ class RustExaminer(Examiner):
       'let',
       'loop',
       'match',
+      'mod',
       'move',
       'mut',
       'pub',
       'ref',
       'return',
-      'Self',
       'static',
       'struct',
       'trait',
@@ -138,6 +140,7 @@ class RustExaminer(Examiner):
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
     types = [
+      'Self',
       'u8', 'i8',
       'u16', 'i16',
       'u32', 'i32',
@@ -174,6 +177,7 @@ class RustExaminer(Examiner):
       known_operator_tb,
       identifier_tb,
       class_type_tb,
+      attribute_tb,
       string_tb,
       bstring_tb,
       rstring_tb,

@@ -61,3 +61,50 @@ class RustRawStringTokenBuilder(TokenBuilder):
       return 0
 
     return len(self.text)
+
+
+# token reader for attribute (inner or outer)
+class RustAttributeTokenBuilder(TokenBuilder):
+  def __init__(self):
+    self.text = ''
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'attribute')]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if len(candidate) == 0:
+      result = c == '#'
+
+    if len(candidate) == 1:
+      result = c in ['!', '[']
+
+    if len(candidate) > 1:
+      if candidate == '#!':
+        result = c == '['
+      else:
+        result = candidate[-1] != ']'
+
+    if c in ['\n', '\r']:
+      result = False
+
+    return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(self.text) < 3:
+      return 0
+
+    if self.text[-1] != ']':
+      return 0
+
+    return len(self.text)

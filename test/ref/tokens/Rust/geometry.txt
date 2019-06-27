@@ -4000,7 +4000,7 @@
         "value": " "
     },
     {
-        "type": "keyword",
+        "type": "type",
         "value": "Self"
     },
     {
@@ -8204,32 +8204,8 @@
         "value": "\r\n"
     },
     {
-        "type": "operator",
-        "value": "#"
-    },
-    {
-        "type": "group",
-        "value": "["
-    },
-    {
-        "type": "identifier",
-        "value": "derive"
-    },
-    {
-        "type": "group",
-        "value": "("
-    },
-    {
-        "type": "identifier",
-        "value": "Clone"
-    },
-    {
-        "type": "group",
-        "value": ")"
-    },
-    {
-        "type": "group",
-        "value": "]"
+        "type": "attribute",
+        "value": "#[derive(Clone)]"
     },
     {
         "type": "newline",
