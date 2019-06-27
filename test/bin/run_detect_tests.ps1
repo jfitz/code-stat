@@ -223,6 +223,8 @@ test\bin\run_test.ps1 -json -name scene-rust -action detect -inputfile ".\test\d
 test\bin\run_test.ps1 -json -name comments-1-rust -action detect -inputfile ".\test\data\Rust\nested_comments_1.rs" -expected ".\test\ref\detect\Rust\nested_comments_1.txt"
 test\bin\run_test.ps1 -json -name comments-2-rust -action detect -inputfile ".\test\data\Rust\nested_comments_2.rs" -expected ".\test\ref\detect\Rust\nested_comments_2.txt"
 test\bin\run_test.ps1 -json -name comments-3-rust -action detect -inputfile ".\test\data\Rust\nested_comments_3.rs" -expected ".\test\ref\detect\Rust\nested_comments_3.txt"
+test\bin\run_test.ps1 -json -name raw-string-1-rust -action detect -inputfile ".\test\data\Rust\raw_string_1.rs" -expected ".\test\ref\detect\Rust\raw_string_1.txt"
+test\bin\run_test.ps1 -json -name raw-string-2-rust -action detect -inputfile ".\test\data\Rust\raw_string_2.rs" -expected ".\test\ref\detect\Rust\raw_string_2.txt"
 
 # SQL-92
 test\bin\run_test.ps1 -json -name microsoft-sql-92 -action detect -tiebreak -inputfile ".\test\data\SQL-92\microsoft.sql" -expected ".\test\ref\detect\SQL-92\microsoft.txt"

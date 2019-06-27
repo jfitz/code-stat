@@ -23,6 +23,9 @@ from CXTokenBuilders import (
   NestedSlashStarCommentTokenBuilder,
   ClassTypeTokenBuilder
 )
+from RustTokenBuilders import (
+  RustRawStringTokenBuilder
+)
 from Tokenizer import Tokenizer
 
 class RustExaminer(Examiner):
@@ -42,6 +45,7 @@ class RustExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder()
     string_tb = StringTokenBuilder(['"'], False, False)
     bstring_tb = PrefixedStringTokenBuilder('b', True, ['"', "'"])
+    rstring_tb = RustRawStringTokenBuilder()
     char_tb = CharTokenBuilder("'")
 
     class_type_tb = ClassTypeTokenBuilder()
@@ -172,6 +176,7 @@ class RustExaminer(Examiner):
       class_type_tb,
       string_tb,
       bstring_tb,
+      rstring_tb,
       char_tb,
       slash_slash_comment_tb,
       slash_star_comment_tb,
