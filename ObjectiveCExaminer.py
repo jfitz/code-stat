@@ -61,8 +61,8 @@ class ObjectiveCExaminer(Examiner):
       '+', '-', '*', '/', '%',
       '=', '==', '!=', '>', '>=', '<', '<=',
       '+=', '-=', '*=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>=',
-      '!', '&', '|', '<<', '>>',
-      '.', ':',
+      '!', '&', '|', '<<', '>>', '~',
+      '.', ':', '->',
       '++', '--', '&&', '||', '^',
       '?', '##'
     ]
@@ -74,7 +74,7 @@ class ObjectiveCExaminer(Examiner):
     ]
 
     self.postfix_operators = [
-      '++', '--', '&'
+      '++', '--', '&', '->'
     ]
 
     groupers = ['(', ')', ',', '[', ']', '{', '}']
@@ -85,21 +85,34 @@ class ObjectiveCExaminer(Examiner):
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
     keywords = [
-      'auto', 'break', 'case', 'char', 'const', 'continue', 'default',
-      'do', 'double', 'else', 'enum', 'extern', 'float', 'for', 'goto',
-      'if', 'inline', 'int', 'long', 'register', 'restrict', 'return',
-      'short', 'signed', 'sizeof', 'static', 'struct', 'switch', 'typedef',
-      'union', 'unsigned', 'void', 'volatile', 'while',
-      '_Bool', '_Complex', '_Imaginary',
-      'BOOL', 'Class', 'bycopy', 'byref', 'id', 'IMP', 'in', 'inout', 'nil',
-      'NO', 'NULL', 'oneway', 'out', 'Protocol', 'SEL', 'self', 'super',
-      'YES', '@interface', '@end', '@implementation', '@protocol', '@class',
+      'break', 'case', 'continue', 'default',
+      'do', 'else', 'for', 'goto',
+      'if', 'inline', 'restrict', 'return',
+      'sizeof', 'switch', 'typedef', 'while',
+      'bycopy', 'byref', 'id', 'IMP', 'in', 'inout',
+      'oneway', 'out', 'Protocol', 'SEL',
+      '@interface', '@end', '@implementation', '@protocol', '@class',
       '@public', '@protected', '@private', '@property', '@try', '@throw',
       '@catch()', '@finally', '@synthesize', '@dynamic', '@selector',
       'atomic', 'nonatomic', 'retain'
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+
+    types = [
+      'auto', 'char', 'const', 'double', 'enum', 'extern',
+      'float', 'int', 'long', 'register',
+      'short', 'signed', 'static', 'struct', 'union', 'unsigned', 'void',
+      'volatile', '_Bool', '_Complex', '_Imaginary', 'BOOL', 'Class', 
+    ]
+
+    types_tb = ListTokenBuilder(types, 'type', True)
+
+    values = [
+      'self', 'super', 'nil', 'YES', 'NO', 'NULL'
+    ]
+
+    values_tb = ListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -113,6 +126,8 @@ class ObjectiveCExaminer(Examiner):
       real_tb,
       real_exponent_tb,
       keyword_tb,
+      types_tb,
+      values_tb,
       groupers_tb,
       known_operator_tb,
       directive_tb,
