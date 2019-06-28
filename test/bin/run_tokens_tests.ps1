@@ -210,6 +210,8 @@ test\bin\run_test.ps1 -json -name bing-js -action tokens -language JavaScript -i
 
 # Objective-C
 test\bin\run_test.ps1 -json -name hello-objc -action tokens -language Objective-C -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\tokens\Objective-C\HelloWorld.txt"
+test\bin\run_test.ps1 -json -name qrmath-objc -action tokens -language Objective-C -inputfile ".\test\data\Objective-C\QRMath.h" -expected ".\test\ref\tokens\Objective-C\QRMath.txt"
+test\bin\run_test.ps1 -json -name qrencoder-objc -action tokens -language Objective-C -inputfile ".\test\data\Objective-C\QREncoder.m" -expected ".\test\ref\tokens\Objective-C\QREncoder.txt"
 
 # Pascal
 test\bin\run_test.ps1 -json -name firework-pas -action tokens -language Pascal -inputfile ".\test\data\Pascal\FIREWORK.PAS" -expected ".\test\ref\tokens\Pascal\FIREWORK.txt"

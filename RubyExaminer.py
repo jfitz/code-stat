@@ -138,6 +138,12 @@ class RubyExaminer(Examiner):
     operand_types = ['number', 'string', 'symbol']
     self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()
+    openers = [
+      'begin', 'if', 'def', 'do', 'case', 'while',
+      'until', 'unless', 'class', 'module', 'rescue'
+      ]
+    closers = ['end']
+    # self.calc_paired_blockers_confidence(openers, closers)
     self.calc_statistics()
 
 
@@ -177,3 +183,38 @@ class RubyExaminer(Examiner):
 
       if token.group not in ['whitespace', 'comment', 'newline']:
         prev_token = token
+
+
+  def check_paired_tokens(self, tokens, open_tokens, close_tokens):
+    level = 0
+    min_level = 0
+    num_open = 0
+    num_close = 0
+
+    prev_token_lower = ''
+    prev_reqs = ['\n', ';', '=', 'each']
+
+    drop_types = ['whitespace', 'comment', 'line continuation']
+    tokens = self.drop_tokens(tokens, drop_types)
+
+    for token in tokens:
+      token_lower = token.text.lower()
+
+      if token.group == 'keyword':
+
+        if token_lower in open_tokens and prev_token_lower in prev_reqs:
+          print(' ' * level + token_lower)
+          num_open += 1
+          level += 1
+
+      if token_lower in close_tokens:
+        num_close += 1
+        level -= 1
+        if level < min_level:
+          min_level = level
+        print(' ' * level + token_lower)
+
+      prev_token_lower = token_lower
+
+    ok = level == 0 and min_level == 0
+    return ok, num_open, num_close

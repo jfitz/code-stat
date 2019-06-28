@@ -167,6 +167,8 @@ test\bin\run_test.ps1 -json -name bing-js -action detect -tiebreak -inputfile ".
 
 # Objective-C
 test\bin\run_test.ps1 -json -name hello-objc -action detect -tiebreak -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\detect\Objective-C\HelloWorld.txt"
+test\bin\run_test.ps1 -json -name qrmath-objc -action detect -inputfile ".\test\data\Objective-C\QRMath.h" -expected ".\test\ref\detect\Objective-C\QRMath.txt"
+test\bin\run_test.ps1 -json -name qrencoder-objc -action detect -inputfile ".\test\data\Objective-C\QREncoder.m" -expected ".\test\ref\detect\Objective-C\QREncoder.txt"
 
 # Pascal
 test\bin\run_test.ps1 -json -name firework-pas -action detect -tiebreak -inputfile ".\test\data\Pascal\FIREWORK.PAS" -expected ".\test\ref\detect\Pascal\FIREWORK.txt"
