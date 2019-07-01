@@ -57,7 +57,7 @@ class RubyExaminer(Examiner):
         '<<=', '>>=',
         '&&=', '&=', '||=', '|=', '^=',
         'not', 'and', 'or', 'in',
-        '.', '=>', '::'
+        '.', '.:', '=>', '::'
       ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
