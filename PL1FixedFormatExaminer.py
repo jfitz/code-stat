@@ -139,3 +139,21 @@ class PL1FixedFormatExaminer(PL1Examiner):
         token.group = 'comment'
 
     return tokens
+
+
+  def unwrapped_code(self, lines):
+    unwrapped_lines = ''
+
+    for line in lines:
+      # remove line description (if any)
+      line = line[:72]
+      line = line.rstrip()
+
+      # wrap column-1 comment in slash-star, star-slash
+      if len(line) > 0 and line[0] != ' ':
+        line = '/*' + line + '*/'
+
+      unwrapped_lines += line
+      unwrapped_lines += '\n'
+
+    return unwrapped_lines

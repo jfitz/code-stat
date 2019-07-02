@@ -561,6 +561,7 @@ def unwrap_lines(text, language):
   # only the fixed-format versions can be unwrapped
   cobol_names = ['cobol', 'cobol-68', 'cobol-74', 'cobol-85']
   fortran_names = ['fortran', 'fortran-66', 'fortran-77']
+  pl1_names = ['pl1-fixed']
 
   unwrapped_text = text
 
@@ -571,6 +572,11 @@ def unwrap_lines(text, language):
 
   if language in cobol_names:
     examiner = CobolFixedFormatExaminer(text, '85', '', 8, False)
+    lines = split_lines(text)
+    unwrapped_text = examiner.unwrapped_code(lines)
+
+  if language in pl1_names:
+    examiner = PL1FixedFormatExaminer(text, 8, False)
     lines = split_lines(text)
     unwrapped_text = examiner.unwrapped_code(lines)
 
