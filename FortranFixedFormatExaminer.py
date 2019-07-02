@@ -142,30 +142,30 @@ class FortranFixedFormatExaminer(FortranExaminer):
     self.calc_statistics()
 
 
-def unwrap_fortran_lines(lines):
-  unwrapped_lines = ''
+  def unwrapped_code(self, lines):
+    unwrapped_lines = ''
 
-  buffer = None
-  for line in lines:
-    # rtrim
-    line = line.rstrip()
+    buffer = None
+    for line in lines:
+      # rtrim
+      line = line.rstrip()
 
-    # if continuation (not comment, longer than 6, not space in column 5)
-    if len(line) > 5 and line[0] != 'C' and line[5] != ' ':
-      # drop leading columns
-      line = line[6:]
-      # append to buffer
-      if buffer is None:
-        buffer = line
+      # if continuation (not comment, longer than 6, not space in column 5)
+      if len(line) > 5 and line[0] != 'C' and line[5] != ' ':
+        # drop leading columns
+        line = line[6:]
+        # append to buffer
+        if buffer is None:
+          buffer = line
+        else:
+          buffer += line
       else:
-        buffer += line
-    else:
-      if buffer is not None:
-        unwrapped_lines += buffer
-        unwrapped_lines += '\n'
-      buffer = line
-  if len(buffer) > 0:
-    unwrapped_lines += buffer
-    unwrapped_lines += '\n'
+        if buffer is not None:
+          unwrapped_lines += buffer
+          unwrapped_lines += '\n'
+        buffer = line
+    if len(buffer) > 0:
+      unwrapped_lines += buffer
+      unwrapped_lines += '\n'
 
-  return unwrapped_lines
+    return unwrapped_lines

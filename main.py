@@ -9,17 +9,11 @@ from AdaExaminer import AdaExaminer
 from BasicExaminer import BasicExaminer
 from CBasicExaminer import CBasicExaminer
 from CExaminer import CExaminer
-from CobolFixedFormatExaminer import (
-  CobolFixedFormatExaminer,
-  unwrap_cobol_lines
-)
+from CobolFixedFormatExaminer import CobolFixedFormatExaminer
 from CobolFreeFormatExaminer import CobolFreeFormatExaminer
 from CppExaminer import CppExaminer
 from CsharpExaminer import CsharpExaminer
-from FortranFixedFormatExaminer import (
-  FortranFixedFormatExaminer,
-  unwrap_fortran_lines
-)
+from FortranFixedFormatExaminer import FortranFixedFormatExaminer
 from FortranFreeFormatExaminer import FortranFreeFormatExaminer
 from FsharpExaminer import FsharpExaminer
 from GoExaminer import GoExaminer
@@ -571,12 +565,14 @@ def unwrap_lines(text, language):
   unwrapped_text = text
 
   if language in fortran_names:
+    examiner = FortranFixedFormatExaminer(text, '77', 8, False)
     lines = split_lines(text)
-    unwrapped_text = unwrap_fortran_lines(lines)
+    unwrapped_text = examiner.unwrapped_code(lines)
 
   if language in cobol_names:
+    examiner = CobolFixedFormatExaminer(text, '85', '', 8, False)
     lines = split_lines(text)
-    unwrapped_text = unwrap_cobol_lines(lines)
+    unwrapped_text = examiner.unwrapped_code(lines)
 
   if language in ['cbasic']:
     examiner = CBasicExaminer(text)
