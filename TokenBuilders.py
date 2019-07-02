@@ -56,7 +56,7 @@ class InvalidTokenBuilder(TokenBuilder):
       return None
 
     return [Token(self.text, 'invalid')]
-  
+
 
 # token reader for whitespace
 class WhitespaceTokenBuilder(TokenBuilder):

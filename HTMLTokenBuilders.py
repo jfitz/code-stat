@@ -91,3 +91,22 @@ class HTMLAttributeTokenBuilder(TokenBuilder):
       return 0
 
     return len(self.text)
+
+
+# token reader for unusual unicode character
+class HTMLUnicodeTokenBuilder(TokenBuilder):
+  def __init__(self):
+    self.text = None
+
+
+  def attempt(self, text):
+    self.text = None
+    if len(text) > 0:
+      self.text = text[0]
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'character')]

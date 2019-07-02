@@ -15,7 +15,8 @@ from TokenBuilders import (
 from HTMLTokenBuilders import (
   HTMLIdentifierTokenBuilder,
   HTMLListTokenBuilder,
-  HTMLAttributeTokenBuilder
+  HTMLAttributeTokenBuilder,
+  HTMLUnicodeTokenBuilder
 )
 from Tokenizer import Tokenizer
 
@@ -32,6 +33,7 @@ class HTMLExaminer(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', False)
     string_tb = StringTokenBuilder(['"', "'"], True, False)
     attribute_tb = HTMLAttributeTokenBuilder()
+    unicode_tb = HTMLUnicodeTokenBuilder()
 
     groupers_tb = ListTokenBuilder(['<', '</', '>', '/>'], 'group', False)
     group_ends = ['>', '/>']
@@ -106,6 +108,7 @@ class HTMLExaminer(Examiner):
       comment_tb,
       script_tb,
       self.unknown_operator_tb,
+      unicode_tb,
       invalid_token_builder
     ]
 
