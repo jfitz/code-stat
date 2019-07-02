@@ -538,16 +538,7 @@ class Examiner:
       self.confidences['keyword'] = 1.0
 
 
-  def calc_statistics(self):
-    self.statistics = {}
-
-    for token in self.tokens:
-      ctype = token.group
-      if ctype in self.statistics:
-        self.statistics[ctype] += 1
-      else:
-        self.statistics[ctype] = 1
-
+  def count_source_lines(self):
     # count source lines
     # (lines with tokens other than space or comment or line number or line description)
     drop_types = ['whitespace', 'comment', 'line number', 'line identification']
@@ -563,35 +554,47 @@ class Examiner:
       else:
         token_count += 1
 
+    # count a line that has no trailing newline
     if token_count > 0:
       line_count += 1
 
-    self.statistics['source lines'] = line_count
+    return line_count
 
-    # check group items are balanced
-    parens_bias = 0
-    bracket_bias = 0
-    brace_bias = 0
+
+  def calc_pair_balance(self, openers, closers):
+    bias = 0
     for token in self.tokens:
       if token.group == 'group':
-        if token.text == '(':
-          parens_bias += 1
-        if token.text == ')':
-          parens_bias -= 1
+        if token.text in openers:
+          bias += 1
+        if token.text in closers:
+          bias -= 1
 
-        if token.text == '[':
-          bracket_bias += 1
-        if token.text == ']':
-          bracket_bias -= 1
+    return bias
 
-        if token.text == '{':
-          brace_bias += 1
-        if token.text == '}':
-          brace_bias -= 1
 
-    self.statistics['parentheses bias'] = parens_bias
-    self.statistics['bracket bias'] = bracket_bias
-    self.statistics['brace bias'] = brace_bias
+  def calc_statistics(self):
+    self.statistics = {}
+
+    # count token types
+    for token in self.tokens:
+      ctype = token.group
+      if ctype in self.statistics:
+        self.statistics[ctype] += 1
+      else:
+        self.statistics[ctype] = 1
+
+    # count source lines
+    self.statistics['source lines'] = self.count_source_lines()
+
+    # check group items are balanced
+    self.statistics['parentheses bias'] = self.calc_pair_balance('(', ')')
+    self.statistics['bracket bias'] = self.calc_pair_balance('[', ']')
+    self.statistics['brace bias'] = self.calc_pair_balance('{', '}')
+
+    # calculate complexity based on decision points
+
+    # calculate complexity based on boolean constants (boolexity)
 
 
   def unwrapped_code(self):

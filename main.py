@@ -111,13 +111,13 @@ codesAndNames = {
 }
 
 @app.route('/languages', methods=['GET'])
-def languages():
+def route_languages():
   json_text = json.dumps(codesAndNames)
   return json_text
 
 
 @app.route('/detab', methods=['POST'])
-def detab():
+def route_detab():
   tab_size = 8
 
   if 'tabsize' in request.args:
@@ -136,7 +136,7 @@ def detab():
 
 
 @app.route('/truncate', methods=['POST'])
-def truncate():
+def route_truncate():
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
   truncated_text = truncate_lines(text, 72)
@@ -145,7 +145,7 @@ def truncate():
 
 
 @app.route('/unwrap', methods=['POST'])
-def unwrap():
+def route_unwrap():
   language = ''
   if 'language' in request.args:
     language = request.args['language']
@@ -159,7 +159,7 @@ def unwrap():
 
 
 @app.route('/detect', methods=['POST'])
-def detect():
+def route_detect():
   tabsize = 8
   if 'tabsize' in request.args:
     tabsize = request.args['tabsize']
@@ -196,7 +196,7 @@ def detect():
 
 
 @app.route('/tokens', methods=['POST'])
-def tokens():
+def route_tokens():
   language = ''
   if 'language' in request.args:
     language = request.args['language']
@@ -231,7 +231,7 @@ def tokens():
 
 
 @app.route('/confidence', methods=['POST'])
-def confidence():
+def route_confidence():
   language = ''
   if 'language' in request.args:
     language = request.args['language']
@@ -262,7 +262,7 @@ def confidence():
 
 
 @app.route('/statistics', methods=['POST'])
-def statistics():
+def route_statistics():
   language = ''
   if 'language' in request.args:
     language = request.args['language']
