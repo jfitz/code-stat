@@ -138,12 +138,9 @@ class RubyExaminer(Examiner):
     operand_types = ['number', 'string', 'symbol']
     self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()
-    openers = [
-      'begin', 'if', 'def', 'do', 'case', 'while',
-      'until', 'unless', 'class', 'module', 'rescue'
-      ]
+    openers = ['begin', 'def', 'do', 'class', 'module']
     closers = ['end']
-    # self.calc_paired_blockers_confidence(openers, closers)
+    self.calc_paired_blockers_confidence(openers, closers)
     self.calc_statistics()
 
 
@@ -192,29 +189,38 @@ class RubyExaminer(Examiner):
     num_close = 0
 
     prev_token_lower = ''
-    prev_reqs = ['\n', ';', '=', 'each']
+    prev_token = Token('\n', 'newline')
+
+    prev_reqs = [';', '=']
+    conditional_openers = ['if', 'case', 'while', 'until', 'unless']
 
     drop_types = ['whitespace', 'comment', 'line continuation']
     tokens = self.drop_tokens(tokens, drop_types)
 
+    openers_stack = []
     for token in tokens:
       token_lower = token.text.lower()
 
       if token.group == 'keyword':
-
-        if token_lower in open_tokens and prev_token_lower in prev_reqs:
-          print(' ' * level + token_lower)
+        if token_lower in open_tokens or\
+          token_lower in conditional_openers and\
+            (prev_token.group == 'newline' or prev_token_lower in prev_reqs):
           num_open += 1
           level += 1
+          openers_stack.append(token_lower)
 
       if token_lower in close_tokens:
         num_close += 1
         level -= 1
+
         if level < min_level:
           min_level = level
-        print(' ' * level + token_lower)
+
+        if len(openers_stack) > 0:
+          openers_stack = openers_stack[:-1]
 
       prev_token_lower = token_lower
+      prev_token = token
 
     ok = level == 0 and min_level == 0
     return ok, num_open, num_close
