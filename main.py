@@ -181,7 +181,13 @@ def route_detect():
   http_status = 200
   try:
     detected_languages = identify_language(text, tabsize, wide, tiebreak_keywords, tiebreak_tokens, languages)
-    json_text = json.dumps(detected_languages)
+
+    dl2 = {}
+    for key in detected_languages:
+      new_key = codesAndNames[key]
+      dl2[new_key] = detected_languages[key]
+
+    json_text = json.dumps(dl2)
   except CodeStatException as e:
     http_status = 450
     json_text = str(e)
@@ -349,145 +355,145 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
   examiners = {}
 
   if 'ada83' in languages:
-    examiners['Ada-83'] = AdaExaminer(code, '83')
+    examiners['ada83'] = AdaExaminer(code, '83')
 
   if 'ada95' in languages:
-    examiners['Ada-95'] = AdaExaminer(code, '95')
+    examiners['ada95'] = AdaExaminer(code, '95')
 
   if 'ada2005' in languages:
-    examiners['Ada-2005'] = AdaExaminer(code, '2005')
+    examiners['ada2005'] = AdaExaminer(code, '2005')
 
   if 'ada2012' in languages or 'ada' in languages:
-    examiners['Ada-2012'] = AdaExaminer(code, '2012')
+    examiners['ada2012'] = AdaExaminer(code, '2012')
 
   if 'basic' in languages:
-    examiners['BASIC'] = BasicExaminer(code)
+    examiners['basic'] = BasicExaminer(code)
 
   if 'cbasic' in languages:
-    examiners['CBASIC'] = CBasicExaminer(code)
+    examiners['cbasic'] = CBasicExaminer(code)
 
   if 'c' in languages:
-    examiners['C'] = CExaminer(code)
+    examiners['c'] = CExaminer(code)
 
   if 'cplusplus' in languages:
-    examiners['C++'] = CppExaminer(code)
+    examiners['cplusplus'] = CppExaminer(code)
 
   if 'csharp' in languages:
-    examiners['C#'] = CsharpExaminer(code)
+    examiners['csharp'] = CsharpExaminer(code)
 
   if 'cobol68' in languages:
-    examiners['COBOL-68'] = CobolFixedFormatExaminer(code, '68', '', tab_size, wide)
+    examiners['cobol68'] = CobolFixedFormatExaminer(code, '68', '', tab_size, wide)
 
   if 'cobol74' in languages:
-    examiners['COBOL-74'] = CobolFixedFormatExaminer(code, '74', '', tab_size, wide)
+    examiners['cobol74'] = CobolFixedFormatExaminer(code, '74', '', tab_size, wide)
 
   if 'cobol85' in languages:
-    examiners['COBOL-85'] = CobolFixedFormatExaminer(code, '85', '', tab_size, wide)
+    examiners['cobol85'] = CobolFixedFormatExaminer(code, '85', '', tab_size, wide)
 
   if 'cobol2002' in languages:
-    examiners['COBOL-2002'] = CobolFreeFormatExaminer(code, '2002', '')
+    examiners['cobol2002'] = CobolFreeFormatExaminer(code, '2002', '')
 
   if 'cobol2014' in languages or 'cobol' in languages:
-    examiners['COBOL-2014'] = CobolFreeFormatExaminer(code, '2014', '')
+    examiners['cobol2014'] = CobolFreeFormatExaminer(code, '2014', '')
 
   if 'cobol2014acu' in languages:
-    examiners['COBOL-2014-ACU'] = CobolFreeFormatExaminer(code, '2014', 'acu')
+    examiners['cobol2014acu'] = CobolFreeFormatExaminer(code, '2014', 'acu')
 
   if 'cobol2014ibm' in languages:
-    examiners['COBOL-2014-IBM'] = CobolFreeFormatExaminer(code, '2014', 'ibm')
+    examiners['cobol2014ibm'] = CobolFreeFormatExaminer(code, '2014', 'ibm')
 
   if 'cobol2014gnu' in languages:
-    examiners['COBOL-2014-GNU'] = CobolFreeFormatExaminer(code, '2014', 'gnu')
+    examiners['cobol2014gnu'] = CobolFreeFormatExaminer(code, '2014', 'gnu')
 
   if 'fortran66' in languages:
-    examiners['Fortran-66'] = FortranFixedFormatExaminer(code, '66', tab_size, wide)
+    examiners['fortran66'] = FortranFixedFormatExaminer(code, '66', tab_size, wide)
 
   if 'fortran77' in languages:
-    examiners['Fortran-77'] = FortranFixedFormatExaminer(code, '77', tab_size, wide)
+    examiners['fortran77'] = FortranFixedFormatExaminer(code, '77', tab_size, wide)
 
   if 'fortran90' in languages:
-    examiners['Fortran-90'] = FortranFreeFormatExaminer(code, '90')
+    examiners['fortran90'] = FortranFreeFormatExaminer(code, '90')
 
   if 'fortran95' in languages:
-    examiners['Fortran-95'] = FortranFreeFormatExaminer(code, '95')
+    examiners['fortran95'] = FortranFreeFormatExaminer(code, '95')
 
   if 'fortran2003' in languages:
-    examiners['Fortran-2003'] = FortranFreeFormatExaminer(code, '2003')
+    examiners['fortran2003'] = FortranFreeFormatExaminer(code, '2003')
 
   if 'fortran2008' in languages or 'fortran' in languages:
-    examiners['Fortran-2008'] = FortranFreeFormatExaminer(code, '2008')
+    examiners['fortran2008'] = FortranFreeFormatExaminer(code, '2008')
 
   if 'fsharp' in languages:
-    examiners['F#'] = FsharpExaminer(code)
+    examiners['fsharp'] = FsharpExaminer(code)
 
   if 'go' in languages:
-    examiners['Go'] = GoExaminer(code)
+    examiners['go'] = GoExaminer(code)
 
   if 'html' in languages:
-    examiners['HTML'] = HTMLExaminer(code)
+    examiners['html'] = HTMLExaminer(code)
 
   if 'objectivec' in languages:
-    examiners['Objective-C'] = ObjectiveCExaminer(code)
+    examiners['objectivec'] = ObjectiveCExaminer(code)
 
   if 'java' in languages:
-    examiners['Java'] = JavaExaminer(code)
+    examiners['java'] = JavaExaminer(code)
 
   if 'javascript' in languages:
-    examiners['JavaScript'] = JavaScriptExaminer(code)
+    examiners['javascript'] = JavaScriptExaminer(code)
 
   if 'pascal' in languages:
-    examiners['Pascal'] = PascalExaminer(code)
+    examiners['pascal'] = PascalExaminer(code)
 
   if 'pl1-fixed' in languages:
-    examiners['PL/1-Fixed'] = PL1FixedFormatExaminer(code, tab_size, wide)
+    examiners['pl1-fixed'] = PL1FixedFormatExaminer(code, tab_size, wide)
 
   if 'pl1-free' in languages:
-    examiners['PL/1-Free'] = PL1FreeFormatExaminer(code)
+    examiners['pl1-free'] = PL1FreeFormatExaminer(code)
 
   if 'prolog' in languages:
-    examiners['Prolog'] = PrologExaminer(code)
+    examiners['prolog'] = PrologExaminer(code)
 
   if 'python' in languages:
-    examiners['Python'] = PythonExaminer(code)
+    examiners['python'] = PythonExaminer(code)
 
   if 'r' in languages:
-    examiners['R'] = RExaminer(code)
+    examiners['r'] = RExaminer(code)
 
   if 'ruby' in languages:
-    examiners['Ruby'] = RubyExaminer(code)
+    examiners['ruby'] = RubyExaminer(code)
 
   if 'rust' in languages:
-    examiners['Rust'] = RustExaminer(code)
+    examiners['rust'] = RustExaminer(code)
 
   if 'sql92' in languages:
-    examiners['SQL-92'] = SqlExaminer(code, '92', '')
+    examiners['sql92'] = SqlExaminer(code, '92', '')
 
   if 'sql99' in languages:
-    examiners['SQL-99'] = SqlExaminer(code, '99', '')
+    examiners['sql99'] = SqlExaminer(code, '99', '')
 
   if 'sql2003' in languages:
-    examiners['SQL-2003'] = SqlExaminer(code, '2003', '')
+    examiners['sql2003'] = SqlExaminer(code, '2003', '')
 
   if 'sql2008' in languages:
-    examiners['SQL-2008'] = SqlExaminer(code, '2008', '')
+    examiners['sql2008'] = SqlExaminer(code, '2008', '')
 
   if 'sql2011' in languages:
-    examiners['SQL-2011'] = SqlExaminer(code, '2011', '')
+    examiners['sql2011'] = SqlExaminer(code, '2011', '')
 
   if 'sql2016' in languages or 'sql' in languages:
-    examiners['SQL-2016'] = SqlExaminer(code, '2016', '')
+    examiners['sql2016'] = SqlExaminer(code, '2016', '')
 
   if 'swift' in languages:
-    examiners['Swift'] = SwiftExaminer(code)
+    examiners['swift'] = SwiftExaminer(code)
 
   if 'typescript' in languages:
-    examiners['TypeScript'] = TypeScriptExaminer(code)
+    examiners['typescript'] = TypeScriptExaminer(code)
 
   if 'visualbasic6' in languages:
-    examiners['VisualBasic-6'] = VisualBasic6Examiner(code)
+    examiners['visualbasic6'] = VisualBasic6Examiner(code)
 
   if 'visualbasicnet' in languages:
-    examiners['VisualBasic-NET'] = VisualBasicNETExaminer(code)
+    examiners['visualbasicnet'] = VisualBasicNETExaminer(code)
 
   # get confidence values
   retval = {}
