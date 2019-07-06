@@ -65,21 +65,22 @@ if (!(Test-Path -Path $testbed\$name )) {
 }
 Remove-Item $testbed\$name\*.*
 
-Write-Output "Invoking service $url -infile $inputfile -outfile $actual..."
-Invoke-RestMethod -method post -uri "$url" -infile $inputfile -outfile $actual
-
 if ($json) {
+    Write-Output "Invoking service $url -infile $inputfile -outfile $actual..."
+    Invoke-RestMethod -Method Post -Uri "$url" -InFile $inputfile | ConvertTo-JSON -Compress -Depth 5 | Out-File $actual
     Write-Output "Adjusting JSON output..."
     Get-Content $actual | python AddNlToJson.py | python IndentJson.py | Out-File $actual_adjusted
     dotnet test\bin\UTF16-UTF8.dll "$actual_adjusted" "$actual_final"
 } else {
+    Write-Output "Invoking service $url -infile $inputfile -outfile $actual..."
+    Invoke-RestMethod -Method Post -Uri "$url" -InFile $inputfile | Out-File $actual
     Get-Content $actual | Out-File $actual_final
 }
 
 Write-Output "Comparing $actual_final against $expected..."
 if (Compare-Object $(Get-Content $expected) $(Get-Content $actual_final)) {
     Write-Output ""
-    set-variable -name failures -value ($failures + 1) -scope 1
+    Set-Variable -name failures -value ($failures + 1) -scope 1
     "Test $name failed"
     Copy-Item $actual_final $expected
 } else {

@@ -52,6 +52,13 @@ def decode_bytes(in_bytes):
   return text
 
 
+def tokens_to_dict(tokens):
+  token_list = []
+  for token in tokens:
+    token_list.append(token.toDict())
+  return token_list
+
+
 app = Flask(__name__)
 
 codesAndNames = {
@@ -201,6 +208,10 @@ def route_tokens():
   if 'language' in request.args:
     language = request.args['language']
 
+  languages = []
+  if 'languages' in request.args:
+    languages = request.args['languages'].lower().split(' ')
+
   comment = ''
   if 'comment' in request.args:
     comment = request.args['comment']
@@ -216,13 +227,51 @@ def route_tokens():
 
   http_status = 200
   try:
-    tokens = tokenize(text, language.lower(), tabsize, wide, comment)
-    token_list = []
+    if len(language) > 0:
+      tokens = tokenize(text, language.lower(), tabsize, wide, comment)
+      token_list = tokens_to_dict(tokens)
+      json_text = json.dumps(token_list)
+    else:
+      if len(languages) > 0:
+        # detect for languages
+        tiebreak_keywords = False
+        tiebreak_tokens = False
+        detected_languages = identify_language(text, tabsize, wide, tiebreak_keywords, tiebreak_tokens, languages)
+        # find the highest value
+        language = 'generic'
+        high_value = 0
+        for key in detected_languages:
+          if detected_languages[key] > high_value:
+            language = key
+            high_value = detected_languages[key]
 
-    for token in tokens:
-      token_list.append(token.toDict())
+        # select all with the highest value
+        winning_languages = []
+        for key in detected_languages:
+          if detected_languages[key] == high_value:
+            winning_languages.append(key)
 
-    json_text = json.dumps(token_list)
+        list_of_dicts = []
+        # for each winning language
+        for language in winning_languages:
+          # tokenize
+          tokens = tokenize(text, language, tabsize, wide, comment)
+          token_list = tokens_to_dict(tokens)
+
+          # dictionary language: language, tokens: tokens
+          mydict = {}
+          mydict['language'] = language
+          mydict['tokens'] = token_list
+
+          # add dictionary to list
+          list_of_dicts.append(mydict)
+
+        json_text = json.dumps(list_of_dicts)
+      else:
+        # tokenize as generic
+        tokens = tokenize(text, 'generic', tabsize, wide, comment)
+        token_list = tokens_to_dict(tokens)
+        json_text = json.dumps(token_list)
   except CodeStatException as e:
     http_status = 450
     json_text = str(e)

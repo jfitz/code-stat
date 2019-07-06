@@ -1,1634 +1,1637 @@
-﻿[
+﻿{
+    "value":[
     {
-        "type": "comment",
-        "value": "'  Azure Blob Service Example: Set Container User-Defined Metadata"
+        "type":"comment",
+        "value":"\u0027  Azure Blob Service Example: Set Container User-Defined Metadata"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "'  See also: https://msdn.microsoft.com/en-us/library/azure/dd179362.aspx"
+        "type":"comment",
+        "value":"\u0027  See also: https://msdn.microsoft.com/en-us/library/azure/dd179362.aspx"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "'  This example requires the Chilkat API to have been previously unlocked."
+        "type":"comment",
+        "value":"\u0027  This example requires the Chilkat API to have been previously unlocked."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "'  See Global Unlock Sample for sample code."
+        "type":"comment",
+        "value":"\u0027  See Global Unlock Sample for sample code."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "keyword",
-        "value": "Dim"
+        "type":"keyword",
+        "value":"Dim"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "rest"
+        "type":"identifier",
+        "value":"rest"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "As"
+        "type":"keyword",
+        "value":"As"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "New"
+        "type":"keyword",
+        "value":"New"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "ChilkatRest"
+        "type":"identifier",
+        "value":"ChilkatRest"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "'  Connect to the Azure Storage Blob Service"
+        "type":"comment",
+        "value":"\u0027  Connect to the Azure Storage Blob Service"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "keyword",
-        "value": "Dim"
+        "type":"keyword",
+        "value":"Dim"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "bTls"
+        "type":"identifier",
+        "value":"bTls"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "As"
+        "type":"keyword",
+        "value":"As"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "type",
-        "value": "Long"
+        "type":"type",
+        "value":"Long"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "bTls"
+        "type":"identifier",
+        "value":"bTls"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "keyword",
-        "value": "Dim"
+        "type":"keyword",
+        "value":"Dim"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "port"
+        "type":"identifier",
+        "value":"port"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "As"
+        "type":"keyword",
+        "value":"As"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "type",
-        "value": "Long"
+        "type":"type",
+        "value":"Long"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "port"
+        "type":"identifier",
+        "value":"port"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "443"
+        "type":"number",
+        "value":"443"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "keyword",
-        "value": "Dim"
+        "type":"keyword",
+        "value":"Dim"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "bAutoReconnect"
+        "type":"identifier",
+        "value":"bAutoReconnect"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "As"
+        "type":"keyword",
+        "value":"As"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "type",
-        "value": "Long"
+        "type":"type",
+        "value":"Long"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "bAutoReconnect"
+        "type":"identifier",
+        "value":"bAutoReconnect"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "'  In this example, the storage account name is \"chilkat\"."
+        "type":"comment",
+        "value":"\u0027  In this example, the storage account name is \"chilkat\"."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "keyword",
-        "value": "Dim"
+        "type":"keyword",
+        "value":"Dim"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "success"
+        "type":"identifier",
+        "value":"success"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "As"
+        "type":"keyword",
+        "value":"As"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "type",
-        "value": "Long"
+        "type":"type",
+        "value":"Long"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "success"
+        "type":"identifier",
+        "value":"success"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "rest"
+        "type":"identifier",
+        "value":"rest"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "Connect"
+        "type":"identifier",
+        "value":"Connect"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "string",
-        "value": "\"chilkat.blob.core.windows.net\""
+        "type":"string",
+        "value":"\"chilkat.blob.core.windows.net\""
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "port"
+        "type":"identifier",
+        "value":"port"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "bTls"
+        "type":"identifier",
+        "value":"bTls"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "bAutoReconnect"
+        "type":"identifier",
+        "value":"bAutoReconnect"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "keyword",
-        "value": "If"
+        "type":"keyword",
+        "value":"If"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "success"
+        "type":"identifier",
+        "value":"success"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "<>"
+        "type":"operator",
+        "value":"\u003c\u003e"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "Then"
+        "type":"keyword",
+        "value":"Then"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "value",
-        "value": "Debug"
+        "type":"value",
+        "value":"Debug"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "keyword",
-        "value": "Print"
+        "type":"keyword",
+        "value":"Print"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "rest"
+        "type":"identifier",
+        "value":"rest"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "LastErrorText"
+        "type":"identifier",
+        "value":"LastErrorText"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "keyword",
-        "value": "Exit"
+        "type":"keyword",
+        "value":"Exit"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "Sub"
+        "type":"keyword",
+        "value":"Sub"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "keyword",
-        "value": "End"
+        "type":"keyword",
+        "value":"End"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "If"
+        "type":"keyword",
+        "value":"If"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "'  Provide Azure Cloud credentials for the REST call."
+        "type":"comment",
+        "value":"\u0027  Provide Azure Cloud credentials for the REST call."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "keyword",
-        "value": "Dim"
+        "type":"keyword",
+        "value":"Dim"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "azAuth"
+        "type":"identifier",
+        "value":"azAuth"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "As"
+        "type":"keyword",
+        "value":"As"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "New"
+        "type":"keyword",
+        "value":"New"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "ChilkatAuthAzureStorage"
+        "type":"identifier",
+        "value":"ChilkatAuthAzureStorage"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "azAuth"
+        "type":"identifier",
+        "value":"azAuth"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "AccessKey"
+        "type":"identifier",
+        "value":"AccessKey"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"AZURE_ACCESS_KEY\""
+        "type":"string",
+        "value":"\"AZURE_ACCESS_KEY\""
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "'  The account name used here should match the 1st part of the domain passed in the call to Connect (above)."
+        "type":"comment",
+        "value":"\u0027  The account name used here should match the 1st part of the domain passed in the call to Connect (above)."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "azAuth"
+        "type":"identifier",
+        "value":"azAuth"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "Account"
+        "type":"identifier",
+        "value":"Account"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"chilkat\""
+        "type":"string",
+        "value":"\"chilkat\""
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "azAuth"
+        "type":"identifier",
+        "value":"azAuth"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "Scheme"
+        "type":"identifier",
+        "value":"Scheme"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"SharedKey\""
+        "type":"string",
+        "value":"\"SharedKey\""
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "azAuth"
+        "type":"identifier",
+        "value":"azAuth"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "Service"
+        "type":"identifier",
+        "value":"Service"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"Blob\""
+        "type":"string",
+        "value":"\"Blob\""
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "'  This causes the \"x-ms-version: 2015-02-21\" header to be automatically added."
+        "type":"comment",
+        "value":"\u0027  This causes the \"x-ms-version: 2015-02-21\" header to be automatically added."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "azAuth"
+        "type":"identifier",
+        "value":"azAuth"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "XMsVersion"
+        "type":"identifier",
+        "value":"XMsVersion"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"2015-02-21\""
+        "type":"string",
+        "value":"\"2015-02-21\""
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "success"
+        "type":"identifier",
+        "value":"success"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "rest"
+        "type":"identifier",
+        "value":"rest"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "SetAuthAzureStorage"
+        "type":"identifier",
+        "value":"SetAuthAzureStorage"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "azAuth"
+        "type":"identifier",
+        "value":"azAuth"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "'  Note: The application does not need to explicitly set the following"
+        "type":"comment",
+        "value":"\u0027  Note: The application does not need to explicitly set the following"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "'  headers: x-ms-date, Authorization.  These headers"
+        "type":"comment",
+        "value":"\u0027  headers: x-ms-date, Authorization.  These headers"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "'  are automatically set by Chilkat."
+        "type":"comment",
+        "value":"\u0027  are automatically set by Chilkat."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "'  Add each name-value pair of metadata to associate with the container."
+        "type":"comment",
+        "value":"\u0027  Add each name-value pair of metadata to associate with the container."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "'  To remove all metadata from the container, simply don't add any x-ms-meta- headers."
+        "type":"comment",
+        "value":"\u0027  To remove all metadata from the container, simply don\u0027t add any x-ms-meta- headers."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "success"
+        "type":"identifier",
+        "value":"success"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "rest"
+        "type":"identifier",
+        "value":"rest"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "AddHeader"
+        "type":"identifier",
+        "value":"AddHeader"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "string",
-        "value": "\"x-ms-meta-Category\""
+        "type":"string",
+        "value":"\"x-ms-meta-Category\""
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "\"Images\""
+        "type":"string",
+        "value":"\"Images\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "success"
+        "type":"identifier",
+        "value":"success"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "rest"
+        "type":"identifier",
+        "value":"rest"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "AddHeader"
+        "type":"identifier",
+        "value":"AddHeader"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "string",
-        "value": "\"x-ms-meta-Resolution\""
+        "type":"string",
+        "value":"\"x-ms-meta-Resolution\""
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "\"High\""
+        "type":"string",
+        "value":"\"High\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "'  The expected success response is a 200 response status code with no response body."
+        "type":"comment",
+        "value":"\u0027  The expected success response is a 200 response status code with no response body."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "'  In this example, we are setting the metadata of the container named \"mycontainer\"."
+        "type":"comment",
+        "value":"\u0027  In this example, we are setting the metadata of the container named \"mycontainer\"."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "keyword",
-        "value": "Dim"
+        "type":"keyword",
+        "value":"Dim"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "responseStr"
+        "type":"identifier",
+        "value":"responseStr"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "As"
+        "type":"keyword",
+        "value":"As"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "type",
-        "value": "String"
+        "type":"type",
+        "value":"String"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "responseStr"
+        "type":"identifier",
+        "value":"responseStr"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "rest"
+        "type":"identifier",
+        "value":"rest"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "FullRequestNoBody"
+        "type":"identifier",
+        "value":"FullRequestNoBody"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "string",
-        "value": "\"PUT\""
+        "type":"string",
+        "value":"\"PUT\""
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "\"/mycontainer?restype=container&comp=metadata\""
+        "type":"string",
+        "value":"\"/mycontainer?restype=container\u0026comp=metadata\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "keyword",
-        "value": "If"
+        "type":"keyword",
+        "value":"If"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "rest"
+        "type":"identifier",
+        "value":"rest"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "LastMethodSuccess"
+        "type":"identifier",
+        "value":"LastMethodSuccess"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "<>"
+        "type":"operator",
+        "value":"\u003c\u003e"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "Then"
+        "type":"keyword",
+        "value":"Then"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "value",
-        "value": "Debug"
+        "type":"value",
+        "value":"Debug"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "keyword",
-        "value": "Print"
+        "type":"keyword",
+        "value":"Print"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "rest"
+        "type":"identifier",
+        "value":"rest"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "LastErrorText"
+        "type":"identifier",
+        "value":"LastErrorText"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "keyword",
-        "value": "Exit"
+        "type":"keyword",
+        "value":"Exit"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "Sub"
+        "type":"keyword",
+        "value":"Sub"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "keyword",
-        "value": "End"
+        "type":"keyword",
+        "value":"End"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "If"
+        "type":"keyword",
+        "value":"If"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "'  When successful, the Azure Storage service will respond with a 200 response status code,"
+        "type":"comment",
+        "value":"\u0027  When successful, the Azure Storage service will respond with a 200 response status code,"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "'  with no response body."
+        "type":"comment",
+        "value":"\u0027  with no response body."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "keyword",
-        "value": "If"
+        "type":"keyword",
+        "value":"If"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "rest"
+        "type":"identifier",
+        "value":"rest"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "ResponseStatusCode"
+        "type":"identifier",
+        "value":"ResponseStatusCode"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "<>"
+        "type":"operator",
+        "value":"\u003c\u003e"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "200"
+        "type":"number",
+        "value":"200"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "Then"
+        "type":"keyword",
+        "value":"Then"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "'  Examine the request/response to see what happened."
+        "type":"comment",
+        "value":"\u0027  Examine the request/response to see what happened."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "value",
-        "value": "Debug"
+        "type":"value",
+        "value":"Debug"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "keyword",
-        "value": "Print"
+        "type":"keyword",
+        "value":"Print"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"response status code = \""
+        "type":"string",
+        "value":"\"response status code = \""
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "&"
+        "type":"operator",
+        "value":"\u0026"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "rest"
+        "type":"identifier",
+        "value":"rest"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "ResponseStatusCode"
+        "type":"identifier",
+        "value":"ResponseStatusCode"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "value",
-        "value": "Debug"
+        "type":"value",
+        "value":"Debug"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "keyword",
-        "value": "Print"
+        "type":"keyword",
+        "value":"Print"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"response status text = \""
+        "type":"string",
+        "value":"\"response status text = \""
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "&"
+        "type":"operator",
+        "value":"\u0026"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "rest"
+        "type":"identifier",
+        "value":"rest"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "ResponseStatusText"
+        "type":"identifier",
+        "value":"ResponseStatusText"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "value",
-        "value": "Debug"
+        "type":"value",
+        "value":"Debug"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "keyword",
-        "value": "Print"
+        "type":"keyword",
+        "value":"Print"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"response header: \""
+        "type":"string",
+        "value":"\"response header: \""
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "&"
+        "type":"operator",
+        "value":"\u0026"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "rest"
+        "type":"identifier",
+        "value":"rest"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "ResponseHeader"
+        "type":"identifier",
+        "value":"ResponseHeader"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "value",
-        "value": "Debug"
+        "type":"value",
+        "value":"Debug"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "keyword",
-        "value": "Print"
+        "type":"keyword",
+        "value":"Print"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"response body (if any): \""
+        "type":"string",
+        "value":"\"response body (if any): \""
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "&"
+        "type":"operator",
+        "value":"\u0026"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "responseStr"
+        "type":"identifier",
+        "value":"responseStr"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "value",
-        "value": "Debug"
+        "type":"value",
+        "value":"Debug"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "keyword",
-        "value": "Print"
+        "type":"keyword",
+        "value":"Print"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"---\""
+        "type":"string",
+        "value":"\"---\""
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "value",
-        "value": "Debug"
+        "type":"value",
+        "value":"Debug"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "keyword",
-        "value": "Print"
+        "type":"keyword",
+        "value":"Print"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"LastRequestStartLine: \""
+        "type":"string",
+        "value":"\"LastRequestStartLine: \""
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "&"
+        "type":"operator",
+        "value":"\u0026"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "rest"
+        "type":"identifier",
+        "value":"rest"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "LastRequestStartLine"
+        "type":"identifier",
+        "value":"LastRequestStartLine"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "value",
-        "value": "Debug"
+        "type":"value",
+        "value":"Debug"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "keyword",
-        "value": "Print"
+        "type":"keyword",
+        "value":"Print"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"LastRequestHeader: \""
+        "type":"string",
+        "value":"\"LastRequestHeader: \""
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "&"
+        "type":"operator",
+        "value":"\u0026"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "rest"
+        "type":"identifier",
+        "value":"rest"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "LastRequestHeader"
+        "type":"identifier",
+        "value":"LastRequestHeader"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "keyword",
-        "value": "Exit"
+        "type":"keyword",
+        "value":"Exit"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "Sub"
+        "type":"keyword",
+        "value":"Sub"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "keyword",
-        "value": "End"
+        "type":"keyword",
+        "value":"End"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "If"
+        "type":"keyword",
+        "value":"If"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "value",
-        "value": "Debug"
+        "type":"value",
+        "value":"Debug"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "keyword",
-        "value": "Print"
+        "type":"keyword",
+        "value":"Print"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"Success.\""
+        "type":"string",
+        "value":"\"Success.\""
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     }
-]
+],
+"Count":408
+}

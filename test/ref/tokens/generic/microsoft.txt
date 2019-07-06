@@ -1,2222 +1,2225 @@
-﻿[
+﻿{
+    "value":[
     {
-        "type": "identifier",
-        "value": "CREATE"
+        "type":"identifier",
+        "value":"CREATE"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "TABLE"
+        "type":"identifier",
+        "value":"TABLE"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "emp"
+        "type":"identifier",
+        "value":"emp"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "empno"
+        "type":"identifier",
+        "value":"empno"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "INT"
+        "type":"identifier",
+        "value":"INT"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "PRIMARY"
+        "type":"identifier",
+        "value":"PRIMARY"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "KEY"
+        "type":"identifier",
+        "value":"KEY"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "ename"
+        "type":"identifier",
+        "value":"ename"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "VARCHAR"
+        "type":"identifier",
+        "value":"VARCHAR"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "10"
+        "type":"number",
+        "value":"10"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "job"
+        "type":"identifier",
+        "value":"job"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "VARCHAR"
+        "type":"identifier",
+        "value":"VARCHAR"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "9"
+        "type":"number",
+        "value":"9"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "mgr"
+        "type":"identifier",
+        "value":"mgr"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "INT"
+        "type":"identifier",
+        "value":"INT"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "NULL"
+        "type":"identifier",
+        "value":"NULL"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "hiredate"
+        "type":"identifier",
+        "value":"hiredate"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "DATETIME"
+        "type":"identifier",
+        "value":"DATETIME"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "sal"
+        "type":"identifier",
+        "value":"sal"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "NUMERIC"
+        "type":"identifier",
+        "value":"NUMERIC"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "7"
+        "type":"number",
+        "value":"7"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "2"
+        "type":"number",
+        "value":"2"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "comm"
+        "type":"identifier",
+        "value":"comm"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "NUMERIC"
+        "type":"identifier",
+        "value":"NUMERIC"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "7"
+        "type":"number",
+        "value":"7"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "2"
+        "type":"number",
+        "value":"2"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "NULL"
+        "type":"identifier",
+        "value":"NULL"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "dept"
+        "type":"identifier",
+        "value":"dept"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "INT"
+        "type":"identifier",
+        "value":"INT"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "begin"
+        "type":"identifier",
+        "value":"begin"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "insert"
+        "type":"identifier",
+        "value":"insert"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "into"
+        "type":"identifier",
+        "value":"into"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "emp"
+        "type":"identifier",
+        "value":"emp"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "values"
+        "type":"identifier",
+        "value":"values"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'JOHNSON'"
+        "type":"string",
+        "value":"\u0027JOHNSON\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'ADMIN'"
+        "type":"string",
+        "value":"\u0027ADMIN\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "6"
+        "type":"number",
+        "value":"6"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'12-17-1990'"
+        "type":"string",
+        "value":"\u002712-17-1990\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "18000"
+        "type":"number",
+        "value":"18000"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "NULL"
+        "type":"identifier",
+        "value":"NULL"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "4"
+        "type":"number",
+        "value":"4"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "insert"
+        "type":"identifier",
+        "value":"insert"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "into"
+        "type":"identifier",
+        "value":"into"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "emp"
+        "type":"identifier",
+        "value":"emp"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "values"
+        "type":"identifier",
+        "value":"values"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "2"
+        "type":"number",
+        "value":"2"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'HARDING'"
+        "type":"string",
+        "value":"\u0027HARDING\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'MANAGER'"
+        "type":"string",
+        "value":"\u0027MANAGER\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "9"
+        "type":"number",
+        "value":"9"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'02-02-1998'"
+        "type":"string",
+        "value":"\u002702-02-1998\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "52000"
+        "type":"number",
+        "value":"52000"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "300"
+        "type":"number",
+        "value":"300"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "3"
+        "type":"number",
+        "value":"3"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "insert"
+        "type":"identifier",
+        "value":"insert"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "into"
+        "type":"identifier",
+        "value":"into"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "emp"
+        "type":"identifier",
+        "value":"emp"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "values"
+        "type":"identifier",
+        "value":"values"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "3"
+        "type":"number",
+        "value":"3"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'TAFT'"
+        "type":"string",
+        "value":"\u0027TAFT\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'SALES I'"
+        "type":"string",
+        "value":"\u0027SALES I\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "2"
+        "type":"number",
+        "value":"2"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'01-02-1996'"
+        "type":"string",
+        "value":"\u002701-02-1996\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "25000"
+        "type":"number",
+        "value":"25000"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "500"
+        "type":"number",
+        "value":"500"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "3"
+        "type":"number",
+        "value":"3"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "insert"
+        "type":"identifier",
+        "value":"insert"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "into"
+        "type":"identifier",
+        "value":"into"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "emp"
+        "type":"identifier",
+        "value":"emp"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "values"
+        "type":"identifier",
+        "value":"values"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "4"
+        "type":"number",
+        "value":"4"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'HOOVER'"
+        "type":"string",
+        "value":"\u0027HOOVER\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'SALES I'"
+        "type":"string",
+        "value":"\u0027SALES I\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "2"
+        "type":"number",
+        "value":"2"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'04-02-1990'"
+        "type":"string",
+        "value":"\u002704-02-1990\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "27000"
+        "type":"number",
+        "value":"27000"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "NULL"
+        "type":"identifier",
+        "value":"NULL"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "3"
+        "type":"number",
+        "value":"3"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "insert"
+        "type":"identifier",
+        "value":"insert"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "into"
+        "type":"identifier",
+        "value":"into"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "emp"
+        "type":"identifier",
+        "value":"emp"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "values"
+        "type":"identifier",
+        "value":"values"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "5"
+        "type":"number",
+        "value":"5"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'LINCOLN'"
+        "type":"string",
+        "value":"\u0027LINCOLN\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'TECH'"
+        "type":"string",
+        "value":"\u0027TECH\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "6"
+        "type":"number",
+        "value":"6"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'06-23-1994'"
+        "type":"string",
+        "value":"\u002706-23-1994\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "22500"
+        "type":"number",
+        "value":"22500"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "1400"
+        "type":"number",
+        "value":"1400"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "4"
+        "type":"number",
+        "value":"4"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "insert"
+        "type":"identifier",
+        "value":"insert"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "into"
+        "type":"identifier",
+        "value":"into"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "emp"
+        "type":"identifier",
+        "value":"emp"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "values"
+        "type":"identifier",
+        "value":"values"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "6"
+        "type":"number",
+        "value":"6"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'GARFIELD'"
+        "type":"string",
+        "value":"\u0027GARFIELD\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'MANAGER'"
+        "type":"string",
+        "value":"\u0027MANAGER\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "9"
+        "type":"number",
+        "value":"9"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'05-01-1993'"
+        "type":"string",
+        "value":"\u002705-01-1993\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "54000"
+        "type":"number",
+        "value":"54000"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "NULL"
+        "type":"identifier",
+        "value":"NULL"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "4"
+        "type":"number",
+        "value":"4"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "insert"
+        "type":"identifier",
+        "value":"insert"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "into"
+        "type":"identifier",
+        "value":"into"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "emp"
+        "type":"identifier",
+        "value":"emp"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "values"
+        "type":"identifier",
+        "value":"values"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "7"
+        "type":"number",
+        "value":"7"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'POLK'"
+        "type":"string",
+        "value":"\u0027POLK\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'TECH'"
+        "type":"string",
+        "value":"\u0027TECH\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "6"
+        "type":"number",
+        "value":"6"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'09-22-1997'"
+        "type":"string",
+        "value":"\u002709-22-1997\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "25000"
+        "type":"number",
+        "value":"25000"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "NULL"
+        "type":"identifier",
+        "value":"NULL"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "4"
+        "type":"number",
+        "value":"4"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "insert"
+        "type":"identifier",
+        "value":"insert"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "into"
+        "type":"identifier",
+        "value":"into"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "emp"
+        "type":"identifier",
+        "value":"emp"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "values"
+        "type":"identifier",
+        "value":"values"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "8"
+        "type":"number",
+        "value":"8"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'GRANT'"
+        "type":"string",
+        "value":"\u0027GRANT\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'ENGINEER'"
+        "type":"string",
+        "value":"\u0027ENGINEER\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "10"
+        "type":"number",
+        "value":"10"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'03-30-1997'"
+        "type":"string",
+        "value":"\u002703-30-1997\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "32000"
+        "type":"number",
+        "value":"32000"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "NULL"
+        "type":"identifier",
+        "value":"NULL"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "2"
+        "type":"number",
+        "value":"2"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "insert"
+        "type":"identifier",
+        "value":"insert"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "into"
+        "type":"identifier",
+        "value":"into"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "emp"
+        "type":"identifier",
+        "value":"emp"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "values"
+        "type":"identifier",
+        "value":"values"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "9"
+        "type":"number",
+        "value":"9"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'JACKSON'"
+        "type":"string",
+        "value":"\u0027JACKSON\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'CEO'"
+        "type":"string",
+        "value":"\u0027CEO\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "NULL"
+        "type":"identifier",
+        "value":"NULL"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'01-01-1990'"
+        "type":"string",
+        "value":"\u002701-01-1990\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "75000"
+        "type":"number",
+        "value":"75000"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "NULL"
+        "type":"identifier",
+        "value":"NULL"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "4"
+        "type":"number",
+        "value":"4"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "insert"
+        "type":"identifier",
+        "value":"insert"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "into"
+        "type":"identifier",
+        "value":"into"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "emp"
+        "type":"identifier",
+        "value":"emp"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "values"
+        "type":"identifier",
+        "value":"values"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "10"
+        "type":"number",
+        "value":"10"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'FILLMORE'"
+        "type":"string",
+        "value":"\u0027FILLMORE\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'MANAGER'"
+        "type":"string",
+        "value":"\u0027MANAGER\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "9"
+        "type":"number",
+        "value":"9"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'08-09-1994'"
+        "type":"string",
+        "value":"\u002708-09-1994\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "56000"
+        "type":"number",
+        "value":"56000"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "NULL"
+        "type":"identifier",
+        "value":"NULL"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "2"
+        "type":"number",
+        "value":"2"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "insert"
+        "type":"identifier",
+        "value":"insert"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "into"
+        "type":"identifier",
+        "value":"into"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "emp"
+        "type":"identifier",
+        "value":"emp"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "values"
+        "type":"identifier",
+        "value":"values"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "11"
+        "type":"number",
+        "value":"11"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'ADAMS'"
+        "type":"string",
+        "value":"\u0027ADAMS\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'ENGINEER'"
+        "type":"string",
+        "value":"\u0027ENGINEER\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "10"
+        "type":"number",
+        "value":"10"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'03-15-1996'"
+        "type":"string",
+        "value":"\u002703-15-1996\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "34000"
+        "type":"number",
+        "value":"34000"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "NULL"
+        "type":"identifier",
+        "value":"NULL"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "2"
+        "type":"number",
+        "value":"2"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "insert"
+        "type":"identifier",
+        "value":"insert"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "into"
+        "type":"identifier",
+        "value":"into"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "emp"
+        "type":"identifier",
+        "value":"emp"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "values"
+        "type":"identifier",
+        "value":"values"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "12"
+        "type":"number",
+        "value":"12"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'WASHINGTON'"
+        "type":"string",
+        "value":"\u0027WASHINGTON\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'ADMIN'"
+        "type":"string",
+        "value":"\u0027ADMIN\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "6"
+        "type":"number",
+        "value":"6"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'04-16-1998'"
+        "type":"string",
+        "value":"\u002704-16-1998\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "18000"
+        "type":"number",
+        "value":"18000"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "NULL"
+        "type":"identifier",
+        "value":"NULL"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "4"
+        "type":"number",
+        "value":"4"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "insert"
+        "type":"identifier",
+        "value":"insert"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "into"
+        "type":"identifier",
+        "value":"into"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "emp"
+        "type":"identifier",
+        "value":"emp"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "values"
+        "type":"identifier",
+        "value":"values"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "13"
+        "type":"number",
+        "value":"13"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'MONROE'"
+        "type":"string",
+        "value":"\u0027MONROE\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'ENGINEER'"
+        "type":"string",
+        "value":"\u0027ENGINEER\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "10"
+        "type":"number",
+        "value":"10"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'12-03-2000'"
+        "type":"string",
+        "value":"\u002712-03-2000\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "30000"
+        "type":"number",
+        "value":"30000"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "NULL"
+        "type":"identifier",
+        "value":"NULL"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "2"
+        "type":"number",
+        "value":"2"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "insert"
+        "type":"identifier",
+        "value":"insert"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "into"
+        "type":"identifier",
+        "value":"into"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "emp"
+        "type":"identifier",
+        "value":"emp"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "values"
+        "type":"identifier",
+        "value":"values"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "14"
+        "type":"number",
+        "value":"14"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'ROOSEVELT'"
+        "type":"string",
+        "value":"\u0027ROOSEVELT\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'CPA'"
+        "type":"string",
+        "value":"\u0027CPA\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "9"
+        "type":"number",
+        "value":"9"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'10-12-1995'"
+        "type":"string",
+        "value":"\u002710-12-1995\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "35000"
+        "type":"number",
+        "value":"35000"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "NULL"
+        "type":"identifier",
+        "value":"NULL"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "end"
+        "type":"identifier",
+        "value":"end"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "CREATE"
+        "type":"identifier",
+        "value":"CREATE"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "TABLE"
+        "type":"identifier",
+        "value":"TABLE"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "dept"
+        "type":"identifier",
+        "value":"dept"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "deptno"
+        "type":"identifier",
+        "value":"deptno"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "INT"
+        "type":"identifier",
+        "value":"INT"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "NOT"
+        "type":"identifier",
+        "value":"NOT"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "NULL"
+        "type":"identifier",
+        "value":"NULL"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "dname"
+        "type":"identifier",
+        "value":"dname"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "VARCHAR"
+        "type":"identifier",
+        "value":"VARCHAR"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "14"
+        "type":"number",
+        "value":"14"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "loc"
+        "type":"identifier",
+        "value":"loc"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "VARCHAR"
+        "type":"identifier",
+        "value":"VARCHAR"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "13"
+        "type":"number",
+        "value":"13"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "begin"
+        "type":"identifier",
+        "value":"begin"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "insert"
+        "type":"identifier",
+        "value":"insert"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "into"
+        "type":"identifier",
+        "value":"into"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "dept"
+        "type":"identifier",
+        "value":"dept"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "values"
+        "type":"identifier",
+        "value":"values"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'ACCOUNTING'"
+        "type":"string",
+        "value":"\u0027ACCOUNTING\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'ST LOUIS'"
+        "type":"string",
+        "value":"\u0027ST LOUIS\u0027"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "insert"
+        "type":"identifier",
+        "value":"insert"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "into"
+        "type":"identifier",
+        "value":"into"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "dept"
+        "type":"identifier",
+        "value":"dept"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "values"
+        "type":"identifier",
+        "value":"values"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "2"
+        "type":"number",
+        "value":"2"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'RESEARCH'"
+        "type":"string",
+        "value":"\u0027RESEARCH\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'NEW YORK'"
+        "type":"string",
+        "value":"\u0027NEW YORK\u0027"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "insert"
+        "type":"identifier",
+        "value":"insert"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "into"
+        "type":"identifier",
+        "value":"into"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "dept"
+        "type":"identifier",
+        "value":"dept"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "values"
+        "type":"identifier",
+        "value":"values"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "3"
+        "type":"number",
+        "value":"3"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'SALES'"
+        "type":"string",
+        "value":"\u0027SALES\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'ATLANTA'"
+        "type":"string",
+        "value":"\u0027ATLANTA\u0027"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "insert"
+        "type":"identifier",
+        "value":"insert"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "into"
+        "type":"identifier",
+        "value":"into"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "dept"
+        "type":"identifier",
+        "value":"dept"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "values"
+        "type":"identifier",
+        "value":"values"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "4"
+        "type":"number",
+        "value":"4"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "'OPERATIONS'"
+        "type":"string",
+        "value":"\u0027OPERATIONS\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'SEATTLE'"
+        "type":"string",
+        "value":"\u0027SEATTLE\u0027"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "end"
+        "type":"identifier",
+        "value":"end"
     }
-]
+],
+"Count":555
+}

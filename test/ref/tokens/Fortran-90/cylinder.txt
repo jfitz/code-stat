@@ -1,1194 +1,1197 @@
-﻿[
+﻿{
+    "value":[
     {
-        "type": "keyword",
-        "value": "program"
+        "type":"keyword",
+        "value":"program"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "cylinder"
+        "type":"identifier",
+        "value":"cylinder"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "! Calculate the surface area of a cylinder."
+        "type":"comment",
+        "value":"! Calculate the surface area of a cylinder."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "!"
+        "type":"comment",
+        "value":"!"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "! Declare variables and constants."
+        "type":"comment",
+        "value":"! Declare variables and constants."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "! constants=pi"
+        "type":"comment",
+        "value":"! constants=pi"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "! variables=radius squared and height"
+        "type":"comment",
+        "value":"! variables=radius squared and height"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "  "
+        "type":"whitespace",
+        "value":"  "
     },
     {
-        "type": "keyword",
-        "value": "implicit"
+        "type":"keyword",
+        "value":"implicit"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "none"
+        "type":"keyword",
+        "value":"none"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "! Require all variables to be explicitly declared"
+        "type":"comment",
+        "value":"! Require all variables to be explicitly declared"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "  "
+        "type":"whitespace",
+        "value":"  "
     },
     {
-        "type": "type",
-        "value": "integer"
+        "type":"type",
+        "value":"integer"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "::"
+        "type":"operator",
+        "value":"::"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "ierr"
+        "type":"identifier",
+        "value":"ierr"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "  "
+        "type":"whitespace",
+        "value":"  "
     },
     {
-        "type": "type",
-        "value": "character"
+        "type":"type",
+        "value":"character"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "::"
+        "type":"operator",
+        "value":"::"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "yn"
+        "type":"identifier",
+        "value":"yn"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "  "
+        "type":"whitespace",
+        "value":"  "
     },
     {
-        "type": "type",
-        "value": "real"
+        "type":"type",
+        "value":"real"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "::"
+        "type":"operator",
+        "value":"::"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "radius"
+        "type":"identifier",
+        "value":"radius"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "height"
+        "type":"identifier",
+        "value":"height"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "area"
+        "type":"identifier",
+        "value":"area"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "  "
+        "type":"whitespace",
+        "value":"  "
     },
     {
-        "type": "type",
-        "value": "real"
+        "type":"type",
+        "value":"real"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "parameter"
+        "type":"keyword",
+        "value":"parameter"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "::"
+        "type":"operator",
+        "value":"::"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "pi"
+        "type":"identifier",
+        "value":"pi"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "3.141592653589793"
+        "type":"number",
+        "value":"3.141592653589793"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "  "
+        "type":"whitespace",
+        "value":"  "
     },
     {
-        "type": "identifier",
-        "value": "interactive_loop"
+        "type":"identifier",
+        "value":"interactive_loop"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "do"
+        "type":"keyword",
+        "value":"do"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "!   Prompt the user for radius and height"
+        "type":"comment",
+        "value":"!   Prompt the user for radius and height"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "!   and read them."
+        "type":"comment",
+        "value":"!   and read them."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "keyword",
-        "value": "write"
+        "type":"keyword",
+        "value":"write"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "*"
+        "type":"number",
+        "value":"*"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "*"
+        "type":"number",
+        "value":"*"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "'Enter radius and height.'"
+        "type":"string",
+        "value":"\u0027Enter radius and height.\u0027"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "keyword",
-        "value": "read"
+        "type":"keyword",
+        "value":"read"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "*"
+        "type":"number",
+        "value":"*"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "*"
+        "type":"number",
+        "value":"*"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "iostat"
+        "type":"identifier",
+        "value":"iostat"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "identifier",
-        "value": "ierr"
+        "type":"identifier",
+        "value":"ierr"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "radius"
+        "type":"identifier",
+        "value":"radius"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "height"
+        "type":"identifier",
+        "value":"height"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "!   If radius and height could not be read from input,"
+        "type":"comment",
+        "value":"!   If radius and height could not be read from input,"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "!   then cycle through the loop."
+        "type":"comment",
+        "value":"!   then cycle through the loop."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "keyword",
-        "value": "if"
+        "type":"keyword",
+        "value":"if"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "ierr"
+        "type":"identifier",
+        "value":"ierr"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "/="
+        "type":"operator",
+        "value":"/="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "0"
+        "type":"number",
+        "value":"0"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "then"
+        "type":"keyword",
+        "value":"then"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "      "
+        "type":"whitespace",
+        "value":"      "
     },
     {
-        "type": "keyword",
-        "value": "write"
+        "type":"keyword",
+        "value":"write"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "*"
+        "type":"number",
+        "value":"*"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "*"
+        "type":"number",
+        "value":"*"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "'Error, invalid input.'"
+        "type":"string",
+        "value":"\u0027Error, invalid input.\u0027"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "      "
+        "type":"whitespace",
+        "value":"      "
     },
     {
-        "type": "keyword",
-        "value": "cycle"
+        "type":"keyword",
+        "value":"cycle"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "interactive_loop"
+        "type":"identifier",
+        "value":"interactive_loop"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "keyword",
-        "value": "end if"
+        "type":"keyword",
+        "value":"end if"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "!   Compute area.  The ** means \"raise to a power.\""
+        "type":"comment",
+        "value":"!   Compute area.  The ** means \"raise to a power.\""
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "identifier",
-        "value": "area"
+        "type":"identifier",
+        "value":"area"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "2"
+        "type":"number",
+        "value":"2"
     },
     {
-        "type": "operator",
-        "value": "*"
+        "type":"operator",
+        "value":"*"
     },
     {
-        "type": "identifier",
-        "value": "pi"
+        "type":"identifier",
+        "value":"pi"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "*"
+        "type":"operator",
+        "value":"*"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "radius"
+        "type":"identifier",
+        "value":"radius"
     },
     {
-        "type": "operator",
-        "value": "**"
+        "type":"operator",
+        "value":"**"
     },
     {
-        "type": "number",
-        "value": "2"
+        "type":"number",
+        "value":"2"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "+"
+        "type":"operator",
+        "value":"+"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "radius"
+        "type":"identifier",
+        "value":"radius"
     },
     {
-        "type": "operator",
-        "value": "*"
+        "type":"operator",
+        "value":"*"
     },
     {
-        "type": "identifier",
-        "value": "height"
+        "type":"identifier",
+        "value":"height"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "!   Write the input variables (radius, height)"
+        "type":"comment",
+        "value":"!   Write the input variables (radius, height)"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "!   and output (area) to the screen."
+        "type":"comment",
+        "value":"!   and output (area) to the screen."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "keyword",
-        "value": "write"
+        "type":"keyword",
+        "value":"write"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "*"
+        "type":"number",
+        "value":"*"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'(1x,a7,f6.2,5x,a7,f6.2,5x,a5,f6.2)'"
+        "type":"string",
+        "value":"\u0027(1x,a7,f6.2,5x,a7,f6.2,5x,a5,f6.2)\u0027"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "line continuation",
-        "value": "&"
+        "type":"line continuation",
+        "value":"\u0026"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "      "
+        "type":"whitespace",
+        "value":"      "
     },
     {
-        "type": "string",
-        "value": "'radius='"
+        "type":"string",
+        "value":"\u0027radius=\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "radius"
+        "type":"identifier",
+        "value":"radius"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'height='"
+        "type":"string",
+        "value":"\u0027height=\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "height"
+        "type":"identifier",
+        "value":"height"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'area='"
+        "type":"string",
+        "value":"\u0027area=\u0027"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "area"
+        "type":"identifier",
+        "value":"area"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "identifier",
-        "value": "yn"
+        "type":"identifier",
+        "value":"yn"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "' '"
+        "type":"string",
+        "value":"\u0027 \u0027"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "identifier",
-        "value": "yn_loop"
+        "type":"identifier",
+        "value":"yn_loop"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "do"
+        "type":"keyword",
+        "value":"do"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "      "
+        "type":"whitespace",
+        "value":"      "
     },
     {
-        "type": "keyword",
-        "value": "write"
+        "type":"keyword",
+        "value":"write"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "*"
+        "type":"number",
+        "value":"*"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "*"
+        "type":"number",
+        "value":"*"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "'Perform another calculation? y[n]'"
+        "type":"string",
+        "value":"\u0027Perform another calculation? y[n]\u0027"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "      "
+        "type":"whitespace",
+        "value":"      "
     },
     {
-        "type": "keyword",
-        "value": "read"
+        "type":"keyword",
+        "value":"read"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "*"
+        "type":"number",
+        "value":"*"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "'(a1)'"
+        "type":"string",
+        "value":"\u0027(a1)\u0027"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "yn"
+        "type":"identifier",
+        "value":"yn"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "      "
+        "type":"whitespace",
+        "value":"      "
     },
     {
-        "type": "keyword",
-        "value": "if"
+        "type":"keyword",
+        "value":"if"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "yn"
+        "type":"identifier",
+        "value":"yn"
     },
     {
-        "type": "operator",
-        "value": "=="
+        "type":"operator",
+        "value":"=="
     },
     {
-        "type": "string",
-        "value": "'y'"
+        "type":"string",
+        "value":"\u0027y\u0027"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": ".or."
+        "type":"operator",
+        "value":".or."
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "yn"
+        "type":"identifier",
+        "value":"yn"
     },
     {
-        "type": "operator",
-        "value": "=="
+        "type":"operator",
+        "value":"=="
     },
     {
-        "type": "string",
-        "value": "'Y'"
+        "type":"string",
+        "value":"\u0027Y\u0027"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "exit"
+        "type":"keyword",
+        "value":"exit"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "yn_loop"
+        "type":"identifier",
+        "value":"yn_loop"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "      "
+        "type":"whitespace",
+        "value":"      "
     },
     {
-        "type": "keyword",
-        "value": "if"
+        "type":"keyword",
+        "value":"if"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "yn"
+        "type":"identifier",
+        "value":"yn"
     },
     {
-        "type": "operator",
-        "value": "=="
+        "type":"operator",
+        "value":"=="
     },
     {
-        "type": "string",
-        "value": "'n'"
+        "type":"string",
+        "value":"\u0027n\u0027"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": ".or."
+        "type":"operator",
+        "value":".or."
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "yn"
+        "type":"identifier",
+        "value":"yn"
     },
     {
-        "type": "operator",
-        "value": "=="
+        "type":"operator",
+        "value":"=="
     },
     {
-        "type": "string",
-        "value": "'N'"
+        "type":"string",
+        "value":"\u0027N\u0027"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": ".or."
+        "type":"operator",
+        "value":".or."
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "yn"
+        "type":"identifier",
+        "value":"yn"
     },
     {
-        "type": "operator",
-        "value": "=="
+        "type":"operator",
+        "value":"=="
     },
     {
-        "type": "string",
-        "value": "' '"
+        "type":"string",
+        "value":"\u0027 \u0027"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "exit"
+        "type":"keyword",
+        "value":"exit"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "interactive_loop"
+        "type":"identifier",
+        "value":"interactive_loop"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "keyword",
-        "value": "end do"
+        "type":"keyword",
+        "value":"end do"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "yn_loop"
+        "type":"identifier",
+        "value":"yn_loop"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "  "
+        "type":"whitespace",
+        "value":"  "
     },
     {
-        "type": "keyword",
-        "value": "end do"
+        "type":"keyword",
+        "value":"end do"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "interactive_loop"
+        "type":"identifier",
+        "value":"interactive_loop"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "keyword",
-        "value": "end"
+        "type":"keyword",
+        "value":"end"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "program"
+        "type":"keyword",
+        "value":"program"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "cylinder"
+        "type":"identifier",
+        "value":"cylinder"
     }
-]
+],
+"Count":298
+}

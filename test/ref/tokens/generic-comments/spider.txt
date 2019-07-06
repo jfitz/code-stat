@@ -1,798 +1,801 @@
-﻿[
+﻿{
+    "value":[
     {
-        "type": "identifier",
-        "value": "Dim"
+        "type":"identifier",
+        "value":"Dim"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "spider"
+        "type":"identifier",
+        "value":"spider"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "As"
+        "type":"identifier",
+        "value":"As"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "New"
+        "type":"identifier",
+        "value":"New"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "Spider"
+        "type":"identifier",
+        "value":"Spider"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "'  The spider object crawls a single web site at a time.  As you'll see"
+        "type":"comment",
+        "value":"\u0027  The spider object crawls a single web site at a time.  As you\u0027ll see"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "'  in later examples, you can collect outbound links and use them to"
+        "type":"comment",
+        "value":"\u0027  in later examples, you can collect outbound links and use them to"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "'  crawl the web.  For now, we'll simply spider 10 pages of chilkatsoft.com"
+        "type":"comment",
+        "value":"\u0027  crawl the web.  For now, we\u0027ll simply spider 10 pages of chilkatsoft.com"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "spider"
+        "type":"identifier",
+        "value":"spider"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "Initialize"
+        "type":"identifier",
+        "value":"Initialize"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"www.chilkatsoft.com\""
+        "type":"string",
+        "value":"\"www.chilkatsoft.com\""
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "'  Add the 1st URL:"
+        "type":"comment",
+        "value":"\u0027  Add the 1st URL:"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "spider"
+        "type":"identifier",
+        "value":"spider"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "AddUnspidered"
+        "type":"identifier",
+        "value":"AddUnspidered"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"http://www.chilkatsoft.com/\""
+        "type":"string",
+        "value":"\"http://www.chilkatsoft.com/\""
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "'  Begin crawling the site by calling CrawlNext repeatedly."
+        "type":"comment",
+        "value":"\u0027  Begin crawling the site by calling CrawlNext repeatedly."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "Dim"
+        "type":"identifier",
+        "value":"Dim"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "i"
+        "type":"identifier",
+        "value":"i"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "As"
+        "type":"identifier",
+        "value":"As"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "Long"
+        "type":"identifier",
+        "value":"Long"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "For"
+        "type":"identifier",
+        "value":"For"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "i"
+        "type":"identifier",
+        "value":"i"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "0"
+        "type":"number",
+        "value":"0"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "To"
+        "type":"identifier",
+        "value":"To"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "9"
+        "type":"number",
+        "value":"9"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "identifier",
-        "value": "Dim"
+        "type":"identifier",
+        "value":"Dim"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "success"
+        "type":"identifier",
+        "value":"success"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "As"
+        "type":"identifier",
+        "value":"As"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "Long"
+        "type":"identifier",
+        "value":"Long"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "identifier",
-        "value": "success"
+        "type":"identifier",
+        "value":"success"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "spider"
+        "type":"identifier",
+        "value":"spider"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "CrawlNext"
+        "type":"identifier",
+        "value":"CrawlNext"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "identifier",
-        "value": "If"
+        "type":"identifier",
+        "value":"If"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "success"
+        "type":"identifier",
+        "value":"success"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "Then"
+        "type":"identifier",
+        "value":"Then"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "comment",
-        "value": "'  Show the URL of the page just spidered."
+        "type":"comment",
+        "value":"\u0027  Show the URL of the page just spidered."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "identifier",
-        "value": "Debug"
+        "type":"identifier",
+        "value":"Debug"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "Print"
+        "type":"identifier",
+        "value":"Print"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "spider"
+        "type":"identifier",
+        "value":"spider"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "LastUrl"
+        "type":"identifier",
+        "value":"LastUrl"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "comment",
-        "value": "'  The HTML META keywords, title, and description are available in these properties:"
+        "type":"comment",
+        "value":"\u0027  The HTML META keywords, title, and description are available in these properties:"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "identifier",
-        "value": "Debug"
+        "type":"identifier",
+        "value":"Debug"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "Print"
+        "type":"identifier",
+        "value":"Print"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "spider"
+        "type":"identifier",
+        "value":"spider"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "LastHtmlTitle"
+        "type":"identifier",
+        "value":"LastHtmlTitle"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "identifier",
-        "value": "Debug"
+        "type":"identifier",
+        "value":"Debug"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "Print"
+        "type":"identifier",
+        "value":"Print"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "spider"
+        "type":"identifier",
+        "value":"spider"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "LastHtmlDescription"
+        "type":"identifier",
+        "value":"LastHtmlDescription"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "identifier",
-        "value": "Debug"
+        "type":"identifier",
+        "value":"Debug"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "Print"
+        "type":"identifier",
+        "value":"Print"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "spider"
+        "type":"identifier",
+        "value":"spider"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "LastHtmlKeywords"
+        "type":"identifier",
+        "value":"LastHtmlKeywords"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "comment",
-        "value": "'  The HTML is available in the LastHtml property"
+        "type":"comment",
+        "value":"\u0027  The HTML is available in the LastHtml property"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "identifier",
-        "value": "Else"
+        "type":"identifier",
+        "value":"Else"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "comment",
-        "value": "'  Did we get an error or are there no more URLs to crawl?"
+        "type":"comment",
+        "value":"\u0027  Did we get an error or are there no more URLs to crawl?"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "identifier",
-        "value": "If"
+        "type":"identifier",
+        "value":"If"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "spider"
+        "type":"identifier",
+        "value":"spider"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "NumUnspidered"
+        "type":"identifier",
+        "value":"NumUnspidered"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "0"
+        "type":"number",
+        "value":"0"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "Then"
+        "type":"identifier",
+        "value":"Then"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "identifier",
-        "value": "Debug"
+        "type":"identifier",
+        "value":"Debug"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "Print"
+        "type":"identifier",
+        "value":"Print"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"No more URLs to spider\""
+        "type":"string",
+        "value":"\"No more URLs to spider\""
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "identifier",
-        "value": "Else"
+        "type":"identifier",
+        "value":"Else"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "identifier",
-        "value": "Debug"
+        "type":"identifier",
+        "value":"Debug"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "Print"
+        "type":"identifier",
+        "value":"Print"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "spider"
+        "type":"identifier",
+        "value":"spider"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "LastErrorText"
+        "type":"identifier",
+        "value":"LastErrorText"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "identifier",
-        "value": "End"
+        "type":"identifier",
+        "value":"End"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "If"
+        "type":"identifier",
+        "value":"If"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "identifier",
-        "value": "End"
+        "type":"identifier",
+        "value":"End"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "If"
+        "type":"identifier",
+        "value":"If"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "'  Sleep 1 second before spidering the next URL."
+        "type":"comment",
+        "value":"\u0027  Sleep 1 second before spidering the next URL."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "identifier",
-        "value": "spider"
+        "type":"identifier",
+        "value":"spider"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "SleepMs"
+        "type":"identifier",
+        "value":"SleepMs"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "1000"
+        "type":"number",
+        "value":"1000"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "identifier",
-        "value": "Next"
+        "type":"identifier",
+        "value":"Next"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     }
-]
+],
+"Count":199
+}

@@ -1,290 +1,293 @@
-﻿[
+﻿{
+    "value":[
     {
-        "type": "keyword",
-        "value": "fn"
+        "type":"keyword",
+        "value":"fn"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "main"
+        "type":"identifier",
+        "value":"main"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "// This is an example of a line comment"
+        "type":"comment",
+        "value":"// This is an example of a line comment"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "// Notice how there are two slashes at the beginning of the line"
+        "type":"comment",
+        "value":"// Notice how there are two slashes at the beginning of the line"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "// And that nothing written inside these will be read by the compiler"
+        "type":"comment",
+        "value":"// And that nothing written inside these will be read by the compiler"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "// println!(\"Hello, world!\");"
+        "type":"comment",
+        "value":"// println!(\"Hello, world!\");"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "// Run it. See? Now try deleting the two slashes, and run it again."
+        "type":"comment",
+        "value":"// Run it. See? Now try deleting the two slashes, and run it again."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "/* \r\n     * This is another type of comment, the block comment. In general,\r\n     * the line comment is the recommended comment style however the\r\n     * block comment is extremely useful for temporarily disabling\r\n     * a large chunk of code. /* Block comments can be /* nested, */ */\r\n     * so it takes only a few keystrokes to comment out all the lines\r\n     * in this main() function. /*/*/* Try it yourself! */*/*/\r\n     */"
+        "type":"comment",
+        "value":"/* \r\n     * This is another type of comment, the block comment. In general,\r\n     * the line comment is the recommended comment style however the\r\n     * block comment is extremely useful for temporarily disabling\r\n     * a large chunk of code. /* Block comments can be /* nested, */ */\r\n     * so it takes only a few keystrokes to comment out all the lines\r\n     * in this main() function. /*/*/* Try it yourself! */*/*/\r\n     */"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "/*\r\n    Note, the previous column of `*` was entirely for style. There's\r\n    no actual need for it.\r\n    */"
+        "type":"comment",
+        "value":"/*\r\n    Note, the previous column of `*` was entirely for style. There\u0027s\r\n    no actual need for it.\r\n    */"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "// Observe how block comments allow easy expression manipulation"
+        "type":"comment",
+        "value":"// Observe how block comments allow easy expression manipulation"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "// which line comments do not. Deleting the comment delimiters"
+        "type":"comment",
+        "value":"// which line comments do not. Deleting the comment delimiters"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "// will change the result:"
+        "type":"comment",
+        "value":"// will change the result:"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "keyword",
-        "value": "let"
+        "type":"keyword",
+        "value":"let"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "x"
+        "type":"identifier",
+        "value":"x"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "5"
+        "type":"number",
+        "value":"5"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "+"
+        "type":"operator",
+        "value":"+"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "comment",
-        "value": "/* 90 + */"
+        "type":"comment",
+        "value":"/* 90 + */"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "5"
+        "type":"number",
+        "value":"5"
     },
     {
-        "type": "statement terminator",
-        "value": ";"
+        "type":"statement terminator",
+        "value":";"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "identifier",
-        "value": "println"
+        "type":"identifier",
+        "value":"println"
     },
     {
-        "type": "operator",
-        "value": "!"
+        "type":"operator",
+        "value":"!"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "string",
-        "value": "\"Is `x` 10 or 100? x = {}\""
+        "type":"string",
+        "value":"\"Is `x` 10 or 100? x = {}\""
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "x"
+        "type":"identifier",
+        "value":"x"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "statement terminator",
-        "value": ";"
+        "type":"statement terminator",
+        "value":";"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     }
-]
+],
+"Count":72
+}

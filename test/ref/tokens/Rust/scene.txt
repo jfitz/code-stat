@@ -1,1246 +1,1249 @@
-﻿[
+﻿{
+    "value":[
     {
-        "type": "comment",
-        "value": "// Robigo Luculenta -- Proof of concept spectral path tracer in Rust"
+        "type":"comment",
+        "value":"// Robigo Luculenta -- Proof of concept spectral path tracer in Rust"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "// Copyright (C) 2014-2015 Ruud van Asseldonk"
+        "type":"comment",
+        "value":"// Copyright (C) 2014-2015 Ruud van Asseldonk"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "//"
+        "type":"comment",
+        "value":"//"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "// This program is free software: you can redistribute it and/or modify"
+        "type":"comment",
+        "value":"// This program is free software: you can redistribute it and/or modify"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "// it under the terms of the GNU General Public License as published by"
+        "type":"comment",
+        "value":"// it under the terms of the GNU General Public License as published by"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "// the Free Software Foundation, either version 3 of the License, or"
+        "type":"comment",
+        "value":"// the Free Software Foundation, either version 3 of the License, or"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "// (at your option) any later version."
+        "type":"comment",
+        "value":"// (at your option) any later version."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "//"
+        "type":"comment",
+        "value":"//"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "// This program is distributed in the hope that it will be useful,"
+        "type":"comment",
+        "value":"// This program is distributed in the hope that it will be useful,"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "// but WITHOUT ANY WARRANTY; without even the implied warranty of"
+        "type":"comment",
+        "value":"// but WITHOUT ANY WARRANTY; without even the implied warranty of"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the"
+        "type":"comment",
+        "value":"// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "// GNU General Public License for more details."
+        "type":"comment",
+        "value":"// GNU General Public License for more details."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "//"
+        "type":"comment",
+        "value":"//"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "// You should have received a copy of the GNU General Public License"
+        "type":"comment",
+        "value":"// You should have received a copy of the GNU General Public License"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "// along with this program. If not, see <http://www.gnu.org/licenses/>."
+        "type":"comment",
+        "value":"// along with this program. If not, see \u003chttp://www.gnu.org/licenses/\u003e."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "keyword",
-        "value": "use"
+        "type":"keyword",
+        "value":"use"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "camera"
+        "type":"identifier",
+        "value":"camera"
     },
     {
-        "type": "group",
-        "value": "::"
+        "type":"group",
+        "value":"::"
     },
     {
-        "type": "identifier",
-        "value": "Camera"
+        "type":"identifier",
+        "value":"Camera"
     },
     {
-        "type": "statement terminator",
-        "value": ";"
+        "type":"statement terminator",
+        "value":";"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "keyword",
-        "value": "use"
+        "type":"keyword",
+        "value":"use"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "intersection"
+        "type":"identifier",
+        "value":"intersection"
     },
     {
-        "type": "group",
-        "value": "::"
+        "type":"group",
+        "value":"::"
     },
     {
-        "type": "identifier",
-        "value": "Intersection"
+        "type":"identifier",
+        "value":"Intersection"
     },
     {
-        "type": "statement terminator",
-        "value": ";"
+        "type":"statement terminator",
+        "value":";"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "keyword",
-        "value": "use"
+        "type":"keyword",
+        "value":"use"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "object"
+        "type":"identifier",
+        "value":"object"
     },
     {
-        "type": "group",
-        "value": "::"
+        "type":"group",
+        "value":"::"
     },
     {
-        "type": "identifier",
-        "value": "Object"
+        "type":"identifier",
+        "value":"Object"
     },
     {
-        "type": "statement terminator",
-        "value": ";"
+        "type":"statement terminator",
+        "value":";"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "keyword",
-        "value": "use"
+        "type":"keyword",
+        "value":"use"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "ray"
+        "type":"identifier",
+        "value":"ray"
     },
     {
-        "type": "group",
-        "value": "::"
+        "type":"group",
+        "value":"::"
     },
     {
-        "type": "identifier",
-        "value": "Ray"
+        "type":"identifier",
+        "value":"Ray"
     },
     {
-        "type": "statement terminator",
-        "value": ";"
+        "type":"statement terminator",
+        "value":";"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "comment",
-        "value": "/// A collection of objects."
+        "type":"comment",
+        "value":"/// A collection of objects."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "keyword",
-        "value": "pub"
+        "type":"keyword",
+        "value":"pub"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "struct"
+        "type":"keyword",
+        "value":"struct"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "Scene"
+        "type":"identifier",
+        "value":"Scene"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "/// All the renderable objects in the scene."
+        "type":"comment",
+        "value":"/// All the renderable objects in the scene."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "keyword",
-        "value": "pub"
+        "type":"keyword",
+        "value":"pub"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "objects"
+        "type":"identifier",
+        "value":"objects"
     },
     {
-        "type": "group",
-        "value": ":"
+        "type":"group",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "Vec"
+        "type":"identifier",
+        "value":"Vec"
     },
     {
-        "type": "type",
-        "value": "<Object>"
+        "type":"type",
+        "value":"\u003cObject\u003e"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "/// A function that returns the camera through which the scene"
+        "type":"comment",
+        "value":"/// A function that returns the camera through which the scene"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "/// will be seen. The function takes one parameter, the time (in"
+        "type":"comment",
+        "value":"/// will be seen. The function takes one parameter, the time (in"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "/// the range 0.0 - 1.0), which will be sampled randomly to create"
+        "type":"comment",
+        "value":"/// the range 0.0 - 1.0), which will be sampled randomly to create"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "/// effects like motion blur and zoom blur."
+        "type":"comment",
+        "value":"/// effects like motion blur and zoom blur."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "// TODO: apparently there is no such thing as an immutable closure"
+        "type":"comment",
+        "value":"// TODO: apparently there is no such thing as an immutable closure"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "// any more, but I'd prefer to be able to use a pure function here,"
+        "type":"comment",
+        "value":"// any more, but I\u0027d prefer to be able to use a pure function here,"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "// which might be a closure."
+        "type":"comment",
+        "value":"// which might be a closure."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "keyword",
-        "value": "pub"
+        "type":"keyword",
+        "value":"pub"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "get_camera_at_time"
+        "type":"identifier",
+        "value":"get_camera_at_time"
     },
     {
-        "type": "group",
-        "value": ":"
+        "type":"group",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "fn"
+        "type":"keyword",
+        "value":"fn"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "f32"
+        "type":"identifier",
+        "value":"f32"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "->"
+        "type":"operator",
+        "value":"-\u003e"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "Camera"
+        "type":"identifier",
+        "value":"Camera"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "keyword",
-        "value": "impl"
+        "type":"keyword",
+        "value":"impl"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "Scene"
+        "type":"identifier",
+        "value":"Scene"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "/// Intersects the specified ray with the scene."
+        "type":"comment",
+        "value":"/// Intersects the specified ray with the scene."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "keyword",
-        "value": "pub"
+        "type":"keyword",
+        "value":"pub"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "fn"
+        "type":"keyword",
+        "value":"fn"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "intersect"
+        "type":"identifier",
+        "value":"intersect"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "operator",
-        "value": "&"
+        "type":"operator",
+        "value":"\u0026"
     },
     {
-        "type": "value",
-        "value": "self"
+        "type":"value",
+        "value":"self"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "ray"
+        "type":"identifier",
+        "value":"ray"
     },
     {
-        "type": "group",
-        "value": ":"
+        "type":"group",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "&"
+        "type":"operator",
+        "value":"\u0026"
     },
     {
-        "type": "identifier",
-        "value": "Ray"
+        "type":"identifier",
+        "value":"Ray"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "->"
+        "type":"operator",
+        "value":"-\u003e"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "Option"
+        "type":"identifier",
+        "value":"Option"
     },
     {
-        "type": "operator",
-        "value": "<"
+        "type":"operator",
+        "value":"\u003c"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "Intersection"
+        "type":"identifier",
+        "value":"Intersection"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "&"
+        "type":"operator",
+        "value":"\u0026"
     },
     {
-        "type": "identifier",
-        "value": "Object"
+        "type":"identifier",
+        "value":"Object"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "operator",
-        "value": ">"
+        "type":"operator",
+        "value":"\u003e"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "comment",
-        "value": "// Assume Nothing is found, and that Nothing is Very Far Away (tm)."
+        "type":"comment",
+        "value":"// Assume Nothing is found, and that Nothing is Very Far Away (tm)."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "let"
+        "type":"keyword",
+        "value":"let"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "mut"
+        "type":"keyword",
+        "value":"mut"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "result"
+        "type":"identifier",
+        "value":"result"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "None"
+        "type":"identifier",
+        "value":"None"
     },
     {
-        "type": "statement terminator",
-        "value": ";"
+        "type":"statement terminator",
+        "value":";"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "let"
+        "type":"keyword",
+        "value":"let"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "mut"
+        "type":"keyword",
+        "value":"mut"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "distance"
+        "type":"identifier",
+        "value":"distance"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "1.0e12"
+        "type":"number",
+        "value":"1.0e12"
     },
     {
-        "type": "identifier",
-        "value": "f32"
+        "type":"identifier",
+        "value":"f32"
     },
     {
-        "type": "statement terminator",
-        "value": ";"
+        "type":"statement terminator",
+        "value":";"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "comment",
-        "value": "// Then intersect all surfaces."
+        "type":"comment",
+        "value":"// Then intersect all surfaces."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "for"
+        "type":"keyword",
+        "value":"for"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "obj"
+        "type":"identifier",
+        "value":"obj"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "in"
+        "type":"operator",
+        "value":"in"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "&"
+        "type":"operator",
+        "value":"\u0026"
     },
     {
-        "type": "value",
-        "value": "self"
+        "type":"value",
+        "value":"self"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "objects"
+        "type":"identifier",
+        "value":"objects"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "keyword",
-        "value": "match"
+        "type":"keyword",
+        "value":"match"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "obj"
+        "type":"identifier",
+        "value":"obj"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "surface"
+        "type":"identifier",
+        "value":"surface"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "intersect"
+        "type":"identifier",
+        "value":"intersect"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "ray"
+        "type":"identifier",
+        "value":"ray"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "                "
+        "type":"whitespace",
+        "value":"                "
     },
     {
-        "type": "identifier",
-        "value": "None"
+        "type":"identifier",
+        "value":"None"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "=>"
+        "type":"group",
+        "value":"=\u003e"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "                "
+        "type":"whitespace",
+        "value":"                "
     },
     {
-        "type": "identifier",
-        "value": "Some"
+        "type":"identifier",
+        "value":"Some"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "isect"
+        "type":"identifier",
+        "value":"isect"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "=>"
+        "type":"group",
+        "value":"=\u003e"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "                    "
+        "type":"whitespace",
+        "value":"                    "
     },
     {
-        "type": "comment",
-        "value": "// If there is an intersection, and if it is nearer than a"
+        "type":"comment",
+        "value":"// If there is an intersection, and if it is nearer than a"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "                    "
+        "type":"whitespace",
+        "value":"                    "
     },
     {
-        "type": "comment",
-        "value": "// previous one, use it."
+        "type":"comment",
+        "value":"// previous one, use it."
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "                    "
+        "type":"whitespace",
+        "value":"                    "
     },
     {
-        "type": "keyword",
-        "value": "if"
+        "type":"keyword",
+        "value":"if"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "isect"
+        "type":"identifier",
+        "value":"isect"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "distance"
+        "type":"identifier",
+        "value":"distance"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "<"
+        "type":"operator",
+        "value":"\u003c"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "distance"
+        "type":"identifier",
+        "value":"distance"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "                        "
+        "type":"whitespace",
+        "value":"                        "
     },
     {
-        "type": "identifier",
-        "value": "result"
+        "type":"identifier",
+        "value":"result"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "Some"
+        "type":"identifier",
+        "value":"Some"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "isect"
+        "type":"identifier",
+        "value":"isect"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "obj"
+        "type":"identifier",
+        "value":"obj"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "statement terminator",
-        "value": ";"
+        "type":"statement terminator",
+        "value":";"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "                        "
+        "type":"whitespace",
+        "value":"                        "
     },
     {
-        "type": "identifier",
-        "value": "distance"
+        "type":"identifier",
+        "value":"distance"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "isect"
+        "type":"identifier",
+        "value":"isect"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "distance"
+        "type":"identifier",
+        "value":"distance"
     },
     {
-        "type": "statement terminator",
-        "value": ";"
+        "type":"statement terminator",
+        "value":";"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "                    "
+        "type":"whitespace",
+        "value":"                    "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "                "
+        "type":"whitespace",
+        "value":"                "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "identifier",
-        "value": "result"
+        "type":"identifier",
+        "value":"result"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\r\n"
+        "type":"newline",
+        "value":"\r\n"
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     }
-]
+],
+"Count":311
+}

@@ -1,5442 +1,5445 @@
-﻿[
+﻿{
+    "value":[
     {
-        "type": "comment",
-        "value": "//"
+        "type":"comment",
+        "value":"//"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "//  MealTableViewController.swift"
+        "type":"comment",
+        "value":"//  MealTableViewController.swift"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "//  FoodTracker"
+        "type":"comment",
+        "value":"//  FoodTracker"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "//"
+        "type":"comment",
+        "value":"//"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "//  Created by Jane Appleseed on 11/15/16."
+        "type":"comment",
+        "value":"//  Created by Jane Appleseed on 11/15/16."
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "//  Copyright \u00a9 2016 Apple Inc. All rights reserved."
+        "type":"comment",
+        "value":"//  Copyright ? 2016 Apple Inc. All rights reserved."
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "//"
+        "type":"comment",
+        "value":"//"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "keyword",
-        "value": "import"
+        "type":"keyword",
+        "value":"import"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "UIKit"
+        "type":"identifier",
+        "value":"UIKit"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "keyword",
-        "value": "import"
+        "type":"keyword",
+        "value":"import"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "os"
+        "type":"identifier",
+        "value":"os"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "log"
+        "type":"identifier",
+        "value":"log"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "keyword",
-        "value": "class"
+        "type":"keyword",
+        "value":"class"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "MealTableViewController"
+        "type":"identifier",
+        "value":"MealTableViewController"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "UITableViewController"
+        "type":"identifier",
+        "value":"UITableViewController"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "//MARK: Properties"
+        "type":"comment",
+        "value":"//MARK: Properties"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "keyword",
-        "value": "var"
+        "type":"keyword",
+        "value":"var"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "meals"
+        "type":"identifier",
+        "value":"meals"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "identifier",
-        "value": "Meal"
+        "type":"identifier",
+        "value":"Meal"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "keyword",
-        "value": "override"
+        "type":"keyword",
+        "value":"override"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "func"
+        "type":"keyword",
+        "value":"func"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "viewDidLoad"
+        "type":"identifier",
+        "value":"viewDidLoad"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "super"
+        "type":"keyword",
+        "value":"super"
     },
     {
-        "type": "symbol",
-        "value": ".viewDidLoad"
+        "type":"symbol",
+        "value":".viewDidLoad"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "comment",
-        "value": "// Use the edit button item provided by the table view controller."
+        "type":"comment",
+        "value":"// Use the edit button item provided by the table view controller."
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "identifier",
-        "value": "navigationItem"
+        "type":"identifier",
+        "value":"navigationItem"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "leftBarButtonItem"
+        "type":"identifier",
+        "value":"leftBarButtonItem"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "editButtonItem"
+        "type":"identifier",
+        "value":"editButtonItem"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "comment",
-        "value": "// Load any saved meals, otherwise load sample data."
+        "type":"comment",
+        "value":"// Load any saved meals, otherwise load sample data."
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "if"
+        "type":"keyword",
+        "value":"if"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "let"
+        "type":"keyword",
+        "value":"let"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "savedMeals"
+        "type":"identifier",
+        "value":"savedMeals"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "loadMeals"
+        "type":"identifier",
+        "value":"loadMeals"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "identifier",
-        "value": "meals"
+        "type":"identifier",
+        "value":"meals"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "+="
+        "type":"operator",
+        "value":"+="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "savedMeals"
+        "type":"identifier",
+        "value":"savedMeals"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "else"
+        "type":"keyword",
+        "value":"else"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "comment",
-        "value": "// Load the sample data."
+        "type":"comment",
+        "value":"// Load the sample data."
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "identifier",
-        "value": "loadSampleMeals"
+        "type":"identifier",
+        "value":"loadSampleMeals"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "keyword",
-        "value": "override"
+        "type":"keyword",
+        "value":"override"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "func"
+        "type":"keyword",
+        "value":"func"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "didReceiveMemoryWarning"
+        "type":"identifier",
+        "value":"didReceiveMemoryWarning"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "super"
+        "type":"keyword",
+        "value":"super"
     },
     {
-        "type": "symbol",
-        "value": ".didReceiveMemoryWarning"
+        "type":"symbol",
+        "value":".didReceiveMemoryWarning"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "comment",
-        "value": "// Dispose of any resources that can be recreated."
+        "type":"comment",
+        "value":"// Dispose of any resources that can be recreated."
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "//MARK: - Table view data source"
+        "type":"comment",
+        "value":"//MARK: - Table view data source"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "keyword",
-        "value": "override"
+        "type":"keyword",
+        "value":"override"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "func"
+        "type":"keyword",
+        "value":"func"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "numberOfSections"
+        "type":"identifier",
+        "value":"numberOfSections"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "keyword",
-        "value": "in"
+        "type":"keyword",
+        "value":"in"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "tableView"
+        "type":"identifier",
+        "value":"tableView"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "UITableView"
+        "type":"identifier",
+        "value":"UITableView"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "->"
+        "type":"operator",
+        "value":"-\u003e"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "Int"
+        "type":"identifier",
+        "value":"Int"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "return"
+        "type":"keyword",
+        "value":"return"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "keyword",
-        "value": "override"
+        "type":"keyword",
+        "value":"override"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "func"
+        "type":"keyword",
+        "value":"func"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "tableView"
+        "type":"identifier",
+        "value":"tableView"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "_"
+        "type":"identifier",
+        "value":"_"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "tableView"
+        "type":"identifier",
+        "value":"tableView"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "UITableView"
+        "type":"identifier",
+        "value":"UITableView"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "numberOfRowsInSection"
+        "type":"identifier",
+        "value":"numberOfRowsInSection"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "section"
+        "type":"identifier",
+        "value":"section"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "Int"
+        "type":"identifier",
+        "value":"Int"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "->"
+        "type":"operator",
+        "value":"-\u003e"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "Int"
+        "type":"identifier",
+        "value":"Int"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "return"
+        "type":"keyword",
+        "value":"return"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "meals"
+        "type":"identifier",
+        "value":"meals"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "count"
+        "type":"identifier",
+        "value":"count"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "keyword",
-        "value": "override"
+        "type":"keyword",
+        "value":"override"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "func"
+        "type":"keyword",
+        "value":"func"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "tableView"
+        "type":"identifier",
+        "value":"tableView"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "_"
+        "type":"identifier",
+        "value":"_"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "tableView"
+        "type":"identifier",
+        "value":"tableView"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "UITableView"
+        "type":"identifier",
+        "value":"UITableView"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "cellForRowAt"
+        "type":"identifier",
+        "value":"cellForRowAt"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "indexPath"
+        "type":"identifier",
+        "value":"indexPath"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "IndexPath"
+        "type":"identifier",
+        "value":"IndexPath"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "->"
+        "type":"operator",
+        "value":"-\u003e"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "UITableViewCell"
+        "type":"identifier",
+        "value":"UITableViewCell"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "comment",
-        "value": "// Table view cells are reused and should be dequeued using a cell identifier."
+        "type":"comment",
+        "value":"// Table view cells are reused and should be dequeued using a cell identifier."
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "let"
+        "type":"keyword",
+        "value":"let"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "cellIdentifier"
+        "type":"identifier",
+        "value":"cellIdentifier"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"MealTableViewCell\""
+        "type":"string",
+        "value":"\"MealTableViewCell\""
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "guard"
+        "type":"keyword",
+        "value":"guard"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "let"
+        "type":"keyword",
+        "value":"let"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "cell"
+        "type":"identifier",
+        "value":"cell"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "tableView"
+        "type":"identifier",
+        "value":"tableView"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "dequeueReusableCell"
+        "type":"identifier",
+        "value":"dequeueReusableCell"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "withIdentifier"
+        "type":"identifier",
+        "value":"withIdentifier"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "cellIdentifier"
+        "type":"identifier",
+        "value":"cellIdentifier"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "for"
+        "type":"keyword",
+        "value":"for"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "indexPath"
+        "type":"identifier",
+        "value":"indexPath"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "as"
+        "type":"keyword",
+        "value":"as"
     },
     {
-        "type": "operator",
-        "value": "?"
+        "type":"operator",
+        "value":"?"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "MealTableViewCell"
+        "type":"identifier",
+        "value":"MealTableViewCell"
     },
     {
-        "type": "whitespace",
-        "value": "  "
+        "type":"whitespace",
+        "value":"  "
     },
     {
-        "type": "keyword",
-        "value": "else"
+        "type":"keyword",
+        "value":"else"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "identifier",
-        "value": "fatalError"
+        "type":"identifier",
+        "value":"fatalError"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "string",
-        "value": "\"The dequeued cell is not an instance of MealTableViewCell.\""
+        "type":"string",
+        "value":"\"The dequeued cell is not an instance of MealTableViewCell.\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "comment",
-        "value": "// Fetches the appropriate meal for the data source layout."
+        "type":"comment",
+        "value":"// Fetches the appropriate meal for the data source layout."
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "let"
+        "type":"keyword",
+        "value":"let"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "meal"
+        "type":"identifier",
+        "value":"meal"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "meals"
+        "type":"identifier",
+        "value":"meals"
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "identifier",
-        "value": "indexPath"
+        "type":"identifier",
+        "value":"indexPath"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "row"
+        "type":"identifier",
+        "value":"row"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "identifier",
-        "value": "cell"
+        "type":"identifier",
+        "value":"cell"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "nameLabel"
+        "type":"identifier",
+        "value":"nameLabel"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "text"
+        "type":"identifier",
+        "value":"text"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "meal"
+        "type":"identifier",
+        "value":"meal"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "name"
+        "type":"identifier",
+        "value":"name"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "identifier",
-        "value": "cell"
+        "type":"identifier",
+        "value":"cell"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "photoImageView"
+        "type":"identifier",
+        "value":"photoImageView"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "image"
+        "type":"identifier",
+        "value":"image"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "meal"
+        "type":"identifier",
+        "value":"meal"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "photo"
+        "type":"identifier",
+        "value":"photo"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "identifier",
-        "value": "cell"
+        "type":"identifier",
+        "value":"cell"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "ratingControl"
+        "type":"identifier",
+        "value":"ratingControl"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "rating"
+        "type":"identifier",
+        "value":"rating"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "meal"
+        "type":"identifier",
+        "value":"meal"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "rating"
+        "type":"identifier",
+        "value":"rating"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "return"
+        "type":"keyword",
+        "value":"return"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "cell"
+        "type":"identifier",
+        "value":"cell"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "// Override to support conditional editing of the table view."
+        "type":"comment",
+        "value":"// Override to support conditional editing of the table view."
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "keyword",
-        "value": "override"
+        "type":"keyword",
+        "value":"override"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "func"
+        "type":"keyword",
+        "value":"func"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "tableView"
+        "type":"identifier",
+        "value":"tableView"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "_"
+        "type":"identifier",
+        "value":"_"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "tableView"
+        "type":"identifier",
+        "value":"tableView"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "UITableView"
+        "type":"identifier",
+        "value":"UITableView"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "canEditRowAt"
+        "type":"identifier",
+        "value":"canEditRowAt"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "indexPath"
+        "type":"identifier",
+        "value":"indexPath"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "IndexPath"
+        "type":"identifier",
+        "value":"IndexPath"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "->"
+        "type":"operator",
+        "value":"-\u003e"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "Bool"
+        "type":"identifier",
+        "value":"Bool"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "comment",
-        "value": "// Return false if you do not want the specified item to be editable."
+        "type":"comment",
+        "value":"// Return false if you do not want the specified item to be editable."
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "return"
+        "type":"keyword",
+        "value":"return"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "value",
-        "value": "true"
+        "type":"value",
+        "value":"true"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "// Override to support editing the table view."
+        "type":"comment",
+        "value":"// Override to support editing the table view."
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "keyword",
-        "value": "override"
+        "type":"keyword",
+        "value":"override"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "func"
+        "type":"keyword",
+        "value":"func"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "tableView"
+        "type":"identifier",
+        "value":"tableView"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "_"
+        "type":"identifier",
+        "value":"_"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "tableView"
+        "type":"identifier",
+        "value":"tableView"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "UITableView"
+        "type":"identifier",
+        "value":"UITableView"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "commit"
+        "type":"identifier",
+        "value":"commit"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "editingStyle"
+        "type":"identifier",
+        "value":"editingStyle"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "UITableViewCellEditingStyle"
+        "type":"identifier",
+        "value":"UITableViewCellEditingStyle"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "forRowAt"
+        "type":"identifier",
+        "value":"forRowAt"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "indexPath"
+        "type":"identifier",
+        "value":"indexPath"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "IndexPath"
+        "type":"identifier",
+        "value":"IndexPath"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "if"
+        "type":"keyword",
+        "value":"if"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "editingStyle"
+        "type":"identifier",
+        "value":"editingStyle"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "=="
+        "type":"operator",
+        "value":"=="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "symbol",
-        "value": ".delete"
+        "type":"symbol",
+        "value":".delete"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "comment",
-        "value": "// Delete the row from the data source"
+        "type":"comment",
+        "value":"// Delete the row from the data source"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "identifier",
-        "value": "meals"
+        "type":"identifier",
+        "value":"meals"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "remove"
+        "type":"identifier",
+        "value":"remove"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "at"
+        "type":"identifier",
+        "value":"at"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "indexPath"
+        "type":"identifier",
+        "value":"indexPath"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "row"
+        "type":"identifier",
+        "value":"row"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "identifier",
-        "value": "saveMeals"
+        "type":"identifier",
+        "value":"saveMeals"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "identifier",
-        "value": "tableView"
+        "type":"identifier",
+        "value":"tableView"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "deleteRows"
+        "type":"identifier",
+        "value":"deleteRows"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "at"
+        "type":"identifier",
+        "value":"at"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "identifier",
-        "value": "indexPath"
+        "type":"identifier",
+        "value":"indexPath"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "with"
+        "type":"identifier",
+        "value":"with"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "symbol",
-        "value": ".fade"
+        "type":"symbol",
+        "value":".fade"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "else"
+        "type":"keyword",
+        "value":"else"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "if"
+        "type":"keyword",
+        "value":"if"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "editingStyle"
+        "type":"identifier",
+        "value":"editingStyle"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "=="
+        "type":"operator",
+        "value":"=="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "symbol",
-        "value": ".insert"
+        "type":"symbol",
+        "value":".insert"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "comment",
-        "value": "// Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view"
+        "type":"comment",
+        "value":"// Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "/*\n    // Override to support rearranging the table view.\n    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {\n\n    }\n    */"
+        "type":"comment",
+        "value":"/*\n    // Override to support rearranging the table view.\n    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {\n\n    }\n    */"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "/*\n    // Override to support conditional rearranging of the table view.\n    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {\n        // Return false if you do not want the item to be re-orderable.\n        return true\n    }\n    */"
+        "type":"comment",
+        "value":"/*\n    // Override to support conditional rearranging of the table view.\n    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -\u003e Bool {\n        // Return false if you do not want the item to be re-orderable.\n        return true\n    }\n    */"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "//MARK: - Navigation"
+        "type":"comment",
+        "value":"//MARK: - Navigation"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "// In a storyboard-based application, you will often want to do a little preparation before navigation"
+        "type":"comment",
+        "value":"// In a storyboard-based application, you will often want to do a little preparation before navigation"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "keyword",
-        "value": "override"
+        "type":"keyword",
+        "value":"override"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "func"
+        "type":"keyword",
+        "value":"func"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "prepare"
+        "type":"identifier",
+        "value":"prepare"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "keyword",
-        "value": "for"
+        "type":"keyword",
+        "value":"for"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "segue"
+        "type":"identifier",
+        "value":"segue"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "UIStoryboardSegue"
+        "type":"identifier",
+        "value":"UIStoryboardSegue"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "sender"
+        "type":"identifier",
+        "value":"sender"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "Any"
+        "type":"keyword",
+        "value":"Any"
     },
     {
-        "type": "operator",
-        "value": "?"
+        "type":"operator",
+        "value":"?"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "super"
+        "type":"keyword",
+        "value":"super"
     },
     {
-        "type": "symbol",
-        "value": ".prepare"
+        "type":"symbol",
+        "value":".prepare"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "keyword",
-        "value": "for"
+        "type":"keyword",
+        "value":"for"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "segue"
+        "type":"identifier",
+        "value":"segue"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "sender"
+        "type":"identifier",
+        "value":"sender"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "sender"
+        "type":"identifier",
+        "value":"sender"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "switch"
+        "type":"keyword",
+        "value":"switch"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "segue"
+        "type":"identifier",
+        "value":"segue"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "identifier"
+        "type":"identifier",
+        "value":"identifier"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "??"
+        "type":"operator",
+        "value":"??"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"\""
+        "type":"string",
+        "value":"\"\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "case"
+        "type":"keyword",
+        "value":"case"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"AddItem\""
+        "type":"string",
+        "value":"\"AddItem\""
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "identifier",
-        "value": "os_log"
+        "type":"identifier",
+        "value":"os_log"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "string",
-        "value": "\"Adding a new meal.\""
+        "type":"string",
+        "value":"\"Adding a new meal.\""
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "log"
+        "type":"identifier",
+        "value":"log"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "OSLog"
+        "type":"identifier",
+        "value":"OSLog"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "keyword",
-        "value": "default"
+        "type":"keyword",
+        "value":"default"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "type"
+        "type":"identifier",
+        "value":"type"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "symbol",
-        "value": ".debug"
+        "type":"symbol",
+        "value":".debug"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "case"
+        "type":"keyword",
+        "value":"case"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"ShowDetail\""
+        "type":"string",
+        "value":"\"ShowDetail\""
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "keyword",
-        "value": "guard"
+        "type":"keyword",
+        "value":"guard"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "let"
+        "type":"keyword",
+        "value":"let"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "mealDetailViewController"
+        "type":"identifier",
+        "value":"mealDetailViewController"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "segue"
+        "type":"identifier",
+        "value":"segue"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "destination"
+        "type":"identifier",
+        "value":"destination"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "as"
+        "type":"keyword",
+        "value":"as"
     },
     {
-        "type": "operator",
-        "value": "?"
+        "type":"operator",
+        "value":"?"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "MealViewController"
+        "type":"identifier",
+        "value":"MealViewController"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "else"
+        "type":"keyword",
+        "value":"else"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "                "
+        "type":"whitespace",
+        "value":"                "
     },
     {
-        "type": "identifier",
-        "value": "fatalError"
+        "type":"identifier",
+        "value":"fatalError"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "string",
-        "value": "\"Unexpected destination: \\(segue.destination)\""
+        "type":"string",
+        "value":"\"Unexpected destination: \\(segue.destination)\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "keyword",
-        "value": "guard"
+        "type":"keyword",
+        "value":"guard"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "let"
+        "type":"keyword",
+        "value":"let"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "selectedMealCell"
+        "type":"identifier",
+        "value":"selectedMealCell"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "sender"
+        "type":"identifier",
+        "value":"sender"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "as"
+        "type":"keyword",
+        "value":"as"
     },
     {
-        "type": "operator",
-        "value": "?"
+        "type":"operator",
+        "value":"?"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "MealTableViewCell"
+        "type":"identifier",
+        "value":"MealTableViewCell"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "else"
+        "type":"keyword",
+        "value":"else"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "                "
+        "type":"whitespace",
+        "value":"                "
     },
     {
-        "type": "identifier",
-        "value": "fatalError"
+        "type":"identifier",
+        "value":"fatalError"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "string",
-        "value": "\"Unexpected sender: \\(sender)\""
+        "type":"string",
+        "value":"\"Unexpected sender: \\(sender)\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "keyword",
-        "value": "guard"
+        "type":"keyword",
+        "value":"guard"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "let"
+        "type":"keyword",
+        "value":"let"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "indexPath"
+        "type":"identifier",
+        "value":"indexPath"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "tableView"
+        "type":"identifier",
+        "value":"tableView"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "indexPath"
+        "type":"identifier",
+        "value":"indexPath"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "keyword",
-        "value": "for"
+        "type":"keyword",
+        "value":"for"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "selectedMealCell"
+        "type":"identifier",
+        "value":"selectedMealCell"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "else"
+        "type":"keyword",
+        "value":"else"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "                "
+        "type":"whitespace",
+        "value":"                "
     },
     {
-        "type": "identifier",
-        "value": "fatalError"
+        "type":"identifier",
+        "value":"fatalError"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "string",
-        "value": "\"The selected cell is not being displayed by the table\""
+        "type":"string",
+        "value":"\"The selected cell is not being displayed by the table\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "keyword",
-        "value": "let"
+        "type":"keyword",
+        "value":"let"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "selectedMeal"
+        "type":"identifier",
+        "value":"selectedMeal"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "meals"
+        "type":"identifier",
+        "value":"meals"
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "identifier",
-        "value": "indexPath"
+        "type":"identifier",
+        "value":"indexPath"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "row"
+        "type":"identifier",
+        "value":"row"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "identifier",
-        "value": "mealDetailViewController"
+        "type":"identifier",
+        "value":"mealDetailViewController"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "meal"
+        "type":"identifier",
+        "value":"meal"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "selectedMeal"
+        "type":"identifier",
+        "value":"selectedMeal"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "default"
+        "type":"keyword",
+        "value":"default"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "identifier",
-        "value": "fatalError"
+        "type":"identifier",
+        "value":"fatalError"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "string",
-        "value": "\"Unexpected Segue Identifier; \\(segue.identifier)\""
+        "type":"string",
+        "value":"\"Unexpected Segue Identifier; \\(segue.identifier)\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "//MARK: Actions"
+        "type":"comment",
+        "value":"//MARK: Actions"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "attribute",
-        "value": "@IBAction"
+        "type":"attribute",
+        "value":"@IBAction"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "func"
+        "type":"keyword",
+        "value":"func"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "unwindToMealList"
+        "type":"identifier",
+        "value":"unwindToMealList"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "sender"
+        "type":"identifier",
+        "value":"sender"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "UIStoryboardSegue"
+        "type":"identifier",
+        "value":"UIStoryboardSegue"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "if"
+        "type":"keyword",
+        "value":"if"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "let"
+        "type":"keyword",
+        "value":"let"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "sourceViewController"
+        "type":"identifier",
+        "value":"sourceViewController"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "sender"
+        "type":"identifier",
+        "value":"sender"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "source"
+        "type":"identifier",
+        "value":"source"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "as"
+        "type":"keyword",
+        "value":"as"
     },
     {
-        "type": "operator",
-        "value": "?"
+        "type":"operator",
+        "value":"?"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "MealViewController"
+        "type":"identifier",
+        "value":"MealViewController"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "let"
+        "type":"keyword",
+        "value":"let"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "meal"
+        "type":"identifier",
+        "value":"meal"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "sourceViewController"
+        "type":"identifier",
+        "value":"sourceViewController"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "meal"
+        "type":"identifier",
+        "value":"meal"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "keyword",
-        "value": "if"
+        "type":"keyword",
+        "value":"if"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "let"
+        "type":"keyword",
+        "value":"let"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "selectedIndexPath"
+        "type":"identifier",
+        "value":"selectedIndexPath"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "tableView"
+        "type":"identifier",
+        "value":"tableView"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "indexPathForSelectedRow"
+        "type":"identifier",
+        "value":"indexPathForSelectedRow"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "                "
+        "type":"whitespace",
+        "value":"                "
     },
     {
-        "type": "comment",
-        "value": "// Update an existing meal."
+        "type":"comment",
+        "value":"// Update an existing meal."
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "                "
+        "type":"whitespace",
+        "value":"                "
     },
     {
-        "type": "identifier",
-        "value": "meals"
+        "type":"identifier",
+        "value":"meals"
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "identifier",
-        "value": "selectedIndexPath"
+        "type":"identifier",
+        "value":"selectedIndexPath"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "row"
+        "type":"identifier",
+        "value":"row"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "meal"
+        "type":"identifier",
+        "value":"meal"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "                "
+        "type":"whitespace",
+        "value":"                "
     },
     {
-        "type": "identifier",
-        "value": "tableView"
+        "type":"identifier",
+        "value":"tableView"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "reloadRows"
+        "type":"identifier",
+        "value":"reloadRows"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "at"
+        "type":"identifier",
+        "value":"at"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "identifier",
-        "value": "selectedIndexPath"
+        "type":"identifier",
+        "value":"selectedIndexPath"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "with"
+        "type":"identifier",
+        "value":"with"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "symbol",
-        "value": ".none"
+        "type":"symbol",
+        "value":".none"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "keyword",
-        "value": "else"
+        "type":"keyword",
+        "value":"else"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "                "
+        "type":"whitespace",
+        "value":"                "
     },
     {
-        "type": "comment",
-        "value": "// Add a new meal."
+        "type":"comment",
+        "value":"// Add a new meal."
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "                "
+        "type":"whitespace",
+        "value":"                "
     },
     {
-        "type": "keyword",
-        "value": "let"
+        "type":"keyword",
+        "value":"let"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "newIndexPath"
+        "type":"identifier",
+        "value":"newIndexPath"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "IndexPath"
+        "type":"identifier",
+        "value":"IndexPath"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "row"
+        "type":"identifier",
+        "value":"row"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "meals"
+        "type":"identifier",
+        "value":"meals"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "count"
+        "type":"identifier",
+        "value":"count"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "section"
+        "type":"identifier",
+        "value":"section"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "0"
+        "type":"number",
+        "value":"0"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "                "
+        "type":"whitespace",
+        "value":"                "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "                "
+        "type":"whitespace",
+        "value":"                "
     },
     {
-        "type": "identifier",
-        "value": "meals"
+        "type":"identifier",
+        "value":"meals"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "append"
+        "type":"identifier",
+        "value":"append"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "meal"
+        "type":"identifier",
+        "value":"meal"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "                "
+        "type":"whitespace",
+        "value":"                "
     },
     {
-        "type": "identifier",
-        "value": "tableView"
+        "type":"identifier",
+        "value":"tableView"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "insertRows"
+        "type":"identifier",
+        "value":"insertRows"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "at"
+        "type":"identifier",
+        "value":"at"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "identifier",
-        "value": "newIndexPath"
+        "type":"identifier",
+        "value":"newIndexPath"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "with"
+        "type":"identifier",
+        "value":"with"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "symbol",
-        "value": ".automatic"
+        "type":"symbol",
+        "value":".automatic"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "comment",
-        "value": "// Save the meals."
+        "type":"comment",
+        "value":"// Save the meals."
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "identifier",
-        "value": "saveMeals"
+        "type":"identifier",
+        "value":"saveMeals"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "comment",
-        "value": "//MARK: Private Methods"
+        "type":"comment",
+        "value":"//MARK: Private Methods"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "keyword",
-        "value": "private"
+        "type":"keyword",
+        "value":"private"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "func"
+        "type":"keyword",
+        "value":"func"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "loadSampleMeals"
+        "type":"identifier",
+        "value":"loadSampleMeals"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "let"
+        "type":"keyword",
+        "value":"let"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "photo1"
+        "type":"identifier",
+        "value":"photo1"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "UIImage"
+        "type":"identifier",
+        "value":"UIImage"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "named"
+        "type":"identifier",
+        "value":"named"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"meal1\""
+        "type":"string",
+        "value":"\"meal1\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "let"
+        "type":"keyword",
+        "value":"let"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "photo2"
+        "type":"identifier",
+        "value":"photo2"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "UIImage"
+        "type":"identifier",
+        "value":"UIImage"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "named"
+        "type":"identifier",
+        "value":"named"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"meal2\""
+        "type":"string",
+        "value":"\"meal2\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "let"
+        "type":"keyword",
+        "value":"let"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "photo3"
+        "type":"identifier",
+        "value":"photo3"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "UIImage"
+        "type":"identifier",
+        "value":"UIImage"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "named"
+        "type":"identifier",
+        "value":"named"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"meal3\""
+        "type":"string",
+        "value":"\"meal3\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "guard"
+        "type":"keyword",
+        "value":"guard"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "let"
+        "type":"keyword",
+        "value":"let"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "meal1"
+        "type":"identifier",
+        "value":"meal1"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "Meal"
+        "type":"identifier",
+        "value":"Meal"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "name"
+        "type":"identifier",
+        "value":"name"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"Caprese Salad\""
+        "type":"string",
+        "value":"\"Caprese Salad\""
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "photo"
+        "type":"identifier",
+        "value":"photo"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "photo1"
+        "type":"identifier",
+        "value":"photo1"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "rating"
+        "type":"identifier",
+        "value":"rating"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "4"
+        "type":"number",
+        "value":"4"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "else"
+        "type":"keyword",
+        "value":"else"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "identifier",
-        "value": "fatalError"
+        "type":"identifier",
+        "value":"fatalError"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "string",
-        "value": "\"Unable to instantiate meal1\""
+        "type":"string",
+        "value":"\"Unable to instantiate meal1\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "guard"
+        "type":"keyword",
+        "value":"guard"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "let"
+        "type":"keyword",
+        "value":"let"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "meal2"
+        "type":"identifier",
+        "value":"meal2"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "Meal"
+        "type":"identifier",
+        "value":"Meal"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "name"
+        "type":"identifier",
+        "value":"name"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"Chicken and Potatoes\""
+        "type":"string",
+        "value":"\"Chicken and Potatoes\""
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "photo"
+        "type":"identifier",
+        "value":"photo"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "photo2"
+        "type":"identifier",
+        "value":"photo2"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "rating"
+        "type":"identifier",
+        "value":"rating"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "5"
+        "type":"number",
+        "value":"5"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "else"
+        "type":"keyword",
+        "value":"else"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "identifier",
-        "value": "fatalError"
+        "type":"identifier",
+        "value":"fatalError"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "string",
-        "value": "\"Unable to instantiate meal2\""
+        "type":"string",
+        "value":"\"Unable to instantiate meal2\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "guard"
+        "type":"keyword",
+        "value":"guard"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "let"
+        "type":"keyword",
+        "value":"let"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "meal3"
+        "type":"identifier",
+        "value":"meal3"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "Meal"
+        "type":"identifier",
+        "value":"Meal"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "name"
+        "type":"identifier",
+        "value":"name"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"Pasta with Meatballs\""
+        "type":"string",
+        "value":"\"Pasta with Meatballs\""
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "photo"
+        "type":"identifier",
+        "value":"photo"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "photo3"
+        "type":"identifier",
+        "value":"photo3"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "rating"
+        "type":"identifier",
+        "value":"rating"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "3"
+        "type":"number",
+        "value":"3"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "else"
+        "type":"keyword",
+        "value":"else"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "identifier",
-        "value": "fatalError"
+        "type":"identifier",
+        "value":"fatalError"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "string",
-        "value": "\"Unable to instantiate meal2\""
+        "type":"string",
+        "value":"\"Unable to instantiate meal2\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "identifier",
-        "value": "meals"
+        "type":"identifier",
+        "value":"meals"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "+="
+        "type":"operator",
+        "value":"+="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "identifier",
-        "value": "meal1"
+        "type":"identifier",
+        "value":"meal1"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "meal2"
+        "type":"identifier",
+        "value":"meal2"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "meal3"
+        "type":"identifier",
+        "value":"meal3"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "keyword",
-        "value": "private"
+        "type":"keyword",
+        "value":"private"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "func"
+        "type":"keyword",
+        "value":"func"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "saveMeals"
+        "type":"identifier",
+        "value":"saveMeals"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "let"
+        "type":"keyword",
+        "value":"let"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "isSuccessfulSave"
+        "type":"identifier",
+        "value":"isSuccessfulSave"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "NSKeyedArchiver"
+        "type":"identifier",
+        "value":"NSKeyedArchiver"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "archiveRootObject"
+        "type":"identifier",
+        "value":"archiveRootObject"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "meals"
+        "type":"identifier",
+        "value":"meals"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "toFile"
+        "type":"identifier",
+        "value":"toFile"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "Meal"
+        "type":"identifier",
+        "value":"Meal"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "ArchiveURL"
+        "type":"identifier",
+        "value":"ArchiveURL"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "path"
+        "type":"identifier",
+        "value":"path"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "if"
+        "type":"keyword",
+        "value":"if"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "isSuccessfulSave"
+        "type":"identifier",
+        "value":"isSuccessfulSave"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "identifier",
-        "value": "os_log"
+        "type":"identifier",
+        "value":"os_log"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "string",
-        "value": "\"Meals successfully saved.\""
+        "type":"string",
+        "value":"\"Meals successfully saved.\""
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "log"
+        "type":"identifier",
+        "value":"log"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "OSLog"
+        "type":"identifier",
+        "value":"OSLog"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "keyword",
-        "value": "default"
+        "type":"keyword",
+        "value":"default"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "type"
+        "type":"identifier",
+        "value":"type"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "symbol",
-        "value": ".debug"
+        "type":"symbol",
+        "value":".debug"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "else"
+        "type":"keyword",
+        "value":"else"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "            "
+        "type":"whitespace",
+        "value":"            "
     },
     {
-        "type": "identifier",
-        "value": "os_log"
+        "type":"identifier",
+        "value":"os_log"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "string",
-        "value": "\"Failed to save meals...\""
+        "type":"string",
+        "value":"\"Failed to save meals...\""
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "log"
+        "type":"identifier",
+        "value":"log"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "OSLog"
+        "type":"identifier",
+        "value":"OSLog"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "keyword",
-        "value": "default"
+        "type":"keyword",
+        "value":"default"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "type"
+        "type":"identifier",
+        "value":"type"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "symbol",
-        "value": ".error"
+        "type":"symbol",
+        "value":".error"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "keyword",
-        "value": "private"
+        "type":"keyword",
+        "value":"private"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "func"
+        "type":"keyword",
+        "value":"func"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "loadMeals"
+        "type":"identifier",
+        "value":"loadMeals"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "->"
+        "type":"operator",
+        "value":"-\u003e"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "identifier",
-        "value": "Meal"
+        "type":"identifier",
+        "value":"Meal"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "operator",
-        "value": "?"
+        "type":"operator",
+        "value":"?"
     },
     {
-        "type": "whitespace",
-        "value": "  "
+        "type":"whitespace",
+        "value":"  "
     },
     {
-        "type": "group",
-        "value": "{"
+        "type":"group",
+        "value":"{"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "        "
+        "type":"whitespace",
+        "value":"        "
     },
     {
-        "type": "keyword",
-        "value": "return"
+        "type":"keyword",
+        "value":"return"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "NSKeyedUnarchiver"
+        "type":"identifier",
+        "value":"NSKeyedUnarchiver"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "unarchiveObject"
+        "type":"identifier",
+        "value":"unarchiveObject"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "withFile"
+        "type":"identifier",
+        "value":"withFile"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "Meal"
+        "type":"identifier",
+        "value":"Meal"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "ArchiveURL"
+        "type":"identifier",
+        "value":"ArchiveURL"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "path"
+        "type":"identifier",
+        "value":"path"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "as"
+        "type":"keyword",
+        "value":"as"
     },
     {
-        "type": "operator",
-        "value": "?"
+        "type":"operator",
+        "value":"?"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "identifier",
-        "value": "Meal"
+        "type":"identifier",
+        "value":"Meal"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "    "
+        "type":"whitespace",
+        "value":"    "
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "group",
-        "value": "}"
+        "type":"group",
+        "value":"}"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     }
-]
+],
+"Count":1360
+}

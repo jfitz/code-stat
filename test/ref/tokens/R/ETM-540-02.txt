@@ -1,4026 +1,4029 @@
-﻿[
+﻿{
+    "value":[
     {
-        "type": "identifier",
-        "value": "NProd"
+        "type":"identifier",
+        "value":"NProd"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "<-"
+        "type":"operator",
+        "value":"\u003c-"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "4"
+        "type":"number",
+        "value":"4"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "identifier",
-        "value": "NResources"
+        "type":"identifier",
+        "value":"NResources"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "<-"
+        "type":"operator",
+        "value":"\u003c-"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "5"
+        "type":"number",
+        "value":"5"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "identifier",
-        "value": "ProdNames"
+        "type":"identifier",
+        "value":"ProdNames"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "<-"
+        "type":"operator",
+        "value":"\u003c-"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "lapply"
+        "type":"keyword",
+        "value":"lapply"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "keyword",
-        "value": "list"
+        "type":"keyword",
+        "value":"list"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "keyword",
-        "value": "rep"
+        "type":"keyword",
+        "value":"rep"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "string",
-        "value": "\"Prod\""
+        "type":"string",
+        "value":"\"Prod\""
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "NProd"
+        "type":"identifier",
+        "value":"NProd"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "paste0"
+        "type":"identifier",
+        "value":"paste0"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "identifier",
-        "value": "NProd"
+        "type":"identifier",
+        "value":"NProd"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "# Product names: Prod1, Prod2, ..."
+        "type":"comment",
+        "value":"# Product names: Prod1, Prod2, ..."
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "identifier",
-        "value": "ResNames"
+        "type":"identifier",
+        "value":"ResNames"
     },
     {
-        "type": "operator",
-        "value": "<-"
+        "type":"operator",
+        "value":"\u003c-"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "lapply"
+        "type":"keyword",
+        "value":"lapply"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "keyword",
-        "value": "list"
+        "type":"keyword",
+        "value":"list"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "keyword",
-        "value": "rep"
+        "type":"keyword",
+        "value":"rep"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "string",
-        "value": "\"Res\""
+        "type":"string",
+        "value":"\"Res\""
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "NResources"
+        "type":"identifier",
+        "value":"NResources"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "paste0"
+        "type":"identifier",
+        "value":"paste0"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "identifier",
-        "value": "NResources"
+        "type":"identifier",
+        "value":"NResources"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "# Resource names: Res1, Res2, ..."
+        "type":"comment",
+        "value":"# Resource names: Res1, Res2, ..."
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "identifier",
-        "value": "Profit"
+        "type":"identifier",
+        "value":"Profit"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "<-"
+        "type":"operator",
+        "value":"\u003c-"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "matrix"
+        "type":"keyword",
+        "value":"matrix"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "c"
+        "type":"identifier",
+        "value":"c"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "20"
+        "type":"number",
+        "value":"20"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "14"
+        "type":"number",
+        "value":"14"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "3"
+        "type":"number",
+        "value":"3"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "16"
+        "type":"number",
+        "value":"16"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "identifier",
-        "value": "ncol"
+        "type":"identifier",
+        "value":"ncol"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "identifier",
-        "value": "NProd"
+        "type":"identifier",
+        "value":"NProd"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "dimnames"
+        "type":"identifier",
+        "value":"dimnames"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "identifier",
-        "value": "c"
+        "type":"identifier",
+        "value":"c"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "string",
-        "value": "\"Profit\""
+        "type":"string",
+        "value":"\"Profit\""
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "ProdNames"
+        "type":"identifier",
+        "value":"ProdNames"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "identifier",
-        "value": "Resources"
+        "type":"identifier",
+        "value":"Resources"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "<-"
+        "type":"operator",
+        "value":"\u003c-"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "matrix"
+        "type":"keyword",
+        "value":"matrix"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "c"
+        "type":"identifier",
+        "value":"c"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "6"
+        "type":"number",
+        "value":"6"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "8"
+        "type":"number",
+        "value":"8"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "6"
+        "type":"number",
+        "value":"6"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "7"
+        "type":"number",
+        "value":"7"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "40"
+        "type":"number",
+        "value":"40"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "2"
+        "type":"number",
+        "value":"2"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "6"
+        "type":"number",
+        "value":"6"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "4"
+        "type":"number",
+        "value":"4"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "10"
+        "type":"number",
+        "value":"10"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "25"
+        "type":"number",
+        "value":"25"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "2"
+        "type":"number",
+        "value":"2"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "5"
+        "type":"number",
+        "value":"5"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "4"
+        "type":"number",
+        "value":"4"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "8"
+        "type":"number",
+        "value":"8"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "25"
+        "type":"number",
+        "value":"25"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "12"
+        "type":"number",
+        "value":"12"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "16"
+        "type":"number",
+        "value":"16"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "ncol"
+        "type":"identifier",
+        "value":"ncol"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "identifier",
-        "value": "NProd"
+        "type":"identifier",
+        "value":"NProd"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "dimnames"
+        "type":"identifier",
+        "value":"dimnames"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "identifier",
-        "value": "c"
+        "type":"identifier",
+        "value":"c"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "ResNames"
+        "type":"identifier",
+        "value":"ResNames"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "ProdNames"
+        "type":"identifier",
+        "value":"ProdNames"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "identifier",
-        "value": "Available"
+        "type":"identifier",
+        "value":"Available"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "<-"
+        "type":"operator",
+        "value":"\u003c-"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "matrix"
+        "type":"keyword",
+        "value":"matrix"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "c"
+        "type":"identifier",
+        "value":"c"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "number",
-        "value": "1440"
+        "type":"number",
+        "value":"1440"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "1440"
+        "type":"number",
+        "value":"1440"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "2000"
+        "type":"number",
+        "value":"2000"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "1000"
+        "type":"number",
+        "value":"1000"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "9600"
+        "type":"number",
+        "value":"9600"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "ncol"
+        "type":"identifier",
+        "value":"ncol"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "dimnames"
+        "type":"identifier",
+        "value":"dimnames"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "identifier",
-        "value": "c"
+        "type":"identifier",
+        "value":"c"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "ResNames"
+        "type":"identifier",
+        "value":"ResNames"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "string",
-        "value": "\"Available\""
+        "type":"string",
+        "value":"\"Available\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "keyword",
-        "value": "library"
+        "type":"keyword",
+        "value":"library"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "pander"
+        "type":"identifier",
+        "value":"pander"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "identifier",
-        "value": "pander"
+        "type":"identifier",
+        "value":"pander"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "Profit"
+        "type":"identifier",
+        "value":"Profit"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "caption"
+        "type":"identifier",
+        "value":"caption"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "string",
-        "value": "\"Profit per Product\""
+        "type":"string",
+        "value":"\"Profit per Product\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "keyword",
-        "value": "library"
+        "type":"keyword",
+        "value":"library"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "magrittr"
+        "type":"identifier",
+        "value":"magrittr"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "quietly"
+        "type":"identifier",
+        "value":"quietly"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "value",
-        "value": "TRUE"
+        "type":"value",
+        "value":"TRUE"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "comment",
-        "value": "#Used for pipes/dplyr"
+        "type":"comment",
+        "value":"#Used for pipes/dplyr"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "keyword",
-        "value": "library"
+        "type":"keyword",
+        "value":"library"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "dplyr"
+        "type":"identifier",
+        "value":"dplyr"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "quietly"
+        "type":"identifier",
+        "value":"quietly"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "value",
-        "value": "TRUE"
+        "type":"value",
+        "value":"TRUE"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "##"
+        "type":"comment",
+        "value":"##"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "## Attaching package: dplyr"
+        "type":"comment",
+        "value":"## Attaching package: dplyr"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "## The following objects are masked from package:stats:"
+        "type":"comment",
+        "value":"## The following objects are masked from package:stats:"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "##"
+        "type":"comment",
+        "value":"##"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "## filter, lag"
+        "type":"comment",
+        "value":"## filter, lag"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "##"
+        "type":"comment",
+        "value":"##"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "## The following objects are masked from package:base:"
+        "type":"comment",
+        "value":"## The following objects are masked from package:base:"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "##"
+        "type":"comment",
+        "value":"##"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "## intersect, setdiff, setequal, union"
+        "type":"comment",
+        "value":"## intersect, setdiff, setequal, union"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "##"
+        "type":"comment",
+        "value":"##"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "keyword",
-        "value": "library"
+        "type":"keyword",
+        "value":"library"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "ROI"
+        "type":"identifier",
+        "value":"ROI"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "quietly"
+        "type":"identifier",
+        "value":"quietly"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "value",
-        "value": "TRUE"
+        "type":"value",
+        "value":"TRUE"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "## ROI.plugin.glpk: R Optimization Infrastructure"
+        "type":"comment",
+        "value":"## ROI.plugin.glpk: R Optimization Infrastructure"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "## Registered solver plugins: nlminb, glpk."
+        "type":"comment",
+        "value":"## Registered solver plugins: nlminb, glpk."
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "## Default solver: auto."
+        "type":"comment",
+        "value":"## Default solver: auto."
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "keyword",
-        "value": "library"
+        "type":"keyword",
+        "value":"library"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "ROI"
+        "type":"identifier",
+        "value":"ROI"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "plugin"
+        "type":"identifier",
+        "value":"plugin"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "glpk"
+        "type":"identifier",
+        "value":"glpk"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "quietly"
+        "type":"identifier",
+        "value":"quietly"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "value",
-        "value": "TRUE"
+        "type":"value",
+        "value":"TRUE"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "keyword",
-        "value": "library"
+        "type":"keyword",
+        "value":"library"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "ompr"
+        "type":"identifier",
+        "value":"ompr"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "quietly"
+        "type":"identifier",
+        "value":"quietly"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "value",
-        "value": "TRUE"
+        "type":"value",
+        "value":"TRUE"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "keyword",
-        "value": "library"
+        "type":"keyword",
+        "value":"library"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "ompr"
+        "type":"identifier",
+        "value":"ompr"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "roi"
+        "type":"identifier",
+        "value":"roi"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "quietly"
+        "type":"identifier",
+        "value":"quietly"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "value",
-        "value": "TRUE"
+        "type":"value",
+        "value":"TRUE"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "identifier",
-        "value": "prodmodel"
+        "type":"identifier",
+        "value":"prodmodel"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "<-"
+        "type":"operator",
+        "value":"\u003c-"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "MIPModel"
+        "type":"identifier",
+        "value":"MIPModel"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "%>%"
+        "type":"operator",
+        "value":"%\u003e%"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "  "
+        "type":"whitespace",
+        "value":"  "
     },
     {
-        "type": "identifier",
-        "value": "add_variable"
+        "type":"identifier",
+        "value":"add_variable"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "x"
+        "type":"identifier",
+        "value":"x"
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "identifier",
-        "value": "i"
+        "type":"identifier",
+        "value":"i"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "i"
+        "type":"identifier",
+        "value":"i"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "identifier",
-        "value": "NProd"
+        "type":"identifier",
+        "value":"NProd"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "type"
+        "type":"identifier",
+        "value":"type"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "string",
-        "value": "\"continuous\""
+        "type":"string",
+        "value":"\"continuous\""
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "lb"
+        "type":"identifier",
+        "value":"lb"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "number",
-        "value": "0"
+        "type":"number",
+        "value":"0"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "%>%"
+        "type":"operator",
+        "value":"%\u003e%"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "  "
+        "type":"whitespace",
+        "value":"  "
     },
     {
-        "type": "identifier",
-        "value": "set_objective"
+        "type":"identifier",
+        "value":"set_objective"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "sum_expr"
+        "type":"identifier",
+        "value":"sum_expr"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "Profit"
+        "type":"identifier",
+        "value":"Profit"
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "identifier",
-        "value": "i"
+        "type":"identifier",
+        "value":"i"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "*"
+        "type":"operator",
+        "value":"*"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "x"
+        "type":"identifier",
+        "value":"x"
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "identifier",
-        "value": "i"
+        "type":"identifier",
+        "value":"i"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "i"
+        "type":"identifier",
+        "value":"i"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "identifier",
-        "value": "NProd"
+        "type":"identifier",
+        "value":"NProd"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"max\""
+        "type":"string",
+        "value":"\"max\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "%>%"
+        "type":"operator",
+        "value":"%\u003e%"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "  "
+        "type":"whitespace",
+        "value":"  "
     },
     {
-        "type": "identifier",
-        "value": "add_constraint"
+        "type":"identifier",
+        "value":"add_constraint"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "sum_expr"
+        "type":"identifier",
+        "value":"sum_expr"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "Resources"
+        "type":"identifier",
+        "value":"Resources"
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "identifier",
-        "value": "j"
+        "type":"identifier",
+        "value":"j"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "i"
+        "type":"identifier",
+        "value":"i"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "operator",
-        "value": "*"
+        "type":"operator",
+        "value":"*"
     },
     {
-        "type": "identifier",
-        "value": "x"
+        "type":"identifier",
+        "value":"x"
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "identifier",
-        "value": "i"
+        "type":"identifier",
+        "value":"i"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "i"
+        "type":"identifier",
+        "value":"i"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "identifier",
-        "value": "NProd"
+        "type":"identifier",
+        "value":"NProd"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "comment",
-        "value": "# Left hand side of constraint"
+        "type":"comment",
+        "value":"# Left hand side of constraint"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "\t\t"
+        "type":"whitespace",
+        "value":"\t\t"
     },
     {
-        "type": "operator",
-        "value": "<="
+        "type":"operator",
+        "value":"\u003c="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "Available"
+        "type":"identifier",
+        "value":"Available"
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "identifier",
-        "value": "j"
+        "type":"identifier",
+        "value":"j"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "comment",
-        "value": "# Inequality and Right side of constraint"
+        "type":"comment",
+        "value":"# Inequality and Right side of constraint"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "\t\t"
+        "type":"whitespace",
+        "value":"\t\t"
     },
     {
-        "type": "identifier",
-        "value": "j"
+        "type":"identifier",
+        "value":"j"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "identifier",
-        "value": "NResources"
+        "type":"identifier",
+        "value":"NResources"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "%>%"
+        "type":"operator",
+        "value":"%\u003e%"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "comment",
-        "value": "# Repeat for each resource, j."
+        "type":"comment",
+        "value":"# Repeat for each resource, j."
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "  "
+        "type":"whitespace",
+        "value":"  "
     },
     {
-        "type": "identifier",
-        "value": "solve_model"
+        "type":"identifier",
+        "value":"solve_model"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "with_ROI"
+        "type":"identifier",
+        "value":"with_ROI"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "solver"
+        "type":"identifier",
+        "value":"solver"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"glpk\""
+        "type":"string",
+        "value":"\"glpk\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "identifier",
-        "value": "prodmodel"
+        "type":"identifier",
+        "value":"prodmodel"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "## Status: optimal"
+        "type":"comment",
+        "value":"## Status: optimal"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "## Objective value: 2857.143"
+        "type":"comment",
+        "value":"## Objective value: 2857.143"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "identifier",
-        "value": "results"
+        "type":"identifier",
+        "value":"results"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "products"
+        "type":"identifier",
+        "value":"products"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "<-"
+        "type":"operator",
+        "value":"\u003c-"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "matrix"
+        "type":"keyword",
+        "value":"matrix"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "keyword",
-        "value": "rep"
+        "type":"keyword",
+        "value":"rep"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "operator",
-        "value": "-"
+        "type":"operator",
+        "value":"-"
     },
     {
-        "type": "number",
-        "value": "1.0"
+        "type":"number",
+        "value":"1.0"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "NProd"
+        "type":"identifier",
+        "value":"NProd"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "nrow"
+        "type":"identifier",
+        "value":"nrow"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "NProd"
+        "type":"identifier",
+        "value":"NProd"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "ncol"
+        "type":"identifier",
+        "value":"ncol"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "dimnames"
+        "type":"identifier",
+        "value":"dimnames"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "identifier",
-        "value": "c"
+        "type":"identifier",
+        "value":"c"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "ProdNames"
+        "type":"identifier",
+        "value":"ProdNames"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "c"
+        "type":"identifier",
+        "value":"c"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "string",
-        "value": "\"x\""
+        "type":"string",
+        "value":"\"x\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "identifier",
-        "value": "temp"
+        "type":"identifier",
+        "value":"temp"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "<-"
+        "type":"operator",
+        "value":"\u003c-"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "get_solution"
+        "type":"identifier",
+        "value":"get_solution"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "prodmodel"
+        "type":"identifier",
+        "value":"prodmodel"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "x"
+        "type":"identifier",
+        "value":"x"
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "identifier",
-        "value": "i"
+        "type":"identifier",
+        "value":"i"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "comment",
-        "value": "# Extracts optimal values of variables"
+        "type":"comment",
+        "value":"# Extracts optimal values of variables"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "identifier",
-        "value": "results"
+        "type":"identifier",
+        "value":"results"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "products"
+        "type":"identifier",
+        "value":"products"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "<-"
+        "type":"operator",
+        "value":"\u003c-"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "t"
+        "type":"identifier",
+        "value":"t"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "temp"
+        "type":"identifier",
+        "value":"temp"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "3"
+        "type":"number",
+        "value":"3"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": "      "
+        "type":"whitespace",
+        "value":"      "
     },
     {
-        "type": "comment",
-        "value": "# Extracts third column"
+        "type":"comment",
+        "value":"# Extracts third column"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "# Resizes and renames"
+        "type":"comment",
+        "value":"# Resizes and renames"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "identifier",
-        "value": "results"
+        "type":"identifier",
+        "value":"results"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "products"
+        "type":"identifier",
+        "value":"products"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "<-"
+        "type":"operator",
+        "value":"\u003c-"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "matrix"
+        "type":"keyword",
+        "value":"matrix"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "results"
+        "type":"identifier",
+        "value":"results"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "products"
+        "type":"identifier",
+        "value":"products"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "nrow"
+        "type":"identifier",
+        "value":"nrow"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "ncol"
+        "type":"identifier",
+        "value":"ncol"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "identifier",
-        "value": "NProd"
+        "type":"identifier",
+        "value":"NProd"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "dimnames"
+        "type":"identifier",
+        "value":"dimnames"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "identifier",
-        "value": "c"
+        "type":"identifier",
+        "value":"c"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "c"
+        "type":"identifier",
+        "value":"c"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "string",
-        "value": "\"x\""
+        "type":"string",
+        "value":"\"x\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "ProdNames"
+        "type":"identifier",
+        "value":"ProdNames"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "identifier",
-        "value": "pander"
+        "type":"identifier",
+        "value":"pander"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "results"
+        "type":"identifier",
+        "value":"results"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "products"
+        "type":"identifier",
+        "value":"products"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "caption"
+        "type":"identifier",
+        "value":"caption"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"Optimal Production Plan\""
+        "type":"string",
+        "value":"\"Optimal Production Plan\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "identifier",
-        "value": "Results"
+        "type":"identifier",
+        "value":"Results"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "Resources"
+        "type":"identifier",
+        "value":"Resources"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "<-"
+        "type":"operator",
+        "value":"\u003c-"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "Resources"
+        "type":"identifier",
+        "value":"Resources"
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "operator",
-        "value": "%*%"
+        "type":"operator",
+        "value":"%*%"
     },
     {
-        "type": "identifier",
-        "value": "t"
+        "type":"identifier",
+        "value":"t"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "results"
+        "type":"identifier",
+        "value":"results"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "products"
+        "type":"identifier",
+        "value":"products"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "# Multiply matrix of resources by amount of products produced"
+        "type":"comment",
+        "value":"# Multiply matrix of resources by amount of products produced"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "keyword",
-        "value": "colnames"
+        "type":"keyword",
+        "value":"colnames"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "Results"
+        "type":"identifier",
+        "value":"Results"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "Resources"
+        "type":"identifier",
+        "value":"Resources"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "operator",
-        "value": "<-"
+        "type":"operator",
+        "value":"\u003c-"
     },
     {
-        "type": "identifier",
-        "value": "c"
+        "type":"identifier",
+        "value":"c"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "string",
-        "value": "\"Used\""
+        "type":"string",
+        "value":"\"Used\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "# Change column name to reflect amount of resources used."
+        "type":"comment",
+        "value":"# Change column name to reflect amount of resources used."
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "identifier",
-        "value": "pander"
+        "type":"identifier",
+        "value":"pander"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "Results"
+        "type":"identifier",
+        "value":"Results"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "Resources"
+        "type":"identifier",
+        "value":"Resources"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "caption"
+        "type":"identifier",
+        "value":"caption"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "string",
-        "value": "\"Resources Used\""
+        "type":"string",
+        "value":"\"Resources Used\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "identifier",
-        "value": "Resources"
+        "type":"identifier",
+        "value":"Resources"
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "number",
-        "value": "4"
+        "type":"number",
+        "value":"4"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "<-"
+        "type":"operator",
+        "value":"\u003c-"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "20"
+        "type":"number",
+        "value":"20"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "comment",
-        "value": "# Set value of the 4th row, 1st column to 20"
+        "type":"comment",
+        "value":"# Set value of the 4th row, 1st column to 20"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "# In our example, this is the paint resource used by making a chair"
+        "type":"comment",
+        "value":"# In our example, this is the paint resource used by making a chair"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "identifier",
-        "value": "prodmodel"
+        "type":"identifier",
+        "value":"prodmodel"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "<-"
+        "type":"operator",
+        "value":"\u003c-"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "MIPModel"
+        "type":"identifier",
+        "value":"MIPModel"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "%>%"
+        "type":"operator",
+        "value":"%\u003e%"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "  "
+        "type":"whitespace",
+        "value":"  "
     },
     {
-        "type": "identifier",
-        "value": "add_variable"
+        "type":"identifier",
+        "value":"add_variable"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "x"
+        "type":"identifier",
+        "value":"x"
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "identifier",
-        "value": "i"
+        "type":"identifier",
+        "value":"i"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "i"
+        "type":"identifier",
+        "value":"i"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "identifier",
-        "value": "NProd"
+        "type":"identifier",
+        "value":"NProd"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "type"
+        "type":"identifier",
+        "value":"type"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "string",
-        "value": "\"continuous\""
+        "type":"string",
+        "value":"\"continuous\""
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "lb"
+        "type":"identifier",
+        "value":"lb"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "number",
-        "value": "0"
+        "type":"number",
+        "value":"0"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "%>%"
+        "type":"operator",
+        "value":"%\u003e%"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "  "
+        "type":"whitespace",
+        "value":"  "
     },
     {
-        "type": "identifier",
-        "value": "set_objective"
+        "type":"identifier",
+        "value":"set_objective"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "sum_expr"
+        "type":"identifier",
+        "value":"sum_expr"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "Profit"
+        "type":"identifier",
+        "value":"Profit"
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "identifier",
-        "value": "i"
+        "type":"identifier",
+        "value":"i"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "*"
+        "type":"operator",
+        "value":"*"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "x"
+        "type":"identifier",
+        "value":"x"
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "identifier",
-        "value": "i"
+        "type":"identifier",
+        "value":"i"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "i"
+        "type":"identifier",
+        "value":"i"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "identifier",
-        "value": "NProd"
+        "type":"identifier",
+        "value":"NProd"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"max\""
+        "type":"string",
+        "value":"\"max\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "%>%"
+        "type":"operator",
+        "value":"%\u003e%"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "  "
+        "type":"whitespace",
+        "value":"  "
     },
     {
-        "type": "identifier",
-        "value": "add_constraint"
+        "type":"identifier",
+        "value":"add_constraint"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "sum_expr"
+        "type":"identifier",
+        "value":"sum_expr"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "Resources"
+        "type":"identifier",
+        "value":"Resources"
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "identifier",
-        "value": "j"
+        "type":"identifier",
+        "value":"j"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "i"
+        "type":"identifier",
+        "value":"i"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "operator",
-        "value": "*"
+        "type":"operator",
+        "value":"*"
     },
     {
-        "type": "identifier",
-        "value": "x"
+        "type":"identifier",
+        "value":"x"
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "identifier",
-        "value": "i"
+        "type":"identifier",
+        "value":"i"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "i"
+        "type":"identifier",
+        "value":"i"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "identifier",
-        "value": "NProd"
+        "type":"identifier",
+        "value":"NProd"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "comment",
-        "value": "# Left hand side of constraint"
+        "type":"comment",
+        "value":"# Left hand side of constraint"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "\t\t"
+        "type":"whitespace",
+        "value":"\t\t"
     },
     {
-        "type": "operator",
-        "value": "<="
+        "type":"operator",
+        "value":"\u003c="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "Available"
+        "type":"identifier",
+        "value":"Available"
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "identifier",
-        "value": "j"
+        "type":"identifier",
+        "value":"j"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "\t\t"
+        "type":"whitespace",
+        "value":"\t\t"
     },
     {
-        "type": "identifier",
-        "value": "j"
+        "type":"identifier",
+        "value":"j"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "operator",
-        "value": ":"
+        "type":"operator",
+        "value":":"
     },
     {
-        "type": "identifier",
-        "value": "NResources"
+        "type":"identifier",
+        "value":"NResources"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "%>%"
+        "type":"operator",
+        "value":"%\u003e%"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "comment",
-        "value": "# Repeat for each resource, j."
+        "type":"comment",
+        "value":"# Repeat for each resource, j."
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "# Inequality and Right side of constraint"
+        "type":"comment",
+        "value":"# Inequality and Right side of constraint"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "whitespace",
-        "value": "  "
+        "type":"whitespace",
+        "value":"  "
     },
     {
-        "type": "identifier",
-        "value": "solve_model"
+        "type":"identifier",
+        "value":"solve_model"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "with_ROI"
+        "type":"identifier",
+        "value":"with_ROI"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "solver"
+        "type":"identifier",
+        "value":"solver"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"glpk\""
+        "type":"string",
+        "value":"\"glpk\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "identifier",
-        "value": "prodmodel"
+        "type":"identifier",
+        "value":"prodmodel"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "## Status: optimal"
+        "type":"comment",
+        "value":"## Status: optimal"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "## Objective value: 1500"
+        "type":"comment",
+        "value":"## Objective value: 1500"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "identifier",
-        "value": "results"
+        "type":"identifier",
+        "value":"results"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "products"
+        "type":"identifier",
+        "value":"products"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "<-"
+        "type":"operator",
+        "value":"\u003c-"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "matrix"
+        "type":"keyword",
+        "value":"matrix"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "keyword",
-        "value": "rep"
+        "type":"keyword",
+        "value":"rep"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "operator",
-        "value": "-"
+        "type":"operator",
+        "value":"-"
     },
     {
-        "type": "number",
-        "value": "1.0"
+        "type":"number",
+        "value":"1.0"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "NProd"
+        "type":"identifier",
+        "value":"NProd"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "nrow"
+        "type":"identifier",
+        "value":"nrow"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "NProd"
+        "type":"identifier",
+        "value":"NProd"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "ncol"
+        "type":"identifier",
+        "value":"ncol"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "dimnames"
+        "type":"identifier",
+        "value":"dimnames"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "identifier",
-        "value": "c"
+        "type":"identifier",
+        "value":"c"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "ProdNames"
+        "type":"identifier",
+        "value":"ProdNames"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "c"
+        "type":"identifier",
+        "value":"c"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "string",
-        "value": "\"x\""
+        "type":"string",
+        "value":"\"x\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "identifier",
-        "value": "temp"
+        "type":"identifier",
+        "value":"temp"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "<-"
+        "type":"operator",
+        "value":"\u003c-"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "get_solution"
+        "type":"identifier",
+        "value":"get_solution"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "prodmodel"
+        "type":"identifier",
+        "value":"prodmodel"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "x"
+        "type":"identifier",
+        "value":"x"
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "identifier",
-        "value": "i"
+        "type":"identifier",
+        "value":"i"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "comment",
-        "value": "# Extracts optimal values of variables"
+        "type":"comment",
+        "value":"# Extracts optimal values of variables"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "identifier",
-        "value": "results"
+        "type":"identifier",
+        "value":"results"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "products"
+        "type":"identifier",
+        "value":"products"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "<-"
+        "type":"operator",
+        "value":"\u003c-"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "t"
+        "type":"identifier",
+        "value":"t"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "temp"
+        "type":"identifier",
+        "value":"temp"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "["
+        "type":"group",
+        "value":"["
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "number",
-        "value": "3"
+        "type":"number",
+        "value":"3"
     },
     {
-        "type": "group",
-        "value": "]"
+        "type":"group",
+        "value":"]"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "# Extracts third column"
+        "type":"comment",
+        "value":"# Extracts third column"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "identifier",
-        "value": "results"
+        "type":"identifier",
+        "value":"results"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "products"
+        "type":"identifier",
+        "value":"products"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "<-"
+        "type":"operator",
+        "value":"\u003c-"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "keyword",
-        "value": "matrix"
+        "type":"keyword",
+        "value":"matrix"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "results"
+        "type":"identifier",
+        "value":"results"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "products"
+        "type":"identifier",
+        "value":"products"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "nrow"
+        "type":"identifier",
+        "value":"nrow"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "number",
-        "value": "1"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "ncol"
+        "type":"identifier",
+        "value":"ncol"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "identifier",
-        "value": "NProd"
+        "type":"identifier",
+        "value":"NProd"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "dimnames"
+        "type":"identifier",
+        "value":"dimnames"
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "identifier",
-        "value": "c"
+        "type":"identifier",
+        "value":"c"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "c"
+        "type":"identifier",
+        "value":"c"
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "string",
-        "value": "\"x\""
+        "type":"string",
+        "value":"\"x\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "identifier",
-        "value": "ProdNames"
+        "type":"identifier",
+        "value":"ProdNames"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "comment",
-        "value": "# Resizes and renames"
+        "type":"comment",
+        "value":"# Resizes and renames"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "identifier",
-        "value": "pander"
+        "type":"identifier",
+        "value":"pander"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "group",
-        "value": "("
+        "type":"group",
+        "value":"("
     },
     {
-        "type": "identifier",
-        "value": "results"
+        "type":"identifier",
+        "value":"results"
     },
     {
-        "type": "operator",
-        "value": "."
+        "type":"operator",
+        "value":"."
     },
     {
-        "type": "identifier",
-        "value": "products"
+        "type":"identifier",
+        "value":"products"
     },
     {
-        "type": "group",
-        "value": ","
+        "type":"group",
+        "value":","
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "identifier",
-        "value": "caption"
+        "type":"identifier",
+        "value":"caption"
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "operator",
-        "value": "="
+        "type":"operator",
+        "value":"="
     },
     {
-        "type": "whitespace",
-        "value": " "
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type": "string",
-        "value": "\"Revised Optimal Production Plan\""
+        "type":"string",
+        "value":"\"Revised Optimal Production Plan\""
     },
     {
-        "type": "group",
-        "value": ")"
+        "type":"group",
+        "value":")"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     },
     {
-        "type": "newline",
-        "value": "\n"
+        "type":"newline",
+        "value":"\n"
     }
-]
+],
+"Count":1006
+}
