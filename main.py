@@ -210,6 +210,8 @@ def route_tokens():
 
   languages = []
   if 'languages' in request.args:
+    languages = request.args['languages']
+
     if len(languages) == 0:
       languages = list(codesAndNames.keys())
     else:
