@@ -62,35 +62,35 @@ def tokens_to_dict(tokens):
 app = Flask(__name__)
 
 codesAndNames = {
-  'ada83': 'Ada-83',
-  'ada95': 'Ada-95',
-  'ada2005': 'Ada-2005',
-  'ada2012': 'Ada-2012',
+  'ada-83': 'Ada-83',
+  'ada-95': 'Ada-95',
+  'ada-2005': 'Ada-2005',
+  'ada-2012': 'Ada-2012',
   'basic': 'BASIC',
   'c': 'C',
   'cplusplus': 'C++',
   'csharp': 'C#',
   'cbasic': 'CBASIC',
-  'cobol68': 'COBOL-68',
-  'cobol74': 'COBOL-74',
-  'cobol85': 'COBOL-85',
-  'cobol2002': 'COBOL-2002',
-  'cobol2014': 'COBOL-2014',
-  'cobol2014acu': 'COBOL-2014-ACU',
-  'cobol2014ibm': 'COBOL-2014-IBM',
-  'cobol2014gnu': 'COBOL-2014-GNU',
-  'fortran66': 'FORTRAN-66',
-  'fortran77': 'FORTRAN-77',
-  'fortran90': 'Fortran-90',
-  'fortran95': 'Fortran-95',
-  'fortran2003': 'Fortran-2003',
-  'fortran2008': 'Fortran-2008',
+  'cobol-68': 'COBOL-68',
+  'cobol-74': 'COBOL-74',
+  'cobol-85': 'COBOL-85',
+  'cobol-2002': 'COBOL-2002',
+  'cobol-2014': 'COBOL-2014',
+  'cobol-2014-acu': 'COBOL-2014-ACU',
+  'cobol-2014-ibm': 'COBOL-2014-IBM',
+  'cobol-2014-gnu': 'COBOL-2014-GNU',
+  'fortran-66': 'FORTRAN-66',
+  'fortran-77': 'FORTRAN-77',
+  'fortran-90': 'Fortran-90',
+  'fortran-95': 'Fortran-95',
+  'fortran-2003': 'Fortran-2003',
+  'fortran-2008': 'Fortran-2008',
   'fsharp': 'F#',
   'go': 'Go',
   'java': 'Java',
   'javascript': 'JavaScript',
   'html': 'HTML',
-  'objectivec': 'Objective-C',
+  'objective-c': 'Objective-C',
   'pascal': 'Pascal',
   'pl1-fixed': 'PL/1-Fixed',
   'pl1-free': 'PL/1-Free',
@@ -99,16 +99,16 @@ codesAndNames = {
   'r': 'R',
   'ruby': 'Ruby',
   'rust': 'Rust',
-  'sql92': 'SQL-92',
-  'sql99': 'SQL-99',
-  'sql2003': 'SQL-2003',
-  'sql2008': 'SQL-2008',
-  'sql2011': 'SQL-2011',
-  'sql2016': 'SQL-2016',
+  'sql-92': 'SQL-92',
+  'sql-99': 'SQL-99',
+  'sql-2003': 'SQL-2003',
+  'sql-2008': 'SQL-2008',
+  'sql-2011': 'SQL-2011',
+  'sql-2016': 'SQL-2016',
   'swift': 'Swift',
   'typescript': 'TypeScript',
-  'visualbasic6': 'VisualBasic-6',
-  'visualbasicnet': 'VisualBasic-NET'
+  'visualbasic-6': 'VisualBasic-6',
+  'visualbasic-net': 'VisualBasic-NET'
 }
 
 @app.route('/languages', methods=['GET'])
@@ -210,7 +210,10 @@ def route_tokens():
 
   languages = []
   if 'languages' in request.args:
-    languages = request.args['languages'].lower().split(' ')
+    if len(languages) == 0:
+      languages = list(codesAndNames.keys())
+    else:
+      languages = request.args['languages'].lower().split(' ')
 
   comment = ''
   if 'comment' in request.args:
@@ -403,17 +406,17 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
 
   examiners = {}
 
-  if 'ada83' in languages:
-    examiners['ada83'] = AdaExaminer(code, '83')
+  if 'ada-83' in languages:
+    examiners['ada-83'] = AdaExaminer(code, '83')
 
-  if 'ada95' in languages:
-    examiners['ada95'] = AdaExaminer(code, '95')
+  if 'ada-95' in languages:
+    examiners['ada-95'] = AdaExaminer(code, '95')
 
-  if 'ada2005' in languages:
-    examiners['ada2005'] = AdaExaminer(code, '2005')
+  if 'ada-2005' in languages:
+    examiners['ada-2005'] = AdaExaminer(code, '2005')
 
-  if 'ada2012' in languages or 'ada' in languages:
-    examiners['ada2012'] = AdaExaminer(code, '2012')
+  if 'ada-2012' in languages or 'ada' in languages:
+    examiners['ada-2012'] = AdaExaminer(code, '2012')
 
   if 'basic' in languages:
     examiners['basic'] = BasicExaminer(code)
@@ -430,47 +433,47 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
   if 'csharp' in languages:
     examiners['csharp'] = CsharpExaminer(code)
 
-  if 'cobol68' in languages:
-    examiners['cobol68'] = CobolFixedFormatExaminer(code, '68', '', tab_size, wide)
+  if 'cobol-68' in languages:
+    examiners['cobol-68'] = CobolFixedFormatExaminer(code, '68', '', tab_size, wide)
 
-  if 'cobol74' in languages:
-    examiners['cobol74'] = CobolFixedFormatExaminer(code, '74', '', tab_size, wide)
+  if 'cobol-74' in languages:
+    examiners['cobol-74'] = CobolFixedFormatExaminer(code, '74', '', tab_size, wide)
 
-  if 'cobol85' in languages:
-    examiners['cobol85'] = CobolFixedFormatExaminer(code, '85', '', tab_size, wide)
+  if 'cobol-85' in languages:
+    examiners['cobol-85'] = CobolFixedFormatExaminer(code, '85', '', tab_size, wide)
 
-  if 'cobol2002' in languages:
-    examiners['cobol2002'] = CobolFreeFormatExaminer(code, '2002', '')
+  if 'cobol-2002' in languages:
+    examiners['cobol-2002'] = CobolFreeFormatExaminer(code, '2002', '')
 
-  if 'cobol2014' in languages or 'cobol' in languages:
-    examiners['cobol2014'] = CobolFreeFormatExaminer(code, '2014', '')
+  if 'cobol-2014' in languages or 'cobol' in languages:
+    examiners['cobol-2014'] = CobolFreeFormatExaminer(code, '2014', '')
 
-  if 'cobol2014acu' in languages:
-    examiners['cobol2014acu'] = CobolFreeFormatExaminer(code, '2014', 'acu')
+  if 'cobol-2014-acu' in languages:
+    examiners['cobol-2014-acu'] = CobolFreeFormatExaminer(code, '2014', 'acu')
 
-  if 'cobol2014ibm' in languages:
-    examiners['cobol2014ibm'] = CobolFreeFormatExaminer(code, '2014', 'ibm')
+  if 'cobol-2014-ibm' in languages:
+    examiners['cobol-2014-ibm'] = CobolFreeFormatExaminer(code, '2014', 'ibm')
 
-  if 'cobol2014gnu' in languages:
-    examiners['cobol2014gnu'] = CobolFreeFormatExaminer(code, '2014', 'gnu')
+  if 'cobol-2014-gnu' in languages:
+    examiners['cobol-2014-gnu'] = CobolFreeFormatExaminer(code, '2014', 'gnu')
 
-  if 'fortran66' in languages:
-    examiners['fortran66'] = FortranFixedFormatExaminer(code, '66', tab_size, wide)
+  if 'fortran-66' in languages:
+    examiners['fortran-66'] = FortranFixedFormatExaminer(code, '66', tab_size, wide)
 
-  if 'fortran77' in languages:
-    examiners['fortran77'] = FortranFixedFormatExaminer(code, '77', tab_size, wide)
+  if 'fortran-77' in languages:
+    examiners['fortran-77'] = FortranFixedFormatExaminer(code, '77', tab_size, wide)
 
-  if 'fortran90' in languages:
-    examiners['fortran90'] = FortranFreeFormatExaminer(code, '90')
+  if 'fortran-90' in languages:
+    examiners['fortran-90'] = FortranFreeFormatExaminer(code, '90')
 
-  if 'fortran95' in languages:
-    examiners['fortran95'] = FortranFreeFormatExaminer(code, '95')
+  if 'fortran-95' in languages:
+    examiners['fortran-95'] = FortranFreeFormatExaminer(code, '95')
 
-  if 'fortran2003' in languages:
-    examiners['fortran2003'] = FortranFreeFormatExaminer(code, '2003')
+  if 'fortran-2003' in languages:
+    examiners['fortran-2003'] = FortranFreeFormatExaminer(code, '2003')
 
-  if 'fortran2008' in languages or 'fortran' in languages:
-    examiners['fortran2008'] = FortranFreeFormatExaminer(code, '2008')
+  if 'fortran-2008' in languages or 'fortran' in languages:
+    examiners['fortran-2008'] = FortranFreeFormatExaminer(code, '2008')
 
   if 'fsharp' in languages:
     examiners['fsharp'] = FsharpExaminer(code)
@@ -481,8 +484,8 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
   if 'html' in languages:
     examiners['html'] = HTMLExaminer(code)
 
-  if 'objectivec' in languages:
-    examiners['objectivec'] = ObjectiveCExaminer(code)
+  if 'objective-c' in languages:
+    examiners['objective-c'] = ObjectiveCExaminer(code)
 
   if 'java' in languages:
     examiners['java'] = JavaExaminer(code)
@@ -514,23 +517,23 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
   if 'rust' in languages:
     examiners['rust'] = RustExaminer(code)
 
-  if 'sql92' in languages:
-    examiners['sql92'] = SqlExaminer(code, '92', '')
+  if 'sql-92' in languages:
+    examiners['sql-92'] = SqlExaminer(code, '92', '')
 
-  if 'sql99' in languages:
-    examiners['sql99'] = SqlExaminer(code, '99', '')
+  if 'sql-99' in languages:
+    examiners['sql-99'] = SqlExaminer(code, '99', '')
 
-  if 'sql2003' in languages:
-    examiners['sql2003'] = SqlExaminer(code, '2003', '')
+  if 'sql-2003' in languages:
+    examiners['sql-2003'] = SqlExaminer(code, '2003', '')
 
-  if 'sql2008' in languages:
-    examiners['sql2008'] = SqlExaminer(code, '2008', '')
+  if 'sql-2008' in languages:
+    examiners['sql-2008'] = SqlExaminer(code, '2008', '')
 
-  if 'sql2011' in languages:
-    examiners['sql2011'] = SqlExaminer(code, '2011', '')
+  if 'sql-2011' in languages:
+    examiners['sql-2011'] = SqlExaminer(code, '2011', '')
 
-  if 'sql2016' in languages or 'sql' in languages:
-    examiners['sql2016'] = SqlExaminer(code, '2016', '')
+  if 'sql-2016' in languages or 'sql' in languages:
+    examiners['sql-2016'] = SqlExaminer(code, '2016', '')
 
   if 'swift' in languages:
     examiners['swift'] = SwiftExaminer(code)
@@ -538,11 +541,11 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
   if 'typescript' in languages:
     examiners['typescript'] = TypeScriptExaminer(code)
 
-  if 'visualbasic6' in languages:
-    examiners['visualbasic6'] = VisualBasic6Examiner(code)
+  if 'visualbasic-6' in languages:
+    examiners['visualbasic-6'] = VisualBasic6Examiner(code)
 
-  if 'visualbasicnet' in languages:
-    examiners['visualbasicnet'] = VisualBasicNETExaminer(code)
+  if 'visualbasic-net' in languages:
+    examiners['visualbasic-net'] = VisualBasicNETExaminer(code)
 
   # get confidence values
   retval = {}
