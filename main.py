@@ -328,6 +328,15 @@ def route_statistics():
   if 'language' in request.args:
     language = request.args['language']
 
+  languages = []
+  if 'languages' in request.args:
+    languages = request.args['languages']
+
+    if len(languages) == 0:
+      languages = list(codesAndNames.keys())
+    else:
+      languages = request.args['languages'].lower().split(' ')
+
   comment = ''
   if 'comment' in request.args:
     comment = request.args['comment']
@@ -343,7 +352,34 @@ def route_statistics():
 
   http_status = 200
   try:
-    json_text = tokenize_statistics(text, language.lower(), tabsize, wide, comment)
+    if len(language) > 0:
+      token_list = tokenize_statistics(text, language.lower(), tabsize, wide, comment)
+      json_text = json.dumps(token_list)
+    else:
+      if len(languages) > 0:
+        # detect for languages
+        winning_languages = find_winners(text, tabsize, wide, languages)
+
+        list_of_dicts = []
+        # for each winning language
+        for language in winning_languages:
+          # tokenize
+          token_list = tokenize_statistics(text, language, tabsize, wide, comment)
+
+          # dictionary language: language, tokens: tokens
+          mydict = {}
+          mydict['language'] = language
+          mydict['statistics'] = token_list
+
+          # add dictionary to list
+          list_of_dicts.append(mydict)
+
+        json_text = json.dumps(list_of_dicts)
+      else:
+        # tokenize as generic
+        tokens = tokenize(text, 'generic', tabsize, wide, comment)
+        token_list = tokens_to_dict(tokens)
+        json_text = json.dumps(token_list)
   except CodeStatException as e:
     http_status = 450
     json_text = str(e)
@@ -1350,9 +1386,7 @@ def tokenize_statistics(code, language, tabsize, wide, comment):
     examiner = GenericCodeExaminer(code, '')
     statistics = examiner.statistics
 
-  retval = json.dumps(statistics)
-
-  return retval
+  return statistics
 
 
 if __name__ == '__main__':

@@ -67,7 +67,7 @@ Remove-Item $testbed\$name\*.*
 
 if ($json) {
     Write-Output "Invoking service $url -infile $inputfile -outfile $actual..."
-    Invoke-RestMethod -Method Post -Uri "$url" -InFile $inputfile | ConvertTo-JSON -Compress -Depth 5 | Out-File $actual
+    Invoke-RestMethod -Method Post -Uri "$url" -InFile $inputfile | ConvertTo-JSON -Compress -Depth 4 | Out-File $actual
     Write-Output "Adjusting JSON output..."
     Get-Content $actual | python AddNlToJson.py | python IndentJson.py | Out-File $actual_adjusted
     dotnet test\bin\UTF16-UTF8.dll "$actual_adjusted" "$actual_final"
