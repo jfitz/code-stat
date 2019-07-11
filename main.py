@@ -59,6 +59,27 @@ def tokens_to_dict(tokens):
   return token_list
 
 
+def find_winners(text, tabsize, wide, languages):
+  tiebreak_keywords = False
+  tiebreak_tokens = False
+  detected_languages = identify_language(text, tabsize, wide, tiebreak_keywords, tiebreak_tokens, languages)
+
+  # find the highest value
+  high_value = 0
+
+  for key in detected_languages:
+    if detected_languages[key] > high_value:
+      high_value = detected_languages[key]
+
+  # select all with the highest value
+  winning_languages = []
+  for key in detected_languages:
+    if detected_languages[key] == high_value:
+      winning_languages.append(key)
+
+  return winning_languages
+
+
 app = Flask(__name__)
 
 codesAndNames = {
@@ -110,6 +131,7 @@ codesAndNames = {
   'visualbasic-6': 'VisualBasic-6',
   'visualbasic-net': 'VisualBasic-NET'
 }
+
 
 @app.route('/languages', methods=['GET'])
 def route_languages():
@@ -239,22 +261,7 @@ def route_tokens():
     else:
       if len(languages) > 0:
         # detect for languages
-        tiebreak_keywords = False
-        tiebreak_tokens = False
-        detected_languages = identify_language(text, tabsize, wide, tiebreak_keywords, tiebreak_tokens, languages)
-        # find the highest value
-        language = 'generic'
-        high_value = 0
-        for key in detected_languages:
-          if detected_languages[key] > high_value:
-            language = key
-            high_value = detected_languages[key]
-
-        # select all with the highest value
-        winning_languages = []
-        for key in detected_languages:
-          if detected_languages[key] == high_value:
-            winning_languages.append(key)
+        winning_languages = find_winners(text, tabsize, wide, languages)
 
         list_of_dicts = []
         # for each winning language
