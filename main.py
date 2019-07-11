@@ -297,6 +297,15 @@ def route_confidence():
   if 'language' in request.args:
     language = request.args['language']
 
+  languages = []
+  if 'languages' in request.args:
+    languages = request.args['languages']
+
+    if len(languages) == 0:
+      languages = list(codesAndNames.keys())
+    else:
+      languages = request.args['languages'].lower().split(' ')
+
   comment = ''
   if 'comment' in request.args:
     comment = request.args['comment']
@@ -314,7 +323,37 @@ def route_confidence():
 
   http_status = 200
   try:
-    json_text = tokenize_confidence(text, language.lower(), tabsize, get_errors, wide, comment)
+    if len(language) > 0:
+      token_list = tokenize_confidence(text, language.lower(), tabsize, get_errors, wide, comment)
+      json_text = json.dumps(token_list)
+    else:
+      if len(languages) > 0:
+        # detect for languages
+        winning_languages = find_winners(text, tabsize, wide, languages)
+
+        list_of_dicts = []
+        # for each winning language
+        for language in winning_languages:
+          # tokenize
+          token_list = tokenize_confidence(text, language, tabsize, get_errors, wide, comment)
+
+          # dictionary language: language, tokens: tokens
+          mydict = {}
+          mydict['language'] = language
+          if get_errors:
+            mydict['errors'] = token_list
+          else:
+            mydict['confidences'] = token_list
+
+          # add dictionary to list
+          list_of_dicts.append(mydict)
+
+        json_text = json.dumps(list_of_dicts)
+      else:
+        # tokenize as generic
+        tokens = tokenize_confidence(text, 'generic', tabsize, get_errors, wide, comment)
+        token_list = tokens_to_dict(tokens)
+        json_text = json.dumps(token_list)
   except CodeStatException as e:
     http_status = 450
     json_text = str(e)
@@ -377,7 +416,7 @@ def route_statistics():
         json_text = json.dumps(list_of_dicts)
       else:
         # tokenize as generic
-        tokens = tokenize(text, 'generic', tabsize, wide, comment)
+        tokens = tokenize_statistics(text, 'generic', tabsize, wide, comment)
         token_list = tokens_to_dict(tokens)
         json_text = json.dumps(token_list)
   except CodeStatException as e:
@@ -1174,9 +1213,9 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide, comment):
     errors = examiner.errors
 
   if get_errors:
-    retval = json.dumps(errors)
+    retval = errors
   else:
-    retval = json.dumps(confidences)
+    retval = confidences
 
   return retval
 
