@@ -1443,7 +1443,7 @@ if __name__ == '__main__':
     language = 'ruby'
     tabsize = 4
     wide = False
-    cProfile.run('tokenize(code, language, tabsize, wide)')
+    cProfile.run("tokenize(code, language, tabsize, wide, '')")
   else:
     if args.confidence is not None:
       print('Confidencing file ' + args.confidence)
@@ -1453,7 +1453,7 @@ if __name__ == '__main__':
       language = 'ruby'
       tabsize = 4
       wide = False
-      cProfile.run('tokenize_confidence(code, language, tabsize)')
+      cProfile.run("tokenize_confidence(code, language, False, tabsize, wide, '')")
     else:
       if args.detect is not None:
         print('Detecting file ' + args.detect)
