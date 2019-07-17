@@ -43,12 +43,10 @@ class Tokenizer():
     winner = None
     winner_score = 0
     for tokenbuilder in self.tokenbuilders:
-      t = tokenbuilder.get_tokens()
       score = tokenbuilder.get_score(line_printable_tokens)
 
-      if t is not None:
-        if score > winner_score:
-          winner = tokenbuilder
-          winner_score = winner.get_score(line_printable_tokens)
+      if score > winner_score:
+        winner = tokenbuilder
+        winner_score = winner.get_score(line_printable_tokens)
 
     return winner
