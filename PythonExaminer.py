@@ -12,6 +12,7 @@ from TokenBuilders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
+  PrefixedIdentifierTokenBuilder,
   ListTokenBuilder,
   SingleCharacterTokenBuilder,
   LeadCommentTokenBuilder,
@@ -36,6 +37,7 @@ class PythonExaminer(Examiner):
     real_tb = RealTokenBuilder(False, False, False)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', False)
     identifier_tb = IdentifierTokenBuilder()
+    decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator')
     string_tb = StringTokenBuilder(['"', "'"], False, False)
     raw_string_tb = PrefixedStringTokenBuilder('r', True, ['"', "'"])
     byte_string_tb = PrefixedStringTokenBuilder('b', True, ['"', "'"])
@@ -115,6 +117,7 @@ class PythonExaminer(Examiner):
       known_operator_tb,
       groupers_tb,
       identifier_tb,
+      decorator_tb,
       string_tb,
       raw_string_tb,
       byte_string_tb,

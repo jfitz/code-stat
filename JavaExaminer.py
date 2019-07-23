@@ -11,6 +11,7 @@ from TokenBuilders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
+  PrefixedIdentifierTokenBuilder,
   ListTokenBuilder,
   SingleCharacterTokenBuilder
 )
@@ -32,6 +33,7 @@ class JavaExaminer(Examiner):
     real_tb = RealTokenBuilder(False, False, False)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', False)
     identifier_tb = IdentifierTokenBuilder()
+    decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator')
     string_tb = StringTokenBuilder(['"', "'"], False, False)
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
@@ -113,6 +115,7 @@ class JavaExaminer(Examiner):
       known_operator_tb,
       groupers_tb,
       identifier_tb,
+      decorator_tb,
       string_tb,
       slash_slash_comment_tb,
       slash_star_comment_tb,

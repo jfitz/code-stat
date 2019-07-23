@@ -200,11 +200,13 @@ test\bin\run_test.ps1 -json -name developer-html -action tokens -language HTML -
 test\bin\run_test.ps1 -json -name codestat-html -action tokens -language HTML -inputfile ".\test\data\HTML\codestat-css-javascript.html" -expected ".\test\ref\tokens\HTML\codestat-css-javascript.txt"
 
 # Java
-test\bin\run_test.ps1 -json -name values-js -action tokens -language JavaScript -inputfile ".\test\data\JavaScript\values.js" -expected ".\test\ref\tokens\JavaScript\values.txt"
 test\bin\run_test.ps1 -json -name prime_test-java -action tokens -language Java -inputfile ".\test\data\Java\prime_test.java" -expected ".\test\ref\tokens\Java\prime_test.txt"
 test\bin\run_test.ps1 -json -name palindrome-java -action tokens -language Java -inputfile ".\test\data\Java\palindrome.java" -expected ".\test\ref\tokens\Java\palindrome.txt"
+test\bin\run_test.ps1 -json -name binary-search-java -action tokens -language Java -inputfile ".\test\data\Java\binary_search.java" -expected ".\test\ref\tokens\Java\binary_search.txt"
+test\bin\run_test.ps1 -json -name ObjectServer-java -action tokens -language Java -inputfile ".\test\data\Java\ObjectServer.java" -expected ".\test\ref\tokens\Java\ObjectServer.txt"
 
 # JavaScript
+test\bin\run_test.ps1 -json -name values-js -action tokens -language JavaScript -inputfile ".\test\data\JavaScript\values.js" -expected ".\test\ref\tokens\JavaScript\values.txt"
 test\bin\run_test.ps1 -json -name codestat-js -action tokens -language JavaScript -inputfile ".\test\data\JavaScript\codestat.js" -expected ".\test\ref\tokens\JavaScript\codestat.txt"
 test\bin\run_test.ps1 -json -name bing-js -action tokens -language JavaScript -inputfile ".\test\data\JavaScript\bing.js" -expected ".\test\ref\tokens\JavaScript\bing.txt"
 
@@ -237,6 +239,7 @@ test\bin\run_test.ps1 -json -name quadrotor-python -action tokens -language Pyth
 test\bin\run_test.ps1 -json -name trajectory-python -action tokens -language Python -inputfile ".\test\data\Python\TrajectoryGenerator.py" -expected ".\test\ref\tokens\Python\TrajectoryGenerator.txt"
 test\bin\run_test.ps1 -json -name values-python -action tokens -language Python -inputfile ".\test\data\Python\values.py" -expected ".\test\ref\tokens\Python\values.txt"
 test\bin\run_test.ps1 -json -name examiner-python -action tokens -language Python -inputfile ".\test\data\Python\Examiner.py" -expected ".\test\ref\tokens\Python\Examiner.txt"
+test\bin\run_test.ps1 -json -name authorized-view-python -action tokens -language Python -inputfile ".\test\data\Python\authorized_view.py" -expected ".\test\ref\tokens\Python\authorized_view.txt"
 
 # R
 test\bin\run_test.ps1 -json -name ETM-540-01-r -action tokens -language R -inputfile ".\test\data\R\ETM-540-01.R" -expected ".\test\ref\tokens\R\ETM-540-01.txt"

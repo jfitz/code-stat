@@ -159,6 +159,8 @@ test\bin\run_test.ps1 -json -name codestat-html -action detect -inputfile ".\tes
 # Java
 test\bin\run_test.ps1 -json -name prime_test-java -action detect -tiebreak -inputfile ".\test\data\Java\prime_test.java" -expected ".\test\ref\detect\Java\prime_test.txt"
 test\bin\run_test.ps1 -json -name palindrome-java -action detect -tiebreak -inputfile ".\test\data\Java\palindrome.java" -expected ".\test\ref\detect\Java\palindrome.txt"
+test\bin\run_test.ps1 -json -name binary-search-java -action detect -inputfile ".\test\data\Java\binary_search.java" -expected ".\test\ref\detect\Java\binary_search.txt"
+test\bin\run_test.ps1 -json -name ObjectServer-java -action detect -inputfile ".\test\data\Java\ObjectServer.java" -expected ".\test\ref\detect\Java\ObjectServer.txt"
 
 # JavaScript
 test\bin\run_test.ps1 -json -name values-js -action detect -inputfile ".\test\data\JavaScript\values.js" -expected ".\test\ref\detect\JavaScript\values.txt"
@@ -194,6 +196,7 @@ test\bin\run_test.ps1 -json -name quadrotor -action detect -tiebreak -inputfile 
 test\bin\run_test.ps1 -json -name trajectory -action detect -tiebreak -inputfile ".\test\data\Python\TrajectoryGenerator.py" -expected ".\test\ref\detect\Python\TrajectoryGenerator.txt"
 test\bin\run_test.ps1 -json -name values-python -action detect -tiebreak -inputfile ".\test\data\Python\values.py" -expected ".\test\ref\detect\Python\values.txt"
 test\bin\run_test.ps1 -json -name examiner -action detect -tiebreak -inputfile ".\test\data\Python\Examiner.py" -expected ".\test\ref\detect\Python\Examiner.txt"
+test\bin\run_test.ps1 -json -name authorized-view-python -action detect -inputfile ".\test\data\Python\authorized_view.py" -expected ".\test\ref\detect\Python\authorized_view.txt"
 
 # R
 test\bin\run_test.ps1 -json -name ETM-540-01 -action detect -tiebreak -inputfile ".\test\data\R\ETM-540-01.R" -expected ".\test\ref\detect\R\ETM-540-01.txt"
