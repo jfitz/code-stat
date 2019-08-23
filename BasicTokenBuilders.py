@@ -200,3 +200,16 @@ class RemarkTokenBuilder(TokenBuilder):
       result = False
 
     return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(self.text) < 3:
+      return 0
+
+    if not self.text.startswith("REM"):
+      return 0
+
+    return len(self.text)

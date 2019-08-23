@@ -15,6 +15,7 @@ test\bin\run_test.ps1 -json -name batnum -action detect -tiebreak -inputfile ".\
 test\bin\run_test.ps1 -json -name life -action detect -tiebreak -inputfile ".\test\data\BASIC\life.bas" -expected ".\test\ref\detect\BASIC\life.txt"
 test\bin\run_test.ps1 -json -name income -action detect -tiebreak -inputfile ".\test\data\BASIC\income.bas" -expected ".\test\ref\detect\BASIC\income.txt"
 test\bin\run_test.ps1 -json -name rockt2 -action detect -tiebreak -inputfile ".\test\data\BASIC\rockt2.bas" -expected ".\test\ref\detect\BASIC\rockt2.txt"
+test\bin\run_test.ps1 -json -name sea-creature-bas -action detect BASIC -inputfile ".\test\data\BASIC\sea_creature.bas" -expected ".\test\ref\detect\BASIC\sea_creature.txt"
 
 # C
 test\bin\run_test.ps1 -json -name diamond -action detect -tiebreak -inputfile ".\test\data\C\diamond.c" -expected ".\test\ref\detect\C\diamond.txt"
