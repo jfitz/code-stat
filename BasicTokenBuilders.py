@@ -157,6 +157,33 @@ class BasicVariableTokenBuilder(TokenBuilder):
     return result
 
 
+# token reader for variable
+class BasicLongVariableTokenBuilder(TokenBuilder):
+  def __init__(self, suffixes):
+    self.text = None
+    self.suffixes = suffixes
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'identifier')]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if len(candidate) == 0 and c.isalpha():
+      result = True
+
+    if len(candidate) > 0:
+      if candidate[-1] not in self.suffixes:
+        result = c.isalpha() or c.isdigit() or c in self.suffixes
+
+    return result
+
+
 # token reader for REMARK comment
 class RemarkTokenBuilder(TokenBuilder):
   def __init__(self):

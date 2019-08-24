@@ -7,6 +7,7 @@ from CodeStatException import CodeStatException
 from GenericCodeExaminer import GenericCodeExaminer
 from AdaExaminer import AdaExaminer
 from BasicExaminer import BasicExaminer
+from BasicaExaminer import BasicaExaminer
 from CBasicExaminer import CBasicExaminer
 from CExaminer import CExaminer
 from CobolFixedFormatExaminer import CobolFixedFormatExaminer
@@ -88,6 +89,7 @@ codesAndNames = {
   'ada-2005': 'Ada-2005',
   'ada-2012': 'Ada-2012',
   'basic': 'BASIC',
+  'basica': 'BASICA',
   'c': 'C',
   'cplusplus': 'C++',
   'csharp': 'C#',
@@ -505,6 +507,9 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
   if 'basic' in languages:
     examiners['basic'] = BasicExaminer(code)
 
+  if 'basica' in languages:
+    examiners['basica'] = BasicaExaminer(code)
+
   if 'cbasic' in languages:
     examiners['cbasic'] = CBasicExaminer(code)
 
@@ -782,6 +787,10 @@ def tokenize(code, language, tabsize, wide, comment):
     examiner = BasicExaminer(code)
     tokens = examiner.tokens
 
+  if language in ['basica']:
+    examiner = BasicaExaminer(code)
+    tokens = examiner.tokens
+
   if language in ['c']:
     examiner = CExaminer(code)
     tokens = examiner.tokens
@@ -994,6 +1003,11 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide, comment):
 
   if language in ['basic', 'bas']:
     examiner = BasicExaminer(code)
+    confidences = examiner.confidences
+    errors = examiner.errors
+
+  if language in ['basica']:
+    examiner = BasicaExaminer(code)
     confidences = examiner.confidences
     errors = examiner.errors
 
@@ -1251,6 +1265,10 @@ def tokenize_statistics(code, language, tabsize, wide, comment):
 
   if language in ['basic', 'bas']:
     examiner = BasicExaminer(code)
+    statistics = examiner.statistics
+
+  if language in ['basica']:
+    examiner = BasicaExaminer(code)
     statistics = examiner.statistics
 
   if language in ['c']:

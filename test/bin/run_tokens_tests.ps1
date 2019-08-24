@@ -60,6 +60,9 @@ test\bin\run_test.ps1 -json -name income-bas -action tokens -language BASIC -inp
 test\bin\run_test.ps1 -json -name rockt2-bas -action tokens -language BASIC -inputfile ".\test\data\BASIC\rockt2.bas" -expected ".\test\ref\tokens\BASIC\rockt2.txt"
 test\bin\run_test.ps1 -json -name sea-creature-bas -action tokens -language BASIC -inputfile ".\test\data\BASIC\sea_creature.bas" -expected ".\test\ref\tokens\BASIC\sea_creature.txt"
 
+# BASICA
+test\bin\run_test.ps1 -json -name sea-creature-basica -action tokens -language BASICA -inputfile ".\test\data\BASIC\sea_creature.bas" -expected ".\test\ref\tokens\BASICA\sea_creature.txt"
+
 # C
 test\bin\run_test.ps1 -json -name diamond-c -action tokens -language C -inputfile ".\test\data\C\diamond.c" -expected ".\test\ref\tokens\C\diamond.txt"
 test\bin\run_test.ps1 -json -name prime_test-c -action tokens -language C -inputfile ".\test\data\C\prime_test.c" -expected ".\test\ref\tokens\C\prime_test.txt"

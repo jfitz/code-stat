@@ -60,6 +60,9 @@ test\bin\run_test.ps1 -json -name income-bas -action confidence -errors -languag
 test\bin\run_test.ps1 -json -name rockt2-bas -action confidence -errors -language BASIC -inputfile ".\test\data\BASIC\rockt2.bas" -expected ".\test\ref\confidence-errors\BASIC\rockt2.txt"
 test\bin\run_test.ps1 -json -name sea-creature-bas -action confidence -errors -language BASIC -inputfile ".\test\data\BASIC\sea_creature.bas" -expected ".\test\ref\confidence-errors\BASIC\sea_creature.txt"
 
+# BASICA
+test\bin\run_test.ps1 -json -name sea-creature-basica -action confidence -errors -language BASICA -inputfile ".\test\data\BASIC\sea_creature.bas" -expected ".\test\ref\confidence-errors\BASICA\sea_creature.txt"
+
 # C
 test\bin\run_test.ps1 -json -name diamond-c -action confidence -errors -language C -inputfile ".\test\data\C\diamond.c" -expected ".\test\ref\confidence-errors\C\diamond.txt"
 test\bin\run_test.ps1 -json -name prime_test-c -action confidence -errors -language C -inputfile ".\test\data\C\prime_test.c" -expected ".\test\ref\confidence-errors\C\prime_test.txt"
