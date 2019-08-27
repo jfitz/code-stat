@@ -192,6 +192,8 @@ test\bin\run_test.ps1 -json -name family-main -action detect -tiebreak -inputfil
 test\bin\run_test.ps1 -json -name family-kb -action detect -tiebreak -inputfile ".\test\data\Prolog\family-kb.pl" -expected ".\test\ref\detect\Prolog\family-kb.txt"
 test\bin\run_test.ps1 -json -name family-menu -action detect -tiebreak -inputfile ".\test\data\Prolog\family-menu.pl" -expected ".\test\ref\detect\Prolog\family-menu.txt"
 test\bin\run_test.ps1 -json -name family-queries -action detect -tiebreak -inputfile ".\test\data\Prolog\family-queries.pl" -expected ".\test\ref\detect\Prolog\family-queries.txt"
+test\bin\run_test.ps1 -json -name web-server-hello-prolog -action detect -inputfile ".\test\data\Prolog\web-server-hello.pl" -expected ".\test\ref\detect\Prolog\web-server-hello.txt"
+test\bin\run_test.ps1 -json -name web-server-params-prolog -action detect -inputfile ".\test\data\Prolog\web-server-params.pl" -expected ".\test\ref\detect\Prolog\web-server-params.txt"
 
 # Python
 test\bin\run_test.ps1 -json -name drone-3d -action detect -tiebreak -inputfile ".\test\data\Python\drone_3d_trajectory_following.py" -expected ".\test\ref\detect\Python\drone_3d_trajectory_following.txt"

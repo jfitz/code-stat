@@ -236,6 +236,8 @@ test\bin\run_test.ps1 -json -name family-main-prolog -action statistics -languag
 test\bin\run_test.ps1 -json -name family-kb-prolog -action statistics -language Prolog -inputfile ".\test\data\Prolog\family-kb.pl" -expected ".\test\ref\statistics\Prolog\family-kb.txt"
 test\bin\run_test.ps1 -json -name family-menu-prolog -action statistics -language Prolog -inputfile ".\test\data\Prolog\family-menu.pl" -expected ".\test\ref\statistics\Prolog\family-menu.txt"
 test\bin\run_test.ps1 -json -name family-queries-prolog -action statistics -language Prolog -inputfile ".\test\data\Prolog\family-queries.pl" -expected ".\test\ref\statistics\Prolog\family-queries.txt"
+test\bin\run_test.ps1 -json -name web-server-hello-prolog -action statistics -language Prolog -inputfile ".\test\data\Prolog\web-server-hello.pl" -expected ".\test\ref\statistics\Prolog\web-server-hello.txt"
+test\bin\run_test.ps1 -json -name web-server-params-prolog -action statistics -language Prolog -inputfile ".\test\data\Prolog\web-server-params.pl" -expected ".\test\ref\statistics\Prolog\web-server-params.txt"
 
 # Python
 test\bin\run_test.ps1 -json -name drone-3d-python -action statistics -language Python -inputfile ".\test\data\Python\drone_3d_trajectory_following.py" -expected ".\test\ref\statistics\Python\drone_3d_trajectory_following.txt"

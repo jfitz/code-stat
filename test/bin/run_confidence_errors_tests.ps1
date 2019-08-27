@@ -236,6 +236,8 @@ test\bin\run_test.ps1 -json -name family-main-prolog -action confidence -errors 
 test\bin\run_test.ps1 -json -name family-kb-prolog -action confidence -errors -language Prolog -inputfile ".\test\data\Prolog\family-kb.pl" -expected ".\test\ref\confidence-errors\Prolog\family-kb.txt"
 test\bin\run_test.ps1 -json -name family-menu-prolog -action confidence -errors -language Prolog -inputfile ".\test\data\Prolog\family-menu.pl" -expected ".\test\ref\confidence-errors\Prolog\family-menu.txt"
 test\bin\run_test.ps1 -json -name family-queries-prolog -action confidence -errors -language Prolog -inputfile ".\test\data\Prolog\family-queries.pl" -expected ".\test\ref\confidence-errors\Prolog\family-queries.txt"
+test\bin\run_test.ps1 -json -name web-server-hello-prolog -action confidence -errors -language Prolog -inputfile ".\test\data\Prolog\web-server-hello.pl" -expected ".\test\ref\confidence-errors\Prolog\web-server-hello.txt"
+test\bin\run_test.ps1 -json -name web-server-params-prolog -action confidence -errors -language Prolog -inputfile ".\test\data\Prolog\web-server-params.pl" -expected ".\test\ref\confidence-errors\Prolog\web-server-params.txt"
 
 # Python
 test\bin\run_test.ps1 -json -name drone-3d-python -action confidence -errors -language Python -inputfile ".\test\data\Python\drone_3d_trajectory_following.py" -expected ".\test\ref\confidence-errors\Python\drone_3d_trajectory_following.txt"
