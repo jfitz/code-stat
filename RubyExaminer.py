@@ -65,7 +65,7 @@ class RubyExaminer(Examiner):
     self.unary_operators = [
       '+', '-',
       '!', '~',
-      '&', '*'
+      '&', '*', '**'
     ]
 
     self.postfix_operators = [
