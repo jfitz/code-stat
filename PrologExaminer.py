@@ -40,10 +40,12 @@ class PrologExaminer(Examiner):
 
     comment_tb = LeadCommentTokenBuilder('%')
 
+    special_symbols = ['!']
+    special_symbol_tb = ListTokenBuilder(special_symbols, 'identifier', True)
+
     known_operators = [
         '-->', ':-',
-        '?-',
-        '|',
+        '?-', '|',
         '->', '*->',
         ':=', '\\+',
         '<', '=', '=..', '=@=', '\\=@=', '=:=', '=<', '==', '=\\=',
@@ -55,13 +57,13 @@ class PrologExaminer(Examiner):
       ]
 
     self.unary_operators = [
-      '+', '-', ':-', '\\+'
+      '+', '-', ':-', '\\', '\\+'
     ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
-    groupers = ['(', ')', ',', '[', ']']
-    group_ends = [')', ']']
+    groupers = ['(', ')', ',', '[', ']', '{', '}', '|']
+    group_ends = [')', ']', '}']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
@@ -86,6 +88,7 @@ class PrologExaminer(Examiner):
       real_exponent_tb,
       keyword_tb,
       known_operator_tb,
+      special_symbol_tb,
       variable_tb,
       groupers_tb,
       identifier_tb,
