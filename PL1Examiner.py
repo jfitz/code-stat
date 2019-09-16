@@ -26,10 +26,10 @@ class PL1Examiner(Examiner):
     self.whitespace_tb = WhitespaceTokenBuilder()
     self.newline_tb = NewlineTokenBuilder()
 
-    self.integer_tb = IntegerTokenBuilder(False)
-    self.integer_exponent_tb = IntegerExponentTokenBuilder(False)
-    self.real_tb = RealTokenBuilder(False, False, False)
-    self.real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', False)
+    self.integer_tb = IntegerTokenBuilder(None)
+    self.integer_exponent_tb = IntegerExponentTokenBuilder(None)
+    self.real_tb = RealTokenBuilder(False, False, None)
+    self.real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     self.identifier_tb = IdentifierTokenBuilder()
     self.string_tb = StringTokenBuilder(['"', "'"], False, False)
 

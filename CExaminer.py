@@ -29,10 +29,10 @@ class CExaminer(Examiner):
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
-    integer_tb = IntegerTokenBuilder(False)
-    integer_exponent_tb = IntegerExponentTokenBuilder(False)
-    real_tb = RealTokenBuilder(False, False, False)
-    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', False)
+    integer_tb = IntegerTokenBuilder("'")
+    integer_exponent_tb = IntegerExponentTokenBuilder("'")
+    real_tb = RealTokenBuilder(False, False, "'")
+    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
     identifier_tb = IdentifierTokenBuilder()
     string_tb = StringTokenBuilder(['"', "'"], False, False)
 

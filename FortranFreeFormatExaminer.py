@@ -34,12 +34,12 @@ class FortranFreeFormatExaminer(FortranExaminer):
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
-    integer_tb = IntegerTokenBuilder(False)
-    integer_exponent_tb = IntegerExponentTokenBuilder(False)
+    integer_tb = IntegerTokenBuilder(None)
+    integer_exponent_tb = IntegerExponentTokenBuilder(None)
     kind_integer_tb = KindIntegerTokenBuilder()
-    real_tb = RealTokenBuilder(False, False, False)
-    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', False)
-    double_exponent_tb = RealExponentTokenBuilder(False, False, 'D', False)
+    real_tb = RealTokenBuilder(False, False, None)
+    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
+    double_exponent_tb = RealExponentTokenBuilder(False, False, 'D', None)
     kind_real_tb = KindRealTokenBuilder()
     identifier_tb = IdentifierTokenBuilder()
 

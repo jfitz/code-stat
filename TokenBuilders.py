@@ -1,4 +1,6 @@
 import re
+import itertools
+
 from Token import Token
 
 # generic TokenBuilder (to hold common functions)
@@ -379,8 +381,8 @@ class PrefixedCharTokenBuilder(TokenBuilder):
 
 # token reader for integer
 class IntegerTokenBuilder(TokenBuilder):
-  def __init__(self, allow_underscore):
-    self.allow_underscore = allow_underscore
+  def __init__(self, extra_char):
+    self.extra_char = extra_char
     self.text = None
 
 
@@ -397,17 +399,16 @@ class IntegerTokenBuilder(TokenBuilder):
     if c.isdigit():
       result = True
     
-    if c == '_':
-      result = self.allow_underscore and\
-        len(candidate) > 0 and candidate[-1].isdigit()
+    if self.extra_char is not None and c == self.extra_char:
+      result = len(candidate) > 0 and candidate[-1].isdigit()
 
     return result
 
 
 # token reader for integer with exponent
 class IntegerExponentTokenBuilder(TokenBuilder):
-  def __init__(self, allow_underscore):
-    self.allow_underscore = allow_underscore
+  def __init__(self, extra_char):
+    self.extra_char = extra_char
     self.text = None
 
 
@@ -424,9 +425,8 @@ class IntegerExponentTokenBuilder(TokenBuilder):
     if len(candidate) == 0:
       result = c.isdigit()
     
-    if c == '_':
-      result = self.allow_underscore and\
-        len(candidate) > 0 and candidate[-1].isdigit()
+    if self.extra_char is not None and c == self.extra_char:
+      result = len(candidate) > 0 and candidate[-1].isdigit()
 
     if len(candidate) > 0:
       result = c.isdigit() or (
@@ -455,12 +455,79 @@ class IntegerExponentTokenBuilder(TokenBuilder):
     return len(self.text)
 
 
+# token reader for number
+class SuffixedIntegerTokenBuilder(TokenBuilder):
+  def __init__(self, suffixes, extra_char):
+    self.text = None
+    self.suffixes = suffixes
+
+    self.abbrevs = {}
+    for suffix in self.suffixes:
+      for i in range(len(suffix)):
+        self.abbrevs[suffix[:i+1]] = 1
+
+    self.extra_char = extra_char
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'number')]
+
+
+  def digit_or_underscore(self, c):
+    if self.extra_char is not None and c == self.extra_char:
+      return True
+
+    return c.isdigit()
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    groups = ["".join(x) for _, x in itertools.groupby(candidate, key=self.digit_or_underscore)]
+
+    if len(groups) == 0:
+      result = c.isdigit()
+
+    if len(groups) == 1:
+      if self.extra_char is not None:
+        result = c.isdigit() or c == self.extra_char or c in self.abbrevs
+      else:
+        result = c.isdigit() or c in self.abbrevs
+
+    if len(groups) == 2:
+      suffix = groups[1] + c
+      result = suffix in self.abbrevs
+
+    return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(self.text) < 2:
+      return 0
+
+    groups = ["".join(x) for _, x in itertools.groupby(self.text, key=self.digit_or_underscore)]
+
+    if len(groups) != 2:
+      return 0
+
+    if groups[1] not in self.suffixes:
+      return 0
+
+    return len(self.text)
+
+
 # token reader for real (no exponent)
 class RealTokenBuilder(TokenBuilder):
-  def __init__(self, require_before, require_after, allow_underscore):
+  def __init__(self, require_before, require_after, extra_char):
     self.require_before = require_before
     self.require_after = require_after
-    self.allow_underscore = allow_underscore
+    self.extra_char = extra_char
     self.text = None
 
 
@@ -480,9 +547,8 @@ class RealTokenBuilder(TokenBuilder):
     if c == '.' and '.' not in candidate:
       result = True
 
-    if c == '_':
-      result = self.allow_underscore and\
-        len(candidate) > 0 and candidate[-1].isdigit()
+    if self.extra_char is not None and c == self.extra_char:
+      result = len(candidate) > 0 and candidate[-1].isdigit()
 
     return result
 
@@ -506,13 +572,75 @@ class RealTokenBuilder(TokenBuilder):
     return len(self.text)
 
 
+# token reader for real (no exponent)
+class SuffixedRealTokenBuilder(TokenBuilder):
+  def __init__(self, require_before, require_after, suffixes, extra_char):
+    self.text = None
+    self.require_before = require_before
+    self.require_after = require_after
+    self.suffixes = suffixes
+    self.extra_char = extra_char
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'number')]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if c.isdigit():
+      result = True
+    
+    if c == '.' and '.' not in candidate:
+      result = True
+
+    if self.extra_char is not None and c == self.extra_char:
+      result = len(candidate) > 0 and candidate[-1].isdigit()
+
+    if len(candidate) > 0 and c in self.suffixes:
+      result = True
+
+    if len(candidate) > 0 and candidate[-1] in self.suffixes:
+      result = False
+
+    return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(self.text) < 2:
+      return 0
+
+    if self.require_before and not self.text[0].isdigit():
+      return 0
+
+    point_position = self.text.find('.')
+
+    if point_position == -1:
+      return 0
+
+    if self.require_after and not self.text[point_position + 1].isdigit():
+      return 0
+
+    if self.text[-1] not in self.suffixes:
+      return 0
+
+    return len(self.text)
+
+
 # token reader for real with exponent
 class RealExponentTokenBuilder(TokenBuilder):
-  def __init__(self, require_before, require_after, letter, allow_underscore):
+  def __init__(self, require_before, require_after, letter, extra_char):
     self.require_before = require_before
     self.require_after = require_after
     self.letter = letter.lower()
-    self.allow_underscore = allow_underscore
+    self.extra_char = extra_char
     self.text = None
 
 
@@ -534,9 +662,8 @@ class RealExponentTokenBuilder(TokenBuilder):
       self.letter not in candidate.lower():
       result = True
 
-    if c == '_':
-      result = self.allow_underscore and\
-        len(candidate) > 0 and candidate[-1].isdigit()
+    if self.extra_char is not None and c == self.extra_char:
+      result = len(candidate) > 0 and candidate[-1].isdigit()
 
     if c.lower() == self.letter\
       and len(candidate) > 0 and\

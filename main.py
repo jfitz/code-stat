@@ -2,7 +2,9 @@ import argparse
 import cProfile
 import json
 import codecs
+
 from flask import Flask, request, render_template, Response
+
 from CodeStatException import CodeStatException
 from GenericCodeExaminer import GenericCodeExaminer
 from AdaExaminer import AdaExaminer

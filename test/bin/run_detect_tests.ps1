@@ -25,6 +25,7 @@ test\bin\run_test.ps1 -json -name prime_test -action detect -tiebreak -inputfile
 test\bin\run_test.ps1 -json -name c-decl -action detect -tiebreak -inputfile ".\test\data\C\c-decl.c" -expected ".\test\ref\detect\C\c-decl-c.txt"
 test\bin\run_test.ps1 -json -name parser-h -action detect -tiebreak -inputfile ".\test\data\C\parser.h" -expected ".\test\ref\detect\C\parser-h.txt"
 test\bin\run_test.ps1 -json -name parser-c -action detect -tiebreak -inputfile ".\test\data\C\parser.c" -expected ".\test\ref\detect\C\parser-c.txt"
+test\bin\run_test.ps1 -json -name values-c -action detect -tiebreak -inputfile ".\test\data\C\values.c" -expected ".\test\ref\detect\C\values.txt"
 
 # CBASIC
 test\bin\run_test.ps1 -json -name fibo -action detect -tiebreak -inputfile ".\test\data\CBASIC\fibo.bas" -expected ".\test\ref\detect\CBASIC\fibo.txt"
@@ -107,6 +108,7 @@ test\bin\run_test.ps1 -json -name hrdb -action detect -tiebreak -inputfile ".\te
 test\bin\run_test.ps1 -json -name date_h -action detect -tiebreak -inputfile ".\test\data\Cplusplus\date.h" -expected ".\test\ref\detect\Cplusplus\date_h.txt"
 test\bin\run_test.ps1 -json -name date_cplusplus -action detect -tiebreak -inputfile ".\test\data\Cplusplus\date.cpp" -expected ".\test\ref\detect\Cplusplus\date_cpp.txt"
 test\bin\run_test.ps1 -json -name inherit_cplusplus -action detect -tiebreak -inputfile ".\test\data\Cplusplus\inherit.cpp" -expected ".\test\ref\detect\Cplusplus\inherit.txt"
+test\bin\run_test.ps1 -json -name values-cpp -action detect -inputfile ".\test\data\Cplusplus\values.cpp" -expected ".\test\ref\detect\Cplusplus\values.txt"
 
 # C#
 test\bin\run_test.ps1 -json -name calculator1 -action detect -tiebreak -inputfile ".\test\data\Csharp\calculator1.cs" -expected ".\test\ref\detect\Csharp\calculator1.txt"

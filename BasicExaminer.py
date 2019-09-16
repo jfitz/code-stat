@@ -7,8 +7,10 @@ from TokenBuilders import (
   NewlineTokenBuilder,
   StringTokenBuilder,
   IntegerTokenBuilder,
+  SuffixedIntegerTokenBuilder,
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
+  SuffixedRealTokenBuilder,
   RealExponentTokenBuilder,
   ListTokenBuilder,
   SingleCharacterTokenBuilder,
@@ -16,8 +18,6 @@ from TokenBuilders import (
   LeadCommentTokenBuilder
 )
 from BasicTokenBuilders import (
-  BasicSuffixedIntegerTokenBuilder,
-  BasicSuffixedRealTokenBuilder,
   BasicVariableTokenBuilder,
   RemarkTokenBuilder
 )
@@ -30,12 +30,12 @@ class BasicExaminer(Examiner):
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
-    integer_tb = IntegerTokenBuilder(False)
+    integer_tb = IntegerTokenBuilder('_')
     integer_exponent_tb = IntegerExponentTokenBuilder(False)
     real_tb = RealTokenBuilder(False, False, False)
-    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', False)
-    integer_suffix_tb = BasicSuffixedIntegerTokenBuilder(['%', '&', 'S', 'I', 'L', 'F', 'D', 'R', 'US', 'UI', 'UL'], False)
-    float_suffix_tb = BasicSuffixedRealTokenBuilder(False, False, ['!', '#', 'F', 'D', 'R'], False)
+    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', '_')
+    integer_suffix_tb = SuffixedIntegerTokenBuilder(['%', '&', 'S', 'I', 'L', 'F', 'D', 'R', 'US', 'UI', 'UL'], '_')
+    float_suffix_tb = SuffixedRealTokenBuilder(False, False, ['!', '#', 'F', 'D', 'R'], '_')
     hex_constant_tb = PrefixedIntegerTokenBuilder('&H', True, '0123456789ABCDEFabcdef_')
     octal_constant_tb = PrefixedIntegerTokenBuilder('&O', True, '01234567_')
     binary_constant_tb = PrefixedIntegerTokenBuilder('&B', True, '01_')

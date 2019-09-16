@@ -33,10 +33,10 @@ class CBasicExaminer(Examiner):
     newline_tb = NewlineTokenBuilder()
     line_continuation_tb = CBasicLineContinuationTokenBuilder()
 
-    integer_tb = IntegerTokenBuilder(False)
-    integer_exponent_tb = IntegerExponentTokenBuilder(False)
+    integer_tb = IntegerTokenBuilder(None)
+    integer_exponent_tb = IntegerExponentTokenBuilder(None)
     real_tb = RealTokenBuilder(False, False, False)
-    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', False)
+    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     hex_constant_tb = CBasicSuffixedIntegerTokenBuilder('0123456789ABCDEF', 'H')
     binary_constant_tb = CBasicSuffixedIntegerTokenBuilder('01', 'B')
     variable_tb = CBasicVariableTokenBuilder('%$')

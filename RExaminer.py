@@ -28,10 +28,10 @@ class RExaminer(Examiner):
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
-    integer_tb = IntegerTokenBuilder(True)
-    integer_exponent_tb = IntegerExponentTokenBuilder(False)
-    real_tb = RealTokenBuilder(False, False, False)
-    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', False)
+    integer_tb = IntegerTokenBuilder('_')
+    integer_exponent_tb = IntegerExponentTokenBuilder('_')
+    real_tb = RealTokenBuilder(False, False, '_')
+    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', '_')
     identifier_tb = IdentifierTokenBuilder()
     string_tb = StringTokenBuilder(['"', "'"], False, False)
 

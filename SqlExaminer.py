@@ -29,10 +29,10 @@ class SqlExaminer(Examiner):
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
-    integer_tb = IntegerTokenBuilder(False)
-    integer_exponent_tb = IntegerExponentTokenBuilder(False)
-    real_tb = RealTokenBuilder(True, True, False)
-    real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', False)
+    integer_tb = IntegerTokenBuilder(None)
+    integer_exponent_tb = IntegerExponentTokenBuilder(None)
+    real_tb = RealTokenBuilder(True, True, None)
+    real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', None)
     string_tb = StringTokenBuilder(["'", '"'], True, False)
     identifier_tb = IdentifierTokenBuilder()
 

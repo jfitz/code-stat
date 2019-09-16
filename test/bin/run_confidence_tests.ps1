@@ -69,6 +69,7 @@ test\bin\run_test.ps1 -json -name prime_test-c -action confidence -language C -i
 test\bin\run_test.ps1 -json -name decl-c -action confidence -language C -inputfile ".\test\data\C\c-decl.c" -expected ".\test\ref\confidence\C\c-decl-c.txt"
 test\bin\run_test.ps1 -json -name parser-h -action confidence -language C -inputfile ".\test\data\C\parser.h" -expected ".\test\ref\confidence\C\parser-h.txt"
 test\bin\run_test.ps1 -json -name parser-c -action confidence -language C -inputfile ".\test\data\C\parser.c" -expected ".\test\ref\confidence\C\parser-c.txt"
+test\bin\run_test.ps1 -json -name values-c -action confidence -language C -inputfile ".\test\data\C\values.c" -expected ".\test\ref\confidence\C\values.txt"
 
 # CBASIC
 test\bin\run_test.ps1 -json -name fibo -action confidence -language CBASIC -inputfile ".\test\data\CBASIC\fibo.bas" -expected ".\test\ref\confidence\CBASIC\fibo.txt"
@@ -151,6 +152,7 @@ test\bin\run_test.ps1 -json -name hrdb-cpp -action confidence -language Cplusplu
 test\bin\run_test.ps1 -json -name date-h-cpp -action confidence -language Cplusplus -inputfile ".\test\data\Cplusplus\date.h" -expected ".\test\ref\confidence\Cplusplus\date_h.txt"
 test\bin\run_test.ps1 -json -name date-cplusplus-cpp -action confidence -language Cplusplus -inputfile ".\test\data\Cplusplus\date.cpp" -expected ".\test\ref\confidence\Cplusplus\date_cpp.txt"
 test\bin\run_test.ps1 -json -name inherit-cplusplus-cpp -action confidence -language Cplusplus -inputfile ".\test\data\Cplusplus\inherit.cpp" -expected ".\test\ref\confidence\Cplusplus\inherit.txt"
+test\bin\run_test.ps1 -json -name values-cpp -action confidence -language Cplusplus -inputfile ".\test\data\Cplusplus\values.cpp" -expected ".\test\ref\confidence\Cplusplus\values.txt"
 
 # C#
 test\bin\run_test.ps1 -json -name calculator1-cs -action confidence -language Csharp -inputfile ".\test\data\Csharp\calculator1.cs" -expected ".\test\ref\confidence\Csharp\calculator1.txt"

@@ -69,6 +69,7 @@ test\bin\run_test.ps1 -json -name prime_test-c -action confidence -errors -langu
 test\bin\run_test.ps1 -json -name decl-c -action confidence -errors -language C -inputfile ".\test\data\C\c-decl.c" -expected ".\test\ref\confidence-errors\C\c-decl-c.txt"
 test\bin\run_test.ps1 -json -name parser-h -action confidence -errors -language C -inputfile ".\test\data\C\parser.h" -expected ".\test\ref\confidence-errors\C\parser-h.txt"
 test\bin\run_test.ps1 -json -name parser-c -action confidence -errors -language C -inputfile ".\test\data\C\parser.c" -expected ".\test\ref\confidence-errors\C\parser-c.txt"
+test\bin\run_test.ps1 -json -name values-c -action confidence -errors -language C -inputfile ".\test\data\C\values.c" -expected ".\test\ref\confidence-errors\C\values.txt"
 
 # CBASIC
 test\bin\run_test.ps1 -json -name fibo -action confidence -errors -language CBASIC -inputfile ".\test\data\CBASIC\fibo.bas" -expected ".\test\ref\confidence-errors\CBASIC\fibo.txt"
@@ -151,6 +152,7 @@ test\bin\run_test.ps1 -json -name hrdb-cpp -action confidence -errors -language 
 test\bin\run_test.ps1 -json -name date-h-cpp -action confidence -errors -language Cplusplus -inputfile ".\test\data\Cplusplus\date.h" -expected ".\test\ref\confidence-errors\Cplusplus\date_h.txt"
 test\bin\run_test.ps1 -json -name date-cplusplus-cpp -action confidence -errors -language Cplusplus -inputfile ".\test\data\Cplusplus\date.cpp" -expected ".\test\ref\confidence-errors\Cplusplus\date_cpp.txt"
 test\bin\run_test.ps1 -json -name inherit-cplusplus-cpp -action confidence -errors -language Cplusplus -inputfile ".\test\data\Cplusplus\inherit.cpp" -expected ".\test\ref\confidence-errors\Cplusplus\inherit.txt"
+test\bin\run_test.ps1 -json -name values-cpp -action confidence -errors -language Cplusplus -inputfile ".\test\data\Cplusplus\values.cpp" -expected ".\test\ref\confidence-errors\Cplusplus\values.txt"
 
 # C#
 test\bin\run_test.ps1 -json -name calculator1-cs -action confidence -errors -language Csharp -inputfile ".\test\data\Csharp\calculator1.cs" -expected ".\test\ref\confidence-errors\Csharp\calculator1.txt"
