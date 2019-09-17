@@ -297,7 +297,7 @@ def route_detect():
 
   languages = []
   if 'languages' in request.args:
-    languages = request.args['languages'].split(' ')
+    languages = request.args['languages'].lower().split(' ')
 
   if len(languages) == 0:
     languages = list(codesAndNames.keys())
@@ -319,12 +319,12 @@ def route_detect():
   try:
     detected_languages = identify_language(text, tabsize, wide, tiebreak_keywords, tiebreak_tokens, languages)
 
-    dl2 = {}
+    mydict = {}
     for key in detected_languages:
       new_key = codesAndNames[key]
-      dl2[new_key] = detected_languages[key]
+      mydict[new_key] = detected_languages[key]
 
-    json_text = json.dumps(dl2)
+    json_text = json.dumps(mydict)
   except CodeStatException as e:
     http_status = 450
     json_text = str(e)
@@ -336,7 +336,7 @@ def route_detect():
 def route_tokens():
   language = ''
   if 'language' in request.args:
-    language = request.args['language']
+    language = request.args['language'].lower()
 
   languages = []
   if 'languages' in request.args:
@@ -363,35 +363,35 @@ def route_tokens():
   http_status = 200
   try:
     if len(language) > 0:
-      tokens = tokenize(text, language.lower(), tabsize, wide, comment)
-      token_list = tokens_to_dict(tokens)
-      json_text = json.dumps(token_list)
+      # tokenize as the one specified language
+      winning_languages = [language]
     else:
       if len(languages) > 0:
-        # detect for languages
+        # detect for specified languages, pick the most confident
         winning_languages = find_winners(text, tabsize, wide, languages)
-
-        list_of_dicts = []
-        # for each winning language
-        for language in winning_languages:
-          # tokenize
-          tokens = tokenize(text, language, tabsize, wide, comment)
-          token_list = tokens_to_dict(tokens)
-
-          # dictionary language: language, tokens: tokens
-          mydict = {}
-          mydict['language'] = language
-          mydict['tokens'] = token_list
-
-          # add dictionary to list
-          list_of_dicts.append(mydict)
-
-        json_text = json.dumps(list_of_dicts)
       else:
         # tokenize as generic
-        tokens = tokenize(text, 'generic', tabsize, wide, comment)
-        token_list = tokens_to_dict(tokens)
+        winning_languages = ['generic']
+
+    list_of_dicts = []
+    for language in winning_languages:
+      tokens = tokenize(text, language, tabsize, wide, comment)
+      token_list = tokens_to_dict(tokens)
+
+      mydict = {}
+      mydict['language'] = language
+      mydict['tokens'] = token_list
+
+      list_of_dicts.append(mydict)
+
+    if len(list_of_dicts) == 0:
+      json_text = ''
+    else:
+      if len(list_of_dicts) == 1 and len(languages) == 0:
         json_text = json.dumps(token_list)
+      else:
+        json_text = json.dumps(list_of_dicts)
+
   except CodeStatException as e:
     http_status = 450
     json_text = str(e)
@@ -403,7 +403,7 @@ def route_tokens():
 def route_confidence():
   language = ''
   if 'language' in request.args:
-    language = request.args['language']
+    language = request.args['language'].lower()
 
   languages = []
   if 'languages' in request.args:
@@ -432,36 +432,37 @@ def route_confidence():
   http_status = 200
   try:
     if len(language) > 0:
-      token_list = tokenize_confidence(text, language.lower(), tabsize, get_errors, wide, comment)
-      json_text = json.dumps(token_list)
+      # tokenize as the one specified language
+      winning_languages = [language]
     else:
       if len(languages) > 0:
-        # detect for languages
+        # detect for specified languages, pick the most confident
         winning_languages = find_winners(text, tabsize, wide, languages)
-
-        list_of_dicts = []
-        # for each winning language
-        for language in winning_languages:
-          # tokenize
-          token_list = tokenize_confidence(text, language, tabsize, get_errors, wide, comment)
-
-          # dictionary language: language, tokens: tokens
-          mydict = {}
-          mydict['language'] = language
-          if get_errors:
-            mydict['errors'] = token_list
-          else:
-            mydict['confidences'] = token_list
-
-          # add dictionary to list
-          list_of_dicts.append(mydict)
-
-        json_text = json.dumps(list_of_dicts)
       else:
         # tokenize as generic
-        tokens = tokenize_confidence(text, 'generic', tabsize, get_errors, wide, comment)
-        token_list = tokens_to_dict(tokens)
+        winning_languages = ['generic']
+
+    list_of_dicts = []
+    for language in winning_languages:
+      token_list = tokenize_confidence(text, language, tabsize, get_errors, wide, comment)
+
+      mydict = {}
+      mydict['language'] = language
+      if get_errors:
+        mydict['errors'] = token_list
+      else:
+        mydict['confidences'] = token_list
+
+      list_of_dicts.append(mydict)
+
+    if len(list_of_dicts) == 0:
+      json_text = ''
+    else:
+      if len(list_of_dicts) == 1 and len(languages) == 0:
         json_text = json.dumps(token_list)
+      else:
+        json_text = json.dumps(list_of_dicts)
+
   except CodeStatException as e:
     http_status = 450
     json_text = str(e)
@@ -473,7 +474,7 @@ def route_confidence():
 def route_statistics():
   language = ''
   if 'language' in request.args:
-    language = request.args['language']
+    language = request.args['language'].lower()
 
   languages = []
   if 'languages' in request.args:
@@ -500,33 +501,34 @@ def route_statistics():
   http_status = 200
   try:
     if len(language) > 0:
-      token_list = tokenize_statistics(text, language.lower(), tabsize, wide, comment)
-      json_text = json.dumps(token_list)
+      # tokenize as the one specified language
+      winning_languages = [language]
     else:
       if len(languages) > 0:
-        # detect for languages
+        # detect for specified languages, pick the most confident
         winning_languages = find_winners(text, tabsize, wide, languages)
-
-        list_of_dicts = []
-        # for each winning language
-        for language in winning_languages:
-          # tokenize
-          token_list = tokenize_statistics(text, language, tabsize, wide, comment)
-
-          # dictionary language: language, tokens: tokens
-          mydict = {}
-          mydict['language'] = language
-          mydict['statistics'] = token_list
-
-          # add dictionary to list
-          list_of_dicts.append(mydict)
-
-        json_text = json.dumps(list_of_dicts)
       else:
         # tokenize as generic
-        tokens = tokenize_statistics(text, 'generic', tabsize, wide, comment)
-        token_list = tokens_to_dict(tokens)
+        winning_languages = ['generic']
+
+    list_of_dicts = []
+    for language in winning_languages:
+      token_list = tokenize_statistics(text, language, tabsize, wide, comment)
+
+      mydict = {}
+      mydict['language'] = language
+      mydict['statistics'] = token_list
+
+      list_of_dicts.append(mydict)
+
+    if len(list_of_dicts) == 0:
+      json_text = ''
+    else:
+      if len(list_of_dicts) == 1 and len(languages) == 0:
         json_text = json.dumps(token_list)
+      else:
+        json_text = json.dumps(list_of_dicts)
+
   except CodeStatException as e:
     http_status = 450
     json_text = str(e)

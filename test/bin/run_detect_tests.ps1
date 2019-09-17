@@ -286,6 +286,6 @@ test\bin\run_test.ps1 -json -name word-processor-vbnet -action detect -language 
 
 # polyglot programs
 test\bin\run_test.ps1 -json -name polyglot -action detect -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\detect\multiple\polyglot.txt"
-test\bin\run_test.ps1 -json -name polyglot-languages -action detect -languages c,cplusplus,cobol-68,cobol-74,cobol-85,objective-c,pascal -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\detect\multiple\polyglot-languages.txt"
+test\bin\run_test.ps1 -json -name polyglot-languages -action detect -languages C,Cplusplus,COBOL-68,COBOL-74,cobol-85,objective-c,Pascal -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\detect\multiple\polyglot-languages.txt"
 
 Write-Output "Number of failures: $failures"
