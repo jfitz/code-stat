@@ -83,6 +83,21 @@ def find_winners(text, tabsize, wide, languages):
   return winning_languages
 
 
+def build_language_list(language, languages, text, tabsize, wide):
+  if len(language) > 0:
+    # tokenize as the one specified language
+    winning_languages = [language]
+  else:
+    if len(languages) > 0:
+      # detect for specified languages, pick the most confident
+      winning_languages = find_winners(text, tabsize, wide, languages)
+    else:
+      # tokenize as generic
+      winning_languages = ['generic']
+
+  return winning_languages
+
+
 app = Flask(__name__)
 
 codesAndNames = {
@@ -362,16 +377,7 @@ def route_tokens():
 
   http_status = 200
   try:
-    if len(language) > 0:
-      # tokenize as the one specified language
-      winning_languages = [language]
-    else:
-      if len(languages) > 0:
-        # detect for specified languages, pick the most confident
-        winning_languages = find_winners(text, tabsize, wide, languages)
-      else:
-        # tokenize as generic
-        winning_languages = ['generic']
+    winning_languages = build_language_list(language, languages, text, tabsize, wide)
 
     list_of_dicts = []
     for language in winning_languages:
@@ -431,16 +437,7 @@ def route_confidence():
 
   http_status = 200
   try:
-    if len(language) > 0:
-      # tokenize as the one specified language
-      winning_languages = [language]
-    else:
-      if len(languages) > 0:
-        # detect for specified languages, pick the most confident
-        winning_languages = find_winners(text, tabsize, wide, languages)
-      else:
-        # tokenize as generic
-        winning_languages = ['generic']
+    winning_languages = build_language_list(language, languages, text, tabsize, wide)
 
     list_of_dicts = []
     for language in winning_languages:
@@ -500,16 +497,7 @@ def route_statistics():
 
   http_status = 200
   try:
-    if len(language) > 0:
-      # tokenize as the one specified language
-      winning_languages = [language]
-    else:
-      if len(languages) > 0:
-        # detect for specified languages, pick the most confident
-        winning_languages = find_winners(text, tabsize, wide, languages)
-      else:
-        # tokenize as generic
-        winning_languages = ['generic']
+    winning_languages = build_language_list(language, languages, text, tabsize, wide)
 
     list_of_dicts = []
     for language in winning_languages:
