@@ -578,14 +578,7 @@ def truncate_lines(text, width):
   return truncated_lines
 
 
-def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, languages):
-  try:
-    tab_size = int(tabsize)
-  except ValueError:
-    tab_size = 8
-
-  code = code.replace('\r\n','\n')
-
+def build_examiners(code, tab_size, wide, languages):
   examiners = {}
 
   if 'ada-83' in languages:
@@ -600,7 +593,7 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
   if 'ada-2012' in languages or 'ada' in languages:
     examiners['ada-2012'] = AdaExaminer(code, '2012')
 
-  if 'basic' in languages:
+  if 'basic' in languages or 'bas' in languages:
     examiners['basic'] = BasicExaminer(code)
 
   if 'basica' in languages:
@@ -612,10 +605,10 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
   if 'c' in languages:
     examiners['c'] = CExaminer(code)
 
-  if 'cplusplus' in languages:
+  if 'cplusplus' in languages or 'c++' in languages:
     examiners['cplusplus'] = CppExaminer(code)
 
-  if 'csharp' in languages:
+  if 'csharp' in languages or 'cs' in languages or 'c#' in languages:
     examiners['csharp'] = CsharpExaminer(code)
 
   if 'cobol-68' in languages:
@@ -630,7 +623,7 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
   if 'cobol-2002' in languages:
     examiners['cobol-2002'] = CobolFreeFormatExaminer(code, '2002', '')
 
-  if 'cobol-2014' in languages or 'cobol' in languages:
+  if 'cobol-2014' in languages or 'cobol' in languages or 'cob' in languages:
     examiners['cobol-2014'] = CobolFreeFormatExaminer(code, '2014', '')
 
   if 'cobol-2014-acu' in languages:
@@ -642,28 +635,28 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
   if 'cobol-2014-gnu' in languages:
     examiners['cobol-2014-gnu'] = CobolFreeFormatExaminer(code, '2014', 'gnu')
 
-  if 'fortran-66' in languages:
+  if 'fortran-66' in languages or 'f66' in languages:
     examiners['fortran-66'] = FortranFixedFormatExaminer(code, '66', tab_size, wide)
 
-  if 'fortran-77' in languages:
+  if 'fortran-77' in languages or 'f77' in languages:
     examiners['fortran-77'] = FortranFixedFormatExaminer(code, '77', tab_size, wide)
 
-  if 'fortran-90' in languages:
+  if 'fortran-90' in languages or 'f90' in languages:
     examiners['fortran-90'] = FortranFreeFormatExaminer(code, '90')
 
-  if 'fortran-95' in languages:
+  if 'fortran-95' in languages or 'f95' in languages:
     examiners['fortran-95'] = FortranFreeFormatExaminer(code, '95')
 
-  if 'fortran-2003' in languages:
+  if 'fortran-2003' in languages or 'f03' in languages:
     examiners['fortran-2003'] = FortranFreeFormatExaminer(code, '2003')
 
   if 'fortran-2008' in languages or 'fortran' in languages:
     examiners['fortran-2008'] = FortranFreeFormatExaminer(code, '2008')
 
-  if 'fsharp' in languages:
+  if 'fsharp' in languages or 'fs' in languages or 'f#' in languages:
     examiners['fsharp'] = FsharpExaminer(code)
 
-  if 'go' in languages:
+  if 'go' in languages or 'golang' in languages:
     examiners['go'] = GoExaminer(code)
 
   if 'html' in languages:
@@ -675,10 +668,10 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
   if 'java' in languages:
     examiners['java'] = JavaExaminer(code)
 
-  if 'javascript' in languages:
+  if 'javascript' in languages or 'js' in languages:
     examiners['javascript'] = JavaScriptExaminer(code)
 
-  if 'pascal' in languages:
+  if 'pascal' in languages or 'pas' in languages:
     examiners['pascal'] = PascalExaminer(code)
 
   if 'pl1-fixed' in languages:
@@ -690,13 +683,13 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
   if 'prolog' in languages:
     examiners['prolog'] = PrologExaminer(code)
 
-  if 'python' in languages:
+  if 'python' in languages or 'py' in languages:
     examiners['python'] = PythonExaminer(code)
 
   if 'r' in languages:
     examiners['r'] = RExaminer(code)
 
-  if 'ruby' in languages:
+  if 'ruby' in languages or 'rb' in languages:
     examiners['ruby'] = RubyExaminer(code)
 
   if 'rust' in languages:
@@ -729,8 +722,21 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
   if 'visualbasic-6' in languages:
     examiners['visualbasic-6'] = VisualBasic6Examiner(code)
 
-  if 'visualbasic-net' in languages:
+  if 'visualbasic-net' in languages or 'vb' in languages:
     examiners['visualbasic-net'] = VisualBasicNETExaminer(code)
+
+  return examiners
+
+
+def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, languages):
+  try:
+    tab_size = int(tabsize)
+  except ValueError:
+    tab_size = 8
+
+  code = code.replace('\r\n','\n')
+
+  examiners = build_examiners(code, tab_size, wide, languages)
 
   # get confidence values
   retval = {}
