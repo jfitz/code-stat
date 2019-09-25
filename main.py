@@ -65,7 +65,7 @@ def tokens_to_dict(tokens):
 def find_winners(text, tabsize, wide, languages):
   tiebreak_keywords = False
   tiebreak_tokens = False
-  detected_languages = identify_language(text, tabsize, wide, tiebreak_keywords, tiebreak_tokens, languages)
+  detected_languages, examiners = identify_language(text, tabsize, wide, tiebreak_keywords, tiebreak_tokens, languages)
 
   # find the highest value
   high_value = 0
@@ -80,22 +80,23 @@ def find_winners(text, tabsize, wide, languages):
     if detected_languages[key] == high_value:
       winning_languages.append(key)
 
-  return winning_languages
+  return winning_languages, examiners
 
 
 def build_language_list(language, languages, text, tabsize, wide):
+  examiners = None
   if len(language) > 0:
     # tokenize as the one specified language
     winning_languages = [language]
   else:
     if len(languages) > 0:
       # detect for specified languages, pick the most confident
-      winning_languages = find_winners(text, tabsize, wide, languages)
+      winning_languages, examiners = find_winners(text, tabsize, wide, languages)
     else:
       # tokenize as generic
       winning_languages = ['generic']
 
-  return winning_languages
+  return winning_languages, examiners
 
 
 app = Flask(__name__)
@@ -332,7 +333,7 @@ def route_detect():
 
   http_status = 200
   try:
-    detected_languages = identify_language(text, tabsize, wide, tiebreak_keywords, tiebreak_tokens, languages)
+    detected_languages, _ = identify_language(text, tabsize, wide, tiebreak_keywords, tiebreak_tokens, languages)
 
     mydict = {}
     for key in detected_languages:
@@ -377,11 +378,14 @@ def route_tokens():
 
   http_status = 200
   try:
-    winning_languages = build_language_list(language, languages, text, tabsize, wide)
+    winning_languages, examiners = build_language_list(language, languages, text, tabsize, wide)
 
     list_of_dicts = []
     for language in winning_languages:
-      tokens = tokenize(text, language, tabsize, wide, comment)
+      if examiners is not None:
+        tokens = examiners[language].tokens
+      else:
+        tokens = tokenize(text, language, tabsize, wide, comment)
       token_list = tokens_to_dict(tokens)
 
       mydict = {}
@@ -437,11 +441,17 @@ def route_confidence():
 
   http_status = 200
   try:
-    winning_languages = build_language_list(language, languages, text, tabsize, wide)
+    winning_languages, examiners = build_language_list(language, languages, text, tabsize, wide)
 
     list_of_dicts = []
     for language in winning_languages:
-      token_list = tokenize_confidence(text, language, tabsize, get_errors, wide, comment)
+      if examiners is not None:
+        if get_errors:
+          token_list = examiners[language].errors
+        else:
+          token_list = examiners[language].confidences
+      else:
+        token_list = tokenize_confidence(text, language, tabsize, get_errors, wide, comment)
 
       mydict = {}
       mydict['language'] = language
@@ -497,11 +507,14 @@ def route_statistics():
 
   http_status = 200
   try:
-    winning_languages = build_language_list(language, languages, text, tabsize, wide)
+    winning_languages, examiners = build_language_list(language, languages, text, tabsize, wide)
 
     list_of_dicts = []
     for language in winning_languages:
-      token_list = tokenize_statistics(text, language, tabsize, wide, comment)
+      if examiners is not None:
+        token_list = examiners[language].statistics
+      else:
+        token_list = tokenize_statistics(text, language, tabsize, wide, comment)
 
       mydict = {}
       mydict['language'] = language
@@ -803,7 +816,7 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
         confidence = examiners[name].confidence()
         retval[name] = confidence
 
-  return retval
+  return retval, examiners
 
 
 def unwrap_lines(text, language):
