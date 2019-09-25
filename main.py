@@ -99,6 +99,18 @@ def build_language_list(language, languages, text, tabsize, wide):
   return winning_languages, examiners
 
 
+def dicts_to_json(list_of_dicts, languages, tokens):
+  if len(list_of_dicts) == 0:
+    json_text = ''
+  else:
+    if len(list_of_dicts) == 1 and len(languages) == 0:
+      json_text = json.dumps(tokens)
+    else:
+      json_text = json.dumps(list_of_dicts)
+  
+  return json_text
+
+
 app = Flask(__name__)
 
 codesAndNames = {
@@ -341,6 +353,7 @@ def route_detect():
       mydict[new_key] = detected_languages[key]
 
     json_text = json.dumps(mydict)
+
   except CodeStatException as e:
     http_status = 450
     json_text = str(e)
@@ -394,13 +407,7 @@ def route_tokens():
 
       list_of_dicts.append(mydict)
 
-    if len(list_of_dicts) == 0:
-      json_text = ''
-    else:
-      if len(list_of_dicts) == 1 and len(languages) == 0:
-        json_text = json.dumps(token_list)
-      else:
-        json_text = json.dumps(list_of_dicts)
+    json_text = dicts_to_json(list_of_dicts, languages, token_list)
 
   except CodeStatException as e:
     http_status = 450
@@ -462,13 +469,7 @@ def route_confidence():
 
       list_of_dicts.append(mydict)
 
-    if len(list_of_dicts) == 0:
-      json_text = ''
-    else:
-      if len(list_of_dicts) == 1 and len(languages) == 0:
-        json_text = json.dumps(token_list)
-      else:
-        json_text = json.dumps(list_of_dicts)
+    json_text = dicts_to_json(list_of_dicts, languages, token_list)
 
   except CodeStatException as e:
     http_status = 450
@@ -522,13 +523,7 @@ def route_statistics():
 
       list_of_dicts.append(mydict)
 
-    if len(list_of_dicts) == 0:
-      json_text = ''
-    else:
-      if len(list_of_dicts) == 1 and len(languages) == 0:
-        json_text = json.dumps(token_list)
-      else:
-        json_text = json.dumps(list_of_dicts)
+    json_text = dicts_to_json(list_of_dicts, languages, token_list)
 
   except CodeStatException as e:
     http_status = 450
