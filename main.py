@@ -117,11 +117,14 @@ def find_winners(text, tab_size, wide, languages):
   return winning_languages, examiners
 
 
-def build_language_list(language, languages, text, tab_size, wide):
+def build_language_list(language, languages, text, tab_size, wide, comment):
   examiners = None
   if len(language) > 0:
     # tokenize as the one specified language
     winning_languages = [language]
+    examiners = {}
+    examiner = make_one_examiner(language, text, tab_size, wide, comment)
+    examiners[language] = examiner
   else:
     if len(languages) > 0:
       # detect for specified languages, pick the most confident
@@ -129,6 +132,9 @@ def build_language_list(language, languages, text, tab_size, wide):
     else:
       # tokenize as generic
       winning_languages = ['generic']
+      examiners = {}
+      examiner = make_one_examiner('generic', text, tab_size, wide, comment)
+      examiners['generic'] = examiner
 
   return winning_languages, examiners
 
@@ -386,21 +392,19 @@ def route_tokens():
 
   http_status = 200
   try:
-    winning_languages, examiners = build_language_list(language, languages, text, tab_size, wide)
+    winning_languages, examiners = build_language_list(language, languages, text, tab_size, wide, comment)
 
     list_of_dicts = []
-    for language in winning_languages:
-      if examiners is not None:
+
+    if examiners is not None:
+      for language in winning_languages:
+        mydict = {}
+        mydict['language'] = language
         tokens = examiners[language].tokens
-      else:
-        tokens = tokenize(text, language, tab_size, wide, comment)
-      token_list = tokens_to_dict(tokens)
+        token_list = tokens_to_dict(tokens)
+        mydict['tokens'] = token_list
 
-      mydict = {}
-      mydict['language'] = language
-      mydict['tokens'] = token_list
-
-      list_of_dicts.append(mydict)
+        list_of_dicts.append(mydict)
 
     json_text = dicts_to_json(list_of_dicts, languages, token_list)
 
@@ -420,26 +424,21 @@ def route_confidence():
 
   http_status = 200
   try:
-    winning_languages, examiners = build_language_list(language, languages, text, tab_size, wide)
+    winning_languages, examiners = build_language_list(language, languages, text, tab_size, wide, comment)
 
     list_of_dicts = []
-    for language in winning_languages:
-      if examiners is not None:
+    if examiners is not None:
+      for language in winning_languages:
+        mydict = {}
+        mydict['language'] = language
         if get_errors:
           token_list = examiners[language].errors
+          mydict['errors'] = token_list
         else:
           token_list = examiners[language].confidences
-      else:
-        token_list = tokenize_confidence(text, language, tab_size, get_errors, wide, comment)
+          mydict['confidences'] = token_list
 
-      mydict = {}
-      mydict['language'] = language
-      if get_errors:
-        mydict['errors'] = token_list
-      else:
-        mydict['confidences'] = token_list
-
-      list_of_dicts.append(mydict)
+        list_of_dicts.append(mydict)
 
     json_text = dicts_to_json(list_of_dicts, languages, token_list)
 
@@ -459,20 +458,18 @@ def route_statistics():
 
   http_status = 200
   try:
-    winning_languages, examiners = build_language_list(language, languages, text, tab_size, wide)
+    winning_languages, examiners = build_language_list(language, languages, text, tab_size, wide, comment)
 
     list_of_dicts = []
-    for language in winning_languages:
-      if examiners is not None:
+
+    if examiners is not None:
+      for language in winning_languages:
+        mydict = {}
+        mydict['language'] = language
         token_list = examiners[language].statistics
-      else:
-        token_list = tokenize_statistics(text, language, tab_size, wide, comment)
+        mydict['statistics'] = token_list
 
-      mydict = {}
-      mydict['language'] = language
-      mydict['statistics'] = token_list
-
-      list_of_dicts.append(mydict)
+        list_of_dicts.append(mydict)
 
     json_text = dicts_to_json(list_of_dicts, languages, token_list)
 
