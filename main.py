@@ -62,6 +62,40 @@ def tokens_to_dict(tokens):
   return token_list
 
 
+def extract_params(request_args):
+  language = ''
+  if 'language' in request_args:
+    language = request_args['language'].lower()
+
+  languages = []
+  if 'languages' in request_args:
+    languages = request_args['languages']
+
+    if len(languages) == 0:
+      languages = list(codesAndNames.keys())
+    else:
+      languages = request_args['languages'].lower().split(' ')
+
+  comment = ''
+  if 'comment' in request_args:
+    comment = request_args['comment']
+
+  tabsize = 8
+  if 'tabsize' in request_args:
+    tabsize = request_args['tabsize']
+
+  try:
+    tab_size = int(tabsize)
+  except ValueError:
+    tab_size = 8
+
+  wide = 'wide' in request_args
+
+  get_errors = 'errors' in request_args
+
+  return language, languages, comment, tab_size, wide, get_errors
+
+
 def find_winners(text, tab_size, wide, languages):
   tiebreak_keywords = False
   tiebreak_tokens = False
@@ -277,15 +311,7 @@ def route_languages():
 
 @app.route('/detab', methods=['POST'])
 def route_detab():
-  tab_size = 8
-
-  if 'tabsize' in request.args:
-    tab_size = request.args['tabsize']
- 
-    try:
-      tab_size = int(tab_size)
-    except ValueError:
-      tab_size = 8
+  _, _, _, tab_size, _, _ = extract_params(request.args)
 
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
@@ -305,9 +331,7 @@ def route_truncate():
 
 @app.route('/unwrap', methods=['POST'])
 def route_unwrap():
-  language = ''
-  if 'language' in request.args:
-    language = request.args['language']
+  language, _, _, _, _, _ = extract_params(request.args)
 
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
@@ -319,23 +343,10 @@ def route_unwrap():
 
 @app.route('/detect', methods=['POST'])
 def route_detect():
-  tabsize = 8
-  if 'tabsize' in request.args:
-    tabsize = request.args['tabsize']
-
-  try:
-    tab_size = int(tabsize)
-  except ValueError:
-    tab_size = 8
-
-  languages = []
-  if 'languages' in request.args:
-    languages = request.args['languages'].lower().split(' ')
+  _, languages, _, tab_size, wide, _ = extract_params(request.args)
 
   if len(languages) == 0:
     languages = list(codesAndNames.keys())
-
-  wide = 'wide' in request.args
 
   tiebreak_keywords = False
   if 'tiebreak-keywords' in request.args:
@@ -368,33 +379,7 @@ def route_detect():
 
 @app.route('/tokens', methods=['POST'])
 def route_tokens():
-  language = ''
-  if 'language' in request.args:
-    language = request.args['language'].lower()
-
-  languages = []
-  if 'languages' in request.args:
-    languages = request.args['languages']
-
-    if len(languages) == 0:
-      languages = list(codesAndNames.keys())
-    else:
-      languages = request.args['languages'].lower().split(' ')
-
-  comment = ''
-  if 'comment' in request.args:
-    comment = request.args['comment']
-
-  tabsize = 8
-  if 'tabsize' in request.args:
-    tabsize = request.args['tabsize']
-
-  try:
-    tab_size = int(tabsize)
-  except ValueError:
-    tab_size = 8
-
-  wide = 'wide' in request.args
+  language, languages, comment, tab_size, wide, _ = extract_params(request.args)
 
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
@@ -428,35 +413,7 @@ def route_tokens():
 
 @app.route('/confidence', methods=['POST'])
 def route_confidence():
-  language = ''
-  if 'language' in request.args:
-    language = request.args['language'].lower()
-
-  languages = []
-  if 'languages' in request.args:
-    languages = request.args['languages']
-
-    if len(languages) == 0:
-      languages = list(codesAndNames.keys())
-    else:
-      languages = request.args['languages'].lower().split(' ')
-
-  comment = ''
-  if 'comment' in request.args:
-    comment = request.args['comment']
-
-  tabsize = 8
-  if 'tabsize' in request.args:
-    tabsize = request.args['tabsize']
-
-  try:
-    tab_size = int(tabsize)
-  except ValueError:
-    tab_size = 8
-
-  wide = 'wide' in request.args
-
-  get_errors = 'errors' in request.args
+  language, languages, comment, tab_size, wide, get_errors = extract_params(request.args)
 
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
@@ -495,33 +452,7 @@ def route_confidence():
 
 @app.route('/statistics', methods=['POST'])
 def route_statistics():
-  language = ''
-  if 'language' in request.args:
-    language = request.args['language'].lower()
-
-  languages = []
-  if 'languages' in request.args:
-    languages = request.args['languages']
-
-    if len(languages) == 0:
-      languages = list(codesAndNames.keys())
-    else:
-      languages = request.args['languages'].lower().split(' ')
-
-  comment = ''
-  if 'comment' in request.args:
-    comment = request.args['comment']
-
-  tabsize = 8
-  if 'tabsize' in request.args:
-    tabsize = request.args['tabsize']
-
-  try:
-    tab_size = int(tabsize)
-  except ValueError:
-    tab_size = 8
-
-  wide = 'wide' in request.args
+  language, languages, comment, tab_size, wide, _ = extract_params(request.args)
 
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
