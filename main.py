@@ -62,10 +62,10 @@ def tokens_to_dict(tokens):
   return token_list
 
 
-def find_winners(text, tabsize, wide, languages):
+def find_winners(text, tab_size, wide, languages):
   tiebreak_keywords = False
   tiebreak_tokens = False
-  detected_languages, examiners = identify_language(text, tabsize, wide, tiebreak_keywords, tiebreak_tokens, languages)
+  detected_languages, examiners = identify_language(text, tab_size, wide, tiebreak_keywords, tiebreak_tokens, languages)
 
   # find the highest value
   high_value = 0
@@ -83,7 +83,7 @@ def find_winners(text, tabsize, wide, languages):
   return winning_languages, examiners
 
 
-def build_language_list(language, languages, text, tabsize, wide):
+def build_language_list(language, languages, text, tab_size, wide):
   examiners = None
   if len(language) > 0:
     # tokenize as the one specified language
@@ -91,7 +91,7 @@ def build_language_list(language, languages, text, tabsize, wide):
   else:
     if len(languages) > 0:
       # detect for specified languages, pick the most confident
-      winning_languages, examiners = find_winners(text, tabsize, wide, languages)
+      winning_languages, examiners = find_winners(text, tab_size, wide, languages)
     else:
       # tokenize as generic
       winning_languages = ['generic']
@@ -323,6 +323,11 @@ def route_detect():
   if 'tabsize' in request.args:
     tabsize = request.args['tabsize']
 
+  try:
+    tab_size = int(tabsize)
+  except ValueError:
+    tab_size = 8
+
   languages = []
   if 'languages' in request.args:
     languages = request.args['languages'].lower().split(' ')
@@ -345,7 +350,7 @@ def route_detect():
 
   http_status = 200
   try:
-    detected_languages, _ = identify_language(text, tabsize, wide, tiebreak_keywords, tiebreak_tokens, languages)
+    detected_languages, _ = identify_language(text, tab_size, wide, tiebreak_keywords, tiebreak_tokens, languages)
 
     mydict = {}
     for key in detected_languages:
@@ -384,6 +389,11 @@ def route_tokens():
   if 'tabsize' in request.args:
     tabsize = request.args['tabsize']
 
+  try:
+    tab_size = int(tabsize)
+  except ValueError:
+    tab_size = 8
+
   wide = 'wide' in request.args
 
   request_bytes = request.get_data()
@@ -391,14 +401,14 @@ def route_tokens():
 
   http_status = 200
   try:
-    winning_languages, examiners = build_language_list(language, languages, text, tabsize, wide)
+    winning_languages, examiners = build_language_list(language, languages, text, tab_size, wide)
 
     list_of_dicts = []
     for language in winning_languages:
       if examiners is not None:
         tokens = examiners[language].tokens
       else:
-        tokens = tokenize(text, language, tabsize, wide, comment)
+        tokens = tokenize(text, language, tab_size, wide, comment)
       token_list = tokens_to_dict(tokens)
 
       mydict = {}
@@ -439,6 +449,11 @@ def route_confidence():
   if 'tabsize' in request.args:
     tabsize = request.args['tabsize']
 
+  try:
+    tab_size = int(tabsize)
+  except ValueError:
+    tab_size = 8
+
   wide = 'wide' in request.args
 
   get_errors = 'errors' in request.args
@@ -448,7 +463,7 @@ def route_confidence():
 
   http_status = 200
   try:
-    winning_languages, examiners = build_language_list(language, languages, text, tabsize, wide)
+    winning_languages, examiners = build_language_list(language, languages, text, tab_size, wide)
 
     list_of_dicts = []
     for language in winning_languages:
@@ -458,7 +473,7 @@ def route_confidence():
         else:
           token_list = examiners[language].confidences
       else:
-        token_list = tokenize_confidence(text, language, tabsize, get_errors, wide, comment)
+        token_list = tokenize_confidence(text, language, tab_size, get_errors, wide, comment)
 
       mydict = {}
       mydict['language'] = language
@@ -501,6 +516,11 @@ def route_statistics():
   if 'tabsize' in request.args:
     tabsize = request.args['tabsize']
 
+  try:
+    tab_size = int(tabsize)
+  except ValueError:
+    tab_size = 8
+
   wide = 'wide' in request.args
 
   request_bytes = request.get_data()
@@ -508,14 +528,14 @@ def route_statistics():
 
   http_status = 200
   try:
-    winning_languages, examiners = build_language_list(language, languages, text, tabsize, wide)
+    winning_languages, examiners = build_language_list(language, languages, text, tab_size, wide)
 
     list_of_dicts = []
     for language in winning_languages:
       if examiners is not None:
         token_list = examiners[language].statistics
       else:
-        token_list = tokenize_statistics(text, language, tabsize, wide, comment)
+        token_list = tokenize_statistics(text, language, tab_size, wide, comment)
 
       mydict = {}
       mydict['language'] = language
@@ -892,12 +912,7 @@ def make_multiple_examiners(code, tab_size, wide, languages):
   return examiners
 
 
-def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, languages):
-  try:
-    tab_size = int(tabsize)
-  except ValueError:
-    tab_size = 8
-
+def identify_language(code, tab_size, wide, tiebreak_keywords, tiebreak_tokens, languages):
   examiners = make_multiple_examiners(code, tab_size, wide, languages)
 
   # get confidence values
@@ -1018,12 +1033,7 @@ def unwrap_lines(text, language):
   return unwrapped_text
 
 
-def tokenize(code, language, tabsize, wide, comment):
-  try:
-    tab_size = int(tabsize)
-  except ValueError:
-    tab_size = 8
-
+def tokenize(code, language, tab_size, wide, comment):
   retval = []
 
   examiner = make_one_examiner(language, code, tab_size, wide, comment)
@@ -1034,12 +1044,7 @@ def tokenize(code, language, tabsize, wide, comment):
   return retval
 
 
-def tokenize_confidence(code, language, tabsize, get_errors, wide, comment):
-  try:
-    tab_size = int(tabsize)
-  except ValueError:
-    tab_size = 8
-
+def tokenize_confidence(code, language, tab_size, get_errors, wide, comment):
   retval = []
 
   examiner = make_one_examiner(language, code, tab_size, wide, comment)
@@ -1053,12 +1058,7 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide, comment):
   return retval
 
 
-def tokenize_statistics(code, language, tabsize, wide, comment):
-  try:
-    tab_size = int(tabsize)
-  except ValueError:
-    tab_size = 8
-
+def tokenize_statistics(code, language, tab_size, wide, comment):
   retval = []
 
   examiner = make_one_examiner(language, code, tab_size, wide, comment)
@@ -1082,9 +1082,9 @@ if __name__ == '__main__':
     code = in_file.read()
     in_file.close()
     language = 'ruby'
-    tabsize = 4
+    tab_size = 4
     wide = False
-    cProfile.run("tokenize(code, language, tabsize, wide, '')")
+    cProfile.run("tokenize(code, language, tab_size, wide, '')")
   else:
     if args.confidence is not None:
       print('Confidencing file ' + args.confidence)
@@ -1092,20 +1092,20 @@ if __name__ == '__main__':
       code = in_file.read()
       in_file.close()
       language = 'ruby'
-      tabsize = 4
+      tab_size = 4
       wide = False
-      cProfile.run("tokenize_confidence(code, language, False, tabsize, wide, '')")
+      cProfile.run("tokenize_confidence(code, language, False, tab_size, wide, '')")
     else:
       if args.detect is not None:
         print('Detecting file ' + args.detect)
         in_file = open(args.detect, 'r')
         code = in_file.read()
         in_file.close()
-        tabsize = 4
+        tab_size = 4
         wide = False
         tiebreak_keywords = True
         tiebreak_tokens = False
         languages = list(codesAndNames.keys())
-        cProfile.run('identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, languages)')
+        cProfile.run('identify_language(code, tab_size, wide, tiebreak_keywords, tiebreak_tokens, languages)')
       else:
         app.run()
