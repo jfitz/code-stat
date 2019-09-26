@@ -586,7 +586,163 @@ def truncate_lines(text, width):
   return truncated_lines
 
 
-def build_examiners(code, tab_size, wide, languages):
+def make_one_examiner(language, code, tab_size, wide, comment):
+  examiner = None
+
+  if language in ['generic']:
+    examiner = GenericCodeExaminer(code, comment)
+
+  if language in ['ada-83']:
+    examiner = AdaExaminer(code, '83')
+
+  if language in ['ada-95']:
+    examiner = AdaExaminer(code, '95')
+
+  if language in ['ada-2005']:
+    examiner = AdaExaminer(code, '2005')
+
+  if language in ['ada-2012', 'ada']:
+    examiner = AdaExaminer(code, '2012')
+
+  if language in ['basic', 'bas']:
+    examiner = BasicExaminer(code)
+
+  if language in ['basica']:
+    examiner = BasicaExaminer(code)
+
+  if language in ['c']:
+    examiner = CExaminer(code)
+
+  if language in ['c++', 'cplusplus']:
+    examiner = CppExaminer(code)
+
+  if language in ['c#', 'csharp']:
+    examiner = CsharpExaminer(code)
+
+  if language in ['cbasic']:
+    examiner = CBasicExaminer(code)
+
+  if language in ['cobol-68']:
+    examiner = CobolFixedFormatExaminer(code, '68', '', tab_size, wide)
+
+  if language in ['cobol-74']:
+    examiner = CobolFixedFormatExaminer(code, '74', '', tab_size, wide)
+
+  if language in ['cobol-85']:
+    examiner = CobolFixedFormatExaminer(code, '85', '', tab_size, wide)
+
+  if language in ['cobol-2002']:
+    examiner = CobolFreeFormatExaminer(code, '2002', '')
+
+  if language in ['cobol-2014', 'cobol', 'cob', 'cbl']:
+    examiner = CobolFreeFormatExaminer(code, '2014', '')
+
+  if language in ['cobol-2014-acu']:
+    examiner = CobolFreeFormatExaminer(code, '2014', 'acu')
+
+  if language in ['cobol-2014-ibm']:
+    examiner = CobolFreeFormatExaminer(code, '2014', 'ibm')
+
+  if language in ['cobol-2014-gnu']:
+    examiner = CobolFreeFormatExaminer(code, '2014', 'gnu')
+
+  if language in ['fortran-66']:
+    examiner = FortranFixedFormatExaminer(code, '66', tab_size, wide)
+
+  if language in ['fortran-77', 'f77']:
+    examiner = FortranFixedFormatExaminer(code, '77', tab_size, wide)
+
+  if language in ['fortran-90', 'f90']:
+    examiner = FortranFreeFormatExaminer(code, '90')
+
+  if language in ['fortran-95', 'f95']:
+    examiner = FortranFreeFormatExaminer(code, '95')
+
+  if language in ['fortran-2003', 'f03']:
+    examiner = FortranFreeFormatExaminer(code, '2003')
+
+  if language in ['fortran-2008', 'f08', 'fortran', 'for', 'ftn']:
+    examiner = FortranFreeFormatExaminer(code, '2008')
+
+  if language in ['fsharp', 'fs']:
+    examiner = FsharpExaminer(code)
+
+  if language in ['go', 'golang']:
+    examiner = GoExaminer(code)
+
+  if language in ['html', 'php']:
+    examiner = HTMLExaminer(code)
+
+  if language in ['java', 'jav']:
+    examiner = JavaExaminer(code)
+
+  if language in ['javascript', 'js']:
+    examiner = JavaScriptExaminer(code)
+
+  if language in ['objective-c', 'objc']:
+    examiner = ObjectiveCExaminer(code)
+
+  if language in ['pascal', 'pas']:
+    examiner = PascalExaminer(code)
+
+  if language in ['pl1-fixed']:
+    examiner = PL1FixedFormatExaminer(code, tab_size, wide)
+
+  if language in ['pl1-free', 'pl1']:
+    examiner = PL1FreeFormatExaminer(code)
+
+  if language in ['prolog']:
+    examiner = PrologExaminer(code)
+
+  if language in ['python', 'py']:
+    examiner = PythonExaminer(code)
+
+  if language in ['r', 'rmd']:
+    examiner = RExaminer(code)
+
+  if language in ['ruby', 'rb']:
+    examiner = RubyExaminer(code)
+
+  if language in ['rust', 'rs']:
+    examiner = RustExaminer(code)
+
+  if language in ['sql-92']:
+    examiner = SqlExaminer(code, '92', '')
+
+  if language in ['sql-99']:
+    examiner = SqlExaminer(code, '99', '')
+
+  if language in ['sql-2003']:
+    examiner = SqlExaminer(code, '2003', '')
+
+  if language in ['sql-2008']:
+    examiner = SqlExaminer(code, '2008', '')
+
+  if language in ['sql-2011']:
+    examiner = SqlExaminer(code, '2011', '')
+
+  if language in ['sql-2016', 'sql']:
+    examiner = SqlExaminer(code, '2016', '')
+
+  if language in ['swift']:
+    examiner = SwiftExaminer(code)
+
+  if language in ['typescript']:
+    examiner = TypeScriptExaminer(code)
+
+  if language in ['visualbasic-6']:
+    examiner = VisualBasic6Examiner(code)
+
+  if language in ['visualbasic-net']:
+    examiner = VisualBasicNETExaminer(code)
+
+  if examiner is None:
+    examiner = GenericCodeExaminer(code, '')
+
+  return examiner
+
+
+def make_multiple_examiners(code, tab_size, wide, languages):
   examiners = {}
 
   if 'ada-83' in languages:
@@ -742,9 +898,7 @@ def identify_language(code, tabsize, wide, tiebreak_keywords, tiebreak_tokens, l
   except ValueError:
     tab_size = 8
 
-  code = code.replace('\r\n','\n')
-
-  examiners = build_examiners(code, tab_size, wide, languages)
+  examiners = make_multiple_examiners(code, tab_size, wide, languages)
 
   # get confidence values
   retval = {}
@@ -870,162 +1024,14 @@ def tokenize(code, language, tabsize, wide, comment):
   except ValueError:
     tab_size = 8
 
-  examiner = None
-  tokens = []
+  retval = []
 
-  if language in ['generic']:
-    examiner = GenericCodeExaminer(code, comment)
+  examiner = make_one_examiner(language, code, tab_size, wide, comment)
 
-  if language in ['ada-83']:
-    examiner = AdaExaminer(code, '83')
+  if examiner is not None:
+    retval = examiner.tokens
 
-  if language in ['ada-95']:
-    examiner = AdaExaminer(code, '95')
-
-  if language in ['ada-2005']:
-    examiner = AdaExaminer(code, '2005')
-
-  if language in ['ada-2012', 'ada']:
-    examiner = AdaExaminer(code, '2012')
-
-  if language in ['basic', 'bas']:
-    examiner = BasicExaminer(code)
-
-  if language in ['basica']:
-    examiner = BasicaExaminer(code)
-
-  if language in ['c']:
-    examiner = CExaminer(code)
-
-  if language in ['c++', 'cplusplus']:
-    examiner = CppExaminer(code)
-
-  if language in ['csharp', 'c#', 'cs']:
-    examiner = CsharpExaminer(code)
-
-  if language in ['cbasic']:
-    examiner = CBasicExaminer(code)
-
-  if language in ['cobol-68']:
-    examiner = CobolFixedFormatExaminer(code, '68', '', tab_size, wide)
-
-  if language in ['cobol-74']:
-    examiner = CobolFixedFormatExaminer(code, '74', '', tab_size, wide)
-
-  if language in ['cobol-85']:
-    examiner = CobolFixedFormatExaminer(code, '85', '', tab_size, wide)
-
-  if language in ['cobol-2002']:
-    examiner = CobolFreeFormatExaminer(code, '2002', '')
-
-  if language in ['cobol-2014', 'cobol', 'cob', 'cbl']:
-    examiner = CobolFreeFormatExaminer(code, '2014', '')
-
-  if language in ['cobol-2014-acu']:
-    examiner = CobolFreeFormatExaminer(code, '2014', 'acu')
-
-  if language in ['cobol-2014-ibm']:
-    examiner = CobolFreeFormatExaminer(code, '2014', 'ibm')
-
-  if language in ['cobol-2014-gnu']:
-    examiner = CobolFreeFormatExaminer(code, '2014', 'gnu')
-
-  if language in ['fortran-66']:
-    examiner = FortranFixedFormatExaminer(code, '66', tab_size, wide)
-
-  if language in ['fortran-77', 'f77']:
-    examiner = FortranFixedFormatExaminer(code, '77', tab_size, wide)
-
-  if language in ['fortran-90', 'f90']:
-    examiner = FortranFreeFormatExaminer(code, '90')
-
-  if language in ['fortran-95', 'f95']:
-    examiner = FortranFreeFormatExaminer(code, '95')
-
-  if language in ['fortran-2003', 'f03']:
-    examiner = FortranFreeFormatExaminer(code, '2003')
-
-  if language in ['fortran-2008', 'f08', 'fortran', 'for', 'ftn']:
-    examiner = FortranFreeFormatExaminer(code, '2008')
-
-  if language in ['fsharp', 'fs']:
-    examiner = FsharpExaminer(code)
-
-  if language in ['go', 'golang']:
-    examiner = GoExaminer(code)
-
-  if language in ['html', 'php']:
-    examiner = HTMLExaminer(code)
-
-  if language in ['java', 'jav']:
-    examiner = JavaExaminer(code)
-
-  if language in ['javascript', 'js']:
-    examiner = JavaScriptExaminer(code)
-
-  if language in ['objective-c', 'objc']:
-    examiner = ObjectiveCExaminer(code)
-
-  if language in ['pascal', 'pas']:
-    examiner = PascalExaminer(code)
-
-  if language in ['pl1-fixed']:
-    examiner = PL1FixedFormatExaminer(code, tab_size, wide)
-
-  if language in ['pl1-free', 'pl1']:
-    examiner = PL1FreeFormatExaminer(code)
-
-  if language in ['prolog']:
-    examiner = PrologExaminer(code)
-
-  if language in ['python', 'py']:
-    examiner = PythonExaminer(code)
-
-  if language in ['r', 'rmd']:
-    examiner = RExaminer(code)
-
-  if language in ['ruby', 'rb']:
-    examiner = RubyExaminer(code)
-
-  if language in ['rust', 'rs']:
-    examiner = RustExaminer(code)
-
-  if language in ['sql-92']:
-    examiner = SqlExaminer(code, '92', '')
-
-  if language in ['sql-99']:
-    examiner = SqlExaminer(code, '99', '')
-
-  if language in ['sql-2003']:
-    examiner = SqlExaminer(code, '2003', '')
-
-  if language in ['sql-2008']:
-    examiner = SqlExaminer(code, '2008', '')
-
-  if language in ['sql-2011']:
-    examiner = SqlExaminer(code, '2011', '')
-
-  if language in ['sql-2016', 'sql']:
-    examiner = SqlExaminer(code, '2016', '')
-
-  if language in ['swift']:
-    examiner = SwiftExaminer(code)
-
-  if language in ['typescript']:
-    examiner = TypeScriptExaminer(code)
-
-  if language in ['visualbasic-6', 'vb', 'vba']:
-    examiner = VisualBasic6Examiner(code)
-
-  if language in ['visualbasic-net', 'vb.net']:
-    examiner = VisualBasicNETExaminer(code)
-
-  if examiner is None:
-    examiner = GenericCodeExaminer(code, '')
-
-  tokens = examiner.tokens
-
-  return tokens
+  return retval
 
 
 def tokenize_confidence(code, language, tabsize, get_errors, wide, comment):
@@ -1034,167 +1040,15 @@ def tokenize_confidence(code, language, tabsize, get_errors, wide, comment):
   except ValueError:
     tab_size = 8
 
-  examiner = None
-  confidences = {}
-  errors = []
+  retval = []
 
-  if language in ['generic']:
-    examiner = GenericCodeExaminer(code, comment)
+  examiner = make_one_examiner(language, code, tab_size, wide, comment)
 
-  if language in ['ada-83']:
-    examiner = AdaExaminer(code, '83')
-
-  if language in ['ada-95']:
-    examiner = AdaExaminer(code, '95')
-
-  if language in ['ada-2005']:
-    examiner = AdaExaminer(code, '2005')
-
-  if language in ['ada-2012', 'ada']:
-    examiner = AdaExaminer(code, '2012')
-
-  if language in ['basic', 'bas']:
-    examiner = BasicExaminer(code)
-
-  if language in ['basica']:
-    examiner = BasicaExaminer(code)
-
-  if language in ['c']:
-    examiner = CExaminer(code)
-
-  if language in ['c++', 'cplusplus']:
-    examiner = CppExaminer(code)
-
-  if language in ['c#', 'csharp']:
-    examiner = CsharpExaminer(code)
-
-  if language in ['cbasic']:
-    examiner = CBasicExaminer(code)
-
-  if language in ['cobol-68']:
-    examiner = CobolFixedFormatExaminer(code, '68', '', tab_size, wide)
-
-  if language in ['cobol-74']:
-    examiner = CobolFixedFormatExaminer(code, '74', '', tab_size, wide)
-
-  if language in ['cobol-85']:
-    examiner = CobolFixedFormatExaminer(code, '85', '', tab_size, wide)
-
-  if language in ['cobol-2002']:
-    examiner = CobolFreeFormatExaminer(code, '2002', '')
-
-  if language in ['cobol-2014', 'cobol', 'cob', 'cbl']:
-    examiner = CobolFreeFormatExaminer(code, '2014', '')
-
-  if language in ['cobol-2014-acu']:
-    examiner = CobolFreeFormatExaminer(code, '2014', 'acu')
-
-  if language in ['cobol-2014-ibm']:
-    examiner = CobolFreeFormatExaminer(code, '2014', 'ibm')
-
-  if language in ['cobol-2014-gnu']:
-    examiner = CobolFreeFormatExaminer(code, '2014', 'gnu')
-
-  if language in ['fortran-66']:
-    examiner = FortranFixedFormatExaminer(code, '66', tab_size, wide)
-
-  if language in ['fortran-77', 'f77']:
-    examiner = FortranFixedFormatExaminer(code, '77', tab_size, wide)
-
-  if language in ['fortran-90', 'f90']:
-    examiner = FortranFreeFormatExaminer(code, '90')
-
-  if language in ['fortran-95', 'f95']:
-    examiner = FortranFreeFormatExaminer(code, '95')
-
-  if language in ['fortran-2003', 'f03']:
-    examiner = FortranFreeFormatExaminer(code, '2003')
-
-  if language in ['fortran-2008', 'f08', 'fortran', 'for', 'ftn']:
-    examiner = FortranFreeFormatExaminer(code, '2008')
-
-  if language in ['fsharp', 'fs']:
-    examiner = FsharpExaminer(code)
-
-  if language in ['go', 'golang']:
-    examiner = GoExaminer(code)
-
-  if language in ['html', 'php']:
-    examiner = HTMLExaminer(code)
-
-  if language in ['java', 'jav']:
-    examiner = JavaExaminer(code)
-
-  if language in ['javascript', 'js']:
-    examiner = JavaScriptExaminer(code)
-
-  if language in ['objective-c', 'objc']:
-    examiner = ObjectiveCExaminer(code)
-
-  if language in ['pascal', 'pas']:
-    examiner = PascalExaminer(code)
-
-  if language in ['pl1-fixed']:
-    examiner = PL1FixedFormatExaminer(code, tab_size, wide)
-
-  if language in ['pl1-free', 'pl1']:
-    examiner = PL1FreeFormatExaminer(code)
-
-  if language in ['prolog']:
-    examiner = PrologExaminer(code)
-
-  if language in ['python', 'py']:
-    examiner = PythonExaminer(code)
-
-  if language in ['r', 'rmd']:
-    examiner = RExaminer(code)
-
-  if language in ['ruby', 'rb']:
-    examiner = RubyExaminer(code)
-
-  if language in ['rust', 'rs']:
-    examiner = RustExaminer(code)
-
-  if language in ['sql-92']:
-    examiner = SqlExaminer(code, '92', '')
-
-  if language in ['sql-99']:
-    examiner = SqlExaminer(code, '99', '')
-
-  if language in ['sql-2003']:
-    examiner = SqlExaminer(code, '2003', '')
-
-  if language in ['sql-2008']:
-    examiner = SqlExaminer(code, '2008', '')
-
-  if language in ['sql-2011']:
-    examiner = SqlExaminer(code, '2011', '')
-
-  if language in ['sql-2016', 'sql']:
-    examiner = SqlExaminer(code, '2016', '')
-
-  if language in ['swift']:
-    examiner = SwiftExaminer(code)
-
-  if language in ['typescript']:
-    examiner = TypeScriptExaminer(code)
-
-  if language in ['visualbasic-6']:
-    examiner = VisualBasic6Examiner(code)
-
-  if language in ['visualbasic-net']:
-    examiner = VisualBasicNETExaminer(code)
-
-  if examiner is None:
-    examiner = GenericCodeExaminer(code, '')
-
-  confidences = examiner.confidences
-  errors = examiner.errors
-
-  if get_errors:
-    retval = errors
-  else:
-    retval = confidences
+  if examiner is not None:
+    if get_errors:
+      retval = examiner.errors
+    else:
+      retval = examiner.confidences
 
   return retval
 
@@ -1205,162 +1059,14 @@ def tokenize_statistics(code, language, tabsize, wide, comment):
   except ValueError:
     tab_size = 8
 
-  examiner = None
-  statistics = {}
+  retval = []
 
-  if language in ['generic']:
-    examiner = GenericCodeExaminer(code, comment)
+  examiner = make_one_examiner(language, code, tab_size, wide, comment)
 
-  if language in ['ada-83']:
-    examiner = AdaExaminer(code, '83')
+  if examiner is not None:
+    retval = examiner.statistics
 
-  if language in ['ada-95']:
-    examiner = AdaExaminer(code, '95')
-
-  if language in ['ada-2005']:
-    examiner = AdaExaminer(code, '2005')
-
-  if language in ['ada-2012', 'ada']:
-    examiner = AdaExaminer(code, '2012')
-
-  if language in ['basic', 'bas']:
-    examiner = BasicExaminer(code)
-
-  if language in ['basica']:
-    examiner = BasicaExaminer(code)
-
-  if language in ['c']:
-    examiner = CExaminer(code)
-
-  if language in ['c++', 'cplusplus']:
-    examiner = CppExaminer(code)
-
-  if language in ['c#', 'csharp']:
-    examiner = CsharpExaminer(code)
-
-  if language in ['cbasic']:
-    examiner = CBasicExaminer(code)
-
-  if language in ['cobol-68']:
-    examiner = CobolFixedFormatExaminer(code, '68', '', tab_size, wide)
-
-  if language in ['cobol-74']:
-    examiner = CobolFixedFormatExaminer(code, '74', '', tab_size, wide)
-
-  if language in ['cobol-85']:
-    examiner = CobolFixedFormatExaminer(code, '85', '', tab_size, wide)
-
-  if language in ['cobol-2002']:
-    examiner = CobolFreeFormatExaminer(code, '2002', '')
-
-  if language in ['cobol-2014', 'cobol', 'cob', 'cbl']:
-    examiner = CobolFreeFormatExaminer(code, '2014', '')
-
-  if language in ['cobol-2014-acu']:
-    examiner = CobolFreeFormatExaminer(code, '2014', 'acu')
-
-  if language in ['cobol-2014-ibm']:
-    examiner = CobolFreeFormatExaminer(code, '2014', 'ibm')
-
-  if language in ['cobol-2014-gnu']:
-    examiner = CobolFreeFormatExaminer(code, '2014', 'gnu')
-
-  if language in ['fortran-66']:
-    examiner = FortranFixedFormatExaminer(code, '66', tab_size, wide)
-
-  if language in ['fortran-77', 'f77']:
-    examiner = FortranFixedFormatExaminer(code, '77', tab_size, wide)
-
-  if language in ['fortran-90', 'f90']:
-    examiner = FortranFreeFormatExaminer(code, '90')
-
-  if language in ['fortran-95', 'f95']:
-    examiner = FortranFreeFormatExaminer(code, '95')
-
-  if language in ['fortran-2003', 'f03']:
-    examiner = FortranFreeFormatExaminer(code, '2003')
-
-  if language in ['fortran-2008', 'f08', 'fortran', 'for', 'ftn']:
-    examiner = FortranFreeFormatExaminer(code, '2008')
-
-  if language in ['fsharp', 'fs']:
-    examiner = FsharpExaminer(code)
-
-  if language in ['go', 'golang']:
-    examiner = GoExaminer(code)
-
-  if language in ['html', 'php']:
-    examiner = HTMLExaminer(code)
-
-  if language in ['java', 'jav']:
-    examiner = JavaExaminer(code)
-
-  if language in ['javascript', 'js']:
-    examiner = JavaScriptExaminer(code)
-
-  if language in ['objective-c', 'objc']:
-    examiner = ObjectiveCExaminer(code)
-
-  if language in ['pascal', 'pas']:
-    examiner = PascalExaminer(code)
-
-  if language in ['pl1-fixed']:
-    examiner = PL1FixedFormatExaminer(code, tab_size, wide)
-
-  if language in ['pl1-free', 'pl1']:
-    examiner = PL1FreeFormatExaminer(code)
-
-  if language in ['prolog']:
-    examiner = PrologExaminer(code)
-
-  if language in ['python', 'py']:
-    examiner = PythonExaminer(code)
-
-  if language in ['r', 'rmd']:
-    examiner = RExaminer(code)
-
-  if language in ['ruby', 'rb']:
-    examiner = RubyExaminer(code)
-
-  if language in ['rust', 'rs']:
-    examiner = RustExaminer(code)
-
-  if language in ['sql-92']:
-    examiner = SqlExaminer(code, '92', '')
-
-  if language in ['sql-99']:
-    examiner = SqlExaminer(code, '99', '')
-
-  if language in ['sql-2003']:
-    examiner = SqlExaminer(code, '2003', '')
-
-  if language in ['sql-2008']:
-    examiner = SqlExaminer(code, '2008', '')
-
-  if language in ['sql-2011']:
-    examiner = SqlExaminer(code, '2011', '')
-
-  if language in ['sql-2016', 'sql']:
-    examiner = SqlExaminer(code, '2016', '')
-
-  if language in ['swift']:
-    examiner = SwiftExaminer(code)
-
-  if language in ['typescript']:
-    examiner = TypeScriptExaminer(code)
-
-  if language in ['visualbasic-6']:
-    examiner = VisualBasic6Examiner(code)
-
-  if language in ['visualbasic-net']:
-    examiner = VisualBasicNETExaminer(code)
-
-  if examiner is None:
-    examiner = GenericCodeExaminer(code, '')
-
-  statistics = examiner.statistics
-
-  return statistics
+  return retval
 
 
 if __name__ == '__main__':
