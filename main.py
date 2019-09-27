@@ -117,35 +117,35 @@ def find_winners(text, tab_size, wide, languages):
   return winning_languages, examiners
 
 
-def build_language_list(language, languages, text, tab_size, wide, comment):
+def build_language_list(languages, text, tab_size, wide, comment):
   examiners = None
-  if len(language) > 0:
-    # tokenize as the one specified language
-    winning_languages = [language]
-    examiners = {}
-    examiner = make_one_examiner(language, text, tab_size, wide, comment)
-    examiners[language] = examiner
+
+  if len(languages) > 0:
+    # detect for specified languages, pick the most confident
+    winning_languages, examiners = find_winners(text, tab_size, wide, languages)
   else:
-    if len(languages) > 0:
-      # detect for specified languages, pick the most confident
-      winning_languages, examiners = find_winners(text, tab_size, wide, languages)
-    else:
-      # tokenize as generic
-      winning_languages = ['generic']
-      examiners = {}
-      examiner = make_one_examiner('generic', text, tab_size, wide, comment)
-      examiners['generic'] = examiner
+    # tokenize as generic
+    winning_languages = ['generic']
+    examiners = {}
+    examiner = make_one_examiner('generic', text, tab_size, wide, comment)
+    examiners['generic'] = examiner
 
   return winning_languages, examiners
 
 
-def dicts_to_json(list_of_dicts, languages, tokens):
+def dicts_to_json(list_of_dicts, language, languages, operation):
   if len(list_of_dicts) == 0:
     json_text = ''
   else:
-    if len(list_of_dicts) == 1 and len(languages) == 0:
+    if len(list_of_dicts) == 1 and\
+      ((len(language) > 0 and len(languages) == 1) or\
+      (len(language) == 0 and len(languages) == 0)):
+      # only 1 language, and the requestor knows it
+      mydict = list_of_dicts[0]
+      tokens = mydict[operation]
       json_text = json.dumps(tokens)
     else:
+      # 1 or more languages, the requestor did not request a specific language
       json_text = json.dumps(list_of_dicts)
   
   return json_text
@@ -387,26 +387,28 @@ def route_detect():
 def route_tokens():
   language, languages, comment, tab_size, wide, _ = extract_params(request.args)
 
+  if len(language) > 0:
+    languages.append(language)
+
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
 
   http_status = 200
   try:
-    winning_languages, examiners = build_language_list(language, languages, text, tab_size, wide, comment)
+    winning_languages, examiners = build_language_list(languages, text, tab_size, wide, comment)
 
     list_of_dicts = []
 
     if examiners is not None:
-      for language in winning_languages:
+      for winning_language in winning_languages:
         mydict = {}
-        mydict['language'] = language
-        tokens = examiners[language].tokens
-        token_list = tokens_to_dict(tokens)
-        mydict['tokens'] = token_list
+        mydict['language'] = winning_language
+        tokens = examiners[winning_language].tokens
+        mydict['tokens'] = tokens_to_dict(tokens)
 
         list_of_dicts.append(mydict)
 
-    json_text = dicts_to_json(list_of_dicts, languages, token_list)
+    json_text = dicts_to_json(list_of_dicts, language, languages, 'tokens')
 
   except CodeStatException as e:
     http_status = 450
@@ -419,28 +421,32 @@ def route_tokens():
 def route_confidence():
   language, languages, comment, tab_size, wide, get_errors = extract_params(request.args)
 
+  if len(language) > 0:
+    languages.append(language)
+
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
 
   http_status = 200
   try:
-    winning_languages, examiners = build_language_list(language, languages, text, tab_size, wide, comment)
+    winning_languages, examiners = build_language_list(languages, text, tab_size, wide, comment)
 
+    operation = ''
     list_of_dicts = []
     if examiners is not None:
-      for language in winning_languages:
+      for winning_language in winning_languages:
         mydict = {}
-        mydict['language'] = language
+        mydict['language'] = winning_language
         if get_errors:
-          token_list = examiners[language].errors
-          mydict['errors'] = token_list
+          mydict['errors'] = examiners[winning_language].errors
+          operation = 'errors'
         else:
-          token_list = examiners[language].confidences
-          mydict['confidences'] = token_list
+          mydict['confidences'] = examiners[winning_language].confidences
+          operation = 'confidences'
 
         list_of_dicts.append(mydict)
 
-    json_text = dicts_to_json(list_of_dicts, languages, token_list)
+    json_text = dicts_to_json(list_of_dicts, language, languages, operation)
 
   except CodeStatException as e:
     http_status = 450
@@ -453,25 +459,27 @@ def route_confidence():
 def route_statistics():
   language, languages, comment, tab_size, wide, _ = extract_params(request.args)
 
+  if len(language) > 0:
+    languages.append(language)
+
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
 
   http_status = 200
   try:
-    winning_languages, examiners = build_language_list(language, languages, text, tab_size, wide, comment)
+    winning_languages, examiners = build_language_list(languages, text, tab_size, wide, comment)
 
     list_of_dicts = []
 
     if examiners is not None:
-      for language in winning_languages:
+      for winning_language in winning_languages:
         mydict = {}
-        mydict['language'] = language
-        token_list = examiners[language].statistics
-        mydict['statistics'] = token_list
+        mydict['language'] = winning_language
+        mydict['statistics'] = examiners[winning_language].statistics
 
         list_of_dicts.append(mydict)
 
-    json_text = dicts_to_json(list_of_dicts, languages, token_list)
+    json_text = dicts_to_json(list_of_dicts, language, languages, 'statistics')
 
   except CodeStatException as e:
     http_status = 450
@@ -789,7 +797,7 @@ def make_multiple_examiners(code, tab_size, wide, languages):
   if 'pl1-fixed' in languages:
     examiners['pl1-fixed'] = PL1FixedFormatExaminer(code, tab_size, wide)
 
-  if 'pl1-free' in languages:
+  if 'pl1-free' in languages or 'pl1' in languages:
     examiners['pl1-free'] = PL1FreeFormatExaminer(code)
 
   if 'prolog' in languages:
