@@ -63,18 +63,9 @@ def tokens_to_dict(tokens):
 
 
 def extract_params(request_args):
-  language = ''
+  languages = ''
   if 'language' in request_args:
-    language = request_args['language'].lower()
-
-  languages = []
-  if 'languages' in request_args:
-    languages = request_args['languages']
-
-    if len(languages) == 0:
-      languages = list(codesAndNames.keys())
-    else:
-      languages = request_args['languages'].lower().split(' ')
+    languages = request_args['language'].lower().split(' ')
 
   comment = ''
   if 'comment' in request_args:
@@ -93,13 +84,13 @@ def extract_params(request_args):
 
   get_errors = 'errors' in request_args
 
-  return language, languages, comment, tab_size, wide, get_errors
+  return languages, comment, tab_size, wide, get_errors
 
 
-def find_winners(text, tab_size, wide, languages):
+def find_winners(text, tab_size, wide, comment, languages):
   tiebreak_keywords = False
   tiebreak_tokens = False
-  detected_languages, examiners = identify_language(text, tab_size, wide, tiebreak_keywords, tiebreak_tokens, languages)
+  detected_languages, examiners = identify_language(text, tab_size, wide, comment, tiebreak_keywords, tiebreak_tokens, languages)
 
   # find the highest value
   high_value = 0
@@ -122,7 +113,7 @@ def build_language_list(languages, text, tab_size, wide, comment):
 
   if len(languages) > 0:
     # detect for specified languages, pick the most confident
-    winning_languages, examiners = find_winners(text, tab_size, wide, languages)
+    winning_languages, examiners = find_winners(text, tab_size, wide, comment, languages)
   else:
     # tokenize as generic
     winning_languages = ['generic']
@@ -133,13 +124,11 @@ def build_language_list(languages, text, tab_size, wide, comment):
   return winning_languages, examiners
 
 
-def dicts_to_json(list_of_dicts, language, languages, operation):
+def dicts_to_json(list_of_dicts, languages, operation):
   if len(list_of_dicts) == 0:
     json_text = ''
   else:
-    if len(list_of_dicts) == 1 and\
-      ((len(language) > 0 and len(languages) == 1) or\
-      (len(language) == 0 and len(languages) == 0)):
+    if len(list_of_dicts) == 1 and len(languages) == 1:
       # only 1 language, and the requestor knows it
       mydict = list_of_dicts[0]
       tokens = mydict[operation]
@@ -317,7 +306,7 @@ def route_languages():
 
 @app.route('/detab', methods=['POST'])
 def route_detab():
-  _, _, _, tab_size, _, _ = extract_params(request.args)
+  _, _, tab_size, _, _ = extract_params(request.args)
 
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
@@ -337,7 +326,12 @@ def route_truncate():
 
 @app.route('/unwrap', methods=['POST'])
 def route_unwrap():
-  language, _, _, _, _, _ = extract_params(request.args)
+  languages, _, _, _, _ = extract_params(request.args)
+
+  if len(languages) > 0:
+    language = languages[0]
+  else:
+    language = 'generic'
 
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
@@ -349,7 +343,7 @@ def route_unwrap():
 
 @app.route('/detect', methods=['POST'])
 def route_detect():
-  _, languages, _, tab_size, wide, _ = extract_params(request.args)
+  languages, _, tab_size, wide, comment = extract_params(request.args)
 
   if len(languages) == 0:
     languages = list(codesAndNames.keys())
@@ -367,7 +361,7 @@ def route_detect():
 
   http_status = 200
   try:
-    detected_languages, _ = identify_language(text, tab_size, wide, tiebreak_keywords, tiebreak_tokens, languages)
+    detected_languages, _ = identify_language(text, tab_size, wide, comment, tiebreak_keywords, tiebreak_tokens, languages)
 
     mydict = {}
     for key in detected_languages:
@@ -385,10 +379,10 @@ def route_detect():
 
 @app.route('/tokens', methods=['POST'])
 def route_tokens():
-  language, languages, comment, tab_size, wide, _ = extract_params(request.args)
+  languages, comment, tab_size, wide, _ = extract_params(request.args)
 
-  if len(language) > 0:
-    languages.append(language)
+  if len(languages) == 0:
+    languages = list(codesAndNames.keys())
 
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
@@ -408,7 +402,7 @@ def route_tokens():
 
         list_of_dicts.append(mydict)
 
-    json_text = dicts_to_json(list_of_dicts, language, languages, 'tokens')
+    json_text = dicts_to_json(list_of_dicts, languages, 'tokens')
 
   except CodeStatException as e:
     http_status = 450
@@ -419,10 +413,10 @@ def route_tokens():
 
 @app.route('/confidence', methods=['POST'])
 def route_confidence():
-  language, languages, comment, tab_size, wide, get_errors = extract_params(request.args)
+  languages, comment, tab_size, wide, get_errors = extract_params(request.args)
 
-  if len(language) > 0:
-    languages.append(language)
+  if len(languages) == 0:
+    languages = list(codesAndNames.keys())
 
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
@@ -446,7 +440,7 @@ def route_confidence():
 
         list_of_dicts.append(mydict)
 
-    json_text = dicts_to_json(list_of_dicts, language, languages, operation)
+    json_text = dicts_to_json(list_of_dicts, languages, operation)
 
   except CodeStatException as e:
     http_status = 450
@@ -457,10 +451,10 @@ def route_confidence():
 
 @app.route('/statistics', methods=['POST'])
 def route_statistics():
-  language, languages, comment, tab_size, wide, _ = extract_params(request.args)
+  languages, comment, tab_size, wide, _ = extract_params(request.args)
 
-  if len(language) > 0:
-    languages.append(language)
+  if len(languages) == 0:
+    languages = list(codesAndNames.keys())
 
   request_bytes = request.get_data()
   text = decode_bytes(request_bytes)
@@ -479,7 +473,7 @@ def route_statistics():
 
         list_of_dicts.append(mydict)
 
-    json_text = dicts_to_json(list_of_dicts, language, languages, 'statistics')
+    json_text = dicts_to_json(list_of_dicts, languages, 'statistics')
 
   except CodeStatException as e:
     http_status = 450
@@ -698,8 +692,11 @@ def make_one_examiner(language, code, tab_size, wide, comment):
   return examiner
 
 
-def make_multiple_examiners(code, tab_size, wide, languages):
+def make_multiple_examiners(code, tab_size, wide, comment, languages):
   examiners = {}
+
+  if 'generic' in languages:
+    examiners['generic'] = GenericCodeExaminer(code, comment)
 
   if 'ada-83' in languages:
     examiners['ada-83'] = AdaExaminer(code, '83')
@@ -848,8 +845,8 @@ def make_multiple_examiners(code, tab_size, wide, languages):
   return examiners
 
 
-def identify_language(code, tab_size, wide, tiebreak_keywords, tiebreak_tokens, languages):
-  examiners = make_multiple_examiners(code, tab_size, wide, languages)
+def identify_language(code, tab_size, wide, comment, tiebreak_keywords, tiebreak_tokens, languages):
+  examiners = make_multiple_examiners(code, tab_size, wide, comment, languages)
 
   # get confidence values
   retval = {}
@@ -1041,7 +1038,8 @@ if __name__ == '__main__':
         wide = False
         tiebreak_keywords = True
         tiebreak_tokens = False
+        comment = ''
         languages = list(codesAndNames.keys())
-        cProfile.run('identify_language(code, tab_size, wide, tiebreak_keywords, tiebreak_tokens, languages)')
+        cProfile.run('identify_language(code, tab_size, wide, comment, tiebreak_keywords, tiebreak_tokens, languages)')
       else:
         app.run()
