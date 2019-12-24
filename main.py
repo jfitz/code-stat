@@ -8,6 +8,7 @@ from flask import Flask, request, render_template, Response
 from CodeStatException import CodeStatException
 from GenericCodeExaminer import GenericCodeExaminer
 from AdaExaminer import AdaExaminer
+from AwkExaminer import AwkExaminer
 from BasicExaminer import BasicExaminer
 from BasicaExaminer import BasicaExaminer
 from CBasicExaminer import CBasicExaminer
@@ -147,6 +148,7 @@ codesAndNames = {
   'ada-95': 'Ada-95',
   'ada-2005': 'Ada-2005',
   'ada-2012': 'Ada-2012',
+  'awk': 'Awk',
   'basic': 'BASIC',
   'basica': 'BASICA',
   'c': 'C',
@@ -199,6 +201,7 @@ codesAndGroups = {
   'ada-95': 'Ada',
   'ada-2005': 'Ada',
   'ada-2012': 'Ada',
+  'awk': 'Awk',
   'basic': 'BASIC',
   'basica': 'BASIC',
   'c': 'C',
@@ -251,6 +254,7 @@ codesAndYears = {
   'ada-95': '1995',
   'ada-2005': '2005',
   'ada-2012': '2012',
+  'awk': '1970',
   'basic': '1965',
   'basica': '1982',
   'c': '1970',
@@ -554,6 +558,9 @@ def make_one_examiner(language, code, tab_size, wide, comment):
   if language in ['ada-2012', 'ada']:
     examiner = AdaExaminer(code, '2012')
 
+  if language in ['awk']:
+    examiner = AwkExaminer(code)
+
   if language in ['basic', 'bas']:
     examiner = BasicExaminer(code)
 
@@ -709,6 +716,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
 
   if 'ada-2012' in languages or 'ada' in languages:
     examiners['ada-2012'] = AdaExaminer(code, '2012')
+
+  if 'awk' in languages:
+    examiners['awk'] = AwkExaminer(code)
 
   if 'basic' in languages or 'bas' in languages:
     examiners['basic'] = BasicExaminer(code)

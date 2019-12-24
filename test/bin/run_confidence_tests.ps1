@@ -50,6 +50,10 @@ test\bin\run_test.ps1 -json -name adabkend-adb-2012 -action confidence -language
 test\bin\run_test.ps1 -json -name adabkend-ads-2012 -action confidence -language Ada-2012 -inputfile ".\test\data\Ada-2012\adabkend.ads" -expected ".\test\ref\confidence\Ada-2012\adabkend-ads.txt"
 test\bin\run_test.ps1 -json -name signup-adb-2012 -action confidence -language Ada-2012 -inputfile ".\test\data\Ada-2012\signup.adb" -expected ".\test\ref\confidence\Ada-2012\signup-adb.txt"
 
+# Awk
+test\bin\run_test.ps1 -json -name funstack-awk -action confidence -language Awk -inputfile ".\test\data\Awk\funstack.awk" -expected ".\test\ref\confidence\Awk\funstack.txt"
+test\bin\run_test.ps1 -json -name awkaster-awk -action confidence -language Awk -inputfile ".\test\data\Awk\awkaster.awk" -expected ".\test\ref\confidence\Awk\awkaster.txt"
+
 # BASIC
 test\bin\run_test.ps1 -json -name values-bas -action confidence -language BASIC -inputfile ".\test\data\BASIC\values.bas" -expected ".\test\ref\confidence\BASIC\values.txt"
 test\bin\run_test.ps1 -json -name simple-bas -action confidence -language BASIC -inputfile ".\test\data\BASIC\simple.bas" -expected ".\test\ref\confidence\BASIC\simple.txt"

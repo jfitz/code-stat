@@ -1022,7 +1022,7 @@ class PrefixedIdentifierTokenBuilder(TokenBuilder):
 # token reader for identifier
 class RegexTokenBuilder(TokenBuilder):
   def __init__(self):
-    self.pattern = re.compile('\\A/.+/[a-z]*\\Z')
+    self.pattern = re.compile(r'\A/.+/[a-z]*\Z')
     self.text = None
 
 

@@ -7,6 +7,10 @@ test\bin\run_test.ps1 -json -name adabkend-adb -action detect -tiebreak -inputfi
 test\bin\run_test.ps1 -json -name adabkend-ads -action detect -tiebreak -inputfile ".\test\data\Ada-83\adabkend.ads" -expected ".\test\ref\detect\Ada-83\adabkend-ads.txt"
 test\bin\run_test.ps1 -json -name signup-adb -action detect -tiebreak -inputfile ".\test\data\Ada-83\signup.adb" -expected ".\test\ref\detect\Ada-83\signup-adb.txt"
 
+# Awk
+test\bin\run_test.ps1 -json -name funstack-awk -action detect -language Awk -inputfile ".\test\data\Awk\funstack.awk" -expected ".\test\ref\detect\Awk\funstack.txt"
+test\bin\run_test.ps1 -json -name awkaster-awk -action detect -language Awk -inputfile ".\test\data\Awk\awkaster.awk" -expected ".\test\ref\detect\Awk\awkaster.txt"
+
 # BASIC
 test\bin\run_test.ps1 -json -name values -action detect -tiebreak -inputfile ".\test\data\BASIC\values.bas" -expected ".\test\ref\detect\BASIC\values.txt"
 test\bin\run_test.ps1 -json -name simple -action detect -tiebreak -inputfile ".\test\data\BASIC\simple.bas" -expected ".\test\ref\detect\BASIC\simple.txt"

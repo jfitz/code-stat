@@ -50,6 +50,10 @@ test\bin\run_test.ps1 -json -name adabkend-adb-2012 -action tokens -language Ada
 test\bin\run_test.ps1 -json -name adabkend-ads-2012 -action tokens -language Ada-2012 -inputfile ".\test\data\Ada-83\adabkend.ads" -expected ".\test\ref\tokens\Ada-2012\adabkend-ads.txt"
 test\bin\run_test.ps1 -json -name signup-adb-2012 -action tokens -language Ada-2012 -inputfile ".\test\data\Ada-83\signup.adb" -expected ".\test\ref\tokens\Ada-2012\signup-adb.txt"
 
+# Awk
+test\bin\run_test.ps1 -json -name funstack-awk -action tokens -language Awk -inputfile ".\test\data\Awk\funstack.awk" -expected ".\test\ref\tokens\Awk\funstack.txt"
+test\bin\run_test.ps1 -json -name awkaster-awk -action tokens -language Awk -inputfile ".\test\data\Awk\awkaster.awk" -expected ".\test\ref\tokens\Awk\awkaster.txt"
+
 # BASIC
 test\bin\run_test.ps1 -json -name values-bas -action tokens -language BASIC -inputfile ".\test\data\BASIC\values.bas" -expected ".\test\ref\tokens\BASIC\values.txt"
 test\bin\run_test.ps1 -json -name simple-bas -action tokens -language BASIC -inputfile ".\test\data\BASIC\simple.bas" -expected ".\test\ref\tokens\BASIC\simple.txt"
