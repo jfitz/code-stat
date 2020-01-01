@@ -21,7 +21,7 @@ from TokenBuilders import (
 from Tokenizer import Tokenizer
 
 class AwkExaminer(Examiner):
-  def __init__(self, code):
+  def __init__(self, code, extension):
     super().__init__()
 
     whitespace_tb = WhitespaceTokenBuilder()
@@ -42,6 +42,9 @@ class AwkExaminer(Examiner):
       'ARGIND', 'BINMODE', 'ERRNO', 'FIELDWIDTHS',
       'IGNORECASE', 'LINT', 'PROCINFO', 'TEXTDOMAIN'
     ]
+
+    if extension == 'gnu':
+      known_variables += known_variables_gnu
 
     variable_tb = ListTokenBuilder(known_variables, 'variable', True)
     real_tb = RealTokenBuilder(False, False, None)

@@ -170,6 +170,7 @@ codesAndNames = {
   'fortran-2003': 'Fortran-2003',
   'fortran-2008': 'Fortran-2008',
   'fsharp': 'F#',
+  'gawk': 'GNU-Awk',
   'go': 'Go',
   'java': 'Java',
   'javascript': 'JavaScript',
@@ -223,6 +224,7 @@ codesAndGroups = {
   'fortran-2003': 'Fortran',
   'fortran-2008': 'Fortran',
   'fsharp': 'F#',
+  'gawk': 'Awk',
   'go': 'Go',
   'java': 'Java',
   'javascript': 'JavaScript',
@@ -254,7 +256,7 @@ codesAndYears = {
   'ada-95': '1995',
   'ada-2005': '2005',
   'ada-2012': '2012',
-  'awk': '1970',
+  'awk': '1977',
   'basic': '1965',
   'basica': '1982',
   'c': '1970',
@@ -276,6 +278,7 @@ codesAndYears = {
   'fortran-2003': '2003',
   'fortran-2008': '2008',
   'fsharp': '2010',
+  'gawk': '1986',
   'go': '2010',
   'java': '1995',
   'javascript': '1995',
@@ -559,7 +562,10 @@ def make_one_examiner(language, code, tab_size, wide, comment):
     examiner = AdaExaminer(code, '2012')
 
   if language in ['awk']:
-    examiner = AwkExaminer(code)
+    examiner = AwkExaminer(code, '')
+
+  if language in ['gawk']:
+    examiner = AwkExaminer(code, 'gnu')
 
   if language in ['basic', 'bas']:
     examiner = BasicExaminer(code)
@@ -718,7 +724,10 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
     examiners['ada-2012'] = AdaExaminer(code, '2012')
 
   if 'awk' in languages:
-    examiners['awk'] = AwkExaminer(code)
+    examiners['awk'] = AwkExaminer(code, '')
+
+  if 'gawk' in languages:
+    examiners['gawk'] = AwkExaminer(code, 'gnu')
 
   if 'basic' in languages or 'bas' in languages:
     examiners['basic'] = BasicExaminer(code)
