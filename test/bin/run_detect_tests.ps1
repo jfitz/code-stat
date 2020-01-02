@@ -217,6 +217,8 @@ test\bin\run_test.ps1 -json -name ETM-540-02 -action detect -tiebreak -inputfile
 test\bin\run_test.ps1 -json -name ETM-540-03 -action detect -tiebreak -inputfile ".\test\data\R\ETM-540-03.R" -expected ".\test\ref\detect\R\ETM-540-03.txt"
 test\bin\run_test.ps1 -json -name ETM-540-04 -action detect -tiebreak -inputfile ".\test\data\R\ETM-540-04.R" -expected ".\test\ref\detect\R\ETM-540-04.txt"
 test\bin\run_test.ps1 -json -name ETM-540-05 -action detect -tiebreak -inputfile ".\test\data\R\ETM-540-05.R" -expected ".\test\ref\detect\R\ETM-540-05.txt"
+test\bin\run_test.ps1 -json -name basketball-r -action detect -inputfile ".\test\data\R\basketball.R" -expected ".\test\ref\detect\R\basketball.txt"
+test\bin\run_test.ps1 -json -name render-r -action detect -inputfile ".\test\data\R\render.R" -expected ".\test\ref\detect\R\render.txt"
 
 # Ruby
 test\bin\run_test.ps1 -json -name basic-ruby -action detect -tiebreak -inputfile ".\test\data\Ruby\basic.rb" -expected ".\test\ref\detect\Ruby\basic.txt"
@@ -292,7 +294,7 @@ test\bin\run_test.ps1 -json -name word-processor-vbnet -action detect -inputfile
 
 # polyglot programs
 test\bin\run_test.ps1 -json -name polyglot -action detect -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\detect\multiple\polyglot.txt"
-test\bin\run_test.ps1 -json -name polyglot-language -action detect -language C,Cplusplus,COBOL-68,COBOL-74,cobol-85,objective-c,Pascal -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\detect\multiple\polyglot-language.txt"
+test\bin\run_test.ps1 -json -name polyglot-languages -action detect -language C,Cplusplus,COBOL-68,COBOL-74,cobol-85,objective-c,Pascal -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\detect\multiple\polyglot-languages.txt"
 
 # non-code files
 test\bin\run_test.ps1 -json -name noncode-empty -action detect -inputfile ".\test\data\noncode\empty.txt" -expected ".\test\ref\detect\noncode\empty.txt"

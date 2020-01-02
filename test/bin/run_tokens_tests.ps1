@@ -261,6 +261,8 @@ test\bin\run_test.ps1 -json -name ETM-540-02-r -action tokens -language R -input
 test\bin\run_test.ps1 -json -name ETM-540-03-r -action tokens -language R -inputfile ".\test\data\R\ETM-540-03.R" -expected ".\test\ref\tokens\R\ETM-540-03.txt"
 test\bin\run_test.ps1 -json -name ETM-540-04-r -action tokens -language R -inputfile ".\test\data\R\ETM-540-04.R" -expected ".\test\ref\tokens\R\ETM-540-04.txt"
 test\bin\run_test.ps1 -json -name ETM-540-05-r -action tokens -language R -inputfile ".\test\data\R\ETM-540-05.R" -expected ".\test\ref\tokens\R\ETM-540-05.txt"
+test\bin\run_test.ps1 -json -name basketball-r -action tokens -language R -inputfile ".\test\data\R\basketball.R" -expected ".\test\ref\tokens\R\basketball.txt"
+test\bin\run_test.ps1 -json -name render-r -action tokens -language R -inputfile ".\test\data\R\render.R" -expected ".\test\ref\tokens\R\render.txt"
 
 # Ruby
 test\bin\run_test.ps1 -json -name basic-ruby -action tokens -language Ruby -inputfile ".\test\data\Ruby\basic.rb" -expected ".\test\ref\tokens\Ruby\basic.txt"

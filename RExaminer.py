@@ -33,7 +33,7 @@ class RExaminer(Examiner):
     real_tb = RealTokenBuilder(False, False, '_')
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', '_')
     identifier_tb = IdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(['"', "'"], False, False, False)
+    string_tb = StringTokenBuilder(['"', "'", '`'], False, True, False)
 
     hash_comment_tb = LeadCommentTokenBuilder('#')
 
@@ -42,22 +42,21 @@ class RExaminer(Examiner):
         '%%', '%/%', '%*%', '%in%',
         '<', '<=', '>', '>=',
         '==', '!=', '!', '|', '&', '||', '&&',
-        'isTRUE',
-        '.', ':', '{', '}', '[[', ']]', '@', '$',
+        '.', ':', '::', '[[', ']]', '@', '$',
         '=', '<-', '<<-', '->', '->>'
       ]
 
     self.unary_operators = [
       '+', '-',
-      '!', '@'
+      '!', '@', '.'
     ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
     stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator')
     user_operator_tb = ROperatorTokenBuilder()
 
-    groupers = ['(', ')', ',', '[', ']']
-    group_ends = [')', ']']
+    groupers = ['(', ')', ',', '[', ']', '{', '}']
+    group_ends = [')', ']', '}']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
@@ -72,7 +71,8 @@ class RExaminer(Examiner):
 
     values = [
       'TRUE', 'FALSE', 'NULL', 'Inf', 'NaN', 'NA',
-      'NA_integer_', 'NA_real_', 'NA_complex_', 'NA_character_'
+      'NA_integer_', 'NA_real_', 'NA_complex_', 'NA_character_',
+      '...'
     ]
 
     values_tb = ListTokenBuilder(values, 'value', True)
