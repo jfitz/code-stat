@@ -7,6 +7,7 @@ from TokenBuilders import (
   NewlineTokenBuilder,
   StringTokenBuilder,
   IntegerTokenBuilder,
+  SuffixedIntegerTokenBuilder,
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
@@ -31,6 +32,7 @@ class JavaScriptExaminer(Examiner):
 
     integer_tb = IntegerTokenBuilder(None)
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
+    big_integer_tb = SuffixedIntegerTokenBuilder(['n', 'N'], '_')
     real_tb = RealTokenBuilder(False, False, None)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     hex_constant_tb = PrefixedIntegerTokenBuilder('0X', False, '0123456789ABCDEFabcdef')
@@ -109,6 +111,7 @@ class JavaScriptExaminer(Examiner):
       terminators_tb,
       integer_tb,
       integer_exponent_tb,
+      big_integer_tb,
       real_tb,
       real_exponent_tb,
       hex_constant_tb,

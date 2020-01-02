@@ -219,6 +219,7 @@ test\bin\run_test.ps1 -json -name ObjectServer-java -action tokens -language Jav
 test\bin\run_test.ps1 -json -name values-js -action tokens -language JavaScript -inputfile ".\test\data\JavaScript\values.js" -expected ".\test\ref\tokens\JavaScript\values.txt"
 test\bin\run_test.ps1 -json -name codestat-js -action tokens -language JavaScript -inputfile ".\test\data\JavaScript\codestat.js" -expected ".\test\ref\tokens\JavaScript\codestat.txt"
 test\bin\run_test.ps1 -json -name bing-js -action tokens -language JavaScript -inputfile ".\test\data\JavaScript\bing.js" -expected ".\test\ref\tokens\JavaScript\bing.txt"
+test\bin\run_test.ps1 -json -name calc_prime-js -action tokens -language JavaScript -inputfile ".\test\data\JavaScript\calc_prime.js" -expected ".\test\ref\tokens\JavaScript\calc_prime.txt"
 
 # Objective-C
 test\bin\run_test.ps1 -json -name hello-objc -action tokens -language Objective-C -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\tokens\Objective-C\HelloWorld.txt"

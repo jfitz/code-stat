@@ -175,6 +175,7 @@ test\bin\run_test.ps1 -json -name ObjectServer-java -action detect -inputfile ".
 test\bin\run_test.ps1 -json -name values-js -action detect -inputfile ".\test\data\JavaScript\values.js" -expected ".\test\ref\detect\JavaScript\values.txt"
 test\bin\run_test.ps1 -json -name codestat-js -action detect -tiebreak -inputfile ".\test\data\JavaScript\codestat.js" -expected ".\test\ref\detect\JavaScript\codestat.txt"
 test\bin\run_test.ps1 -json -name bing-js -action detect -tiebreak -inputfile ".\test\data\JavaScript\bing.js" -expected ".\test\ref\detect\JavaScript\bing.txt"
+test\bin\run_test.ps1 -json -name calc_prime-js -action detect -inputfile ".\test\data\JavaScript\calc_prime.js" -expected ".\test\ref\detect\JavaScript\calc_prime.txt"
 
 # Objective-C
 test\bin\run_test.ps1 -json -name hello-objc -action detect -tiebreak -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\detect\Objective-C\HelloWorld.txt"
