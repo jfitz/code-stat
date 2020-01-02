@@ -43,7 +43,7 @@ class SwiftExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder()
     attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute')
     symbol_tb = SwiftSymbolTokenBuilder('.', 'symbol')
-    string_tb = StringTokenBuilder(['"', "'"], False, False)
+    string_tb = StringTokenBuilder(['"', "'"], False, False, False)
 
     triple_quote_comment_tb = TripleQuoteStringTokenBuilder()
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()

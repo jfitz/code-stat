@@ -106,9 +106,10 @@ class NewlineTokenBuilder(TokenBuilder):
 
 # token reader for text literal (string)
 class StringTokenBuilder(TokenBuilder):
-  def __init__(self, quotes, quote_stuffing, allow_unterm):
+  def __init__(self, quotes, quote_stuffing, allow_newline, allow_unterm):
     self.quotes = quotes
     self.quote_stuffing = quote_stuffing
+    self.allow_newline = allow_newline
     self.allow_unterm = allow_unterm
     self.text = ''
 
@@ -154,7 +155,7 @@ class StringTokenBuilder(TokenBuilder):
         result = quote_count < 2
 
     # newline breaks a string
-    if c in ['\n', '\r']:
+    if c in ['\n', '\r'] and not self.allow_newline:
       result = False
 
     return result

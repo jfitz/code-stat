@@ -45,7 +45,7 @@ class RustExaminer(Examiner):
     hex_integer_tb = PrefixedIntegerTokenBuilder('0x', True, '0123456789ABCDEFabcdef')
     identifier_tb = IdentifierTokenBuilder()
     attribute_tb = RustAttributeTokenBuilder()
-    string_tb = StringTokenBuilder(['"'], False, False)
+    string_tb = StringTokenBuilder(['"'], False, False, False)
     bstring_tb = PrefixedStringTokenBuilder('b', True, ['"', "'"])
     rstring_tb = RustRawStringTokenBuilder()
     char_tb = CharTokenBuilder("'")

@@ -37,7 +37,7 @@ class RubyExaminer(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', '_')
     identifier_tb = RubyIdentifierTokenBuilder()
     symbol_tb = PrefixedIdentifierTokenBuilder(':', 'symbol')
-    string_tb = StringTokenBuilder(['"', "'"], False, False)
+    string_tb = StringTokenBuilder(['"', "'"], False, False, False)
     heredoc_tb = HereDocTokenBuilder()
 
     hash_comment_tb = LeadCommentTokenBuilder('#')

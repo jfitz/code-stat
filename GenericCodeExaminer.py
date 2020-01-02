@@ -34,7 +34,7 @@ class GenericCodeExaminer(Examiner):
 
     number_tb = GenericNumberTokenBuilder()
     identifier_tb = GenericIdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(['"', "'"], False, False)
+    string_tb = StringTokenBuilder(['"', "'"], False, False, False)
     triple_string_tb = TripleQuoteStringTokenBuilder()
 
     comment_tbs = []

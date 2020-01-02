@@ -38,7 +38,7 @@ class CobolFixedFormatExaminer(CobolExaminer):
     real_tb = RealTokenBuilder(False, True, None)
     real_exponent_tb = RealExponentTokenBuilder(False, True, 'E', None)
     identifier_tb = CobolIdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(['"', "'"], True, True)
+    string_tb = StringTokenBuilder(['"', "'"], True, False, True)
     picture_tb = PictureTokenBuilder()
     cr_picture_tb = CRPictureTokenBuilder()
 

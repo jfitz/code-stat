@@ -33,7 +33,7 @@ class SqlExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
     real_tb = RealTokenBuilder(True, True, None)
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', None)
-    string_tb = StringTokenBuilder(["'", '"'], True, False)
+    string_tb = StringTokenBuilder(["'", '"'], True, False, False)
     identifier_tb = IdentifierTokenBuilder()
 
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')

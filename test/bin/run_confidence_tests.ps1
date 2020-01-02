@@ -214,6 +214,7 @@ test\bin\run_test.ps1 -json -name prime_test-java -action confidence -language J
 test\bin\run_test.ps1 -json -name palindrome-java -action confidence -language Java -inputfile ".\test\data\Java\palindrome.java" -expected ".\test\ref\confidence\Java\palindrome.txt"
 test\bin\run_test.ps1 -json -name binary-search-java -action confidence -language Java -inputfile ".\test\data\Java\binary_search.java" -expected ".\test\ref\confidence\Java\binary_search.txt"
 test\bin\run_test.ps1 -json -name ObjectServer-java -action confidence -language Java -inputfile ".\test\data\Java\ObjectServer.java" -expected ".\test\ref\confidence\Java\ObjectServer.txt"
+test\bin\run_test.ps1 -json -name backtick-js -action confidence -language JavaScript -inputfile ".\test\data\JavaScript\backtick.js" -expected ".\test\ref\confidence\JavaScript\backtick.txt"
 
 # JavaScript
 test\bin\run_test.ps1 -json -name values-js -action confidence -language JavaScript -inputfile ".\test\data\JavaScript\values.js" -expected ".\test\ref\confidence\JavaScript\values.txt"

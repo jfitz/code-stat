@@ -40,7 +40,7 @@ class CBasicExaminer(Examiner):
     hex_constant_tb = CBasicSuffixedIntegerTokenBuilder('0123456789ABCDEF', 'H')
     binary_constant_tb = CBasicSuffixedIntegerTokenBuilder('01', 'B')
     variable_tb = CBasicVariableTokenBuilder('%$')
-    string_tb = StringTokenBuilder(['"'], True, False)
+    string_tb = StringTokenBuilder(['"'], True, False, False)
     remark_tb = RemarkTokenBuilder()
     comment_tb = LeadCommentTokenBuilder("'")
 

@@ -38,7 +38,7 @@ class PythonExaminer(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', '_')
     identifier_tb = IdentifierTokenBuilder()
     decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator')
-    string_tb = StringTokenBuilder(['"', "'"], False, False)
+    string_tb = StringTokenBuilder(['"', "'"], False, False, False)
     raw_string_tb = PrefixedStringTokenBuilder('r', True, ['"', "'"])
     byte_string_tb = PrefixedStringTokenBuilder('b', True, ['"', "'"])
     unicode_string_tb = PrefixedStringTokenBuilder('u', True, ['"', "'"])

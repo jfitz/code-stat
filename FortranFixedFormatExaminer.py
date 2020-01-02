@@ -38,7 +38,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
     double_exponent_tb = RealExponentTokenBuilder(False, False, 'D', None)
     identifier_tb = FortranIdentifierTokenBuilder()
     hollerith_tb = HollerithStringTokenBuilder()
-    string_tb = StringTokenBuilder(["'", '"'], True, False)
+    string_tb = StringTokenBuilder(["'", '"'], True, False, False)
     format_tb = FormatSpecifierTokenBuilder()
 
     known_operators = [

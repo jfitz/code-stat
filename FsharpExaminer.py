@@ -42,7 +42,7 @@ class FsharpExaminer(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', None)
     identifier_tb = IdentifierTokenBuilder()
     class_type_tb = ClassTypeTokenBuilder()
-    string_tb = StringTokenBuilder(['"'], False, False)
+    string_tb = StringTokenBuilder(['"'], False, False, False)
     triple_quote_string_tb = TripleQuoteStringTokenBuilder()
     prefixed_string_tb = PrefixedStringTokenBuilder('@', False, ['"'])
     char_tb = FsharpCharTokenBuilder(["'"])

@@ -7,7 +7,6 @@ from TokenBuilders import (
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
   StringTokenBuilder,
-  PrefixedStringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
@@ -35,7 +34,7 @@ class VisualBasic6Examiner(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     variable_tb = VisualBasicVariableTokenBuilder(['$', '%', '#', '!'])
     identifier_tb = IdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(['"'], False, False)
+    string_tb = StringTokenBuilder(['"'], False, False, False)
 
     remark_tb = RemarkTokenBuilder()
     comment_tb = LeadCommentTokenBuilder("'")

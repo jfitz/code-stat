@@ -220,6 +220,7 @@ test\bin\run_test.ps1 -json -name values-js -action confidence -errors -language
 test\bin\run_test.ps1 -json -name codestat-js -action confidence -errors -language JavaScript -inputfile ".\test\data\JavaScript\codestat.js" -expected ".\test\ref\confidence-errors\JavaScript\codestat.txt"
 test\bin\run_test.ps1 -json -name bing-js -action confidence -errors -language JavaScript -inputfile ".\test\data\JavaScript\bing.js" -expected ".\test\ref\confidence-errors\JavaScript\bing.txt"
 test\bin\run_test.ps1 -json -name calc_prime-js -action confidence -errors -language JavaScript -inputfile ".\test\data\JavaScript\calc_prime.js" -expected ".\test\ref\confidence-errors\JavaScript\calc_prime.txt"
+test\bin\run_test.ps1 -json -name backtick-js -action confidence -errors -language JavaScript -inputfile ".\test\data\JavaScript\backtick.js" -expected ".\test\ref\confidence-errors\JavaScript\backtick.txt"
 
 # Objective-C
 test\bin\run_test.ps1 -json -name hello-objc -action confidence -errors -language Objective-C -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\confidence-errors\Objective-C\HelloWorld.txt"
