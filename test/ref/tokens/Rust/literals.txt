@@ -1,0 +1,797 @@
+﻿{
+    "value":[
+        {
+            "type":"keyword",
+            "value":"fn"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"main"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"comment",
+            "value":"// Integer addition"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"println"
+        },
+        {
+            "type":"operator",
+            "value":"!"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"string",
+            "value":"\"1 + 2 = {}\""
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"1"
+        },
+        {
+            "type":"type",
+            "value":"u32"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"+"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"2"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"comment",
+            "value":"// Integer subtraction"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"println"
+        },
+        {
+            "type":"operator",
+            "value":"!"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"string",
+            "value":"\"1 - 2 = {}\""
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"1"
+        },
+        {
+            "type":"type",
+            "value":"i32"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"-"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"2"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"comment",
+            "value":"// TODO ^ Try changing `1i32` to `1u32` to see why the type is important"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"comment",
+            "value":"// Short-circuiting boolean logic"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"println"
+        },
+        {
+            "type":"operator",
+            "value":"!"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"string",
+            "value":"\"true AND false is {}\""
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"value",
+            "value":"true"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u0026\u0026"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"value",
+            "value":"false"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"println"
+        },
+        {
+            "type":"operator",
+            "value":"!"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"string",
+            "value":"\"true OR false is {}\""
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"value",
+            "value":"true"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"||"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"value",
+            "value":"false"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"println"
+        },
+        {
+            "type":"operator",
+            "value":"!"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"string",
+            "value":"\"NOT true is {}\""
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"!"
+        },
+        {
+            "type":"value",
+            "value":"true"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"comment",
+            "value":"// Bitwise operations"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"println"
+        },
+        {
+            "type":"operator",
+            "value":"!"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"string",
+            "value":"\"0011 AND 0101 is {:04b}\""
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0b0011"
+        },
+        {
+            "type":"type",
+            "value":"u32"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u0026"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0b0101"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"println"
+        },
+        {
+            "type":"operator",
+            "value":"!"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"string",
+            "value":"\"0011 OR 0101 is {:04b}\""
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0b0011"
+        },
+        {
+            "type":"type",
+            "value":"u32"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"|"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0b0101"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"println"
+        },
+        {
+            "type":"operator",
+            "value":"!"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"string",
+            "value":"\"0011 XOR 0101 is {:04b}\""
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0b0011"
+        },
+        {
+            "type":"type",
+            "value":"u32"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"^"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0b0101"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"println"
+        },
+        {
+            "type":"operator",
+            "value":"!"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"string",
+            "value":"\"1 \u003c\u003c 5 is {}\""
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"1"
+        },
+        {
+            "type":"type",
+            "value":"u32"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u003c\u003c"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"5"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"println"
+        },
+        {
+            "type":"operator",
+            "value":"!"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"string",
+            "value":"\"0x80 \u003e\u003e 2 is 0x{:x}\""
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0x80"
+        },
+        {
+            "type":"type",
+            "value":"u32"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u003e\u003e"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"2"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"comment",
+            "value":"// Use underscores to improve readability!"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"println"
+        },
+        {
+            "type":"operator",
+            "value":"!"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"string",
+            "value":"\"One million is written as {}\""
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"1_000_000"
+        },
+        {
+            "type":"type",
+            "value":"u32"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        }
+    ],
+    "Count":198
+}

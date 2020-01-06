@@ -47,6 +47,6 @@ class Tokenizer():
 
       if score > winner_score:
         winner = tokenbuilder
-        winner_score = winner.get_score(line_printable_tokens)
+        winner_score = score
 
     return winner

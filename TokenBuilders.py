@@ -567,8 +567,20 @@ class RealTokenBuilder(TokenBuilder):
     if self.require_before and not self.text[0].isdigit():
       return 0
 
-    if self.require_after and not self.text[-1].isdigit():
+    point_position = self.text.find('.')
+
+    if point_position == -1 or point_position == len(self.text) - 1:
       return 0
+
+    if self.require_after and not self.text[point_position + 1].isdigit():
+      return 0
+
+    if self.extra_char is not None:
+      if not self.text[-1].isdigit() and self.text[-1] != self.extra_char:
+        return 0
+    else:
+      if not self.text[-1].isdigit():
+        return 0
 
     return len(self.text)
 
@@ -623,7 +635,7 @@ class SuffixedRealTokenBuilder(TokenBuilder):
 
     point_position = self.text.find('.')
 
-    if point_position == -1:
+    if point_position == -1 or point_position == len(self.text) - 1:
       return 0
 
     if self.require_after and not self.text[point_position + 1].isdigit():
@@ -693,13 +705,20 @@ class RealExponentTokenBuilder(TokenBuilder):
     if not self.letter.lower() in self.text.lower():
       return 0
 
-    if not self.text[-1].isdigit():
-      return 0
+    if self.extra_char is not None:
+      if not self.text[-1].isdigit() and self.text[-1] != self.extra_char:
+        return 0
+    else:
+      if not self.text[-1].isdigit():
+        return 0
 
     if self.require_before and not self.text[0].isdigit():
       return 0
 
     point_position = self.text.find('.')
+
+    if point_position == -1 or point_position == len(self.text) - 1:
+      return 0
 
     if self.require_after and not self.text[point_position + 1].isdigit():
       return 0

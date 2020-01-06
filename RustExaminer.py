@@ -41,8 +41,9 @@ class RustExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder('_')
     real_tb = RealTokenBuilder(False, True, '_')
     real_exponent_tb = RealExponentTokenBuilder(False, True, 'E', '_')
-    octal_integer_tb = PrefixedIntegerTokenBuilder('0o', True, '01234567')
-    hex_integer_tb = PrefixedIntegerTokenBuilder('0x', True, '0123456789ABCDEFabcdef')
+    octal_integer_tb = PrefixedIntegerTokenBuilder('0o', True, '01234567_')
+    hex_integer_tb = PrefixedIntegerTokenBuilder('0x', True, '0123456789ABCDEFabcdef_')
+    binary_integer_tb = PrefixedIntegerTokenBuilder('0b', True, '01_')
     identifier_tb = IdentifierTokenBuilder()
     attribute_tb = RustAttributeTokenBuilder()
     string_tb = StringTokenBuilder(['"'], False, False, False)
@@ -146,7 +147,9 @@ class RustExaminer(Examiner):
       'u32', 'i32',
       'u64', 'i64',
       'u128', 'i128',
-      'usize', 'isize'
+      'usize', 'isize',
+      'f32',
+      'f64'
     ]
 
     types_tb = ListTokenBuilder(types, 'type', True)
@@ -168,6 +171,7 @@ class RustExaminer(Examiner):
       integer_exponent_tb,
       octal_integer_tb,
       hex_integer_tb,
+      binary_integer_tb,
       real_tb,
       real_exponent_tb,
       keyword_tb,

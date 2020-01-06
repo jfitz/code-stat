@@ -1033,10 +1033,11 @@ if __name__ == '__main__':
     in_file = open(args.tokenize, 'r')
     code = in_file.read()
     in_file.close()
-    language = 'ruby'
+    language = 'rust'
     tab_size = 4
     wide = False
-    cProfile.run("tokenize(code, language, tab_size, wide, '')")
+    tokenize(code, language, tab_size, wide, '')
+    # cProfile.run("tokenize(code, language, tab_size, wide, '')")
   else:
     if args.confidence is not None:
       print('Confidencing file ' + args.confidence)

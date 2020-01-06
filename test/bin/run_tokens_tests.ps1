@@ -280,6 +280,7 @@ test\bin\run_test.ps1 -json -name tokens-ruby -action tokens -language Ruby -inp
 test\bin\run_test.ps1 -json -name webhook-ruby -action tokens -language Ruby -inputfile ".\test\data\Ruby\webhook.rb" -expected ".\test\ref\tokens\Ruby\webhook.txt"
 
 # Rust
+test\bin\run_test.ps1 -json -name literals-rust -action tokens -language Rust -inputfile ".\test\data\Rust\literals.rs" -expected ".\test\ref\tokens\Rust\literals.txt"
 test\bin\run_test.ps1 -json -name dom-rust -action tokens -language Rust -inputfile ".\test\data\Rust\dom.rs" -expected ".\test\ref\tokens\Rust\dom.txt"
 test\bin\run_test.ps1 -json -name html-rust -action tokens -language Rust -inputfile ".\test\data\Rust\html.rs" -expected ".\test\ref\tokens\Rust\html.txt"
 test\bin\run_test.ps1 -json -name geometry-rust -action tokens -language Rust -inputfile ".\test\data\Rust\geometry.rs" -expected ".\test\ref\tokens\Rust\geometry.txt"

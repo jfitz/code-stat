@@ -236,6 +236,7 @@ test\bin\run_test.ps1 -json -name tokens-ruby -action detect -tiebreak -inputfil
 test\bin\run_test.ps1 -json -name webhook-ruby -action detect -tiebreak -inputfile ".\test\data\Ruby\webhook.rb" -expected ".\test\ref\detect\Ruby\webhook.txt"
 
 # Rust
+test\bin\run_test.ps1 -json -name literals-rust -action detect -inputfile ".\test\data\Rust\literals.rs" -expected ".\test\ref\detect\Rust\literals.txt"
 test\bin\run_test.ps1 -json -name dom-rust -action detect -inputfile ".\test\data\Rust\dom.rs" -expected ".\test\ref\detect\Rust\dom.txt"
 test\bin\run_test.ps1 -json -name html-rust -action detect -inputfile ".\test\data\Rust\html.rs" -expected ".\test\ref\detect\Rust\html.txt"
 test\bin\run_test.ps1 -json -name geometry-rust -action detect -inputfile ".\test\data\Rust\geometry.rs" -expected ".\test\ref\detect\Rust\geometry.txt"
