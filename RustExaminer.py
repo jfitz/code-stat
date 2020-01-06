@@ -39,8 +39,8 @@ class RustExaminer(Examiner):
 
     integer_tb = IntegerTokenBuilder('_')
     integer_exponent_tb = IntegerExponentTokenBuilder('_')
-    real_tb = RealTokenBuilder(False, False, '_')
-    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', '_')
+    real_tb = RealTokenBuilder(False, True, '_')
+    real_exponent_tb = RealExponentTokenBuilder(False, True, 'E', '_')
     octal_integer_tb = PrefixedIntegerTokenBuilder('0o', True, '01234567')
     hex_integer_tb = PrefixedIntegerTokenBuilder('0x', True, '0123456789ABCDEFabcdef')
     identifier_tb = IdentifierTokenBuilder()
