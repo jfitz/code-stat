@@ -5,39 +5,39 @@ import codecs
 
 from flask import Flask, request, render_template, Response
 
-from CodeStatException import CodeStatException
-from GenericCodeExaminer import GenericCodeExaminer
-from AdaExaminer import AdaExaminer
-from AwkExaminer import AwkExaminer
-from BasicExaminer import BasicExaminer
-from BasicaExaminer import BasicaExaminer
-from CBasicExaminer import CBasicExaminer
-from CExaminer import CExaminer
-from CobolFixedFormatExaminer import CobolFixedFormatExaminer
-from CobolFreeFormatExaminer import CobolFreeFormatExaminer
-from CppExaminer import CppExaminer
-from CsharpExaminer import CsharpExaminer
-from FortranFixedFormatExaminer import FortranFixedFormatExaminer
-from FortranFreeFormatExaminer import FortranFreeFormatExaminer
-from FsharpExaminer import FsharpExaminer
-from GoExaminer import GoExaminer
-from HTMLExaminer import HTMLExaminer
-from JavaExaminer import JavaExaminer
-from JavaScriptExaminer import JavaScriptExaminer
-from ObjectiveCExaminer import ObjectiveCExaminer
-from PascalExaminer import PascalExaminer
-from PL1FixedFormatExaminer import PL1FixedFormatExaminer
-from PL1FreeFormatExaminer import PL1FreeFormatExaminer
-from PrologExaminer import PrologExaminer
-from PythonExaminer import PythonExaminer
-from RExaminer import RExaminer
-from RubyExaminer import RubyExaminer
-from RustExaminer import RustExaminer
-from SqlExaminer import SqlExaminer
-from SwiftExaminer import SwiftExaminer
-from TypeScriptExaminer import TypeScriptExaminer
-from VisualBasic6Examiner import VisualBasic6Examiner
-from VisualBasicNETExaminer import VisualBasicNETExaminer
+from codestat_exception import CodeStatException
+from generic_code_examiner import GenericCodeExaminer
+from ada_examiner import AdaExaminer
+from awk_examiner import AwkExaminer
+from basic_examiner import BasicExaminer
+from basica_examiner import BasicaExaminer
+from cbasic_examiner import CBasicExaminer
+from c_examiner import CExaminer
+from cobol_fixedformat_examiner import CobolFixedFormatExaminer
+from cobol_freeformat_examiner import CobolFreeFormatExaminer
+from cpp_examiner import CppExaminer
+from csharp_examiner import CsharpExaminer
+from fortran_fixedformat_examiner import FortranFixedFormatExaminer
+from fortran_freeformat_examiner import FortranFreeFormatExaminer
+from fsharp_examiner import FsharpExaminer
+from go_examiner import GoExaminer
+from html_examiner import HTMLExaminer
+from java_examiner import JavaExaminer
+from javascript_examiner import JavaScriptExaminer
+from objectivec_examiner import ObjectiveCExaminer
+from pascal_examiner import PascalExaminer
+from pl1_fixedformat_examiner import PL1FixedFormatExaminer
+from pl1_freeformat_examiner import PL1FreeFormatExaminer
+from prolog_examiner import PrologExaminer
+from python_examiner import PythonExaminer
+from r_examiner import RExaminer
+from ruby_examiner import RubyExaminer
+from rust_examiner import RustExaminer
+from sql_examiner import SqlExaminer
+from swift_examiner import SwiftExaminer
+from typescript_examiner import TypeScriptExaminer
+from visualbasic6_examiner import VisualBasic6Examiner
+from visualbasicnet_examiner import VisualBasicNETExaminer
 
 
 def decode_bytes(in_bytes):

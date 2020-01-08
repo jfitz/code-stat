@@ -1,5 +1,5 @@
-from Token import Token
-from TokenBuilders import ListTokenBuilder
+from codestat_token import Token
+from token_builders import ListTokenBuilder
 
 class Examiner:
   def __init__(self):
