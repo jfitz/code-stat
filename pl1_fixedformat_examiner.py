@@ -9,6 +9,14 @@ from pl1_token_builders import (
 from pl1_examiner import PL1Examiner
 
 class PL1FixedFormatExaminer(PL1Examiner):
+  @staticmethod
+  def __escape_z__():
+    PL1CommentStartTokenBuilder.__escape_z__()
+    PL1CommentMiddleTokenBuilder.__escape_z__()
+    PL1CommentEndTokenBuilder.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, code, tab_size, wide):
     super().__init__()
 

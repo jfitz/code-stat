@@ -6,6 +6,12 @@ from token_builders import (
 
 # token reader for identifier
 class GenericIdentifierTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = None
 
@@ -28,6 +34,12 @@ class GenericIdentifierTokenBuilder(TokenBuilder):
 
 
 class GenericNumberTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = None
 

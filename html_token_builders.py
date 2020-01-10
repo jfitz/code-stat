@@ -6,6 +6,12 @@ from token_builders import (
 
 # token reader for identifier
 class HTMLIdentifierTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = None
 
@@ -31,6 +37,11 @@ class HTMLIdentifierTokenBuilder(TokenBuilder):
 
 # accept characters to match item in list
 class HTMLListTokenBuilder(ListTokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
 
   def get_score(self, line_printable_tokens):
     if self.text is None:
@@ -53,6 +64,12 @@ class HTMLListTokenBuilder(ListTokenBuilder):
 
 # token reader for attribute
 class HTMLAttributeTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = None
 
@@ -95,6 +112,12 @@ class HTMLAttributeTokenBuilder(TokenBuilder):
 
 # token reader for unusual unicode character
 class HTMLUnicodeTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = None
 

@@ -3,6 +3,12 @@ from token_builders import TokenBuilder
 
 # token reader for variable
 class BasicVariableTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, suffixes):
     self.text = None
     self.suffixes = suffixes
@@ -32,6 +38,12 @@ class BasicVariableTokenBuilder(TokenBuilder):
 
 # token reader for variable
 class BasicLongVariableTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, suffixes):
     self.text = None
     self.suffixes = suffixes
@@ -59,6 +71,12 @@ class BasicLongVariableTokenBuilder(TokenBuilder):
 
 # token reader for REMARK comment
 class RemarkTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = ''
 

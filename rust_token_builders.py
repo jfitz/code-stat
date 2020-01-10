@@ -3,6 +3,12 @@ from token_builders import TokenBuilder
 
 # token reader for identifier
 class RustRawStringTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = ''
 
@@ -65,6 +71,12 @@ class RustRawStringTokenBuilder(TokenBuilder):
 
 # token reader for attribute (inner or outer)
 class RustAttributeTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = ''
 

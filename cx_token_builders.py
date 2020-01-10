@@ -3,6 +3,12 @@ from token_builders import TokenBuilder
 
 # token reader for // comment
 class SlashSlashCommentTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = ''
 
@@ -44,6 +50,12 @@ class SlashSlashCommentTokenBuilder(TokenBuilder):
 
 # token reader for /// comment
 class TripleSlashCommentTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = ''
 
@@ -88,6 +100,12 @@ class TripleSlashCommentTokenBuilder(TokenBuilder):
 
 # token reader for /* */ comment
 class SlashStarCommentTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = ''
 
@@ -129,6 +147,12 @@ class SlashStarCommentTokenBuilder(TokenBuilder):
 
 # token reader for /* */ comment that allows nesting
 class NestedSlashStarCommentTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = ''
 
@@ -207,6 +231,12 @@ class NestedSlashStarCommentTokenBuilder(TokenBuilder):
 
 # token reader for <name> class identifier
 class ClassTypeTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = ''
 

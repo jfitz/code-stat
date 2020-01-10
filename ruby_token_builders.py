@@ -3,6 +3,12 @@ from token_builders import TokenBuilder
 
 # token reader for identifier
 class RubyIdentifierTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = None
 
@@ -35,6 +41,12 @@ class RubyIdentifierTokenBuilder(TokenBuilder):
 
 # token reader for identifier
 class HereDocTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = None
     self.oper = '<<-'

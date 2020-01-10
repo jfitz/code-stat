@@ -3,6 +3,12 @@ from token_builders import TokenBuilder
 
 # token reader for start comment
 class PL1CommentStartTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = ''
 
@@ -42,6 +48,12 @@ class PL1CommentStartTokenBuilder(TokenBuilder):
 
 # token reader for middle comment
 class PL1CommentMiddleTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = ''
 
@@ -67,6 +79,12 @@ class PL1CommentMiddleTokenBuilder(TokenBuilder):
 
 # token reader for end comment
 class PL1CommentEndTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = ''
 

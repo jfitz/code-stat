@@ -1,6 +1,11 @@
 import json
 
 class Token:
+  @staticmethod
+  def __escape_z__():
+    return 'Escape ?Z'
+
+
   def __init__(self, text, group):
     self.text = text
     self.group = group

@@ -5,6 +5,12 @@ from codestat_token import Token
 
 # generic TokenBuilder (to hold common functions)
 class TokenBuilder:
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def attempt(self, text):
     self.text = None
     candidate = ''
@@ -43,6 +49,12 @@ class TokenBuilder:
 
 # accept any character (but only one)
 class InvalidTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = None
 
@@ -62,6 +74,12 @@ class InvalidTokenBuilder(TokenBuilder):
 
 # token reader for whitespace
 class WhitespaceTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = None
 
@@ -81,6 +99,12 @@ class WhitespaceTokenBuilder(TokenBuilder):
 
 # token reader for newline
 class NewlineTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = None
 
@@ -106,6 +130,12 @@ class NewlineTokenBuilder(TokenBuilder):
 
 # token reader for text literal (string)
 class StringTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, quotes, quote_stuffing, allow_newline, allow_unterm):
     self.quotes = quotes
     self.quote_stuffing = quote_stuffing
@@ -176,6 +206,12 @@ class StringTokenBuilder(TokenBuilder):
 
 # token reader for prefixed text literal (string)
 class PrefixedStringTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, prefix, case_sensitive, quotes):
     if case_sensitive:
       self.prefix = prefix
@@ -231,6 +267,12 @@ class PrefixedStringTokenBuilder(TokenBuilder):
 
 # token reader for single-character text literal (string)
 class CharTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, quotes):
     self.quotes = quotes
     self.text = ''
@@ -301,6 +343,12 @@ class CharTokenBuilder(TokenBuilder):
 
 # token reader for single-character text literal (string)
 class PrefixedCharTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, prefix, case_sensitive, quotes):
     self.quotes = quotes
     self.case_sensitive = case_sensitive
@@ -382,6 +430,12 @@ class PrefixedCharTokenBuilder(TokenBuilder):
 
 # token reader for integer
 class IntegerTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, extra_char):
     self.extra_char = extra_char
     self.text = None
@@ -408,6 +462,12 @@ class IntegerTokenBuilder(TokenBuilder):
 
 # token reader for integer with exponent
 class IntegerExponentTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, extra_char):
     self.extra_char = extra_char
     self.text = None
@@ -458,6 +518,12 @@ class IntegerExponentTokenBuilder(TokenBuilder):
 
 # token reader for number
 class SuffixedIntegerTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, suffixes, extra_char):
     self.text = None
     self.suffixes = suffixes
@@ -525,6 +591,12 @@ class SuffixedIntegerTokenBuilder(TokenBuilder):
 
 # token reader for real (no exponent)
 class RealTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, require_before, require_after, extra_char):
     self.require_before = require_before
     self.require_after = require_after
@@ -587,6 +659,12 @@ class RealTokenBuilder(TokenBuilder):
 
 # token reader for real (no exponent)
 class SuffixedRealTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, require_before, require_after, suffixes, extra_char):
     self.text = None
     self.require_before = require_before
@@ -649,6 +727,12 @@ class SuffixedRealTokenBuilder(TokenBuilder):
 
 # token reader for real with exponent
 class RealExponentTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, require_before, require_after, letter, extra_char):
     self.require_before = require_before
     self.require_after = require_after
@@ -728,6 +812,12 @@ class RealExponentTokenBuilder(TokenBuilder):
 
 # token reader for identifier
 class IdentifierTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = None
 
@@ -750,6 +840,12 @@ class IdentifierTokenBuilder(TokenBuilder):
 
 
 class SingleCharacterTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, legals, group):
     self.legals = legals
     self.group = group
@@ -769,6 +865,12 @@ class SingleCharacterTokenBuilder(TokenBuilder):
 
 # accept characters to match item in list
 class ListTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, legals, group, case_sensitive):
     if case_sensitive:
       self.legals = legals
@@ -846,6 +948,12 @@ class ListTokenBuilder(TokenBuilder):
 
 # token reader for integer
 class PrefixedIntegerTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, prefix, case_sensitive, allowed_chars):
     if case_sensitive:
       self.prefix = prefix
@@ -890,6 +998,12 @@ class PrefixedIntegerTokenBuilder(TokenBuilder):
 
 # token reader for ! comment
 class LeadCommentTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, lead):
     self.lead = lead
     self.text = ''
@@ -931,6 +1045,12 @@ class LeadCommentTokenBuilder(TokenBuilder):
 
 # token reader for (* *) comment
 class ParenStarCommentTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = ''
 
@@ -960,6 +1080,12 @@ class ParenStarCommentTokenBuilder(TokenBuilder):
 
 # token reader for triple quote string
 class TripleQuoteStringTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = ''
 
@@ -1002,6 +1128,12 @@ class TripleQuoteStringTokenBuilder(TokenBuilder):
 
 # token reader for identifier
 class PrefixedIdentifierTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, prefix, group):
     self.prefix = prefix
     self.group = group
@@ -1041,6 +1173,12 @@ class PrefixedIdentifierTokenBuilder(TokenBuilder):
 
 # token reader for identifier
 class RegexTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.pattern = re.compile(r'\A/.+/[a-z]*\Z')
     self.text = None
@@ -1102,6 +1240,12 @@ class RegexTokenBuilder(TokenBuilder):
 
 # token reader for prefix/suffix block
 class BlockTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, prefix, suffix, tokentype):
     self.prefix = prefix.lower()
     self.suffix = suffix.lower()

@@ -27,10 +27,28 @@ from fsharp_token_builders import (
 )
 from examiner import Examiner
 
-# `` as identifier delimiters
-# <x> as class
-
 class FsharpExaminer(Examiner):
+  @staticmethod
+  def __escape_z__():
+    InvalidTokenBuilder.__escape_z__()
+    WhitespaceTokenBuilder.__escape_z__()
+    NewlineTokenBuilder.__escape_z__()
+    StringTokenBuilder.__escape_z__()
+    PrefixedStringTokenBuilder.__escape_z__()
+    IntegerTokenBuilder.__escape_z__()
+    IntegerExponentTokenBuilder.__escape_z__()
+    RealTokenBuilder.__escape_z__()
+    RealExponentTokenBuilder.__escape_z__()
+    IdentifierTokenBuilder.__escape_z__()
+    ListTokenBuilder.__escape_z__()
+    ParenStarCommentTokenBuilder.__escape_z__()
+    TripleQuoteStringTokenBuilder.__escape_z__()
+    SlashSlashCommentTokenBuilder.__escape_z__()
+    TripleSlashCommentTokenBuilder.__escape_z__()
+    ClassTypeTokenBuilder.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, code):
     super().__init__()
 

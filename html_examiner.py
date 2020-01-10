@@ -22,6 +22,25 @@ from html_token_builders import (
 from examiner import Examiner
 
 class HTMLExaminer(Examiner):
+  @staticmethod
+  def __escape_z__():
+    InvalidTokenBuilder.__escape_z__()
+    WhitespaceTokenBuilder.__escape_z__()
+    NewlineTokenBuilder.__escape_z__()
+    StringTokenBuilder.__escape_z__()
+    IntegerTokenBuilder.__escape_z__()
+    IntegerExponentTokenBuilder.__escape_z__()
+    RealTokenBuilder.__escape_z__()
+    RealExponentTokenBuilder.__escape_z__()
+    ListTokenBuilder.__escape_z__()
+    BlockTokenBuilder.__escape_z__()
+    HTMLIdentifierTokenBuilder.__escape_z__()
+    HTMLListTokenBuilder.__escape_z__()
+    HTMLAttributeTokenBuilder.__escape_z__()
+    HTMLUnicodeTokenBuilder.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, code):
     super().__init__()
 

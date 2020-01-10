@@ -3,6 +3,11 @@ from token_builders import InvalidTokenBuilder
 from pl1_examiner import PL1Examiner
 
 class PL1FreeFormatExaminer(PL1Examiner):
+  @staticmethod
+  def __escape_z__():
+    return 'Escape ?Z'
+
+
   def __init__(self, code):
     super().__init__()
 

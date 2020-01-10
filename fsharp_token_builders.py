@@ -6,8 +6,15 @@ from token_builders import (
 
 # token reader for single-character text literal (string)
 class FsharpCharTokenBuilder(CharTokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, quotes):
     super().__init__(quotes)
+
 
   def get_score(self, line_printable_tokens):
     if self.text is None:

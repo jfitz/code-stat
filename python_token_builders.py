@@ -3,15 +3,23 @@ from token_builders import TokenBuilder
 
 # token reader for raw triple quote string
 class RawTripleQuoteCommentTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.prefix = 'r'
     self.text = ''
+
 
   def get_tokens(self):
     if self.text is None:
       return None
 
     return [Token(self.text, 'string')]
+
 
   def accept(self, candidate, c):
     result = False

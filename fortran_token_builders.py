@@ -6,6 +6,12 @@ from token_builders import TokenBuilder
 
 # token reader for identifier
 class FortranIdentifierTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = None
 
@@ -31,6 +37,12 @@ class FortranIdentifierTokenBuilder(TokenBuilder):
 
 # token reader for FORMAT specifiers (but not Hollerith specifiers)
 class FormatSpecifierTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = None
     # 'p' patterns are approved, 't' patterns are for accept()
@@ -111,6 +123,12 @@ class FormatSpecifierTokenBuilder(TokenBuilder):
 
 # token reader for Hollerith string constant
 class HollerithStringTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = None
 
@@ -161,6 +179,12 @@ class HollerithStringTokenBuilder(TokenBuilder):
 
 # token reader for user-defined operator
 class UserDefinedOperatorTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = None
 
@@ -203,6 +227,12 @@ class UserDefinedOperatorTokenBuilder(TokenBuilder):
 
 # token reader for integer
 class KindIntegerTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = None
 
@@ -232,6 +262,12 @@ class KindIntegerTokenBuilder(TokenBuilder):
 
 # token reader for real (no exponent)
 class KindRealTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = None
 

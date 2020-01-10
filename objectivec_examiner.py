@@ -28,6 +28,27 @@ from objectivec_token_builders import (
 from examiner import Examiner
 
 class ObjectiveCExaminer(Examiner):
+  @staticmethod
+  def __escape_z__():
+    InvalidTokenBuilder.__escape_z__()
+    WhitespaceTokenBuilder.__escape_z__()
+    NewlineTokenBuilder.__escape_z__()
+    StringTokenBuilder.__escape_z__()
+    PrefixedStringTokenBuilder.__escape_z__()
+    IntegerTokenBuilder.__escape_z__()
+    IntegerExponentTokenBuilder.__escape_z__()
+    RealTokenBuilder.__escape_z__()
+    RealExponentTokenBuilder.__escape_z__()
+    IdentifierTokenBuilder.__escape_z__()
+    ListTokenBuilder.__escape_z__()
+    SingleCharacterTokenBuilder.__escape_z__()
+    SlashSlashCommentTokenBuilder.__escape_z__()
+    SlashStarCommentTokenBuilder.__escape_z__()
+    ClassTypeTokenBuilder.__escape_z__()
+    DirectiveTokenBuilder.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, code):
     super().__init__()
 

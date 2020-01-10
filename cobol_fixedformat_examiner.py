@@ -24,6 +24,25 @@ from cobol_token_builders import (
 from cobol_examiner import CobolExaminer
 
 class CobolFixedFormatExaminer(CobolExaminer):
+  @staticmethod
+  def __escape_z__():
+    InvalidTokenBuilder.__escape_z__()
+    WhitespaceTokenBuilder.__escape_z__()
+    NewlineTokenBuilder.__escape_z__()
+    StringTokenBuilder.__escape_z__()
+    IntegerTokenBuilder.__escape_z__()
+    IntegerExponentTokenBuilder.__escape_z__()
+    RealTokenBuilder.__escape_z__()
+    RealExponentTokenBuilder.__escape_z__()
+    ListTokenBuilder.__escape_z__()
+    SingleCharacterTokenBuilder.__escape_z__()
+    BlockTokenBuilder.__escape_z__()
+    CobolIdentifierTokenBuilder.__escape_z__()
+    PictureTokenBuilder.__escape_z__()
+    CRPictureTokenBuilder.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, code, year, extension, tab_size, wide):
     super().__init__()
 

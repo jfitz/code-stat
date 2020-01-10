@@ -6,6 +6,12 @@ from token_builders import (
 
 # token reader for -- comment
 class DashDashCommentTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = ''
 
@@ -47,6 +53,12 @@ class DashDashCommentTokenBuilder(TokenBuilder):
 
 # token reader for single-character text literal (string)
 class AdaCharTokenBuilder(CharTokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, quotes):
     super().__init__(quotes)
 

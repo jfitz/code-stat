@@ -27,6 +27,24 @@ from generic_token_builders import (
 from examiner import Examiner
 
 class GenericCodeExaminer(Examiner):
+  @staticmethod
+  def __escape_z__():
+    InvalidTokenBuilder.__escape_z__()
+    WhitespaceTokenBuilder.__escape_z__()
+    NewlineTokenBuilder.__escape_z__()
+    StringTokenBuilder.__escape_z__()
+    ListTokenBuilder.__escape_z__()
+    TripleQuoteStringTokenBuilder.__escape_z__()
+    LeadCommentTokenBuilder.__escape_z__()
+    ParenStarCommentTokenBuilder.__escape_z__()
+    BraceCommentTokenBuilder.__escape_z__()
+    SlashSlashCommentTokenBuilder.__escape_z__()
+    SlashStarCommentTokenBuilder.__escape_z__()
+    GenericIdentifierTokenBuilder.__escape_z__()
+    GenericNumberTokenBuilder.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, code, comment):
     super().__init__()
 

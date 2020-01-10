@@ -39,6 +39,38 @@ from typescript_examiner import TypeScriptExaminer
 from visualbasic6_examiner import VisualBasic6Examiner
 from visualbasicnet_examiner import VisualBasicNETExaminer
 
+GenericCodeExaminer.__escape_z__()
+AdaExaminer.__escape_z__()
+AwkExaminer.__escape_z__()
+BasicExaminer.__escape_z__()
+BasicaExaminer.__escape_z__()
+CBasicExaminer.__escape_z__()
+CExaminer.__escape_z__()
+CobolFixedFormatExaminer.__escape_z__()
+CobolFreeFormatExaminer.__escape_z__()
+CppExaminer.__escape_z__()
+CsharpExaminer.__escape_z__()
+FortranFixedFormatExaminer.__escape_z__()
+FortranFreeFormatExaminer.__escape_z__()
+FsharpExaminer.__escape_z__()
+GoExaminer.__escape_z__()
+HTMLExaminer.__escape_z__()
+JavaExaminer.__escape_z__()
+JavaScriptExaminer.__escape_z__()
+ObjectiveCExaminer.__escape_z__()
+PascalExaminer.__escape_z__()
+PL1FixedFormatExaminer.__escape_z__()
+PL1FreeFormatExaminer.__escape_z__()
+PrologExaminer.__escape_z__()
+PythonExaminer.__escape_z__()
+RExaminer.__escape_z__()
+RubyExaminer.__escape_z__()
+RustExaminer.__escape_z__()
+SqlExaminer.__escape_z__()
+SwiftExaminer.__escape_z__()
+TypeScriptExaminer.__escape_z__()
+VisualBasic6Examiner.__escape_z__()
+VisualBasicNETExaminer.__escape_z__()
 
 def decode_bytes(in_bytes):
   text = ''

@@ -27,6 +27,27 @@ from cbasic_token_builders import (
 from examiner import Examiner
 
 class CBasicExaminer(Examiner):
+  @staticmethod
+  def __escape_z__():
+    InvalidTokenBuilder.__escape_z__()
+    WhitespaceTokenBuilder.__escape_z__()
+    NewlineTokenBuilder.__escape_z__()
+    StringTokenBuilder.__escape_z__()
+    IntegerTokenBuilder.__escape_z__()
+    IntegerExponentTokenBuilder.__escape_z__()
+    RealTokenBuilder.__escape_z__()
+    RealExponentTokenBuilder.__escape_z__()
+    ListTokenBuilder.__escape_z__()
+    SingleCharacterTokenBuilder.__escape_z__()
+    PrefixedIntegerTokenBuilder.__escape_z__()
+    LeadCommentTokenBuilder.__escape_z__()
+    RemarkTokenBuilder.__escape_z__()
+    CBasicVariableTokenBuilder.__escape_z__()
+    CBasicSuffixedIntegerTokenBuilder.__escape_z__()
+    CBasicLineContinuationTokenBuilder.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, code):
     super().__init__()
 

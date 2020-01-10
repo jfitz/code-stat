@@ -3,6 +3,12 @@ from token_builders import TokenBuilder
 
 # token reader for variable
 class CBasicVariableTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, suffixes):
     self.text = None
     self.suffixes = suffixes
@@ -32,6 +38,12 @@ class CBasicVariableTokenBuilder(TokenBuilder):
 
 # token reader for integer
 class CBasicSuffixedIntegerTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, allow_chars, suffix_char):
     self.text = None
     self.allow_chars = allow_chars.lower()
@@ -76,6 +88,12 @@ class CBasicSuffixedIntegerTokenBuilder(TokenBuilder):
 
 # token reader for line continuation (and comment)
 class CBasicLineContinuationTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = None
 

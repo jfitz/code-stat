@@ -7,6 +7,12 @@ from token_builders import (
 
 # token reader for integer
 class SwiftArgumentTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = None
 
@@ -41,6 +47,12 @@ class SwiftArgumentTokenBuilder(TokenBuilder):
 
 
 class SwiftSymbolTokenBuilder(PrefixedIdentifierTokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, prefix, group):
     super(SwiftSymbolTokenBuilder, self).__init__(prefix, group)
 

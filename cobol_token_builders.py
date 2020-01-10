@@ -4,6 +4,11 @@ from token_builders import TokenBuilder
 
 # token reader for identifier
 class CobolIdentifierTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = None
 
@@ -26,6 +31,11 @@ class CobolIdentifierTokenBuilder(TokenBuilder):
 
 # token reader for PIC descriptor
 class PictureTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = ''
 
@@ -79,6 +89,11 @@ class PictureTokenBuilder(TokenBuilder):
 
 # token reader for PIC descriptor
 class CRPictureTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = ''
 
@@ -139,6 +154,11 @@ class CRPictureTokenBuilder(TokenBuilder):
 
 # token reader for >> directive
 class CobolPreprocessorTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.prefix = '>>'
     self.text = ''
@@ -184,6 +204,12 @@ class CobolPreprocessorTokenBuilder(TokenBuilder):
 
 # token reader for asterisk comment
 class AsteriskCommentTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self):
     self.text = ''
 
