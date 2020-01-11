@@ -24,6 +24,7 @@ from go_examiner import GoExaminer
 from html_examiner import HTMLExaminer
 from java_examiner import JavaExaminer
 from javascript_examiner import JavaScriptExaminer
+from kotlin_examiner import KotlinExaminer
 from objectivec_examiner import ObjectiveCExaminer
 from pascal_examiner import PascalExaminer
 from pl1_fixedformat_examiner import PL1FixedFormatExaminer
@@ -57,6 +58,7 @@ GoExaminer.__escape_z__()
 HTMLExaminer.__escape_z__()
 JavaExaminer.__escape_z__()
 JavaScriptExaminer.__escape_z__()
+KotlinExaminer.__escape_z__()
 ObjectiveCExaminer.__escape_z__()
 PascalExaminer.__escape_z__()
 PL1FixedFormatExaminer.__escape_z__()
@@ -206,6 +208,7 @@ codesAndNames = {
   'go': 'Go',
   'java': 'Java',
   'javascript': 'JavaScript',
+  'kotlin': 'Kotlin',
   'html': 'HTML',
   'objective-c': 'Objective-C',
   'pascal': 'Pascal',
@@ -260,6 +263,7 @@ codesAndGroups = {
   'go': 'Go',
   'java': 'Java',
   'javascript': 'JavaScript',
+  'kotlin': 'Kotlin',
   'html': 'HTML',
   'objective-c': 'Objective-C',
   'pascal': 'Pascal',
@@ -312,9 +316,10 @@ codesAndYears = {
   'fsharp': '2010',
   'gawk': '1986',
   'go': '2010',
+  'html': '1990',
   'java': '1995',
   'javascript': '1995',
-  'html': '1990',
+  'kotlin': '2011',
   'objective-c': '1984',
   'pascal': '1970',
   'pl1-fixed': '1964',
@@ -674,6 +679,9 @@ def make_one_examiner(language, code, tab_size, wide, comment):
   if language in ['javascript', 'js']:
     examiner = JavaScriptExaminer(code)
 
+  if language in ['kotlin', 'kt']:
+    examiner = KotlinExaminer(code)
+
   if language in ['objective-c', 'objc']:
     examiner = ObjectiveCExaminer(code)
 
@@ -838,6 +846,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
 
   if 'javascript' in languages or 'js' in languages:
     examiners['javascript'] = JavaScriptExaminer(code)
+
+  if 'kotlin' in languages:
+    examiners['kotlin'] = KotlinExaminer(code)
 
   if 'pascal' in languages or 'pas' in languages:
     examiners['pascal'] = PascalExaminer(code)

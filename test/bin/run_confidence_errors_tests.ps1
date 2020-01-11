@@ -222,6 +222,10 @@ test\bin\run_test.ps1 -json -name bing-js -action confidence -errors -language J
 test\bin\run_test.ps1 -json -name calc_prime-js -action confidence -errors -language JavaScript -inputfile ".\test\data\JavaScript\calc_prime.js" -expected ".\test\ref\confidence-errors\JavaScript\calc_prime.txt"
 test\bin\run_test.ps1 -json -name backtick-js -action confidence -errors -language JavaScript -inputfile ".\test\data\JavaScript\backtick.js" -expected ".\test\ref\confidence-errors\JavaScript\backtick.txt"
 
+# Kotlin
+test\bin\run_test.ps1 -json -name qksms-kt -action confidence -errors -language Kotlin -inputfile ".\test\data\Kotlin\qksms.kt" -expected ".\test\ref\confidence-errors\Kotlin\qksms.txt"
+test\bin\run_test.ps1 -json -name render-kt -action confidence -errors -language Kotlin -inputfile ".\test\data\Kotlin\render.kt" -expected ".\test\ref\confidence-errors\Kotlin\render.txt"
+
 # Objective-C
 test\bin\run_test.ps1 -json -name hello-objc -action confidence -errors -language Objective-C -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\confidence-errors\Objective-C\HelloWorld.txt"
 test\bin\run_test.ps1 -json -name qrmath-objc -action confidence -errors -language Objective-C -inputfile ".\test\data\Objective-C\QRMath.h" -expected ".\test\ref\confidence-errors\Objective-C\QRMath.txt"

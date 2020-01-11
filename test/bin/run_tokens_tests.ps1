@@ -222,6 +222,10 @@ test\bin\run_test.ps1 -json -name bing-js -action tokens -language JavaScript -i
 test\bin\run_test.ps1 -json -name calc_prime-js -action tokens -language JavaScript -inputfile ".\test\data\JavaScript\calc_prime.js" -expected ".\test\ref\tokens\JavaScript\calc_prime.txt"
 test\bin\run_test.ps1 -json -name backtick-js -action tokens -language JavaScript -inputfile ".\test\data\JavaScript\backtick.js" -expected ".\test\ref\tokens\JavaScript\backtick.txt"
 
+# Kotlin
+test\bin\run_test.ps1 -json -name qksms-kt -action tokens -language Kotlin -inputfile ".\test\data\Kotlin\qksms.kt" -expected ".\test\ref\tokens\Kotlin\qksms.txt"
+test\bin\run_test.ps1 -json -name render-kt -action tokens -language Kotlin -inputfile ".\test\data\Kotlin\render.kt" -expected ".\test\ref\tokens\Kotlin\render.txt"
+
 # Objective-C
 test\bin\run_test.ps1 -json -name hello-objc -action tokens -language Objective-C -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\tokens\Objective-C\HelloWorld.txt"
 test\bin\run_test.ps1 -json -name qrmath-objc -action tokens -language Objective-C -inputfile ".\test\data\Objective-C\QRMath.h" -expected ".\test\ref\tokens\Objective-C\QRMath.txt"

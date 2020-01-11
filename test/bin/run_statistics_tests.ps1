@@ -222,6 +222,10 @@ test\bin\run_test.ps1 -json -name bing-js -action statistics -language JavaScrip
 test\bin\run_test.ps1 -json -name calc_prime-js -action statistics -language JavaScript -inputfile ".\test\data\JavaScript\calc_prime.js" -expected ".\test\ref\statistics\JavaScript\calc_prime.txt"
 test\bin\run_test.ps1 -json -name backtick-js -action statistics -language JavaScript -inputfile ".\test\data\JavaScript\backtick.js" -expected ".\test\ref\statistics\JavaScript\backtick.txt"
 
+# Kotlin
+test\bin\run_test.ps1 -json -name qksms-kt -action statistics -language Kotlin -inputfile ".\test\data\Kotlin\qksms.kt" -expected ".\test\ref\statistics\Kotlin\qksms.txt"
+test\bin\run_test.ps1 -json -name render-kt -action statistics -language Kotlin -inputfile ".\test\data\Kotlin\render.kt" -expected ".\test\ref\statistics\Kotlin\render.txt"
+
 # Objective-C
 test\bin\run_test.ps1 -json -name hello-objc -action statistics -language Objective-C -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\statistics\Objective-C\HelloWorld.txt"
 test\bin\run_test.ps1 -json -name qrmath-objc -action statistics -language Objective-C -inputfile ".\test\data\Objective-C\QRMath.h" -expected ".\test\ref\statistics\Objective-C\QRMath.txt"

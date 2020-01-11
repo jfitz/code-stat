@@ -178,6 +178,10 @@ test\bin\run_test.ps1 -json -name bing-js -action detect -tiebreak -inputfile ".
 test\bin\run_test.ps1 -json -name calc_prime-js -action detect -inputfile ".\test\data\JavaScript\calc_prime.js" -expected ".\test\ref\detect\JavaScript\calc_prime.txt"
 test\bin\run_test.ps1 -json -name backtick-js -action detect -inputfile ".\test\data\JavaScript\backtick.js" -expected ".\test\ref\detect\JavaScript\backtick.txt"
 
+# Kotlin
+test\bin\run_test.ps1 -json -name qksms-kt -action detect -inputfile ".\test\data\Kotlin\qksms.kt" -expected ".\test\ref\detect\Kotlin\qksms.txt"
+test\bin\run_test.ps1 -json -name render-kt -action detect -inputfile ".\test\data\Kotlin\render.kt" -expected ".\test\ref\detect\Kotlin\render.txt"
+
 # Objective-C
 test\bin\run_test.ps1 -json -name hello-objc -action detect -tiebreak -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\detect\Objective-C\HelloWorld.txt"
 test\bin\run_test.ps1 -json -name qrmath-objc -action detect -inputfile ".\test\data\Objective-C\QRMath.h" -expected ".\test\ref\detect\Objective-C\QRMath.txt"

@@ -255,7 +255,7 @@ class ClassTypeTokenBuilder(TokenBuilder):
       result = c == '<'
 
     if len(candidate) > 0 and candidate[-1] != '>':
-      result = c.isalpha() or c.isdigit() or c in "/\\ ,_.>'"
+      result = c.isalpha() or c.isdigit() or c in "/\\ ,_.:*>'"
 
     return result
 

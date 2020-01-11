@@ -222,6 +222,10 @@ test\bin\run_test.ps1 -json -name codestat-js -action confidence -language JavaS
 test\bin\run_test.ps1 -json -name bing-js -action confidence -language JavaScript -inputfile ".\test\data\JavaScript\bing.js" -expected ".\test\ref\confidence\JavaScript\bing.txt"
 test\bin\run_test.ps1 -json -name calc_prime-js -action confidence -language JavaScript -inputfile ".\test\data\JavaScript\calc_prime.js" -expected ".\test\ref\confidence\JavaScript\calc_prime.txt"
 
+# Kotlin
+test\bin\run_test.ps1 -json -name qksms-kt -action confidence -language Kotlin -inputfile ".\test\data\Kotlin\qksms.kt" -expected ".\test\ref\confidence\Kotlin\qksms.txt"
+test\bin\run_test.ps1 -json -name render-kt -action confidence -language Kotlin -inputfile ".\test\data\Kotlin\render.kt" -expected ".\test\ref\confidence\Kotlin\render.txt"
+
 # Objective-C
 test\bin\run_test.ps1 -json -name hello-objc -action confidence -language Objective-C -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\confidence\Objective-C\HelloWorld.txt"
 test\bin\run_test.ps1 -json -name qrmath-objc -action confidence -language Objective-C -inputfile ".\test\data\Objective-C\QRMath.h" -expected ".\test\ref\confidence\Objective-C\QRMath.txt"
