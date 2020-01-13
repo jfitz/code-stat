@@ -57,8 +57,9 @@ class DbaseExaminer(Examiner):
     comment_tb = AsteriskCommentTokenBuilder()
 
     known_operators = [
-      '+', '-', '*', '/',
-      '=', '<>', '>', '>=', '<', '<=',
+      '+', '-', '*', '/', '**', '^',
+      '=', '<>', '#', '>', '>=', '<', '<=',
+      '$',
       '.NOT.', '.AND.', '.OR.'
     ]
 
@@ -77,30 +78,46 @@ class DbaseExaminer(Examiner):
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
     keywords = [
-      'SET', 'TALK',
-      'USE', 'STORE', 'TO',
-      'DO', 'WHILE', 'ERASE',
-      '@', 'SAY', 'GET',
-      'READ', 'PICTURE', 'ENDDO',
-      'CASE', 'GO', 'SKIP', 'APPEND', 'REPLACE',
-      'WITH', 'PACK', 'SET', 'FORMAT', 'ENDDO',
-      'EJECT', 'RETURN', 'break'
+      'APPEND',
+      'CASE',
+      'DO',
+      'EJECT', 'ENDDO', 'ERASE',
+      'FORMAT',
+      'GET', 'GO',
+      'PACK', 'PICTURE',
+      'READ', 'REPLACE', 'RETURN',
+      'SAY', 'SET', 'SKIP', 'STORE',
+      'TALK', 'TO',
+      'USE',
+      'WHILE', 'WITH',
+      '@'
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
-
-    types = [
-      'char', 'double', 'float', 'int',
-      'long', 'short',
-    ]
-
-    types_tb = ListTokenBuilder(types, 'type', True)
 
     values = [
       'OFF', 'ON', 'TOP', 'BOTTOM', 'EOF', 'BLANK'
     ]
 
     values_tb = ListTokenBuilder(values, 'value', True)
+
+    functions = [
+      'ALLTRIM',
+      'CHR', 'CTOD',
+      'DATE', 'DATETIME', 'DAY', 'DELETED', 'DESCEND', 'DTOC', 'DTOS',
+      'IIF',
+      'LEFT', 'LTRIM',
+      'MONTH',
+      'PAGENO',
+      'RECCOUNT', 'RECNO', 'RIGHT',
+      'STOD', 'STR', 'SUBSTR',
+      'TIME', 'TRIM',
+      'UPPER',
+      'VAL',
+      'YEAR'
+    ]
+
+    function_tb = ListTokenBuilder(functions, 'function', True)
 
     filename_tb = DbaseFilenameTokenBuilder()
 
@@ -115,10 +132,10 @@ class DbaseExaminer(Examiner):
       real_tb,
       real_exponent_tb,
       keyword_tb,
-      types_tb,
       values_tb,
       groupers_tb,
       known_operator_tb,
+      function_tb,
       identifier_tb,
       string_tb,
       filename_tb,
