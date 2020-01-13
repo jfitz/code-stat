@@ -163,6 +163,9 @@ test\bin\run_test.ps1 -json -name calculator1-cs -action statistics -language Cs
 test\bin\run_test.ps1 -json -name calculator2-cs -action statistics -language Csharp -inputfile ".\test\data\Csharp\calculator2.cs" -expected ".\test\ref\statistics\Csharp\calculator2.txt"
 test\bin\run_test.ps1 -json -name calculator3-cs -action statistics -language Csharp -inputfile ".\test\data\Csharp\calculator3.cs" -expected ".\test\ref\statistics\Csharp\calculator3.txt"
 
+# dbase II
+test\bin\run_test.ps1 -json -name sample-dbii -action statistics -language dbase-II -inputfile ".\test\data\dbase-II\sample.prg" -expected ".\test\ref\statistics\dbase-II\sample.txt"
+
 # FORTRAN-66
 test\bin\run_test.ps1 -json -name hello-ftn66 -action statistics -language FORTRAN-66 -inputfile ".\test\data\FORTRAN-66\HELLO.FOR" -expected ".\test\ref\statistics\FORTRAN-66\HELLO.txt"
 test\bin\run_test.ps1 -json -name heron-ftn66 -action statistics -language FORTRAN-66 -inputfile ".\test\data\FORTRAN-66\HERON.FOR" -expected ".\test\ref\statistics\FORTRAN-66\HERON.txt"

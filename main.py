@@ -17,6 +17,7 @@ from cobol_fixedformat_examiner import CobolFixedFormatExaminer
 from cobol_freeformat_examiner import CobolFreeFormatExaminer
 from cpp_examiner import CppExaminer
 from csharp_examiner import CsharpExaminer
+from dbase_examiner import DbaseExaminer
 from fortran_fixedformat_examiner import FortranFixedFormatExaminer
 from fortran_freeformat_examiner import FortranFreeFormatExaminer
 from fsharp_examiner import FsharpExaminer
@@ -51,6 +52,7 @@ CobolFixedFormatExaminer.__escape_z__()
 CobolFreeFormatExaminer.__escape_z__()
 CppExaminer.__escape_z__()
 CsharpExaminer.__escape_z__()
+DbaseExaminer.__escape_z__()
 FortranFixedFormatExaminer.__escape_z__()
 FortranFreeFormatExaminer.__escape_z__()
 FsharpExaminer.__escape_z__()
@@ -73,6 +75,7 @@ SwiftExaminer.__escape_z__()
 TypeScriptExaminer.__escape_z__()
 VisualBasic6Examiner.__escape_z__()
 VisualBasicNETExaminer.__escape_z__()
+
 
 def decode_bytes(in_bytes):
   text = ''
@@ -197,6 +200,7 @@ codesAndNames = {
   'cobol-2014-acu': 'COBOL-2014-ACU',
   'cobol-2014-ibm': 'COBOL-2014-IBM',
   'cobol-2014-gnu': 'COBOL-2014-GNU',
+  'dbase-ii': 'dBase-II',
   'fortran-66': 'FORTRAN-66',
   'fortran-77': 'FORTRAN-77',
   'fortran-90': 'Fortran-90',
@@ -252,6 +256,7 @@ codesAndGroups = {
   'cobol-2014-acu': 'COBOL',
   'cobol-2014-ibm': 'COBOL',
   'cobol-2014-gnu': 'COBOL',
+  'dbase-ii': 'dBase',
   'fortran-66': 'Fortran',
   'fortran-77': 'Fortran',
   'fortran-90': 'Fortran',
@@ -307,6 +312,7 @@ codesAndYears = {
   'cobol-2014-acu': '2014',
   'cobol-2014-ibm': '2014',
   'cobol-2014-gnu': '2014',
+  'dbase-ii': '1982',
   'fortran-66': '1966',
   'fortran-77': '1977',
   'fortran-90': '1990',
@@ -646,6 +652,9 @@ def make_one_examiner(language, code, tab_size, wide, comment):
   if language in ['cobol-2014-gnu']:
     examiner = CobolFreeFormatExaminer(code, '2014', 'gnu')
 
+  if language in ['dbase-ii', 'dbase', 'prg']:
+    examiner = DbaseExaminer(code)
+
   if language in ['fortran-66']:
     examiner = FortranFixedFormatExaminer(code, '66', tab_size, wide)
 
@@ -810,6 +819,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
 
   if 'cobol-2014-gnu' in languages:
     examiners['cobol-2014-gnu'] = CobolFreeFormatExaminer(code, '2014', 'gnu')
+
+  if 'dbase-ii' in languages or 'dbase' in languages or 'prg' in languages:
+    examiners['dbase-ii'] = DbaseExaminer(code)
 
   if 'fortran-66' in languages or 'f66' in languages:
     examiners['fortran-66'] = FortranFixedFormatExaminer(code, '66', tab_size, wide)
