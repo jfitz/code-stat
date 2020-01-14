@@ -163,6 +163,10 @@ test\bin\run_test.ps1 -json -name calculator1-cs -action confidence -errors -lan
 test\bin\run_test.ps1 -json -name calculator2-cs -action confidence -errors -language Csharp -inputfile ".\test\data\Csharp\calculator2.cs" -expected ".\test\ref\confidence-errors\Csharp\calculator2.txt"
 test\bin\run_test.ps1 -json -name calculator3-cs -action confidence -errors -language Csharp -inputfile ".\test\data\Csharp\calculator3.cs" -expected ".\test\ref\confidence-errors\Csharp\calculator3.txt"
 
+# D
+test\bin\run_test.ps1 -json -name regex-d -action confidence -errors -language d -inputfile ".\test\data\d\regex.d" -expected ".\test\ref\confidence-errors\d\regex.txt"
+test\bin\run_test.ps1 -json -name halffloat-d -action confidence -errors -language d -inputfile ".\test\data\d\halffloat.d" -expected ".\test\ref\confidence-errors\d\halffloat.txt"
+
 # dbase II
 test\bin\run_test.ps1 -json -name sample-dbii -action confidence -errors -language dbase-II -inputfile ".\test\data\dbase-II\sample.prg" -expected ".\test\ref\confidence-errors\dbase-II\sample.txt"
 

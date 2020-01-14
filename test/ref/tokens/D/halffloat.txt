@@ -1,0 +1,8757 @@
+﻿{
+    "value":[
+        {
+            "type":"comment",
+            "value":"/*\r\n * References:\r\n *      http://en.wikipedia.org/wiki/Half-precision_floating-point_format\r\n */"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"keyword",
+            "value":"module"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"halffloat"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"keyword",
+            "value":"struct"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"HF"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"comment",
+            "value":"/* Provide implicit conversion of HF to float\r\n     */"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"attribute",
+            "value":"@property"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"type",
+            "value":"float"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"toFloat"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"keyword",
+            "value":"return"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"shortToFloat"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"alias"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"toFloat"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"value",
+            "value":"this"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"comment",
+            "value":"/* Done as a template in order to prevent implicit conversion\r\n     * of argument to float.\r\n     */"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"value",
+            "value":"this"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"T"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":":"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"type",
+            "value":"float"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"T"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"keyword",
+            "value":"static"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"keyword",
+            "value":"assert"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"keyword",
+            "value":"is"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"T"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"=="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"type",
+            "value":"float"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"floatToShort"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"comment",
+            "value":"/* These are done as properties to avoid\r\n     * circular reference problems.\r\n     */"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"static"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"attribute",
+            "value":"@property"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"HF"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"min_normal"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"HF"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"hf"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"type",
+            "value":"void"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"hf"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0x0400"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"keyword",
+            "value":"return"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"hf"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"comment",
+            "value":"/* fp16!0x1p-14; */"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"static"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"attribute",
+            "value":"@property"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"HF"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"max"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"HF"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"hf"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"type",
+            "value":"void"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"hf"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0x7BFF"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"keyword",
+            "value":"return"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"hf"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"comment",
+            "value":"/* fp16!0x1.FFCp+15; */"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"static"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"attribute",
+            "value":"@property"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"HF"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"nan"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"HF"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"hf"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"type",
+            "value":"void"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"hf"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"EXPMASK"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"|"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"1"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"keyword",
+            "value":"return"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"hf"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"comment",
+            "value":"/* fp16!(float.nan); */"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"static"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"attribute",
+            "value":"@property"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"HF"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"infinity"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":"   "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"HF"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"hf"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"type",
+            "value":"void"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"hf"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"EXPMASK"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"keyword",
+            "value":"return"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"hf"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"comment",
+            "value":"/* fp16!(float.infinity); */"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"static"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"attribute",
+            "value":"@property"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"HF"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"epsilon"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"HF"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"hf"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"type",
+            "value":"void"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"hf"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0x3C01"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"keyword",
+            "value":"return"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"hf"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"comment",
+            "value":"/* fp16!0x1p-10; */"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"enum"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"dig"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"number",
+            "value":"3"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"enum"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"mant_dig"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":"   "
+        },
+        {
+            "type":"number",
+            "value":"11"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"enum"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"max_10_exp"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"5"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"enum"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"max_exp"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"number",
+            "value":"16"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"enum"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"min_10_exp"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"-"
+        },
+        {
+            "type":"number",
+            "value":"5"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"enum"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"min_exp"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"operator",
+            "value":"-"
+        },
+        {
+            "type":"number",
+            "value":"14"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"  "
+        },
+        {
+            "type":"keyword",
+            "value":"private"
+        },
+        {
+            "type":"operator",
+            "value":":"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"type",
+            "value":"ushort"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"EXPMASK"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"|"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"1"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":"     "
+        },
+        {
+            "type":"comment",
+            "value":"// .init is HF.nan"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"comment",
+            "value":"/********************\r\n * User defined literal for Half Float.\r\n */"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"keyword",
+            "value":"template"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"fp16"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"type",
+            "value":"float"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"v"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"enum"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"fp16"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"HF"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"v"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"keyword",
+            "value":"private"
+        },
+        {
+            "type":"operator",
+            "value":":"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"comment",
+            "value":"// Half float values"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"keyword",
+            "value":"enum"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"SIGNMASK"
+        },
+        {
+            "type":"whitespace",
+            "value":"  "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0x8000"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"keyword",
+            "value":"enum"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"EXPMASK"
+        },
+        {
+            "type":"whitespace",
+            "value":"   "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0x7C00"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"keyword",
+            "value":"enum"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"MANTMASK"
+        },
+        {
+            "type":"whitespace",
+            "value":"  "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0x03FF"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"keyword",
+            "value":"enum"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"HIDDENBIT"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0x0400"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"comment",
+            "value":"// float values"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"keyword",
+            "value":"enum"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"FSIGNMASK"
+        },
+        {
+            "type":"whitespace",
+            "value":"  "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0x80000000"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"keyword",
+            "value":"enum"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"FEXPMASK"
+        },
+        {
+            "type":"whitespace",
+            "value":"   "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0x7F800000"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"keyword",
+            "value":"enum"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"FMANTMASK"
+        },
+        {
+            "type":"whitespace",
+            "value":"  "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0x007FFFFF"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"keyword",
+            "value":"enum"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"FHIDDENBIT"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0x00800000"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"comment",
+            "value":"// Rounding mode"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"keyword",
+            "value":"enum"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"ROUND"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"TONEAREST"
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"UPWARD"
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"DOWNWARD"
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"TOZERO"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"keyword",
+            "value":"enum"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"ROUNDMODE"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"ROUND"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"TONEAREST"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"keyword",
+            "value":"union"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"U"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"type",
+            "value":"uint"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"u"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"type",
+            "value":"float"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"type",
+            "value":"ushort"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"floatToShort"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"type",
+            "value":"float"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"comment",
+            "value":"/* If the target CPU has a conversion instruction, this code could be\r\n     * replaced with inline asm or a compiler intrinsic, but leave this\r\n     * as the CTFE path so CTFE can work on it.\r\n     */"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"comment",
+            "value":"/* The code currently does not set INEXACT, UNDERFLOW, or OVERFLOW,\r\n     * but is marked where those would go.\r\n     */"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"U"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"uf"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"type",
+            "value":"void"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"uf"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"type",
+            "value":"uint"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"uf"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"u"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"type",
+            "value":"ushort"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"u"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u0026"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"FSIGNMASK"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"?"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"SIGNMASK"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":":"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"type",
+            "value":"int"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"exp"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u0026"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"FEXPMASK"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"if"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"exp"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"=="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"FEXPMASK"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":"  "
+        },
+        {
+            "type":"comment",
+            "value":"// if nan or infinity"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"keyword",
+            "value":"if"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u0026"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"FMANTMASK"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"=="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":"       "
+        },
+        {
+            "type":"comment",
+            "value":"// if infinity"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"            "
+        },
+        {
+            "type":"identifier",
+            "value":"u"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"|="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"EXPMASK"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"keyword",
+            "value":"else"
+        },
+        {
+            "type":"whitespace",
+            "value":"                            "
+        },
+        {
+            "type":"comment",
+            "value":"// else nan"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"            "
+        },
+        {
+            "type":"identifier",
+            "value":"u"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"|="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"EXPMASK"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"|"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"1"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"keyword",
+            "value":"return"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"u"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"type",
+            "value":"uint"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"significand"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u0026"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"FMANTMASK"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"if"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"exp"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"=="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":"                       "
+        },
+        {
+            "type":"comment",
+            "value":"// if subnormal or zero"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"keyword",
+            "value":"if"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"significand"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"=="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":"           "
+        },
+        {
+            "type":"comment",
+            "value":"// if zero"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"            "
+        },
+        {
+            "type":"keyword",
+            "value":"return"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"u"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"comment",
+            "value":"/* A subnormal float is going to give us a zero result anyway,\r\n         * so just set UNDERFLOW and INEXACT and return +-0.\r\n         */"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"keyword",
+            "value":"return"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"u"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"else"
+        },
+        {
+            "type":"whitespace",
+            "value":"                                "
+        },
+        {
+            "type":"comment",
+            "value":"// else normal"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"comment",
+            "value":"// normalize exponent and remove bias"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"identifier",
+            "value":"exp"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"exp"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u003e\u003e"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"23"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"-"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"127"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"identifier",
+            "value":"significand"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"|="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"FHIDDENBIT"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"exp"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"+="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"15"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":"                          "
+        },
+        {
+            "type":"comment",
+            "value":"// bias the exponent"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"type",
+            "value":"bool"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"guard"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"value",
+            "value":"false"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":"                 "
+        },
+        {
+            "type":"comment",
+            "value":"// guard bit"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"type",
+            "value":"bool"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"sticky"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"value",
+            "value":"false"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":"                "
+        },
+        {
+            "type":"comment",
+            "value":"// sticky bit"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"type",
+            "value":"uint"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"shift"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"13"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":"                    "
+        },
+        {
+            "type":"comment",
+            "value":"// lop off rightmost 13 bits"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"if"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"exp"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u003c="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":"                       "
+        },
+        {
+            "type":"comment",
+            "value":"// if subnormal"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"whitespace",
+            "value":"   "
+        },
+        {
+            "type":"identifier",
+            "value":"shift"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"+="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"-"
+        },
+        {
+            "type":"identifier",
+            "value":"exp"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"+"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"1"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":"              "
+        },
+        {
+            "type":"comment",
+            "value":"// more bits to lop off"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"identifier",
+            "value":"exp"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"if"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"shift"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u003e"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"23"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"comment",
+            "value":"// Set UNDERFLOW, INEXACT, return +-0"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"keyword",
+            "value":"return"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"u"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"comment",
+            "value":"// Lop off rightmost 13 bits, but save guard and sticky bits"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"guard"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"significand"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u0026"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"number",
+            "value":"1"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u003c\u003c"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"shift"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"-"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"1"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"!="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"sticky"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"significand"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u0026"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"number",
+            "value":"1"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u003c\u003c"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"shift"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"-"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"1"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"-"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"1"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"!="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"significand"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u003e\u003e="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"shift"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"if"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"guard"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"||"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"sticky"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"comment",
+            "value":"// Lost some bits, so set INEXACT and round the result"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"keyword",
+            "value":"switch"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"ROUNDMODE"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"            "
+        },
+        {
+            "type":"keyword",
+            "value":"case"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"ROUND"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"TONEAREST"
+        },
+        {
+            "type":"operator",
+            "value":":"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"                "
+        },
+        {
+            "type":"keyword",
+            "value":"if"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"guard"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u0026\u0026"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"sticky"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"||"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"significand"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u0026"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"1"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"                    "
+        },
+        {
+            "type":"operator",
+            "value":"++"
+        },
+        {
+            "type":"identifier",
+            "value":"significand"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"                "
+        },
+        {
+            "type":"keyword",
+            "value":"break"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"            "
+        },
+        {
+            "type":"keyword",
+            "value":"case"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"ROUND"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"UPWARD"
+        },
+        {
+            "type":"operator",
+            "value":":"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"                "
+        },
+        {
+            "type":"keyword",
+            "value":"if"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"operator",
+            "value":"!"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u0026"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"FSIGNMASK"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"                    "
+        },
+        {
+            "type":"operator",
+            "value":"++"
+        },
+        {
+            "type":"identifier",
+            "value":"significand"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"                "
+        },
+        {
+            "type":"keyword",
+            "value":"break"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"            "
+        },
+        {
+            "type":"keyword",
+            "value":"case"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"ROUND"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"DOWNWARD"
+        },
+        {
+            "type":"operator",
+            "value":":"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"                "
+        },
+        {
+            "type":"keyword",
+            "value":"if"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u0026"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"FSIGNMASK"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"                    "
+        },
+        {
+            "type":"operator",
+            "value":"++"
+        },
+        {
+            "type":"identifier",
+            "value":"significand"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"                "
+        },
+        {
+            "type":"keyword",
+            "value":"break"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"            "
+        },
+        {
+            "type":"keyword",
+            "value":"case"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"ROUND"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"TOZERO"
+        },
+        {
+            "type":"operator",
+            "value":":"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"                "
+        },
+        {
+            "type":"keyword",
+            "value":"break"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"            "
+        },
+        {
+            "type":"keyword",
+            "value":"default"
+        },
+        {
+            "type":"operator",
+            "value":":"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"                "
+        },
+        {
+            "type":"keyword",
+            "value":"assert"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"number",
+            "value":"0"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"keyword",
+            "value":"if"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"exp"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"=="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":"                           "
+        },
+        {
+            "type":"comment",
+            "value":"// if subnormal"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"            "
+        },
+        {
+            "type":"keyword",
+            "value":"if"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"significand"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u0026"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"HIDDENBIT"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"comment",
+            "value":"// and not a subnormal no more"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"                "
+        },
+        {
+            "type":"operator",
+            "value":"++"
+        },
+        {
+            "type":"identifier",
+            "value":"exp"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"keyword",
+            "value":"else"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"keyword",
+            "value":"if"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"significand"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u0026"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"HIDDENBIT"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u003c\u003c"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"1"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"            "
+        },
+        {
+            "type":"identifier",
+            "value":"significand"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u003e\u003e="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"1"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"            "
+        },
+        {
+            "type":"operator",
+            "value":"++"
+        },
+        {
+            "type":"identifier",
+            "value":"exp"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"if"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"exp"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u003e"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"30"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"whitespace",
+            "value":"   "
+        },
+        {
+            "type":"comment",
+            "value":"// Set OVERFLOW and INEXACT, return +-infinity"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"keyword",
+            "value":"return"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"u"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"|"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"EXPMASK"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"comment",
+            "value":"/* Add exponent and significand into result.\r\n     */"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"u"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"|="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"exp"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u003c\u003c"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"10"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":"                             "
+        },
+        {
+            "type":"comment",
+            "value":"// exponent"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"u"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"|="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"significand"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u0026"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"~"
+        },
+        {
+            "type":"identifier",
+            "value":"HIDDENBIT"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":"            "
+        },
+        {
+            "type":"comment",
+            "value":"// significand"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"return"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"u"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"type",
+            "value":"float"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"shortToFloat"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"type",
+            "value":"ushort"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"comment",
+            "value":"/* If the target CPU has a conversion instruction, this code could be\r\n     * replaced with inline asm or a compiler intrinsic, but leave this\r\n     * as the CTFE path so CTFE can work on it.\r\n     */"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"comment",
+            "value":"/* This one is fairly easy because there are no possible errors\r\n     * and no necessary rounding.\r\n     */"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"type",
+            "value":"int"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"exp"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u0026"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"EXPMASK"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"if"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"exp"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"=="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"EXPMASK"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":"  "
+        },
+        {
+            "type":"comment",
+            "value":"// if nan or infinity"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"type",
+            "value":"float"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"keyword",
+            "value":"if"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u0026"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"MANTMASK"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"=="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"comment",
+            "value":"// if infinity"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"            "
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"type",
+            "value":"float"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"infinity"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"keyword",
+            "value":"else"
+        },
+        {
+            "type":"whitespace",
+            "value":"                            "
+        },
+        {
+            "type":"comment",
+            "value":"// else nan"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"            "
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"type",
+            "value":"float"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"nan"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"keyword",
+            "value":"return"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u0026"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"SIGNMASK"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"?"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"-"
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":":"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"type",
+            "value":"uint"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"significand"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u0026"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"MANTMASK"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"if"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"exp"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"=="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":"                       "
+        },
+        {
+            "type":"comment",
+            "value":"// if subnormal or zero"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"keyword",
+            "value":"if"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"significand"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"=="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":"           "
+        },
+        {
+            "type":"comment",
+            "value":"// if zero"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"            "
+        },
+        {
+            "type":"keyword",
+            "value":"return"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u0026"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"SIGNMASK"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"?"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"-"
+        },
+        {
+            "type":"number",
+            "value":"0.0"
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":":"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0.0"
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"comment",
+            "value":"// Normalize by shifting until the hidden bit is 1"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"keyword",
+            "value":"while"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"operator",
+            "value":"!"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"significand"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u0026"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"HIDDENBIT"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"            "
+        },
+        {
+            "type":"identifier",
+            "value":"significand"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u003c\u003c="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"1"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"            "
+        },
+        {
+            "type":"operator",
+            "value":"--"
+        },
+        {
+            "type":"identifier",
+            "value":"exp"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"identifier",
+            "value":"significand"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u0026="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"~"
+        },
+        {
+            "type":"identifier",
+            "value":"HIDDENBIT"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":"      "
+        },
+        {
+            "type":"comment",
+            "value":"// hidden bit is, well, hidden"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"\t"
+        },
+        {
+            "type":"identifier",
+            "value":"exp"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"-="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"14"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"else"
+        },
+        {
+            "type":"whitespace",
+            "value":"                                "
+        },
+        {
+            "type":"comment",
+            "value":"// else normal"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"comment",
+            "value":"// normalize exponent and remove bias"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"        "
+        },
+        {
+            "type":"identifier",
+            "value":"exp"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"exp"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u003e\u003e"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"10"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"-"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"15"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"comment",
+            "value":"/* Assemble sign, exponent, and significand into float.\r\n     * Don\u0027t have to deal with overflow, inexact, or subnormal\r\n     * because the range of floats is big enough.\r\n     */"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"assert"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"operator",
+            "value":"-"
+        },
+        {
+            "type":"number",
+            "value":"126"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u003c="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"exp"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u0026\u0026"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"exp"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u003c="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"127"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":"  "
+        },
+        {
+            "type":"comment",
+            "value":"// just to be sure"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"comment",
+            "value":"//printf(\"exp = %d, significand = x%x\\n\", exp, significand);"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"type",
+            "value":"uint"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"u"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u0026"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"SIGNMASK"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u003c\u003c"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"16"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":"      "
+        },
+        {
+            "type":"comment",
+            "value":"// sign bit"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"u"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"|="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"exp"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"+"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"127"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u003c\u003c"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"23"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"whitespace",
+            "value":"             "
+        },
+        {
+            "type":"comment",
+            "value":"// bias the exponent and shift into position"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"u"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"|="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"significand"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"\u003c\u003c"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"number",
+            "value":"23"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"-"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"10"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"U"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"uf"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"type",
+            "value":"void"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"uf"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"u"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"u"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"return"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"uf"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"keyword",
+            "value":"import"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"std"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"stdio"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"type",
+            "value":"void"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"main"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"group",
+            "value":"{"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"comment",
+            "value":"//    HF h = fp16!27.2f;"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"comment",
+            "value":"//    HF j = cast(HF)( fp16!3.5f + fp16!5 );"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"HF"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"HF"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"number",
+            "value":"0.0"
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0x3C00"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"writeln"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"string",
+            "value":"\"1 \""
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"keyword",
+            "value":"cast"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"type",
+            "value":"float"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0x3C01"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"writeln"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"string",
+            "value":"\"1.0009765625 \""
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"keyword",
+            "value":"cast"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"type",
+            "value":"float"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"assert"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"=="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"HF"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"epsilon"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0xC000"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"writeln"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"string",
+            "value":"\"-2 \""
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"keyword",
+            "value":"cast"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"type",
+            "value":"float"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0x7BFF"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"writeln"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"string",
+            "value":"\"65504 \""
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"keyword",
+            "value":"cast"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"type",
+            "value":"float"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"assert"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"=="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"HF"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"max"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0x0400"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"writeln"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"string",
+            "value":"\"6.10352e-5 \""
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"keyword",
+            "value":"cast"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"type",
+            "value":"float"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"assert"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"=="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"HF"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"min_normal"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0x03FF"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"writeln"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"string",
+            "value":"\"6.09756e-5 \""
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"keyword",
+            "value":"cast"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"type",
+            "value":"float"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"1"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"writeln"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"string",
+            "value":"\"5.96046e-8 \""
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"keyword",
+            "value":"cast"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"type",
+            "value":"float"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"writeln"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"string",
+            "value":"\"0 \""
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"keyword",
+            "value":"cast"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"type",
+            "value":"float"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"assert"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"=="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0.0"
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0x8000"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"writeln"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"string",
+            "value":"\"-0 \""
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"keyword",
+            "value":"cast"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"type",
+            "value":"float"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"assert"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"=="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"-"
+        },
+        {
+            "type":"number",
+            "value":"0.0"
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0x7C00"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"writeln"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"string",
+            "value":"\"infinity \""
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"keyword",
+            "value":"cast"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"type",
+            "value":"float"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"assert"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"=="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"identifier",
+            "value":"HF"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"infinity"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0xFC00"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"writeln"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"string",
+            "value":"\"-infinity \""
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"keyword",
+            "value":"cast"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"type",
+            "value":"float"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"keyword",
+            "value":"assert"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"=="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"-"
+        },
+        {
+            "type":"identifier",
+            "value":"HF"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"infinity"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"operator",
+            "value":"."
+        },
+        {
+            "type":"identifier",
+            "value":"s"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"="
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"number",
+            "value":"0x3555"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"whitespace",
+            "value":"    "
+        },
+        {
+            "type":"identifier",
+            "value":"writeln"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"string",
+            "value":"\"0.33325 \""
+        },
+        {
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"keyword",
+            "value":"cast"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"type",
+            "value":"float"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"identifier",
+            "value":"f"
+        },
+        {
+            "type":"group",
+            "value":")"
+        },
+        {
+            "type":"statement terminator",
+            "value":";"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        },
+        {
+            "type":"group",
+            "value":"}"
+        },
+        {
+            "type":"newline",
+            "value":"\r\n"
+        }
+    ],
+    "Count":2188
+}
