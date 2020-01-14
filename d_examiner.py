@@ -25,6 +25,7 @@ from cx_token_builders import (
   ClassTypeTokenBuilder
 )
 from d_token_builders import (
+  HexRealExponentTokenBuilder,
   NestedSlashPlusCommentTokenBuilder
 )
 from examiner import Examiner
@@ -48,8 +49,9 @@ class DExaminer(Examiner):
     SingleCharacterTokenBuilder.__escape_z__()
     SlashSlashCommentTokenBuilder.__escape_z__()
     SlashStarCommentTokenBuilder.__escape_z__()
-    NestedSlashPlusCommentTokenBuilder.__escape_z__()
     ClassTypeTokenBuilder.__escape_z__()
+    HexRealExponentTokenBuilder.__escape_z__()
+    NestedSlashPlusCommentTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
@@ -63,11 +65,11 @@ class DExaminer(Examiner):
     # integer suffix: L u U Lu LU uL UL
     integer_exponent_tb = IntegerExponentTokenBuilder("'")
     hex_integer_tb = PrefixedIntegerTokenBuilder('0x', False, '0123456789abcdefABCDEF_')
-    # hex with exponent 'p' 'P' with +-
     binary_integer_tb = PrefixedIntegerTokenBuilder('0b', False, '01_')
     real_tb = RealTokenBuilder(False, False, "'")
     # real suffix f F L i
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
+    hex_real_tb = HexRealExponentTokenBuilder()
     identifier_tb = IdentifierTokenBuilder()
     attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute')
     # string suffix: c,w,d
@@ -166,6 +168,7 @@ class DExaminer(Examiner):
       binary_integer_tb,
       real_tb,
       real_exponent_tb,
+      hex_real_tb,
       keyword_tb,
       types_tb,
       values_tb,
@@ -187,7 +190,11 @@ class DExaminer(Examiner):
     ]
 
     tokenizer = Tokenizer(tokenbuilders)
-    self.tokens = tokenizer.tokenize(code)
+    tokens = tokenizer.tokenize(code)
+    number_suffixes = ['f', 'F', 'i', 'I', 'u', 'U', 'l', 'L', 'ul', 'uL', 'Ul', 'UL', 'lu', 'lU', 'Lu', 'LU']
+    tokens = self.combine_tokens_and_adjacent_types(tokens, 'number', 'identifier', number_suffixes)
+    string_suffixes = ['c', 'w', 'd']
+    self.tokens = self.combine_tokens_and_adjacent_types(tokens, 'string', 'identifier', string_suffixes)
 
     self.calc_token_confidence()
     self.calc_operator_confidence()
@@ -198,3 +205,21 @@ class DExaminer(Examiner):
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_statistics()
+
+
+  def combine_tokens_and_adjacent_types(self, tokens, type1, type2, set2):
+    new_list = []
+
+    new_token = None
+    for token in tokens:
+      if token.group == type2 and token.text in set2 and \
+         new_token is not None and new_token.group == type1:
+        new_token = Token(new_token.text + token.text, type1)
+      else:
+        if new_token is not None:
+          new_list.append(new_token)
+        new_token = token
+    if new_token is not None:
+      new_list.append(new_token)
+
+    return new_list

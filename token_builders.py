@@ -786,7 +786,10 @@ class RealExponentTokenBuilder(TokenBuilder):
     if '.' not in self.text:
       return 0
 
-    if not self.letter.lower() in self.text.lower():
+    if not self.letter in self.text.lower():
+      return 0
+
+    if self.text[-1].lower() == self.letter:
       return 0
 
     if self.extra_char is not None:
