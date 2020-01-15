@@ -120,8 +120,8 @@ test\bin\run_test.ps1 -json -name calculator2 -action detect -tiebreak -inputfil
 test\bin\run_test.ps1 -json -name calculator3 -action detect -tiebreak -inputfile ".\test\data\Csharp\calculator3.cs" -expected ".\test\ref\detect\Csharp\calculator3.txt"
 
 # D
-test\bin\run_test.ps1 -json -name regex-d -action detect -inputfile ".\test\data\d\regex.d" -expected ".\test\ref\detect\d\regex.txt"
-test\bin\run_test.ps1 -json -name halffloat-d -action detect -inputfile ".\test\data\d\halffloat.d" -expected ".\test\ref\detect\d\halffloat.txt"
+test\bin\run_test.ps1 -json -name regex-d -action detect -tiebreak -inputfile ".\test\data\d\regex.d" -expected ".\test\ref\detect\d\regex.txt"
+test\bin\run_test.ps1 -json -name halffloat-d -action detect -tiebreak -inputfile ".\test\data\d\halffloat.d" -expected ".\test\ref\detect\d\halffloat.txt"
 
 # dbase II
 test\bin\run_test.ps1 -json -name sample-dbii -action detect -inputfile ".\test\data\dbase-II\sample.prg" -expected ".\test\ref\detect\dbase-II\sample.txt"

@@ -1,7 +1,7 @@
 import string
 import math
 
-from examiner import Examiner
+from codestat_token import Token
 from codestat_tokenizer import Tokenizer
 from token_builders import (
   InvalidTokenBuilder,
@@ -21,6 +21,7 @@ from cx_token_builders import (
   SlashSlashCommentTokenBuilder,
   SlashStarCommentTokenBuilder
 )
+from examiner import Examiner
 
 class CsharpExaminer(Examiner):
   @staticmethod
@@ -158,7 +159,10 @@ class CsharpExaminer(Examiner):
     ]
 
     tokenizer = Tokenizer(tokenbuilders)
-    self.tokens = tokenizer.tokenize(code)
+    tokens = tokenizer.tokenize(code)
+    tokens = tokenizer.tokenize(code)
+    number_suffixes = ['f', 'F', 'd', 'D', 'm', 'M']
+    self.tokens = self.combine_tokens_and_adjacent_types(tokens, 'number', 'identifier', number_suffixes)
 
     self.calc_token_confidence()
     self.calc_operator_confidence()

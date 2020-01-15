@@ -448,6 +448,24 @@ class Examiner:
     return new_list
 
 
+  def combine_tokens_and_adjacent_types(self, tokens, type1, type2, set2):
+    new_list = []
+
+    new_token = None
+    for token in tokens:
+      if token.group == type2 and token.text in set2 and \
+         new_token is not None and new_token.group == type1:
+        new_token = Token(new_token.text + token.text, type1)
+      else:
+        if new_token is not None:
+          new_list.append(new_token)
+        new_token = token
+    if new_token is not None:
+      new_list.append(new_token)
+
+    return new_list
+
+
   # two operands in a row decreases confidence
   def calc_operand_confidence(self, operand_types):
     tokens = self.tokens

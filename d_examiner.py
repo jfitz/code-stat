@@ -94,13 +94,15 @@ class DExaminer(Examiner):
       '-', '-=', '--', '+', '+=', '++', '<', '<=', '<<', '<<=', '>', '>=',
       '>>=', '>>>=', '>>', '>>>', '!', '!=', '?', ',', ':', '$',
       '=', '==', '*', '*=', '%', '%=', '^', '^=', '^^', '^^=', '~', '~=',
-      '@', '=>', '#'
+      '@', '=>', '#',
+      'new', 'typeof', 'is'
     ]
 
     self.unary_operators = [
       '+', '-', '*',
       '!', '&', '~',
-      '++', '--', ':'
+      '++', '--', ':',
+      'new', 'typeof', 'is'
     ]
 
     self.postfix_operators = [
@@ -121,15 +123,15 @@ class DExaminer(Examiner):
       'else', 'enum', 'export', 'extern',
       'final', 'finally', 'for', 'foreach', 'foreach_reverse', 'function',
       'goto',
-      'if', 'immutable', 'import', 'in', 'inout', 'interface', 'invariant', 'is',
+      'if', 'immutable', 'import', 'in', 'inout', 'interface', 'invariant',
       'lazy',
       'macro', 'mixin', 'module',
-      'new', 'nothrow',
+      'nothrow',
       'out', 'override',
       'package', 'pragma', 'private', 'protected', 'public', 'pure',
       'ref', 'return',
       'scope', 'shared', 'static', 'struct', 'switch', 'synchronized',
-      'template', 'throw', 'try', 'typeid', 'typeof',
+      'template', 'throw', 'try', 'typeid',
       'union', 'unittest', 'version', 'while', 'with',
       '__gshared', '__traits', '__vector', '__parameters'
 ]
@@ -205,21 +207,3 @@ class DExaminer(Examiner):
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_statistics()
-
-
-  def combine_tokens_and_adjacent_types(self, tokens, type1, type2, set2):
-    new_list = []
-
-    new_token = None
-    for token in tokens:
-      if token.group == type2 and token.text in set2 and \
-         new_token is not None and new_token.group == type1:
-        new_token = Token(new_token.text + token.text, type1)
-      else:
-        if new_token is not None:
-          new_list.append(new_token)
-        new_token = token
-    if new_token is not None:
-      new_list.append(new_token)
-
-    return new_list
