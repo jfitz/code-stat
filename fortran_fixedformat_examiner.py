@@ -20,6 +20,7 @@ from fortran_token_builders import (
   HollerithStringTokenBuilder
 )
 from fortran_examiner import FortranExaminer
+from examiner import Examiner
 
 class FortranFixedFormatExaminer(FortranExaminer):
   @staticmethod
@@ -71,7 +72,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
     ]
 
     groupers = ['(', ')', ',']
-    group_ends = [')']
+    # group_ends = [')']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
@@ -141,8 +142,8 @@ class FortranFixedFormatExaminer(FortranExaminer):
 
     tokenizer = Tokenizer(tokenbuilders)
 
-    self.tokens = self.tokenize_code(code, tab_size, tokenizer, wide)
-    self.tokens = self.combine_adjacent_whitespace(self.tokens)
+    tokens = self.tokenize_code(code, tab_size, tokenizer, wide)
+    self.tokens = Examiner.combine_adjacent_whitespace(tokens)
 
     self.convert_numbers_to_lineNumbers()
     self.convert_stars_to_io_channels()

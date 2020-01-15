@@ -22,6 +22,7 @@ from cobol_token_builders import (
   CRPictureTokenBuilder
 )
 from cobol_examiner import CobolExaminer
+from examiner import Examiner
 
 class CobolFixedFormatExaminer(CobolExaminer):
   @staticmethod
@@ -295,8 +296,8 @@ class CobolFixedFormatExaminer(CobolExaminer):
 
     tokenizer = Tokenizer(tokenbuilders)
 
-    self.tokens = self.tokenize_code(code, tab_size, tokenizer, wide)
-    self.tokens = self.combine_adjacent_whitespace(self.tokens)
+    tokens = self.tokenize_code(code, tab_size, tokenizer, wide)
+    self.tokens = Examiner.combine_adjacent_whitespace(tokens)
 
     self.convert_numbers_to_pictures()
     self.convert_numbers_to_levels()

@@ -168,7 +168,8 @@ class Examiner:
     return new_list
 
 
-  def combine_adjacent_whitespace(self, tokens):
+  @staticmethod
+  def combine_adjacent_whitespace(tokens):
     new_list = []
 
     new_token = None

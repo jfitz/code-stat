@@ -7,6 +7,7 @@ from pl1_token_builders import (
   PL1CommentEndTokenBuilder
 )
 from pl1_examiner import PL1Examiner
+from examiner import Examiner
 
 class PL1FixedFormatExaminer(PL1Examiner):
   @staticmethod
@@ -62,9 +63,9 @@ class PL1FixedFormatExaminer(PL1Examiner):
     tokenbuilders2 = tokenbuilders + type2_tokenbuilders + [invalid_token_builder]
     tokenizer2 = Tokenizer(tokenbuilders2)
 
-    self.tokens = self.tokenize_code(code, tab_size, tokenizer1, tokenizer2, wide)
-    self.tokens = self.combine_adjacent_whitespace(self.tokens)
-    self.tokens = self.convert_broken_comments_to_comments(self.tokens)
+    tokens = self.tokenize_code(code, tab_size, tokenizer1, tokenizer2, wide)
+    tokens = Examiner.combine_adjacent_whitespace(tokens)
+    self.tokens = self.convert_broken_comments_to_comments(tokens)
 
     self.calc_token_confidence()
     self.calc_operator_confidence()
