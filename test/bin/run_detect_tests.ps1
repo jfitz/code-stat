@@ -260,7 +260,7 @@ test\bin\run_test.ps1 -json -name raw-string-2-rust -action detect -inputfile ".
 test\bin\run_test.ps1 -json -name attributes-1-rust -action detect -inputfile ".\test\data\Rust\attributes_1.rs" -expected ".\test\ref\detect\Rust\attributes_1.txt"
 test\bin\run_test.ps1 -json -name chip8-rust -action detect -inputfile ".\test\data\Rust\chip8.rs" -expected ".\test\ref\detect\Rust\chip8.txt"
 test\bin\run_test.ps1 -json -name chip8-display-rust -action detect -inputfile ".\test\data\Rust\chip8-display.rs" -expected ".\test\ref\detect\Rust\chip8-display.txt"
-test\bin\run_test.ps1 -json -name chip8-instructions-rust -action Rust -inputfile ".\test\data\Rust\chip8-instructions.rs" -expected ".\test\ref\detect\Rust\chip8-instructions.txt"
+test\bin\run_test.ps1 -json -name chip8-instructions-rust -action detect -inputfile ".\test\data\Rust\chip8-instructions.rs" -expected ".\test\ref\detect\Rust\chip8-instructions.txt"
 test\bin\run_test.ps1 -json -name chip8-main-rust -action detect -inputfile ".\test\data\Rust\chip8-main.rs" -expected ".\test\ref\detect\Rust\chip8-main.txt"
 
 # SQL-92
