@@ -61,9 +61,10 @@ class FsharpExaminer(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', None)
     identifier_tb = IdentifierTokenBuilder()
     class_type_tb = ClassTypeTokenBuilder()
-    string_tb = StringTokenBuilder(['"'], False, False, False)
-    triple_quote_string_tb = TripleQuoteStringTokenBuilder()
-    prefixed_string_tb = PrefixedStringTokenBuilder('@', False, ['"'])
+    quotes = ['"']
+    string_tb = StringTokenBuilder(quotes, False, False, False)
+    triple_quote_string_tb = TripleQuoteStringTokenBuilder(quotes)
+    prefixed_string_tb = PrefixedStringTokenBuilder('@', False, quotes)
     char_tb = FsharpCharTokenBuilder(["'"])
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()

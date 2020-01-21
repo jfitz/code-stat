@@ -61,8 +61,9 @@ class KotlinExaminer(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', '_')
     identifier_tb = IdentifierTokenBuilder()
     decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator')
-    string_tb = StringTokenBuilder(['"', "'"], False, False, False)
-    triple_quote_string_tb = TripleQuoteStringTokenBuilder()
+    quotes = ['"', "'"]
+    string_tb = StringTokenBuilder(quotes, False, False, False)
+    triple_quote_string_tb = TripleQuoteStringTokenBuilder(quotes)
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()

@@ -1089,7 +1089,12 @@ class TripleQuoteStringTokenBuilder(TokenBuilder):
     return 'Escape ?Z'
 
 
-  def __init__(self):
+  def __init__(self, quotes):
+    # convert single quotes to triples
+    self.quote_set = []
+    for quote in quotes:
+      triple = quote * 3
+      self.quote_set.append(triple)
     self.text = ''
 
   def get_tokens(self):
@@ -1107,7 +1112,7 @@ class TripleQuoteStringTokenBuilder(TokenBuilder):
     if len(candidate) in [1, 2]:
       result = c == candidate[0]
 
-    if len(candidate) > 2 and candidate[:3] in ['"""', "'''"]:
+    if len(candidate) > 2 and candidate[:3] in self.quote_set:
       result = True
 
     if len(candidate) > 5 and candidate[-3:] == candidate[:3]:

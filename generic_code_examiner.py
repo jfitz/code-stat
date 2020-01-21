@@ -53,8 +53,9 @@ class GenericCodeExaminer(Examiner):
 
     number_tb = GenericNumberTokenBuilder()
     identifier_tb = GenericIdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(['"', "'"], False, False, False)
-    triple_string_tb = TripleQuoteStringTokenBuilder()
+    quotes = ['"', "'", '`']
+    string_tb = StringTokenBuilder(quotes, False, False, False)
+    triple_string_tb = TripleQuoteStringTokenBuilder(quotes)
 
     comment_tbs = []
 
@@ -103,7 +104,7 @@ class GenericCodeExaminer(Examiner):
     ]
 
     groupers = ['(', ')', ',', '[', ']', '{', '}', ';']
-    group_ends = [')', ']', '}']
+    # group_ends = [')', ']', '}']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
@@ -136,7 +137,7 @@ class GenericCodeExaminer(Examiner):
     self.calc_operator_confidence()
     # self.calc_operator_2_confidence()
     # self.calc_operator_3_confidence(group_ends)
-    operand_types = ['number', 'symbol']
+    # operand_types = ['number', 'symbol']
     # self.calc_operand_confidence(operand_types)
     # self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])

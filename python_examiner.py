@@ -60,15 +60,15 @@ class PythonExaminer(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', '_')
     identifier_tb = IdentifierTokenBuilder()
     decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator')
-    string_tb = StringTokenBuilder(['"', "'"], False, False, False)
-    raw_string_tb = PrefixedStringTokenBuilder('r', True, ['"', "'"])
-    byte_string_tb = PrefixedStringTokenBuilder('b', True, ['"', "'"])
-    unicode_string_tb = PrefixedStringTokenBuilder('u', True, ['"', "'"])
-    fast_string_tb = PrefixedStringTokenBuilder('f', True, ['"', "'"])
-
-    hash_comment_tb = LeadCommentTokenBuilder('#')
-    triple_quote_comment_tb = TripleQuoteStringTokenBuilder()
+    quotes = ['"', "'"]
+    string_tb = StringTokenBuilder(quotes, False, False, False)
+    raw_string_tb = PrefixedStringTokenBuilder('r', True, quotes)
+    byte_string_tb = PrefixedStringTokenBuilder('b', True, quotes)
+    unicode_string_tb = PrefixedStringTokenBuilder('u', True, quotes)
+    fast_string_tb = PrefixedStringTokenBuilder('f', True, quotes)
+    triple_quote_comment_tb = TripleQuoteStringTokenBuilder(quotes)
     raw_triple_quote_comment_tb = RawTripleQuoteCommentTokenBuilder()
+    hash_comment_tb = LeadCommentTokenBuilder('#')
 
     known_operators = [
       '+', '-', '*', '/', '%', '@',
