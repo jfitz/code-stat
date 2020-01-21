@@ -356,5 +356,7 @@ test\bin\run_test.ps1 -json -name word-processor-vbnet -action tokens -language 
 test\bin\run_test.ps1 -json -name polyglot-c -action tokens -language C -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\tokens\C\polyglot.txt"
 test\bin\run_test.ps1 -json -name polyglot-COBOL-85 -action tokens -language COBOL-85 -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\tokens\COBOL-85\polyglot.txt"
 test\bin\run_test.ps1 -json -name polyglot-pascal -action tokens -language Pascal -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\tokens\Pascal\polyglot.txt"
+test\bin\run_test.ps1 -json -name polyglot-py-rb-python -action tokens -language Python -inputfile ".\test\data\multiple\polyglot-py-rb.txt" -expected ".\test\ref\tokens\Python\polyglot-py-rb.txt"
+test\bin\run_test.ps1 -json -name polyglot-py-rb-ruby -action tokens -language Ruby -inputfile ".\test\data\multiple\polyglot-py-rb.txt" -expected ".\test\ref\tokens\Ruby\polyglot-py-rb.txt"
 
 Write-Output "Number of failures: $failures"

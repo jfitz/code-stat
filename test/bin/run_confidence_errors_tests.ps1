@@ -356,5 +356,7 @@ test\bin\run_test.ps1 -json -name word-processor-vbnet -action confidence -error
 test\bin\run_test.ps1 -json -name polyglot-c -action confidence -errors -language C -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\confidence-errors\C\polyglot.txt"
 test\bin\run_test.ps1 -json -name polyglot-COBOL-85 -action confidence -errors -language COBOL-85 -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\confidence-errors\COBOL-85\polyglot.txt"
 test\bin\run_test.ps1 -json -name polyglot-pascal -action confidence -errors -language Pascal -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\confidence-errors\Pascal\polyglot.txt"
+test\bin\run_test.ps1 -json -name polyglot-py-rb-python -action confidence -errors -language Python -inputfile ".\test\data\multiple\polyglot-py-rb.txt" -expected ".\test\ref\confidence-errors\Python\polyglot-py-rb.txt"
+test\bin\run_test.ps1 -json -name polyglot-py-rb-ruby -action confidence -errors -language Ruby -inputfile ".\test\data\multiple\polyglot-py-rb.txt" -expected ".\test\ref\confidence-errors\Ruby\polyglot-py-rb.txt"
 
 Write-Output "Number of failures: $failures"

@@ -311,6 +311,8 @@ test\bin\run_test.ps1 -json -name word-processor-vbnet -action detect -inputfile
 # polyglot programs
 test\bin\run_test.ps1 -json -name polyglot -action detect -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\detect\multiple\polyglot.txt"
 test\bin\run_test.ps1 -json -name polyglot-languages -action detect -language C,Cplusplus,COBOL-68,COBOL-74,cobol-85,objective-c,Pascal -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\detect\multiple\polyglot-languages.txt"
+test\bin\run_test.ps1 -json -name polyglot-py-rb -action detect -inputfile ".\test\data\multiple\polyglot-py-rb.txt" -expected ".\test\ref\detect\multiple\polyglot-py-rb.txt"
+test\bin\run_test.ps1 -json -name polyglot-py-rb-languages -action detect -language python,ruby -inputfile ".\test\data\multiple\polyglot-py-rb.txt" -expected ".\test\ref\detect\multiple\polyglot-py-rb-languages.txt"
 
 # non-code files
 test\bin\run_test.ps1 -json -name noncode-empty -action detect -inputfile ".\test\data\noncode\empty.txt" -expected ".\test\ref\detect\noncode\empty.txt"

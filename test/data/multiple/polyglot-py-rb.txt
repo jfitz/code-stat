@@ -1,0 +1,9 @@
+(0 and eval("""
+3.times {
+  puts 'ruby code goes here'
+}
+true
+""")) or eval(compile("""
+for i in range(3):
+    print('python code goes here')
+""", "", "exec"))
