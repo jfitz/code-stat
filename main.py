@@ -27,6 +27,7 @@ from html_examiner import HTMLExaminer
 from java_examiner import JavaExaminer
 from javascript_examiner import JavaScriptExaminer
 from kotlin_examiner import KotlinExaminer
+from microsoft_basic_examiner import MicrosoftBasicExaminer
 from objectivec_examiner import ObjectiveCExaminer
 from pascal_examiner import PascalExaminer
 from pl1_fixedformat_examiner import PL1FixedFormatExaminer
@@ -63,6 +64,7 @@ HTMLExaminer.__escape_z__()
 JavaExaminer.__escape_z__()
 JavaScriptExaminer.__escape_z__()
 KotlinExaminer.__escape_z__()
+MicrosoftBasicExaminer.__escape_z__()
 ObjectiveCExaminer.__escape_z__()
 PascalExaminer.__escape_z__()
 PL1FixedFormatExaminer.__escape_z__()
@@ -217,6 +219,7 @@ codesAndNames = {
   'javascript': 'JavaScript',
   'kotlin': 'Kotlin',
   'html': 'HTML',
+  'microsoft-basic': 'Microsoft-BASIC',
   'objective-c': 'Objective-C',
   'pascal': 'Pascal',
   'pl1-fixed': 'PL/1-Fixed',
@@ -274,6 +277,7 @@ codesAndGroups = {
   'javascript': 'JavaScript',
   'kotlin': 'Kotlin',
   'html': 'HTML',
+  'microsoft-basic': 'BASIC',
   'objective-c': 'Objective-C',
   'pascal': 'Pascal',
   'pl1-fixed': 'PL/1',
@@ -331,6 +335,7 @@ codesAndYears = {
   'java': '1995',
   'javascript': '1995',
   'kotlin': '2011',
+  'microsoft-basic': '1980',
   'objective-c': '1984',
   'pascal': '1970',
   'pl1-fixed': '1964',
@@ -699,6 +704,9 @@ def make_one_examiner(language, code, tab_size, wide, comment):
   if language in ['kotlin', 'kt']:
     examiner = KotlinExaminer(code)
 
+  if language in ['microsoft-basic', 'mbasic', 'mba']:
+    examiner = MicrosoftBasicExaminer(code)
+
   if language in ['objective-c', 'objc']:
     examiner = ObjectiveCExaminer(code)
 
@@ -872,6 +880,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
 
   if 'kotlin' in languages:
     examiners['kotlin'] = KotlinExaminer(code)
+
+  if 'microsoft-basic' in languages or 'mbasic' in languages or 'mba' in languages:
+    examiners['microsoft-basic'] = MicrosoftBasicExaminer(code)
 
   if 'pascal' in languages or 'pas' in languages:
     examiners['pascal'] = PascalExaminer(code)

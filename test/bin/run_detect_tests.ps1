@@ -20,6 +20,10 @@ test\bin\run_test.ps1 -json -name life -action detect -tiebreak -inputfile ".\te
 test\bin\run_test.ps1 -json -name income -action detect -tiebreak -inputfile ".\test\data\BASIC\income.bas" -expected ".\test\ref\detect\BASIC\income.txt"
 test\bin\run_test.ps1 -json -name rockt2 -action detect -tiebreak -inputfile ".\test\data\BASIC\rockt2.bas" -expected ".\test\ref\detect\BASIC\rockt2.txt"
 
+# Microsoft BASIC
+test\bin\run_test.ps1 -json -name doctor-mbasic -action detect -inputfile ".\test\data\BASIC\doctor.bas" -expected ".\test\ref\detect\Microsoft-BASIC\doctor.txt"
+test\bin\run_test.ps1 -json -name sea-creature-mbasic -action detect -inputfile ".\test\data\BASIC\sea_creature.bas" -expected ".\test\ref\detect\Microsoft-BASIC\sea_creature.txt"
+
 # BASICA
 test\bin\run_test.ps1 -json -name sea-creature-basica -action detect -inputfile ".\test\data\BASIC\sea_creature.bas" -expected ".\test\ref\detect\BASICA\sea_creature.txt"
 
