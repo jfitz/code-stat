@@ -33,144 +33,44 @@
             "value":"\"\""
         },
         {
-            "type":"invalid",
-            "value":"\""
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"number",
-            "value":"3"
-        },
-        {
-            "type":"operator",
-            "value":"."
-        },
-        {
-            "type":"identifier",
-            "value":"times"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"group",
-            "value":"{"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"  "
-        },
-        {
-            "type":"identifier",
-            "value":"puts"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
             "type":"string",
-            "value":"\u0027ruby code goes here\u0027"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"group",
-            "value":"}"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"value",
-            "value":"true"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
+            "value":"\"\r\n3.times {\r\n  puts \u0027ruby code goes here\u0027\r\n}\r\ntrue\r\n\""
         },
         {
             "type":"string",
             "value":"\"\""
-        },
-        {
-            "type":"string",
-            "value":"\")) or eval(compile(\""
-        },
-        {
-            "type":"string",
-            "value":"\"\""
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"for"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"i"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":"in"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"range"
-        },
-        {
-            "type":"group",
-            "value":"("
-        },
-        {
-            "type":"number",
-            "value":"3"
         },
         {
             "type":"group",
             "value":")"
         },
         {
-            "type":"operator",
-            "value":":"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
+            "type":"group",
+            "value":")"
         },
         {
             "type":"whitespace",
-            "value":"    "
+            "value":" "
+        },
+        {
+            "type":"operator",
+            "value":"or"
+        },
+        {
+            "type":"whitespace",
+            "value":" "
         },
         {
             "type":"identifier",
-            "value":"print"
+            "value":"eval"
+        },
+        {
+            "type":"group",
+            "value":"("
+        },
+        {
+            "type":"identifier",
+            "value":"compile"
         },
         {
             "type":"group",
@@ -178,35 +78,39 @@
         },
         {
             "type":"string",
-            "value":"\u0027python code goes here\u0027"
+            "value":"\"\""
         },
         {
-            "type":"group",
-            "value":")"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
+            "type":"string",
+            "value":"\"\r\nfor i in range(3):\r\n    print(\u0027python code goes here\u0027)\r\n\""
         },
         {
             "type":"string",
             "value":"\"\""
         },
         {
-            "type":"string",
-            "value":"\", \""
+            "type":"group",
+            "value":","
+        },
+        {
+            "type":"whitespace",
+            "value":" "
         },
         {
             "type":"string",
-            "value":"\", \""
+            "value":"\"\""
         },
         {
-            "type":"identifier",
-            "value":"exec"
+            "type":"group",
+            "value":","
         },
         {
-            "type":"invalid",
-            "value":"\""
+            "type":"whitespace",
+            "value":" "
+        },
+        {
+            "type":"string",
+            "value":"\"exec\""
         },
         {
             "type":"group",
@@ -221,5 +125,5 @@
             "value":"\r\n"
         }
     ],
-    "Count":55
+    "Count":31
 }

@@ -221,6 +221,18 @@ class Examiner:
     self.confidences['line_length'] = line_length_confidence
 
 
+  # count invalid tokens
+  @staticmethod
+  def count_invalid_tokens(tokens):
+    num_invalid_tokens = 0
+
+    for token in tokens:
+      if token.group.startswith('invalid'):
+        num_invalid_tokens += 1
+
+    return num_invalid_tokens
+
+
   # unknown tokens reduce confidence
   def calc_token_confidence(self):
     num_invalid_tokens = 0
@@ -550,11 +562,26 @@ class Examiner:
 
 
   def calc_keyword_confidence(self):
-    self.confidences['keyword'] = 0.0
     keywords = self.find_keywords()
 
     if len(keywords) > 0:
       self.confidences['keyword'] = 1.0
+    else:
+      # if no keywords, compute based on tokens
+      num_tokens = len(self.tokens)
+      num_invalid_tokens = Examiner.count_invalid_tokens(self.tokens)
+      num_valid_tokens = num_tokens - num_invalid_tokens
+
+      # fewer than 1000 tokens and no keyword? possible
+      if num_valid_tokens > 0 and num_tokens < 1000:
+        # the more invalid tokens, the less likely
+        confidence_1 = 1.0 - num_invalid_tokens / num_tokens
+        # the more tokens, the less likely
+        confidence_2 = 1.0 - num_tokens / 1000
+        self.confidences['keyword'] = confidence_1 * confidence_2
+      else:
+        # more than 1000 tokens and no keyword? assume it is not
+        self.confidences['keyword'] = 0.0
 
 
   def count_source_lines(self):

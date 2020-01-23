@@ -92,7 +92,7 @@ def decode_bytes(in_bytes):
       try:
         text = in_bytes.decode('utf-16')
       except UnicodeDecodeError:
-        pass
+        raise CodeStatException('Code cannot be decoded as ASCII or UNICODE')
 
   return text
 
@@ -361,7 +361,7 @@ codesAndYears = {
 @app.route('/languages', methods=['GET'])
 def route_languages():
   json_text = json.dumps(codesAndNames)
-  return json_text
+  return Response(json_text, mimetype='application/json')
 
 
 @app.route('/detab', methods=['POST'])
@@ -369,19 +369,37 @@ def route_detab():
   _, _, tab_size, _, _ = extract_params(request.args)
 
   request_bytes = request.get_data()
-  text = decode_bytes(request_bytes)
-  detabbed_text = tabs_to_spaces(text, tab_size)
 
-  return detabbed_text
+  http_status = 200
+  mime_type = 'text/plain'
+  try:
+    text = decode_bytes(request_bytes)
+    response_text = tabs_to_spaces(text, tab_size)
+
+  except CodeStatException as e:
+    http_status = 450
+    mime_type = 'application/json'
+    response_text = str(e)
+
+  return Response(response_text, status=http_status, mimetype=mime_type)
 
 
 @app.route('/truncate', methods=['POST'])
 def route_truncate():
   request_bytes = request.get_data()
-  text = decode_bytes(request_bytes)
-  truncated_text = truncate_lines(text, 72)
 
-  return truncated_text
+  http_status = 200
+  mime_type = 'text/plain'
+  try:
+    text = decode_bytes(request_bytes)
+    response_text = truncate_lines(text, 72)
+
+  except CodeStatException as e:
+    http_status = 450
+    mime_type = 'application/json'
+    response_text = str(e)
+
+  return Response(response_text, status=http_status, mimetype=mime_type)
 
 
 @app.route('/unwrap', methods=['POST'])
@@ -394,11 +412,19 @@ def route_unwrap():
     language = 'generic'
 
   request_bytes = request.get_data()
-  text = decode_bytes(request_bytes)
 
-  unwrapped_text = unwrap_lines(text, language.lower())
+  http_status = 200
+  mime_type = 'text/plain'
+  try:
+    text = decode_bytes(request_bytes)
+    response_text = unwrap_lines(text, language.lower())
 
-  return unwrapped_text
+  except CodeStatException as e:
+    http_status = 450
+    mime_type = 'application/json'
+    response_text = str(e)
+
+  return Response(response_text, status=http_status, mimetype=mime_type)
 
 
 @app.route('/detect', methods=['POST'])
@@ -417,10 +443,10 @@ def route_detect():
     tiebreak_tokens = True
 
   request_bytes = request.get_data()
-  text = decode_bytes(request_bytes)
 
   http_status = 200
   try:
+    text = decode_bytes(request_bytes)
     detected_languages, _ = identify_language(text, tab_size, wide, comment, tiebreak_keywords, tiebreak_tokens, languages)
 
     mydict = {}
@@ -445,10 +471,10 @@ def route_tokens():
     languages = list(codesAndNames.keys())
 
   request_bytes = request.get_data()
-  text = decode_bytes(request_bytes)
 
   http_status = 200
   try:
+    text = decode_bytes(request_bytes)
     winning_languages, examiners = build_language_list(languages, text, tab_size, wide, comment)
 
     list_of_dicts = []
@@ -479,10 +505,10 @@ def route_confidence():
     languages = list(codesAndNames.keys())
 
   request_bytes = request.get_data()
-  text = decode_bytes(request_bytes)
 
   http_status = 200
   try:
+    text = decode_bytes(request_bytes)
     winning_languages, examiners = build_language_list(languages, text, tab_size, wide, comment)
 
     operation = ''
@@ -517,10 +543,10 @@ def route_statistics():
     languages = list(codesAndNames.keys())
 
   request_bytes = request.get_data()
-  text = decode_bytes(request_bytes)
 
   http_status = 200
   try:
+    text = decode_bytes(request_bytes)
     winning_languages, examiners = build_language_list(languages, text, tab_size, wide, comment)
 
     list_of_dicts = []

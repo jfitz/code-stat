@@ -1,33 +1,25 @@
 ﻿{
     "value":[
         {
-            "TYPE":"TOKEN",
-            "INVALID":"\""
-        },
-        {
-            "TYPE":"TOKEN",
-            "INVALID":"\""
-        },
-        {
             "TYPE":"OPERAND",
             "FIRST":"\"\"",
-            "SECOND":"\")) or eval(compile(\""
+            "SECOND":"\"\r\n3.times {\r\n  puts \u0027ruby code goes here\u0027\r\n}\r\ntrue\r\n\""
         },
         {
             "TYPE":"OPERAND",
-            "FIRST":"\")) or eval(compile(\"",
+            "FIRST":"\"\r\n3.times {\r\n  puts \u0027ruby code goes here\u0027\r\n}\r\ntrue\r\n\"",
             "SECOND":"\"\""
         },
         {
             "TYPE":"OPERAND",
             "FIRST":"\"\"",
-            "SECOND":"\", \""
+            "SECOND":"\"\r\nfor i in range(3):\r\n    print(\u0027python code goes here\u0027)\r\n\""
         },
         {
             "TYPE":"OPERAND",
-            "FIRST":"\", \"",
-            "SECOND":"\", \""
+            "FIRST":"\"\r\nfor i in range(3):\r\n    print(\u0027python code goes here\u0027)\r\n\"",
+            "SECOND":"\"\""
         }
     ],
-    "Count":6
+    "Count":4
 }
