@@ -189,14 +189,20 @@ test\bin\run_test.ps1 -json -name bing-js -action detect -tiebreak -inputfile ".
 test\bin\run_test.ps1 -json -name calc_prime-js -action detect -inputfile ".\test\data\JavaScript\calc_prime.js" -expected ".\test\ref\detect\JavaScript\calc_prime.txt"
 test\bin\run_test.ps1 -json -name backtick-js -action detect -inputfile ".\test\data\JavaScript\backtick.js" -expected ".\test\ref\detect\JavaScript\backtick.txt"
 
+# Julia
+test\bin\run_test.ps1 -json -name dsp-jl -action detect -tiebreak -inputfile ".\test\data\Julia\dsp.jl" -expected ".\test\ref\detect\Julia\dsp.txt"
+test\bin\run_test.ps1 -json -name container-jl -action detect -tiebreak -inputfile ".\test\data\Julia\container.jl" -expected ".\test\ref\detect\Julia\container.txt"
+test\bin\run_test.ps1 -json -name microbiome-jl -action detect -tiebreak -inputfile ".\test\data\Julia\microbiome.jl" -expected ".\test\ref\detect\Julia\microbiome.txt"
+test\bin\run_test.ps1 -json -name periodograms-jl -action detect -tiebreak -inputfile ".\test\data\Julia\periodograms.jl" -expected ".\test\ref\detect\Julia\periodograms.txt"
+
 # Kotlin
 test\bin\run_test.ps1 -json -name qksms-kt -action detect -inputfile ".\test\data\Kotlin\qksms.kt" -expected ".\test\ref\detect\Kotlin\qksms.txt"
 test\bin\run_test.ps1 -json -name render-kt -action detect -inputfile ".\test\data\Kotlin\render.kt" -expected ".\test\ref\detect\Kotlin\render.txt"
 
 # Objective-C
 test\bin\run_test.ps1 -json -name hello-objc -action detect -tiebreak -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\detect\Objective-C\HelloWorld.txt"
-test\bin\run_test.ps1 -json -name qrmath-objc -action detect -inputfile ".\test\data\Objective-C\QRMath.h" -expected ".\test\ref\detect\Objective-C\QRMath.txt"
-test\bin\run_test.ps1 -json -name qrencoder-objc -action detect -inputfile ".\test\data\Objective-C\QREncoder.m" -expected ".\test\ref\detect\Objective-C\QREncoder.txt"
+test\bin\run_test.ps1 -json -name qrmath-objc -action detect -tiebreak -inputfile ".\test\data\Objective-C\QRMath.h" -expected ".\test\ref\detect\Objective-C\QRMath.txt"
+test\bin\run_test.ps1 -json -name qrencoder-objc -action detect -tiebreak -inputfile ".\test\data\Objective-C\QREncoder.m" -expected ".\test\ref\detect\Objective-C\QREncoder.txt"
 
 # Pascal
 test\bin\run_test.ps1 -json -name firework-pas -action detect -tiebreak -inputfile ".\test\data\Pascal\FIREWORK.PAS" -expected ".\test\ref\detect\Pascal\FIREWORK.txt"

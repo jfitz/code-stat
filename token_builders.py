@@ -1246,6 +1246,92 @@ class RegexTokenBuilder(TokenBuilder):
     return len(self.text)
 
 
+# token reader for /* */ comment that allows nesting
+class NestedCommentTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self, opener, closer):
+    self.text = ''
+    self.opener = opener
+    self.closer = closer
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'comment')]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if len(candidate) == 0 and c == self.opener[0]:
+      result = True
+
+    if len(candidate) == 1 and c == self.opener[1]:
+      result = True
+
+    if len(candidate) == 2:
+      result = True
+
+    # walk through candidate and verify open delimiters
+    if len(candidate) > 2:
+      level = 0
+      prev = ''
+      for c in candidate:
+        if prev == self.opener[0] and c == self.opener[1]:
+          level += 1
+
+        if prev == self.closer[0] and c == self.closer[1]:
+          level -= 1
+
+        if level < 0:
+          result = False
+
+        prev = c
+
+      if level > 0:
+        result = True
+
+    return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if not self.text.startswith(self.opener):
+      return 0
+
+    if not self.text.endswith(self.closer):
+      return 0
+
+    # walk through text and verify matched delimiters
+    level = 0
+    prev = ''
+    for c in self.text:
+      if prev == self.opener[0] and c == self.opener[1]:
+        level += 1
+
+      if prev == self.closer[0] and c == self.closer[1]:
+        level -= 1
+
+      if level < 0:
+        return 0
+
+      prev = c
+
+    if level != 0:
+      return 0
+
+    return len(self.text)
+
+
 # token reader for prefix/suffix block
 class BlockTokenBuilder(TokenBuilder):
   @staticmethod

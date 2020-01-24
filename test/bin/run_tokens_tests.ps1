@@ -233,6 +233,12 @@ test\bin\run_test.ps1 -json -name bing-js -action tokens -language JavaScript -i
 test\bin\run_test.ps1 -json -name calc_prime-js -action tokens -language JavaScript -inputfile ".\test\data\JavaScript\calc_prime.js" -expected ".\test\ref\tokens\JavaScript\calc_prime.txt"
 test\bin\run_test.ps1 -json -name backtick-js -action tokens -language JavaScript -inputfile ".\test\data\JavaScript\backtick.js" -expected ".\test\ref\tokens\JavaScript\backtick.txt"
 
+# Julia
+test\bin\run_test.ps1 -json -name dsp-jl -action tokens -language Julia -inputfile ".\test\data\Julia\dsp.jl" -expected ".\test\ref\tokens\Julia\dsp.txt"
+test\bin\run_test.ps1 -json -name container-jl -action tokens -language Julia -inputfile ".\test\data\Julia\container.jl" -expected ".\test\ref\tokens\Julia\container.txt"
+test\bin\run_test.ps1 -json -name microbiome-jl -action tokens -language Julia -inputfile ".\test\data\Julia\microbiome.jl" -expected ".\test\ref\tokens\Julia\microbiome.txt"
+test\bin\run_test.ps1 -json -name periodograms-jl -action tokens -language Julia -inputfile ".\test\data\Julia\periodograms.jl" -expected ".\test\ref\tokens\Julia\periodograms.txt"
+
 # Kotlin
 test\bin\run_test.ps1 -json -name qksms-kt -action tokens -language Kotlin -inputfile ".\test\data\Kotlin\qksms.kt" -expected ".\test\ref\tokens\Kotlin\qksms.txt"
 test\bin\run_test.ps1 -json -name render-kt -action tokens -language Kotlin -inputfile ".\test\data\Kotlin\render.kt" -expected ".\test\ref\tokens\Kotlin\render.txt"

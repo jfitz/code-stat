@@ -26,6 +26,7 @@ from go_examiner import GoExaminer
 from html_examiner import HTMLExaminer
 from java_examiner import JavaExaminer
 from javascript_examiner import JavaScriptExaminer
+from julia_examiner import JuliaExaminer
 from kotlin_examiner import KotlinExaminer
 from microsoft_basic_examiner import MicrosoftBasicExaminer
 from objectivec_examiner import ObjectiveCExaminer
@@ -63,6 +64,7 @@ GoExaminer.__escape_z__()
 HTMLExaminer.__escape_z__()
 JavaExaminer.__escape_z__()
 JavaScriptExaminer.__escape_z__()
+JuliaExaminer.__escape_z__()
 KotlinExaminer.__escape_z__()
 MicrosoftBasicExaminer.__escape_z__()
 ObjectiveCExaminer.__escape_z__()
@@ -217,6 +219,7 @@ codesAndNames = {
   'go': 'Go',
   'java': 'Java',
   'javascript': 'JavaScript',
+  'julia': 'Julia',
   'kotlin': 'Kotlin',
   'html': 'HTML',
   'microsoft-basic': 'Microsoft-BASIC',
@@ -275,6 +278,7 @@ codesAndGroups = {
   'go': 'Go',
   'java': 'Java',
   'javascript': 'JavaScript',
+  'julia': 'Julia',
   'kotlin': 'Kotlin',
   'html': 'HTML',
   'microsoft-basic': 'BASIC',
@@ -334,6 +338,7 @@ codesAndYears = {
   'html': '1990',
   'java': '1995',
   'javascript': '1995',
+  'julia': '2009',
   'kotlin': '2011',
   'microsoft-basic': '1980',
   'objective-c': '1984',
@@ -727,6 +732,9 @@ def make_one_examiner(language, code, tab_size, wide, comment):
   if language in ['javascript', 'js']:
     examiner = JavaScriptExaminer(code)
 
+  if language in ['julia', 'jl']:
+    examiner = JuliaExaminer(code)
+
   if language in ['kotlin', 'kt']:
     examiner = KotlinExaminer(code)
 
@@ -903,6 +911,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
 
   if 'javascript' in languages or 'js' in languages:
     examiners['javascript'] = JavaScriptExaminer(code)
+
+  if 'julia' in languages:
+    examiners['julia'] = JuliaExaminer(code)
 
   if 'kotlin' in languages:
     examiners['kotlin'] = KotlinExaminer(code)

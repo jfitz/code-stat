@@ -17,11 +17,11 @@ from token_builders import (
   PrefixedIntegerTokenBuilder,
   IdentifierTokenBuilder,
   ListTokenBuilder,
-  SingleCharacterTokenBuilder
+  SingleCharacterTokenBuilder,
+  NestedCommentTokenBuilder
 )
 from cx_token_builders import (
   SlashSlashCommentTokenBuilder,
-  NestedSlashStarCommentTokenBuilder,
   ClassTypeTokenBuilder
 )
 from rust_token_builders import (
@@ -48,7 +48,7 @@ class RustExaminer(Examiner):
     ListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     SlashSlashCommentTokenBuilder.__escape_z__()
-    NestedSlashStarCommentTokenBuilder.__escape_z__()
+    NestedCommentTokenBuilder.__escape_z__()
     ClassTypeTokenBuilder.__escape_z__()
     RustRawStringTokenBuilder.__escape_z__()
     RustAttributeTokenBuilder.__escape_z__()
@@ -79,7 +79,7 @@ class RustExaminer(Examiner):
     class_type_tb = ClassTypeTokenBuilder()
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
-    slash_star_comment_tb = NestedSlashStarCommentTokenBuilder()
+    slash_star_comment_tb = NestedCommentTokenBuilder('/*', '*/')
 
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
 

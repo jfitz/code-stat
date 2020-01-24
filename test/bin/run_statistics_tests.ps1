@@ -233,6 +233,12 @@ test\bin\run_test.ps1 -json -name bing-js -action statistics -language JavaScrip
 test\bin\run_test.ps1 -json -name calc_prime-js -action statistics -language JavaScript -inputfile ".\test\data\JavaScript\calc_prime.js" -expected ".\test\ref\statistics\JavaScript\calc_prime.txt"
 test\bin\run_test.ps1 -json -name backtick-js -action statistics -language JavaScript -inputfile ".\test\data\JavaScript\backtick.js" -expected ".\test\ref\statistics\JavaScript\backtick.txt"
 
+# Julia
+test\bin\run_test.ps1 -json -name dsp-jl -action statistics -language Julia -inputfile ".\test\data\Julia\dsp.jl" -expected ".\test\ref\statistics\Julia\dsp.txt"
+test\bin\run_test.ps1 -json -name container-jl -action statistics -language Julia -inputfile ".\test\data\Julia\container.jl" -expected ".\test\ref\statistics\Julia\container.txt"
+test\bin\run_test.ps1 -json -name microbiome-jl -action statistics -language Julia -inputfile ".\test\data\Julia\microbiome.jl" -expected ".\test\ref\statistics\Julia\microbiome.txt"
+test\bin\run_test.ps1 -json -name periodograms-jl -action statistics -language Julia -inputfile ".\test\data\Julia\periodograms.jl" -expected ".\test\ref\statistics\Julia\periodograms.txt"
+
 # Kotlin
 test\bin\run_test.ps1 -json -name qksms-kt -action statistics -language Kotlin -inputfile ".\test\data\Kotlin\qksms.kt" -expected ".\test\ref\statistics\Kotlin\qksms.txt"
 test\bin\run_test.ps1 -json -name render-kt -action statistics -language Kotlin -inputfile ".\test\data\Kotlin\render.kt" -expected ".\test\ref\statistics\Kotlin\render.txt"

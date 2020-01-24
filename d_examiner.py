@@ -17,7 +17,8 @@ from token_builders import (
   IdentifierTokenBuilder,
   PrefixedIdentifierTokenBuilder,
   ListTokenBuilder,
-  SingleCharacterTokenBuilder
+  SingleCharacterTokenBuilder,
+  NestedCommentTokenBuilder
 )
 from cx_token_builders import (
   SlashSlashCommentTokenBuilder,
@@ -25,8 +26,7 @@ from cx_token_builders import (
   ClassTypeTokenBuilder
 )
 from d_token_builders import (
-  HexRealExponentTokenBuilder,
-  NestedSlashPlusCommentTokenBuilder
+  HexRealExponentTokenBuilder
 )
 from examiner import Examiner
 
@@ -51,7 +51,7 @@ class DExaminer(Examiner):
     SlashStarCommentTokenBuilder.__escape_z__()
     ClassTypeTokenBuilder.__escape_z__()
     HexRealExponentTokenBuilder.__escape_z__()
-    NestedSlashPlusCommentTokenBuilder.__escape_z__()
+    NestedCommentTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
@@ -84,7 +84,7 @@ class DExaminer(Examiner):
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
-    slash_plus_comment_tb = NestedSlashPlusCommentTokenBuilder()
+    slash_plus_comment_tb = NestedCommentTokenBuilder('/+', '+/')
 
     line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation')
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
