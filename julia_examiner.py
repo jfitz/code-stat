@@ -78,21 +78,35 @@ class JuliaExaminer(Examiner):
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
 
     known_operators = [
-      'where', 'in', 'isa', '′',
+      'where', 'in', 'isa', '′', "'",
       '+', '-', '*', '/', '\\', '^', '%', '//',
       '<<', '>>', '<<<', '>>>',
       ':', '=', '==', '!=', '===', '!==',
+      '+=', '-=', '*=', '/=', '^=', '%=',
       '<', '>', '<=', '>=',
       '~', '&', '|', '!', '&&', '||', '?', '.',
-      '<:', '>:', '/=',
-      '::', '->'
+      '<:', '>:',
+      '::', '->',
+      '...',
+      '∀', '≤', '≥', '⊻', '⊽', '⊼'
     ]
 
+    # 0x391 through 0x3a9 (capital)
+    # 0x3b1 through 0x3c9 (small)
+    greek_letters = [
+      'α', 'β', 'γ', 'δ', 'ε', 'ζ', 'η', 'θ', 'ι', 'κ', 'λ', 'μ',
+      'ν', 'ξ', 'ο', 'π', 'ρ', 'ς', 'σ', 'τ', 'υ', 'φ', 'χ', 'ψ', 'ω'
+    ]
+
+    greek_letter_tb = ListTokenBuilder(greek_letters, 'identifier', True)
+
     self.unary_operators = [
-      'isa', '+', '-', '~', '!'
+      'isa', '+', '-', '~', '!', '.', ':', '::', "'",
+      '<:', '>:',
     ]
 
     self.postfix_operators = [
+      '...', '′'
     ]
 
     groupers = ['(', ')', ',', '[', ']', '{', '}']
@@ -132,7 +146,7 @@ class JuliaExaminer(Examiner):
     types_tb = ListTokenBuilder(types, 'type', True)
 
     values = [
-      'false', 'true', '...'
+      'false', 'true'
     ]
 
     values_tb = ListTokenBuilder(values, 'value', True)
@@ -159,6 +173,7 @@ class JuliaExaminer(Examiner):
       symbol_tb,
       attribute_tb,
       dollar_sign_tb,
+      greek_letter_tb,
       string_tb,
       raw_string_tb,
       b_string_tb,
