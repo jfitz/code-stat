@@ -525,7 +525,6 @@ class SuffixedIntegerTokenBuilder(TokenBuilder):
 
 
   def __init__(self, suffixes, extra_char):
-    self.text = None
     self.suffixes = suffixes
 
     self.abbrevs = {}
@@ -534,6 +533,8 @@ class SuffixedIntegerTokenBuilder(TokenBuilder):
         self.abbrevs[suffix[:i+1]] = 1
 
     self.extra_char = extra_char
+
+    self.text = None
 
 
   def get_tokens(self):
@@ -666,11 +667,22 @@ class SuffixedRealTokenBuilder(TokenBuilder):
 
 
   def __init__(self, require_before, require_after, suffixes, extra_char):
-    self.text = None
     self.require_before = require_before
     self.require_after = require_after
     self.suffixes = suffixes
     self.extra_char = extra_char
+    self.digits = '0123456789.'
+    if extra_char is not None:
+      self.digits += extra_char
+
+    self.abbrevs = {}
+    for suffix in self.suffixes:
+      for i in range(len(suffix)):
+        self.abbrevs[suffix[:i+1]] = 1
+
+    self.regex = re.compile(r'[A-Za-z]+$')
+
+    self.text = None
 
 
   def get_tokens(self):
@@ -684,20 +696,35 @@ class SuffixedRealTokenBuilder(TokenBuilder):
     result = False
 
     if c.isdigit():
-      result = True
-    
+      if len(candidate) == 0:
+        result = True
+      else:
+        result = candidate[-1] in self.digits
+
     if c == '.' and '.' not in candidate:
-      result = True
+      if len(candidate) > 0:
+        result = candidate[-1].isdigit()
+      else:
+        result = True
 
     if self.extra_char is not None and c == self.extra_char:
       result = len(candidate) > 0 and candidate[-1].isdigit()
 
-    if len(candidate) > 0 and c in self.suffixes:
-      result = True
+    # check suffix
+    if c not in self.digits and len(candidate) > 0:
+      # get current (possibly partial) suffix
+      m = self.regex.search(candidate)
 
-    if len(candidate) > 0 and candidate[-1] in self.suffixes:
-      result = False
+      # append c to suffix in process
+      if m is None:
+        trailings = c
+      else:
+        trailings = m.group(0) + c
+      # check proposed suffix is in list of abbrevs
+      # print('SUFFIX: ' + trailings)
+      result = trailings in self.abbrevs
 
+    # print('ACCEPT: ' + candidate + ', ' + c + ': ' + str(result))
     return result
 
 
@@ -719,8 +746,12 @@ class SuffixedRealTokenBuilder(TokenBuilder):
     if self.require_after and not self.text[point_position + 1].isdigit():
       return 0
 
-    if self.text[-1] not in self.suffixes:
-      return 0
+    # check suffix is known
+    m = self.regex.search(self.text)
+    if m is not None:
+      trailings = m.group(0)
+      if trailings not in self.suffixes:
+        return 0
 
     return len(self.text)
 

@@ -9,11 +9,13 @@ from token_builders import (
   NewlineTokenBuilder,
   StringTokenBuilder,
   PrefixedStringTokenBuilder,
+  TripleQuoteStringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
   PrefixedIntegerTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
+  SuffixedRealTokenBuilder,
   IdentifierTokenBuilder,
   PrefixedIdentifierTokenBuilder,
   ListTokenBuilder,
@@ -31,11 +33,13 @@ class JuliaExaminer(Examiner):
     NewlineTokenBuilder.__escape_z__()
     StringTokenBuilder.__escape_z__()
     PrefixedStringTokenBuilder.__escape_z__()
+    TripleQuoteStringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
     PrefixedIntegerTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
+    SuffixedRealTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
     PrefixedIdentifierTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
@@ -56,27 +60,31 @@ class JuliaExaminer(Examiner):
     hex_integer_tb = PrefixedIntegerTokenBuilder('0x', False, '0123456789abcdefABCDEF')
     real_tb = RealTokenBuilder(False, False, None)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
+    imaginary_tb = SuffixedRealTokenBuilder(False, False, ['im', 'cx'], None)
     identifier_tb = IdentifierTokenBuilder()
     symbol_tb = PrefixedIdentifierTokenBuilder(':', 'symbol')
+    attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute')
+    dollar_sign_tb = SingleCharacterTokenBuilder('$', 'identifier')
     quotes = ['"', "'"]
     string_tb = StringTokenBuilder(quotes, False, False, False)
     raw_string_tb = PrefixedStringTokenBuilder('raw', True, quotes)
     b_string_tb = PrefixedStringTokenBuilder('b', True, quotes)
+    triple_quote_string_tb = TripleQuoteStringTokenBuilder(quotes)
 
     comment_tb = LeadCommentTokenBuilder('#')
-    nested_comment_tb = NestedCommentTokenBuilder('/=', '=/')
+    nested_comment_tb = NestedCommentTokenBuilder('#=', '=#')
 
     line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation')
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
 
     known_operators = [
-      'where', 'in', 'isa',
+      'where', 'in', 'isa', '′',
       '+', '-', '*', '/', '\\', '^', '%', '//',
       '<<', '>>', '<<<', '>>>',
       ':', '=', '==', '!=', '===', '!==',
       '<', '>', '<=', '>=',
       '~', '&', '|', '!', '&&', '||', '?', '.',
-      '<:', '>:',
+      '<:', '>:', '/=',
       '::', '->'
     ]
 
@@ -141,6 +149,7 @@ class JuliaExaminer(Examiner):
       hex_integer_tb,
       real_tb,
       real_exponent_tb,
+      imaginary_tb,
       keyword_tb,
       types_tb,
       values_tb,
@@ -148,9 +157,12 @@ class JuliaExaminer(Examiner):
       known_operator_tb,
       identifier_tb,
       symbol_tb,
+      attribute_tb,
+      dollar_sign_tb,
       string_tb,
       raw_string_tb,
       b_string_tb,
+      triple_quote_string_tb,
       comment_tb,
       nested_comment_tb,
       self.unknown_operator_tb,
