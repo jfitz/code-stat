@@ -14,6 +14,23 @@ Param
     [switch]$tiebreak
 )
 
+function codestat-request([string]$url, [string]$inputfile) {
+    if ($PSVersionTable.PSVersion.Major -ge 7) {
+        Invoke-RestMethod -Method Post -Uri "$url" -InFile $inputfile -SkipHttpErrorCheck
+    } else {
+        Invoke-RestMethod -Method Post -Uri "$url" -InFile $inputfile
+    }
+}
+
+function codestat-adjust-json([string]$input_file, [string]$inter_file, [string]$output_file) {
+    if ($PSVersionTable.PSVersion.Major -ge 7) {
+        Get-Content $input_file | python AddNlToJson.py | python IndentJson.py | Out-File $output_file
+    } else {
+        Get-Content $input_file | python AddNlToJson.py | python IndentJson.py | Out-File $inter_file
+        dotnet test\bin\UTF16-UTF8.dll "$inter_file" "$output_file"
+    }
+}
+
 Write-Output "****** ****** ******"
 Write-Output "Starting test $name..."
 Write-Output ""
@@ -67,13 +84,12 @@ Remove-Item $testbed\$name\*.*
 
 if ($json) {
     Write-Output "Invoking service $url -infile $inputfile -outfile $actual..."
-    Invoke-RestMethod -Method Post -Uri "$url" -InFile $inputfile | ConvertTo-JSON -Compress -Depth 4 | Out-File $actual
+    codestat-request $url $inputfile | ConvertTo-JSON -Compress -Depth 4 | Out-File $actual
     Write-Output "Adjusting JSON output..."
-    Get-Content $actual | python AddNlToJson.py | python IndentJson.py | Out-File $actual_adjusted
-    dotnet test\bin\UTF16-UTF8.dll "$actual_adjusted" "$actual_final"
+    codestat-adjust-json $actual $actual_adjusted $actual_final
 } else {
     Write-Output "Invoking service $url -infile $inputfile -outfile $actual..."
-    Invoke-RestMethod -Method Post -Uri "$url" -InFile $inputfile | Out-File $actual
+    codestat-request $url $inputfile | Out-File $actual
     Get-Content $actual | Out-File $actual_final
 }
 
