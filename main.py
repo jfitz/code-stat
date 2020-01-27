@@ -439,13 +439,11 @@ def route_detect():
   if len(languages) == 0:
     languages = list(codesAndNames.keys())
 
-  tiebreak_keywords = False
-  if 'tiebreak-keywords' in request.args:
-    tiebreak_keywords = True
+  tiebreak_keywords = True
+  if 'notiebreak' in request.args:
+    tiebreak_keywords = False
 
   tiebreak_tokens = False
-  if 'tiebreak-tokens' in request.args:
-    tiebreak_tokens = True
 
   request_bytes = request.get_data()
 

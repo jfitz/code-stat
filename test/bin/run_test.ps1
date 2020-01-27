@@ -11,7 +11,7 @@ Param
     [string]$expected,
     [switch]$json,
     [int32]$tabsize,
-    [switch]$tiebreak
+    [switch]$notiebreak
 )
 
 function codestat-request([string]$url, [string]$inputfile) {
@@ -66,8 +66,8 @@ if ($errors) {
     $params += "errors"
 }
 
-if ($tiebreak) {
-    $params += "tiebreak-keywords"
+if ($notiebreak) {
+    $params += "notiebreak"
 }
 
 if ($params.Count -gt 0) {
