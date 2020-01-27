@@ -230,7 +230,7 @@ test\bin\run_test.ps1 -json -name quadrotor -action detect -tiebreak -inputfile 
 test\bin\run_test.ps1 -json -name trajectory -action detect -tiebreak -inputfile ".\test\data\Python\TrajectoryGenerator.py" -expected ".\test\ref\detect\Python\TrajectoryGenerator.txt"
 test\bin\run_test.ps1 -json -name values-python -action detect -tiebreak -inputfile ".\test\data\Python\values.py" -expected ".\test\ref\detect\Python\values.txt"
 test\bin\run_test.ps1 -json -name examiner -action detect -tiebreak -inputfile ".\test\data\Python\Examiner.py" -expected ".\test\ref\detect\Python\Examiner.txt"
-test\bin\run_test.ps1 -json -name authorized-view-python -action detect -inputfile ".\test\data\Python\authorized_view.py" -expected ".\test\ref\detect\Python\authorized_view.txt"
+test\bin\run_test.ps1 -json -name authorized-view-python -action detect -tiebreak -inputfile ".\test\data\Python\authorized_view.py" -expected ".\test\ref\detect\Python\authorized_view.txt"
 
 # R
 test\bin\run_test.ps1 -json -name ETM-540-01 -action detect -tiebreak -inputfile ".\test\data\R\ETM-540-01.R" -expected ".\test\ref\detect\R\ETM-540-01.txt"

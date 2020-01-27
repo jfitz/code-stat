@@ -86,7 +86,8 @@ class PythonExaminer(Examiner):
     self.unary_operators = [
       '+', '-',
       'not', '~',
-      '++', '--'
+      '++', '--',
+      '.'
     ]
 
     self.postfix_operators = [
@@ -168,7 +169,7 @@ class PythonExaminer(Examiner):
 
   def calc_keyword_indent_confidence(self):
     # lines without indent start with keyword
-    lines = self.split_tokens(self.tokens)
+    lines = PythonExaminer.split_tokens_to_lines(self.tokens)
     num_lines = 0
     num_lines_correct = 0
     for line in lines:
@@ -191,6 +192,35 @@ class PythonExaminer(Examiner):
     self.confidences['keyword indent'] = keyword_indent_confidence
 
 
+  @staticmethod
+  def split_tokens_to_lines(tokens):
+    lines = []
+
+    line_tokens = []
+
+    group_level = 0
+
+    for token in tokens:
+      if token.group == 'newline':
+        if group_level == 0:
+          if len(line_tokens) > 0:
+            lines.append(line_tokens)
+            line_tokens = []
+      else:
+        if token.group == 'group':
+          if token.text in ['(', '[']:
+            group_level += 1
+          if token.text in [')', ']'] and group_level > 0:
+            group_level -= 1
+
+        line_tokens.append(token)
+    
+    if len(line_tokens) > 0:
+      lines.append(line_tokens)
+
+    return lines
+
+
   def calc_line_format_confidence(self):
     # certain keyword lines end in colon
 
@@ -202,7 +232,7 @@ class PythonExaminer(Examiner):
     tokens = self.drop_tokens(tokens, drop_types)
 
     # split into lines
-    lines = self.split_tokens(tokens)
+    lines = self.split_tokens_to_lines(tokens)
 
     # check certain lines end in colon
     num_lines = 0

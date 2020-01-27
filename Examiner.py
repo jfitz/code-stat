@@ -355,7 +355,7 @@ class Examiner:
         'regex',
         'type',
         'value'
-        ]
+      ]
 
       for token in tokens:
         prev_token_operand = prev_token.group in operand_types or\
