@@ -174,6 +174,12 @@ test\bin\run_test.ps1 -json -name halffloat-d -action confidence -language d -in
 # dbase II
 test\bin\run_test.ps1 -json -name sample-dbii -action confidence -language dbase-II -inputfile ".\test\data\dbase-II\sample.prg" -expected ".\test\ref\confidence\dbase-II\sample.txt"
 
+# Eiffel
+test\bin\run_test.ps1 -json -name hello-eiffel -action confidence -language Eiffel -inputfile ".\test\data\Eiffel\hello.e" -expected ".\test\ref\confidence\Eiffel\hello.txt"
+test\bin\run_test.ps1 -json -name bakery-eiffel -action confidence -language Eiffel -inputfile ".\test\data\Eiffel\bakery.e" -expected ".\test\ref\confidence\Eiffel\bakery.txt"
+test\bin\run_test.ps1 -json -name reverse-eiffel -action confidence -language Eiffel -inputfile ".\test\data\Eiffel\reverse.e" -expected ".\test\ref\confidence\Eiffel\reverse.txt"
+test\bin\run_test.ps1 -json -name bottles-eiffel -action confidence -language Eiffel -inputfile ".\test\data\Eiffel\bottles_of_beer.e" -expected ".\test\ref\confidence\Eiffel\bottles_of_beer.txt"
+
 # FORTRAN-66
 test\bin\run_test.ps1 -json -name hello-ftn66 -action confidence -language FORTRAN-66 -inputfile ".\test\data\FORTRAN-66\HELLO.FOR" -expected ".\test\ref\confidence\FORTRAN-66\HELLO.txt"
 test\bin\run_test.ps1 -json -name heron-ftn66 -action confidence -language FORTRAN-66 -inputfile ".\test\data\FORTRAN-66\HERON.FOR" -expected ".\test\ref\confidence\FORTRAN-66\HERON.txt"

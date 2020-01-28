@@ -130,6 +130,12 @@ test\bin\run_test.ps1 -json -name halffloat-d -action detect -inputfile ".\test\
 # dbase II
 test\bin\run_test.ps1 -json -name sample-dbii -action detect -inputfile ".\test\data\dbase-II\sample.prg" -expected ".\test\ref\detect\dbase-II\sample.txt"
 
+# Eiffel
+test\bin\run_test.ps1 -json -name hello-eiffel -action detect -inputfile ".\test\data\Eiffel\hello.e" -expected ".\test\ref\detect\Eiffel\hello.txt"
+test\bin\run_test.ps1 -json -name bakery-eiffel -action detect -inputfile ".\test\data\Eiffel\bakery.e" -expected ".\test\ref\detect\Eiffel\bakery.txt"
+test\bin\run_test.ps1 -json -name reverse-eiffel -action detect -inputfile ".\test\data\Eiffel\reverse.e" -expected ".\test\ref\detect\Eiffel\reverse.txt"
+test\bin\run_test.ps1 -json -name bottles-eiffel -action detect -inputfile ".\test\data\Eiffel\bottles_of_beer.e" -expected ".\test\ref\detect\Eiffel\bottles_of_beer.txt"
+
 # FORTRAN-66
 test\bin\run_test.ps1 -json -name hello-ftn66 -action detect -inputfile ".\test\data\FORTRAN-66\HELLO.FOR" -expected ".\test\ref\detect\FORTRAN-66\HELLO.txt"
 test\bin\run_test.ps1 -json -name heron-ftn66 -action detect -inputfile ".\test\data\FORTRAN-66\HERON.FOR" -expected ".\test\ref\detect\FORTRAN-66\HERON.txt"

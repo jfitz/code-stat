@@ -19,6 +19,7 @@ from cpp_examiner import CppExaminer
 from csharp_examiner import CsharpExaminer
 from d_examiner import DExaminer
 from dbase_examiner import DbaseExaminer
+from eiffel_examiner import EiffelExaminer
 from fortran_fixedformat_examiner import FortranFixedFormatExaminer
 from fortran_freeformat_examiner import FortranFreeFormatExaminer
 from fsharp_examiner import FsharpExaminer
@@ -57,6 +58,7 @@ CppExaminer.__escape_z__()
 CsharpExaminer.__escape_z__()
 DExaminer.__escape_z__()
 DbaseExaminer.__escape_z__()
+EiffelExaminer.__escape_z__()
 FortranFixedFormatExaminer.__escape_z__()
 FortranFreeFormatExaminer.__escape_z__()
 FsharpExaminer.__escape_z__()
@@ -208,6 +210,7 @@ codesAndNames = {
   'cobol-2014-gnu': 'COBOL-2014-GNU',
   'd': 'D',
   'dbase-ii': 'dBase-II',
+  'eiffel': 'Eiffel',
   'fortran-66': 'FORTRAN-66',
   'fortran-77': 'FORTRAN-77',
   'fortran-90': 'Fortran-90',
@@ -267,6 +270,7 @@ codesAndGroups = {
   'cobol-2014-gnu': 'COBOL',
   'd': 'D',
   'dbase-ii': 'dBase',
+  'eiffel': 'Eiffel',
   'fortran-66': 'Fortran',
   'fortran-77': 'Fortran',
   'fortran-90': 'Fortran',
@@ -326,6 +330,7 @@ codesAndYears = {
   'cobol-2014-gnu': '2014',
   'd': '2001',
   'dbase-ii': '1982',
+  'eiffel': '1985',
   'fortran-66': '1966',
   'fortran-77': '1977',
   'fortran-90': '1990',
@@ -697,6 +702,9 @@ def make_one_examiner(language, code, tab_size, wide, comment):
   if language in ['dbase-ii', 'dbase', 'prg']:
     examiner = DbaseExaminer(code)
 
+  if language in ['eiffel']:
+    examiner = EiffelExaminer(code)
+
   if language in ['fortran-66']:
     examiner = FortranFixedFormatExaminer(code, '66', tab_size, wide)
 
@@ -873,6 +881,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
 
   if 'dbase-ii' in languages or 'dbase' in languages or 'prg' in languages:
     examiners['dbase-ii'] = DbaseExaminer(code)
+
+  if 'eiffel' in languages:
+    examiners['eiffel'] = EiffelExaminer(code)
 
   if 'fortran-66' in languages or 'f66' in languages:
     examiners['fortran-66'] = FortranFixedFormatExaminer(code, '66', tab_size, wide)
