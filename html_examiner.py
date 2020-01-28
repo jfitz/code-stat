@@ -5,7 +5,7 @@ from token_builders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
-  StringTokenBuilder,
+  StuffedQuoteStringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
@@ -27,7 +27,7 @@ class HTMLExaminer(Examiner):
     InvalidTokenBuilder.__escape_z__()
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
-    StringTokenBuilder.__escape_z__()
+    StuffedQuoteStringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
@@ -51,7 +51,7 @@ class HTMLExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
     real_tb = RealTokenBuilder(False, False, None)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
-    string_tb = StringTokenBuilder(['"', "'"], True, False, False)
+    string_tb = StuffedQuoteStringTokenBuilder(['"', "'"], False, False)
     attribute_tb = HTMLAttributeTokenBuilder()
     unicode_tb = HTMLUnicodeTokenBuilder()
 

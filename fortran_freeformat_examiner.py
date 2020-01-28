@@ -7,7 +7,7 @@ from token_builders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
-  StringTokenBuilder,
+  StuffedQuoteStringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
@@ -30,7 +30,7 @@ class FortranFreeFormatExaminer(FortranExaminer):
     InvalidTokenBuilder.__escape_z__()
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
-    StringTokenBuilder.__escape_z__()
+    StuffedQuoteStringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
@@ -64,7 +64,7 @@ class FortranFreeFormatExaminer(FortranExaminer):
     identifier_tb = IdentifierTokenBuilder()
 
     bang_comment_tb = LeadCommentTokenBuilder('!')
-    string_tb = StringTokenBuilder(["'", '"'], True, False, False)
+    string_tb = StuffedQuoteStringTokenBuilder(["'", '"'], False, False)
 
     known_operators = [
       '=', '+', '-', '*', '/', '**',

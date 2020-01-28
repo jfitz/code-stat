@@ -54,7 +54,7 @@ class JavaExaminer(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     identifier_tb = IdentifierTokenBuilder()
     decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator')
-    string_tb = StringTokenBuilder(['"', "'"], False, False, False)
+    string_tb = StringTokenBuilder(['"', "'"], False, False)
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()

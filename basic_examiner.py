@@ -6,7 +6,7 @@ from token_builders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
-  StringTokenBuilder,
+  StuffedQuoteStringTokenBuilder,
   IntegerTokenBuilder,
   SuffixedIntegerTokenBuilder,
   IntegerExponentTokenBuilder,
@@ -30,7 +30,7 @@ class BasicExaminer(Examiner):
     InvalidTokenBuilder.__escape_z__()
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
-    StringTokenBuilder.__escape_z__()
+    StuffedQuoteStringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     SuffixedIntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
@@ -62,7 +62,7 @@ class BasicExaminer(Examiner):
     octal_constant_tb = PrefixedIntegerTokenBuilder('&O', True, '01234567_')
     binary_constant_tb = PrefixedIntegerTokenBuilder('&B', True, '01_')
     variable_tb = BasicVariableTokenBuilder('%#!$&')
-    string_tb = StringTokenBuilder(['"'], True, False, False)
+    string_tb = StuffedQuoteStringTokenBuilder(['"'], False, False)
     remark_tb = RemarkTokenBuilder()
     comment_tb = LeadCommentTokenBuilder("'")
 

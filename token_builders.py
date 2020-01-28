@@ -136,9 +136,8 @@ class StringTokenBuilder(TokenBuilder):
     return 'Escape ?Z'
 
 
-  def __init__(self, quotes, quote_stuffing, allow_newline, allow_unterm):
+  def __init__(self, quotes, allow_newline, allow_unterm):
     self.quotes = quotes
-    self.quote_stuffing = quote_stuffing
     self.allow_newline = allow_newline
     self.allow_unterm = allow_unterm
     self.text = ''
@@ -161,28 +160,79 @@ class StringTokenBuilder(TokenBuilder):
       result = True
 
     if len(candidate) > 1:
-      if self.quote_stuffing:
-          # a quote character is accepted, even after closing quote
-        if c == candidate[0]:
-          result = True
+      # no quote stuffing, stop on second quote
+      # assume escaped quotes are allowed
+      quote_count = 0
+      escaped = False
+      for ch in candidate:
+        if ch == candidate[0] and not escaped:
+          quote_count += 1
+        if ch == '\\':
+          escaped = not escaped
         else:
-          # if number of quote is even, string is closed
-          count = candidate.count(candidate[0])
-          result = count % 2 == 1
-      else:
-        # no quote stuffing, stop on second quote
-        # assume escaped quotes are allowed
-        quote_count = 0
-        escaped = False
-        for ch in candidate:
-          if ch == candidate[0] and not escaped:
-            quote_count += 1
-          if ch == '\\':
-            escaped = not escaped
-          else:
-            escaped = False
+          escaped = False
 
-        result = quote_count < 2
+      result = quote_count < 2
+
+    # newline breaks a string
+    if c in ['\n', '\r'] and not self.allow_newline:
+      result = False
+
+    return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(self.text) < 2:
+      return 0
+
+    if not self.allow_unterm and self.text[-1] != self.text[0]:
+      return 0
+
+    return len(self.text)
+
+
+# token reader for text literal (string)
+class StuffedQuoteStringTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self, quotes, allow_newline, allow_unterm):
+    self.quotes = quotes
+    self.allow_newline = allow_newline
+    self.allow_unterm = allow_unterm
+    self.text = ''
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'string')]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if len(candidate) == 0 and c in self.quotes:
+      result = True
+
+    if len(candidate) == 1:
+      result = True
+
+    if len(candidate) > 1:
+      # a quote character is accepted, even after closing quote
+      if c == candidate[0]:
+        result = True
+      else:
+        # if number of quotes is even, string is closed
+        count = candidate.count(candidate[0])
+        result = count % 2 == 1
 
     # newline breaks a string
     if c in ['\n', '\r'] and not self.allow_newline:

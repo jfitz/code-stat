@@ -7,7 +7,7 @@ from token_builders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
-  StringTokenBuilder,
+  StuffedQuoteStringTokenBuilder,
   PrefixedStringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
@@ -33,7 +33,7 @@ class CobolFreeFormatExaminer(CobolExaminer):
     InvalidTokenBuilder.__escape_z__()
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
-    StringTokenBuilder.__escape_z__()
+    StuffedQuoteStringTokenBuilder.__escape_z__()
     PrefixedStringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
@@ -65,7 +65,7 @@ class CobolFreeFormatExaminer(CobolExaminer):
     real_tb = RealTokenBuilder(False, True, None)
     real_exponent_tb = RealExponentTokenBuilder(False, True, 'E', None)
     identifier_tb = CobolIdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(['"', "'"], True, False, False)
+    string_tb = StuffedQuoteStringTokenBuilder(['"', "'"], False, False)
     n_string_tb = PrefixedStringTokenBuilder('N', False, ['"', "'"])
     nx_string_tb = PrefixedStringTokenBuilder('NX', False, ['"', "'"])
     picture_tb = PictureTokenBuilder()

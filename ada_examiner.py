@@ -7,7 +7,7 @@ from token_builders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
-  StringTokenBuilder,
+  StuffedQuoteStringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
@@ -28,7 +28,7 @@ class AdaExaminer(Examiner):
     InvalidTokenBuilder.__escape_z__()
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
-    StringTokenBuilder.__escape_z__()
+    StuffedQuoteStringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
@@ -55,7 +55,7 @@ class AdaExaminer(Examiner):
     real_tb = RealTokenBuilder(True, True, False)
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', None)
     identifier_tb = IdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(['"'], True, False, False)
+    string_tb = StuffedQuoteStringTokenBuilder(['"'], False, False)
     char_tb = AdaCharTokenBuilder(["'"])
 
     dash_dash_comment_tb = DashDashCommentTokenBuilder()
