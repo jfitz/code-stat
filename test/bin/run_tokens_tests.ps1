@@ -170,6 +170,7 @@ test\bin\run_test.ps1 -json -name calculator3-cs -action tokens -language Csharp
 # D
 test\bin\run_test.ps1 -json -name regex-d -action tokens -language d -inputfile ".\test\data\d\regex.d" -expected ".\test\ref\tokens\d\regex.txt"
 test\bin\run_test.ps1 -json -name halffloat-d -action tokens -language d -inputfile ".\test\data\d\halffloat.d" -expected ".\test\ref\tokens\d\halffloat.txt"
+test\bin\run_test.ps1 -json -name wc-d -action tokens -language d -inputfile ".\test\data\d\wc.d" -expected ".\test\ref\tokens\d\wc.txt"
 
 # dbase II
 test\bin\run_test.ps1 -json -name sample-dbii -action tokens -language dbase-II -inputfile ".\test\data\dbase-II\sample.prg" -expected ".\test\ref\tokens\dbase-II\sample.txt"

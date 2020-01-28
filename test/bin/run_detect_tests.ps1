@@ -126,6 +126,7 @@ test\bin\run_test.ps1 -json -name calculator3 -action detect -inputfile ".\test\
 # D
 test\bin\run_test.ps1 -json -name regex-d -action detect -inputfile ".\test\data\d\regex.d" -expected ".\test\ref\detect\d\regex.txt"
 test\bin\run_test.ps1 -json -name halffloat-d -action detect -inputfile ".\test\data\d\halffloat.d" -expected ".\test\ref\detect\d\halffloat.txt"
+test\bin\run_test.ps1 -json -name wc-d -action detect -inputfile ".\test\data\d\wc.d" -expected ".\test\ref\detect\d\wc.txt"
 
 # dbase II
 test\bin\run_test.ps1 -json -name sample-dbii -action detect -inputfile ".\test\data\dbase-II\sample.prg" -expected ".\test\ref\detect\dbase-II\sample.txt"

@@ -170,6 +170,7 @@ test\bin\run_test.ps1 -json -name calculator3-cs -action confidence -errors -lan
 # D
 test\bin\run_test.ps1 -json -name regex-d -action confidence -errors -language d -inputfile ".\test\data\d\regex.d" -expected ".\test\ref\confidence-errors\d\regex.txt"
 test\bin\run_test.ps1 -json -name halffloat-d -action confidence -errors -language d -inputfile ".\test\data\d\halffloat.d" -expected ".\test\ref\confidence-errors\d\halffloat.txt"
+test\bin\run_test.ps1 -json -name wc-d -action confidence -errors -language d -inputfile ".\test\data\d\wc.d" -expected ".\test\ref\confidence-errors\d\wc.txt"
 
 # dbase II
 test\bin\run_test.ps1 -json -name sample-dbii -action confidence -errors -language dbase-II -inputfile ".\test\data\dbase-II\sample.prg" -expected ".\test\ref\confidence-errors\dbase-II\sample.txt"
