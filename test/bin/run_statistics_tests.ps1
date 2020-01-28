@@ -323,6 +323,12 @@ test\bin\run_test.ps1 -json -name chip8-display-rust -action statistics -languag
 test\bin\run_test.ps1 -json -name chip8-instructions-rust -action statistics -language Rust -inputfile ".\test\data\Rust\chip8-instructions.rs" -expected ".\test\ref\statistics\Rust\chip8-instructions.txt"
 test\bin\run_test.ps1 -json -name chip8-main-rust -action statistics -language Rust -inputfile ".\test\data\Rust\chip8-main.rs" -expected ".\test\ref\statistics\Rust\chip8-main.txt"
 
+# Scala
+test\bin\run_test.ps1 -json -name hello-scala -action statistics -language Scala -inputfile ".\test\data\Scala\hello.scala" -expected ".\test\ref\statistics\Scala\hello.txt"
+test\bin\run_test.ps1 -json -name larger-scala -action statistics -language Scala -inputfile ".\test\data\Scala\larger.scala" -expected ".\test\ref\statistics\Scala\larger.txt"
+test\bin\run_test.ps1 -json -name random-scala -action statistics -language Scala -inputfile ".\test\data\Scala\random.scala" -expected ".\test\ref\statistics\Scala\random.txt"
+test\bin\run_test.ps1 -json -name variables-scala -action statistics -language Scala -inputfile ".\test\data\Scala\variables.scala" -expected ".\test\ref\statistics\Scala\variables.txt"
+
 # SQL-92
 test\bin\run_test.ps1 -json -name microsoft-sql-92 -action statistics -language SQL-92 -inputfile ".\test\data\SQL-92\microsoft.sql" -expected ".\test\ref\statistics\SQL-92\microsoft.txt"
 test\bin\run_test.ps1 -json -name table-sql-92 -action statistics -language SQL-92 -inputfile ".\test\data\SQL-92\table.sql" -expected ".\test\ref\statistics\SQL-92\table.txt"

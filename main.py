@@ -39,6 +39,7 @@ from python_examiner import PythonExaminer
 from r_examiner import RExaminer
 from ruby_examiner import RubyExaminer
 from rust_examiner import RustExaminer
+from scala_examiner import ScalaExaminer
 from sql_examiner import SqlExaminer
 from swift_examiner import SwiftExaminer
 from typescript_examiner import TypeScriptExaminer
@@ -78,6 +79,7 @@ PythonExaminer.__escape_z__()
 RExaminer.__escape_z__()
 RubyExaminer.__escape_z__()
 RustExaminer.__escape_z__()
+ScalaExaminer.__escape_z__()
 SqlExaminer.__escape_z__()
 SwiftExaminer.__escape_z__()
 TypeScriptExaminer.__escape_z__()
@@ -235,6 +237,7 @@ codesAndNames = {
   'r': 'R',
   'ruby': 'Ruby',
   'rust': 'Rust',
+  'scala': 'Scala',
   'sql-92': 'SQL-92',
   'sql-99': 'SQL-99',
   'sql-2003': 'SQL-2003',
@@ -295,6 +298,7 @@ codesAndGroups = {
   'r': 'R',
   'ruby': 'Ruby',
   'rust': 'Rust',
+  'scala': 'Scala',
   'sql-92': 'SQL',
   'sql-99': 'SQL',
   'sql-2003': 'SQL',
@@ -355,6 +359,7 @@ codesAndYears = {
   'r': '1976',
   'ruby': '1995',
   'rust': '2010',
+  'scala': '2001',
   'sql-92': '1992',
   'sql-99': '1999',
   'sql-2003': '2003',
@@ -774,6 +779,9 @@ def make_one_examiner(language, code, tab_size, wide, comment):
   if language in ['rust', 'rs']:
     examiner = RustExaminer(code)
 
+  if language in ['scala']:
+    examiner = ScalaExaminer(code)
+
   if language in ['sql-92']:
     examiner = SqlExaminer(code, '92', '')
 
@@ -953,6 +961,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
 
   if 'rust' in languages:
     examiners['rust'] = RustExaminer(code)
+
+  if 'scala' in languages:
+    examiners['scala'] = ScalaExaminer(code)
 
   if 'sql-92' in languages:
     examiners['sql-92'] = SqlExaminer(code, '92', '')

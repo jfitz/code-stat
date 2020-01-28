@@ -279,6 +279,12 @@ test\bin\run_test.ps1 -json -name chip8-display-rust -action detect -inputfile "
 test\bin\run_test.ps1 -json -name chip8-instructions-rust -action detect -inputfile ".\test\data\Rust\chip8-instructions.rs" -expected ".\test\ref\detect\Rust\chip8-instructions.txt"
 test\bin\run_test.ps1 -json -name chip8-main-rust -action detect -inputfile ".\test\data\Rust\chip8-main.rs" -expected ".\test\ref\detect\Rust\chip8-main.txt"
 
+# Scala
+test\bin\run_test.ps1 -json -name hello-scala -action detect -inputfile ".\test\data\Scala\hello.scala" -expected ".\test\ref\detect\Scala\hello.txt"
+test\bin\run_test.ps1 -json -name larger-scala -action detect -inputfile ".\test\data\Scala\larger.scala" -expected ".\test\ref\detect\Scala\larger.txt"
+test\bin\run_test.ps1 -json -name random-scala -action detect -inputfile ".\test\data\Scala\random.scala" -expected ".\test\ref\detect\Scala\random.txt"
+test\bin\run_test.ps1 -json -name variables-scala -action detect -inputfile ".\test\data\Scala\variables.scala" -expected ".\test\ref\detect\Scala\variables.txt"
+
 # SQL-92
 test\bin\run_test.ps1 -json -name microsoft-sql-92 -action detect -inputfile ".\test\data\SQL-92\microsoft.sql" -expected ".\test\ref\detect\SQL-92\microsoft.txt"
 test\bin\run_test.ps1 -json -name table-sql-92 -action detect -inputfile ".\test\data\SQL-92\table.sql" -expected ".\test\ref\detect\SQL-92\table.txt"
