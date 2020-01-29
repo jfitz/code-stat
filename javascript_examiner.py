@@ -54,7 +54,7 @@ class JavaScriptExaminer(Examiner):
 
     integer_tb = IntegerTokenBuilder(None)
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
-    big_integer_tb = SuffixedIntegerTokenBuilder(['n', 'N'], '_')
+    big_integer_tb = SuffixedIntegerTokenBuilder(['n', 'N'], False, '_')
     real_tb = RealTokenBuilder(False, False, None)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     hex_constant_tb = PrefixedIntegerTokenBuilder('0X', False, '0123456789ABCDEFabcdef')

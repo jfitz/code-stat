@@ -60,7 +60,7 @@ class JuliaExaminer(Examiner):
     hex_integer_tb = PrefixedIntegerTokenBuilder('0x', False, '0123456789abcdefABCDEF')
     real_tb = RealTokenBuilder(False, False, None)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
-    imaginary_tb = SuffixedRealTokenBuilder(False, False, ['im', 'cx'], None)
+    imaginary_tb = SuffixedRealTokenBuilder(False, False, ['im', 'cx'], True, None)
     identifier_tb = IdentifierTokenBuilder()
     symbol_tb = PrefixedIdentifierTokenBuilder(':', 'symbol')
     attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute')

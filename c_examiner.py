@@ -10,6 +10,9 @@ from token_builders import (
   StringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
+  PrefixedIntegerTokenBuilder,
+  SuffixedIntegerTokenBuilder,
+  SuffixedRealTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
@@ -32,8 +35,11 @@ class CExaminer(Examiner):
     StringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
+    PrefixedIntegerTokenBuilder.__escape_z__()
+    SuffixedIntegerTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
+    SuffixedRealTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
@@ -51,10 +57,15 @@ class CExaminer(Examiner):
 
     integer_tb = IntegerTokenBuilder("'")
     integer_exponent_tb = IntegerExponentTokenBuilder("'")
+    hex_integer_tb = PrefixedIntegerTokenBuilder('0x', False, '0123456789abcdefABCDEF')
+    binary_integer_tb = PrefixedIntegerTokenBuilder('0b', False, '01')
+    suffixed_integer_tb = SuffixedIntegerTokenBuilder(['U', 'L', 'LL', 'ULL', 'LLU'], False, None)
     real_tb = RealTokenBuilder(False, False, "'")
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
+    suffixed_real_tb = SuffixedRealTokenBuilder(False, False, ['f', 'l'], False, None)
     identifier_tb = IdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(['"', "'"], False, False)
+    quotes = ['"', "'"]
+    string_tb = StringTokenBuilder(quotes, False, False)
 
     class_type_tb = ClassTypeTokenBuilder()
 
@@ -134,8 +145,12 @@ class CExaminer(Examiner):
       terminators_tb,
       integer_tb,
       integer_exponent_tb,
+      hex_integer_tb,
+      binary_integer_tb,
+      suffixed_integer_tb,
       real_tb,
       real_exponent_tb,
+      suffixed_real_tb,
       keyword_tb,
       types_tb,
       values_tb,
@@ -158,7 +173,7 @@ class CExaminer(Examiner):
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     self.calc_operator_3_confidence(group_ends)
-    operand_types = ['number', 'symbol']
+    operand_types = ['number']
     self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
