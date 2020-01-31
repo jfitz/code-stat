@@ -14,7 +14,7 @@ Param
     [switch]$notiebreak
 )
 
-function codestat-request([string]$url, [string]$inputfile) {
+function Request-CodeStat([string]$url, [string]$inputfile) {
     if ($PSVersionTable.PSVersion.Major -ge 7) {
         Invoke-RestMethod -Method Post -Uri "$url" -InFile $inputfile -SkipHttpErrorCheck
     } else {
@@ -22,7 +22,7 @@ function codestat-request([string]$url, [string]$inputfile) {
     }
 }
 
-function codestat-adjust-json([string]$input_file, [string]$inter_file, [string]$output_file) {
+function Optimize-Json([string]$input_file, [string]$inter_file, [string]$output_file) {
     if ($PSVersionTable.PSVersion.Major -ge 7) {
         Get-Content $input_file | python AddNlToJson.py | python IndentJson.py | Out-File $output_file
     } else {
@@ -38,7 +38,6 @@ Write-Output ""
 $testbed = "$env:USERPROFILE\Projects\CodeStat"
 $actual = "$testbed\$name\out.txt"
 $actual_adjusted = "$testbed\$name\out1.txt"
-$actual_final = "$testbed\$name\out2.txt"
 $target = "localhost:5000"
 $params = @()
 
@@ -84,24 +83,13 @@ Remove-Item $testbed\$name\*.*
 
 if ($json) {
     Write-Output "Invoking service $url -infile $inputfile -outfile $actual..."
-    codestat-request $url $inputfile | ConvertTo-JSON -Compress -Depth 4 | Out-File $actual
+    Request-CodeStat $url $inputfile | ConvertTo-JSON -Compress -Depth 4 | Out-File $actual
     Write-Output "Adjusting JSON output..."
-    codestat-adjust-json $actual $actual_adjusted $actual_final
+    Optimize-Json $actual $actual_adjusted $expected
 } else {
     Write-Output "Invoking service $url -infile $inputfile -outfile $actual..."
-    codestat-request $url $inputfile | Out-File $actual
-    Get-Content $actual | Out-File $actual_final
-}
-
-Write-Output "Comparing $actual_final against $expected..."
-if (Compare-Object $(Get-Content $expected) $(Get-Content $actual_final)) {
-    Write-Output ""
-    Set-Variable -name failures -value ($failures + 1) -scope 1
-    "Test $name failed"
-    Copy-Item $actual_final $expected
-} else {
-    Write-Output ""
-    "Test $name passed"
+    Request-CodeStat $url $inputfile | Out-File $actual
+    Get-Content $actual | Out-File $expected
 }
 
 Write-Output "****** ****** ******"

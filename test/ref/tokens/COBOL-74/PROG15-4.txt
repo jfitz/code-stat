@@ -1,3429 +1,3426 @@
-﻿{
-    "value":[
-        {
-            "type":"whitespace",
-            "value":"       "
-        },
-        {
-            "type":"keyword",
-            "value":"IDENTIFICATION"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"DIVISION"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"       "
-        },
-        {
-            "type":"keyword",
-            "value":"PROGRAM-ID"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"whitespace",
-            "value":"    "
-        },
-        {
-            "type":"identifier",
-            "value":"PROG15-4"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*AUTHOR.        ERIC."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*INSTALLATION.  WSC."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*DATE-WRITTEN.  APR 14,2003."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*DATE-COMPILED. APR 14,2003."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*SECURITY.      NONE."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"* PROGRAM OPERATIONS:"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"* 1  CREATES AN INDEXED EQUIVALENT OF THE STUDENT MASTER FILE"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*    (STUDENT-NUMBER IS THE KEY FIELD)."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"* 2  CREATES AN INDEXED EQUIVALENT OF THE GRADE FILE"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*    (STUDENT-NUMBER + RECORD COUNT FOR PRIMARY KEY AND"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*    STUDENT-NUMBER AS THE SECONDARY KEY)."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"* 3  DISPLAY AN ANNOUNCEMENT SCREEN."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"* 4  QUERY THE USER FOR THE DESIRED STUDENT NUMBER."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"* 5  READ THE STUDENT MASTER FROM DISK."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*    A  IF NO MASTER FOR THE REQUEST, DISPLAY AN ERROR MESSAGE."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*    B  DISPLAY STUDENT MASTER DATA; CALCULATE GRADE POINT"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*       AVERAGE = EARNED GRADE POINTS/TOTAL UNITS."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"* 6  READ EACH COURSE RECORD FOR THIS STUDENT."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"* 7  IF THE REQUESTED STUDENT HAS NO COURSE RECORDS, DISPLAY AN"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*    APPROPRIATE ERROR MESSAGE."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"       "
-        },
-        {
-            "type":"keyword",
-            "value":"ENVIRONMENT"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"DIVISION"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"       "
-        },
-        {
-            "type":"keyword",
-            "value":"INPUT-OUTPUT"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SECTION"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"       "
-        },
-        {
-            "type":"keyword",
-            "value":"FILE-CONTROL"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"           "
-        },
-        {
-            "type":"keyword",
-            "value":"SELECT"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"SEQ-STUD-FILE"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"               "
-        },
-        {
-            "type":"keyword",
-            "value":"ASSIGN"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"STUDENT.DAT\""
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"           "
-        },
-        {
-            "type":"keyword",
-            "value":"SELECT"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"IND-STUD-FILE"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"               "
-        },
-        {
-            "type":"keyword",
-            "value":"ASSIGN"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"STUDENT.DAI\""
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"               "
-        },
-        {
-            "type":"keyword",
-            "value":"ORGANIZATION"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"IS"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"INDEXED"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"               "
-        },
-        {
-            "type":"keyword",
-            "value":"ACCESS"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"IS"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"RANDOM"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"               "
-        },
-        {
-            "type":"keyword",
-            "value":"RECORD"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"KEY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"IS"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"STUDENT-ID"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"           "
-        },
-        {
-            "type":"keyword",
-            "value":"SELECT"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"SEQ-TRANS-FILE"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"               "
-        },
-        {
-            "type":"keyword",
-            "value":"ASSIGN"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"STUTRANS.DAT\""
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"           "
-        },
-        {
-            "type":"keyword",
-            "value":"SELECT"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"IND-TRANS-FILE"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"               "
-        },
-        {
-            "type":"keyword",
-            "value":"ASSIGN"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"STUTRANS.DAI\""
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"               "
-        },
-        {
-            "type":"keyword",
-            "value":"ORGANIZATION"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"IS"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"INDEXED"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"               "
-        },
-        {
-            "type":"keyword",
-            "value":"ACCESS"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"IS"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"RANDOM"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"               "
-        },
-        {
-            "type":"keyword",
-            "value":"RECORD"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"KEY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"IS"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"STUDENT-TRANS-ID"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"               "
-        },
-        {
-            "type":"keyword",
-            "value":"ALTERNATE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"RECORD"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"IS"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"STUDENT-T-ID"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"                   "
-        },
-        {
-            "type":"keyword",
-            "value":"WITH"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"DUPLICATES"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"       "
-        },
-        {
-            "type":"keyword",
-            "value":"DATA"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"DIVISION"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"       "
-        },
-        {
-            "type":"keyword",
-            "value":"FILE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SECTION"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"       "
-        },
-        {
-            "type":"keyword",
-            "value":"FD"
-        },
-        {
-            "type":"whitespace",
-            "value":"  "
-        },
-        {
-            "type":"identifier",
-            "value":"SEQ-STUD-FILE"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"             "
-        },
-        {
-            "type":"keyword",
-            "value":"RECORD"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"CONTAINS"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"70"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"CHARACTERS"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"             "
-        },
-        {
-            "type":"keyword",
-            "value":"LABEL"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"RECORDS"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"ARE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"OMITTED"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"             "
-        },
-        {
-            "type":"keyword",
-            "value":"DATA"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"RECORD"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"IS"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"SEQ-STUD-REC"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"       "
-        },
-        {
-            "type":"level",
-            "value":"01"
-        },
-        {
-            "type":"whitespace",
-            "value":"  "
-        },
-        {
-            "type":"identifier",
-            "value":"SEQ-STUD-REC"
-        },
-        {
-            "type":"whitespace",
-            "value":"               "
-        },
-        {
-            "type":"keyword",
-            "value":"PIC"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"picture",
-            "value":"X(70)"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"       "
-        },
-        {
-            "type":"keyword",
-            "value":"COPY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"FDSTUDENT"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"OF"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"LIBRARY"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"* FD  IND-STUD-FILE"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*       RECORD CONTAINS 70 CHARACTERS"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*       LABEL RECORDS ARE OMITTED"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*       DATA RECORD IS IND-STUD-REC."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"* 01  IND-STUD-REC."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*       05  FILLER               PIC X(2)."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*       05  STUDENT-ID           PIC 9(9)."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*       05  FILLER               PIC X(59)."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"       "
-        },
-        {
-            "type":"keyword",
-            "value":"FD"
-        },
-        {
-            "type":"whitespace",
-            "value":"  "
-        },
-        {
-            "type":"identifier",
-            "value":"SEQ-TRANS-FILE"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"             "
-        },
-        {
-            "type":"keyword",
-            "value":"RECORD"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"CONTAINS"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"46"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"CHARACTERS"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"             "
-        },
-        {
-            "type":"keyword",
-            "value":"LABEL"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"RECORDS"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"ARE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"OMITTED"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"             "
-        },
-        {
-            "type":"keyword",
-            "value":"DATA"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"RECORD"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"IS"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"SEQ-TRANS-REC"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"       "
-        },
-        {
-            "type":"level",
-            "value":"01"
-        },
-        {
-            "type":"whitespace",
-            "value":"  "
-        },
-        {
-            "type":"identifier",
-            "value":"SEQ-TRANS-REC"
-        },
-        {
-            "type":"whitespace",
-            "value":"              "
-        },
-        {
-            "type":"keyword",
-            "value":"PIC"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"picture",
-            "value":"X(46)"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"       "
-        },
-        {
-            "type":"keyword",
-            "value":"FD"
-        },
-        {
-            "type":"whitespace",
-            "value":"  "
-        },
-        {
-            "type":"identifier",
-            "value":"IND-TRANS-FILE"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"             "
-        },
-        {
-            "type":"keyword",
-            "value":"RECORD"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"CONTAINS"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"46"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"CHARACTERS"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"             "
-        },
-        {
-            "type":"keyword",
-            "value":"LABEL"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"RECORDS"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"ARE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"OMITTED"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"             "
-        },
-        {
-            "type":"keyword",
-            "value":"DATA"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"RECORD"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"IS"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"IND-TRANS-REC"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"       "
-        },
-        {
-            "type":"level",
-            "value":"01"
-        },
-        {
-            "type":"whitespace",
-            "value":"  "
-        },
-        {
-            "type":"identifier",
-            "value":"IND-TRANS-REC"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"           "
-        },
-        {
-            "type":"level",
-            "value":"05"
-        },
-        {
-            "type":"whitespace",
-            "value":"  "
-        },
-        {
-            "type":"keyword",
-            "value":"FILLER"
-        },
-        {
-            "type":"whitespace",
-            "value":"                 "
-        },
-        {
-            "type":"keyword",
-            "value":"PIC"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"picture",
-            "value":"X(2)"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"           "
-        },
-        {
-            "type":"level",
-            "value":"05"
-        },
-        {
-            "type":"whitespace",
-            "value":"  "
-        },
-        {
-            "type":"identifier",
-            "value":"STUDENT-TRANS-ID"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"               "
-        },
-        {
-            "type":"level",
-            "value":"10"
-        },
-        {
-            "type":"whitespace",
-            "value":"  "
-        },
-        {
-            "type":"identifier",
-            "value":"STUDENT-T-ID"
-        },
-        {
-            "type":"whitespace",
-            "value":"       "
-        },
-        {
-            "type":"keyword",
-            "value":"PIC"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"picture",
-            "value":"9(9)"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"               "
-        },
-        {
-            "type":"level",
-            "value":"10"
-        },
-        {
-            "type":"whitespace",
-            "value":"  "
-        },
-        {
-            "type":"identifier",
-            "value":"STUDENT-T-COUNT"
-        },
-        {
-            "type":"whitespace",
-            "value":"    "
-        },
-        {
-            "type":"keyword",
-            "value":"PIC"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"picture",
-            "value":"9"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"           "
-        },
-        {
-            "type":"level",
-            "value":"05"
-        },
-        {
-            "type":"whitespace",
-            "value":"  "
-        },
-        {
-            "type":"keyword",
-            "value":"FILLER"
-        },
-        {
-            "type":"whitespace",
-            "value":"                 "
-        },
-        {
-            "type":"keyword",
-            "value":"PIC"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"picture",
-            "value":"X(34)"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"       "
-        },
-        {
-            "type":"keyword",
-            "value":"WORKING-STORAGE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SECTION"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"       "
-        },
-        {
-            "type":"level",
-            "value":"01"
-        },
-        {
-            "type":"whitespace",
-            "value":"  "
-        },
-        {
-            "type":"identifier",
-            "value":"PROGRAM-SWITCHES"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"           "
-        },
-        {
-            "type":"level",
-            "value":"05"
-        },
-        {
-            "type":"whitespace",
-            "value":"  "
-        },
-        {
-            "type":"identifier",
-            "value":"STUD-EOF-SW"
-        },
-        {
-            "type":"whitespace",
-            "value":"            "
-        },
-        {
-            "type":"keyword",
-            "value":"PIC"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"picture",
-            "value":"X"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"VALUE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"N\""
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"           "
-        },
-        {
-            "type":"level",
-            "value":"05"
-        },
-        {
-            "type":"whitespace",
-            "value":"  "
-        },
-        {
-            "type":"identifier",
-            "value":"TRANS-EOF-SW"
-        },
-        {
-            "type":"whitespace",
-            "value":"           "
-        },
-        {
-            "type":"keyword",
-            "value":"PIC"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"picture",
-            "value":"X"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"VALUE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"N\""
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"       "
-        },
-        {
-            "type":"keyword",
-            "value":"PROCEDURE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"DIVISION"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"       "
-        },
-        {
-            "type":"identifier",
-            "value":"A00-MAIN-LINE-PARA"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"           "
-        },
-        {
-            "type":"keyword",
-            "value":"PERFORM"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"B15-FILE-MAINT-PARA"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"           "
-        },
-        {
-            "type":"keyword",
-            "value":"PERFORM"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"B20-INDEX-01-PARA"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"           "
-        },
-        {
-            "type":"keyword",
-            "value":"PERFORM"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"B25-INDEX-02-PARA"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"           "
-        },
-        {
-            "type":"keyword",
-            "value":"PERFORM"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"B15-FILE-MAINT-PARA"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"           "
-        },
-        {
-            "type":"keyword",
-            "value":"STOP"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"RUN"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"       "
-        },
-        {
-            "type":"identifier",
-            "value":"B15-FILE-MAINT-PARA"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"           "
-        },
-        {
-            "type":"keyword",
-            "value":"IF"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"STUD-EOF-SW"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"EQUAL"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"N\""
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"THEN"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"               "
-        },
-        {
-            "type":"keyword",
-            "value":"OPEN"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"INPUT"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"SEQ-STUD-FILE"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"                   "
-        },
-        {
-            "type":"keyword",
-            "value":"OUTPUT"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"IND-STUD-FILE"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"           "
-        },
-        {
-            "type":"keyword",
-            "value":"ELSE"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"               "
-        },
-        {
-            "type":"keyword",
-            "value":"CLOSE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"SEQ-STUD-FILE"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"                     "
-        },
-        {
-            "type":"identifier",
-            "value":"IND-STUD-FILE"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"           "
-        },
-        {
-            "type":"identifier",
-            "value":"END-IF"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"           "
-        },
-        {
-            "type":"keyword",
-            "value":"IF"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"TRANS-EOF-SW"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"EQUAL"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"N\""
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"THEN"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"               "
-        },
-        {
-            "type":"keyword",
-            "value":"OPEN"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"INPUT"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"SEQ-TRANS-FILE"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"                   "
-        },
-        {
-            "type":"keyword",
-            "value":"OUTPUT"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"IND-TRANS-FILE"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"           "
-        },
-        {
-            "type":"keyword",
-            "value":"ELSE"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"               "
-        },
-        {
-            "type":"keyword",
-            "value":"CLOSE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"SEQ-TRANS-FILE"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"                     "
-        },
-        {
-            "type":"identifier",
-            "value":"IND-TRANS-FILE"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"           "
-        },
-        {
-            "type":"identifier",
-            "value":"END-IF"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"       "
-        },
-        {
-            "type":"identifier",
-            "value":"B20-INDEX-01-PARA"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"           "
-        },
-        {
-            "type":"keyword",
-            "value":"PERFORM"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"UNTIL"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"STUD-EOF-SW"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":"="
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"Y\""
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"              "
-        },
-        {
-            "type":"keyword",
-            "value":"READ"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"SEQ-STUD-FILE"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"                  "
-        },
-        {
-            "type":"keyword",
-            "value":"AT"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"END"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"                      "
-        },
-        {
-            "type":"keyword",
-            "value":"MOVE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"Y\""
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"STUD-EOF-SW"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"                  "
-        },
-        {
-            "type":"keyword",
-            "value":"NOT"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"AT"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"END"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"                      "
-        },
-        {
-            "type":"keyword",
-            "value":"MOVE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"SEQ-STUD-REC"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"IND-STUD-REC"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"                      "
-        },
-        {
-            "type":"keyword",
-            "value":"WRITE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"IND-STUD-REC"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"                          "
-        },
-        {
-            "type":"keyword",
-            "value":"INVALID"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"KEY"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"                              "
-        },
-        {
-            "type":"keyword",
-            "value":"DISPLAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"INVALID KEY\""
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"                      "
-        },
-        {
-            "type":"identifier",
-            "value":"END-WRITE"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"              "
-        },
-        {
-            "type":"identifier",
-            "value":"END-READ"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"           "
-        },
-        {
-            "type":"identifier",
-            "value":"END-PERFORM"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"comment",
-            "value":"*"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"       "
-        },
-        {
-            "type":"identifier",
-            "value":"B25-INDEX-02-PARA"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"           "
-        },
-        {
-            "type":"keyword",
-            "value":"PERFORM"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"UNTIL"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"TRANS-EOF-SW"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":"="
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"Y\""
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"              "
-        },
-        {
-            "type":"keyword",
-            "value":"READ"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"SEQ-TRANS-FILE"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"                  "
-        },
-        {
-            "type":"keyword",
-            "value":"AT"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"END"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"                      "
-        },
-        {
-            "type":"keyword",
-            "value":"MOVE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"Y\""
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"TRANS-EOF-SW"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"                  "
-        },
-        {
-            "type":"keyword",
-            "value":"NOT"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"AT"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"END"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"                      "
-        },
-        {
-            "type":"keyword",
-            "value":"MOVE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"SEQ-TRANS-REC"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"IND-TRANS-REC"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"                      "
-        },
-        {
-            "type":"keyword",
-            "value":"WRITE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"IND-TRANS-REC"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"                          "
-        },
-        {
-            "type":"keyword",
-            "value":"INVALID"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"KEY"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"                              "
-        },
-        {
-            "type":"keyword",
-            "value":"DISPLAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"INVALID TRANS KEY\""
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"                      "
-        },
-        {
-            "type":"identifier",
-            "value":"END-WRITE"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"              "
-        },
-        {
-            "type":"identifier",
-            "value":"END-READ"
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"           "
-        },
-        {
-            "type":"identifier",
-            "value":"END-PERFORM"
-        },
-        {
-            "type":"statement terminator",
-            "value":"."
-        },
-        {
-            "type":"newline",
-            "value":"\n"
-        }
-    ],
-    "Count":856
-}
+[
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"IDENTIFICATION"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"DIVISION"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"PROGRAM-ID"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"identifier",
+        "value":"PROG15-4"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*AUTHOR.        ERIC."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*INSTALLATION.  WSC."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*DATE-WRITTEN.  APR 14,2003."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*DATE-COMPILED. APR 14,2003."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*SECURITY.      NONE."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"* PROGRAM OPERATIONS:"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"* 1  CREATES AN INDEXED EQUIVALENT OF THE STUDENT MASTER FILE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*    (STUDENT-NUMBER IS THE KEY FIELD)."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"* 2  CREATES AN INDEXED EQUIVALENT OF THE GRADE FILE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*    (STUDENT-NUMBER + RECORD COUNT FOR PRIMARY KEY AND"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*    STUDENT-NUMBER AS THE SECONDARY KEY)."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"* 3  DISPLAY AN ANNOUNCEMENT SCREEN."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"* 4  QUERY THE USER FOR THE DESIRED STUDENT NUMBER."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"* 5  READ THE STUDENT MASTER FROM DISK."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*    A  IF NO MASTER FOR THE REQUEST, DISPLAY AN ERROR MESSAGE."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*    B  DISPLAY STUDENT MASTER DATA; CALCULATE GRADE POINT"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*       AVERAGE = EARNED GRADE POINTS/TOTAL UNITS."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"* 6  READ EACH COURSE RECORD FOR THIS STUDENT."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"* 7  IF THE REQUESTED STUDENT HAS NO COURSE RECORDS, DISPLAY AN"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*    APPROPRIATE ERROR MESSAGE."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"ENVIRONMENT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"DIVISION"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"INPUT-OUTPUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SECTION"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"FILE-CONTROL"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"SELECT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SEQ-STUD-FILE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"ASSIGN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"STUDENT.DAT\""
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"SELECT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"IND-STUD-FILE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"ASSIGN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"STUDENT.DAI\""
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"ORGANIZATION"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"INDEXED"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"ACCESS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"RANDOM"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"RECORD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"KEY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"STUDENT-ID"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"SELECT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SEQ-TRANS-FILE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"ASSIGN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"STUTRANS.DAT\""
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"SELECT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"IND-TRANS-FILE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"ASSIGN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"STUTRANS.DAI\""
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"ORGANIZATION"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"INDEXED"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"ACCESS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"RANDOM"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"RECORD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"KEY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"STUDENT-TRANS-ID"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"ALTERNATE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"RECORD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"STUDENT-T-ID"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"keyword",
+        "value":"WITH"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"DUPLICATES"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"DATA"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"DIVISION"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"FILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SECTION"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"FD"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"SEQ-STUD-FILE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"             "
+    },
+    {
+        "type":"keyword",
+        "value":"RECORD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"CONTAINS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"70"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"CHARACTERS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"             "
+    },
+    {
+        "type":"keyword",
+        "value":"LABEL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"RECORDS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"ARE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"OMITTED"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"             "
+    },
+    {
+        "type":"keyword",
+        "value":"DATA"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"RECORD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SEQ-STUD-REC"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"level",
+        "value":"01"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"SEQ-STUD-REC"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(70)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"COPY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"FDSTUDENT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"OF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"LIBRARY"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"* FD  IND-STUD-FILE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*       RECORD CONTAINS 70 CHARACTERS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*       LABEL RECORDS ARE OMITTED"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*       DATA RECORD IS IND-STUD-REC."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"* 01  IND-STUD-REC."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*       05  FILLER               PIC X(2)."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*       05  STUDENT-ID           PIC 9(9)."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*       05  FILLER               PIC X(59)."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"FD"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"SEQ-TRANS-FILE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"             "
+    },
+    {
+        "type":"keyword",
+        "value":"RECORD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"CONTAINS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"46"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"CHARACTERS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"             "
+    },
+    {
+        "type":"keyword",
+        "value":"LABEL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"RECORDS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"ARE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"OMITTED"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"             "
+    },
+    {
+        "type":"keyword",
+        "value":"DATA"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"RECORD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SEQ-TRANS-REC"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"level",
+        "value":"01"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"SEQ-TRANS-REC"
+    },
+    {
+        "type":"whitespace",
+        "value":"              "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(46)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"FD"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"IND-TRANS-FILE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"             "
+    },
+    {
+        "type":"keyword",
+        "value":"RECORD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"CONTAINS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"46"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"CHARACTERS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"             "
+    },
+    {
+        "type":"keyword",
+        "value":"LABEL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"RECORDS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"ARE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"OMITTED"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"             "
+    },
+    {
+        "type":"keyword",
+        "value":"DATA"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"RECORD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"IND-TRANS-REC"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"level",
+        "value":"01"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"IND-TRANS-REC"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(2)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"STUDENT-TRANS-ID"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"STUDENT-T-ID"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"9(9)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"STUDENT-T-COUNT"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"9"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(34)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"WORKING-STORAGE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SECTION"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"level",
+        "value":"01"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"PROGRAM-SWITCHES"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"STUD-EOF-SW"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"VALUE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"N\""
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"TRANS-EOF-SW"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"VALUE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"N\""
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"PROCEDURE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"DIVISION"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"identifier",
+        "value":"A00-MAIN-LINE-PARA"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"PERFORM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"B15-FILE-MAINT-PARA"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"PERFORM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"B20-INDEX-01-PARA"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"PERFORM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"B25-INDEX-02-PARA"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"PERFORM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"B15-FILE-MAINT-PARA"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"STOP"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"RUN"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"identifier",
+        "value":"B15-FILE-MAINT-PARA"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"STUD-EOF-SW"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"EQUAL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"N\""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"THEN"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"OPEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"INPUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SEQ-STUD-FILE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"keyword",
+        "value":"OUTPUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"IND-STUD-FILE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"ELSE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"CLOSE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SEQ-STUD-FILE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                     "
+    },
+    {
+        "type":"identifier",
+        "value":"IND-STUD-FILE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"identifier",
+        "value":"END-IF"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TRANS-EOF-SW"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"EQUAL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"N\""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"THEN"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"OPEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"INPUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SEQ-TRANS-FILE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"keyword",
+        "value":"OUTPUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"IND-TRANS-FILE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"ELSE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"CLOSE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SEQ-TRANS-FILE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                     "
+    },
+    {
+        "type":"identifier",
+        "value":"IND-TRANS-FILE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"identifier",
+        "value":"END-IF"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"identifier",
+        "value":"B20-INDEX-01-PARA"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"PERFORM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"UNTIL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"STUD-EOF-SW"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"Y\""
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"              "
+    },
+    {
+        "type":"keyword",
+        "value":"READ"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SEQ-STUD-FILE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                  "
+    },
+    {
+        "type":"keyword",
+        "value":"AT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                      "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"Y\""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"STUD-EOF-SW"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                  "
+    },
+    {
+        "type":"keyword",
+        "value":"NOT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"AT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                      "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SEQ-STUD-REC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"IND-STUD-REC"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                      "
+    },
+    {
+        "type":"keyword",
+        "value":"WRITE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"IND-STUD-REC"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                          "
+    },
+    {
+        "type":"keyword",
+        "value":"INVALID"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"KEY"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                              "
+    },
+    {
+        "type":"keyword",
+        "value":"DISPLAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"INVALID KEY\""
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                      "
+    },
+    {
+        "type":"identifier",
+        "value":"END-WRITE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"              "
+    },
+    {
+        "type":"identifier",
+        "value":"END-READ"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"identifier",
+        "value":"END-PERFORM"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"identifier",
+        "value":"B25-INDEX-02-PARA"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"PERFORM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"UNTIL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TRANS-EOF-SW"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"Y\""
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"              "
+    },
+    {
+        "type":"keyword",
+        "value":"READ"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SEQ-TRANS-FILE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                  "
+    },
+    {
+        "type":"keyword",
+        "value":"AT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                      "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"Y\""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TRANS-EOF-SW"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                  "
+    },
+    {
+        "type":"keyword",
+        "value":"NOT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"AT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                      "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SEQ-TRANS-REC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"IND-TRANS-REC"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                      "
+    },
+    {
+        "type":"keyword",
+        "value":"WRITE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"IND-TRANS-REC"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                          "
+    },
+    {
+        "type":"keyword",
+        "value":"INVALID"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"KEY"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                              "
+    },
+    {
+        "type":"keyword",
+        "value":"DISPLAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"INVALID TRANS KEY\""
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                      "
+    },
+    {
+        "type":"identifier",
+        "value":"END-WRITE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"              "
+    },
+    {
+        "type":"identifier",
+        "value":"END-READ"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"identifier",
+        "value":"END-PERFORM"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    }
+]

@@ -1,15 +1,13 @@
 Set-StrictMode -Version Latest
 
-[int]$failures = 0
-
 # Ada-83
 test\bin\run_test.ps1 -json -name adabkend-adb -action detect -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\detect\Ada-83\adabkend-adb.txt"
 test\bin\run_test.ps1 -json -name adabkend-ads -action detect -inputfile ".\test\data\Ada-83\adabkend.ads" -expected ".\test\ref\detect\Ada-83\adabkend-ads.txt"
 test\bin\run_test.ps1 -json -name signup-adb -action detect -inputfile ".\test\data\Ada-83\signup.adb" -expected ".\test\ref\detect\Ada-83\signup-adb.txt"
 
 # Awk
-test\bin\run_test.ps1 -json -name funstack-awk -action detect -language Awk -inputfile ".\test\data\Awk\funstack.awk" -expected ".\test\ref\detect\Awk\funstack.txt"
-test\bin\run_test.ps1 -json -name awkaster-awk -action detect -language Awk -inputfile ".\test\data\Awk\awkaster.awk" -expected ".\test\ref\detect\Awk\awkaster.txt"
+test\bin\run_test.ps1 -json -name funstack-awk -action detect -inputfile ".\test\data\Awk\funstack.awk" -expected ".\test\ref\detect\Awk\funstack.txt"
+test\bin\run_test.ps1 -json -name awkaster-awk -action detect -inputfile ".\test\data\Awk\awkaster.awk" -expected ".\test\ref\detect\Awk\awkaster.txt"
 
 # BASIC
 test\bin\run_test.ps1 -json -name values -action detect -inputfile ".\test\data\BASIC\values.bas" -expected ".\test\ref\detect\BASIC\values.txt"
@@ -347,6 +345,3 @@ test\bin\run_test.ps1 -json -name noncode-diagwrn -action detect -inputfile ".\t
 test\bin\run_test.ps1 -json -name noncode-profile-xlsx -action detect -inputfile ".\test\data\noncode\profile.xlsx" -expected ".\test\ref\detect\noncode\profile.txt"
 test\bin\run_test.ps1 -json -name noncode-resume-docx -action detect -inputfile ".\test\data\noncode\resume.docx" -expected ".\test\ref\detect\noncode\resume.txt"
 test\bin\run_test.ps1 -json -name noncode-hh -action detect -inputfile ".\test\data\noncode\hh.exe" -expected ".\test\ref\detect\noncode\hh.txt"
-
-
-Write-Output "Number of failures: $failures"

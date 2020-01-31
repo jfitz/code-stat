@@ -1,4885 +1,4882 @@
-﻿{
-    "value":[
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"comment",
-            "value":"* ************************************************************************"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"comment",
-            "value":"* * The following is a sample program which has been written in several  *"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"comment",
-            "value":"* * languages to provide an example in interactive programming for Magee *"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"comment",
-            "value":"* * students. This program has been written in: ICL PC dBASE II          *"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"comment",
-            "value":"* * Programmer: Ted Leath                                                *"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"comment",
-            "value":"* * Date: 22/11/85                                                       *"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"comment",
-            "value":"* ************************************************************************"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"comment",
-            "value":"*                              Main Program"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"SET"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TALK"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"value",
-            "value":"OFF"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"USE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"filename",
-            "value":"BOOK.DAT"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"STORE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"0"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"choice"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"STORE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\" No. Author          Title                          Publisher\""
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"head"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"DO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"WHILE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"choice"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":"\u003c\u003e"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"6"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"ERASE"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"3"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"=========================================================\""
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"4"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"26"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"Sample Program Main Menu\""
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"5"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"=========================================================\""
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"8"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"26"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"1) Display Book File\""
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"10"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"26"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"2) Display Record\""
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"12"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"26"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"3) Input Record\""
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"14"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"26"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"4) Delete Record\""
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"16"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"26"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"5) Print Book File\""
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"18"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"26"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"6) Exit\""
-        },
-        {
-            "type":"keyword",
-            "value":"STORE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"0"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"choice"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"DO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"WHILE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"group",
-            "value":"("
-        },
-        {
-            "type":"group",
-            "value":"("
-        },
-        {
-            "type":"identifier",
-            "value":"choice"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":"\u003c"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"group",
-            "value":")"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":".OR."
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"group",
-            "value":"("
-        },
-        {
-            "type":"identifier",
-            "value":"choice"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":"\u003e"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"6"
-        },
-        {
-            "type":"group",
-            "value":")"
-        },
-        {
-            "type":"group",
-            "value":")"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"   "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"20"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"0"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"   "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"20"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"14"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"Please select one of the above options \""
-        },
-        {
-            "type":"statement terminator",
-            "value":";"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"GET"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"choice"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"PICTURE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\u00279\u0027"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"   "
-        },
-        {
-            "type":"keyword",
-            "value":"READ"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"ENDDO"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"DO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"CASE"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"comment",
-            "value":"* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"comment",
-            "value":"*  Display_file"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"   "
-        },
-        {
-            "type":"keyword",
-            "value":"CASE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"choice"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":"="
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"ERASE"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"GO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"value",
-            "value":"TOP"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"head"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"STORE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"4"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"lncount"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"comment",
-            "value":"* While the screen is not full and not EOF display records"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"DO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"WHILE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":".NOT."
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"value",
-            "value":"EOF"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"identifier",
-            "value":"IF"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"lncount"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":"\u003e="
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"20"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"            "
-        },
-        {
-            "type":"keyword",
-            "value":"DO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"hold_screen"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"            "
-        },
-        {
-            "type":"keyword",
-            "value":"ERASE"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"            "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"head"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"            "
-        },
-        {
-            "type":"keyword",
-            "value":"STORE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"4"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"lncount"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"identifier",
-            "value":"ENDIF"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"lncount"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"2"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"booknumber"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"USING"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\u0027999\u0027"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"lncount"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"6"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"author"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"USING"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\u0027XXXXXXXXXXXXXXX\u0027"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"lncount"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"22"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"title"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"USING"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\u0027XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\u0027"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"lncount"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"53"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"publisher"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"USING"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\u0027XXXXXXXXXXXXXXX\u0027"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"STORE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"lncount"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":"+"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"lncount"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"SKIP"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"ENDDO"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"DO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"hold_screen"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"comment",
-            "value":"* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"comment",
-            "value":"*  Display_record"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"   "
-        },
-        {
-            "type":"keyword",
-            "value":"CASE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"choice"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":"="
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"2"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"DO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"validate_booknumber"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"GO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"value",
-            "value":"TOP"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"ERASE"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"identifier",
-            "value":"DISPLAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"head"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"value",
-            "value":"OFF"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"STORE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"0"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"found"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"comment",
-            "value":"* Check to see if a record exists with the chosen booknumber"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"DO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"WHILE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":".NOT."
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"value",
-            "value":"EOF"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"identifier",
-            "value":"IF"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"booknum"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":"="
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"booknumber"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"            "
-        },
-        {
-            "type":"identifier",
-            "value":"DISPLAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"booknumber"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"identifier",
-            "value":"author"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"identifier",
-            "value":"title"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"identifier",
-            "value":"publisher"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"value",
-            "value":"OFF"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"            "
-        },
-        {
-            "type":"keyword",
-            "value":"STORE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"found"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"identifier",
-            "value":"ENDIF"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"SKIP"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"ENDDO"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"identifier",
-            "value":"IF"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"found"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":"="
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"0"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"21"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"0"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"21"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"No record with this key\""
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"identifier",
-            "value":"ENDIF"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"DO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"hold_screen"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"comment",
-            "value":"* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"comment",
-            "value":"*  Input_record"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"   "
-        },
-        {
-            "type":"keyword",
-            "value":"CASE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"choice"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":"="
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"3"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"DO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"validate_booknumber"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"GO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"value",
-            "value":"TOP"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"STORE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"0"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"found"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"comment",
-            "value":"* Check to see if record exists with booknumber to avoid duplication"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"DO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"WHILE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":".NOT."
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"value",
-            "value":"EOF"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"identifier",
-            "value":"IF"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"booknum"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":"="
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"booknumber"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"            "
-        },
-        {
-            "type":"keyword",
-            "value":"STORE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"found"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"identifier",
-            "value":"ENDIF"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"SKIP"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"ENDDO"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"identifier",
-            "value":"IF"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"found"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":"="
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"0"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"APPEND"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"value",
-            "value":"BLANK"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"ERASE"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"11"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"Please Enter Author (15 Characters Maximum) \""
-        },
-        {
-            "type":"statement terminator",
-            "value":";"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"            "
-        },
-        {
-            "type":"keyword",
-            "value":"GET"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"author"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"12"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"Please Enter Title (30 Characters Maximum) \""
-        },
-        {
-            "type":"statement terminator",
-            "value":";"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"            "
-        },
-        {
-            "type":"keyword",
-            "value":"GET"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"title"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"13"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"Please Enter Publisher (15 Characters maximum) \""
-        },
-        {
-            "type":"statement terminator",
-            "value":";"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"            "
-        },
-        {
-            "type":"keyword",
-            "value":"GET"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"publisher"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"READ"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"REPLACE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"booknumber"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"WITH"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"booknum"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"REPLACE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"author"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"WITH"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"author"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"REPLACE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"title"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"WITH"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"title"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"REPLACE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"publisher"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"WITH"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"publisher"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"comment",
-            "value":"* BOOK.DAT only needs to be sorted when a new record is added"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"identifier",
-            "value":"SORT"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"value",
-            "value":"ON"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"booknumber"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"TEMP"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"USE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"TEMP"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"identifier",
-            "value":"COPY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"filename",
-            "value":"BOOK.DAT"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"USE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"filename",
-            "value":"BOOK.DAT"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"identifier",
-            "value":"ELSE"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"21"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"0"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"21"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"Record already exists\""
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"identifier",
-            "value":"ENDIF"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"DO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"hold_screen"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"comment",
-            "value":"* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"comment",
-            "value":"*  Delete_record"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"   "
-        },
-        {
-            "type":"keyword",
-            "value":"CASE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"choice"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":"="
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"4"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"DO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"validate_booknumber"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"GO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"value",
-            "value":"TOP"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"STORE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"0"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"found"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"comment",
-            "value":"* Check to see if record exists"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"DO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"WHILE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":".NOT."
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"value",
-            "value":"EOF"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"identifier",
-            "value":"IF"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"booknum"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":"="
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"booknumber"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"            "
-        },
-        {
-            "type":"keyword",
-            "value":"STORE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"found"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"            "
-        },
-        {
-            "type":"identifier",
-            "value":"DELETE"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"            "
-        },
-        {
-            "type":"keyword",
-            "value":"PACK"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"identifier",
-            "value":"ENDIF"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"SKIP"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"ENDDO"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"identifier",
-            "value":"IF"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"found"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":"="
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"21"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"0"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"21"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"Record deleted\""
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"identifier",
-            "value":"ELSE"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"21"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"0"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"21"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"No record with this key\""
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"identifier",
-            "value":"ENDIF"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"DO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"hold_screen"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"comment",
-            "value":"* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"comment",
-            "value":"*  Print_file"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"   "
-        },
-        {
-            "type":"keyword",
-            "value":"CASE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"choice"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":"="
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"5"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"GO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"value",
-            "value":"TOP"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"ERASE"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"File now printing...\""
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"2"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"Please make sure printer is on-line\""
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"SET"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"FORMAT"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"PRINT"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"head"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"STORE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"4"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"lncount"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"DO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"WHILE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":".NOT."
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"value",
-            "value":"EOF"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"identifier",
-            "value":"IF"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"lncount"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":"\u003e="
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"50"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"            "
-        },
-        {
-            "type":"keyword",
-            "value":"EJECT"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"            "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"head"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"            "
-        },
-        {
-            "type":"keyword",
-            "value":"STORE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"4"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"lncount"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"identifier",
-            "value":"ENDIF"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"lncount"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"2"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"booknumber"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"USING"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\u0027999\u0027"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"lncount"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"6"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"author"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"USING"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\u0027XXXXXXXXXXXXXXX\u0027"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"lncount"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"22"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"title"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"USING"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\u0027XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\u0027"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"lncount"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"53"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"publisher"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"USING"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\u0027XXXXXXXXXXXXXXX\u0027"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"STORE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"lncount"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":"+"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"lncount"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"         "
-        },
-        {
-            "type":"keyword",
-            "value":"SKIP"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"ENDDO"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"   "
-        },
-        {
-            "type":"keyword",
-            "value":"EJECT"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"   "
-        },
-        {
-            "type":"keyword",
-            "value":"SET"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"FORMAT"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"SCREEN"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"   "
-        },
-        {
-            "type":"keyword",
-            "value":"DO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"hold_screen"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"identifier",
-            "value":"END"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"CASE"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"ENDDO"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"RETURN"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"comment",
-            "value":"* Here is a listing of the program validate_booknumber:"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"STORE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"0"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"BOOKNUM"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"ERASE"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"DO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"WHILE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"group",
-            "value":"("
-        },
-        {
-            "type":"group",
-            "value":"("
-        },
-        {
-            "type":"identifier",
-            "value":"BOOKNUM"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":"\u003c"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"101"
-        },
-        {
-            "type":"group",
-            "value":")"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":".OR."
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"group",
-            "value":"("
-        },
-        {
-            "type":"identifier",
-            "value":"BOOKNUM"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"operator",
-            "value":"\u003e"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"899"
-        },
-        {
-            "type":"group",
-            "value":")"
-        },
-        {
-            "type":"group",
-            "value":")"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"   "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"12"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"0"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"   "
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"12"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"Please Enter Booknumber (101 to 899) \""
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"GET"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"BOOKNUM"
-        },
-        {
-            "type":"statement terminator",
-            "value":";"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"      "
-        },
-        {
-            "type":"keyword",
-            "value":"PICTURE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\u0027999\u0027"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"whitespace",
-            "value":"   "
-        },
-        {
-            "type":"keyword",
-            "value":"READ"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"ENDDO"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"RETURN"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"comment",
-            "value":"* Here is a listing of the program hold_screen:"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"STORE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\" \""
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"TO"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"holdchar"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"22"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"0"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"@"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"number",
-            "value":"22"
-        },
-        {
-            "type":"group",
-            "value":","
-        },
-        {
-            "type":"number",
-            "value":"1"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"SAY"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\"Press RETURN to continue...\""
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"GET"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"identifier",
-            "value":"holdchar"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"keyword",
-            "value":"PICTURE"
-        },
-        {
-            "type":"whitespace",
-            "value":" "
-        },
-        {
-            "type":"string",
-            "value":"\u0027X\u0027"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"READ"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        },
-        {
-            "type":"keyword",
-            "value":"RETURN"
-        },
-        {
-            "type":"newline",
-            "value":"\r\n"
-        }
-    ],
-    "Count":1220
-}
+[
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"* ************************************************************************"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"* * The following is a sample program which has been written in several  *"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"* * languages to provide an example in interactive programming for Magee *"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"* * students. This program has been written in: ICL PC dBASE II          *"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"* * Programmer: Ted Leath                                                *"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"* * Date: 22/11/85                                                       *"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"* ************************************************************************"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"*                              Main Program"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"SET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TALK"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"OFF"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"USE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"filename",
+        "value":"BOOK.DAT"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"STORE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"choice"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"STORE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\" No. Author          Title                          Publisher\""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"head"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"WHILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"choice"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"<>"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"6"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"ERASE"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"3"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"=========================================================\""
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"4"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"26"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"Sample Program Main Menu\""
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"5"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"=========================================================\""
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"8"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"26"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"1) Display Book File\""
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"10"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"26"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"2) Display Record\""
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"12"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"26"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"3) Input Record\""
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"14"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"26"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"4) Delete Record\""
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"16"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"26"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"5) Print Book File\""
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"18"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"26"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"6) Exit\""
+    },
+    {
+        "type":"keyword",
+        "value":"STORE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"choice"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"WHILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"choice"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"<"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":".OR."
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"choice"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":">"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"6"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"20"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"20"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"14"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"Please select one of the above options \""
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"GET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"choice"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PICTURE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'9'"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"keyword",
+        "value":"READ"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"ENDDO"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"CASE"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"*  Display_file"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"keyword",
+        "value":"CASE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"choice"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"ERASE"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"GO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"TOP"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"head"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"STORE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"4"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"lncount"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"* While the screen is not full and not EOF display records"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"WHILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":".NOT."
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"EOF"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"lncount"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":">="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"20"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"hold_screen"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"keyword",
+        "value":"ERASE"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"head"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"keyword",
+        "value":"STORE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"4"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"lncount"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"ENDIF"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"lncount"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"booknumber"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"USING"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'999'"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"lncount"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"6"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"author"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"USING"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'XXXXXXXXXXXXXXX'"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"lncount"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"22"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"title"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"USING"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"lncount"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"53"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"publisher"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"USING"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'XXXXXXXXXXXXXXX'"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"STORE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"lncount"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"lncount"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"SKIP"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"ENDDO"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"hold_screen"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"*  Display_record"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"keyword",
+        "value":"CASE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"choice"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"validate_booknumber"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"GO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"TOP"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"ERASE"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"identifier",
+        "value":"DISPLAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"head"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"OFF"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"STORE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"found"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"* Check to see if a record exists with the chosen booknumber"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"WHILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":".NOT."
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"EOF"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"booknum"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"booknumber"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"identifier",
+        "value":"DISPLAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"booknumber"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"author"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"title"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"publisher"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"OFF"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"keyword",
+        "value":"STORE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"found"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"ENDIF"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"SKIP"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"ENDDO"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"identifier",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"found"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"21"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"21"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"No record with this key\""
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"identifier",
+        "value":"ENDIF"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"hold_screen"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"*  Input_record"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"keyword",
+        "value":"CASE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"choice"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"3"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"validate_booknumber"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"GO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"TOP"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"STORE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"found"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"* Check to see if record exists with booknumber to avoid duplication"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"WHILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":".NOT."
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"EOF"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"booknum"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"booknumber"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"keyword",
+        "value":"STORE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"found"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"ENDIF"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"SKIP"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"ENDDO"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"identifier",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"found"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"APPEND"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"BLANK"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"ERASE"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"11"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"Please Enter Author (15 Characters Maximum) \""
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"keyword",
+        "value":"GET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"author"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"12"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"Please Enter Title (30 Characters Maximum) \""
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"keyword",
+        "value":"GET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"title"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"13"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"Please Enter Publisher (15 Characters maximum) \""
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"keyword",
+        "value":"GET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"publisher"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"READ"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"REPLACE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"booknumber"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"WITH"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"booknum"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"REPLACE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"author"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"WITH"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"author"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"REPLACE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"title"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"WITH"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"title"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"REPLACE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"publisher"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"WITH"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"publisher"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"* BOOK.DAT only needs to be sorted when a new record is added"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"SORT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"ON"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"booknumber"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TEMP"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"USE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TEMP"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"COPY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"filename",
+        "value":"BOOK.DAT"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"USE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"filename",
+        "value":"BOOK.DAT"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"identifier",
+        "value":"ELSE"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"21"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"21"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"Record already exists\""
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"identifier",
+        "value":"ENDIF"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"hold_screen"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"*  Delete_record"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"keyword",
+        "value":"CASE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"choice"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"4"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"validate_booknumber"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"GO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"TOP"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"STORE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"found"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"* Check to see if record exists"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"WHILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":".NOT."
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"EOF"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"booknum"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"booknumber"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"keyword",
+        "value":"STORE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"found"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"identifier",
+        "value":"DELETE"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"keyword",
+        "value":"PACK"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"ENDIF"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"SKIP"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"ENDDO"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"identifier",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"found"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"21"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"21"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"Record deleted\""
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"identifier",
+        "value":"ELSE"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"21"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"21"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"No record with this key\""
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"identifier",
+        "value":"ENDIF"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"hold_screen"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"*  Print_file"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"keyword",
+        "value":"CASE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"choice"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"5"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"GO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"TOP"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"ERASE"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"File now printing...\""
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"Please make sure printer is on-line\""
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"SET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"FORMAT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PRINT"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"head"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"STORE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"4"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"lncount"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"WHILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":".NOT."
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"EOF"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"lncount"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":">="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"50"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"keyword",
+        "value":"EJECT"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"head"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"keyword",
+        "value":"STORE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"4"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"lncount"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"ENDIF"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"lncount"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"booknumber"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"USING"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'999'"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"lncount"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"6"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"author"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"USING"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'XXXXXXXXXXXXXXX'"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"lncount"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"22"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"title"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"USING"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"lncount"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"53"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"publisher"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"USING"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'XXXXXXXXXXXXXXX'"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"STORE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"lncount"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"lncount"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"SKIP"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"ENDDO"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"keyword",
+        "value":"EJECT"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"keyword",
+        "value":"SET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"FORMAT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SCREEN"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"hold_screen"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"identifier",
+        "value":"END"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"CASE"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"ENDDO"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"RETURN"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"* Here is a listing of the program validate_booknumber:"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"STORE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"BOOKNUM"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"ERASE"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"WHILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"BOOKNUM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"<"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"101"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":".OR."
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"BOOKNUM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":">"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"899"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"12"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"12"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"Please Enter Booknumber (101 to 899) \""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"GET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"BOOKNUM"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"keyword",
+        "value":"PICTURE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'999'"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"keyword",
+        "value":"READ"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"ENDDO"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"RETURN"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"* Here is a listing of the program hold_screen:"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"STORE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\" \""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"holdchar"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"22"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"@"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"22"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"Press RETURN to continue...\""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"GET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"holdchar"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PICTURE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'X'"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"READ"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"RETURN"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    }
+]

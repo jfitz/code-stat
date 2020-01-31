@@ -1,7 +1,5 @@
 Set-StrictMode -Version Latest
 
-[int]$failures = 0
-
 # generic
 test\bin\run_test.ps1 -json -name adabkend-adb -action tokens -language generic -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\tokens\generic\adabkend-adb.txt"
 test\bin\run_test.ps1 -json -name rockt2 -action tokens -language generic -inputfile ".\test\data\BASIC\rockt2.bas" -expected ".\test\ref\tokens\generic\rockt2.txt"
@@ -381,5 +379,3 @@ test\bin\run_test.ps1 -json -name polyglot-COBOL-85 -action tokens -language COB
 test\bin\run_test.ps1 -json -name polyglot-pascal -action tokens -language Pascal -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\tokens\Pascal\polyglot.txt"
 test\bin\run_test.ps1 -json -name polyglot-py-rb-python -action tokens -language Python -inputfile ".\test\data\multiple\polyglot-py-rb.txt" -expected ".\test\ref\tokens\Python\polyglot-py-rb.txt"
 test\bin\run_test.ps1 -json -name polyglot-py-rb-ruby -action tokens -language Ruby -inputfile ".\test\data\multiple\polyglot-py-rb.txt" -expected ".\test\ref\tokens\Ruby\polyglot-py-rb.txt"
-
-Write-Output "Number of failures: $failures"

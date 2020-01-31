@@ -1,7 +1,5 @@
 Set-StrictMode -Version Latest
 
-[int]$failures = 0
-
 # Ada-83
 test\bin\run_test.ps1 -json -name adabkend-adb-83 -action confidence -errors -language "ada-83 ada-95 basic c pl1-fixed swift" -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\detect-confidence-errors\adabkend-adb.txt"
 
@@ -115,6 +113,3 @@ test\bin\run_test.ps1 -json -name noncode-diagwrn -action confidence -errors -in
 test\bin\run_test.ps1 -json -name noncode-profile-xlsx -action confidence -errors -inputfile ".\test\data\noncode\profile.xlsx" -expected ".\test\ref\detect-confidence-errors\noncode\profile.txt"
 test\bin\run_test.ps1 -json -name noncode-resume-docx -action confidence -errors -inputfile ".\test\data\noncode\resume.docx" -expected ".\test\ref\detect-confidence-errors\noncode\resume.txt"
 test\bin\run_test.ps1 -json -name noncode-hh -action confidence -errors -inputfile ".\test\data\noncode\hh.exe" -expected ".\test\ref\detect-confidence-errors\noncode\hh.txt"
-
-
-Write-Output "Number of failures: $failures"
