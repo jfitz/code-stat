@@ -19,6 +19,7 @@ from cpp_examiner import CppExaminer
 from csharp_examiner import CsharpExaminer
 from d_examiner import DExaminer
 from dbase_examiner import DbaseExaminer
+from delphi_examiner import DelphiExaminer
 from eiffel_examiner import EiffelExaminer
 from fortran_fixedformat_examiner import FortranFixedFormatExaminer
 from fortran_freeformat_examiner import FortranFreeFormatExaminer
@@ -59,6 +60,7 @@ CppExaminer.__escape_z__()
 CsharpExaminer.__escape_z__()
 DExaminer.__escape_z__()
 DbaseExaminer.__escape_z__()
+DelphiExaminer.__escape_z__()
 EiffelExaminer.__escape_z__()
 FortranFixedFormatExaminer.__escape_z__()
 FortranFreeFormatExaminer.__escape_z__()
@@ -212,6 +214,7 @@ codesAndNames = {
   'cobol-2014-gnu': 'COBOL-2014-GNU',
   'd': 'D',
   'dbase-ii': 'dBase-II',
+  'delphi': 'Delphi',
   'eiffel': 'Eiffel',
   'fortran-66': 'FORTRAN-66',
   'fortran-77': 'FORTRAN-77',
@@ -273,6 +276,7 @@ codesAndGroups = {
   'cobol-2014-gnu': 'COBOL',
   'd': 'D',
   'dbase-ii': 'dBase',
+  'delphi': 'Pascal',
   'eiffel': 'Eiffel',
   'fortran-66': 'Fortran',
   'fortran-77': 'Fortran',
@@ -334,6 +338,7 @@ codesAndYears = {
   'cobol-2014-gnu': '2014',
   'd': '2001',
   'dbase-ii': '1982',
+  'delphi': '1995',
   'eiffel': '1985',
   'fortran-66': '1966',
   'fortran-77': '1977',
@@ -707,6 +712,9 @@ def make_one_examiner(language, code, tab_size, wide, comment):
   if language in ['dbase-ii', 'dbase', 'prg']:
     examiner = DbaseExaminer(code)
 
+  if language in ['delphi']:
+    examiner = DelphiExaminer(code)
+
   if language in ['eiffel']:
     examiner = EiffelExaminer(code)
 
@@ -889,6 +897,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
 
   if 'dbase-ii' in languages or 'dbase' in languages or 'prg' in languages:
     examiners['dbase-ii'] = DbaseExaminer(code)
+
+  if 'delphi' in languages:
+    examiners['delphi'] = DelphiExaminer(code)
 
   if 'eiffel' in languages:
     examiners['eiffel'] = EiffelExaminer(code)

@@ -173,6 +173,13 @@ test\bin\run_test.ps1 -json -name wc-d -action tokens -language d -inputfile ".\
 # dbase II
 test\bin\run_test.ps1 -json -name sample-dbii -action tokens -language dbase-II -inputfile ".\test\data\dbase-II\sample.prg" -expected ".\test\ref\tokens\dbase-II\sample.txt"
 
+# Delphi
+test\bin\run_test.ps1 -json -name FmMain-dfm-delphi -action tokens -language Delphi -inputfile ".\test\data\delphi\FmMain.dfm" -expected ".\test\ref\tokens\Delphi\FmMain-dfm.txt"
+test\bin\run_test.ps1 -json -name FmMain-pas-delphi -action tokens -language Delphi -inputfile ".\test\data\delphi\FmMain.pas" -expected ".\test\ref\tokens\Delphi\FmMain-pas.txt"
+test\bin\run_test.ps1 -json -name UCalc-delphi -action tokens -language Delphi -inputfile ".\test\data\delphi\UCalc.pas" -expected ".\test\ref\tokens\Delphi\UCalc.txt"
+test\bin\run_test.ps1 -json -name UChessBoardCmp-delphi -action tokens -language Delphi -inputfile ".\test\data\delphi\UChessBoardCmp.pas" -expected ".\test\ref\tokens\Delphi\UChessBoardCmp.txt"
+test\bin\run_test.ps1 -json -name UPlatform-delphi -action tokens -language Delphi -inputfile ".\test\data\delphi\UPlatform.pas" -expected ".\test\ref\tokens\Delphi\UPlatform.txt"
+
 # Eiffel
 test\bin\run_test.ps1 -json -name hello-eiffel -action tokens -language Eiffel -inputfile ".\test\data\Eiffel\hello.e" -expected ".\test\ref\tokens\Eiffel\hello.txt"
 test\bin\run_test.ps1 -json -name bakery-eiffel -action tokens -language Eiffel -inputfile ".\test\data\Eiffel\bakery.e" -expected ".\test\ref\tokens\Eiffel\bakery.txt"

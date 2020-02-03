@@ -129,6 +129,13 @@ test\bin\run_test.ps1 -json -name wc-d -action detect -inputfile ".\test\data\d\
 # dbase II
 test\bin\run_test.ps1 -json -name sample-dbii -action detect -inputfile ".\test\data\dbase-II\sample.prg" -expected ".\test\ref\detect\dbase-II\sample.txt"
 
+# Delphi
+test\bin\run_test.ps1 -json -name FmMain-dfm-delphi -action detect -inputfile ".\test\data\delphi\FmMain.dfm" -expected ".\test\ref\detect\Delphi\FmMain-dfm.txt"
+test\bin\run_test.ps1 -json -name FmMain-pas-delphi -action detect -inputfile ".\test\data\delphi\FmMain.pas" -expected ".\test\ref\detect\Delphi\FmMain-pas.txt"
+test\bin\run_test.ps1 -json -name UCalc-delphi -action detect -inputfile ".\test\data\delphi\UCalc.pas" -expected ".\test\ref\detect\Delphi\UCalc.txt"
+test\bin\run_test.ps1 -json -name UChessBoardCmp-delphi -action detect -inputfile ".\test\data\delphi\UChessBoardCmp.pas" -expected ".\test\ref\detect\Delphi\UChessBoardCmp.txt"
+test\bin\run_test.ps1 -json -name UPlatform-delphi -action detect -inputfile ".\test\data\delphi\UPlatform.pas" -expected ".\test\ref\detect\Delphi\UPlatform.txt"
+
 # Eiffel
 test\bin\run_test.ps1 -json -name hello-eiffel -action detect -inputfile ".\test\data\Eiffel\hello.e" -expected ".\test\ref\detect\Eiffel\hello.txt"
 test\bin\run_test.ps1 -json -name bakery-eiffel -action detect -inputfile ".\test\data\Eiffel\bakery.e" -expected ".\test\ref\detect\Eiffel\bakery.txt"

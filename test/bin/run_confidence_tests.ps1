@@ -173,6 +173,13 @@ test\bin\run_test.ps1 -json -name wc-d -action confidence -language d -inputfile
 # dbase II
 test\bin\run_test.ps1 -json -name sample-dbii -action confidence -language dbase-II -inputfile ".\test\data\dbase-II\sample.prg" -expected ".\test\ref\confidence\dbase-II\sample.txt"
 
+# Delphi
+test\bin\run_test.ps1 -json -name FmMain-dfm-delphi -action confidence -language Delphi -inputfile ".\test\data\delphi\FmMain.dfm" -expected ".\test\ref\confidence\Delphi\FmMain-dfm.txt"
+test\bin\run_test.ps1 -json -name FmMain-pas-delphi -action confidence -language Delphi -inputfile ".\test\data\delphi\FmMain.pas" -expected ".\test\ref\confidence\Delphi\FmMain-pas.txt"
+test\bin\run_test.ps1 -json -name UCalc-delphi -action confidence -language Delphi -inputfile ".\test\data\delphi\UCalc.pas" -expected ".\test\ref\confidence\Delphi\UCalc.txt"
+test\bin\run_test.ps1 -json -name UChessBoardCmp-delphi -action confidence -language Delphi -inputfile ".\test\data\delphi\UChessBoardCmp.pas" -expected ".\test\ref\confidence\Delphi\UChessBoardCmp.txt"
+test\bin\run_test.ps1 -json -name UPlatform-delphi -action confidence -language Delphi -inputfile ".\test\data\delphi\UPlatform.pas" -expected ".\test\ref\confidence\Delphi\UPlatform.txt"
+
 # Eiffel
 test\bin\run_test.ps1 -json -name hello-eiffel -action confidence -language Eiffel -inputfile ".\test\data\Eiffel\hello.e" -expected ".\test\ref\confidence\Eiffel\hello.txt"
 test\bin\run_test.ps1 -json -name bakery-eiffel -action confidence -language Eiffel -inputfile ".\test\data\Eiffel\bakery.e" -expected ".\test\ref\confidence\Eiffel\bakery.txt"
