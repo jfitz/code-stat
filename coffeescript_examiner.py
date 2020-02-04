@@ -58,6 +58,7 @@ class CoffeeScriptExaminer(Examiner):
     binary_constant_tb = PrefixedIntegerTokenBuilder('0B', False, '01')
 
     identifier_tb = IdentifierTokenBuilder()
+    dollar_sign_tb = SingleCharacterTokenBuilder('$', 'identifier')
     quotes = ['"', "'"]
     string_tb = StringTokenBuilder(quotes, False, False)
     template_string_tb = StringTokenBuilder(['`'], True, False)
@@ -88,7 +89,7 @@ class CoffeeScriptExaminer(Examiner):
       '!', '~',
       '++', '--', ':',
       'not',
-      '.'
+      '.', '@'
     ]
 
     self.postfix_operators = [
@@ -159,6 +160,7 @@ class CoffeeScriptExaminer(Examiner):
       groupers_tb,
       regex_tb,
       identifier_tb,
+      dollar_sign_tb,
       string_tb,
       template_string_tb,
       comment_tb,
