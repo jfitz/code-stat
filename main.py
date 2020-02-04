@@ -15,6 +15,7 @@ from cbasic_examiner import CBasicExaminer
 from c_examiner import CExaminer
 from cobol_fixedformat_examiner import CobolFixedFormatExaminer
 from cobol_freeformat_examiner import CobolFreeFormatExaminer
+from coffeescript_examiner import CoffeeScriptExaminer
 from cpp_examiner import CppExaminer
 from csharp_examiner import CsharpExaminer
 from d_examiner import DExaminer
@@ -56,6 +57,7 @@ CBasicExaminer.__escape_z__()
 CExaminer.__escape_z__()
 CobolFixedFormatExaminer.__escape_z__()
 CobolFreeFormatExaminer.__escape_z__()
+CoffeeScriptExaminer.__escape_z__()
 CppExaminer.__escape_z__()
 CsharpExaminer.__escape_z__()
 DExaminer.__escape_z__()
@@ -212,6 +214,7 @@ codesAndNames = {
   'cobol-2014-acu': 'COBOL-2014-ACU',
   'cobol-2014-ibm': 'COBOL-2014-IBM',
   'cobol-2014-gnu': 'COBOL-2014-GNU',
+  'coffeescript': 'CoffeeScript',
   'd': 'D',
   'dbase-ii': 'dBase-II',
   'delphi': 'Delphi',
@@ -274,6 +277,7 @@ codesAndGroups = {
   'cobol-2014-acu': 'COBOL',
   'cobol-2014-ibm': 'COBOL',
   'cobol-2014-gnu': 'COBOL',
+  'coffeescript': 'JavaScript',
   'd': 'D',
   'dbase-ii': 'dBase',
   'delphi': 'Pascal',
@@ -310,7 +314,7 @@ codesAndGroups = {
   'sql-2011': 'SQL',
   'sql-2016': 'SQL',
   'swift': 'Swift',
-  'typescript': 'TypeScript',
+  'typescript': 'JavaScript',
   'visualbasic-6': 'VisualBasic',
   'visualbasic-net': 'VisualBasic'
 }
@@ -336,6 +340,7 @@ codesAndYears = {
   'cobol-2014-acu': '2014',
   'cobol-2014-ibm': '2014',
   'cobol-2014-gnu': '2014',
+  'coffeescript': '2009',
   'd': '2001',
   'dbase-ii': '1982',
   'delphi': '1995',
@@ -706,6 +711,9 @@ def make_one_examiner(language, code, tab_size, wide, comment):
   if language in ['cobol-2014-gnu']:
     examiner = CobolFreeFormatExaminer(code, '2014', 'gnu')
 
+  if language in ['coffeescript', 'coffee']:
+    examiner = CoffeeScriptExaminer(code)
+
   if language in ['d']:
     examiner = DExaminer(code)
 
@@ -891,6 +899,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
 
   if 'cobol-2014-gnu' in languages:
     examiners['cobol-2014-gnu'] = CobolFreeFormatExaminer(code, '2014', 'gnu')
+
+  if 'coffeescript' in languages or 'coffee' in languages:
+    examiners['coffeescript'] = CoffeeScriptExaminer(code)
 
   if 'd' in languages:
     examiners['d'] = DExaminer(code)

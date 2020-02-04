@@ -165,6 +165,11 @@ test\bin\run_test.ps1 -json -name calculator1-cs -action confidence -language Cs
 test\bin\run_test.ps1 -json -name calculator2-cs -action confidence -language Csharp -inputfile ".\test\data\Csharp\calculator2.cs" -expected ".\test\ref\confidence\Csharp\calculator2.txt"
 test\bin\run_test.ps1 -json -name calculator3-cs -action confidence -language Csharp -inputfile ".\test\data\Csharp\calculator3.cs" -expected ".\test\ref\confidence\Csharp\calculator3.txt"
 
+# CoffeeScript
+test\bin\run_test.ps1 -json -name provider-coffee -action confidence -language CoffeeScript -inputfile ".\test\data\CoffeeScript\provider.coffee" -expected ".\test\ref\confidence\CoffeeScript\provider.txt"
+test\bin\run_test.ps1 -json -name resque-coffee -action confidence -language CoffeeScript -inputfile ".\test\data\CoffeeScript\resque.coffee" -expected ".\test\ref\confidence\CoffeeScript\resque.txt"
+test\bin\run_test.ps1 -json -name world-map-coffee -action confidence -language CoffeeScript -inputfile ".\test\data\CoffeeScript\world_map.coffee" -expected ".\test\ref\confidence\CoffeeScript\world_map.txt"
+
 # D
 test\bin\run_test.ps1 -json -name regex-d -action confidence -language d -inputfile ".\test\data\d\regex.d" -expected ".\test\ref\confidence\d\regex.txt"
 test\bin\run_test.ps1 -json -name halffloat-d -action confidence -language d -inputfile ".\test\data\d\halffloat.d" -expected ".\test\ref\confidence\d\halffloat.txt"
