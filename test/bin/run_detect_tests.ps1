@@ -216,6 +216,12 @@ test\bin\run_test.ps1 -json -name periodograms-jl -action detect -inputfile ".\t
 test\bin\run_test.ps1 -json -name qksms-kt -action detect -inputfile ".\test\data\Kotlin\qksms.kt" -expected ".\test\ref\detect\Kotlin\qksms.txt"
 test\bin\run_test.ps1 -json -name render-kt -action detect -inputfile ".\test\data\Kotlin\render.kt" -expected ".\test\ref\detect\Kotlin\render.txt"
 
+# Lua
+test\bin\run_test.ps1 -json -name dissector-lua -action detect -inputfile ".\test\data\Lua\dissector.lua" -expected ".\test\ref\detect\Lua\dissector.txt"
+test\bin\run_test.ps1 -json -name dissector2-lua -action detect -inputfile ".\test\data\Lua\dissector2.lua" -expected ".\test\ref\detect\Lua\dissector2.txt"
+test\bin\run_test.ps1 -json -name dsl-lua -action detect -inputfile ".\test\data\Lua\dsl.lua" -expected ".\test\ref\detect\Lua\dsl.txt"
+test\bin\run_test.ps1 -json -name markov-lua -action detect -inputfile ".\test\data\Lua\markov.lua" -expected ".\test\ref\detect\Lua\markov.txt"
+
 # Objective-C
 test\bin\run_test.ps1 -json -name hello-objc -action detect -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\detect\Objective-C\HelloWorld.txt"
 test\bin\run_test.ps1 -json -name qrmath-objc -action detect -inputfile ".\test\data\Objective-C\QRMath.h" -expected ".\test\ref\detect\Objective-C\QRMath.txt"

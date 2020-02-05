@@ -940,11 +940,13 @@ class IdentifierTokenBuilder(TokenBuilder):
   def __init__(self):
     self.text = None
 
+
   def get_tokens(self):
     if self.text is None:
       return None
 
     return [Token(self.text, 'identifier')]
+
 
   def accept(self, candidate, c):
     result = False
@@ -1127,6 +1129,7 @@ class LeadCommentTokenBuilder(TokenBuilder):
     self.lead = lead
     self.text = ''
 
+
   def get_tokens(self):
     if self.text is None:
       return None
@@ -1173,11 +1176,13 @@ class ParenStarCommentTokenBuilder(TokenBuilder):
   def __init__(self):
     self.text = ''
 
+
   def get_tokens(self):
     if self.text is None:
       return None
 
     return [Token(self.text, 'comment')]
+
 
   def accept(self, candidate, c):
     result = False
@@ -1213,11 +1218,13 @@ class TripleQuoteStringTokenBuilder(TokenBuilder):
       self.quote_set.append(triple)
     self.text = ''
 
+
   def get_tokens(self):
     if self.text is None:
       return None
 
     return [Token(self.text, 'string')]
+
 
   def accept(self, candidate, c):
     result = False

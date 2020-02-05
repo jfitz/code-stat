@@ -260,6 +260,12 @@ test\bin\run_test.ps1 -json -name periodograms-jl -action confidence -language J
 test\bin\run_test.ps1 -json -name qksms-kt -action confidence -language Kotlin -inputfile ".\test\data\Kotlin\qksms.kt" -expected ".\test\ref\confidence\Kotlin\qksms.txt"
 test\bin\run_test.ps1 -json -name render-kt -action confidence -language Kotlin -inputfile ".\test\data\Kotlin\render.kt" -expected ".\test\ref\confidence\Kotlin\render.txt"
 
+# Lua
+test\bin\run_test.ps1 -json -name dissector-lua -action confidence -language Lua -inputfile ".\test\data\Lua\dissector.lua" -expected ".\test\ref\confidence\Lua\dissector.txt"
+test\bin\run_test.ps1 -json -name dissector2-lua -action confidence -language Lua -inputfile ".\test\data\Lua\dissector2.lua" -expected ".\test\ref\confidence\Lua\dissector2.txt"
+test\bin\run_test.ps1 -json -name dsl-lua -action confidence -language Lua -inputfile ".\test\data\Lua\dsl.lua" -expected ".\test\ref\confidence\Lua\dsl.txt"
+test\bin\run_test.ps1 -json -name markov-lua -action confidence -language Lua -inputfile ".\test\data\Lua\markov.lua" -expected ".\test\ref\confidence\Lua\markov.txt"
+
 # Objective-C
 test\bin\run_test.ps1 -json -name hello-objc -action confidence -language Objective-C -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\confidence\Objective-C\HelloWorld.txt"
 test\bin\run_test.ps1 -json -name qrmath-objc -action confidence -language Objective-C -inputfile ".\test\data\Objective-C\QRMath.h" -expected ".\test\ref\confidence\Objective-C\QRMath.txt"
