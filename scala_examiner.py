@@ -61,7 +61,7 @@ class ScalaExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder()
     symbol_tb = PrefixedIdentifierTokenBuilder("'", 'symbol')
     quotes = ['"']
-    string_tb = StringTokenBuilder(quotes, False, False)
+    string_tb = StringTokenBuilder(quotes, False)
     triple_string_tb = TripleQuoteStringTokenBuilder(quotes)
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()

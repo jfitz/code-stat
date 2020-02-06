@@ -62,7 +62,7 @@ class FsharpExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder()
     class_type_tb = ClassTypeTokenBuilder()
     quotes = ['"']
-    string_tb = StringTokenBuilder(quotes, False, False)
+    string_tb = StringTokenBuilder(quotes, False)
     triple_quote_string_tb = TripleQuoteStringTokenBuilder(quotes)
     prefixed_string_tb = PrefixedStringTokenBuilder('@', False, quotes)
     char_tb = FsharpCharTokenBuilder(["'"])

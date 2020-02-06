@@ -60,8 +60,8 @@ class CoffeeScriptExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder()
     dollar_sign_tb = SingleCharacterTokenBuilder('$', 'identifier')
     quotes = ['"', "'"]
-    string_tb = StringTokenBuilder(quotes, False, False)
-    template_string_tb = StringTokenBuilder(['`'], True, False)
+    string_tb = StringTokenBuilder(quotes, False)
+    template_string_tb = StringTokenBuilder(['`'], True)
 
     comment_tb = LeadCommentTokenBuilder('#')
 

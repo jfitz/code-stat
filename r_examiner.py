@@ -52,7 +52,7 @@ class RExaminer(Examiner):
     real_tb = RealTokenBuilder(False, False, '_')
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', '_')
     identifier_tb = IdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(['"', "'", '`'], True, False)
+    string_tb = StringTokenBuilder(['"', "'", '`'], True)
 
     hash_comment_tb = LeadCommentTokenBuilder('#')
 

@@ -65,7 +65,7 @@ class CppExaminer(Examiner):
     suffixed_real_tb = SuffixedRealTokenBuilder(False, False, ['f', 'l'], False, None)
     identifier_tb = IdentifierTokenBuilder()
     quotes = ['"', "'"]
-    string_tb = StringTokenBuilder(quotes, False, False)
+    string_tb = StringTokenBuilder(quotes, False)
 
     class_type_tb = ClassTypeTokenBuilder()
 

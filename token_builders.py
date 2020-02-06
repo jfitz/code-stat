@@ -136,10 +136,9 @@ class StringTokenBuilder(TokenBuilder):
     return 'Escape ?Z'
 
 
-  def __init__(self, quotes, allow_newline, allow_unterm):
+  def __init__(self, quotes, allow_newline):
     self.quotes = quotes
     self.allow_newline = allow_newline
-    self.allow_unterm = allow_unterm
     self.text = ''
 
 
@@ -188,7 +187,7 @@ class StringTokenBuilder(TokenBuilder):
     if len(self.text) < 2:
       return 0
 
-    if not self.allow_unterm and self.text[-1] != self.text[0]:
+    if self.text[-1] != self.text[0]:
       return 0
 
     return len(self.text)

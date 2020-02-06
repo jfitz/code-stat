@@ -53,7 +53,7 @@ class VisualBasicNETExaminer(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     variable_tb = VisualBasicVariableTokenBuilder(['$', '%', '#', '!'])
     identifier_tb = IdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(['"'], False, False)
+    string_tb = StringTokenBuilder(['"'], False)
 
     remark_tb = RemarkTokenBuilder()
     comment_tb = LeadCommentTokenBuilder("'")

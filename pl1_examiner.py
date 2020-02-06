@@ -32,7 +32,7 @@ class PL1Examiner(Examiner):
     self.real_tb = RealTokenBuilder(False, False, None)
     self.real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     self.identifier_tb = IdentifierTokenBuilder()
-    self.string_tb = StringTokenBuilder(['"', "'"], False, False)
+    self.string_tb = StringTokenBuilder(['"', "'"], False)
 
     self.slash_star_comment_tb = SlashStarCommentTokenBuilder()
 

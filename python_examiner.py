@@ -61,7 +61,7 @@ class PythonExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder()
     decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator')
     quotes = ['"', "'"]
-    string_tb = StringTokenBuilder(quotes, False, False)
+    string_tb = StringTokenBuilder(quotes, False)
     raw_string_tb = PrefixedStringTokenBuilder('r', True, quotes)
     byte_string_tb = PrefixedStringTokenBuilder('b', True, quotes)
     unicode_string_tb = PrefixedStringTokenBuilder('u', True, quotes)

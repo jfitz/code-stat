@@ -62,7 +62,7 @@ class KotlinExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder()
     decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator')
     quotes = ['"', "'"]
-    string_tb = StringTokenBuilder(quotes, False, False)
+    string_tb = StringTokenBuilder(quotes, False)
     triple_quote_string_tb = TripleQuoteStringTokenBuilder(quotes)
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
