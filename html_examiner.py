@@ -51,7 +51,7 @@ class HTMLExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
     real_tb = RealTokenBuilder(False, False, None)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
-    string_tb = StuffedQuoteStringTokenBuilder(['"', "'"], False, False)
+    string_tb = StuffedQuoteStringTokenBuilder(['"', "'"], False)
     attribute_tb = HTMLAttributeTokenBuilder()
     unicode_tb = HTMLUnicodeTokenBuilder()
 

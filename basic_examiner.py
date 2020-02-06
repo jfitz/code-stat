@@ -62,7 +62,7 @@ class BasicExaminer(Examiner):
     octal_constant_tb = PrefixedIntegerTokenBuilder('&O', True, '01234567_')
     binary_constant_tb = PrefixedIntegerTokenBuilder('&B', True, '01_')
     variable_tb = BasicVariableTokenBuilder('%#!$&')
-    string_tb = StuffedQuoteStringTokenBuilder(['"'], False, False)
+    string_tb = StuffedQuoteStringTokenBuilder(['"'], False)
     remark_tb = RemarkTokenBuilder()
     comment_tb = LeadCommentTokenBuilder("'")
 

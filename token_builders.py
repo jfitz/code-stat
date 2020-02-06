@@ -201,9 +201,8 @@ class StuffedQuoteStringTokenBuilder(TokenBuilder):
     return 'Escape ?Z'
 
 
-  def __init__(self, quotes, allow_newline, allow_unterm):
+  def __init__(self, quotes, allow_unterm):
     self.quotes = quotes
-    self.allow_newline = allow_newline
     self.allow_unterm = allow_unterm
     self.text = ''
 
@@ -234,7 +233,7 @@ class StuffedQuoteStringTokenBuilder(TokenBuilder):
         result = count % 2 == 1
 
     # newline breaks a string
-    if c in ['\n', '\r'] and not self.allow_newline:
+    if c in ['\n', '\r']:
       result = False
 
     return result

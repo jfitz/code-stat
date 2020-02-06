@@ -55,7 +55,7 @@ class AdaExaminer(Examiner):
     real_tb = RealTokenBuilder(True, True, False)
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', None)
     identifier_tb = IdentifierTokenBuilder()
-    string_tb = StuffedQuoteStringTokenBuilder(['"'], False, False)
+    string_tb = StuffedQuoteStringTokenBuilder(['"'], False)
     char_tb = AdaCharTokenBuilder(["'"])
 
     dash_dash_comment_tb = DashDashCommentTokenBuilder()

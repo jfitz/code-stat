@@ -64,7 +64,7 @@ class FortranFreeFormatExaminer(FortranExaminer):
     identifier_tb = IdentifierTokenBuilder()
 
     bang_comment_tb = LeadCommentTokenBuilder('!')
-    string_tb = StuffedQuoteStringTokenBuilder(["'", '"'], False, False)
+    string_tb = StuffedQuoteStringTokenBuilder(["'", '"'], False)
 
     known_operators = [
       '=', '+', '-', '*', '/', '**',

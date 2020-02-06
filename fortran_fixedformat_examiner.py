@@ -56,7 +56,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
     double_exponent_tb = RealExponentTokenBuilder(False, False, 'D', None)
     identifier_tb = FortranIdentifierTokenBuilder()
     hollerith_tb = HollerithStringTokenBuilder()
-    string_tb = StuffedQuoteStringTokenBuilder(["'", '"'], False, False)
+    string_tb = StuffedQuoteStringTokenBuilder(["'", '"'], False)
     format_tb = FormatSpecifierTokenBuilder()
 
     known_operators = [
