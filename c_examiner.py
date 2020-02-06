@@ -125,7 +125,7 @@ class CExaminer(Examiner):
 
     types = [
       'char', 'double', 'float', 'int',
-      'long', 'short',
+      'long', 'short'
     ]
 
     types_tb = ListTokenBuilder(types, 'type', True)

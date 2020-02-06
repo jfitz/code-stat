@@ -175,6 +175,11 @@ test\bin\run_test.ps1 -json -name regex-d -action tokens -language d -inputfile 
 test\bin\run_test.ps1 -json -name halffloat-d -action tokens -language d -inputfile ".\test\data\d\halffloat.d" -expected ".\test\ref\tokens\d\halffloat.txt"
 test\bin\run_test.ps1 -json -name wc-d -action tokens -language d -inputfile ".\test\data\d\wc.d" -expected ".\test\ref\tokens\d\wc.txt"
 
+# Dart
+test\bin\run_test.ps1 -json -name anagram-dart -action tokens -language Dart -inputfile ".\test\data\Dart\anagram.dart" -expected ".\test\ref\tokens\dart\anagram.txt"
+test\bin\run_test.ps1 -json -name note_client-dart -action tokens -language Dart -inputfile ".\test\data\Dart\note_client.dart" -expected ".\test\ref\tokens\dart\note_client.txt"
+test\bin\run_test.ps1 -json -name web_app-dart -action tokens -language Dart -inputfile ".\test\data\Dart\web_app.dart" -expected ".\test\ref\tokens\dart\web_app.txt"
+
 # dbase II
 test\bin\run_test.ps1 -json -name sample-dbii -action tokens -language dbase-II -inputfile ".\test\data\dbase-II\sample.prg" -expected ".\test\ref\tokens\dbase-II\sample.txt"
 

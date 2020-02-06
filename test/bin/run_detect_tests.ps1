@@ -131,6 +131,11 @@ test\bin\run_test.ps1 -json -name regex-d -action detect -inputfile ".\test\data
 test\bin\run_test.ps1 -json -name halffloat-d -action detect -inputfile ".\test\data\d\halffloat.d" -expected ".\test\ref\detect\d\halffloat.txt"
 test\bin\run_test.ps1 -json -name wc-d -action detect -inputfile ".\test\data\d\wc.d" -expected ".\test\ref\detect\d\wc.txt"
 
+# Dart
+test\bin\run_test.ps1 -json -name anagram-dart -action detect -inputfile ".\test\data\Dart\anagram.dart" -expected ".\test\ref\detect\dart\anagram.txt"
+test\bin\run_test.ps1 -json -name note_client-dart -action detect -inputfile ".\test\data\Dart\note_client.dart" -expected ".\test\ref\detect\dart\note_client.txt"
+test\bin\run_test.ps1 -json -name web_app-dart -action detect -inputfile ".\test\data\Dart\web_app.dart" -expected ".\test\ref\detect\dart\web_app.txt"
+
 # dbase II
 test\bin\run_test.ps1 -json -name sample-dbii -action detect -inputfile ".\test\data\dbase-II\sample.prg" -expected ".\test\ref\detect\dbase-II\sample.txt"
 

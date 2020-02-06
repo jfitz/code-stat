@@ -175,6 +175,11 @@ test\bin\run_test.ps1 -json -name regex-d -action confidence -errors -language d
 test\bin\run_test.ps1 -json -name halffloat-d -action confidence -errors -language d -inputfile ".\test\data\d\halffloat.d" -expected ".\test\ref\confidence-errors\d\halffloat.txt"
 test\bin\run_test.ps1 -json -name wc-d -action confidence -errors -language d -inputfile ".\test\data\d\wc.d" -expected ".\test\ref\confidence-errors\d\wc.txt"
 
+# Dart
+test\bin\run_test.ps1 -json -name anagram-dart -action confidence -errors -language Dart -inputfile ".\test\data\Dart\anagram.dart" -expected ".\test\ref\confidence-errors\dart\anagram.txt"
+test\bin\run_test.ps1 -json -name note_client-dart -action confidence -errors -language Dart -inputfile ".\test\data\Dart\note_client.dart" -expected ".\test\ref\confidence-errors\dart\note_client.txt"
+test\bin\run_test.ps1 -json -name web_app-dart -action confidence -errors -language Dart -inputfile ".\test\data\Dart\web_app.dart" -expected ".\test\ref\confidence-errors\dart\web_app.txt"
+
 # dbase II
 test\bin\run_test.ps1 -json -name sample-dbii -action confidence -errors -language dbase-II -inputfile ".\test\data\dbase-II\sample.prg" -expected ".\test\ref\confidence-errors\dbase-II\sample.txt"
 

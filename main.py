@@ -19,6 +19,7 @@ from coffeescript_examiner import CoffeeScriptExaminer
 from cpp_examiner import CppExaminer
 from csharp_examiner import CsharpExaminer
 from d_examiner import DExaminer
+from dart_examiner import DartExaminer
 from dbase_examiner import DbaseExaminer
 from delphi_examiner import DelphiExaminer
 from eiffel_examiner import EiffelExaminer
@@ -62,6 +63,7 @@ CoffeeScriptExaminer.__escape_z__()
 CppExaminer.__escape_z__()
 CsharpExaminer.__escape_z__()
 DExaminer.__escape_z__()
+DartExaminer.__escape_z__()
 DbaseExaminer.__escape_z__()
 DelphiExaminer.__escape_z__()
 EiffelExaminer.__escape_z__()
@@ -218,6 +220,7 @@ codesAndNames = {
   'cobol-2014-gnu': 'COBOL-2014-GNU',
   'coffeescript': 'CoffeeScript',
   'd': 'D',
+  'dart': 'Dart',
   'dbase-ii': 'dBase-II',
   'delphi': 'Delphi',
   'eiffel': 'Eiffel',
@@ -282,6 +285,7 @@ codesAndGroups = {
   'cobol-2014-gnu': 'COBOL',
   'coffeescript': 'JavaScript',
   'd': 'D',
+  'dart': 'Dart',
   'dbase-ii': 'dBase',
   'delphi': 'Pascal',
   'eiffel': 'Eiffel',
@@ -346,6 +350,7 @@ codesAndYears = {
   'cobol-2014-gnu': '2014',
   'coffeescript': '2009',
   'd': '2001',
+  'dart': '2011',
   'dbase-ii': '1982',
   'delphi': '1995',
   'eiffel': '1985',
@@ -722,6 +727,9 @@ def make_one_examiner(language, code, tab_size, wide, comment):
   if language in ['d']:
     examiner = DExaminer(code)
 
+  if language in ['dart']:
+    examiner = DartExaminer(code)
+
   if language in ['dbase-ii', 'dbase', 'prg']:
     examiner = DbaseExaminer(code)
 
@@ -913,6 +921,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
 
   if 'd' in languages:
     examiners['d'] = DExaminer(code)
+
+  if 'dart' in languages:
+    examiners['dart'] = DartExaminer(code)
 
   if 'dbase-ii' in languages or 'dbase' in languages or 'prg' in languages:
     examiners['dbase-ii'] = DbaseExaminer(code)
