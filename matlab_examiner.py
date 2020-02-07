@@ -58,7 +58,7 @@ class MatlabExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder()
     command_tb = PrefixedIdentifierTokenBuilder('!', 'command')
     metaclass_tb = PrefixedIdentifierTokenBuilder('?', 'metaclass')
-    quotes = ['"']
+    quotes = ['"', "'"]
     string_tb = StringTokenBuilder(quotes, False)
 
     line_comment_tb = LeadCommentTokenBuilder('%')
@@ -70,16 +70,18 @@ class MatlabExaminer(Examiner):
       '+', '-', '.*', '*', './', '/', '\\', '.^', '^', ".'", "'",
       '=', '==', '~=', '>', '>=', '<', '<=',
       '&', '|', '&&', '||', '~',
-      '@', '.', ':', '.?'
+      '@', '.', '.?'
     ]
 
     self.unary_operators = [
       '+', '-', '~', '@'
     ]
 
-    self.postfix_operators = []
+    self.postfix_operators = [
+      "'"
+    ]
 
-    groupers = ['(', ')', ',', '[', ']', '{', '}', ';']
+    groupers = ['(', ')', ',', '[', ']', '{', '}', ';', ':']
     group_ends = [')', ']', '}']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
@@ -142,8 +144,8 @@ class MatlabExaminer(Examiner):
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     self.calc_operator_3_confidence(group_ends)
-    operand_types = ['number']
-    self.calc_operand_confidence(operand_types)
+    # operand_types = ['number']
+    # self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_statistics()
