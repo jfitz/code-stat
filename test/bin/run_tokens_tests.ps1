@@ -271,6 +271,12 @@ test\bin\run_test.ps1 -json -name dissector2-lua -action tokens -language Lua -i
 test\bin\run_test.ps1 -json -name dsl-lua -action tokens -language Lua -inputfile ".\test\data\Lua\dsl.lua" -expected ".\test\ref\tokens\Lua\dsl.txt"
 test\bin\run_test.ps1 -json -name markov-lua -action tokens -language Lua -inputfile ".\test\data\Lua\markov.lua" -expected ".\test\ref\tokens\Lua\markov.txt"
 
+# Matlab
+test\bin\run_test.ps1 -json -name choose-matlab -action tokens -language Matlab -inputfile ".\test\data\Matlab\choose.m" -expected ".\test\ref\tokens\Matlab\choose.txt"
+test\bin\run_test.ps1 -json -name fitnormal-matlab -action tokens -language Matlab -inputfile ".\test\data\Matlab\fitnormal.m" -expected ".\test\ref\tokens\Matlab\fitnormal.txt"
+test\bin\run_test.ps1 -json -name test_fitnormal-matlab -action tokens -language Matlab -inputfile ".\test\data\Matlab\test_fitnormal.m" -expected ".\test\ref\tokens\Matlab\test_fitnormal.txt"
+test\bin\run_test.ps1 -json -name tshow-matlab -action tokens -language Matlab -inputfile ".\test\data\Matlab\tshow.m" -expected ".\test\ref\tokens\Matlab\tshow.txt"
+
 # Objective-C
 test\bin\run_test.ps1 -json -name hello-objc -action tokens -language Objective-C -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\tokens\Objective-C\HelloWorld.txt"
 test\bin\run_test.ps1 -json -name qrmath-objc -action tokens -language Objective-C -inputfile ".\test\data\Objective-C\QRMath.h" -expected ".\test\ref\tokens\Objective-C\QRMath.txt"

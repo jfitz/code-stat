@@ -227,6 +227,12 @@ test\bin\run_test.ps1 -json -name dissector2-lua -action detect -inputfile ".\te
 test\bin\run_test.ps1 -json -name dsl-lua -action detect -inputfile ".\test\data\Lua\dsl.lua" -expected ".\test\ref\detect\Lua\dsl.txt"
 test\bin\run_test.ps1 -json -name markov-lua -action detect -inputfile ".\test\data\Lua\markov.lua" -expected ".\test\ref\detect\Lua\markov.txt"
 
+# Matlab
+test\bin\run_test.ps1 -json -name choose-matlab -action detect -inputfile ".\test\data\Matlab\choose.m" -expected ".\test\ref\detect\Matlab\choose.txt"
+test\bin\run_test.ps1 -json -name fitnormal-matlab -action detect -inputfile ".\test\data\Matlab\fitnormal.m" -expected ".\test\ref\detect\Matlab\fitnormal.txt"
+test\bin\run_test.ps1 -json -name test_fitnormal-matlab -action detect -inputfile ".\test\data\Matlab\test_fitnormal.m" -expected ".\test\ref\detect\Matlab\test_fitnormal.txt"
+test\bin\run_test.ps1 -json -name tshow-matlab -action detect -inputfile ".\test\data\Matlab\tshow.m" -expected ".\test\ref\detect\Matlab\tshow.txt"
+
 # Objective-C
 test\bin\run_test.ps1 -json -name hello-objc -action detect -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\detect\Objective-C\HelloWorld.txt"
 test\bin\run_test.ps1 -json -name qrmath-objc -action detect -inputfile ".\test\data\Objective-C\QRMath.h" -expected ".\test\ref\detect\Objective-C\QRMath.txt"

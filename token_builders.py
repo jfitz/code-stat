@@ -982,6 +982,31 @@ class SingleCharacterTokenBuilder(TokenBuilder):
     return len(candidate) == 0 and c in self.legals
 
 
+class KeywordTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self, keyword, group):
+    self.keyword = keyword
+    self.group = group
+    self.text = ''
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, self.group)]
+
+
+  def accept(self, candidate, c):
+    return len(candidate) < len(self.keyword) and \
+       c == self.keyword[len(candidate)]
+
+
 # accept characters to match item in list
 class ListTokenBuilder(TokenBuilder):
   @staticmethod
@@ -1171,7 +1196,9 @@ class ParenStarCommentTokenBuilder(TokenBuilder):
     return 'Escape ?Z'
 
 
-  def __init__(self):
+  def __init__(self, opener, closer):
+    self.opener = opener
+    self.closer = closer
     self.text = ''
 
 
@@ -1185,16 +1212,16 @@ class ParenStarCommentTokenBuilder(TokenBuilder):
   def accept(self, candidate, c):
     result = False
 
-    if c == '(' and len(candidate) == 0:
+    if len(candidate) == 0 and c == self.opener[0]:
       result = True
 
-    if c == '*' and len(candidate) == 1:
+    if len(candidate) == 1 and c == self.opener[1]:
       result = True
 
-    if c == ')' and len(candidate) > 2 and candidate[-1] == '*':
+    if len(candidate) > 2 and candidate[-1] == self.closer[0] and c == self.closer[1]:
       result = True
 
-    if candidate.startswith('(*') and (candidate[-2] != '*' or candidate[-1] != ')'):
+    if candidate.startswith(self.opener) and not candidate.endswith(self.closer):
       result = True
 
     return result

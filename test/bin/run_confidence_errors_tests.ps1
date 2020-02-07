@@ -271,6 +271,12 @@ test\bin\run_test.ps1 -json -name dissector2-lua -action confidence -errors -lan
 test\bin\run_test.ps1 -json -name dsl-lua -action confidence -errors -language Lua -inputfile ".\test\data\Lua\dsl.lua" -expected ".\test\ref\confidence-errors\Lua\dsl.txt"
 test\bin\run_test.ps1 -json -name markov-lua -action confidence -errors -language Lua -inputfile ".\test\data\Lua\markov.lua" -expected ".\test\ref\confidence-errors\Lua\markov.txt"
 
+# Matlab
+test\bin\run_test.ps1 -json -name choose-matlab -action confidence -errors -language Matlab -inputfile ".\test\data\Matlab\choose.m" -expected ".\test\ref\confidence-errors\Matlab\choose.txt"
+test\bin\run_test.ps1 -json -name fitnormal-matlab -action confidence -errors -language Matlab -inputfile ".\test\data\Matlab\fitnormal.m" -expected ".\test\ref\confidence-errors\Matlab\fitnormal.txt"
+test\bin\run_test.ps1 -json -name test_fitnormal-matlab -action confidence -errors -language Matlab -inputfile ".\test\data\Matlab\test_fitnormal.m" -expected ".\test\ref\confidence-errors\Matlab\test_fitnormal.txt"
+test\bin\run_test.ps1 -json -name tshow-matlab -action confidence -errors -language Matlab -inputfile ".\test\data\Matlab\tshow.m" -expected ".\test\ref\confidence-errors\Matlab\tshow.txt"
+
 # Objective-C
 test\bin\run_test.ps1 -json -name hello-objc -action confidence -errors -language Objective-C -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\confidence-errors\Objective-C\HelloWorld.txt"
 test\bin\run_test.ps1 -json -name qrmath-objc -action confidence -errors -language Objective-C -inputfile ".\test\data\Objective-C\QRMath.h" -expected ".\test\ref\confidence-errors\Objective-C\QRMath.txt"

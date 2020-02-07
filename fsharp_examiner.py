@@ -68,7 +68,7 @@ class FsharpExaminer(Examiner):
     char_tb = FsharpCharTokenBuilder(["'"])
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
-    parens_star_comment_tb = ParenStarCommentTokenBuilder()
+    parens_star_comment_tb = ParenStarCommentTokenBuilder('(*', '*)')
     triple_slash_comment_tb = TripleSlashCommentTokenBuilder()
 
     directives = (

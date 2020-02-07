@@ -33,6 +33,7 @@ from javascript_examiner import JavaScriptExaminer
 from julia_examiner import JuliaExaminer
 from kotlin_examiner import KotlinExaminer
 from lua_examiner import LuaExaminer
+from matlab_examiner import MatlabExaminer
 from microsoft_basic_examiner import MicrosoftBasicExaminer
 from objectivec_examiner import ObjectiveCExaminer
 from pascal_examiner import PascalExaminer
@@ -77,6 +78,7 @@ JavaScriptExaminer.__escape_z__()
 JuliaExaminer.__escape_z__()
 KotlinExaminer.__escape_z__()
 LuaExaminer.__escape_z__()
+MatlabExaminer.__escape_z__()
 MicrosoftBasicExaminer.__escape_z__()
 ObjectiveCExaminer.__escape_z__()
 PascalExaminer.__escape_z__()
@@ -239,6 +241,7 @@ codesAndNames = {
   'kotlin': 'Kotlin',
   'lua': 'Lua',
   'html': 'HTML',
+  'matlab': 'Matlab',
   'microsoft-basic': 'Microsoft-BASIC',
   'objective-c': 'Objective-C',
   'pascal': 'Pascal',
@@ -304,6 +307,7 @@ codesAndGroups = {
   'kotlin': 'Kotlin',
   'lua': 'Lua',
   'html': 'HTML',
+  'matlab': 'Matlab',
   'microsoft-basic': 'BASIC',
   'objective-c': 'Objective-C',
   'pascal': 'Pascal',
@@ -369,6 +373,7 @@ codesAndYears = {
   'julia': '2009',
   'kotlin': '2011',
   'lua': '1993',
+  'matlab': '1984',
   'microsoft-basic': '1980',
   'objective-c': '1984',
   'pascal': '1970',
@@ -781,6 +786,9 @@ def make_one_examiner(language, code, tab_size, wide, comment):
   if language in ['lua']:
     examiner = LuaExaminer(code)
 
+  if language in ['matlab', 'm']:
+    examiner = MatlabExaminer(code)
+
   if language in ['microsoft-basic', 'mbasic', 'mba']:
     examiner = MicrosoftBasicExaminer(code)
 
@@ -978,6 +986,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
 
   if 'lua' in languages:
     examiners['lua'] = LuaExaminer(code)
+
+  if 'matlab' in languages or 'm' in languages:
+    examiners['matlab'] = MatlabExaminer(code)
 
   if 'microsoft-basic' in languages or 'mbasic' in languages or 'mba' in languages:
     examiners['microsoft-basic'] = MicrosoftBasicExaminer(code)

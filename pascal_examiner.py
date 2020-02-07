@@ -61,7 +61,7 @@ class PascalExaminer(Examiner):
     string_tb = StringTokenBuilder(["'"], False)
 
     brace_comment_tb = BraceCommentTokenBuilder()
-    paren_star_comment_tb = ParenStarCommentTokenBuilder()
+    paren_star_comment_tb = ParenStarCommentTokenBuilder('(*', '*)')
 
     known_operators = [
       '+', '-', '*', '/',

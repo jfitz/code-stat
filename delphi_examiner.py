@@ -65,7 +65,7 @@ class DelphiExaminer(Examiner):
     string_tb = StringTokenBuilder(["'"], False)
 
     brace_comment_tb = BraceCommentTokenBuilder()
-    paren_star_comment_tb = ParenStarCommentTokenBuilder()
+    paren_star_comment_tb = ParenStarCommentTokenBuilder('(*', '*)')
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
 
     known_operators = [
