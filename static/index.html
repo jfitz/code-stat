@@ -259,7 +259,7 @@ function detectLanguage() {
   var languageParam = ''
   var languages = buildLanguageList();
   if (languages.length > 0) {
-    languageParam = 'languages=' + languages.join(' ');
+    languageParam = 'language=' + languages.join(' ');
   }
 
   var req = new XMLHttpRequest();
