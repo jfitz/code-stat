@@ -185,7 +185,8 @@ class JuliaExaminer(Examiner):
     ]
 
     tokenizer = Tokenizer(tokenbuilders)
-    self.tokens = tokenizer.tokenize(code)
+    tokens = tokenizer.tokenize(code)
+    self.tokens = self.convert_symbols_to_operators(tokens, group_ends)
 
     self.calc_token_confidence()
     self.calc_operator_confidence()
@@ -196,3 +197,24 @@ class JuliaExaminer(Examiner):
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_statistics()
+
+
+  def convert_symbols_to_operators(self, tokens, group_ends):
+    new_tokens = []
+    prev_token = Token('\n', 'newline')
+
+    for token in tokens:
+      if token.group == 'symbol' and \
+        (prev_token.group in ['identifier', 'number'] or \
+          (prev_token.group == 'group' and prev_token.text in group_ends)):
+        # split the symbol into two, and insert the first into our results
+        token0 = Token(':', 'operator')
+        new_tokens.append(token0)
+        token = Token(token.text[1:], 'identifier')
+
+      new_tokens.append(token)
+
+      if token.group not in ['whitespace', 'comment', 'newline']:
+        prev_token = token
+
+    return new_tokens

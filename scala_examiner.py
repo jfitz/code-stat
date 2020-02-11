@@ -76,13 +76,15 @@ class ScalaExaminer(Examiner):
       '>:', '⇒', '=>', '=', '<%', '<:', '←', '<-', '#', '@',
       '==', '!=', '>', '<', '>=', '<=', '!', '~',
       '<<<', '>>>', '.',
-      '++', '--'
+      '++', '--',
+      'new'
     ]
 
     self.unary_operators = [
       '+', '-', '*',
       '!', '~',
-      '++', '--'
+      '++', '--',
+      'new'
     ]
 
     self.postfix_operators = [
@@ -105,7 +107,6 @@ class ScalaExaminer(Examiner):
       'if', 'implicit', 'import',
       'lazy',
       'match',
-      'new',
       'object', 'override',
       'package', 'private', 'protected',
       'return',

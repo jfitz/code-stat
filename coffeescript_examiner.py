@@ -79,7 +79,8 @@ class CoffeeScriptExaminer(Examiner):
       'in', 'of',
       'is', 'isnt',
       'and', 'or', 'not',
-      '@', '//', '%%', '::'
+      '@', '//', '%%', '::',
+      'new', 'delete'
     ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
@@ -89,7 +90,8 @@ class CoffeeScriptExaminer(Examiner):
       '!', '~',
       '++', '--', ':',
       'not',
-      '.', '@'
+      '.', '@',
+      'new', 'delete'
     ]
 
     self.postfix_operators = [
@@ -112,7 +114,6 @@ class CoffeeScriptExaminer(Examiner):
       '->', '=>',
       'do',
       'throw', 'try', 'catch', 'finally',
-      'new', 'delete',
       'class', 'extends', 'typeof', 'instanceof',
       'await', 'defer', 'yield',
       'export', 'import', 'package', 'let',

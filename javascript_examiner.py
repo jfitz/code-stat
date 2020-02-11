@@ -78,7 +78,8 @@ class JavaScriptExaminer(Examiner):
       '^', '**',
       '.', ':',
       '++', '--', '&&', '||',
-      '?'
+      '?',
+      'new', 'delete'
     ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
@@ -86,7 +87,8 @@ class JavaScriptExaminer(Examiner):
     self.unary_operators = [
       '+', '-',
       '!', '~',
-      '++', '--', ':'
+      '++', '--', ':',
+      'new', 'delete'
     ]
 
     self.postfix_operators = [
@@ -102,7 +104,7 @@ class JavaScriptExaminer(Examiner):
 
     keywords = [
       'break', 'case', 'catch', 'class', 'const', 'continue',
-      'debugger', 'default', 'delete', 'do', 'else', 'export',
+      'debugger', 'default', 'do', 'else', 'export',
       'extends', 'finally', 'for', 'function', 'if', 'import',
       'in', 'instanceof', 'new', 'return', 'switch',
       'throw', 'try', 'typeof', 'var', 'void', 'while',

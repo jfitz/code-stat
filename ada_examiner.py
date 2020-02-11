@@ -68,11 +68,13 @@ class AdaExaminer(Examiner):
       '+', '-', '&', '*', '/', 'mod', 'rem',
       '**', 'not', 'abs',
       'in', '..',
-      ':=', '.', ':', "'"
+      ':=', '.', ':', "'",
+      'new'
     ]
 
     self.unary_operators = [
-      '+', '-', 'not', 'abs'
+      '+', '-', 'not', 'abs',
+      'new'
     ]
 
     groupers = ['(', ')', ',', '=>']
@@ -83,63 +85,26 @@ class AdaExaminer(Examiner):
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
     keywords = [
-      'abort',
-      'accept',
-      'access',
-      'array',
-      'at',
-      'begin',
-      'body',
-      'case',
-      'constant',
-      'declare',
-      'delay',
-      'delta',
-      'digits',
-      'do',
-      'else',
-      'elsif',
-      'end',
-      'entry',
-      'exception',
-      'exit',
-      'for',
-      'function',
-      'generic',
-      'goto',
-      'if',
-      'is',
-      'limited',
-      'loop',
-      'new',
-      'of',
-      'out',
-      'package',
-      'pragma',
-      'private',
-      'procedure',
-      'raise',
-      'range',
-      'record',
-      'renames',
-      'return',
-      'reverse',
-      'select',
-      'separate',
-      'subtype',
-      'task',
-      'terminate',
-      'then',
-      'type',
+      'abort', 'accept', 'access', 'array', 'at',
+      'begin', 'body',
+      'case', 'constant',
+      'declare', 'delay', 'delta', 'digits', 'do',
+      'else', 'elsif', 'end', 'entry', 'exception', 'exit',
+      'for', 'function',
+      'generic', 'goto',
+      'if', 'is',
+      'limited', 'loop',
+      'of', 'out',
+      'package', 'pragma', 'private', 'procedure',
+      'raise', 'range', 'record', 'renames', 'return', 'reverse',
+      'select', 'separate', 'subtype',
+      'task', 'terminate', 'then', 'type',
       'use',
-      'when',
-      'while',
-      'with'
+      'when', 'while', 'with'
     ]
 
     keywords_95 =[
-      'abstract',
-      'aliased',
+      'abstract', 'aliased',
       'protected',
       'requeue',
       'tagged',

@@ -110,7 +110,7 @@ class CsharpExaminer(Examiner):
       'finally', 'fixed', 'for', 'foreach', 'goto',
       'if', 'implicit', 'in', 'interface', 'internal',
       'lock', 'namespace', 'operator',
-      'out', 'override', 'params', 'private', 'protected', 'public',
+      'out', 'override', 'params', 'partial', 'private', 'protected', 'public',
       'readonly', 'ref', 'return', 'sealed',
       'stackalloc', 'static', 'struct', 'switch',
       'throw', 'try',

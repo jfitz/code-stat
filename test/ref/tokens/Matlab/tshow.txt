@@ -596,16 +596,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"'"
-    },
-    {
-        "type":"identifier",
-        "value":"nonrecursive"
-    },
-    {
-        "type":"operator",
-        "value":"'"
+        "type":"string",
+        "value":"'nonrecursive'"
     },
     {
         "type":"group",
@@ -752,104 +744,8 @@
         "value":"  "
     },
     {
-        "type":"operator",
-        "value":"'"
-    },
-    {
-        "type":"identifier",
-        "value":"T"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"must"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"be"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"a"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"1"
-    },
-    {
-        "type":"identifier",
-        "value":"D"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"to"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"4"
-    },
-    {
-        "type":"identifier",
-        "value":"D"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"numeric"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"or"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"logical"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"tensor"
-    },
-    {
-        "type":"operator",
-        "value":".'"
+        "type":"string",
+        "value":"'T must be a 1D to 4D numeric or logical tensor.'"
     },
     {
         "type":"group",
@@ -1060,88 +956,8 @@
         "value":"    "
     },
     {
-        "type":"operator",
-        "value":"'"
-    },
-    {
-        "type":"identifier",
-        "value":"optimizeAR"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"option"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"must"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"be"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"either"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"true"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"false"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"or"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"operator",
-        "value":".'"
+        "type":"string",
+        "value":"'optimizeAR option must be either true, false or [].'"
     },
     {
         "type":"group",
@@ -1776,7 +1592,7 @@
         "value":"\r\n"
     },
     {
-        "type":"identifier",
+        "type":"keyword",
         "value":"else"
     },
     {
@@ -2196,16 +2012,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"'"
-    },
-    {
-        "type":"identifier",
-        "value":"image"
-    },
-    {
-        "type":"operator",
-        "value":"'"
+        "type":"string",
+        "value":"'image'"
     },
     {
         "type":"group",
@@ -2260,16 +2068,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"'"
-    },
-    {
-        "type":"identifier",
-        "value":"on"
-    },
-    {
-        "type":"operator",
-        "value":"'"
+        "type":"string",
+        "value":"'on'"
     },
     {
         "type":"group",
@@ -2304,16 +2104,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"'"
-    },
-    {
-        "type":"identifier",
-        "value":"on"
-    },
-    {
-        "type":"operator",
-        "value":"'"
+        "type":"string",
+        "value":"'on'"
     },
     {
         "type":"group",
@@ -3040,12 +2832,12 @@
         "value":"("
     },
     {
-        "type":"operator",
-        "value":"'"
+        "type":"string",
+        "value":"'Fourth dimension (size %i)'"
     },
     {
-        "type":"identifier",
-        "value":"Fourth"
+        "type":"group",
+        "value":","
     },
     {
         "type":"whitespace",
@@ -3053,7 +2845,51 @@
     },
     {
         "type":"identifier",
-        "value":"dimension"
+        "value":"origSz"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"4"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'Parent'"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ax"
+    },
+    {
+        "type":"group",
+        "value":")"
     },
     {
         "type":"whitespace",
@@ -3061,19 +2897,7 @@
     },
     {
         "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"size"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"comment",
-        "value":"%i)', origSz(4)), 'Parent', ax) ;"
+        "value":";"
     },
     {
         "type":"newline",
@@ -3100,12 +2924,12 @@
         "value":"("
     },
     {
-        "type":"operator",
-        "value":"'"
+        "type":"string",
+        "value":"'Third dimension (size %i)'"
     },
     {
-        "type":"identifier",
-        "value":"Third"
+        "type":"group",
+        "value":","
     },
     {
         "type":"whitespace",
@@ -3113,7 +2937,51 @@
     },
     {
         "type":"identifier",
-        "value":"dimension"
+        "value":"origSz"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"3"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'Parent'"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ax"
+    },
+    {
+        "type":"group",
+        "value":")"
     },
     {
         "type":"whitespace",
@@ -3121,19 +2989,7 @@
     },
     {
         "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"size"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"comment",
-        "value":"%i)', origSz(3)), 'Parent', ax) ;"
+        "value":";"
     },
     {
         "type":"newline",
@@ -3192,16 +3048,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"'"
-    },
-    {
-        "type":"identifier",
-        "value":"k"
-    },
-    {
-        "type":"operator",
-        "value":"'"
+        "type":"string",
+        "value":"'k'"
     },
     {
         "type":"group",
@@ -3244,16 +3092,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"'"
-    },
-    {
-        "type":"identifier",
-        "value":"k"
-    },
-    {
-        "type":"operator",
-        "value":"'"
+        "type":"string",
+        "value":"'k'"
     },
     {
         "type":"group",

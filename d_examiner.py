@@ -95,14 +95,16 @@ class DExaminer(Examiner):
       '>>=', '>>>=', '>>', '>>>', '!', '!=', '?', ',', ':', '$',
       '=', '==', '*', '*=', '%', '%=', '^', '^=', '^^', '^^=', '~', '~=',
       '@', '=>', '#',
-      'new', 'typeof', 'is'
+      'new', 'delete',
+      'typeof', 'is'
     ]
 
     self.unary_operators = [
       '+', '-', '*',
       '!', '&', '~',
       '++', '--', ':',
-      'new', 'typeof', 'is'
+      'new', 'delete',
+      'typeof', 'is'
     ]
 
     self.postfix_operators = [
@@ -119,7 +121,7 @@ class DExaminer(Examiner):
     keywords = [
       'abstract', 'alias', 'align', 'asm', 'assert', 'auto',
       'body', 'break', 'case', 'cast', 'catch', 'class', 'const', 'continue',
-      'debug', 'default', 'delegate', 'delete', 'deprecated', 'do',
+      'debug', 'default', 'delegate', 'deprecated', 'do',
       'else', 'enum', 'export', 'extern',
       'final', 'finally', 'for', 'foreach', 'foreach_reverse', 'function',
       'goto',

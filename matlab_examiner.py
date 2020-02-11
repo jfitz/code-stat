@@ -90,7 +90,7 @@ class MatlabExaminer(Examiner):
 
     keywords = [
     'break',
-    'case', 'catch', 'classdef', 'continue'
+    'case', 'catch', 'classdef', 'continue',
     'else', 'elseif', 'end',
     'for', 'function',
     'global',

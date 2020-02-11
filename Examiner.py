@@ -85,13 +85,13 @@ class Examiner:
 
 
   def find_keywords(self):
-    found_keywords = set()
+    founds = []
 
     for token in self.tokens:
-      if token.group == 'keyword':
-        found_keywords.add(str(token))
+      if token.group in ['keyword', 'type']:
+        founds.append(str(token))
 
-    return found_keywords
+    return founds
 
 
   def find_identifiers(self):

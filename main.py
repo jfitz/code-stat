@@ -148,7 +148,8 @@ def extract_params(request_args):
 def find_winners(text, tab_size, wide, comment, languages):
   tiebreak_keywords = False
   tiebreak_tokens = False
-  detected_languages, examiners = identify_language(text, tab_size, wide, comment, tiebreak_keywords, tiebreak_tokens, languages)
+  tiebreak_age = False
+  detected_languages, examiners = identify_language(text, tab_size, wide, comment, tiebreak_keywords, tiebreak_tokens, tiebreak_age, languages)
 
   # find the highest value
   high_value = 0
@@ -333,68 +334,68 @@ codesAndGroups = {
 
 
 codesAndYears = {
-  'ada-83': '1983',
-  'ada-95': '1995',
-  'ada-2005': '2005',
-  'ada-2012': '2012',
-  'awk': '1977',
-  'basic': '1965',
-  'basica': '1982',
-  'c': '1970',
-  'cplusplus': '1990',
-  'csharp': '2000',
-  'cbasic': '1980',
-  'cobol-68': '1968',
-  'cobol-74': '1974',
-  'cobol-85': '1985',
-  'cobol-2002': '2002',
-  'cobol-2014': '2014',
-  'cobol-2014-acu': '2014',
-  'cobol-2014-ibm': '2014',
-  'cobol-2014-gnu': '2014',
-  'coffeescript': '2009',
-  'd': '2001',
-  'dart': '2011',
-  'dbase-ii': '1982',
-  'delphi': '1995',
-  'eiffel': '1985',
-  'fortran-66': '1966',
-  'fortran-77': '1977',
-  'fortran-90': '1990',
-  'fortran-95': '1995',
-  'fortran-2003': '2003',
-  'fortran-2008': '2008',
-  'fsharp': '2010',
-  'gawk': '1986',
-  'go': '2010',
-  'html': '1990',
-  'java': '1995',
-  'javascript': '1995',
-  'julia': '2009',
-  'kotlin': '2011',
-  'lua': '1993',
-  'matlab': '1984',
-  'microsoft-basic': '1980',
-  'objective-c': '1984',
-  'pascal': '1970',
-  'pl1-fixed': '1964',
-  'pl1-free': '1992',
-  'prolog': '1972',
-  'python': '1991',
-  'r': '1976',
-  'ruby': '1995',
-  'rust': '2010',
-  'scala': '2001',
-  'sql-92': '1992',
-  'sql-99': '1999',
-  'sql-2003': '2003',
-  'sql-2008': '2008',
-  'sql-2011': '2011',
-  'sql-2016': '2016',
-  'swift': '2014',
-  'typescript': '2012',
-  'visualbasic-6': '1998',
-  'visualbasic-net': '2001'
+  'ada-83': 1983,
+  'ada-95': 1995,
+  'ada-2005': 2005,
+  'ada-2012': 2012,
+  'awk': 1977,
+  'basic': 1965,
+  'basica': 1982,
+  'c': 1970,
+  'cplusplus': 1990,
+  'csharp': 2000,
+  'cbasic': 1980,
+  'cobol-68': 1968,
+  'cobol-74': 1974,
+  'cobol-85': 1985,
+  'cobol-2002': 2002,
+  'cobol-2014': 2014,
+  'cobol-2014-acu': 2014,
+  'cobol-2014-ibm': 2014,
+  'cobol-2014-gnu': 2014,
+  'coffeescript': 2009,
+  'd': 2001,
+  'dart': 2011,
+  'dbase-ii': 1982,
+  'delphi': 1995,
+  'eiffel': 1985,
+  'fortran-66': 1966,
+  'fortran-77': 1977,
+  'fortran-90': 1990,
+  'fortran-95': 1995,
+  'fortran-2003': 2003,
+  'fortran-2008': 2008,
+  'fsharp': 2010,
+  'gawk': 1986,
+  'go': 2010,
+  'html': 1990,
+  'java': 1995,
+  'javascript': 1995,
+  'julia': 2009,
+  'kotlin': 2011,
+  'lua': 1993,
+  'matlab': 1984,
+  'microsoft-basic': 1980,
+  'objective-c': 1984,
+  'pascal': 1970,
+  'pl1-fixed': 1964,
+  'pl1-free': 1992,
+  'prolog': 1972,
+  'python': 1991,
+  'r': 1976,
+  'ruby': 1995,
+  'rust': 2010,
+  'scala': 2001,
+  'sql-92': 1992,
+  'sql-99': 1999,
+  'sql-2003': 2003,
+  'sql-2008': 2008,
+  'sql-2011': 2011,
+  'sql-2016': 2016,
+  'swift': 2014,
+  'typescript': 2012,
+  'visualbasic-6': 1998,
+  'visualbasic-net': 2001
 }
 
 
@@ -475,17 +476,20 @@ def route_detect():
     languages = list(codesAndNames.keys())
 
   tiebreak_keywords = True
+  tiebreak_tokens = False
+  tiebreak_age = True
+
   if 'notiebreak' in request.args:
     tiebreak_keywords = False
-
-  tiebreak_tokens = False
+    tiebreak_tokens = False
+    tiebreak_age = False
 
   request_bytes = request.get_data()
 
   http_status = 200
   try:
     text = decode_bytes(request_bytes)
-    detected_languages, _ = identify_language(text, tab_size, wide, comment, tiebreak_keywords, tiebreak_tokens, languages)
+    detected_languages, _ = identify_language(text, tab_size, wide, comment, tiebreak_keywords, tiebreak_tokens, tiebreak_age, languages)
 
     mydict = {}
     for key in detected_languages:
@@ -969,9 +973,6 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
   if 'html' in languages:
     examiners['html'] = HTMLExaminer(code)
 
-  if 'objective-c' in languages:
-    examiners['objective-c'] = ObjectiveCExaminer(code)
-
   if 'java' in languages:
     examiners['java'] = JavaExaminer(code)
 
@@ -992,6 +993,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
 
   if 'microsoft-basic' in languages or 'mbasic' in languages or 'mba' in languages:
     examiners['microsoft-basic'] = MicrosoftBasicExaminer(code)
+
+  if 'objective-c' in languages:
+    examiners['objective-c'] = ObjectiveCExaminer(code)
 
   if 'pascal' in languages or 'pas' in languages:
     examiners['pascal'] = PascalExaminer(code)
@@ -1053,7 +1057,7 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
   return examiners
 
 
-def identify_language(code, tab_size, wide, comment, tiebreak_keywords, tiebreak_tokens, languages):
+def identify_language(code, tab_size, wide, comment, tiebreak_keywords, tiebreak_tokens, tiebreak_age, languages):
   examiners = make_multiple_examiners(code, tab_size, wide, comment, languages)
 
   # get confidence values
@@ -1083,7 +1087,7 @@ def identify_language(code, tab_size, wide, comment, tiebreak_keywords, tiebreak
           highest_keyword_count = keyword_count
 
       if highest_keyword_count > 0:
-        # assign confidence to number of keywords (more is better)
+        # assign confidence to number of keywords and types (more is better)
         for name in high_names:
           count = len(examiners[name].find_keywords())
           keyword_count_confidence = count / highest_keyword_count
@@ -1115,6 +1119,35 @@ def identify_language(code, tab_size, wide, comment, tiebreak_keywords, tiebreak
         count = len(examiners[name].tokens)
         token_count_confidence = lowest_token_count / count
         examiners[name].confidences['token_count'] = token_count_confidence
+
+      # recalculate confidence with new factor
+      for name in high_names:
+        confidence = examiners[name].confidence()
+        retval[name] = confidence
+
+  if tiebreak_age:
+    # count how many have the greatest confidence
+    high_names = []
+    for name in examiners:
+      confidence = examiners[name].confidence()
+      if confidence == highest_confidence:
+        high_names.append(name)
+
+    # if a tie among multiple examiners
+    if len(high_names) > 1:
+      earliest_year = None
+      for name in high_names:
+        year = codesAndYears[name]
+        if earliest_year is None or year < earliest_year:
+          earliest_year = year
+
+      # assign confidence to number of tokens (fewer tokens are better)
+      for name in high_names:
+        year_confidence = 1.0
+        year = codesAndYears[name]
+        if year > earliest_year:
+          year_confidence = 0.99
+        examiners[name].confidences['earliest'] = year_confidence
 
       # recalculate confidence with new factor
       for name in high_names:
@@ -1247,8 +1280,9 @@ if __name__ == '__main__':
         wide = False
         tiebreak_keywords = True
         tiebreak_tokens = False
+        tiebreak_age = False
         comment = ''
         languages = list(codesAndNames.keys())
-        cProfile.run('identify_language(code, tab_size, wide, comment, tiebreak_keywords, tiebreak_tokens, languages)')
+        cProfile.run('identify_language(code, tab_size, wide, comment, tiebreak_keywords, tiebreak_tokens, tiebreak_age, languages)')
       else:
         app.run()

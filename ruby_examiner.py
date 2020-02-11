@@ -47,6 +47,7 @@ class RubyExaminer(Examiner):
 
   def __init__(self, code):
     super().__init__()
+    self.newlines_important = 'parens'
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
@@ -93,19 +94,29 @@ class RubyExaminer(Examiner):
       '++', '--'
     ]
 
-    groupers = ['(', ')', ',', '[', ']', '{', '}', 'end']
-    group_ends = [')', ']', '}', 'end']
+    groupers = ['(', ')', ',', '[', ']', '{', '}']
+    group_ends = [')', ']', '}']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     regex_tb = RegexTokenBuilder()
 
     keywords = [
-      'BEGIN', 'END', 'alias', 'begin', 'break', 'case', 'class',
-      'def', 'defined?', 'do', 'else', 'elsif', 'ensure',
-      'for', 'if', 'module', 'next', 'redo',
-      'rescue', 'retry', 'return', 'then',
-      'undef', 'unless', 'until', 'when', 'while', 'yield'
+      'BEGIN', 'END',
+      'alias',
+      'begin', 'break',
+      'case', 'class',
+      'def', 'defined?', 'do',
+      'else', 'elsif', 'end', 'ensure',
+      'for',
+      'if',
+      'module',
+      'next',
+      'redo', 'rescue', 'retry', 'return',
+      'then',
+      'undef', 'unless', 'until',
+      'when', 'while',
+      'yield'
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)

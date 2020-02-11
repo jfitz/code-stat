@@ -69,7 +69,8 @@ class JavaExaminer(Examiner):
       '^',
       '.', ':',
       '++', '--', '&&', '||',
-      '?'
+      '?',
+      'new'
     ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
@@ -77,7 +78,8 @@ class JavaExaminer(Examiner):
     self.unary_operators = [
       '+', '-',
       '!', '~',
-      '++', '--'
+      '++', '--',
+      'new'
     ]
 
     self.postfix_operators = [
@@ -96,7 +98,7 @@ class JavaExaminer(Examiner):
       'else', 'enum', 'extends', 'final',
       'finally', 'for', 'goto',
       'if', 'implements', 'import', 'instanceof', 'interface',
-      'native', 'new', 'package',
+      'native', 'package',
       'private', 'protected', 'public',
       'return',
       'static', 'strictfp', 'super', 'switch', 'synchronized',

@@ -72,7 +72,8 @@ class TypeScriptExaminer(Examiner):
       '=>', '^',
       '.', ':',
       '++', '--', '&&', '||',
-      '?', '$'
+      '?', '$',
+      'new', 'delete'
     ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
@@ -80,7 +81,8 @@ class TypeScriptExaminer(Examiner):
     self.unary_operators = [
       '+', '-',
       '!', '~',
-      '++', '--', ':', '$'
+      '++', '--', ':', '$',
+      'new', 'delete'
     ]
 
     self.postfix_operators = [
@@ -96,9 +98,9 @@ class TypeScriptExaminer(Examiner):
 
     keywords = [
       'break', 'case', 'catch', 'class', 'const', 'continue',
-      'debugger', 'default', 'delete', 'do', 'else', 'enum', 'export',
+      'debugger', 'default', 'do', 'else', 'enum', 'export',
       'extends', 'finally', 'for', 'function', 'if', 'import',
-      'in', 'instanceof', 'new', 'return', 'switch',
+      'in', 'instanceof', 'return', 'switch',
       'throw', 'try', 'typeof', 'while',
       'with',
       'as', 'implements', 'interface', 'let', 'package',

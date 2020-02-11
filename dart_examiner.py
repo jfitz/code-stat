@@ -84,14 +84,16 @@ class DartExaminer(Examiner):
       '~/=', '||', '&&',
       '.', '..', ':', '?', '??', '??=',
       'as', 'is', 'is!',
-      '++', '--'
+      '++', '--',
+      'new'
     ]
 
     self.unary_operators = [
       '+', '-', '*',
       '!', '~', '.', '..'
       '?.',
-      '++', '--'
+      '++', '--',
+      'new'
     ]
 
     self.postfix_operators = [
@@ -117,7 +119,6 @@ class DartExaminer(Examiner):
       'if', 'implements', 'import', 'in', 'interface',
       'library',
       'mixin',
-      'new',
       'on', 'operator',
       'part',
       'rethrow', 'return',
@@ -131,7 +132,7 @@ class DartExaminer(Examiner):
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
     types = [
-      'int', 'double', 'String', 'List', 'bool'
+      'int', 'double', 'String', 'List', 'bool', 'void'
     ]
 
     types_tb = ListTokenBuilder(types, 'type', True)
