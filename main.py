@@ -706,28 +706,28 @@ def make_one_examiner(language, code, tab_size, wide, comment):
   if language in ['cbasic']:
     examiner = CBasicExaminer(code)
 
-  if language in ['cobol-68']:
+  if language in ['cobol-68', 'cobol-fixed', 'cobol-fixed-format', 'cobol']:
     examiner = CobolFixedFormatExaminer(code, '68', '', tab_size, wide)
 
-  if language in ['cobol-74']:
+  if language in ['cobol-74', 'cobol-fixed', 'cobol-fixed-format', 'cobol']:
     examiner = CobolFixedFormatExaminer(code, '74', '', tab_size, wide)
 
-  if language in ['cobol-85']:
+  if language in ['cobol-85', 'cobol-fixed', 'cobol-fixed-format', 'cobol']:
     examiner = CobolFixedFormatExaminer(code, '85', '', tab_size, wide)
 
-  if language in ['cobol-2002']:
+  if language in ['cobol-2002', 'cobol-free', 'cobol-free-format', 'cobol']:
     examiner = CobolFreeFormatExaminer(code, '2002', '')
 
-  if language in ['cobol-2014', 'cobol', 'cob', 'cbl']:
+  if language in ['cobol-2014', 'cobol-free', 'cobol-free-format', 'cobol', 'cob', 'cbl']:
     examiner = CobolFreeFormatExaminer(code, '2014', '')
 
-  if language in ['cobol-2014-acu']:
+  if language in ['cobol-2014-acu', 'cobol-free', 'cobol-free-format', 'cobol']:
     examiner = CobolFreeFormatExaminer(code, '2014', 'acu')
 
-  if language in ['cobol-2014-ibm']:
+  if language in ['cobol-2014-ibm', 'cobol-free', 'cobol-free-format', 'cobol']:
     examiner = CobolFreeFormatExaminer(code, '2014', 'ibm')
 
-  if language in ['cobol-2014-gnu']:
+  if language in ['cobol-2014-gnu', 'cobol-free', 'cobol-free-format', 'cobol']:
     examiner = CobolFreeFormatExaminer(code, '2014', 'gnu')
 
   if language in ['coffeescript', 'coffee']:
@@ -748,22 +748,22 @@ def make_one_examiner(language, code, tab_size, wide, comment):
   if language in ['eiffel']:
     examiner = EiffelExaminer(code)
 
-  if language in ['fortran-66']:
+  if language in ['fortran-66', 'fortran-fixed', 'fortran-fixed-format', 'fortran']:
     examiner = FortranFixedFormatExaminer(code, '66', tab_size, wide)
 
-  if language in ['fortran-77', 'f77']:
+  if language in ['fortran-77', 'fortran-fixed', 'fortran-fixed-format', 'fortran', 'f77']:
     examiner = FortranFixedFormatExaminer(code, '77', tab_size, wide)
 
-  if language in ['fortran-90', 'f90']:
+  if language in ['fortran-90', 'fortran-free', 'fortran-free-format', 'fortran', 'f90']:
     examiner = FortranFreeFormatExaminer(code, '90')
 
-  if language in ['fortran-95', 'f95']:
+  if language in ['fortran-95', 'fortran-free', 'fortran-free-format', 'fortran', 'f95']:
     examiner = FortranFreeFormatExaminer(code, '95')
 
-  if language in ['fortran-2003', 'f03']:
+  if language in ['fortran-2003', 'fortran-free', 'fortran-free-format', 'fortran', 'f03']:
     examiner = FortranFreeFormatExaminer(code, '2003')
 
-  if language in ['fortran-2008', 'f08', 'fortran', 'for', 'ftn']:
+  if language in ['fortran-2008', 'fortran-free', 'fortran-free-format', 'fortran', 'f08', 'for', 'ftn']:
     examiner = FortranFreeFormatExaminer(code, '2008')
 
   if language in ['fsharp', 'fs']:
@@ -802,10 +802,10 @@ def make_one_examiner(language, code, tab_size, wide, comment):
   if language in ['pascal', 'pas']:
     examiner = PascalExaminer(code)
 
-  if language in ['pl1-fixed']:
+  if language in ['pl1-fixed', 'pl1-fixed-format']:
     examiner = PL1FixedFormatExaminer(code, tab_size, wide)
 
-  if language in ['pl1-free', 'pl1']:
+  if language in ['pl1-free', 'pl1-free-format', 'pl1']:
     examiner = PL1FreeFormatExaminer(code)
 
   if language in ['prolog']:
@@ -850,10 +850,10 @@ def make_one_examiner(language, code, tab_size, wide, comment):
   if language in ['typescript']:
     examiner = TypeScriptExaminer(code)
 
-  if language in ['visualbasic-6']:
+  if language in ['visualbasic-6', 'visualbasic', 'vb']:
     examiner = VisualBasic6Examiner(code)
 
-  if language in ['visualbasic-net']:
+  if language in ['visualbasic-net', 'visualbasic', 'vb']:
     examiner = VisualBasicNETExaminer(code)
 
   if examiner is None:
@@ -868,13 +868,13 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
   if 'generic' in languages:
     examiners['generic'] = GenericCodeExaminer(code, comment)
 
-  if 'ada-83' in languages:
+  if 'ada-83' in languages or 'ada' in languages:
     examiners['ada-83'] = AdaExaminer(code, '83')
 
-  if 'ada-95' in languages:
+  if 'ada-95' in languages or 'ada' in languages:
     examiners['ada-95'] = AdaExaminer(code, '95')
 
-  if 'ada-2005' in languages:
+  if 'ada-2005' in languages or 'ada' in languages:
     examiners['ada-2005'] = AdaExaminer(code, '2005')
 
   if 'ada-2012' in languages or 'ada' in languages:
@@ -904,28 +904,37 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
   if 'csharp' in languages or 'cs' in languages or 'c#' in languages:
     examiners['csharp'] = CsharpExaminer(code)
 
-  if 'cobol-68' in languages:
+  if 'cobol-68' in languages or 'cobol' in languages or \
+    'cobol-fixed' in languages or 'cobol-fixed-format' in languages:
     examiners['cobol-68'] = CobolFixedFormatExaminer(code, '68', '', tab_size, wide)
 
-  if 'cobol-74' in languages:
+  if 'cobol-74' in languages or 'cobol' in languages or \
+    'cobol-fixed' in languages or 'cobol-fixed-format' in languages:
     examiners['cobol-74'] = CobolFixedFormatExaminer(code, '74', '', tab_size, wide)
 
-  if 'cobol-85' in languages:
+  if 'cobol-85' in languages or 'cobol' in languages or \
+    'cobol-fixed' in languages or 'cobol-fixed-format' in languages:
     examiners['cobol-85'] = CobolFixedFormatExaminer(code, '85', '', tab_size, wide)
 
-  if 'cobol-2002' in languages:
+  if 'cobol-2002' in languages or 'cobol' in languages or \
+    'cobol-free' in languages or 'cobol-free-format' in languages:
     examiners['cobol-2002'] = CobolFreeFormatExaminer(code, '2002', '')
 
-  if 'cobol-2014' in languages or 'cobol' in languages or 'cob' in languages:
+  if 'cobol-2014' in languages or 'cobol' in languages or \
+    'cobol-free' in languages or 'cobol-free-format' in languages or \
+    'cob' in languages:
     examiners['cobol-2014'] = CobolFreeFormatExaminer(code, '2014', '')
 
-  if 'cobol-2014-acu' in languages:
+  if 'cobol-2014-acu' in languages or 'cobol' in languages or \
+    'cobol-free' in languages or 'cobol-free-format' in languages:
     examiners['cobol-2014-acu'] = CobolFreeFormatExaminer(code, '2014', 'acu')
 
-  if 'cobol-2014-ibm' in languages:
+  if 'cobol-2014-ibm' in languages or 'cobol' in languages or \
+    'cobol-free' in languages or 'cobol-free-format' in languages:
     examiners['cobol-2014-ibm'] = CobolFreeFormatExaminer(code, '2014', 'ibm')
 
-  if 'cobol-2014-gnu' in languages:
+  if 'cobol-2014-gnu' in languages or 'cobol' in languages or \
+    'cobol-free' in languages or 'cobol-free-format' in languages:
     examiners['cobol-2014-gnu'] = CobolFreeFormatExaminer(code, '2014', 'gnu')
 
   if 'coffeescript' in languages or 'coffee' in languages:
@@ -946,22 +955,33 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
   if 'eiffel' in languages:
     examiners['eiffel'] = EiffelExaminer(code)
 
-  if 'fortran-66' in languages or 'f66' in languages:
+  if 'fortran-66' in languages or 'fortran' in languages or \
+    'fortran-fixed' in languages or 'fortran-fixed-format' in languages or \
+    'f66' in languages:
     examiners['fortran-66'] = FortranFixedFormatExaminer(code, '66', tab_size, wide)
 
-  if 'fortran-77' in languages or 'f77' in languages:
+  if 'fortran-77' in languages or 'fortran' in languages or \
+    'fortran-fixed' in languages or 'fortran-fixed-format' in languages or \
+    'f77' in languages:
     examiners['fortran-77'] = FortranFixedFormatExaminer(code, '77', tab_size, wide)
 
-  if 'fortran-90' in languages or 'f90' in languages:
+  if 'fortran-90' in languages or 'fortran' in languages or \
+    'fortran-free' in languages or 'fortran-free-format' in languages or \
+    'f90' in languages:
     examiners['fortran-90'] = FortranFreeFormatExaminer(code, '90')
 
-  if 'fortran-95' in languages or 'f95' in languages:
+  if 'fortran-95' in languages or 'fortran' in languages or \
+    'fortran-free' in languages or 'fortran-free-format' in languages or \
+    'f95' in languages:
     examiners['fortran-95'] = FortranFreeFormatExaminer(code, '95')
 
-  if 'fortran-2003' in languages or 'f03' in languages:
+  if 'fortran-2003' in languages or 'fortran' in languages or \
+    'fortran-free' in languages or 'fortran-free-format' in languages or \
+    'f03' in languages:
     examiners['fortran-2003'] = FortranFreeFormatExaminer(code, '2003')
 
-  if 'fortran-2008' in languages or 'fortran' in languages:
+  if 'fortran-2008' in languages or 'fortran' in languages or \
+    'fortran-free' in languages or 'fortran-free-format' in languages:
     examiners['fortran-2008'] = FortranFreeFormatExaminer(code, '2008')
 
   if 'fsharp' in languages or 'fs' in languages or 'f#' in languages:
@@ -1000,7 +1020,7 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
   if 'pascal' in languages or 'pas' in languages:
     examiners['pascal'] = PascalExaminer(code)
 
-  if 'pl1-fixed' in languages:
+  if 'pl1-fixed' in languages or 'pl1' in languages:
     examiners['pl1-fixed'] = PL1FixedFormatExaminer(code, tab_size, wide)
 
   if 'pl1-free' in languages or 'pl1' in languages:
@@ -1024,19 +1044,19 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
   if 'scala' in languages:
     examiners['scala'] = ScalaExaminer(code)
 
-  if 'sql-92' in languages:
+  if 'sql-92' in languages or 'sql' in languages:
     examiners['sql-92'] = SqlExaminer(code, '92', '')
 
-  if 'sql-99' in languages:
+  if 'sql-99' in languages or 'sql' in languages:
     examiners['sql-99'] = SqlExaminer(code, '99', '')
 
-  if 'sql-2003' in languages:
+  if 'sql-2003' in languages or 'sql' in languages:
     examiners['sql-2003'] = SqlExaminer(code, '2003', '')
 
-  if 'sql-2008' in languages:
+  if 'sql-2008' in languages or 'sql' in languages:
     examiners['sql-2008'] = SqlExaminer(code, '2008', '')
 
-  if 'sql-2011' in languages:
+  if 'sql-2011' in languages or 'sql' in languages:
     examiners['sql-2011'] = SqlExaminer(code, '2011', '')
 
   if 'sql-2016' in languages or 'sql' in languages:
@@ -1048,10 +1068,10 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
   if 'typescript' in languages:
     examiners['typescript'] = TypeScriptExaminer(code)
 
-  if 'visualbasic-6' in languages:
+  if 'visualbasic-6' in languages or 'visualbasic' in languages or 'vb' in languages:
     examiners['visualbasic-6'] = VisualBasic6Examiner(code)
 
-  if 'visualbasic-net' in languages or 'vb' in languages:
+  if 'visualbasic-net' in languages or 'visualbasic' in languages or 'vb' in languages:
     examiners['visualbasic-net'] = VisualBasicNETExaminer(code)
 
   return examiners
@@ -1159,9 +1179,9 @@ def identify_language(code, tab_size, wide, comment, tiebreak_keywords, tiebreak
 
 def unwrap_lines(text, language):
   # only the fixed-format versions can be unwrapped
-  cobol_names = ['cobol', 'cobol-68', 'cobol-74', 'cobol-85']
-  fortran_names = ['fortran', 'fortran-66', 'fortran-77']
-  pl1_names = ['pl1-fixed']
+  cobol_names = ['cobol', 'cobol-68', 'cobol-74', 'cobol-85', 'cobol-fixed', 'cobol-fixed-format']
+  fortran_names = ['fortran', 'fortran-66', 'fortran-77', 'fortran-fixed', 'fortran-fixed-format']
+  pl1_names = ['pl1', 'pl1-fixed', 'pl1-fixed-format']
 
   unwrapped_text = text
 
