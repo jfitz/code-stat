@@ -150,34 +150,32 @@ class StringTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
-    if len(candidate) == 0 and c in self.quotes:
-      result = True
-
-    if len(candidate) == 1:
-      result = True
-
-    if len(candidate) > 1:
-      # no quote stuffing, stop on second quote
-      # assume escaped quotes are allowed
-      quote_count = 0
-      escaped = False
-      for ch in candidate:
-        if ch == candidate[0] and not escaped:
-          quote_count += 1
-        if ch == '\\':
-          escaped = not escaped
-        else:
-          escaped = False
-
-      result = quote_count < 2
-
     # newline breaks a string
     if c in ['\n', '\r'] and not self.allow_newline:
-      result = False
+      return False
 
-    return result
+    if len(candidate) == 0:
+      return c in self.quotes
+
+    if len(candidate) == 1:
+      return True
+
+    # no quote stuffing, stop on second quote
+    # assume escaped quotes are allowed
+    c0 = candidate[0]
+    quote_count = 0
+    escaped = False
+
+    for ch in candidate:
+      if ch == c0 and not escaped:
+        quote_count += 1
+
+      if ch == '\\':
+        escaped = not escaped
+      else:
+        escaped = False
+
+    return quote_count < 2
 
 
   def get_score(self, line_printable_tokens):
