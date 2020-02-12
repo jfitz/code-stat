@@ -70,7 +70,8 @@ class AwkExaminer(Examiner):
     real_tb = RealTokenBuilder(False, False, None)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     identifier_tb = IdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(['"', "'"], False)
+    quotes = ['"', "'", "’"]
+    string_tb = StringTokenBuilder(quotes, False)
 
     hash_comment_tb = LeadCommentTokenBuilder('#')
 

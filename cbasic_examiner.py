@@ -62,9 +62,11 @@ class CBasicExaminer(Examiner):
     hex_constant_tb = CBasicSuffixedIntegerTokenBuilder('0123456789ABCDEF', 'H')
     binary_constant_tb = CBasicSuffixedIntegerTokenBuilder('01', 'B')
     variable_tb = CBasicVariableTokenBuilder('%$')
-    string_tb = StuffedQuoteStringTokenBuilder(['"'], False)
+    quotes = ['"']
+    string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
     remark_tb = RemarkTokenBuilder()
     comment_tb = LeadCommentTokenBuilder("'")
+    comment2_tb = LeadCommentTokenBuilder("’")
 
     stmt_separator_tb = SingleCharacterTokenBuilder(':', 'statement separator')
 
@@ -143,6 +145,7 @@ class CBasicExaminer(Examiner):
       string_tb,
       remark_tb,
       comment_tb,
+      comment2_tb,
       directive_tb,
       self.unknown_operator_tb,
       invalid_token_builder

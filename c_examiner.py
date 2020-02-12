@@ -64,7 +64,7 @@ class CExaminer(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
     suffixed_real_tb = SuffixedRealTokenBuilder(False, False, ['f', 'l'], False, None)
     identifier_tb = IdentifierTokenBuilder()
-    quotes = ['"', "'"]
+    quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
 
     class_type_tb = ClassTypeTokenBuilder()

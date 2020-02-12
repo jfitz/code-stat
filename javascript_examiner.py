@@ -62,7 +62,8 @@ class JavaScriptExaminer(Examiner):
     binary_constant_tb = PrefixedIntegerTokenBuilder('0B', False, '01')
 
     identifier_tb = IdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(['"', "'"], False)
+    quotes = ['"', "'", "’"]
+    string_tb = StringTokenBuilder(quotes, False)
     template_string_tb = StringTokenBuilder(['`'], True)
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()

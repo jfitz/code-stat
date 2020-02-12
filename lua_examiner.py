@@ -58,7 +58,7 @@ class LuaExaminer(Examiner):
     real_tb = RealTokenBuilder(False, False, "'")
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
     identifier_tb = IdentifierTokenBuilder()
-    quotes = ['"', "'"]
+    quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
     bracket_string_tb = DoubleBracketStringTokenBuilder()
 

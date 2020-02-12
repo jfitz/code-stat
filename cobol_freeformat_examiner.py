@@ -65,9 +65,10 @@ class CobolFreeFormatExaminer(CobolExaminer):
     real_tb = RealTokenBuilder(False, True, None)
     real_exponent_tb = RealExponentTokenBuilder(False, True, 'E', None)
     identifier_tb = CobolIdentifierTokenBuilder()
-    string_tb = StuffedQuoteStringTokenBuilder(['"', "'"], False)
-    n_string_tb = PrefixedStringTokenBuilder('N', False, ['"', "'"])
-    nx_string_tb = PrefixedStringTokenBuilder('NX', False, ['"', "'"])
+    quotes = ['"', "'", "’"]
+    string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
+    n_string_tb = PrefixedStringTokenBuilder('N', False, quotes)
+    nx_string_tb = PrefixedStringTokenBuilder('NX', False, quotes)
     picture_tb = PictureTokenBuilder()
     cr_picture_tb = CRPictureTokenBuilder()
     inline_comment_tb = LeadCommentTokenBuilder('*>')

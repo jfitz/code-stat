@@ -65,7 +65,7 @@ class JuliaExaminer(Examiner):
     symbol_tb = PrefixedIdentifierTokenBuilder(':', 'symbol')
     attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute')
     dollar_sign_tb = SingleCharacterTokenBuilder('$', 'identifier')
-    quotes = ['"', "'"]
+    quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
     raw_string_tb = PrefixedStringTokenBuilder('raw', True, quotes)
     b_string_tb = PrefixedStringTokenBuilder('b', True, quotes)

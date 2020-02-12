@@ -18,7 +18,8 @@ from token_builders import (
 )
 from cx_token_builders import (
   SlashSlashCommentTokenBuilder,
-  SlashStarCommentTokenBuilder
+  SlashStarCommentTokenBuilder,
+  ClassTypeTokenBuilder
 )
 from examiner import Examiner
 
@@ -39,6 +40,7 @@ class JavaExaminer(Examiner):
     SingleCharacterTokenBuilder.__escape_z__()
     SlashSlashCommentTokenBuilder.__escape_z__()
     SlashStarCommentTokenBuilder.__escape_z__()
+    ClassTypeTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
@@ -54,7 +56,10 @@ class JavaExaminer(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     identifier_tb = IdentifierTokenBuilder()
     decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator')
-    string_tb = StringTokenBuilder(['"', "'"], False)
+    quotes = ['"', "'", "’"]
+    string_tb = StringTokenBuilder(quotes, False)
+
+    class_type_tb = ClassTypeTokenBuilder()
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
@@ -69,7 +74,7 @@ class JavaExaminer(Examiner):
       '^',
       '.', ':',
       '++', '--', '&&', '||',
-      '?',
+      '?', '->',
       'new'
     ]
 
@@ -137,6 +142,7 @@ class JavaExaminer(Examiner):
       known_operator_tb,
       groupers_tb,
       identifier_tb,
+      class_type_tb,
       decorator_tb,
       string_tb,
       slash_slash_comment_tb,

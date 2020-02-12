@@ -58,7 +58,7 @@ class MatlabExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder()
     command_tb = PrefixedIdentifierTokenBuilder('!', 'command')
     metaclass_tb = PrefixedIdentifierTokenBuilder('?', 'metaclass')
-    quotes = ['"', "'"]
+    quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
 
     line_comment_tb = LeadCommentTokenBuilder('%')

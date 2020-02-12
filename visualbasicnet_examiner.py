@@ -53,10 +53,12 @@ class VisualBasicNETExaminer(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     variable_tb = VisualBasicVariableTokenBuilder(['$', '%', '#', '!'])
     identifier_tb = IdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(['"'], False)
+    quotes = ['"']
+    string_tb = StringTokenBuilder(quotes, False)
 
     remark_tb = RemarkTokenBuilder()
     comment_tb = LeadCommentTokenBuilder("'")
+    comment2_tb = LeadCommentTokenBuilder("’")
 
     directives = (
       '#If', '#Else', '#ElseIf', '#End If',
@@ -168,6 +170,7 @@ class VisualBasicNETExaminer(Examiner):
       string_tb,
       remark_tb,
       comment_tb,
+      comment2_tb,
       preprocessor_tb,
       self.unknown_operator_tb,
       invalid_token_builder

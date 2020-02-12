@@ -57,8 +57,10 @@ class GoExaminer(Examiner):
     real_tb = RealTokenBuilder(False, False, None)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     identifier_tb = IdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(['"', '`'], False)
+    quotes = ['"', '`']
+    string_tb = StringTokenBuilder(quotes, False)
     char_tb = CharTokenBuilder("'")
+    char2_tb = CharTokenBuilder("’")
 
     class_type_tb = ClassTypeTokenBuilder()
 
@@ -159,6 +161,7 @@ class GoExaminer(Examiner):
       class_type_tb,
       string_tb,
       char_tb,
+      char2_tb,
       slash_slash_comment_tb,
       slash_star_comment_tb,
       self.unknown_operator_tb,

@@ -61,8 +61,9 @@ class ObjectiveCExaminer(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     identifier_tb = IdentifierTokenBuilder()
     directive_tb = DirectiveTokenBuilder()
-    string_tb = StringTokenBuilder(['"', "'"], False)
-    prefixed_string_tb = PrefixedStringTokenBuilder('@', False, ['"'])
+    quotes = ['"', "'", "’"]
+    string_tb = StringTokenBuilder(quotes, False)
+    prefixed_string_tb = PrefixedStringTokenBuilder('@', False, quotes)
 
     class_type_tb = ClassTypeTokenBuilder()
 

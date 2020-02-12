@@ -57,7 +57,8 @@ class TypeScriptExaminer(Examiner):
     binary_constant_tb = PrefixedIntegerTokenBuilder('0B', False, '01')
 
     identifier_tb = IdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(['"', "'"], False)
+    quotes = ['"', "'", "’"]
+    string_tb = StringTokenBuilder(quotes, False)
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()

@@ -53,10 +53,12 @@ class VisualBasic6Examiner(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     variable_tb = VisualBasicVariableTokenBuilder(['$', '%', '#', '!'])
     identifier_tb = IdentifierTokenBuilder()
-    string_tb = StringTokenBuilder(['"'], False)
+    quotes = ['"']
+    string_tb = StringTokenBuilder(quotes, False)
 
     remark_tb = RemarkTokenBuilder()
     comment_tb = LeadCommentTokenBuilder("'")
+    comment2_tb = LeadCommentTokenBuilder("’")
 
     known_operators = [
       '+', '-', '*', '/', '\\', 'Mod', '^', '&',
@@ -178,6 +180,7 @@ class VisualBasic6Examiner(Examiner):
       string_tb,
       remark_tb,
       comment_tb,
+      comment2_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]

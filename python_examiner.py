@@ -60,7 +60,7 @@ class PythonExaminer(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', '_')
     identifier_tb = IdentifierTokenBuilder()
     decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator')
-    quotes = ['"', "'"]
+    quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
     raw_string_tb = PrefixedStringTokenBuilder('r', True, quotes)
     byte_string_tb = PrefixedStringTokenBuilder('b', True, quotes)
