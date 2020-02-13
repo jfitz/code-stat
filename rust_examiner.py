@@ -71,7 +71,7 @@ class RustExaminer(Examiner):
     binary_integer_tb = PrefixedIntegerTokenBuilder('0b', True, '01_')
     identifier_tb = IdentifierTokenBuilder()
     attribute_tb = RustAttributeTokenBuilder()
-    string_tb = StringTokenBuilder(['"'], False)
+    string_tb = StringTokenBuilder(['"'], True)
     bstring_tb = PrefixedStringTokenBuilder('b', True, ['"', "'"])
     rstring_tb = RustRawStringTokenBuilder()
     char_tb = CharTokenBuilder("'")

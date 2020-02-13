@@ -62,7 +62,7 @@ class ObjectiveCExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder()
     directive_tb = DirectiveTokenBuilder()
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, False)
+    string_tb = StringTokenBuilder(quotes, True)
     prefixed_string_tb = PrefixedStringTokenBuilder('@', False, quotes)
 
     class_type_tb = ClassTypeTokenBuilder()

@@ -68,7 +68,7 @@ class SwiftExaminer(Examiner):
     attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute')
     symbol_tb = SwiftSymbolTokenBuilder('.', 'symbol')
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, False)
+    string_tb = StringTokenBuilder(quotes, True)
     triple_quote_comment_tb = TripleQuoteStringTokenBuilder(quotes)
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
@@ -81,7 +81,7 @@ class SwiftExaminer(Examiner):
         '=', '+=', '-=', '*=', '/=', '%=', '<<=', '>>=', '&=', '^=', '|=',
         '...', '..<', '?', ':',
         '.', '++', '--',
-        '->', '??',
+        '->', '??', '\\.',
         '&+', '&-', '&*'
       ]
 
