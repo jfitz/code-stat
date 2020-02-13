@@ -298,7 +298,7 @@ class CobolFixedFormatExaminer(CobolExaminer):
     tokenizer = Tokenizer(tokenbuilders)
 
     tokens = self.tokenize_code(code, tab_size, tokenizer, wide)
-    self.tokens = Examiner.combine_adjacent_whitespace(tokens)
+    self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'whitespace')
 
     self.convert_numbers_to_pictures()
     self.convert_numbers_to_levels()

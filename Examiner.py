@@ -169,13 +169,13 @@ class Examiner:
 
 
   @staticmethod
-  def combine_adjacent_whitespace(tokens):
+  def combine_adjacent_identical_tokens(tokens, group):
     new_list = []
 
     new_token = None
     for token in tokens:
-      if token.group == 'whitespace' and new_token is not None and new_token.group == 'whitespace':
-        new_token = Token(new_token.text + token.text, 'whitespace')
+      if token.group == group and new_token is not None and new_token.group == group:
+        new_token = Token(new_token.text + token.text, group)
       else:
         if new_token is not None:
             new_list.append(new_token)
