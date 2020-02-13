@@ -21,6 +21,7 @@ from basic_token_builders import (
 )
 from cbasic_token_builders import (
   CBasicVariableTokenBuilder,
+  CBasicLabelTokenBuilder,
   CBasicSuffixedIntegerTokenBuilder,
   CBasicLineContinuationTokenBuilder
 )
@@ -43,6 +44,7 @@ class CBasicExaminer(Examiner):
     LeadCommentTokenBuilder.__escape_z__()
     RemarkTokenBuilder.__escape_z__()
     CBasicVariableTokenBuilder.__escape_z__()
+    CBasicLabelTokenBuilder.__escape_z__()
     CBasicSuffixedIntegerTokenBuilder.__escape_z__()
     CBasicLineContinuationTokenBuilder.__escape_z__()
     return 'Escape ?Z'
@@ -105,6 +107,8 @@ class CBasicExaminer(Examiner):
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
 
+    label_tb = CBasicLabelTokenBuilder(keywords)
+
     functions = [
       'ASC', 'CHR$', 'STR$', 'TAB', 'COMMAND$', 'CONCHAR%', 'CONSTAT%',
       'ATN', 'COS', 'SIN', 'TAN',
@@ -141,6 +145,7 @@ class CBasicExaminer(Examiner):
       known_operator_tb,
       function_tb,
       variable_tb,
+      label_tb,
       groupers_tb,
       string_tb,
       remark_tb,

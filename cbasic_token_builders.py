@@ -36,6 +36,59 @@ class CBasicVariableTokenBuilder(TokenBuilder):
     return result
 
 
+# token reader for label
+class CBasicLabelTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self, keywords):
+    self.text = None
+    self.keywords = keywords
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'label')]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if len(candidate) == 0:
+      result = c.isalpha()
+
+    if len(candidate) > 0:
+      result = c.isalpha() or c.isdigit() or c == '.' or c == ':'
+
+    if len(candidate) > 1 and candidate[-1] == ':':
+      result = False
+
+    return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(line_printable_tokens) > 0:
+      return 0
+
+    if len(self.text) < 2:
+      return 0
+
+    if self.text[-1] != ':':
+      return 0
+
+    if self.text[:-1] in self.keywords:
+      return 0
+
+    return len(self.text)
+
+
 # token reader for integer
 class CBasicSuffixedIntegerTokenBuilder(TokenBuilder):
   @staticmethod
