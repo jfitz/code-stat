@@ -192,6 +192,8 @@ class KotlinExaminer(Examiner):
 
     tokenizer = Tokenizer(tokenbuilders)
     tokens = tokenizer.tokenize(code)
+    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
+    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     self.tokens = self.combine_numbers_and_adjacent_types(tokens)
 
     self.calc_token_confidence()

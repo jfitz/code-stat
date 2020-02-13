@@ -64,6 +64,8 @@ class PL1FixedFormatExaminer(PL1Examiner):
     tokenizer2 = Tokenizer(tokenbuilders2)
 
     tokens = self.tokenize_code(code, tab_size, tokenizer1, tokenizer2, wide)
+    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
+    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'whitespace')
     self.tokens = self.convert_broken_comments_to_comments(tokens)
 

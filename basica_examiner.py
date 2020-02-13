@@ -138,13 +138,15 @@ class BasicaExaminer(Examiner):
       string_tb,
       remark_tb,
       comment_tb,
-      comment_tb,
+      comment2_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]
 
     tokenizer = Tokenizer(tokenbuilders)
-    self.tokens = tokenizer.tokenize(code)
+    tokens = tokenizer.tokenize(code)
+    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
+    self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
 
     self.convert_numbers_to_line_numbers()
 

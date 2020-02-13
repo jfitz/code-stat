@@ -110,33 +110,18 @@ class RustExaminer(Examiner):
     keywords = [
       'as',
       'break',
-      'const',
-      'continue',
-      'crate'
-      'else',
-      'enum',
-      'extern',
-      'fn',
-      'for',
-      'if',
-      'impl',
-      'let',
-      'loop',
-      'match',
-      'mod',
-      'move',
-      'mut',
+      'const', 'continue', 'crate'
+      'else', 'enum', 'extern',
+      'fn', 'for',
+      'if', 'impl',
+      'let', 'loop',
+      'match', 'mod', 'move', 'mut',
       'pub',
-      'ref',
-      'return',
-      'static',
-      'struct',
-      'trait',
-      'type',
-      'unsafe',
-      'use',
-      'where',
-      'while'
+      'ref', 'return',
+      'static', 'struct',
+      'trait', 'type',
+      'unsafe', 'use',
+      'where', 'while'
     ]
 
     keywords_2018 = [
@@ -147,8 +132,7 @@ class RustExaminer(Examiner):
 
     keywords_future = [
       'abstract',
-      'become',
-      'box',
+      'become', 'box',
       'do',
       'final',
       'macro',
@@ -219,6 +203,8 @@ class RustExaminer(Examiner):
 
     tokenizer = Tokenizer(tokenbuilders)
     tokens = tokenizer.tokenize(code)
+    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
+    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     self.tokens = self.combine_numbers_and_adjacent_types(tokens)
 
     self.convert_bars_to_groups()

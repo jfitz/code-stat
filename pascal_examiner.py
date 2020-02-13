@@ -137,7 +137,9 @@ class PascalExaminer(Examiner):
     ]
 
     tokenizer = Tokenizer(tokenbuilders)
-    self.tokens = tokenizer.tokenize(code)
+    tokens = tokenizer.tokenize(code)
+    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
+    self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
 
     self.calc_token_confidence()
     self.calc_operator_confidence()

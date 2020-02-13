@@ -1,6 +1,7 @@
 from codestat_tokenizer import Tokenizer
 from token_builders import InvalidTokenBuilder
 from pl1_examiner import PL1Examiner
+from examiner import Examiner
 
 class PL1FreeFormatExaminer(PL1Examiner):
   @staticmethod
@@ -42,7 +43,9 @@ class PL1FreeFormatExaminer(PL1Examiner):
     ]
 
     tokenizer = Tokenizer(tokenbuilders)
-    self.tokens = tokenizer.tokenize(code)
+    tokens = tokenizer.tokenize(code)
+    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
+    self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
 
     self.calc_token_confidence()
     self.calc_operator_confidence()

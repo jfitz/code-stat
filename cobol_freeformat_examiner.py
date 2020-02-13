@@ -26,6 +26,7 @@ from cobol_token_builders import (
   AsteriskCommentTokenBuilder
 )
 from cobol_examiner import CobolExaminer
+from examiner import Examiner
 
 class CobolFreeFormatExaminer(CobolExaminer):
   @staticmethod
@@ -585,8 +586,10 @@ class CobolFreeFormatExaminer(CobolExaminer):
     ]
 
     tokenizer = Tokenizer(tokenbuilders)
-    self.tokens += tokenizer.tokenize(code)
-
+    tokens = tokenizer.tokenize(code)
+    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
+    self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
+    
     self.convert_numbers_to_pictures()
     self.convert_numbers_to_levels()
 

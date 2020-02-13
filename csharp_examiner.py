@@ -161,7 +161,9 @@ class CsharpExaminer(Examiner):
 
     tokenizer = Tokenizer(tokenbuilders)
     tokens = tokenizer.tokenize(code)
-    tokens = tokenizer.tokenize(code)
+    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
+    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
+
     number_suffixes = ['f', 'F', 'd', 'D', 'm', 'M']
     self.tokens = self.combine_tokens_and_adjacent_types(tokens, 'number', 'identifier', number_suffixes)
 

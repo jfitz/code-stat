@@ -23,6 +23,7 @@ from fortran_token_builders import (
   KindRealTokenBuilder
 )
 from fortran_examiner import FortranExaminer
+from examiner import Examiner
 
 class FortranFreeFormatExaminer(FortranExaminer):
   @staticmethod
@@ -86,7 +87,7 @@ class FortranFreeFormatExaminer(FortranExaminer):
     stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator')
 
     groupers = ['(', ')', ',', '[', ']']
-    group_ends = [')', ']', '}']
+    # group_ends = [')', ']', '}']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
@@ -165,7 +166,9 @@ class FortranFreeFormatExaminer(FortranExaminer):
     ]
 
     tokenizer = Tokenizer(tokenbuilders)
-    self.tokens = tokenizer.tokenize(code)
+    tokens = tokenizer.tokenize(code)
+    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
+    self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
 
     self.convert_numbers_to_lineNumbers()
     self.convert_stars_to_io_channels()

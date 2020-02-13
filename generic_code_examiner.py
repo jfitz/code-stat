@@ -88,7 +88,7 @@ class GenericCodeExaminer(Examiner):
     if comment == 'pascal':
       comment_tbs = [
         BraceCommentTokenBuilder(),
-        ParenStarCommentTokenBuilder()
+        ParenStarCommentTokenBuilder('(*', '*)')
       ]
 
     known_operators = [
@@ -131,7 +131,9 @@ class GenericCodeExaminer(Examiner):
     tokenbuilders = tokenbuilders1 + comment_tbs + tokenbuilders2
 
     tokenizer = Tokenizer(tokenbuilders)
-    self.tokens = tokenizer.tokenize(code)
+    tokens = tokenizer.tokenize(code)
+    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
+    self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
 
     self.calc_token_confidence()
     self.calc_operator_confidence()

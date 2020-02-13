@@ -186,6 +186,8 @@ class JuliaExaminer(Examiner):
 
     tokenizer = Tokenizer(tokenbuilders)
     tokens = tokenizer.tokenize(code)
+    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
+    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     self.tokens = self.convert_symbols_to_operators(tokens, group_ends)
 
     self.calc_token_confidence()
