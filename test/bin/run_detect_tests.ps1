@@ -249,6 +249,8 @@ test\bin\run_test.ps1 -json -name tpc16-pas -action detect -inputfile ".\test\da
 test\bin\run_test.ps1 -json -name bpgpli-pl1 -action detect -inputfile ".\test\data\PL1\BPGPLI.pl1" -expected ".\test\ref\detect\PL1\BPGPLI.txt"
 test\bin\run_test.ps1 -json -name checkdt-pl1 -action detect -inputfile ".\test\data\PL1\CHECKDT.pl1" -expected ".\test\ref\detect\PL1\CHECKDT.txt"
 test\bin\run_test.ps1 -json -name mainfact-pl1 -action detect -inputfile ".\test\data\PL1\MAINFACT.pl1" -expected ".\test\ref\detect\PL1\MAINFACT.txt"
+test\bin\run_test.ps1 -json -name example-pl1 -action detect -inputfile ".\test\data\PL1\example.pl1" -expected ".\test\ref\detect\PL1\example.txt"
+test\bin\run_test.ps1 -json -name digrams-pl1 -action detect -inputfile ".\test\data\PL1\digrams.pl1" -expected ".\test\ref\detect\PL1\digrams.txt"
 
 # Prolog
 test\bin\run_test.ps1 -json -name family-main -action detect -inputfile ".\test\data\Prolog\family-main.pl" -expected ".\test\ref\detect\Prolog\family-main.txt"

@@ -1,6 +1,39 @@
 from codestat_token import Token
 from token_builders import TokenBuilder
 
+# token reader for label
+class PL1LabelTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self):
+    self.text = None
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'label')]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if len(candidate) == 0:
+      result = c.isalpha()
+
+    if len(candidate) > 0:
+      result = c.isalpha() or c.isdigit() or c == ':'
+
+    if len(candidate) > 1 and candidate[-1] == ':':
+      result = False
+
+    return result
+
+
 # token reader for start comment
 class PL1CommentStartTokenBuilder(TokenBuilder):
   @staticmethod

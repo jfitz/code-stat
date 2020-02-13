@@ -293,6 +293,8 @@ test\bin\run_test.ps1 -json -name tpc16-pas -action confidence -errors -language
 test\bin\run_test.ps1 -json -name bpgpli-pl1 -action confidence -errors -language PL1-Fixed -inputfile ".\test\data\PL1\BPGPLI.pl1" -expected ".\test\ref\confidence-errors\PL1\BPGPLI.txt"
 test\bin\run_test.ps1 -json -name checkdt-pl1 -action confidence -errors -language PL1-Free -inputfile ".\test\data\PL1\CHECKDT.pl1" -expected ".\test\ref\confidence-errors\PL1\CHECKDT.txt"
 test\bin\run_test.ps1 -json -name mainfact-pl1 -action confidence -errors -language PL1 -inputfile ".\test\data\PL1\MAINFACT.pl1" -expected ".\test\ref\confidence-errors\PL1\MAINFACT.txt"
+test\bin\run_test.ps1 -json -name example-pl1 -action confidence -errors -language PL1 -inputfile ".\test\data\PL1\example.pl1" -expected ".\test\ref\confidence-errors\PL1\example.txt"
+test\bin\run_test.ps1 -json -name digrams-pl1 -action confidence -errors -language PL1 -inputfile ".\test\data\PL1\digrams.pl1" -expected ".\test\ref\confidence-errors\PL1\digrams.txt"
 
 # Prolog
 test\bin\run_test.ps1 -json -name family-main-prolog -action confidence -errors -language Prolog -inputfile ".\test\data\Prolog\family-main.pl" -expected ".\test\ref\confidence-errors\Prolog\family-main.txt"

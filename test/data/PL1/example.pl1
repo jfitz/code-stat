@@ -1,0 +1,74 @@
+/* EXAMP: This program illustrates style suggestions                */
+/********************************************************************/
+/*                                                                  */
+/* Module:        EXAMP                                             */
+/* Author:        Peter Flass,  6 Jun 2001                          */
+/* Purpose:       This is a do-nothing program that illustrates some*/
+/*                of the the style suggestions in this document.    */
+/* Modifications:                                                   */
+/*                V1.0 - 7 Jun 2001 - change for blah, blah, blah   */
+/*                                                                  */
+/********************************************************************/
+
+EXAMP: procedure(parm) options(main);
+
+/********************************************************************/
+/*      Declare a major data structure like this                    */
+/********************************************************************/
+dcl   1 a_major_data_structure,
+        2 a_minor_structure,                                  /*V1.0*/
+
+dcl    (name1,name2)        fixed bin(15,0) 
+                            based(a_very_very_long_data_name);
+dcl     name3               fixed bin(15,0);
+        ...
+%page;
+
+/********************************************************************/
+/*      Indicate a major program block like this                    */
+/********************************************************************/
+call initialize;
+
+if a=1            /* Comment null statements used as actions        */
+then /* do nothing */ ;    
+else blah, blah, blah ...
+
+call process_the_data;
+call finish_up;
+return;
+%page;
+
+/********************************************************************/
+/*      Initialize: Describe the function of the 'initialize'       */
+/*                  procedure in this comment ...                   */
+/********************************************************************/
+initialize: procedure;
+
+    /*---------------------------------*/
+    /* Use distinctive comments to set */
+    /* off smaller program sections.   */
+    /*---------------------------------*/
+    do i=1 to 5;    /* This illustrates one indentation scheme        */
+        some stuff  /* Use one or the other, not both                 */
+        some more stuff
+    end; /* do i */
+    next statement...
+
+    do j=1 to 5;    /* This is the second indentation scheme          */
+        some stuff
+        some more stuff
+        end; /* do j */
+    next statement...
+
+    call scan_parms;
+    Do some stuff here ...
+
+    /*---------------------------------*/
+    /* Etc., etc.                      */
+    /*---------------------------------*/
+    Maybe do some more stuff ...
+    call open_files;
+
+    end initialize;
+
+end EXAMP;
