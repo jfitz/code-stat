@@ -61,7 +61,7 @@ class RubyExaminer(Examiner):
     symbol_tb = PrefixedIdentifierTokenBuilder(':', 'symbol')
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, True)
-    heredoc_tb = HereDocTokenBuilder()
+    heredoc_tb = HereDocTokenBuilder('<<-')
 
     hash_comment_tb = LeadCommentTokenBuilder('#')
 
@@ -80,7 +80,8 @@ class RubyExaminer(Examiner):
         '<<=', '>>=',
         '&&=', '&=', '||=', '|=', '^=',
         'not', 'and', 'or', 'in',
-        '.', '.:', '=>', '::'
+        '.', '.:', '=>', '::',
+        '<<-'
       ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
@@ -88,7 +89,8 @@ class RubyExaminer(Examiner):
     self.unary_operators = [
       '+', '-',
       '!', '~',
-      '&', '*', '**'
+      '&', '*', '**',
+      '<<-'
     ]
 
     self.postfix_operators = [

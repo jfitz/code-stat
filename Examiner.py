@@ -358,8 +358,9 @@ class Examiner:
       ]
 
       for token in tokens:
-        prev_token_operand = prev_token.group in operand_types or\
-          (prev_token.group == 'group' and prev_token.text in group_ends)
+        prev_token_operand = prev_token.group in operand_types or \
+          (prev_token.group == 'group' and prev_token.text in group_ends) or \
+          prev_token.text.lower() == 'end'
   
         token_unary_operator = token.text.lower() in (op.lower() for op in self.unary_operators)
   

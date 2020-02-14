@@ -47,9 +47,9 @@ class HereDocTokenBuilder(TokenBuilder):
     return 'Escape ?Z'
 
 
-  def __init__(self):
+  def __init__(self, operator):
     self.text = None
-    self.oper = '<<-'
+    self.operator = operator
 
   def get_tokens(self):
     if self.text is None:
@@ -77,10 +77,10 @@ class HereDocTokenBuilder(TokenBuilder):
   def accept(self, candidate, c):
     result = False
  
-    if len(candidate) < len(self.oper):
-      result = self.oper.startswith(candidate)
+    if len(candidate) < len(self.operator):
+      result = self.operator.startswith(candidate)
     else:
-      if candidate.startswith(self.oper):
+      if candidate.startswith(self.operator):
         result = True
 
         # if the last line begins with the marker from the first line
@@ -89,7 +89,7 @@ class HereDocTokenBuilder(TokenBuilder):
         if len(lines) > 1:
           first_line = lines[0]
           last_line = lines[-1]
-          marker = first_line[len(self.oper):].rstrip()
+          marker = first_line[len(self.operator):].rstrip()
           if last_line.startswith(marker):
             result = False
 
