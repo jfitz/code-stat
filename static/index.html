@@ -104,10 +104,11 @@ function buildLanguageCheckboxes(codesAndNames) {
   }
 
   var pairs = [];
+  languages_per_column = 8;
 
   // build start and end pairs for groups of languages
-  for (var i = 0; i < codes.length; i += 7) {
-    var pair = [i, i + 7];
+  for (var i = 0; i < codes.length; i += languages_per_column) {
+    var pair = [i, i + languages_per_column];
     pairs.push(pair);
   }
 
@@ -224,21 +225,22 @@ function uncheckAllLanguage() {
 
 function checkModernLanguage() {
   var moderns = [
-    'c',
+    'c-99',
     'cplusplus',
     'csharp',
-    'cobol2014',
-    'fortran2008',
+    'cobol-2014',
+    'fortran-2008',
     'fsharp',
     'go',
+    'html',
     'java',
     'javascript',
-    'html',
+    'kotlin',
     'python',
     'r',
     'ruby',
     'rust',
-    'sql2016',
+    'sql-2016',
     'swift',
     'typescript'
   ];
@@ -540,7 +542,7 @@ Select the languages you want to detect. (More languages take longer to process.
 <div id="detect_input" style="border:1px solid black">
   <div id="detect_list" style="border:1px solid black">
   </div>
-  All unchecked implies that all languages will be checked.
+  All unchecked implies that all languages will be detected.
   <input type="button" OnClick="checkAllLanguage();" value="Check all"/>
   <input type="button" OnClick="uncheckAllLanguage();" value="Uncheck all"/>
   <input type="button" OnClick="checkModernLanguage();" value="Check only modern"/>

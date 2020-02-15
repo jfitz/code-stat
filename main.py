@@ -209,7 +209,9 @@ codesAndNames = {
   'awk': 'Awk',
   'basic': 'BASIC',
   'basica': 'BASICA',
-  'c': 'C',
+  'c-78': 'C-K&R',
+  'c-89': 'C-89',
+  'c-99': 'C-99',
   'cplusplus': 'C++',
   'csharp': 'C#',
   'cbasic': 'CBASIC',
@@ -275,7 +277,9 @@ codesAndGroups = {
   'awk': 'Awk',
   'basic': 'BASIC',
   'basica': 'BASIC',
-  'c': 'C',
+  'c-78': 'C',
+  'c-89': 'C',
+  'c-99': 'C',
   'cplusplus': 'C',
   'csharp': 'C#',
   'cbasic': 'CBASIC',
@@ -341,7 +345,9 @@ codesAndYears = {
   'awk': 1977,
   'basic': 1965,
   'basica': 1982,
-  'c': 1970,
+  'c-78': 1978,
+  'c-89': 1989,
+  'c-99': 1999,
   'cplusplus': 1990,
   'csharp': 2000,
   'cbasic': 1980,
@@ -694,8 +700,14 @@ def make_one_examiner(language, code, tab_size, wide, comment):
   if language in ['basica']:
     examiner = BasicaExaminer(code)
 
-  if language in ['c']:
-    examiner = CExaminer(code)
+  if language in ['c-78', 'c']:
+    examiner = CExaminer(code, '78')
+
+  if language in ['c-89', 'c']:
+    examiner = CExaminer(code, '89')
+
+  if language in ['c-99', 'c']:
+    examiner = CExaminer(code, '99')
 
   if language in ['c++', 'cplusplus']:
     examiner = CppExaminer(code)
@@ -895,8 +907,14 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
   if 'cbasic' in languages:
     examiners['cbasic'] = CBasicExaminer(code)
 
-  if 'c' in languages:
-    examiners['c'] = CExaminer(code)
+  if 'c-78' in languages or 'c' in languages:
+    examiners['c-78'] = CExaminer(code, '78')
+
+  if 'c-89' in languages or 'c' in languages:
+    examiners['c-89'] = CExaminer(code, '89')
+
+  if 'c-99' in languages or 'c' in languages:
+    examiners['c-99'] = CExaminer(code, '99')
 
   if 'cplusplus' in languages or 'c++' in languages:
     examiners['cplusplus'] = CppExaminer(code)
@@ -1205,7 +1223,7 @@ def unwrap_lines(text, language):
     unwrapped_text = examiner.unwrapped_code()
 
   if language in ['c']:
-    examiner = CExaminer(text)
+    examiner = CExaminer(text, '78')
     unwrapped_text = examiner.unwrapped_code()
 
   if language in ['c++', 'cplusplus']:

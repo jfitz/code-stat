@@ -8,9 +8,9 @@ test\bin\run_test.ps1 -json -name values-bas -action statistics -language "BASIC
 test\bin\run_test.ps1 -json -name batnum-bas -action statistics -language "BASIC cobol-68 fortran-66 c" -inputfile ".\test\data\BASIC\batnum.bas" -expected ".\test\ref\detect-statistics\batnum.txt"
 test\bin\run_test.ps1 -json -name life-bas -action statistics -language "BASIC BASICA ruby prolog" -inputfile ".\test\data\BASIC\life.bas" -expected ".\test\ref\detect-statistics\life.txt"
 
-# C
-test\bin\run_test.ps1 -json -name parser-h -action statistics -language "C python swift" -inputfile ".\test\data\C\parser.h" -expected ".\test\ref\detect-statistics\parser-h.txt"
-test\bin\run_test.ps1 -json -name parser-c -action statistics -language "C C++ pascal" -inputfile ".\test\data\C\parser.c" -expected ".\test\ref\detect-statistics\parser-c.txt"
+# C-99
+test\bin\run_test.ps1 -json -name parser-h-99 -action statistics -language "C python swift" -inputfile ".\test\data\C-99\parser.h" -expected ".\test\ref\detect-statistics\parser-h.txt"
+test\bin\run_test.ps1 -json -name parser-c-99 -action statistics -language "C C++ pascal" -inputfile ".\test\data\C-99\parser.c" -expected ".\test\ref\detect-statistics\parser-c.txt"
 
 # CBASIC
 test\bin\run_test.ps1 -json -name fibo -action statistics -language "CBASIC BASIC pascal" -inputfile ".\test\data\CBASIC\fibo.bas" -expected ".\test\ref\detect-statistics\fibo.txt"

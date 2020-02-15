@@ -49,7 +49,7 @@ class CExaminer(Examiner):
     return 'Escape ?Z'
 
 
-  def __init__(self, code):
+  def __init__(self, code, year):
     super().__init__()
 
     whitespace_tb = WhitespaceTokenBuilder()
@@ -128,11 +128,29 @@ class CExaminer(Examiner):
       'long', 'short'
     ]
 
+    types_89 = ['void']
+
+    types_99 = ['bool', 'complex']
+
+    if year in ['89', '99']:
+      types += types_89
+
+    if year in ['99']:
+      types += types_99
+
     types_tb = ListTokenBuilder(types, 'type', True)
 
-    values = [
-      '...'
-    ]
+    values = ['NULL']
+
+    values_89 = []
+
+    values_99 = ['...', 'true', 'false']
+
+    if year in ['89', '99']:
+      values += values_89
+
+    if year in ['99']:
+      values += values_99
 
     values_tb = ListTokenBuilder(values, 'value', True)
 
@@ -159,7 +177,14 @@ class CExaminer(Examiner):
       identifier_tb,
       class_type_tb,
       string_tb,
-      slash_slash_comment_tb,
+    ]
+
+    if year in['99']:
+      tokenbuilders += [
+        slash_slash_comment_tb,
+      ]
+
+    tokenbuilders += [
       slash_star_comment_tb,
       c_preprocessor_tb,
       self.unknown_operator_tb,

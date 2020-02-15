@@ -25,13 +25,15 @@ test\bin\run_test.ps1 -json -name sea-creature-mbasic -action detect -inputfile 
 # BASICA
 test\bin\run_test.ps1 -json -name sea-creature-basica -action detect -inputfile ".\test\data\BASIC\sea_creature.bas" -expected ".\test\ref\detect\BASICA\sea_creature.txt"
 
-# C
-test\bin\run_test.ps1 -json -name diamond -action detect -inputfile ".\test\data\C\diamond.c" -expected ".\test\ref\detect\C\diamond.txt"
-test\bin\run_test.ps1 -json -name prime_test -action detect -inputfile ".\test\data\C\prime_test.c" -expected ".\test\ref\detect\C\prime_test.txt"
-test\bin\run_test.ps1 -json -name c-decl -action detect -inputfile ".\test\data\C\c-decl.c" -expected ".\test\ref\detect\C\c-decl-c.txt"
-test\bin\run_test.ps1 -json -name parser-h -action detect -inputfile ".\test\data\C\parser.h" -expected ".\test\ref\detect\C\parser-h.txt"
-test\bin\run_test.ps1 -json -name parser-c -action detect -inputfile ".\test\data\C\parser.c" -expected ".\test\ref\detect\C\parser-c.txt"
-test\bin\run_test.ps1 -json -name values-c -action detect -inputfile ".\test\data\C\values.c" -expected ".\test\ref\detect\C\values.txt"
+# C-78
+test\bin\run_test.ps1 -json -name diamond-c-78 -action detect -inputfile ".\test\data\C-78\diamond.c" -expected ".\test\ref\detect\C-78\diamond.txt"
+test\bin\run_test.ps1 -json -name prime_test-c-78 -action detect -inputfile ".\test\data\C-78\prime_test.c" -expected ".\test\ref\detect\C-78\prime_test.txt"
+test\bin\run_test.ps1 -json -name c-decl-c-78 -action detect -inputfile ".\test\data\C-78\c-decl.c" -expected ".\test\ref\detect\C-78\c-decl-c.txt"
+test\bin\run_test.ps1 -json -name values-c-78 -action detect -inputfile ".\test\data\C-78\values.c" -expected ".\test\ref\detect\C-78\values.txt"
+
+# C-99
+test\bin\run_test.ps1 -json -name parser-h-99 -action detect -inputfile ".\test\data\C-99\parser.h" -expected ".\test\ref\detect\C-99\parser-h.txt"
+test\bin\run_test.ps1 -json -name parser-c-99 -action detect -inputfile ".\test\data\C-99\parser.c" -expected ".\test\ref\detect\C-99\parser-c.txt"
 
 # CBASIC
 test\bin\run_test.ps1 -json -name fibo -action detect -inputfile ".\test\data\CBASIC\fibo.bas" -expected ".\test\ref\detect\CBASIC\fibo.txt"
@@ -362,7 +364,7 @@ test\bin\run_test.ps1 -json -name word-processor-vbnet -action detect -inputfile
 
 # polyglot programs
 test\bin\run_test.ps1 -json -name polyglot -action detect -notiebreak -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\detect\multiple\polyglot.txt"
-test\bin\run_test.ps1 -json -name polyglot-languages -action detect -notiebreak -language C,Cplusplus,COBOL-68,COBOL-74,cobol-85,objective-c,Pascal -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\detect\multiple\polyglot-languages.txt"
+test\bin\run_test.ps1 -json -name polyglot-languages -action detect -notiebreak -language C-78,Cplusplus,COBOL-68,COBOL-74,cobol-85,objective-c,Pascal -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\detect\multiple\polyglot-languages.txt"
 test\bin\run_test.ps1 -json -name polyglot-py-rb -action detect -notiebreak -inputfile ".\test\data\multiple\polyglot-py-rb.txt" -expected ".\test\ref\detect\multiple\polyglot-py-rb.txt"
 test\bin\run_test.ps1 -json -name polyglot-py-rb-languages -action detect -notiebreak -language python,ruby -inputfile ".\test\data\multiple\polyglot-py-rb.txt" -expected ".\test\ref\detect\multiple\polyglot-py-rb-languages.txt"
 

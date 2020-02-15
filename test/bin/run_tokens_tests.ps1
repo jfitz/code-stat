@@ -3,7 +3,7 @@ Set-StrictMode -Version Latest
 # generic
 test\bin\run_test.ps1 -json -name adabkend-adb -action tokens -language generic -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\tokens\generic\adabkend-adb.txt"
 test\bin\run_test.ps1 -json -name rockt2 -action tokens -language generic -inputfile ".\test\data\BASIC\rockt2.bas" -expected ".\test\ref\tokens\generic\rockt2.txt"
-test\bin\run_test.ps1 -json -name parser -action tokens -language generic -inputfile ".\test\data\C\parser.c" -expected ".\test\ref\tokens\generic\parser.txt"
+test\bin\run_test.ps1 -json -name parser -action tokens -language generic -inputfile ".\test\data\C-99\parser.c" -expected ".\test\ref\tokens\generic\parser.txt"
 test\bin\run_test.ps1 -json -name PROG13-3 -action tokens -language generic -inputfile ".\test\data\COBOL-85\PROG13-3.cob" -expected ".\test\ref\tokens\generic\prog13-3.txt"
 test\bin\run_test.ps1 -json -name calculator3 -action tokens -language generic -inputfile ".\test\data\Csharp\calculator3.cs" -expected ".\test\ref\tokens\generic\calculator3.txt"
 test\bin\run_test.ps1 -json -name heron -action tokens -language generic -inputfile ".\test\data\FORTRAN-77\HERON.F77" -expected ".\test\ref\tokens\generic\heron.txt"
@@ -17,7 +17,7 @@ test\bin\run_test.ps1 -json -name spider -action tokens -language generic -input
 # generic with comments
 test\bin\run_test.ps1 -json -name adabkend-adb -action tokens -language generic -comment ada -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\tokens\generic-comments\adabkend-adb.txt"
 test\bin\run_test.ps1 -json -name rockt2 -action tokens -language generic -comment basic -inputfile ".\test\data\BASIC\rockt2.bas" -expected ".\test\ref\tokens\generic-comments\rockt2.txt"
-test\bin\run_test.ps1 -json -name parser -action tokens -language generic -comment c -inputfile ".\test\data\C\parser.c" -expected ".\test\ref\tokens\generic-comments\parser.txt"
+test\bin\run_test.ps1 -json -name parser -action tokens -language generic -comment c -inputfile ".\test\data\C-99\parser.c" -expected ".\test\ref\tokens\generic-comments\parser.txt"
 test\bin\run_test.ps1 -json -name PROG13-3 -action tokens -language generic -comment cobol -inputfile ".\test\data\COBOL-85\PROG13-3.cob" -expected ".\test\ref\tokens\generic-comments\prog13-3.txt"
 test\bin\run_test.ps1 -json -name calculator3 -action tokens -language generic -comment cpp -inputfile ".\test\data\Csharp\calculator3.cs" -expected ".\test\ref\tokens\generic-comments\calculator3.txt"
 test\bin\run_test.ps1 -json -name heron -action tokens -language generic -comment fortran -inputfile ".\test\data\FORTRAN-77\HERON.F77" -expected ".\test\ref\tokens\generic-comments\heron.txt"
@@ -69,13 +69,15 @@ test\bin\run_test.ps1 -json -name sea-creature-mbasic -action tokens -language M
 # BASICA
 test\bin\run_test.ps1 -json -name sea-creature-basica -action tokens -language BASICA -inputfile ".\test\data\BASIC\sea_creature.bas" -expected ".\test\ref\tokens\BASICA\sea_creature.txt"
 
-# C
-test\bin\run_test.ps1 -json -name diamond-c -action tokens -language C -inputfile ".\test\data\C\diamond.c" -expected ".\test\ref\tokens\C\diamond.txt"
-test\bin\run_test.ps1 -json -name prime_test-c -action tokens -language C -inputfile ".\test\data\C\prime_test.c" -expected ".\test\ref\tokens\C\prime_test.txt"
-test\bin\run_test.ps1 -json -name decl-c -action tokens -language C -inputfile ".\test\data\C\c-decl.c" -expected ".\test\ref\tokens\C\c-decl-c.txt"
-test\bin\run_test.ps1 -json -name parser-h -action tokens -language C -inputfile ".\test\data\C\parser.h" -expected ".\test\ref\tokens\C\parser-h.txt"
-test\bin\run_test.ps1 -json -name parser-c -action tokens -language C -inputfile ".\test\data\C\parser.c" -expected ".\test\ref\tokens\C\parser-c.txt"
-test\bin\run_test.ps1 -json -name values-c -action tokens -language C -inputfile ".\test\data\C\values.c" -expected ".\test\ref\tokens\C\values.txt"
+# C-78
+test\bin\run_test.ps1 -json -name diamond-c-78 -action tokens -language C-78 -inputfile ".\test\data\C-78\diamond.c" -expected ".\test\ref\tokens\C-78\diamond.txt"
+test\bin\run_test.ps1 -json -name prime_test-c-78 -action tokens -language C-78 -inputfile ".\test\data\C-78\prime_test.c" -expected ".\test\ref\tokens\C-78\prime_test.txt"
+test\bin\run_test.ps1 -json -name decl-c-78 -action tokens -language C-78 -inputfile ".\test\data\C-78\c-decl.c" -expected ".\test\ref\tokens\C-78\c-decl-c.txt"
+test\bin\run_test.ps1 -json -name values-c-78 -action tokens -language C-78 -inputfile ".\test\data\C-78\values.c" -expected ".\test\ref\tokens\C-78\values.txt"
+
+# C-99
+test\bin\run_test.ps1 -json -name parser-h-99 -action tokens -language C-99 -inputfile ".\test\data\C-99\parser.h" -expected ".\test\ref\tokens\C-99\parser-h.txt"
+test\bin\run_test.ps1 -json -name parser-c-99 -action tokens -language C-99 -inputfile ".\test\data\C-99\parser.c" -expected ".\test\ref\tokens\C-99\parser-c.txt"
 
 # CBASIC
 test\bin\run_test.ps1 -json -name fibo -action tokens -language CBASIC -inputfile ".\test\data\CBASIC\fibo.bas" -expected ".\test\ref\tokens\CBASIC\fibo.txt"
@@ -405,7 +407,7 @@ test\bin\run_test.ps1 -json -name diffie_hellman-vb6 -action tokens -language Vi
 test\bin\run_test.ps1 -json -name word-processor-vbnet -action tokens -language VisualBasic-NET -inputfile ".\test\data\VisualBasic-NET\WordProcessor.bas" -expected ".\test\ref\tokens\VisualBasic-NET\WordProcessor.txt"
 
 # polyglot programs
-test\bin\run_test.ps1 -json -name polyglot-c -action tokens -language C -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\tokens\C\polyglot.txt"
+test\bin\run_test.ps1 -json -name polyglot-c-78 -action tokens -language C-78 -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\tokens\C-78\polyglot.txt"
 test\bin\run_test.ps1 -json -name polyglot-COBOL-85 -action tokens -language COBOL-85 -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\tokens\COBOL-85\polyglot.txt"
 test\bin\run_test.ps1 -json -name polyglot-pascal -action tokens -language Pascal -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\tokens\Pascal\polyglot.txt"
 test\bin\run_test.ps1 -json -name polyglot-py-rb-python -action tokens -language Python -inputfile ".\test\data\multiple\polyglot-py-rb.txt" -expected ".\test\ref\tokens\Python\polyglot-py-rb.txt"

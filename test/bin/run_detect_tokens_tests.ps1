@@ -8,9 +8,9 @@ test\bin\run_test.ps1 -json -name values-bas -action tokens -language "BASIC CBA
 test\bin\run_test.ps1 -json -name batnum-bas -action tokens -language "BASIC cobol-68 fortran-66 c" -inputfile ".\test\data\BASIC\batnum.bas" -expected ".\test\ref\detect-tokens\batnum.txt"
 test\bin\run_test.ps1 -json -name life-bas -action tokens -language "BASIC BASICA ruby prolog" -inputfile ".\test\data\BASIC\life.bas" -expected ".\test\ref\detect-tokens\life.txt"
 
-# C
-test\bin\run_test.ps1 -json -name parser-h -action tokens -language "C python swift" -inputfile ".\test\data\C\parser.h" -expected ".\test\ref\detect-tokens\parser-h.txt"
-test\bin\run_test.ps1 -json -name parser-c -action tokens -language "C C++ pascal" -inputfile ".\test\data\C\parser.c" -expected ".\test\ref\detect-tokens\parser-c.txt"
+# C-99
+test\bin\run_test.ps1 -json -name parser-h-99 -action tokens -language "C python swift" -inputfile ".\test\data\C-99\parser.h" -expected ".\test\ref\detect-tokens\parser-h.txt"
+test\bin\run_test.ps1 -json -name parser-c-99 -action tokens -language "C C++ pascal" -inputfile ".\test\data\C-99\parser.c" -expected ".\test\ref\detect-tokens\parser-c.txt"
 
 # CBASIC
 test\bin\run_test.ps1 -json -name fibo -action tokens -language "CBASIC BASIC pascal" -inputfile ".\test\data\CBASIC\fibo.bas" -expected ".\test\ref\detect-tokens\fibo.txt"

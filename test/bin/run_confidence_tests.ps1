@@ -3,7 +3,7 @@ Set-StrictMode -Version Latest
 # generic
 test\bin\run_test.ps1 -json -name adabkend-adb -action confidence -language generic -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\confidence\generic\adabkend-adb.txt"
 test\bin\run_test.ps1 -json -name rockt2 -action confidence -language generic -inputfile ".\test\data\BASIC\rockt2.bas" -expected ".\test\ref\confidence\generic\rockt2.txt"
-test\bin\run_test.ps1 -json -name parser -action confidence -language generic -inputfile ".\test\data\C\parser.c" -expected ".\test\ref\confidence\generic\parser.txt"
+test\bin\run_test.ps1 -json -name parser -action confidence -language generic -inputfile ".\test\data\C-99\parser.c" -expected ".\test\ref\confidence\generic\parser.txt"
 test\bin\run_test.ps1 -json -name PROG13-3 -action confidence -language generic -inputfile ".\test\data\COBOL-85\PROG13-3.cob" -expected ".\test\ref\confidence\generic\prog13-3.txt"
 test\bin\run_test.ps1 -json -name calculator3 -action confidence -language generic -inputfile ".\test\data\Csharp\calculator3.cs" -expected ".\test\ref\confidence\generic\calculator3.txt"
 test\bin\run_test.ps1 -json -name heron -action confidence -language generic -inputfile ".\test\data\FORTRAN-77\HERON.F77" -expected ".\test\ref\confidence\generic\heron.txt"
@@ -17,7 +17,7 @@ test\bin\run_test.ps1 -json -name spider -action confidence -language generic -i
 # generic with comments
 test\bin\run_test.ps1 -json -name adabkend-adb -action confidence -language generic -comment ada -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\confidence\generic-comments\adabkend-adb.txt"
 test\bin\run_test.ps1 -json -name rockt2 -action confidence -language generic -comment basic -inputfile ".\test\data\BASIC\rockt2.bas" -expected ".\test\ref\confidence\generic-comments\rockt2.txt"
-test\bin\run_test.ps1 -json -name parser -action confidence -language generic -comment c -inputfile ".\test\data\C\parser.c" -expected ".\test\ref\confidence\generic-comments\parser.txt"
+test\bin\run_test.ps1 -json -name parser -action confidence -language generic -comment c -inputfile ".\test\data\C-99\parser.c" -expected ".\test\ref\confidence\generic-comments\parser.txt"
 test\bin\run_test.ps1 -json -name PROG13-3 -action confidence -language generic -comment cobol -inputfile ".\test\data\COBOL-85\PROG13-3.cob" -expected ".\test\ref\confidence\generic-comments\prog13-3.txt"
 test\bin\run_test.ps1 -json -name calculator3 -action confidence -language generic -comment cpp -inputfile ".\test\data\Csharp\calculator3.cs" -expected ".\test\ref\confidence\generic-comments\calculator3.txt"
 test\bin\run_test.ps1 -json -name heron -action confidence -language generic -comment fortran -inputfile ".\test\data\FORTRAN-77\HERON.F77" -expected ".\test\ref\confidence\generic-comments\heron.txt"
@@ -69,13 +69,15 @@ test\bin\run_test.ps1 -json -name sea-creature-mbasic -action confidence -langua
 # BASICA
 test\bin\run_test.ps1 -json -name sea-creature-basica -action confidence -language BASICA -inputfile ".\test\data\BASIC\sea_creature.bas" -expected ".\test\ref\confidence\BASICA\sea_creature.txt"
 
-# C
-test\bin\run_test.ps1 -json -name diamond-c -action confidence -language C -inputfile ".\test\data\C\diamond.c" -expected ".\test\ref\confidence\C\diamond.txt"
-test\bin\run_test.ps1 -json -name prime_test-c -action confidence -language C -inputfile ".\test\data\C\prime_test.c" -expected ".\test\ref\confidence\C\prime_test.txt"
-test\bin\run_test.ps1 -json -name decl-c -action confidence -language C -inputfile ".\test\data\C\c-decl.c" -expected ".\test\ref\confidence\C\c-decl-c.txt"
-test\bin\run_test.ps1 -json -name parser-h -action confidence -language C -inputfile ".\test\data\C\parser.h" -expected ".\test\ref\confidence\C\parser-h.txt"
-test\bin\run_test.ps1 -json -name parser-c -action confidence -language C -inputfile ".\test\data\C\parser.c" -expected ".\test\ref\confidence\C\parser-c.txt"
-test\bin\run_test.ps1 -json -name values-c -action confidence -language C -inputfile ".\test\data\C\values.c" -expected ".\test\ref\confidence\C\values.txt"
+# C-78
+test\bin\run_test.ps1 -json -name diamond-c-78 -action confidence -language C-78 -inputfile ".\test\data\C-78\diamond.c" -expected ".\test\ref\confidence\C-78\diamond.txt"
+test\bin\run_test.ps1 -json -name prime_test-c-78 -action confidence -language C-78 -inputfile ".\test\data\C-78\prime_test.c" -expected ".\test\ref\confidence\C-78\prime_test.txt"
+test\bin\run_test.ps1 -json -name decl-c-78 -action confidence -language C-78 -inputfile ".\test\data\C-78\c-decl.c" -expected ".\test\ref\confidence\C-78\c-decl-c.txt"
+test\bin\run_test.ps1 -json -name values-c-78 -action confidence -language C-78 -inputfile ".\test\data\C-78\values.c" -expected ".\test\ref\confidence\C-78\values.txt"
+
+# C-99
+test\bin\run_test.ps1 -json -name parser-h-99 -action confidence -language C-99 -inputfile ".\test\data\C-99\parser.h" -expected ".\test\ref\confidence\C-99\parser-h.txt"
+test\bin\run_test.ps1 -json -name parser-c-99 -action confidence -language C-99 -inputfile ".\test\data\C-99\parser.c" -expected ".\test\ref\confidence\C-99\parser-c.txt"
 
 # CBASIC
 test\bin\run_test.ps1 -json -name fibo -action confidence -language CBASIC -inputfile ".\test\data\CBASIC\fibo.bas" -expected ".\test\ref\confidence\CBASIC\fibo.txt"
@@ -405,7 +407,7 @@ test\bin\run_test.ps1 -json -name diffie_hellman-vb6 -action confidence -languag
 test\bin\run_test.ps1 -json -name word-processor-vbnet -action confidence -language VisualBasic-NET -inputfile ".\test\data\VisualBasic-NET\WordProcessor.bas" -expected ".\test\ref\confidence\VisualBasic-NET\WordProcessor.txt"
 
 # polyglot programs
-test\bin\run_test.ps1 -json -name polyglot-c -action confidence -language C -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\confidence\C\polyglot.txt"
+test\bin\run_test.ps1 -json -name polyglot-c-78 -action confidence -language C-78 -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\confidence\C-78\polyglot.txt"
 test\bin\run_test.ps1 -json -name polyglot-COBOL-85 -action confidence -language COBOL-85 -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\confidence\COBOL-85\polyglot.txt"
 test\bin\run_test.ps1 -json -name polyglot-pascal -action confidence -language Pascal -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\confidence\Pascal\polyglot.txt"
 test\bin\run_test.ps1 -json -name polyglot-py-rb-python -action confidence -language Python -inputfile ".\test\data\multiple\polyglot-py-rb.txt" -expected ".\test\ref\confidence\Python\polyglot-py-rb.txt"
