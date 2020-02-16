@@ -1,7 +1,7 @@
 from codestat_token import Token
 from token_builders import TokenBuilder
 
-# token reader for (* *) comment
+# token reader for --[[ ]] comment
 class LuaBlockCommentTokenBuilder(TokenBuilder):
   @staticmethod
   def __escape_z__():
@@ -12,11 +12,13 @@ class LuaBlockCommentTokenBuilder(TokenBuilder):
   def __init__(self):
     self.text = ''
 
+
   def get_tokens(self):
     if self.text is None:
       return None
 
     return [Token(self.text, 'comment')]
+
 
   def accept(self, candidate, c):
     result = False

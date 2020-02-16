@@ -7,7 +7,6 @@ from token_builders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
-  StringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
   PrefixedIntegerTokenBuilder,
@@ -20,6 +19,7 @@ from token_builders import (
   ParenStarCommentTokenBuilder,
   KeywordTokenBuilder
 )
+from matlab_token_builders import MatlabStringTokenBuilder
 from examiner import Examiner
 
 class MatlabExaminer(Examiner):
@@ -28,7 +28,6 @@ class MatlabExaminer(Examiner):
     InvalidTokenBuilder.__escape_z__()
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
-    StringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
     PrefixedIntegerTokenBuilder.__escape_z__()
@@ -40,6 +39,7 @@ class MatlabExaminer(Examiner):
     LeadCommentTokenBuilder.__escape_z__()
     ParenStarCommentTokenBuilder.__escape_z__()
     KeywordTokenBuilder.__escape_z__()
+    MatlabStringTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
@@ -59,7 +59,7 @@ class MatlabExaminer(Examiner):
     command_tb = PrefixedIdentifierTokenBuilder('!', 'command')
     metaclass_tb = PrefixedIdentifierTokenBuilder('?', 'metaclass')
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, False)
+    string_tb = MatlabStringTokenBuilder(quotes, False)
 
     line_comment_tb = LeadCommentTokenBuilder('%')
     block_comment_tb = ParenStarCommentTokenBuilder('%{', '%}')

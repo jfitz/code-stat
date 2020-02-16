@@ -274,6 +274,7 @@ test\bin\run_test.ps1 -json -name dsl-lua -action confidence -errors -language L
 test\bin\run_test.ps1 -json -name markov-lua -action confidence -errors -language Lua -inputfile ".\test\data\Lua\markov.lua" -expected ".\test\ref\confidence-errors\Lua\markov.txt"
 
 # Matlab
+test\bin\run_test.ps1 -json -name transpose-matlab -action confidence -errors -language Matlab -inputfile ".\test\data\Matlab\transpose.m" -expected ".\test\ref\confidence-errors\Matlab\transpose.txt"
 test\bin\run_test.ps1 -json -name choose-matlab -action confidence -errors -language Matlab -inputfile ".\test\data\Matlab\choose.m" -expected ".\test\ref\confidence-errors\Matlab\choose.txt"
 test\bin\run_test.ps1 -json -name fitnormal-matlab -action confidence -errors -language Matlab -inputfile ".\test\data\Matlab\fitnormal.m" -expected ".\test\ref\confidence-errors\Matlab\fitnormal.txt"
 test\bin\run_test.ps1 -json -name test_fitnormal-matlab -action confidence -errors -language Matlab -inputfile ".\test\data\Matlab\test_fitnormal.m" -expected ".\test\ref\confidence-errors\Matlab\test_fitnormal.txt"
