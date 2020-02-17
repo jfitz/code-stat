@@ -179,13 +179,23 @@ class ClassTypeTokenBuilder(TokenBuilder):
           level -= 1
 
       if level > 0:
-        result = c.isalpha() or c.isdigit() or c in "/\\ ,_.:*>'"
+        result = c.isalpha() or c.isdigit() or c in "</\\ ,_.:*>'"
 
     return result
 
 
   def get_score(self, line_printable_tokens):
     if self.text is None:
+      return 0
+
+    level = 0
+    for ch in self.text:
+      if ch == '<':
+        level += 1
+      if ch == '>':
+        level -= 1
+
+    if level != 0:
       return 0
 
     if self.text[0] == '<' and self.text[-1] == '>':
