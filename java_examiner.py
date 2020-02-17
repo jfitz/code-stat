@@ -50,10 +50,10 @@ class JavaExaminer(Examiner):
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
-    integer_tb = IntegerTokenBuilder(None)
-    integer_exponent_tb = IntegerExponentTokenBuilder(None)
-    real_tb = RealTokenBuilder(False, False, None)
-    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
+    integer_tb = IntegerTokenBuilder('_')
+    integer_exponent_tb = IntegerExponentTokenBuilder('_')
+    real_tb = RealTokenBuilder(False, False, '_')
+    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', '_')
     identifier_tb = IdentifierTokenBuilder()
     decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator')
     quotes = ['"', "'", "’"]

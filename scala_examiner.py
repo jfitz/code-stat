@@ -11,9 +11,11 @@ from token_builders import (
   TripleQuoteStringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
+  SuffixedIntegerTokenBuilder,
   PrefixedIntegerTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
+  SuffixedRealTokenBuilder,
   IdentifierTokenBuilder,
   PrefixedIdentifierTokenBuilder,
   ListTokenBuilder,
@@ -36,8 +38,10 @@ class ScalaExaminer(Examiner):
     IntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
     PrefixedIntegerTokenBuilder.__escape_z__()
+    SuffixedIntegerTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
+    SuffixedRealTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
     PrefixedIdentifierTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
@@ -56,8 +60,10 @@ class ScalaExaminer(Examiner):
     integer_tb = IntegerTokenBuilder("'")
     integer_exponent_tb = IntegerExponentTokenBuilder("'")
     hex_integer_tb = PrefixedIntegerTokenBuilder('0x', False, '0123456789abcdefABCDEF_')
+    long_integer_tb = SuffixedIntegerTokenBuilder('L', False, None)
     real_tb = RealTokenBuilder(False, False, "'")
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
+    float_real_tb = SuffixedRealTokenBuilder(False, False, ['f'], False, None)
     identifier_tb = IdentifierTokenBuilder()
     symbol_tb = PrefixedIdentifierTokenBuilder("'", 'symbol')
     quotes = ['"']
@@ -135,8 +141,10 @@ class ScalaExaminer(Examiner):
       integer_tb,
       integer_exponent_tb,
       hex_integer_tb,
+      long_integer_tb,
       real_tb,
       real_exponent_tb,
+      float_real_tb,
       keyword_tb,
       values_tb,
       groupers_tb,

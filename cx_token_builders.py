@@ -170,8 +170,16 @@ class ClassTypeTokenBuilder(TokenBuilder):
     if len(candidate) == 0:
       result = c == '<'
 
-    if len(candidate) > 0 and candidate[-1] != '>':
-      result = c.isalpha() or c.isdigit() or c in "/\\ ,_.:*>'"
+    if len(candidate) > 0:
+      level = 0
+      for ch in candidate:
+        if ch == '<':
+          level += 1
+        if ch == '>' and level > 0:
+          level -= 1
+
+      if level > 0:
+        result = c.isalpha() or c.isdigit() or c in "/\\ ,_.:*>'"
 
     return result
 

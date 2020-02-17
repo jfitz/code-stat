@@ -76,7 +76,7 @@ class DelphiExaminer(Examiner):
       ':=', '^', '~', '@',
       '.', ':',
       '..',
-      'div', 'mod', 'shl', 'shr', 'is'
+      'div', 'mod', 'shl', 'shr', 'is', 'in'
     ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', False)
@@ -98,7 +98,7 @@ class DelphiExaminer(Examiner):
       'else', 'end', 'except',
       'file', 'finally', 'for', 'forward', 'function',
       'goto',
-      'if', 'implementation', 'in', 'inherited', 'interface',
+      'if', 'implementation', 'inherited', 'interface',
       'label',
       'object', 'of', 'on', 'out',
       'packed', 'private', 'procedure', 'program', 'property', 'protected', 'public',

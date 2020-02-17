@@ -84,7 +84,7 @@ class PascalExaminer(Examiner):
     groupers = ['(', ')', ',', '[', ']']
     group_ends = [')', ']']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', True)
 
     keywords = [
       'begin', 'break', 'case', 'const',

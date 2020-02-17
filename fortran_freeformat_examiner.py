@@ -6,6 +6,7 @@ from codestat_tokenizer import Tokenizer
 from token_builders import (
   IdentifierTokenBuilder,
   StuffedQuoteStringTokenBuilder,
+  PrefixedStringTokenBuilder,
   SingleCharacterTokenBuilder,
   ListTokenBuilder,
   LeadCommentTokenBuilder
@@ -44,6 +45,9 @@ class FortranFreeFormatExaminer(FortranExaminer):
     bang_comment_tb = LeadCommentTokenBuilder('!')
     quotes = ["'", '"', "’"]
     string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
+    binary_string_tb = PrefixedStringTokenBuilder('B', False, quotes)
+    octal_string_tb = PrefixedStringTokenBuilder('O', False, quotes)
+    hex_string_tb = PrefixedStringTokenBuilder('Z', False, quotes)
 
     known_operators = [
       '=', '+', '-', '*', '/', '**',
@@ -135,6 +139,9 @@ class FortranFreeFormatExaminer(FortranExaminer):
       groupers_tb,
       identifier_tb,
       string_tb,
+      binary_string_tb,
+      octal_string_tb,
+      hex_string_tb,
       bang_comment_tb,
       self.jcl_tb,
       self.unknown_operator_tb,

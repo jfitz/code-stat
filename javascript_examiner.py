@@ -79,7 +79,7 @@ class JavaScriptExaminer(Examiner):
       '^', '**',
       '.', ':',
       '++', '--', '&&', '||',
-      '?',
+      '?', '?.',
       'new', 'delete'
     ]
 
@@ -104,15 +104,22 @@ class JavaScriptExaminer(Examiner):
     regex_tb = RegexTokenBuilder()
 
     keywords = [
-      'break', 'case', 'catch', 'class', 'const', 'continue',
-      'debugger', 'default', 'do', 'else', 'export',
-      'extends', 'finally', 'for', 'function', 'if', 'import',
-      'in', 'instanceof', 'new', 'return', 'switch',
-      'throw', 'try', 'typeof', 'var', 'void', 'while',
-      'with', 'yield',
-      'abstract', 'final',
-      'goto', 'native', 'synchronized',
-      'throws', 'transient', 'volatile'
+      'abstract',
+      'break',
+      'case', 'catch', 'class', 'const', 'continue',
+      'debugger', 'default', 'do',
+      'else', 'export', 'extends',
+      'final', 'finally', 'for', 'function',
+      'goto',
+      'if', 'import', 'in', 'instanceof',
+      'let',
+      'native', 'new',
+      'return',
+      'switch', 'synchronized',
+      'throw', 'throws', 'transient', 'try', 'typeof',
+      'var', 'void', 'volatile',
+      'while', 'with',
+      'yield'
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)

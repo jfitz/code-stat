@@ -37,13 +37,17 @@ class FortranFixedFormatExaminer(FortranExaminer):
     string_tb = StuffedQuoteStringTokenBuilder(["'", '"'], False)
     format_tb = FormatSpecifierTokenBuilder()
 
+    # FORTRAN-66 should be upper case only
+    # FORTRAN-77 may be upper or lower case
+    case_significant = year in ['66', '1966']
+
     known_operators = [
       '=', '+', '-', '*', '/', '**',
       '.EQ.', '.GT.', '.GE.', '.LT.', '.LE.', '.NE.',
       '.AND.', '.OR.', '.NOT.'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', case_significant)
 
     self.unary_operators = [
       '+', '-'
@@ -74,7 +78,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
     if year in ['77', '1977']:
       keywords += keywords_77
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', case_significant)
 
     types = [
       'INTEGER', 'REAL', 'COMPLEX', 'DOUBLE PRECISION', 'LOGICAL'
@@ -87,7 +91,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
     if year in ['77', '1977']:
       types += types_77
 
-    types_tb = ListTokenBuilder(types, 'type', False)
+    types_tb = ListTokenBuilder(types, 'type', case_significant)
 
     tokenbuilders1 = [
       self.newline_tb,
