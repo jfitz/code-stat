@@ -258,6 +258,7 @@ test\bin\run_test.ps1 -json -name digrams-pl1 -action detect -inputfile ".\test\
 # Prolog
 test\bin\run_test.ps1 -json -name family-main -action detect -inputfile ".\test\data\Prolog\family-main.pl" -expected ".\test\ref\detect\Prolog\family-main.txt"
 test\bin\run_test.ps1 -json -name family-kb -action detect -inputfile ".\test\data\Prolog\family-kb.pl" -expected ".\test\ref\detect\Prolog\family-kb.txt"
+test\bin\run_test.ps1 -json -name crtpln3-pl1 -action detect -inputfile ".\test\data\PL1\CRTPLN3.pl1" -expected ".\test\ref\detect\PL1\CRTPLN3.txt"
 test\bin\run_test.ps1 -json -name family-menu -action detect -inputfile ".\test\data\Prolog\family-menu.pl" -expected ".\test\ref\detect\Prolog\family-menu.txt"
 test\bin\run_test.ps1 -json -name family-queries -action detect -inputfile ".\test\data\Prolog\family-queries.pl" -expected ".\test\ref\detect\Prolog\family-queries.txt"
 test\bin\run_test.ps1 -json -name web-server-hello-prolog -action detect -inputfile ".\test\data\Prolog\web-server-hello.pl" -expected ".\test\ref\detect\Prolog\web-server-hello.txt"

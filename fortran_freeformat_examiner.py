@@ -4,17 +4,10 @@ from codestat_exception import CodeStatException
 from codestat_token import Token
 from codestat_tokenizer import Tokenizer
 from token_builders import (
-  InvalidTokenBuilder,
-  WhitespaceTokenBuilder,
-  NewlineTokenBuilder,
-  StuffedQuoteStringTokenBuilder,
-  IntegerTokenBuilder,
-  IntegerExponentTokenBuilder,
-  RealTokenBuilder,
-  RealExponentTokenBuilder,
   IdentifierTokenBuilder,
-  ListTokenBuilder,
+  StuffedQuoteStringTokenBuilder,
   SingleCharacterTokenBuilder,
+  ListTokenBuilder,
   LeadCommentTokenBuilder
 )
 from fortran_token_builders import (
@@ -28,16 +21,8 @@ from examiner import Examiner
 class FortranFreeFormatExaminer(FortranExaminer):
   @staticmethod
   def __escape_z__():
-    InvalidTokenBuilder.__escape_z__()
-    WhitespaceTokenBuilder.__escape_z__()
-    NewlineTokenBuilder.__escape_z__()
-    StuffedQuoteStringTokenBuilder.__escape_z__()
-    IntegerTokenBuilder.__escape_z__()
-    IntegerExponentTokenBuilder.__escape_z__()
-    RealTokenBuilder.__escape_z__()
-    RealExponentTokenBuilder.__escape_z__()
+    FortranExaminer.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     LeadCommentTokenBuilder.__escape_z__()
     UserDefinedOperatorTokenBuilder.__escape_z__()
@@ -52,15 +37,7 @@ class FortranFreeFormatExaminer(FortranExaminer):
     if year is not None and year not in ['90', '1990', '95', '1995', '2003', '2008']:
       raise CodeStatException('Unknown year for language')
 
-    whitespace_tb = WhitespaceTokenBuilder()
-    newline_tb = NewlineTokenBuilder()
-
-    integer_tb = IntegerTokenBuilder(None)
-    integer_exponent_tb = IntegerExponentTokenBuilder(None)
     kind_integer_tb = KindIntegerTokenBuilder()
-    real_tb = RealTokenBuilder(False, False, None)
-    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
-    double_exponent_tb = RealExponentTokenBuilder(False, False, 'D', None)
     kind_real_tb = KindRealTokenBuilder()
     identifier_tb = IdentifierTokenBuilder()
 
@@ -139,19 +116,17 @@ class FortranFreeFormatExaminer(FortranExaminer):
 
     types_tb = ListTokenBuilder(types, 'type', False)
 
-    invalid_token_builder = InvalidTokenBuilder()
-
     tokenbuilders = [
-      newline_tb,
-      whitespace_tb,
+      self.newline_tb,
+      self.whitespace_tb,
       continuation_tb,
       stmt_separator_tb,
-      integer_tb,
-      integer_exponent_tb,
+      self.integer_tb,
+      self.integer_exponent_tb,
       kind_integer_tb,
-      real_tb,
-      real_exponent_tb,
-      double_exponent_tb,
+      self.real_tb,
+      self.real_exponent_tb,
+      self.double_exponent_tb,
       kind_real_tb,
       keyword_tb,
       types_tb,
@@ -161,8 +136,9 @@ class FortranFreeFormatExaminer(FortranExaminer):
       identifier_tb,
       string_tb,
       bang_comment_tb,
+      self.jcl_tb,
       self.unknown_operator_tb,
-      invalid_token_builder
+      self.invalid_token_builder
     ]
 
     tokenizer = Tokenizer(tokenbuilders)

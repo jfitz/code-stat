@@ -295,6 +295,7 @@ test\bin\run_test.ps1 -json -name tpc16-pas -action confidence -language Pascal 
 # PL/1
 test\bin\run_test.ps1 -json -name bpgpli-pl1 -action confidence -language PL1-Fixed -inputfile ".\test\data\PL1\BPGPLI.pl1" -expected ".\test\ref\confidence\PL1\BPGPLI.txt"
 test\bin\run_test.ps1 -json -name checkdt-pl1 -action confidence -language PL1-Free -inputfile ".\test\data\PL1\CHECKDT.pl1" -expected ".\test\ref\confidence\PL1\CHECKDT.txt"
+test\bin\run_test.ps1 -json -name crtpln3-pl1 -action confidence -language PL1-Fixed -inputfile ".\test\data\PL1\CRTPLN3.pl1" -expected ".\test\ref\confidence\PL1\CRTPLN3.txt"
 test\bin\run_test.ps1 -json -name mainfact-pl1 -action confidence -language PL1 -inputfile ".\test\data\PL1\MAINFACT.pl1" -expected ".\test\ref\confidence\PL1\MAINFACT.txt"
 test\bin\run_test.ps1 -json -name example-pl1 -action confidence -language PL1 -inputfile ".\test\data\PL1\example.pl1" -expected ".\test\ref\confidence\PL1\example.txt"
 test\bin\run_test.ps1 -json -name digrams-pl1 -action confidence -language PL1 -inputfile ".\test\data\PL1\digrams.pl1" -expected ".\test\ref\confidence\PL1\digrams.txt"

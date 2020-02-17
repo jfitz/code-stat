@@ -9,8 +9,10 @@ from token_builders import (
   StringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
+  SuffixedIntegerTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
+  SuffixedRealTokenBuilder,
   IdentifierTokenBuilder,
   ListTokenBuilder,
   SingleCharacterTokenBuilder
@@ -18,7 +20,12 @@ from token_builders import (
 from cx_token_builders import (
   SlashStarCommentTokenBuilder
 )
-from pl1_token_builders import PL1LabelTokenBuilder
+from pl1_token_builders import (
+  PL1LabelTokenBuilder
+)
+from jcl_token_builders import (
+  JCLTokenBuilder
+)
 from examiner import Examiner
 
 class PL1Examiner(Examiner):
@@ -30,8 +37,10 @@ class PL1Examiner(Examiner):
 
     self.integer_tb = IntegerTokenBuilder(None)
     self.integer_exponent_tb = IntegerExponentTokenBuilder(None)
+    self.binary_integer_tb = SuffixedIntegerTokenBuilder(['B'], False, None)
     self.real_tb = RealTokenBuilder(False, False, None)
     self.real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
+    self.binary_real_tb = SuffixedRealTokenBuilder(True, True, ['B'], False, None)
     self.identifier_tb = IdentifierTokenBuilder()
     quotes = ['"', "'", "’"]
     self.string_tb = StringTokenBuilder(quotes, False)
@@ -39,6 +48,8 @@ class PL1Examiner(Examiner):
     self.label_tb = PL1LabelTokenBuilder()
 
     self.slash_star_comment_tb = SlashStarCommentTokenBuilder()
+
+    self.jcl_tb = JCLTokenBuilder()
 
     directives = (
       '%ACTIVATE',
@@ -64,8 +75,9 @@ class PL1Examiner(Examiner):
     known_operators = [
       '+', '-', '*', '/', '**',
       '>', '<', '=', '>=', '<=',
+      '¬>', '¬<', '¬=',
       '^>', '^<', '^=', '^',
-      '~>', '~<', '~=', '~',
+      '~>', '~<', '~=', '~', '¬',
       '&', '&:',
       '|', '|:', '||',
       '!', '!:', '!!',
@@ -73,7 +85,7 @@ class PL1Examiner(Examiner):
     ]
 
     self.unary_operators = [
-      '+', '-', '^', '~'
+      '+', '-', '^', '~', '¬'
     ]
 
     self.postfix_operators = [

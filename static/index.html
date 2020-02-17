@@ -399,6 +399,12 @@ function showConfidence() {
   if (language == 'F#') {
     language = 'Fsharp';
   }
+  if (language == 'PL/1-Fixed') {
+    language = 'PL1-fixed';
+  }
+  if (language == 'PL/1-Free') {
+    language = 'PL1-free';
+  }
 
   var query = '/confidence?language=' + language;
   var req = new XMLHttpRequest();
@@ -470,6 +476,15 @@ function tokenize() {
   }
   if (language == 'F#') {
     language = 'Fsharp';
+  }
+  if (language == 'PL/1') {
+    language = 'PL1';
+  }
+  if (language == 'PL/1-Fixed') {
+    language = 'PL1-fixed';
+  }
+  if (language == 'PL/1-Free') {
+    language = 'PL1-free';
   }
 
   var query = '/tokens?language=' + language;

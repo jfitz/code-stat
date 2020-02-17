@@ -42,7 +42,7 @@ class PrologExaminer(Examiner):
 
   def __init__(self, code):
     super().__init__()
-    self.newlines_important = 'always'
+    self.newlines_important = 'parens'
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()

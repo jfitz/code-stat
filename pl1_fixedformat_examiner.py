@@ -30,8 +30,10 @@ class PL1FixedFormatExaminer(PL1Examiner):
       self.terminators_tb,
       self.integer_tb,
       self.integer_exponent_tb,
+      self.binary_integer_tb,
       self.real_tb,
       self.real_exponent_tb,
+      self.binary_real_tb,
       self.keyword_tb,
       self.function_tb,
       self.attributes_tb,
@@ -47,6 +49,7 @@ class PL1FixedFormatExaminer(PL1Examiner):
       self.label_tb,
       self.slash_star_comment_tb,
       self.preprocessor_tb,
+      self.jcl_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]
@@ -88,28 +91,33 @@ class PL1FixedFormatExaminer(PL1Examiner):
     # 1: space or C or *
     # 2-72: program text
     # 73-: identification, traditionally sequence number (ignored)
+    # but if columns 1 and 2 are '//', then the line is JCL
 
-    line_indicator = line[0:1]
-    if wide:
-      line_text = line[1:]
-      line_identification = ''
+    if line.startswith(('//', '/*')):
+      tokens.append(Token(line, 'jcl'))
     else:
-      line_text = line[1:72]
-      line_identification = line[72:]
-
-    # tokenize the line indicator
-    if line_indicator in ['C', '*']:
-      tokens.append(Token(line, 'comment'))
-    else:
-      if len(line_indicator) > 0 and line_indicator != ' ':
-        tokens.append(Token(line, 'invalid'))
+      line_indicator = line[0:1]
+      if wide:
+        line_text = line[1:]
+        line_identification = ''
       else:
-        # tokenize the code
-        tokens += tokenizer.tokenize(line_text)
+        line_text = line[1:72]
+        line_identification = line[72:]
 
-        # tokenize the line identification
-        if len(line_identification) > 0:
-          tokens.append(Token(line_identification, 'line identification'))
+      # tokenize the line indicator
+      if line_indicator in ['C', '*']:
+        tokens.append(Token(line, 'comment'))
+      else:
+        if len(line_indicator) > 0 and line_indicator != ' ':
+          tokens.append(Token(line, 'invalid'))
+        else:
+          tokens.append(Token(' ', 'whitespace'))
+          # tokenize the code
+          tokens += tokenizer.tokenize(line_text)
+
+          # tokenize the line identification
+          if len(line_identification) > 0:
+            tokens.append(Token(line_identification, 'line identification'))
 
     tokens.append(Token('\n', 'newline'))
 

@@ -21,8 +21,10 @@ class PL1FreeFormatExaminer(PL1Examiner):
       self.terminators_tb,
       self.integer_tb,
       self.integer_exponent_tb,
+      self.binary_integer_tb,
       self.real_tb,
       self.real_exponent_tb,
+      self.binary_real_tb,
       self.keyword_tb,
       self.function_tb,
       self.attributes_tb,
@@ -38,6 +40,7 @@ class PL1FreeFormatExaminer(PL1Examiner):
       self.label_tb,
       self.slash_star_comment_tb,
       self.preprocessor_tb,
+      self.jcl_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]

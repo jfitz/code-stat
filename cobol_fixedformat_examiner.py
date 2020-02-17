@@ -373,7 +373,6 @@ class CobolFixedFormatExaminer(CobolExaminer):
     # 8-71: program text
     # 72-: identification, traditionally sequence number (ignored)
 
-    line_number = line[:6]
     line_indicator = line[6:7]
     if wide:
       line_text = line[7:]
@@ -382,22 +381,26 @@ class CobolFixedFormatExaminer(CobolExaminer):
       line_text = line[7:71]
       line_identification = line[72:]
 
-    token = self.tokenize_line_number(line_number)
-    if token is not None:
-      tokens.append(token)
-
-    # tokenize the line indicator
-    if line_indicator in ['*', '/', 'D', 'd', '$']:
-      token = self.tokenize_alt_line(line, line_indicator)
-      if token is not None:
-        tokens.append(token)
+    if line.startswith(('//', '/*')):
+      tokens.append(Token(line, 'jcl'))
     else:
-      token = self.tokenize_line_indicator(line_indicator)
+      line_number = line[:6]
+      token = self.tokenize_line_number(line_number)
       if token is not None:
         tokens.append(token)
 
-      # tokenize the code
-      tokens += tokenizer.tokenize(line_text)
+      # tokenize the line indicator
+      if line_indicator in ['*', '/', 'D', 'd', '$']:
+        token = self.tokenize_alt_line(line, line_indicator)
+        if token is not None:
+          tokens.append(token)
+      else:
+        token = self.tokenize_line_indicator(line_indicator)
+        if token is not None:
+          tokens.append(token)
+
+        # tokenize the code
+        tokens += tokenizer.tokenize(line_text)
 
     # tokenize the line identification
     if len(line_identification) > 0:

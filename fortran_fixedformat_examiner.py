@@ -4,15 +4,8 @@ from codestat_exception import CodeStatException
 from codestat_token import Token
 from codestat_tokenizer import Tokenizer
 from token_builders import (
-  InvalidTokenBuilder,
-  WhitespaceTokenBuilder,
-  NewlineTokenBuilder,
-  StuffedQuoteStringTokenBuilder,
-  IntegerTokenBuilder,
-  IntegerExponentTokenBuilder,
-  RealTokenBuilder,
-  RealExponentTokenBuilder,
-  ListTokenBuilder
+  ListTokenBuilder,
+  StuffedQuoteStringTokenBuilder
 )
 from fortran_token_builders import (
   FortranIdentifierTokenBuilder,
@@ -25,14 +18,7 @@ from examiner import Examiner
 class FortranFixedFormatExaminer(FortranExaminer):
   @staticmethod
   def __escape_z__():
-    InvalidTokenBuilder.__escape_z__()
-    WhitespaceTokenBuilder.__escape_z__()
-    NewlineTokenBuilder.__escape_z__()
     StuffedQuoteStringTokenBuilder.__escape_z__()
-    IntegerTokenBuilder.__escape_z__()
-    IntegerExponentTokenBuilder.__escape_z__()
-    RealTokenBuilder.__escape_z__()
-    RealExponentTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
     FortranIdentifierTokenBuilder.__escape_z__()
     FormatSpecifierTokenBuilder.__escape_z__()
@@ -46,14 +32,6 @@ class FortranFixedFormatExaminer(FortranExaminer):
     if year is not None and year not in ['66', '1966', '77', '1977']:
       raise CodeStatException('Unknown year for language')
 
-    whitespace_tb = WhitespaceTokenBuilder()
-    newline_tb = NewlineTokenBuilder()
-
-    integer_tb = IntegerTokenBuilder(None)
-    integer_exponent_tb = IntegerExponentTokenBuilder(None)
-    real_tb = RealTokenBuilder(False, False, None)
-    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
-    double_exponent_tb = RealExponentTokenBuilder(False, False, 'D', None)
     identifier_tb = FortranIdentifierTokenBuilder()
     hollerith_tb = HollerithStringTokenBuilder()
     string_tb = StuffedQuoteStringTokenBuilder(["'", '"'], False)
@@ -111,27 +89,26 @@ class FortranFixedFormatExaminer(FortranExaminer):
 
     types_tb = ListTokenBuilder(types, 'type', False)
 
-    invalid_token_builder = InvalidTokenBuilder()
-
     tokenbuilders1 = [
-      newline_tb,
-      whitespace_tb,
-      integer_tb,
-      integer_exponent_tb,
-      real_tb,
-      real_exponent_tb,
-      double_exponent_tb,
+      self.newline_tb,
+      self.whitespace_tb,
+      self.integer_tb,
+      self.integer_exponent_tb,
+      self.real_tb,
+      self.real_exponent_tb,
+      self.double_exponent_tb,
       keyword_tb,
       types_tb,
       format_tb,
       known_operator_tb,
       groupers_tb,
-      identifier_tb
+      identifier_tb,
+      self.jcl_tb
     ]
 
     tokenbuilders2 = [
       self.unknown_operator_tb,
-      invalid_token_builder
+      self.invalid_token_builder
     ]
 
     if year in ['66', '1966']:
@@ -189,3 +166,104 @@ class FortranFixedFormatExaminer(FortranExaminer):
       unwrapped_lines += '\n'
 
     return unwrapped_lines
+
+
+  def tokenize_line_number(self, line_number):
+    tokens = []
+
+    if len(line_number) > 0:
+      if line_number.isspace():
+        tokens.append(Token(line_number, 'whitespace'))
+      else:
+        if line_number.isdigit():
+          tokens.append(Token(line_number, 'line number'))
+        else:
+          ln_2 = line_number.lstrip()
+          ln_3 = ln_2.rstrip()
+
+        front_space = ''
+        front_count = len(line_number) - len(ln_2)
+        if front_count > 0:
+          front_space = ' ' * front_count
+          tokens.append(Token(front_space, 'whitespace'))
+
+        if ln_3.strip().isdigit():
+          tokens.append(Token(ln_3, 'line number'))
+        else:
+          tokens.append(Token(line_number, 'invalid'))
+
+        back_space = ''
+        back_count = len(ln_2) - len(ln_3)
+        if back_count > 0:
+          back_space = ' ' * back_count
+          tokens.append(Token(back_space, 'whitespace'))
+
+    return tokens
+
+
+  def tokenize_line(self, line, tokenizer, wide):
+    # break apart the line based on fixed format
+    tokens = []
+
+    # The fixed-format FORTRAN line format is:
+    # 1: space or C or *
+    # 2-6: line number or blank
+    # 7: continuation character
+    # 8-72: program text
+    # 73-: identification, traditionally sequence number (ignored)
+
+    if line.startswith(('//', '/*')):
+      tokens.append(Token(line, 'jcl'))
+    else:
+      line_indicator = line[0:1]
+      line_number = line[1:5]
+      line_continuation = line[5:6]
+      if wide:
+        line_text = line[6:]
+        line_identification = ''
+      else:
+        line_text = line[6:72]
+        line_identification = line[72:]
+
+      # tokenize the line indicator
+      if line_indicator in ['C', '*']:
+        tokens.append(Token(line, 'comment'))
+      else:
+        if len(line_indicator) > 0 and line_indicator != ' ':
+          tokens.append(Token(line, 'invalid'))
+        else:
+          tokens += self.tokenize_line_number(line_number)
+
+          # tokenize line continuation character
+          if len(line_continuation) > 0:
+            if line_continuation.isspace():
+              tokens.append(Token(line_continuation, 'whitespace'))
+            else:
+              tokens.append(Token(line_continuation, 'line continuation'))
+
+          # tokenize the code
+          tokens += tokenizer.tokenize(line_text)
+
+          # tokenize the line identification
+          if len(line_identification) > 0:
+            tokens.append(Token(line_identification, 'line identification'))
+
+    tokens.append(Token('\n', 'newline'))
+
+    return tokens
+
+
+  def tokenize_code(self, code, tab_size, tokenizer, wide):
+    lines = code.split('\n')
+
+    tokens = []
+
+    for line in lines:
+      line = line.rstrip('\r')
+      line = line.rstrip()
+      line = self.tabs_to_spaces(line, tab_size)
+
+      line_tokens = self.tokenize_line(line, tokenizer, wide)
+      tokens += line_tokens
+
+    return tokens
