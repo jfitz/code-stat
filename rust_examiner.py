@@ -9,7 +9,6 @@ from token_builders import (
   NewlineTokenBuilder,
   StringTokenBuilder,
   PrefixedStringTokenBuilder,
-  CharTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
@@ -38,7 +37,6 @@ class RustExaminer(Examiner):
     NewlineTokenBuilder.__escape_z__()
     StringTokenBuilder.__escape_z__()
     PrefixedStringTokenBuilder.__escape_z__()
-    CharTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
@@ -71,10 +69,10 @@ class RustExaminer(Examiner):
     binary_integer_tb = PrefixedIntegerTokenBuilder('0b', True, '01_')
     identifier_tb = IdentifierTokenBuilder()
     attribute_tb = RustAttributeTokenBuilder()
-    string_tb = StringTokenBuilder(['"'], True)
-    bstring_tb = PrefixedStringTokenBuilder('b', True, ['"', "'"])
+    quotes = ['"', "'"]
+    string_tb = StringTokenBuilder(quotes, True)
+    bstring_tb = PrefixedStringTokenBuilder('b', True, quotes)
     rstring_tb = RustRawStringTokenBuilder()
-    char_tb = CharTokenBuilder("'")
 
     class_type_tb = ClassTypeTokenBuilder()
 
@@ -194,7 +192,6 @@ class RustExaminer(Examiner):
       string_tb,
       bstring_tb,
       rstring_tb,
-      char_tb,
       slash_slash_comment_tb,
       slash_star_comment_tb,
       self.unknown_operator_tb,

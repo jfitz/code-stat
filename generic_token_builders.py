@@ -1,8 +1,5 @@
 from codestat_token import Token
-from token_builders import (
-  TokenBuilder,
-  CharTokenBuilder
-)
+from token_builders import TokenBuilder
 
 # token reader for identifier
 class GenericIdentifierTokenBuilder(TokenBuilder):

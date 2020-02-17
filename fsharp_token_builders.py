@@ -1,11 +1,11 @@
 from codestat_token import Token
 from token_builders import (
   TokenBuilder,
-  CharTokenBuilder
+  StringTokenBuilder
 )
 
 # token reader for single-character text literal (string)
-class FsharpCharTokenBuilder(CharTokenBuilder):
+class FsharpCharTokenBuilder(StringTokenBuilder):
   @staticmethod
   def __escape_z__():
     Token.__escape_z__()
@@ -13,7 +13,7 @@ class FsharpCharTokenBuilder(CharTokenBuilder):
 
 
   def __init__(self, quotes):
-    super().__init__(quotes)
+    super().__init__(quotes, False)
 
 
   def get_score(self, line_printable_tokens):
@@ -26,6 +26,7 @@ class FsharpCharTokenBuilder(CharTokenBuilder):
     if self.text[-1] != self.text[0]:
       return 0
 
+    # length limited to 3 (or more with backslash)
     if '\\' in self.text:
       # at most four chars (two quotes, backslash, and one other)
       if len(self.text) > 4:
@@ -38,7 +39,9 @@ class FsharpCharTokenBuilder(CharTokenBuilder):
       if len(self.text) > 3:
         return 0
 
-    if len(line_printable_tokens) > 0 and line_printable_tokens[-1].group == 'identifier':
+    # cannot follow an identifier
+    if len(line_printable_tokens) > 0 and \
+      line_printable_tokens[-1].group == 'identifier':
       return 0
 
     return len(self.text)

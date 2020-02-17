@@ -1,8 +1,5 @@
 from codestat_token import Token
-from token_builders import (
-  TokenBuilder,
-  CharTokenBuilder
-)
+from token_builders import TokenBuilder
 
 # token reader for -- comment
 class DashDashCommentTokenBuilder(TokenBuilder):
@@ -52,7 +49,7 @@ class DashDashCommentTokenBuilder(TokenBuilder):
 
 
 # token reader for single-character text literal (string)
-class AdaCharTokenBuilder(CharTokenBuilder):
+class AdaCharTokenBuilder(TokenBuilder):
   @staticmethod
   def __escape_z__():
     Token.__escape_z__()
@@ -60,7 +57,47 @@ class AdaCharTokenBuilder(CharTokenBuilder):
 
 
   def __init__(self, quotes):
-    super().__init__(quotes)
+    self.quotes = quotes
+    self.text = ''
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'string')]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if len(candidate) == 0 and c in self.quotes:
+      result = True
+
+    if len(candidate) == 1:
+      result = True
+
+    if len(candidate) > 1:
+      # no quote stuffing, stop on second quote
+      # assume escaped quotes are allowed
+      quote_count = 0
+      escaped = False
+      for ch in candidate:
+        if ch == candidate[0] and not escaped:
+          quote_count += 1
+        if ch == '\\':
+          escaped = not escaped
+        else:
+          escaped = False
+
+      result = quote_count < 2
+
+    # newline breaks a string
+    if c in ['\n', '\r']:
+      result = False
+
+    return result
+
 
   def get_score(self, line_printable_tokens):
     if self.text is None:

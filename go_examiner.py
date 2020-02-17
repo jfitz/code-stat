@@ -8,7 +8,6 @@ from token_builders import (
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
   StringTokenBuilder,
-  CharTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
@@ -31,7 +30,6 @@ class GoExaminer(Examiner):
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
     StringTokenBuilder.__escape_z__()
-    CharTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
@@ -57,10 +55,8 @@ class GoExaminer(Examiner):
     real_tb = RealTokenBuilder(False, False, None)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     identifier_tb = IdentifierTokenBuilder()
-    quotes = ['"', '`']
+    quotes = ['"', "'", '`', "’"]
     string_tb = StringTokenBuilder(quotes, False)
-    char_tb = CharTokenBuilder("'")
-    char2_tb = CharTokenBuilder("’")
 
     class_type_tb = ClassTypeTokenBuilder()
 
@@ -160,8 +156,6 @@ class GoExaminer(Examiner):
       identifier_tb,
       class_type_tb,
       string_tb,
-      char_tb,
-      char2_tb,
       slash_slash_comment_tb,
       slash_star_comment_tb,
       self.unknown_operator_tb,
