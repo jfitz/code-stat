@@ -34,19 +34,11 @@ test\bin\run_test.ps1 -json -name adabkend-ads-83 -action confidence -language A
 test\bin\run_test.ps1 -json -name signup-adb-83 -action confidence -language Ada-83 -inputfile ".\test\data\Ada-83\signup.adb" -expected ".\test\ref\confidence\Ada-83\signup-adb.txt"
 
 # Ada-95
-test\bin\run_test.ps1 -json -name adabkend-adb-95 -action confidence -language Ada-95 -inputfile ".\test\data\Ada-95\adabkend.adb" -expected ".\test\ref\confidence\Ada-95\adabkend-adb.txt"
-test\bin\run_test.ps1 -json -name adabkend-ads-95 -action confidence -language Ada-95 -inputfile ".\test\data\Ada-95\adabkend.ads" -expected ".\test\ref\confidence\Ada-95\adabkend-ads.txt"
-test\bin\run_test.ps1 -json -name signup-adb-95 -action confidence -language Ada-95 -inputfile ".\test\data\Ada-95\signup.adb" -expected ".\test\ref\confidence\Ada-95\signup-adb.txt"
+test\bin\run_test.ps1 -json -name philosophers-ads-95 -action confidence -language Ada-95 -inputfile ".\test\data\Ada-95\philosophers.ads" -expected ".\test\ref\confidence\Ada-95\philosophers-ads.txt"
 
 # Ada-2005
-test\bin\run_test.ps1 -json -name adabkend-adb-2005 -action confidence -language Ada-2005 -inputfile ".\test\data\Ada-2005\adabkend.adb" -expected ".\test\ref\confidence\Ada-2005\adabkend-adb.txt"
-test\bin\run_test.ps1 -json -name adabkend-ads-2005 -action confidence -language Ada-2005 -inputfile ".\test\data\Ada-2005\adabkend.ads" -expected ".\test\ref\confidence\Ada-2005\adabkend-ads.txt"
-test\bin\run_test.ps1 -json -name signup-adb-2005 -action confidence -language Ada-2005 -inputfile ".\test\data\Ada-2005\signup.adb" -expected ".\test\ref\confidence\Ada-2005\signup-adb.txt"
 
 # Ada-2012
-test\bin\run_test.ps1 -json -name adabkend-adb-2012 -action confidence -language Ada-2012 -inputfile ".\test\data\Ada-2012\adabkend.adb" -expected ".\test\ref\confidence\Ada-2012\adabkend-adb.txt"
-test\bin\run_test.ps1 -json -name adabkend-ads-2012 -action confidence -language Ada-2012 -inputfile ".\test\data\Ada-2012\adabkend.ads" -expected ".\test\ref\confidence\Ada-2012\adabkend-ads.txt"
-test\bin\run_test.ps1 -json -name signup-adb-2012 -action confidence -language Ada-2012 -inputfile ".\test\data\Ada-2012\signup.adb" -expected ".\test\ref\confidence\Ada-2012\signup-adb.txt"
 
 # Awk
 test\bin\run_test.ps1 -json -name funstack-awk -action confidence -language Awk -inputfile ".\test\data\Awk\funstack.awk" -expected ".\test\ref\confidence\Awk\funstack.txt"

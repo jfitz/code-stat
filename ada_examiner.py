@@ -68,8 +68,8 @@ class AdaExaminer(Examiner):
       '/=', '=', '<', '<=', '>', '>=',
       '+', '-', '&', '*', '/', 'mod', 'rem',
       '**', 'not', 'abs',
-      'in', '..',
-      ':=', '.', ':', "'",
+      '..',
+      ':=', '.', "'",
       'new'
     ]
 
@@ -78,7 +78,7 @@ class AdaExaminer(Examiner):
       'new'
     ]
 
-    groupers = ['(', ')', ',', '=>']
+    groupers = ['(', ')', ',', '=>', ':']
     group_ends = [')']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
@@ -93,7 +93,7 @@ class AdaExaminer(Examiner):
       'else', 'elsif', 'end', 'entry', 'exception', 'exit',
       'for', 'function',
       'generic', 'goto',
-      'if', 'is',
+      'if', 'in', 'is',
       'limited', 'loop',
       'of', 'out',
       'package', 'pragma', 'private', 'procedure',

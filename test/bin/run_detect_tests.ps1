@@ -5,6 +5,9 @@ test\bin\run_test.ps1 -json -name adabkend-adb -action detect -inputfile ".\test
 test\bin\run_test.ps1 -json -name adabkend-ads -action detect -inputfile ".\test\data\Ada-83\adabkend.ads" -expected ".\test\ref\detect\Ada-83\adabkend-ads.txt"
 test\bin\run_test.ps1 -json -name signup-adb -action detect -inputfile ".\test\data\Ada-83\signup.adb" -expected ".\test\ref\detect\Ada-83\signup-adb.txt"
 
+# Ada-95
+test\bin\run_test.ps1 -json -name philosophers-ads -action detect -inputfile ".\test\data\Ada-95\philosophers.ads" -expected ".\test\ref\detect\Ada-95\philosophers-ads.txt"
+
 # Awk
 test\bin\run_test.ps1 -json -name funstack-awk -action detect -inputfile ".\test\data\Awk\funstack.awk" -expected ".\test\ref\detect\Awk\funstack.txt"
 test\bin\run_test.ps1 -json -name awkaster-awk -action detect -inputfile ".\test\data\Awk\awkaster.awk" -expected ".\test\ref\detect\Awk\awkaster.txt"
