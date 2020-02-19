@@ -36,12 +36,6 @@ test\bin\run_test.ps1 -json -name heron2-ftn66 -action tokens -language "FORTRAN
 # FORTRAN-77
 test\bin\run_test.ps1 -json -name heron-ftn77 -action tokens -language "FORTRAN-77 pascal sql-92" -inputfile ".\test\data\FORTRAN-77\HERON.F77" -expected ".\test\ref\detect-tokens\HERON.txt"
 
-# Fortran-90
-test\bin\run_test.ps1 -json -name average-ftn90 -action tokens -language "Fortran-90 r pl1-free" -inputfile ".\test\data\Fortran-90\average.f90" -expected ".\test\ref\detect-tokens\average.txt"
-
-# Fortran-95
-test\bin\run_test.ps1 -json -name Wikibooks-ex4-ftn95 -action tokens -language "Fortran-95 swift html" -inputfile ".\test\data\Fortran-95\Wikibooks-ex4.f95" -expected ".\test\ref\detect-tokens\Wikibooks-ex4.txt"
-
 # Fortran-2003
 test\bin\run_test.ps1 -json -name geo4060-ftn2003 -action tokens -language "Fortran-2003 go javascript" -inputfile ".\test\data\Fortran-2003\geo4060.for" -expected ".\test\ref\detect-tokens\geo4060.txt"
 
