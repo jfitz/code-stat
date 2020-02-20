@@ -54,7 +54,8 @@ class SwiftSymbolTokenBuilder(PrefixedIdentifierTokenBuilder):
 
 
   def __init__(self, prefix, group):
-    super(SwiftSymbolTokenBuilder, self).__init__(prefix, group)
+    super().__init__(prefix, group)
+
 
   def get_score(self, line_printable_tokens):
     if self.text is None:
