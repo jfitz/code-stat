@@ -325,24 +325,14 @@ test\bin\run_test.ps1 -json -name microsoft-sql-92 -action statistics -language 
 test\bin\run_test.ps1 -json -name table-sql-92 -action statistics -language SQL-92 -inputfile ".\test\data\SQL-92\table.sql" -expected ".\test\ref\statistics\SQL-92\table.txt"
 
 # SQL-99
-test\bin\run_test.ps1 -json -name microsoft-sql-99 -action statistics -language SQL-99 -inputfile ".\test\data\SQL-99\microsoft.sql" -expected ".\test\ref\statistics\SQL-99\microsoft.txt"
-test\bin\run_test.ps1 -json -name table-sql-99 -action statistics -language SQL-99 -inputfile ".\test\data\SQL-99\table.sql" -expected ".\test\ref\statistics\SQL-99\table.txt"
 
 # SQL-2003
-test\bin\run_test.ps1 -json -name microsoft-sql-2003 -action statistics -language SQL-2003 -inputfile ".\test\data\SQL-2003\microsoft.sql" -expected ".\test\ref\statistics\SQL-2003\microsoft.txt"
-test\bin\run_test.ps1 -json -name table-sql-2003 -action statistics -language SQL-2003 -inputfile ".\test\data\SQL-2003\table.sql" -expected ".\test\ref\statistics\SQL-2003\table.txt"
 
 # SQL-2008
-test\bin\run_test.ps1 -json -name microsoft-sql-2008 -action statistics -language SQL-2008 -inputfile ".\test\data\SQL-2008\microsoft.sql" -expected ".\test\ref\statistics\SQL-2008\microsoft.txt"
-test\bin\run_test.ps1 -json -name table-sql-2008 -action statistics -language SQL-2008 -inputfile ".\test\data\SQL-2008\table.sql" -expected ".\test\ref\statistics\SQL-2008\table.txt"
 
 # SQL-2011
-test\bin\run_test.ps1 -json -name microsoft-sql-2011 -action statistics -language SQL-2011 -inputfile ".\test\data\SQL-2011\microsoft.sql" -expected ".\test\ref\statistics\SQL-2011\microsoft.txt"
-test\bin\run_test.ps1 -json -name table-sql-2011 -action statistics -language SQL-2011 -inputfile ".\test\data\SQL-2011\table.sql" -expected ".\test\ref\statistics\SQL-2011\table.txt"
 
 # SQL-2016
-test\bin\run_test.ps1 -json -name microsoft-sql-2016 -action statistics -language SQL-2016 -inputfile ".\test\data\SQL-2016\microsoft.sql" -expected ".\test\ref\statistics\SQL-2016\microsoft.txt"
-test\bin\run_test.ps1 -json -name table-sql-2016 -action statistics -language SQL-2016 -inputfile ".\test\data\SQL-2016\table.sql" -expected ".\test\ref\statistics\SQL-2016\table.txt"
 
 # Swift
 test\bin\run_test.ps1 -json -name AppDelegate -action statistics -language Swift -inputfile ".\test\data\Swift\AppDelegate.swift" -expected ".\test\ref\statistics\Swift\AppDelegate.txt"
