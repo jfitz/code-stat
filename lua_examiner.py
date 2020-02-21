@@ -47,6 +47,7 @@ class LuaExaminer(Examiner):
 
   def __init__(self, code):
     super().__init__()
+    self.newlines_important = 'parens'
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
@@ -137,7 +138,7 @@ class LuaExaminer(Examiner):
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     self.calc_operator_3_confidence(group_ends)
-    operand_types = ['number']
+    operand_types = ['number', 'identifier']
     self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])

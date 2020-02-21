@@ -51,6 +51,7 @@ class JuliaExaminer(Examiner):
 
   def __init__(self, code):
     super().__init__()
+    self.newlines_important = 'parens'
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
@@ -102,7 +103,7 @@ class JuliaExaminer(Examiner):
 
     self.unary_operators = [
       'isa', '+', '-', '~', '!', '.', ':', '::', "'",
-      '<:', '>:',
+      '<:', '>:', 'in'
     ]
 
     self.postfix_operators = [
@@ -194,7 +195,7 @@ class JuliaExaminer(Examiner):
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     self.calc_operator_3_confidence(group_ends)
-    operand_types = ['number', 'symbol']
+    operand_types = ['number', 'identifier', 'symbol']
     self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
@@ -220,3 +221,41 @@ class JuliaExaminer(Examiner):
         prev_token = token
 
     return new_tokens
+
+
+  # two operands in a row decreases confidence
+  def calc_operand_confidence(self, operand_types):
+    tokens = self.tokens
+
+    # remove tokens we don't care about
+    if self.newlines_important == 'always':
+      drop_types = ['whitespace', 'comment', 'line continuation']
+      tokens = self.drop_tokens(self.tokens, drop_types)
+
+    if self.newlines_important == 'never':
+      drop_types = ['whitespace', 'comment', 'line continuation', 'newline']
+      tokens = self.drop_tokens(self.tokens, drop_types)
+
+    if self.newlines_important == 'parens':
+      drop_types = ['whitespace', 'comment', 'line continuation']
+      tokens = self.drop_tokens_parens(drop_types)
+
+    two_operand_count = 0
+    prev_token = Token('\n', 'newline')
+    for token in tokens:
+      if token.group in operand_types and prev_token.group in operand_types:
+        if token.group != 'identifier' or prev_token.group != 'number':
+          two_operand_count += 1
+          self.errors.append({
+            'TYPE': 'OPERAND',
+            'FIRST': prev_token.text,
+            'SECOND': token.text
+            })
+
+      prev_token = token
+
+    operand_confidence = 1.0
+    if len(tokens) > 0:
+      operand_confidence = 1.0 - (two_operand_count / len(tokens))
+
+    self.confidences['operand'] = operand_confidence
