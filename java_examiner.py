@@ -115,7 +115,9 @@ class JavaExaminer(Examiner):
 
     types = [
       'boolean', 'byte', 'char', 'double', 'float', 'int', 'long',
-      'short', 'string', 'void'
+      'short', 'string', 'void',
+      'Integer', 'String', 'StringBuilder',
+      'File', 'Exception', 'IOException'
     ]
 
     types_tb = ListTokenBuilder(types, 'type', True)
