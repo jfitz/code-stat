@@ -331,6 +331,7 @@ test\bin\run_test.ps1 -json -name table-sql-92 -action tokens -language SQL-92 -
 # SQL-2008
 
 # SQL-2011
+test\bin\run_test.ps1 -json -name brackets-sql-2011 -action tokens -language SQL-2011 -inputfile ".\test\data\SQL-2011\brackets.sql" -expected ".\test\ref\tokens\SQL-2011\brackets.txt"
 
 # SQL-2016
 

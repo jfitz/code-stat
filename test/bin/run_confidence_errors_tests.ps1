@@ -331,6 +331,7 @@ test\bin\run_test.ps1 -json -name table-sql-92 -action confidence -errors -langu
 # SQL-2008
 
 # SQL-2011
+test\bin\run_test.ps1 -json -name brackets-sql-2011 -action confidence -errors -language SQL-2011 -inputfile ".\test\data\SQL-2011\brackets.sql" -expected ".\test\ref\confidence-errors\SQL-2011\brackets.txt"
 
 # SQL-2016
 
