@@ -52,11 +52,9 @@ test\bin\run_test.ps1 -json -name batnum-bas -action statistics -language BASIC 
 test\bin\run_test.ps1 -json -name life-bas -action statistics -language BASIC -inputfile ".\test\data\BASIC\life.bas" -expected ".\test\ref\statistics\BASIC\life.txt"
 test\bin\run_test.ps1 -json -name income-bas -action statistics -language BASIC -inputfile ".\test\data\BASIC\income.bas" -expected ".\test\ref\statistics\BASIC\income.txt"
 test\bin\run_test.ps1 -json -name rockt2 -action statistics -language BASIC -inputfile ".\test\data\BASIC\rockt2.bas" -expected ".\test\ref\statistics\BASIC\rockt2.txt"
-test\bin\run_test.ps1 -json -name sea-creature-bas -action statistics -language BASIC -inputfile ".\test\data\BASIC\sea_creature.bas" -expected ".\test\ref\statistics\BASIC\sea_creature.txt"
 
 # Microsoft BASIC
 test\bin\run_test.ps1 -json -name doctor-mbasic -action statistics -language Microsoft-BASIC -inputfile ".\test\data\BASIC\doctor.bas" -expected ".\test\ref\statistics\Microsoft-BASIC\doctor.txt"
-test\bin\run_test.ps1 -json -name sea-creature-mbasic -action statistics -language Microsoft-BASIC -inputfile ".\test\data\BASIC\sea_creature.bas" -expected ".\test\ref\statistics\Microsoft-BASIC\sea_creature.txt"
 
 # BASICA
 test\bin\run_test.ps1 -json -name sea-creature-basica -action statistics -language BASICA -inputfile ".\test\data\BASIC\sea_creature.bas" -expected ".\test\ref\statistics\BASICA\sea_creature.txt"
