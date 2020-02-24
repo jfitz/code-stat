@@ -12,12 +12,15 @@ from token_builders import (
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
-  IdentifierTokenBuilder,
   ListTokenBuilder,
   SingleCharacterTokenBuilder
 )
 from cobol_token_builders import AsteriskCommentTokenBuilder
-from dbase_token_builders import DbaseFilenameTokenBuilder
+from dbase_token_builders import (
+  DbaseIdentifierTokenBuilder,
+  DbaseFilenameTokenBuilder,
+  DbaseEndifTokenBuilder
+)
 from examiner import Examiner
 
 class DbaseExaminer(Examiner):
@@ -31,11 +34,12 @@ class DbaseExaminer(Examiner):
     IntegerExponentTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
-    IdentifierTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     AsteriskCommentTokenBuilder.__escape_z__()
+    DbaseIdentifierTokenBuilder.__escape_z__()
     DbaseFilenameTokenBuilder.__escape_z__()
+    DbaseEndifTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
@@ -49,7 +53,7 @@ class DbaseExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder("'")
     real_tb = RealTokenBuilder(False, False, "'")
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
-    identifier_tb = IdentifierTokenBuilder()
+    identifier_tb = DbaseIdentifierTokenBuilder()
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
 
@@ -61,12 +65,14 @@ class DbaseExaminer(Examiner):
       '+', '-', '*', '/', '**', '^',
       '=', '<>', '#', '>', '>=', '<', '<=',
       '$',
-      '.NOT.', '.AND.', '.OR.'
+      '.NOT.', '.AND.', '.OR.',
+      '&', '$', '#', '!'
     ]
 
     self.unary_operators = [
       '+', '-',
-      '.NOT.'
+      '.NOT.',
+      '&', '$', '#', '!'
     ]
 
     self.postfix_operators = []
@@ -74,38 +80,42 @@ class DbaseExaminer(Examiner):
     groupers = ['(', ')', ',']
     group_ends = [')']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', True)
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False)
 
     keywords = [
       'APPEND',
       'CASE',
       'DO',
       'EJECT', 'ENDDO', 'ERASE',
-      'FORMAT',
+      'FORMAT', 'FORM',
       'GET', 'GO',
-      'PACK', 'PICTURE',
+      'PACK', 'PICTURE', 'PICT',
       'READ', 'REPLACE', 'RETURN',
-      'SAY', 'SET', 'SKIP', 'STORE',
+      'SAY', 'SELECT', 'SELE', 'SET', 'SKIP', 'STORE',
       'TALK', 'TO',
       'USE',
       'WHILE', 'WITH',
-      '@'
+      '@', '?'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
+
+    endif_keyword_tb = DbaseEndifTokenBuilder()
 
     values = [
-      'OFF', 'ON', 'TOP', 'BOTTOM', 'EOF', 'BLANK'
+      'OFF', 'ON', 'TOP', 'BOTTOM', 'EOF', 'BLANK',
+      'PRIMARY', 'PRIM', 'SECONDARY', 'SECO',
+      '.T.', '.F.'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True)
+    values_tb = ListTokenBuilder(values, 'value', False)
 
     functions = [
       'ALLTRIM',
       'CHR', 'CTOD',
-      'DATE', 'DATETIME', 'DAY', 'DELETED', 'DESCEND', 'DTOC', 'DTOS',
+      'DATE', 'DATETIME', 'DAY', 'DELETED', 'DESCEND', 'DESC', 'DTOC', 'DTOS',
       'IIF',
       'LEFT', 'LTRIM',
       'MONTH',
@@ -118,7 +128,7 @@ class DbaseExaminer(Examiner):
       'YEAR'
     ]
 
-    function_tb = ListTokenBuilder(functions, 'function', True)
+    function_tb = ListTokenBuilder(functions, 'function', False)
 
     filename_tb = DbaseFilenameTokenBuilder()
 
@@ -133,6 +143,7 @@ class DbaseExaminer(Examiner):
       real_tb,
       real_exponent_tb,
       keyword_tb,
+      endif_keyword_tb,
       values_tb,
       groupers_tb,
       known_operator_tb,

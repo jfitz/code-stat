@@ -351,6 +351,7 @@ class Examiner:
         'string',
         'variable',
         'identifier',
+        'function',
         'symbol',
         'regex',
         'type',

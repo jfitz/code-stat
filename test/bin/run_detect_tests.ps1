@@ -110,6 +110,11 @@ test\bin\run_test.ps1 -json -name web_app-dart -action detect -inputfile ".\test
 
 # dbase II
 test\bin\run_test.ps1 -json -name sample-dbii -action detect -inputfile ".\test\data\dbase-II\sample.prg" -expected ".\test\ref\detect\dbase-II\sample.txt"
+test\bin\run_test.ps1 -json -name addm-dbii -action detect -inputfile ".\test\data\dbase-II\ADDM.PRG" -expected ".\test\ref\detect\dbase-II\ADDM.txt"
+test\bin\run_test.ps1 -json -name changedm-dbii -action detect -inputfile ".\test\data\dbase-II\CHANGEDM.PRG" -expected ".\test\ref\detect\dbase-II\CHANGEDM.txt"
+test\bin\run_test.ps1 -json -name dater-dbii -action detect -inputfile ".\test\data\dbase-II\DATER.PRG" -expected ".\test\ref\detect\dbase-II\DATER.txt"
+test\bin\run_test.ps1 -json -name updatedm-dbii -action detect -inputfile ".\test\data\dbase-II\UPDATEDM.PRG" -expected ".\test\ref\detect\dbase-II\UPDATEDM.txt"
+test\bin\run_test.ps1 -json -name viewdm-dbii -action detect -inputfile ".\test\data\dbase-II\VIEWDM.PRG" -expected ".\test\ref\detect\dbase-II\VIEWDM.txt"
 
 # Delphi
 test\bin\run_test.ps1 -json -name FmMain-dfm-delphi -action detect -inputfile ".\test\data\delphi\FmMain.dfm" -expected ".\test\ref\detect\Delphi\FmMain-dfm.txt"
@@ -297,7 +302,7 @@ test\bin\run_test.ps1 -json -name table-sql-92 -action detect -inputfile ".\test
 # SQL-2008
 
 # SQL-2011
-test\bin\run_test.ps1 -json -name brackets-sql-2011 -action detect -inputfile ".\test\data\SQL-2011\brackets.sql" -expected ".\test\ref\confidence\SQL-2011\brackets.txt"
+test\bin\run_test.ps1 -json -name brackets-sql-2011 -action detect -inputfile ".\test\data\SQL-2011\brackets.sql" -expected ".\test\ref\detect\SQL-2011\brackets.txt"
 
 # SQL-2016
 

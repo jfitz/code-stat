@@ -142,6 +142,11 @@ test\bin\run_test.ps1 -json -name web_app-dart -action confidence -language Dart
 
 # dbase II
 test\bin\run_test.ps1 -json -name sample-dbii -action confidence -language dbase-II -inputfile ".\test\data\dbase-II\sample.prg" -expected ".\test\ref\confidence\dbase-II\sample.txt"
+test\bin\run_test.ps1 -json -name addm-dbii -action confidence -language dbase-II -inputfile ".\test\data\dbase-II\ADDM.PRG" -expected ".\test\ref\confidence\dbase-II\ADDM.txt"
+test\bin\run_test.ps1 -json -name changedm-dbii -action confidence -language dbase-II -inputfile ".\test\data\dbase-II\CHANGEDM.PRG" -expected ".\test\ref\confidence\dbase-II\CHANGEDM.txt"
+test\bin\run_test.ps1 -json -name dater-dbii -action confidence -language dbase-II -inputfile ".\test\data\dbase-II\DATER.PRG" -expected ".\test\ref\confidence\dbase-II\DATER.txt"
+test\bin\run_test.ps1 -json -name updatedm-dbii -action confidence -language dbase-II -inputfile ".\test\data\dbase-II\UPDATEDM.PRG" -expected ".\test\ref\confidence\dbase-II\UPDATEDM.txt"
+test\bin\run_test.ps1 -json -name viewdm-dbii -action confidence -language dbase-II -inputfile ".\test\data\dbase-II\VIEWDM.PRG" -expected ".\test\ref\confidence\dbase-II\VIEWDM.txt"
 
 # Delphi
 test\bin\run_test.ps1 -json -name FmMain-dfm-delphi -action confidence -language Delphi -inputfile ".\test\data\delphi\FmMain.dfm" -expected ".\test\ref\confidence\Delphi\FmMain-dfm.txt"
