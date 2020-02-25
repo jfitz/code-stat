@@ -19,7 +19,7 @@ from cobol_token_builders import AsteriskCommentTokenBuilder
 from dbase_token_builders import (
   DbaseIdentifierTokenBuilder,
   DbaseFilenameTokenBuilder,
-  DbaseEndifTokenBuilder
+  KeywordCommentTokenBuilder
 )
 from examiner import Examiner
 
@@ -39,7 +39,7 @@ class DbaseExaminer(Examiner):
     AsteriskCommentTokenBuilder.__escape_z__()
     DbaseIdentifierTokenBuilder.__escape_z__()
     DbaseFilenameTokenBuilder.__escape_z__()
-    DbaseEndifTokenBuilder.__escape_z__()
+    KeywordCommentTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
@@ -48,6 +48,7 @@ class DbaseExaminer(Examiner):
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
+    ctrlz_tb = SingleCharacterTokenBuilder([''], 'EOF')
 
     integer_tb = IntegerTokenBuilder("'")
     integer_exponent_tb = IntegerExponentTokenBuilder("'")
@@ -88,10 +89,12 @@ class DbaseExaminer(Examiner):
       'APPEND',
       'CASE',
       'DO',
-      'EJECT', 'ENDDO', 'ERASE',
+      'EJECT', 'ELSE', 'ENDCASE', 'ENDDO', 'ENDIF', 'ENDWHILE', 'ERASE',
       'FORMAT', 'FORM',
+      'IF',
       'GET', 'GO',
       'PACK', 'PICTURE', 'PICT',
+      'OTHERWISE',
       'READ', 'REPLACE', 'RETURN',
       'SAY', 'SELECT', 'SELE', 'SET', 'SKIP', 'STORE',
       'TALK', 'TO',
@@ -102,7 +105,9 @@ class DbaseExaminer(Examiner):
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
 
-    endif_keyword_tb = DbaseEndifTokenBuilder()
+    keyword_comments = ['ELSE', 'ENDCASE', 'ENDDO', 'ENDIF', 'ENDWHILE']
+
+    keyword_comment_tb = KeywordCommentTokenBuilder(keyword_comments, False)
 
     values = [
       'OFF', 'ON', 'TOP', 'BOTTOM', 'EOF', 'BLANK',
@@ -138,12 +143,13 @@ class DbaseExaminer(Examiner):
       newline_tb,
       whitespace_tb,
       terminators_tb,
+      ctrlz_tb,
       integer_tb,
       integer_exponent_tb,
       real_tb,
       real_exponent_tb,
       keyword_tb,
-      endif_keyword_tb,
+      keyword_comment_tb,
       values_tb,
       groupers_tb,
       known_operator_tb,
@@ -168,4 +174,23 @@ class DbaseExaminer(Examiner):
     operand_types = ['number', 'symbol']
     self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()
+    # self.calc_eof_confidence()
     self.calc_statistics()
+
+
+  # any tokens after an EOF reduce confidence
+  def calc_eof_confidence(self):
+    num_tokens = len(self.tokens)
+
+    seen_eof = False
+    num_tokens_after_eof = 0
+
+    for token in self.tokens:
+      if token.group == 'EOF':
+        seen_eof = True
+
+      if seen_eof and token.group != 'EOF':
+        num_tokens_after_eof += 1
+  
+    if num_tokens > 0:
+      self.confidences['EOF'] = 1.0 - num_tokens_after_eof / num_tokens

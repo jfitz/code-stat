@@ -576,20 +576,8 @@
         "value":"enddo"
     },
     {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":".not."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"value",
-        "value":"eof"
+        "type":"comment",
+        "value":" .not. eof"
     },
     {
         "type":"newline",
@@ -1072,7 +1060,7 @@
         "value":"               "
     },
     {
-        "type":"identifier",
+        "type":"keyword",
         "value":"if"
     },
     {
@@ -1280,12 +1268,8 @@
         "value":"enddo"
     },
     {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"true2"
+        "type":"comment",
+        "value":" true2"
     },
     {
         "type":"newline",
@@ -1572,7 +1556,7 @@
         "value":"         "
     },
     {
-        "type":"identifier",
+        "type":"keyword",
         "value":"otherwise"
     },
     {
@@ -1784,7 +1768,7 @@
         "value":"               "
     },
     {
-        "type":"identifier",
+        "type":"keyword",
         "value":"if"
     },
     {
@@ -1948,10 +1932,6 @@
         "value":"endif"
     },
     {
-        "type":"comment",
-        "value":""
-    },
-    {
         "type":"newline",
         "value":"\r\n"
     },
@@ -1964,12 +1944,8 @@
         "value":"enddo"
     },
     {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"true2"
+        "type":"comment",
+        "value":" true2"
     },
     {
         "type":"newline",
@@ -1980,7 +1956,7 @@
         "value":"      "
     },
     {
-        "type":"identifier",
+        "type":"keyword",
         "value":"endcase"
     },
     {
@@ -2008,20 +1984,8 @@
         "value":"enddo"
     },
     {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":".not."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"value",
-        "value":"eof"
+        "type":"comment",
+        "value":" .not. eof"
     },
     {
         "type":"newline",
@@ -2636,7 +2600,7 @@
         "value":"      "
     },
     {
-        "type":"identifier",
+        "type":"keyword",
         "value":"endcase"
     },
     {
@@ -2652,12 +2616,8 @@
         "value":"enddo"
     },
     {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"true2"
+        "type":"comment",
+        "value":" true2"
     },
     {
         "type":"newline",
@@ -2668,12 +2628,8 @@
         "value":"enddo"
     },
     {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"t"
+        "type":"comment",
+        "value":" t"
     },
     {
         "type":"newline",
@@ -2744,8 +2700,12 @@
         "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"\u001a\u001a"
+        "type":"EOF",
+        "value":"\u001a"
+    },
+    {
+        "type":"EOF",
+        "value":"\u001a"
     },
     {
         "type":"keyword",
@@ -3136,7 +3096,7 @@
         "value":"      "
     },
     {
-        "type":"identifier",
+        "type":"keyword",
         "value":"endcase"
     },
     {
@@ -3152,12 +3112,8 @@
         "value":"enddo"
     },
     {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"true2"
+        "type":"comment",
+        "value":" true2"
     },
     {
         "type":"newline",
@@ -3168,12 +3124,8 @@
         "value":"enddo"
     },
     {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"t"
+        "type":"comment",
+        "value":" t"
     },
     {
         "type":"newline",
