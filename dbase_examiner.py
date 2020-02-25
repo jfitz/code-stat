@@ -17,10 +17,11 @@ from token_builders import (
 )
 from cobol_token_builders import AsteriskCommentTokenBuilder
 from dbase_token_builders import (
-  DbaseDeletedFunctionTokenBuilder,
+  DbaseSpecialFunctionTokenBuilder,
   DbaseIdentifierTokenBuilder,
   DbaseFilenameTokenBuilder,
-  KeywordCommentTokenBuilder
+  KeywordCommentTokenBuilder,
+  TextBlockTokenBuilder
 )
 from examiner import Examiner
 
@@ -38,15 +39,17 @@ class DbaseExaminer(Examiner):
     ListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     AsteriskCommentTokenBuilder.__escape_z__()
-    DbaseDeletedFunctionTokenBuilder.__escape_z__()
+    DbaseSpecialFunctionTokenBuilder.__escape_z__()
     DbaseIdentifierTokenBuilder.__escape_z__()
     DbaseFilenameTokenBuilder.__escape_z__()
     KeywordCommentTokenBuilder.__escape_z__()
+    TextBlockTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
   def __init__(self, code):
     super().__init__()
+    self.newlines_important = 'always'
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
@@ -63,6 +66,7 @@ class DbaseExaminer(Examiner):
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
 
     comment_tb = AsteriskCommentTokenBuilder()
+    text_comment_tb = TextBlockTokenBuilder('TEXT', 'ENDTEXT')
 
     known_operators = [
       '+', '-', '*', '/', '**', '^',
@@ -85,7 +89,7 @@ class DbaseExaminer(Examiner):
 
     groupers_tb = ListTokenBuilder(groupers, 'group', True)
 
-    deleted_indicator_tb = DbaseDeletedFunctionTokenBuilder()
+    special_function_tb = DbaseSpecialFunctionTokenBuilder()
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', False)
 
@@ -97,7 +101,7 @@ class DbaseExaminer(Examiner):
       'FOR', 'FORMAT', 'FORM',
       'IF',
       'GET', 'GO',
-      'LOCATE',
+      'LIKE', 'LOCATE',
       'PACK', 'PICTURE', 'PICT',
       'OTHERWISE',
       'READ', 'RELEASE', 'REPLACE', 'RETURN',
@@ -105,7 +109,7 @@ class DbaseExaminer(Examiner):
       'TALK', 'TO',
       'USE',
       'WAIT', 'WHILE', 'WITH',
-      '@', '?'
+      '@', '?', '??'
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
@@ -160,13 +164,14 @@ class DbaseExaminer(Examiner):
       keyword_comment_tb,
       values_tb,
       groupers_tb,
-      deleted_indicator_tb,
+      special_function_tb,
+      comment_tb,         # before operators, to catch single asterisk on line
       known_operator_tb,
       function_tb,
       identifier_tb,
       string_tb,
       filename_tb,
-      comment_tb,
+      text_comment_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]

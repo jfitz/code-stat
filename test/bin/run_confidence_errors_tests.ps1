@@ -147,6 +147,11 @@ test\bin\run_test.ps1 -json -name changedm-dbii -action confidence -errors -lang
 test\bin\run_test.ps1 -json -name dater-dbii -action confidence -errors -language dbase-II -inputfile ".\test\data\dbase-II\DATER.PRG" -expected ".\test\ref\confidence-errors\dbase-II\DATER.txt"
 test\bin\run_test.ps1 -json -name updatedm-dbii -action confidence -errors -language dbase-II -inputfile ".\test\data\dbase-II\UPDATEDM.PRG" -expected ".\test\ref\confidence-errors\dbase-II\UPDATEDM.txt"
 test\bin\run_test.ps1 -json -name viewdm-dbii -action confidence -errors -language dbase-II -inputfile ".\test\data\dbase-II\VIEWDM.PRG" -expected ".\test\ref\confidence-errors\dbase-II\VIEWDM.txt"
+test\bin\run_test.ps1 -json -name emain-dbii -action confidence -errors -language dbase-II -inputfile ".\test\data\dbase-II\EMAIN.PRG" -expected ".\test\ref\confidence-errors\dbase-II\EMAIN.txt"
+test\bin\run_test.ps1 -json -name emp-entr-dbii -action confidence -errors -language dbase-II -inputfile ".\test\data\dbase-II\EMP-ENTR.PRG" -expected ".\test\ref\confidence-errors\dbase-II\EMP-ENTR.txt"
+test\bin\run_test.ps1 -json -name emp-rprt-dbii -action confidence -errors -language dbase-II -inputfile ".\test\data\dbase-II\EMP-RPRT.PRG" -expected ".\test\ref\confidence-errors\dbase-II\EMP-RPRT.txt"
+test\bin\run_test.ps1 -json -name emp-term-dbii -action confidence -errors -language dbase-II -inputfile ".\test\data\dbase-II\EMP-TERM.PRG" -expected ".\test\ref\confidence-errors\dbase-II\EMP-TERM.txt"
+test\bin\run_test.ps1 -json -name emp-upd-dbii -action confidence -errors -language dbase-II -inputfile ".\test\data\dbase-II\EMP-UPD.PRG" -expected ".\test\ref\confidence-errors\dbase-II\EMP-UPD.txt"
 
 # Delphi
 test\bin\run_test.ps1 -json -name FmMain-dfm-delphi -action confidence -errors -language Delphi -inputfile ".\test\data\delphi\FmMain.dfm" -expected ".\test\ref\confidence-errors\Delphi\FmMain-dfm.txt"

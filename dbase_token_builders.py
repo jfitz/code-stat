@@ -2,14 +2,15 @@ from codestat_token import Token
 from token_builders import TokenBuilder
 
 
-# token reader for identifier
-class DbaseDeletedFunctionTokenBuilder(TokenBuilder):
+# token reader for deleted record function
+class DbaseSpecialFunctionTokenBuilder(TokenBuilder):
   @staticmethod
   def __escape_z__():
     return 'Escape ?Z'
 
 
   def __init__(self):
+    self.chars = ['*', '#']
     self.text = None
 
 
@@ -21,7 +22,7 @@ class DbaseDeletedFunctionTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = len(candidate) == 0 and c == '*'
+    result = len(candidate) == 0 and c in self.chars
 
     return result
 
@@ -33,7 +34,7 @@ class DbaseDeletedFunctionTokenBuilder(TokenBuilder):
     if len(line_printable_tokens) == 0:
       return 0
 
-    if line_printable_tokens[-1].text.lower() != 'if':
+    if line_printable_tokens[-1].text.lower() not in ['if', '(', '.and.', '.or', '.not.']:
       return 0
 
     return len(self.text)
@@ -62,10 +63,10 @@ class DbaseIdentifierTokenBuilder(TokenBuilder):
     result = False
 
     if len(candidate) == 0:
-      result = c.isalpha() or c in [':', '_']
+      result = c.isalpha()
 
     if len(candidate) > 0:
-      result = c.isalpha() or c.isdigit() or c in [':', '_']
+      result = c.isalpha() or c.isdigit() or c in [':', '_', "'"]
 
     return result
 
@@ -228,3 +229,64 @@ class KeywordCommentTokenBuilder(TokenBuilder):
         score = len(self.text)
 
     return score
+
+
+# token reader for identifier
+class TextBlockTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self, start_keyword, end_keyword):
+    self.text = None
+    self.start_keyword = start_keyword.lower()
+    self.end_keyword = end_keyword.lower()
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    # split the text into 'TEXT', content, and 'ENDTEXT tokens
+    len_start = len(self.start_keyword)
+    len_end = len(self.end_keyword)
+
+    starter_token = Token(self.text[:len_start], 'keyword')
+    ender_token = Token(self.text[-len_end:], 'keyword')
+    content = Token(self.text[len_start:-len_end], 'comment')
+
+    return [
+      starter_token,
+      content,
+      ender_token
+    ]
+
+  def accept(self, candidate, c):
+    result = False
+ 
+    if len(candidate) < len(self.start_keyword):
+      result = self.start_keyword.startswith(candidate.lower())
+    else:
+      if candidate.lower().startswith(self.start_keyword):
+        result = True
+
+        # if the text ends with the end keyword
+        # stop accepting characters
+        if candidate.lower().endswith(self.end_keyword):
+          result = False
+
+    return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if not self.text.lower().startswith(self.start_keyword):
+      return 0
+
+    if not self.text.lower().endswith(self.start_keyword):
+      return 0
+
+    return len(self.text)

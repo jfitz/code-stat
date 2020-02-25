@@ -115,6 +115,11 @@ test\bin\run_test.ps1 -json -name changedm-dbii -action detect -inputfile ".\tes
 test\bin\run_test.ps1 -json -name dater-dbii -action detect -inputfile ".\test\data\dbase-II\DATER.PRG" -expected ".\test\ref\detect\dbase-II\DATER.txt"
 test\bin\run_test.ps1 -json -name updatedm-dbii -action detect -inputfile ".\test\data\dbase-II\UPDATEDM.PRG" -expected ".\test\ref\detect\dbase-II\UPDATEDM.txt"
 test\bin\run_test.ps1 -json -name viewdm-dbii -action detect -inputfile ".\test\data\dbase-II\VIEWDM.PRG" -expected ".\test\ref\detect\dbase-II\VIEWDM.txt"
+test\bin\run_test.ps1 -json -name emain-dbii -action detect -inputfile ".\test\data\dbase-II\EMAIN.PRG" -expected ".\test\ref\detect\dbase-II\EMAIN.txt"
+test\bin\run_test.ps1 -json -name emp-entr-dbii -action detect -inputfile ".\test\data\dbase-II\EMP-ENTR.PRG" -expected ".\test\ref\detect\dbase-II\EMP-ENTR.txt"
+test\bin\run_test.ps1 -json -name emp-rprt-dbii -action detect -inputfile ".\test\data\dbase-II\EMP-RPRT.PRG" -expected ".\test\ref\detect\dbase-II\EMP-RPRT.txt"
+test\bin\run_test.ps1 -json -name emp-term-dbii -action detect -inputfile ".\test\data\dbase-II\EMP-TERM.PRG" -expected ".\test\ref\detect\dbase-II\EMP-TERM.txt"
+test\bin\run_test.ps1 -json -name emp-upd-dbii -action detect -inputfile ".\test\data\dbase-II\EMP-UPD.PRG" -expected ".\test\ref\detect\dbase-II\EMP-UPD.txt"
 
 # Delphi
 test\bin\run_test.ps1 -json -name FmMain-dfm-delphi -action detect -inputfile ".\test\data\delphi\FmMain.dfm" -expected ".\test\ref\detect\Delphi\FmMain-dfm.txt"
