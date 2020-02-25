@@ -17,6 +17,7 @@ from token_builders import (
 )
 from cobol_token_builders import AsteriskCommentTokenBuilder
 from dbase_token_builders import (
+  DbaseDeletedFunctionTokenBuilder,
   DbaseIdentifierTokenBuilder,
   DbaseFilenameTokenBuilder,
   KeywordCommentTokenBuilder
@@ -37,6 +38,7 @@ class DbaseExaminer(Examiner):
     ListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     AsteriskCommentTokenBuilder.__escape_z__()
+    DbaseDeletedFunctionTokenBuilder.__escape_z__()
     DbaseIdentifierTokenBuilder.__escape_z__()
     DbaseFilenameTokenBuilder.__escape_z__()
     KeywordCommentTokenBuilder.__escape_z__()
@@ -83,34 +85,40 @@ class DbaseExaminer(Examiner):
 
     groupers_tb = ListTokenBuilder(groupers, 'group', True)
 
+    deleted_indicator_tb = DbaseDeletedFunctionTokenBuilder()
+
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', False)
 
     keywords = [
-      'APPEND',
-      'CASE',
+      'ACCEPT', 'APPEND',
+      'CASE', 'CLEAR', 'COPY',
       'DO',
       'EJECT', 'ELSE', 'ENDCASE', 'ENDDO', 'ENDIF', 'ENDWHILE', 'ERASE',
-      'FORMAT', 'FORM',
+      'FOR', 'FORMAT', 'FORM',
       'IF',
       'GET', 'GO',
+      'LOCATE',
       'PACK', 'PICTURE', 'PICT',
       'OTHERWISE',
-      'READ', 'REPLACE', 'RETURN',
-      'SAY', 'SELECT', 'SELE', 'SET', 'SKIP', 'STORE',
+      'READ', 'RELEASE', 'REPLACE', 'RETURN',
+      'SAVE', 'SAY', 'SELECT', 'SELE', 'SET', 'SKIP', 'STORE', 'SUM',
       'TALK', 'TO',
       'USE',
-      'WHILE', 'WITH',
+      'WAIT', 'WHILE', 'WITH',
       '@', '?'
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
 
-    keyword_comments = ['ELSE', 'ENDCASE', 'ENDDO', 'ENDIF', 'ENDWHILE']
+    keyword_comments = [
+      'ELSE', 'ENDCASE', 'ENDDO', 'ENDIF', 'ENDWHILE',
+      'NOTE', 'REMARK'
+    ]
 
     keyword_comment_tb = KeywordCommentTokenBuilder(keyword_comments, False)
 
     values = [
-      'OFF', 'ON', 'TOP', 'BOTTOM', 'EOF', 'BLANK',
+      'ALL', 'BLANK', 'BOTTOM', 'EOF', 'OFF', 'ON', 'TOP',
       'PRIMARY', 'PRIM', 'SECONDARY', 'SECO',
       '.T.', '.F.'
     ]
@@ -152,6 +160,7 @@ class DbaseExaminer(Examiner):
       keyword_comment_tb,
       values_tb,
       groupers_tb,
+      deleted_indicator_tb,
       known_operator_tb,
       function_tb,
       identifier_tb,

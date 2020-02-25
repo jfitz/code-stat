@@ -3,6 +3,43 @@ from token_builders import TokenBuilder
 
 
 # token reader for identifier
+class DbaseDeletedFunctionTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    return 'Escape ?Z'
+
+
+  def __init__(self):
+    self.text = None
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'function')]
+
+
+  def accept(self, candidate, c):
+    result = len(candidate) == 0 and c == '*'
+
+    return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(line_printable_tokens) == 0:
+      return 0
+
+    if line_printable_tokens[-1].text.lower() != 'if':
+      return 0
+
+    return len(self.text)
+
+
+# token reader for identifier
 class DbaseIdentifierTokenBuilder(TokenBuilder):
   @staticmethod
   def __escape_z__():
