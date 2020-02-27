@@ -170,6 +170,7 @@ class BasicExaminer(Examiner):
         prev_token = token
 
 
+  # check each line begins with a line number
   def calc_line_format_confidence(self):
     lines = self.split_tokens(self.tokens)
     num_lines = 0

@@ -195,3 +195,29 @@ class CBasicExaminer(Examiner):
       if token.group == 'newline':
         prev_line_continuation = line_continuation
         line_continuation = False
+
+
+  # line numbers reduce confidence
+  def calc_line_format_confidence(self):
+    lines = self.split_tokens(self.tokens)
+    num_lines = 0
+    num_lines_correct = 0
+
+    for line in lines:
+      if len(line) > 0:
+        num_lines += 1
+
+        if line[0].group == 'line number':
+          num_lines_correct += 1
+    
+    percentage_line_with_numbers = 0.0
+
+    if num_lines > 0:
+      percentage_line_with_numbers = num_lines_correct / num_lines
+
+    line_format_confidence = 1.0
+
+    if percentage_line_with_numbers > 0.5:
+      line_format_confidence = 1.0 - (percentage_line_with_numbers * 0.1)
+
+    self.confidences['line format'] = line_format_confidence

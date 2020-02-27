@@ -128,7 +128,7 @@ class DbaseExaminer(Examiner):
       keywords = [
         'ACCEPT', 'ACCE', 'APPEND', 'APPE',
         'CASE', 'CLEAR', 'CLEA', 'COPY', 'CREATE', 'CREA',
-        'DO',
+        'DISPLAY', 'DISP', 'DO',
         'EJECT', 'EJEC', 'ELSE', 'ENDCASE', 'ENDC', 'ENDDO', 'ENDD',
         'ENDIF', 'ENDI', 'ENDWHILE', 'ENDW', 'ERASE', 'ERAS',
         'FOR', 'FORMAT', 'FORM',
@@ -140,7 +140,7 @@ class DbaseExaminer(Examiner):
         'READ', 'RELEASE', 'RELE', 'REPLACE', 'REPL', 'RETURN', 'RETU',
         'SAVE', 'SAY', 'SELECT', 'SELE', 'SET', 'SKIP', 'STORE', 'STOR', 'SUM',
         'TALK', 'TO',
-        'USE',
+        'USE', 'USING', 'USIN',
         'WAIT', 'WHILE', 'WHIL', 'WITH',
         '@', '?', '??'
       ]
