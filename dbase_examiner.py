@@ -93,43 +93,44 @@ class DbaseExaminer(Examiner):
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', False)
 
-    keywords = [
-      'ACCEPT', 'APPEND',
-      'CASE', 'CLEAR', 'COPY',
+    keywords_ii = [
+      'ACCEPT', 'ACCE', 'APPEND', 'APPE',
+      'CASE', 'CLEAR', 'CLEA', 'COPY',
       'DO',
-      'EJECT', 'ELSE', 'ENDCASE', 'ENDDO', 'ENDIF', 'ENDWHILE', 'ERASE',
+      'EJECT', 'EJEC', 'ELSE', 'ENDCASE', 'ENDC', 'ENDDO', 'ENDD',
+      'ENDIF', 'ENDI', 'ENDWHILE', 'ENDW', 'ERASE', 'ERAS',
       'FOR', 'FORMAT', 'FORM',
       'IF',
       'GET', 'GO',
-      'LIKE', 'LOCATE',
+      'LIKE', 'LOCATE', 'LOCA',
       'PACK', 'PICTURE', 'PICT',
-      'OTHERWISE',
-      'READ', 'RELEASE', 'REPLACE', 'RETURN',
-      'SAVE', 'SAY', 'SELECT', 'SELE', 'SET', 'SKIP', 'STORE', 'SUM',
+      'OTHERWISE', 'OTHE',
+      'READ', 'RELEASE', 'RELE', 'REPLACE', 'REPL', 'RETURN', 'RETU',
+      'SAVE', 'SAY', 'SELECT', 'SELE', 'SET', 'SKIP', 'STORE', 'STOR', 'SUM',
       'TALK', 'TO',
       'USE',
-      'WAIT', 'WHILE', 'WITH',
+      'WAIT', 'WHILE', 'WHIL', 'WITH',
       '@', '?', '??'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
+    keyword_tb = ListTokenBuilder(keywords_ii, 'keyword', False)
 
-    keyword_comments = [
-      'ELSE', 'ENDCASE', 'ENDDO', 'ENDIF', 'ENDWHILE',
-      'NOTE', 'REMARK'
+    keyword_comments_ii = [
+      'ELSE', 'ENDCASE', 'ENDC', 'ENDDO', 'ENDD', 'ENDIF', 'ENDI', 'ENDWHILE', 'ENDW',
+      'NOTE', 'REMARK', 'REMA'
     ]
 
-    keyword_comment_tb = KeywordCommentTokenBuilder(keyword_comments, False)
+    keyword_comment_tb = KeywordCommentTokenBuilder(keyword_comments_ii, False)
 
-    values = [
-      'ALL', 'BLANK', 'BOTTOM', 'EOF', 'OFF', 'ON', 'TOP',
+    values_ii = [
+      'ALL', 'BLANK', 'BLAN', 'BOTTOM', 'BOTT', 'EOF', 'OFF', 'ON', 'TOP',
       'PRIMARY', 'PRIM', 'SECONDARY', 'SECO',
       '.T.', '.F.'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', False)
+    values_tb = ListTokenBuilder(values_ii, 'value', False)
 
-    functions = [
+    functions_ii = [
       'ALLTRIM',
       'CHR', 'CTOD',
       'DATE', 'DATETIME', 'DAY', 'DELETED', 'DESCEND', 'DESC', 'DTOC', 'DTOS',
@@ -145,7 +146,7 @@ class DbaseExaminer(Examiner):
       'YEAR'
     ]
 
-    function_tb = ListTokenBuilder(functions, 'function', False)
+    function_tb = ListTokenBuilder(functions_ii, 'function', False)
 
     filename_tb = DbaseFilenameTokenBuilder()
 

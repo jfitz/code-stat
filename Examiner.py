@@ -84,24 +84,14 @@ class Examiner:
     return num
 
 
-  def find_keywords(self):
-    founds = []
+  def count_tokens(self, group):
+    count = 0
 
     for token in self.tokens:
-      if token.group in ['keyword', 'type']:
-        founds.append(str(token))
+      if token.group in group:
+        count += 1
 
-    return founds
-
-
-  def find_identifiers(self):
-    found_identifiers = set()
-
-    for token in self.tokens:
-      if token.group in ['identifier', 'function']:
-        found_identifiers.add(str(token))
-
-    return found_identifiers
+    return count
 
 
   def convert_identifiers_to_functions(self):
@@ -564,12 +554,18 @@ class Examiner:
 
 
   def calc_keyword_confidence(self):
-    keywords = self.find_keywords()
+    group = ['keyword', 'type', 'function']
+    num_keywords = self.count_tokens(group)
 
-    if len(keywords) > 0:
+    if num_keywords > 0:
       self.confidences['keyword'] = 1.0
     else:
       # if no keywords, compute based on tokens
+      self.errors.append({
+        'TYPE': 'KEYWORDS',
+        'MESSAGE': 'No keywords found'
+        })
+
       num_tokens = len(self.tokens)
       num_invalid_tokens = Examiner.count_invalid_tokens(self.tokens)
       num_valid_tokens = num_tokens - num_invalid_tokens

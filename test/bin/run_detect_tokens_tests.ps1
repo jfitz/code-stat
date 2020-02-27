@@ -18,8 +18,8 @@ test\bin\run_test.ps1 -json -name fibo -action tokens -language "CBASIC BASIC pa
 # COBOL-68
 test\bin\run_test.ps1 -json -name mccracken3-68 -action tokens -language "COBOL-68 cobol-85 fortran-77" -inputfile ".\test\data\COBOL-68\mccracken3.cob" -expected ".\test\ref\detect-tokens\mccracken3.txt"
 
-# COBOL-74
-test\bin\run_test.ps1 -json -name prog15-4-74 -action tokens -language "COBOL-74 pascal pl1-fixed" -inputfile ".\test\data\COBOL-74\PROG15-4.COB" -expected ".\test\ref\detect-tokens\PROG15-4.txt"
+# COBOL-85
+test\bin\run_test.ps1 -json -name prog15-4-85 -action tokens -language "COBOL-85 pascal pl1-fixed" -inputfile ".\test\data\COBOL-85\PROG15-4.COB" -expected ".\test\ref\detect-tokens\PROG15-4.txt"
 
 # COBOL-2002
 test\bin\run_test.ps1 -json -name report-card-cob2002 -action tokens -language "COBOL-2002 java rust" -tabsize 4 -inputfile ".\test\data\COBOL-2002\ReportCard.cob" -expected ".\test\ref\detect-tokens\ReportCard.txt"

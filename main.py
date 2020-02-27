@@ -1120,14 +1120,15 @@ def identify_language(code, tab_size, wide, comment, tiebreak_keywords, tiebreak
     if len(high_names) > 1:
       highest_keyword_count = 0
       for name in high_names:
-        keyword_count = len(examiners[name].find_keywords())
+        group = ['keyword', 'type', 'function']
+        keyword_count = examiners[name].count_tokens(group)
         if keyword_count > highest_keyword_count:
           highest_keyword_count = keyword_count
 
       if highest_keyword_count > 0:
         # assign confidence to number of keywords and types (more is better)
         for name in high_names:
-          count = len(examiners[name].find_keywords())
+          count = examiners[name].count_tokens(group)
           keyword_count_confidence = count / highest_keyword_count
           examiners[name].confidences['keyword_count'] = keyword_count_confidence
 
