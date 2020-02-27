@@ -233,7 +233,9 @@ class Examiner:
 
         self.errors.append({
           'TYPE': 'TOKEN',
-          'INVALID': token.text
+          'INVALID': token.text,
+          'FIRST': '',
+          'SECOND': ''
         })
 
     token_confidence = 1.0
@@ -255,7 +257,9 @@ class Examiner:
     for operator in invalid_operators:
       self.errors.append({
         'TYPE': 'OPERATOR',
-        'INVALID': operator.text
+        'INVALID': operator.text,
+        'FIRST': '',
+        'SECOND': ''
       })
 
     operator_confidence = 1.0
@@ -299,7 +303,7 @@ class Examiner:
           token.text.lower() not in (op.lower() for op in self.unary_operators):
           errors += 1
           self.errors.append({
-            'TYPE': 'OPERATOR',
+            'TYPE': 'OPERATOR2',
             'FIRST': prev_token.text,
             'SECOND': token.text
             })
@@ -363,7 +367,7 @@ class Examiner:
           not token_unary_operator:
           errors += 1
           self.errors.append({
-            'TYPE': 'OPERATOR',
+            'TYPE': 'OPERATOR3',
             'FIRST': prev_token.text,
             'SECOND': token.text
             })

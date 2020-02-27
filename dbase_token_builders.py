@@ -9,8 +9,8 @@ class DbaseSpecialFunctionTokenBuilder(TokenBuilder):
     return 'Escape ?Z'
 
 
-  def __init__(self):
-    self.chars = ['*', '#']
+  def __init__(self, chars):
+    self.chars = chars
     self.text = None
 
 
@@ -48,7 +48,8 @@ class DbaseIdentifierTokenBuilder(TokenBuilder):
     return 'Escape ?Z'
 
 
-  def __init__(self):
+  def __init__(self, extra_chars):
+    self.extra_chars = extra_chars
     self.text = None
 
 
@@ -66,7 +67,7 @@ class DbaseIdentifierTokenBuilder(TokenBuilder):
       result = c.isalpha()
 
     if len(candidate) > 0:
-      result = c.isalpha() or c.isdigit() or c in [':', '_', "'"]
+      result = c.isalpha() or c.isdigit() or c in self.extra_chars
 
     return result
 
@@ -254,7 +255,7 @@ class TextBlockTokenBuilder(TokenBuilder):
 
     starter_token = Token(self.text[:len_start], 'keyword')
     ender_token = Token(self.text[-len_end:], 'keyword')
-    content = Token(self.text[len_start:-len_end], 'comment')
+    content = Token(self.text[len_start:-len_end], 'string')
 
     return [
       starter_token,

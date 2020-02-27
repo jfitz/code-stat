@@ -153,6 +153,11 @@ test\bin\run_test.ps1 -json -name emp-rprt-dbii -action tokens -language dbase-I
 test\bin\run_test.ps1 -json -name emp-term-dbii -action tokens -language dbase-II -inputfile ".\test\data\dbase-II\EMP-TERM.PRG" -expected ".\test\ref\tokens\dbase-II\EMP-TERM.txt"
 test\bin\run_test.ps1 -json -name emp-upd-dbii -action tokens -language dbase-II -inputfile ".\test\data\dbase-II\EMP-UPD.PRG" -expected ".\test\ref\tokens\dbase-II\EMP-UPD.txt"
 
+# dBase III
+test\bin\run_test.ps1 -json -name fdate-dbiii -action tokens -language dbase-III -inputfile ".\test\data\dbase-III\FDATE.PRG" -expected ".\test\ref\tokens\dbase-III\FDATE.txt"
+test\bin\run_test.ps1 -json -name library-dbiii -action tokens -language dbase-III -inputfile ".\test\data\dbase-III\LIBRARY.PRG" -expected ".\test\ref\tokens\dbase-III\LIBRARY.txt"
+test\bin\run_test.ps1 -json -name dp_sort-dbiii -action tokens -language dbase-III -inputfile ".\test\data\dbase-III\DP_SORT.PRG" -expected ".\test\ref\tokens\dbase-III\DP_SORT.txt"
+
 # Delphi
 test\bin\run_test.ps1 -json -name FmMain-dfm-delphi -action tokens -language Delphi -inputfile ".\test\data\delphi\FmMain.dfm" -expected ".\test\ref\tokens\Delphi\FmMain-dfm.txt"
 test\bin\run_test.ps1 -json -name FmMain-pas-delphi -action tokens -language Delphi -inputfile ".\test\data\delphi\FmMain.pas" -expected ".\test\ref\tokens\Delphi\FmMain-pas.txt"

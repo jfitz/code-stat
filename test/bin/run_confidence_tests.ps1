@@ -153,6 +153,11 @@ test\bin\run_test.ps1 -json -name emp-rprt-dbii -action confidence -language dba
 test\bin\run_test.ps1 -json -name emp-term-dbii -action confidence -language dbase-II -inputfile ".\test\data\dbase-II\EMP-TERM.PRG" -expected ".\test\ref\confidence\dbase-II\EMP-TERM.txt"
 test\bin\run_test.ps1 -json -name emp-upd-dbii -action confidence -language dbase-II -inputfile ".\test\data\dbase-II\EMP-UPD.PRG" -expected ".\test\ref\confidence\dbase-II\EMP-UPD.txt"
 
+# dBase III
+test\bin\run_test.ps1 -json -name fdate-dbiii -action confidence -language dbase-III -inputfile ".\test\data\dbase-III\FDATE.PRG" -expected ".\test\ref\confidence\dbase-III\FDATE.txt"
+test\bin\run_test.ps1 -json -name library-dbiii -action confidence -language dbase-III -inputfile ".\test\data\dbase-III\LIBRARY.PRG" -expected ".\test\ref\confidence\dbase-III\LIBRARY.txt"
+test\bin\run_test.ps1 -json -name dp_sort-dbiii -action confidence -language dbase-III -inputfile ".\test\data\dbase-III\DP_SORT.PRG" -expected ".\test\ref\confidence\dbase-III\DP_SORT.txt"
+
 # Delphi
 test\bin\run_test.ps1 -json -name FmMain-dfm-delphi -action confidence -language Delphi -inputfile ".\test\data\delphi\FmMain.dfm" -expected ".\test\ref\confidence\Delphi\FmMain-dfm.txt"
 test\bin\run_test.ps1 -json -name FmMain-pas-delphi -action confidence -language Delphi -inputfile ".\test\data\delphi\FmMain.pas" -expected ".\test\ref\confidence\Delphi\FmMain-pas.txt"

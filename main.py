@@ -227,6 +227,7 @@ codesAndNames = {
   'd': 'D',
   'dart': 'Dart',
   'dbase-ii': 'dBase-II',
+  'dbase-iii': 'dBase-III',
   'delphi': 'Delphi',
   'eiffel': 'Eiffel',
   'fortran-66': 'FORTRAN-66',
@@ -295,6 +296,7 @@ codesAndGroups = {
   'd': 'D',
   'dart': 'Dart',
   'dbase-ii': 'dBase',
+  'dbase-iii': 'dBase',
   'delphi': 'Pascal',
   'eiffel': 'Eiffel',
   'fortran-66': 'Fortran',
@@ -363,6 +365,7 @@ codesAndYears = {
   'd': 2001,
   'dart': 2011,
   'dbase-ii': 1982,
+  'dbase-iii': 1985,
   'delphi': 1995,
   'eiffel': 1985,
   'fortran-66': 1966,
@@ -752,7 +755,10 @@ def make_one_examiner(language, code, tab_size, wide, comment):
     examiner = DartExaminer(code)
 
   if language in ['dbase-ii', 'dbase', 'prg']:
-    examiner = DbaseExaminer(code)
+    examiner = DbaseExaminer(code, 'ii')
+
+  if language in ['dbase-iii', 'dbase', 'prg']:
+    examiner = DbaseExaminer(code, 'iii')
 
   if language in ['delphi']:
     examiner = DelphiExaminer(code)
@@ -965,7 +971,10 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
     examiners['dart'] = DartExaminer(code)
 
   if 'dbase-ii' in languages or 'dbase' in languages or 'prg' in languages:
-    examiners['dbase-ii'] = DbaseExaminer(code)
+    examiners['dbase-ii'] = DbaseExaminer(code, 'ii')
+
+  if 'dbase-iii' in languages or 'dbase' in languages or 'prg' in languages:
+    examiners['dbase-iii'] = DbaseExaminer(code, 'iii')
 
   if 'delphi' in languages:
     examiners['delphi'] = DelphiExaminer(code)
