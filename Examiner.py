@@ -379,6 +379,65 @@ class Examiner:
     self.confidences['operator_3'] = operator_confidence_3
 
 
+  # binary operators that precede non-operands reduce confidence
+  def calc_operator_4_confidence(self, group_starts):
+    num_invalid_operators = self.count_invalid_operators()
+    num_known_operators = self.count_known_operators()
+    num_operators = num_known_operators + num_invalid_operators
+
+    operator_confidence_4 = 1.0
+
+    if num_operators > 0:
+      errors = 0
+      prev_token = Token('\n', 'newline')
+
+      # remove tokens we don't care about
+      if self.newlines_important == 'always':
+        drop_types = ['whitespace', 'comment', 'line continuation']
+        tokens = self.drop_tokens(self.tokens, drop_types)
+
+      if self.newlines_important == 'never':
+        drop_types = ['whitespace', 'comment', 'line continuation', 'newline']
+        tokens = self.drop_tokens(self.tokens, drop_types)
+
+      if self.newlines_important == 'parens':
+        drop_types = ['whitespace', 'comment', 'line continuation']
+        tokens = self.drop_tokens_parens(drop_types)
+
+      operand_types = [
+        'number',
+        'string',
+        'variable',
+        'identifier',
+        'function',
+        'symbol',
+        'regex',
+        'type',
+        'value',
+        'picture'
+      ]
+
+      for token in tokens:
+        prev_token_postfix_operator = prev_token.text.lower() in (op.lower() for op in self.postfix_operators)
+  
+        if prev_token.group == 'operator' and \
+          token.group not in operand_types and \
+          not prev_token_postfix_operator and \
+          token.text not in group_starts:
+          errors += 1
+          self.errors.append({
+            'TYPE': 'OPERATOR4',
+            'FIRST': prev_token.text,
+            'SECOND': token.text
+            })
+
+        prev_token = token
+
+      operator_confidence_4 = 1.0 - errors / num_operators
+
+    self.confidences['operator_4'] = operator_confidence_4
+
+
   def calc_paired_blockers_confidence(self, openers, closers):
     # consider the number of matches for begin/end
     ok, num_begin, num_end = self.check_paired_tokens(self.tokens, openers, closers)

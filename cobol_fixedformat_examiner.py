@@ -80,120 +80,68 @@ class CobolFixedFormatExaminer(CobolExaminer):
     ]
 
     groupers = ['(', ')', ',']
+    group_starts = ['(']
     # group_ends = [')']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     keywords = [
-      'ACCEPT', 'ACCESS',
-      'ADD', 'ADDRESS', 'ADVANCING',
-      'AFTER', 'ALL',
+      'ACCEPT', 'ACCESS', 'ADD', 'ADDRESS', 'ADVANCING', 'AFTER', 'ALL',
       'ALPHABETIC', 'ALPHABETIC-LOWER', 'ALPHABETIC-UPPER',
-      'ALPHANUMERIC', 'ALPHANUMERIC-EDITED',
-      'ALTER', 'ALTERNATE', 'AND',
-      'APPLY', 'ARE', 'AREA', 'AREAS',
-      'ASCENDING', 'ASSIGN', 'AT', 'AUTHOR',
-      'BEFORE',
-      'BLANK', 'BLOCK',
-      'BY',
-      'CALL', 'CANCEL',
-      'CD', 'CF', 'CH', 'CHARACTER', 'CHARACTERS',
-      'CLOCK-UNITS', 'CLOSE', 'COBOL', 'CODE',
-      'COLUMN',
-      'COMMA',
-      'COMMUNICATION',
-      'COMP',
-      'COMPUTATIONAL',
-      'COMPUTE', 'CONFIGURATION',
-      'CONTAINS',
-      'CONTROL', 'CONTROLS',
-      'COPY', 'CORR', 'CORRESPONDING',
+      'ALPHANUMERIC', 'ALPHANUMERIC-EDITED', 'ALTER', 'ALTERNATE', 'AND',
+      'APPLY', 'ARE', 'AREA', 'AREAS', 'ASCENDING', 'ASSIGN', 'AT', 'AUTHOR',
+      'BEFORE', 'BLOCK', 'BY',
+      'CALL', 'CANCEL', 'CD', 'CF', 'CH', 'CHARACTER', 'CHARACTERS',
+      'CLOCK-UNITS', 'CLOSE', 'COBOL', 'CODE', 'COLUMN', 'COMMA',
+      'COMMUNICATION', 'COMP', 'COMPUTATIONAL', 'COMPUTE', 'CONFIGURATION',
+      'CONTAINS', 'CONTROL', 'CONTROLS', 'COPY', 'CORR', 'CORRESPONDING',
       'COUNT', 'CURRENCY',
-      'DATA',
-      'DATE',
-      'DATE-COMPILED', 'DATE-WRITTEN',
+      'DATA', 'DATE', 'DATE-COMPILED', 'DATE-WRITTEN',
       'DE', 'DEBUG-CONTENTS', 'DEBUG-ITEM', 'DEBUG-LINE', 'DEBUG-NAME',
       'DEBUG-SUB-1', 'DEBUG-SUB-2', 'DEBUG-SUB-3',
-      'DECIMAL-POINT', 'DECLARATIVES',
-      'DELIMITED', 'DELIMITER',
-      'DEPENDING', 'DESCENDING', 'DESTINATION', 'DETAIL',
-      'DISABLE',
-      'DISPLAY',
+      'DECIMAL-POINT', 'DECLARATIVES', 'DELIMITED', 'DELIMITER', 'DEPENDING',
+      'DESCENDING', 'DESTINATION', 'DETAIL', 'DISABLE', 'DISPLAY',
       'DIVIDE', 'DIVISION', 'DOWN',
-      'EGI',
-      'ELSE', 'EMI', 'ENABLE', 'END',
-      'ENTER',
-      'ENVIRONMENT',
-      'EQUAL', 'ERROR', 'ESI',
-      'EVERY',
-      'EXIT', 'EXTEND',
-      'FD', 'FILE', 'FILE-CONTROL',
-      'FILLER', 'FINAL', 'FIRST', 'FOOTING', 'FOR', 'FROM',
-      'GENERATE', 'GIVING', 'GLOBAL', 'GO', 'GOBACK',
-      'GREATER', 'GROUP',
+      'EGI', 'ELSE', 'EMI', 'ENABLE', 'END', 'ENTER', 'ENVIRONMENT', 'EQUAL',
+      'ERROR', 'ESI', 'EVERY', 'EXIT', 'EXTEND',
+      'FD', 'FILE', 'FILE-CONTROL', 'FILLER', 'FINAL', 'FIRST', 'FOOTING', 'FOR',
+      'FROM',
+      'GENERATE', 'GIVING', 'GLOBAL', 'GO', 'GOBACK', 'GREATER', 'GROUP',
       'HEADING', 'HIGH-VALUE', 'HIGH-VALUES',
       'I-O', 'I-O-CONTROL',
-      'IDENTIFICATION', 'IF', 'IN', 'INDEX', 'INDEXED',
-      'INDICATE',
-      'INITIAL',
-      'INITIATE', 'INPUT', 'INPUT-OUTPUT',
-      'INSTALLATION', 'INTO', 'INVALID',
+      'IDENTIFICATION', 'IF', 'IN', 'INDEX', 'INDEXED', 'INDICATE', 'INITIAL',
+      'INITIATE', 'INPUT', 'INPUT-OUTPUT', 'INSTALLATION', 'INTO', 'INVALID',
       'IS',
       'JUST', 'JUSTIFIED',
       'KEY',
       'LABEL', 'LAST', 'LEADING', 'LEFT', 'LENGTH', 'LESS', 'LIMIT', 'LIMITS',
       'LINE', 'LINE-COUNTER', 'LINES', 'LINKAGE',
       'LOCK', 'LOW-VALUE', 'LOW-VALUES',
-      'MEMORY', 'MERGE', 'MESSAGE',
-      'MODE', 'MODULES',
-      'MOVE', 'MULTIPLE', 'MULTIPLY',
-      'NEGATIVE', 'NEXT', 'NO',
-      'NOT',
-      'NUMBER', 'NUMERIC', 'NUMERIC-EDITED',
-      'OBJECT-COMPUTER', 'OCCURS', 'OF', 'OFF', 'OMITTED', 'ON',
-      'OPEN', 'OPTIONAL', 'OR',
-      'OUTPUT', 'OVERFLOW',
-      'PAGE', 'PAGE-COUNTER',
-      'PERFORM', 'PF', 'PH', 'PIC', 'PICTURE',
-      'PLUS', 'POINTER', 'POSITION', 'POSITIVE',
-      'PROCEDURE',
-      'PROCEED',
+      'MEMORY', 'MERGE', 'MESSAGE', 'MODE', 'MODULES', 'MOVE', 'MULTIPLE',
+      'MULTIPLY',
+      'NEGATIVE', 'NEXT', 'NO', 'NOT', 'NUMBER', 'NUMERIC', 'NUMERIC-EDITED',
+      'OBJECT-COMPUTER', 'OCCURS', 'OF', 'OMITTED',
+      'OPEN', 'OPTIONAL', 'OR', 'OUTPUT', 'OVERFLOW',
+      'PAGE', 'PAGE-COUNTER', 'PERFORM', 'PF', 'PH', 'PIC', 'PICTURE',
+      'PLUS', 'POINTER', 'POSITION', 'POSITIVE', 'PROCEDURE', 'PROCEED',
       'PROGRAM', 'PROGRAM-ID',
       'QUEUE', 'QUOTE', 'QUOTES',
-      'RANDOM', 'RD', 'READ',
-      'RECEIVE', 'RECORD',
-      'RECORDS',
-      'REDEFINES', 'REEL', 'REFERENCE',
-      'RELATIVE', 'RELEASE',
-      'REMAINDER',
+      'RANDOM', 'RD', 'READ', 'RECEIVE', 'RECORD', 'RECORDS', 'REDEFINES',
+      'REEL', 'REFERENCE', 'RELATIVE', 'RELEASE', 'REMAINDER',
       'RENAMES', 'REPLACE', 'REPLACING', 'REPORT', 'REPORTING', 'REPORTS',
-      'RERUN', 'RESERVE', 'RESET', 'RETURN',
-      'REVERSED', 'REWIND', 'REWRITE',
+      'RERUN', 'RESERVE', 'RESET', 'RETURN', 'REVERSED', 'REWIND', 'REWRITE',
       'RF', 'RH', 'RIGHT', 'ROUNDED', 'RUN',
-      'SAME', 'SD', 'SEARCH', 'SECTION', 'SECURITY',
-      'SEGMENT', 'SEGMENT-LIMIT', 'SELECT',
-      'SEND', 'SENTENCE',
-      'SEQUENCE', 'SEQUENTIAL',
-      'SET',
-      'SIGN', 'SIZE',
-      'SORT',
-      'SOURCE', 'SOURCE-COMPUTER', 'SPACE', 'SPACES', 'SPECIAL-NAMES',
-      'STANDARD',
-      'STATUS', 'STOP', 'STRING',
-      'SUB-QUEUE-1', 'SUB-QUEUE-2', 'SUB-QUEUE-3',
-      'SUBTRACT', 'SUM',
-      'SUPPRESS', 'SYMBOLIC', 'SYNC', 'SYNCHRONIZED',
-      'TABLE',
-      'TALLY',
-      'TAPE', 'TERMINAL', 'TERMINATE', 'TEST',
-      'TEXT', 'THAN', 'THEN', 'THROUGH', 'THRU', 'TIME', 'TIMES',
-      'TITLE', 'TO',
-      'TYPE',
+      'SAME', 'SD', 'SEARCH', 'SECTION', 'SECURITY', 'SEGMENT', 'SEGMENT-LIMIT',
+      'SELECT', 'SEND', 'SENTENCE', 'SEQUENCE', 'SEQUENTIAL', 'SET', 'SIGN', 'SIZE',
+      'SORT', 'SOURCE', 'SOURCE-COMPUTER', 'SPECIAL-NAMES', 'STANDARD', 'STATUS',
+      'STOP', 'STRING','SUB-QUEUE-1', 'SUB-QUEUE-2', 'SUB-QUEUE-3', 'SUBTRACT',
+      'SUM', 'SUPPRESS', 'SYMBOLIC', 'SYNC', 'SYNCHRONIZED',
+      'TABLE', 'TALLY', 'TAPE', 'TERMINAL', 'TERMINATE', 'TEST', 'TEXT', 'THAN',
+      'THEN', 'THROUGH', 'THRU', 'TIME', 'TIMES', 'TITLE', 'TO', 'TYPE',
       'UNIT', 'UNSTRING', 'UNTIL', 'UP', 'UPON', 'USAGE', 'USE', 'USING',
       'VALUE', 'VALUES', 'VARYING',
       'WHEN',
-      'WITH', 'WORDS', 'WORKING-STORAGE', 'WRITE',
-      'ZERO', 'ZEROES', 'ZEROS'
+      'WITH', 'WORDS', 'WORKING-STORAGE', 'WRITE'
     ]
 
     keywords_68_only = [
@@ -210,54 +158,32 @@ class CobolFixedFormatExaminer(CobolExaminer):
     keywords_74 = [
       'ALSO',
       'BOTTOM',
-      'CODE-SET',
-      'COLLATING',
-      'COMMON',
-      'DAY',
-      'DELETE',
-      'DEBUGGING',
-      'DUPLICATES', 'DYNAMIC',
-      'END-OF-PAGE',
-      'EOP',
-      'EXCEPTION',
+      'CODE-SET', 'COLLATING', 'COMMON',
+      'DAY', 'DELETE', 'DEBUGGING', 'DUPLICATES', 'DYNAMIC',
+      'END-OF-PAGE', 'EOP', 'EXCEPTION',
       'INSPECT',
       'LINAGE', 'LINAGE-COUNTER',
       'NATIVE',
       'ORGANIZATION',
-      'PACKED-DECIMAL', 'PADDING',
-      'PRINTING',
-      'PROCEDURES',
-      'REFERENCES',
-      'REMOVAL',
-      'SEPARATE',
-      'SORT-MERGE',
-      'STANDARD-1', 'STANDARD-2', 'START',
-      'TALLYING',
-      'TOP',
-      'TRAILING',
+      'PACKED-DECIMAL', 'PADDING', 'PRINTING', 'PROCEDURES',
+      'REFERENCES', 'REMOVAL',
+      'SEPARATE', 'SORT-MERGE', 'STANDARD-1', 'STANDARD-2', 'START',
+      'TALLYING', 'TOP', 'TRAILING'
     ]
 
     keywords_85 = [
-      'ALPHABET',
-      'ANY',
+      'ALPHABET', 'ANY',
       'BINARY',
-      'CONTENT', 'CONTINUE',
-      'CONVERTING',
+      'CONTENT', 'CONTINUE', 'CONVERTING',
       'DAY-OF-WEEK',
       'END-ADD', 'END-CALL', 'END-COMPUTE', 'END-DELETE', 'END-DIVIDE',
-      'END-EVALUATE', 'END-IF',
-      'END-MULTIPLY',
-      'END-PERFORM', 'END-READ', 'END-RECEIVE', 'END-RETURN', 'END-REWRITE',
-      'END-SEARCH', 'END-START', 'END-STRING', 'END-SUBTRACT', 'END-UNSTRING',
-      'END-WRITE',
-      'EVALUATE',
-      'EXTERNAL',
-      'FALSE',
+      'END-EVALUATE', 'END-IF', 'END-MULTIPLY', 'END-PERFORM', 'END-READ',
+      'END-RECEIVE', 'END-RETURN', 'END-REWRITE', 'END-SEARCH', 'END-START',
+      'END-STRING', 'END-SUBTRACT', 'END-UNSTRING', 'END-WRITE',
+      'EVALUATE', 'EXTERNAL',
       'INITIALIZE',
-      'ORDER',
-      'OTHER',
-      'PURGE',
-      'TRUE'
+      'ORDER', 'OTHER',
+      'PURGE'
     ]
 
     if year in ['68', '1968']:
@@ -270,6 +196,18 @@ class CobolFixedFormatExaminer(CobolExaminer):
       keywords += keywords_85
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
+
+    values = [
+      'BLANK', 'SPACE', 'SPACES', 'ZERO', 'ZEROES', 'ZEROS',
+      'NO', 'OFF', 'ON'
+    ]
+
+    values_85 = ['FALSE', 'TRUE']
+
+    if year in ['85', '1985']:
+      values += values_85
+
+    value_tb = ListTokenBuilder(values, 'value', False)
 
     exec_tb = BlockTokenBuilder('EXEC', 'END-EXEC', 'exec block')
 
@@ -288,6 +226,7 @@ class CobolFixedFormatExaminer(CobolExaminer):
       keyword_tb,
       known_operator_tb,
       groupers_tb,
+      value_tb,
       identifier_tb,
       string_tb,
       exec_tb,
@@ -311,6 +250,7 @@ class CobolFixedFormatExaminer(CobolExaminer):
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     # self.calc_operator_3_confidence(group_ends)
+    self.calc_operator_4_confidence(group_starts)
     # operand_types = ['number', 'string', 'symbol']
     # self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()
