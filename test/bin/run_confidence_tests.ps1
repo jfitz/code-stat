@@ -152,6 +152,10 @@ test\bin\run_test.ps1 -json -name emp-entr-dbii -action confidence -language dba
 test\bin\run_test.ps1 -json -name emp-rprt-dbii -action confidence -language dbase-II -inputfile ".\test\data\dbase-II\EMP-RPRT.PRG" -expected ".\test\ref\confidence\dbase-II\EMP-RPRT.txt"
 test\bin\run_test.ps1 -json -name emp-term-dbii -action confidence -language dbase-II -inputfile ".\test\data\dbase-II\EMP-TERM.PRG" -expected ".\test\ref\confidence\dbase-II\EMP-TERM.txt"
 test\bin\run_test.ps1 -json -name emp-upd-dbii -action confidence -language dbase-II -inputfile ".\test\data\dbase-II\EMP-UPD.PRG" -expected ".\test\ref\confidence\dbase-II\EMP-UPD.txt"
+test\bin\run_test.ps1 -json -name invmaint-dbii -action confidence -language dbase-II -inputfile ".\test\data\dbase-II\INVMAINT.PRG" -expected ".\test\ref\confidence\dbase-II\INVMAINT.txt"
+test\bin\run_test.ps1 -json -name invquan-dbii -action confidence -language dbase-II -inputfile ".\test\data\dbase-II\INVQUAN.PRG" -expected ".\test\ref\confidence\dbase-II\INVQUAN.txt"
+test\bin\run_test.ps1 -json -name invread-dbii -action confidence -language dbase-II -inputfile ".\test\data\dbase-II\INVREAD.PRG" -expected ".\test\ref\confidence\dbase-II\INVREAD.txt"
+test\bin\run_test.ps1 -json -name invrprt-dbii -action confidence -language dbase-II -inputfile ".\test\data\dbase-II\INVRPRT.PRG" -expected ".\test\ref\confidence\dbase-II\INVRPRT.txt"
 
 # dBase III
 test\bin\run_test.ps1 -json -name fdate-dbiii -action confidence -language dbase-III -inputfile ".\test\data\dbase-III\FDATE.PRG" -expected ".\test\ref\confidence\dbase-III\FDATE.txt"

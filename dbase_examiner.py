@@ -20,6 +20,7 @@ from dbase_token_builders import (
   DbaseSpecialFunctionTokenBuilder,
   DbaseIdentifierTokenBuilder,
   DbaseFilenameTokenBuilder,
+  BracketedStringTokenBuilder,
   KeywordCommentTokenBuilder,
   TextBlockTokenBuilder
 )
@@ -42,6 +43,7 @@ class DbaseExaminer(Examiner):
     DbaseSpecialFunctionTokenBuilder.__escape_z__()
     DbaseIdentifierTokenBuilder.__escape_z__()
     DbaseFilenameTokenBuilder.__escape_z__()
+    BracketedStringTokenBuilder.__escape_z__()
     KeywordCommentTokenBuilder.__escape_z__()
     TextBlockTokenBuilder.__escape_z__()
     return 'Escape ?Z'
@@ -70,6 +72,7 @@ class DbaseExaminer(Examiner):
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
+    bracket_string_tb = BracketedStringTokenBuilder()
 
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
 
@@ -132,17 +135,24 @@ class DbaseExaminer(Examiner):
         'EJECT', 'EJEC', 'ELSE', 'ENDCASE', 'ENDC', 'ENDDO', 'ENDD',
         'ENDIF', 'ENDI', 'ENDWHILE', 'ENDW', 'ERASE', 'ERAS',
         'FOR', 'FORMAT', 'FORM',
-        'GET', 'GO',
-        'IF',
+        'GET', 'GO', 'GOTO',
+        'IF', 'INDEX',
         'LIKE', 'LOCATE', 'LOCA',
         'OTHERWISE', 'OTHE',
         'PACK', 'PICTURE', 'PICT',
         'READ', 'RELEASE', 'RELE', 'REPLACE', 'REPL', 'RETURN', 'RETU',
         'SAVE', 'SAY', 'SELECT', 'SELE', 'SET', 'SKIP', 'STORE', 'STOR', 'SUM',
-        'TALK', 'TO',
+        'TO',
         'USE', 'USING', 'USIN',
         'WAIT', 'WHILE', 'WHIL', 'WITH',
-        '@', '?', '??'
+        '@', '?', '??',
+        'ALTERNATE',
+        'BELL',
+        'COLON', 'COLOR', 'CONSOLE', 'CONS',
+        'DELIMITERS',
+        'INTENSITY',
+        'PRINT',
+        'TALK'
       ]
 
     if version == 'iii':
@@ -155,7 +165,7 @@ class DbaseExaminer(Examiner):
         'EDIT', 'ELSE', 'ENDCASE', 'ENDDO', 'ENDIF', 'ENDWHILE', 'ERASE', 'EXIT',
         'EXPORT',
         'FIND', 'FOR', 'FROM',
-        'GET', 'GOTO',
+        'GET', 'GO', 'GOTO',
         'HELP',
         'IF', 'IMPORT', 'INDEX', 'INPUT', 'INSERT',
         'JOIN',
@@ -182,7 +192,7 @@ class DbaseExaminer(Examiner):
         'ECHO', 'ESCAPE', 'EXACT',
         'FIELDS', 'FILTER', 'FIXED', 'FORMAT', 'FUNCTION',
         'HEADING', 'HELP', 'HISTORY',
-        'INDEX', 'INTENSITY',
+        'INTENSITY',
         'MARGIN', 'MEMO', 'WIDTH', 'MENUS', 'MESSAGE',
         'ODOMETER', 'ORDER',
         'PATH', 'PRINTER',
@@ -267,7 +277,7 @@ class DbaseExaminer(Examiner):
 
     invalid_token_builder = InvalidTokenBuilder()
 
-    tokenbuilders = [
+    tokenbuilders1 = [
       newline_tb,
       whitespace_tb,
       terminators_tb,
@@ -285,12 +295,26 @@ class DbaseExaminer(Examiner):
       known_operator_tb,
       function_tb,
       identifier_tb,
-      string_tb,
+      string_tb
+    ]
+
+    tokenbuilders2 = [
+      bracket_string_tb
+    ]
+
+    tokenbuilders3 = [
       filename_tb,
       text_comment_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]
+
+    tokenbuilders = tokenbuilders1
+
+    if version == 'ii':
+      tokenbuilders += tokenbuilders2
+
+    tokenbuilders += tokenbuilders3
 
     tokenizer = Tokenizer(tokenbuilders)
     tokens = tokenizer.tokenize(code)
@@ -301,7 +325,7 @@ class DbaseExaminer(Examiner):
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     self.calc_operator_3_confidence(group_ends)
-    operand_types = ['number', 'symbol']
+    operand_types = ['number', 'number', 'function', 'value', 'string', 'filename']
     self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()
     # self.calc_eof_confidence()
