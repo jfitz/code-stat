@@ -76,7 +76,7 @@ class DbaseExaminer(Examiner):
     string_tb = StringTokenBuilder(quotes, False)
     bracket_string_tb = BracketedStringTokenBuilder()
 
-    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
+    line_continuation_tb = SingleCharacterTokenBuilder(';', 'line continuation')
 
     comment_tb = AsteriskCommentTokenBuilder()
     text_comment_tb = TextBlockTokenBuilder('TEXT', 'ENDTEXT')
@@ -285,7 +285,7 @@ class DbaseExaminer(Examiner):
     tokenbuilders1 = [
       newline_tb,
       whitespace_tb,
-      terminators_tb,
+      line_continuation_tb,
       ctrlz_tb,
       integer_tb,
       integer_exponent_tb,
