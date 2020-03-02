@@ -228,17 +228,15 @@ class JuliaExaminer(Examiner):
     tokens = self.tokens
 
     # remove tokens we don't care about
-    if self.newlines_important == 'always':
-      drop_types = ['whitespace', 'comment', 'line continuation']
-      tokens = self.drop_tokens(self.tokens, drop_types)
+    drop_types = ['whitespace', 'comment', 'line continuation']
+    tokens = self.drop_tokens(self.tokens, drop_types)
 
     if self.newlines_important == 'never':
-      drop_types = ['whitespace', 'comment', 'line continuation', 'newline']
-      tokens = self.drop_tokens(self.tokens, drop_types)
+      drop_types = ['newline']
+      tokens = self.drop_tokens(tokens, drop_types)
 
     if self.newlines_important == 'parens':
-      drop_types = ['whitespace', 'comment', 'line continuation']
-      tokens = self.drop_tokens_parens(drop_types)
+      tokens = self.drop_newlines_inside_parens(tokens)
 
     two_operand_count = 0
     prev_token = Token('\n', 'newline')

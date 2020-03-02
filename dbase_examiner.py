@@ -132,19 +132,20 @@ class DbaseExaminer(Examiner):
     if version == 'ii':
       keywords = [
         'ACCEPT', 'ACCE', 'APPEND', 'APPE',
-        'CASE', 'CLEAR', 'CLEA', 'COPY', 'CREATE', 'CREA',
-        'DISPLAY', 'DISP', 'DO',
+        'CASE', 'CLEAR', 'CLEA', 'COPY', 'COUNT', 'CREATE', 'CREA',
+        'DELETE', 'DELE', 'DISPLAY', 'DISP', 'DO',
         'EJECT', 'EJEC', 'ELSE', 'ENDCASE', 'ENDC', 'ENDDO', 'ENDD',
         'ENDIF', 'ENDI', 'ENDWHILE', 'ENDW', 'ERASE', 'ERAS',
-        'FOR', 'FORMAT', 'FORM',
+        'FIND', 'FOR', 'FORMAT', 'FORM',
         'GET', 'GO', 'GOTO',
         'IF', 'INDEX',
-        'LIKE', 'LOCATE', 'LOCA',
+        'LIKE', 'LOCATE', 'LOCA', 'LOOP',
         'OTHERWISE', 'OTHE',
         'PACK', 'PICTURE', 'PICT',
         'READ', 'RECALL', 'RECA', 'RELEASE', 'RELE', 'REPLACE', 'REPL',
-        'RETURN', 'RETU',
-        'SAVE', 'SAY', 'SELECT', 'SELE', 'SET', 'SKIP', 'STORE', 'STOR', 'SUM',
+        'REPORT', 'REPO', 'RESTORE', 'REST', 'RETURN', 'RETU',
+        'SAVE', 'SAY', 'SELECT', 'SELE', 'SET', 'SKIP', 'SORT',
+        'STORE', 'STOR', 'SUM',
         'TO',
         'USE', 'USING', 'USIN',
         'WAIT', 'WHILE', 'WHIL', 'WITH',
@@ -177,8 +178,8 @@ class DbaseExaminer(Examiner):
         'OTHERWISE', 'OTHE',
         'PACK', 'PARAMETERS', 'PICTURE', 'PRIVATE', 'PROCEDURE', 'PUBLIC',
         'QUIT',
-        'READ', 'RECALL', 'RELEASE', 'REPLACE', 'RESUME', 'RETURN', 'RETRY',
-        'RUN',
+        'READ', 'RECALL', 'RELEASE', 'REPLACE', 'REPORT', 'RESTORE',
+        'RESUME', 'RETURN', 'RETRY', 'RUN',
         'SAVE', 'SAY', 'SELECT', 'SELE', 'SEEK', 'SET', 'SKIP', 'SORT',
         'STORE', 'SUM', 'SUSPEND',
         'TO', 'TOTAL', 'TYPE',
@@ -335,6 +336,10 @@ class DbaseExaminer(Examiner):
     self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()
     # self.calc_eof_confidence()
+    if version == 'ii':
+      self.calc_line_format_confidence_ii()
+    else:
+      self.calc_line_format_confidence()
     self.calc_statistics()
 
 
@@ -354,3 +359,97 @@ class DbaseExaminer(Examiner):
   
     if num_tokens > 0:
       self.confidences['EOF'] = 1.0 - num_tokens_after_eof / num_tokens
+
+
+  def join_continued_lines(self, tokens):
+    new_tokens = []
+
+    prev_token = Token('\n', 'newline')
+
+    for token in tokens:
+      if token.group == 'newline' and prev_token.group == 'line continuation':
+        # don't append newlines after line continuations
+        continue
+
+      if token.group != 'line continuation':
+        # never append line continations
+        new_tokens.append(token)
+
+      prev_token = token
+
+    return new_tokens
+
+
+  def calc_line_format_confidence_ii(self):
+    # remove tokens we don't care about
+    drop_types = ['whitespace', 'comment', 'EOF']
+    tokens = self.drop_tokens(self.tokens, drop_types)
+
+    # join continued lines
+    tokens = self.join_continued_lines(tokens)
+
+    # split tokens by lines
+    lines = self.split_tokens_into_lines(tokens)
+
+    # check that each line either blank or starts with a keyword
+    num_lines = len(lines)
+    num_lines_correct = 0
+
+    for line in lines:
+      if len(line) > 0:
+        if line[0].group == 'keyword':
+          num_lines_correct += 1
+        else:
+          self.errors.append({
+            'TYPE': 'LINE FORMAT',
+            'FIRST': line[0].group,
+            'SECOND': line[0].text
+          })
+      else:
+        num_lines_correct += 1
+
+    line_format_confidence = 1.0
+    if num_lines > 0:
+      line_format_confidence = num_lines_correct / num_lines
+
+    self.confidences['line format'] = line_format_confidence
+
+    return tokens
+
+
+  def calc_line_format_confidence(self):
+    # remove tokens we don't care about
+    drop_types = ['whitespace', 'comment', 'EOF']
+    tokens = self.drop_tokens(self.tokens, drop_types)
+
+    # join continued lines
+    tokens = self.join_continued_lines(tokens)
+
+    # split tokens by lines
+    lines = self.split_tokens_into_lines(tokens)
+
+    # check that each line either blank or starts with a keyword or identifier '='
+    num_lines = len(lines)
+    num_lines_correct = 0
+
+    for line in lines:
+      if len(line) > 0:
+        if line[0].group == 'keyword' or\
+          len(line) > 1 and line[0].group == 'identifier' and line[1].text == '=':
+          num_lines_correct += 1
+        else:
+          self.errors.append({
+            'TYPE': 'LINE FORMAT',
+            'FIRST': line[0].group,
+            'SECOND': line[0].text
+          })
+      else:
+        num_lines_correct += 1
+
+    line_format_confidence = 1.0
+    if num_lines > 0:
+      line_format_confidence = num_lines_correct / num_lines
+
+    self.confidences['line format'] = line_format_confidence
+
+    return tokens

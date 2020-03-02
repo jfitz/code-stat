@@ -129,7 +129,7 @@ class Examiner:
     return ok, num_open, num_close
 
 
-  def split_tokens(self, tokens):
+  def split_tokens_into_lines(self, tokens):
     token_groups = []
 
     token_group = []
@@ -283,17 +283,15 @@ class Examiner:
       prev_token = Token('\n', 'newline')
 
       # remove tokens we don't care about
-      if self.newlines_important == 'always':
-        drop_types = ['whitespace', 'comment', 'line continuation']
-        tokens = self.drop_tokens(self.tokens, drop_types)
+      drop_types = ['whitespace', 'comment', 'line continuation']
+      tokens = self.drop_tokens(self.tokens, drop_types)
 
       if self.newlines_important == 'never':
-        drop_types = ['whitespace', 'comment', 'line continuation', 'newline']
-        tokens = self.drop_tokens(self.tokens, drop_types)
+        drop_types = ['newline']
+        tokens = self.drop_tokens(tokens, drop_types)
 
       if self.newlines_important == 'parens':
-        drop_types = ['whitespace', 'comment', 'line continuation']
-        tokens = self.drop_tokens_parens(drop_types)
+        tokens = self.drop_newlines_inside_parens(tokens)
 
       for token in tokens:
         if token.group == 'operator' and\
@@ -328,17 +326,15 @@ class Examiner:
       prev_token = Token('\n', 'newline')
 
       # remove tokens we don't care about
-      if self.newlines_important == 'always':
-        drop_types = ['whitespace', 'comment', 'line continuation']
-        tokens = self.drop_tokens(self.tokens, drop_types)
+      drop_types = ['whitespace', 'comment', 'line continuation']
+      tokens = self.drop_tokens(self.tokens, drop_types)
 
       if self.newlines_important == 'never':
-        drop_types = ['whitespace', 'comment', 'line continuation', 'newline']
-        tokens = self.drop_tokens(self.tokens, drop_types)
+        drop_types = ['newline']
+        tokens = self.drop_tokens(tokens, drop_types)
 
       if self.newlines_important == 'parens':
-        drop_types = ['whitespace', 'comment', 'line continuation']
-        tokens = self.drop_tokens_parens(drop_types)
+        tokens = self.drop_newlines_inside_parens(tokens)
 
       operand_types = [
         'number',
@@ -392,17 +388,15 @@ class Examiner:
       prev_token = Token('\n', 'newline')
 
       # remove tokens we don't care about
-      if self.newlines_important == 'always':
-        drop_types = ['whitespace', 'comment', 'line continuation']
-        tokens = self.drop_tokens(self.tokens, drop_types)
+      drop_types = ['whitespace', 'comment', 'line continuation']
+      tokens = self.drop_tokens(self.tokens, drop_types)
 
       if self.newlines_important == 'never':
-        drop_types = ['whitespace', 'comment', 'line continuation', 'newline']
-        tokens = self.drop_tokens(self.tokens, drop_types)
+        drop_types = ['newline']
+        tokens = self.drop_tokens(tokens, drop_types)
 
       if self.newlines_important == 'parens':
-        drop_types = ['whitespace', 'comment', 'line continuation']
-        tokens = self.drop_tokens_parens(drop_types)
+        tokens = self.drop_newlines_inside_parens(tokens)
 
       operand_types = [
         'number',
@@ -492,16 +486,13 @@ class Examiner:
     return tokens
 
 
-  def drop_tokens_parens(self, drop_types):
+  def drop_newlines_inside_parens(self, tokens):
     new_list = []
 
     # keep track of open and close parentheses
     parens_count = 0
 
-    for token in self.tokens:
-      if token.group in drop_types:
-        continue
-      
+    for token in tokens:
       if token.group == 'newline' and parens_count > 0:
         continue
 
@@ -539,17 +530,15 @@ class Examiner:
     tokens = self.tokens
 
     # remove tokens we don't care about
-    if self.newlines_important == 'always':
-      drop_types = ['whitespace', 'comment', 'line continuation']
-      tokens = self.drop_tokens(self.tokens, drop_types)
+    drop_types = ['whitespace', 'comment', 'line continuation']
+    tokens = self.drop_tokens(self.tokens, drop_types)
 
     if self.newlines_important == 'never':
-      drop_types = ['whitespace', 'comment', 'line continuation', 'newline']
-      tokens = self.drop_tokens(self.tokens, drop_types)
+      drop_types = ['newline']
+      tokens = self.drop_tokens(tokens, drop_types)
 
     if self.newlines_important == 'parens':
-      drop_types = ['whitespace', 'comment', 'line continuation']
-      tokens = self.drop_tokens_parens(drop_types)
+      tokens = self.drop_newlines_inside_parens(tokens)
 
     two_operand_count = 0
     prev_token = Token('\n', 'newline')
@@ -576,17 +565,15 @@ class Examiner:
     tokens = self.tokens
 
     # remove tokens we don't care about
-    if self.newlines_important == 'always':
-      drop_types = ['whitespace', 'comment', 'line continuation']
-      tokens = self.drop_tokens(self.tokens, drop_types)
+    drop_types = ['whitespace', 'comment', 'line continuation']
+    tokens = self.drop_tokens(self.tokens, drop_types)
 
     if self.newlines_important == 'never':
-      drop_types = ['whitespace', 'comment', 'line continuation', 'newline']
-      tokens = self.drop_tokens(self.tokens, drop_types)
+      drop_types = ['newline']
+      tokens = self.drop_tokens(tokens, drop_types)
 
     if self.newlines_important == 'parens':
-      drop_types = ['whitespace', 'comment', 'line continuation']
-      tokens = self.drop_tokens_parens(drop_types)
+      tokens = self.drop_newlines_inside_parens(tokens)
 
     value_types = ['number', 'string', 'symbol']
 

@@ -199,7 +199,7 @@ class CBasicExaminer(Examiner):
 
   # line numbers reduce confidence
   def calc_line_format_confidence(self):
-    lines = self.split_tokens(self.tokens)
+    lines = self.split_tokens_into_lines(self.tokens)
     num_lines = 0
     num_lines_correct = 0
 
