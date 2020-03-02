@@ -1,3 +1,5 @@
+import re
+
 from codestat_token import Token
 from token_builders import TokenBuilder
 
@@ -34,7 +36,8 @@ class DbaseSpecialFunctionTokenBuilder(TokenBuilder):
     if len(line_printable_tokens) == 0:
       return 0
 
-    if line_printable_tokens[-1].text.lower() not in ['if', '(', '.and.', '.or', '.not.']:
+    prev_tokens = ['if', 'case', 'while', '(', '.and.', '.or', '.not.']
+    if line_printable_tokens[-1].text.lower() not in prev_tokens:
       return 0
 
     return len(self.text)
@@ -259,6 +262,100 @@ class KeywordCommentTokenBuilder(TokenBuilder):
         score = len(self.text)
     else:
       if self.token1.lower() in self.legals:
+        score = len(self.text)
+
+    return score
+
+
+# accept characters to match item in list
+class KeywordComment2TokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self, legals, case_sensitive):
+    if case_sensitive:
+      self.legals = legals
+    else:
+      self.legals = list(map(str.lower, legals))
+
+    self.case_sensitive = case_sensitive
+
+    if case_sensitive:
+      self.regex = re.compile('(DO)( +)(CASE)(.*)')
+    else:
+      self.regex = re.compile('(DO)( +)(CASE)(.*)', re.IGNORECASE)
+
+    self.text = None
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    m = re.match(self.regex, self.text)
+    if m is not None:
+      g = m.groups()
+      if len(g) != 4:
+        return None
+
+    token1 = Token(g[0], 'keyword')
+    token2 = Token(g[1], 'whitespace')
+    token3 = Token(g[2], 'keyword')
+    token4 = Token(g[3], 'comment')
+
+    tokens = [token1, token2, token3, token4]
+
+    return tokens
+
+
+  def accept(self, candidate, c):
+    if c in ['\n', '\r']:
+      return False
+
+    if self.case_sensitive:
+      if re.match(self.regex, candidate) is not None:
+        return True
+    else:
+      if re.match(self.regex, candidate.lower()) is not None:
+        return True
+
+    if len(candidate) == 0:
+      return c.lower() == 'd'
+
+    if len(candidate) == 1:
+      return c.lower() == 'o'
+
+    if candidate[-1].lower() == 'o':
+      return c.lower() == ' '
+
+    if candidate[-1].lower() == ' ':
+      return c.lower() in [' ', 'c']
+
+    if candidate[-1].lower() == 'c':
+      return c.lower() == 'a'
+
+    if candidate[-1].lower() == 'a':
+      return c.lower() == 's'
+
+    if candidate[-1].lower() == 's':
+      return c.lower() == 'e'
+
+    return False
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    score = 0
+    if self.case_sensitive:
+      if re.match('do +case.+', self.text) is not None:
+        score = len(self.text)
+    else:
+      if re.match('do +case.+', self.text.lower()) is not None:
         score = len(self.text)
 
     return score

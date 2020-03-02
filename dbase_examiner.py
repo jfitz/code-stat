@@ -22,6 +22,7 @@ from dbase_token_builders import (
   DbaseFilenameTokenBuilder,
   BracketedStringTokenBuilder,
   KeywordCommentTokenBuilder,
+  KeywordComment2TokenBuilder,
   TextBlockTokenBuilder
 )
 from examiner import Examiner
@@ -45,6 +46,7 @@ class DbaseExaminer(Examiner):
     DbaseFilenameTokenBuilder.__escape_z__()
     BracketedStringTokenBuilder.__escape_z__()
     KeywordCommentTokenBuilder.__escape_z__()
+    KeywordComment2TokenBuilder.__escape_z__()
     TextBlockTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
@@ -140,7 +142,8 @@ class DbaseExaminer(Examiner):
         'LIKE', 'LOCATE', 'LOCA',
         'OTHERWISE', 'OTHE',
         'PACK', 'PICTURE', 'PICT',
-        'READ', 'RELEASE', 'RELE', 'REPLACE', 'REPL', 'RETURN', 'RETU',
+        'READ', 'RECALL', 'RECA', 'RELEASE', 'RELE', 'REPLACE', 'REPL',
+        'RETURN', 'RETU',
         'SAVE', 'SAY', 'SELECT', 'SELE', 'SET', 'SKIP', 'STORE', 'STOR', 'SUM',
         'TO',
         'USE', 'USING', 'USIN',
@@ -213,6 +216,8 @@ class DbaseExaminer(Examiner):
       ]
 
     keyword_comment_tb = KeywordCommentTokenBuilder(keyword_comments, False)
+
+    keyword_comment2_tb = KeywordComment2TokenBuilder(['DO', 'CASE'], False)
 
     if version == 'ii':
       values = [
@@ -288,6 +293,7 @@ class DbaseExaminer(Examiner):
       real_exponent_tb,
       keyword_tb,
       keyword_comment_tb,
+      keyword_comment2_tb,
       values_tb,
       groupers_tb,
       special_function_tb,
