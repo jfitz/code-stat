@@ -57,6 +57,7 @@ class HTMLExaminer(Examiner):
     unicode_tb = HTMLUnicodeTokenBuilder()
 
     groupers_tb = ListTokenBuilder(['<', '</', '>', '/>'], 'group', False)
+    group_starts = ['<']
     group_ends = ['>', '/>']
 
     identifier_tb = HTMLIdentifierTokenBuilder()
@@ -142,6 +143,7 @@ class HTMLExaminer(Examiner):
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     self.calc_operator_3_confidence(group_ends)
+    self.calc_operator_4_confidence(group_starts)
     # self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()
     self.calc_statistics()

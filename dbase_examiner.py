@@ -122,9 +122,11 @@ class DbaseExaminer(Examiner):
     if version == 'ii':
       special_chars = ['*', '#']
 
-    special_function_tb = DbaseSpecialFunctionTokenBuilder(special_chars)
+    previous = ['if', 'case', 'while', 'store', '(', '.and.', '.or', '.not.']
+    special_function_tb = DbaseSpecialFunctionTokenBuilder(special_chars, previous)
 
     groupers = ['(', ')', ',']
+    group_starts = ['(', ',']
     group_ends = [')']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', True)
@@ -332,6 +334,7 @@ class DbaseExaminer(Examiner):
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     self.calc_operator_3_confidence(group_ends)
+    self.calc_operator_4_confidence(group_starts)
     operand_types = ['number', 'number', 'function', 'value', 'string', 'filename']
     self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()

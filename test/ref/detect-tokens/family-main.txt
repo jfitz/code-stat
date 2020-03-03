@@ -1,10 +1,22 @@
 [
     {
-        "language":"prolog",
+        "language":"html",
         "tokens":[
             {
-                "type":"comment",
-                "value":"%main.pl"
+                "type":"punctuation",
+                "value":"%"
+            },
+            {
+                "type":"identifier",
+                "value":"main"
+            },
+            {
+                "type":"punctuation",
+                "value":"."
+            },
+            {
+                "type":"identifier",
+                "value":"pl"
             },
             {
                 "type":"newline",
@@ -15,15 +27,19 @@
                 "value":"\r\n"
             },
             {
-                "type":"operator",
-                "value":":-"
+                "type":"punctuation",
+                "value":":"
+            },
+            {
+                "type":"punctuation",
+                "value":"-"
             },
             {
                 "type":"whitespace",
                 "value":" "
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":"["
             },
             {
@@ -31,11 +47,11 @@
                 "value":"family"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":"]"
             },
             {
-                "type":"statement terminator",
+                "type":"punctuation",
                 "value":"."
             },
             {
@@ -48,18 +64,34 @@
             },
             {
                 "type":"identifier",
-                "value":"print_query_true"
+                "value":"print"
             },
             {
-                "type":"group",
+                "type":"punctuation",
+                "value":"_"
+            },
+            {
+                "type":"identifier",
+                "value":"query"
+            },
+            {
+                "type":"punctuation",
+                "value":"_"
+            },
+            {
+                "type":"identifier",
+                "value":"true"
+            },
+            {
+                "type":"punctuation",
                 "value":"("
             },
             {
-                "type":"variable",
+                "type":"identifier",
                 "value":"Q"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":")"
             },
             {
@@ -67,8 +99,12 @@
                 "value":" "
             },
             {
-                "type":"operator",
-                "value":":-"
+                "type":"punctuation",
+                "value":":"
+            },
+            {
+                "type":"punctuation",
+                "value":"-"
             },
             {
                 "type":"newline",
@@ -83,15 +119,15 @@
                 "value":"forall"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":"("
             },
             {
-                "type":"variable",
+                "type":"identifier",
                 "value":"Q"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":","
             },
             {
@@ -103,7 +139,7 @@
                 "value":"writeln"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":"("
             },
             {
@@ -111,23 +147,23 @@
                 "value":"true"
             },
             {
-                "type":"operator",
+                "type":"punctuation",
                 "value":":"
             },
             {
-                "type":"variable",
+                "type":"identifier",
                 "value":"Q"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":")"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":")"
             },
             {
-                "type":"statement terminator",
+                "type":"punctuation",
                 "value":"."
             },
             {
@@ -140,18 +176,34 @@
             },
             {
                 "type":"identifier",
-                "value":"print_query_false"
+                "value":"print"
             },
             {
-                "type":"group",
+                "type":"punctuation",
+                "value":"_"
+            },
+            {
+                "type":"identifier",
+                "value":"query"
+            },
+            {
+                "type":"punctuation",
+                "value":"_"
+            },
+            {
+                "type":"identifier",
+                "value":"false"
+            },
+            {
+                "type":"punctuation",
                 "value":"("
             },
             {
-                "type":"variable",
+                "type":"identifier",
                 "value":"Q"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":")"
             },
             {
@@ -159,8 +211,12 @@
                 "value":" "
             },
             {
-                "type":"operator",
-                "value":":-"
+                "type":"punctuation",
+                "value":":"
+            },
+            {
+                "type":"punctuation",
+                "value":"-"
             },
             {
                 "type":"newline",
@@ -175,23 +231,27 @@
                 "value":"forall"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":"("
             },
             {
-                "type":"operator",
-                "value":"\\+"
+                "type":"punctuation",
+                "value":"\\"
+            },
+            {
+                "type":"punctuation",
+                "value":"+"
             },
             {
                 "type":"whitespace",
                 "value":" "
             },
             {
-                "type":"variable",
+                "type":"identifier",
                 "value":"Q"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":","
             },
             {
@@ -203,7 +263,7 @@
                 "value":"writeln"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":"("
             },
             {
@@ -211,23 +271,23 @@
                 "value":"false"
             },
             {
-                "type":"operator",
+                "type":"punctuation",
                 "value":":"
             },
             {
-                "type":"variable",
+                "type":"identifier",
                 "value":"Q"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":")"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":")"
             },
             {
-                "type":"statement terminator",
+                "type":"punctuation",
                 "value":"."
             },
             {
@@ -240,10 +300,18 @@
             },
             {
                 "type":"identifier",
-                "value":"run_opt"
+                "value":"run"
             },
             {
-                "type":"group",
+                "type":"punctuation",
+                "value":"_"
+            },
+            {
+                "type":"identifier",
+                "value":"opt"
+            },
+            {
+                "type":"punctuation",
                 "value":"("
             },
             {
@@ -251,7 +319,7 @@
                 "value":"1"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":")"
             },
             {
@@ -259,8 +327,12 @@
                 "value":" "
             },
             {
-                "type":"operator",
-                "value":":-"
+                "type":"punctuation",
+                "value":":"
+            },
+            {
+                "type":"punctuation",
+                "value":"-"
             },
             {
                 "type":"whitespace",
@@ -279,7 +351,7 @@
                 "value":"write"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":"("
             },
             {
@@ -287,11 +359,11 @@
                 "value":"'>   Enter a query followed by a period.'"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":")"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":","
             },
             {
@@ -303,7 +375,7 @@
                 "value":"nl"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":","
             },
             {
@@ -319,7 +391,7 @@
                 "value":"read"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":"("
             },
             {
@@ -327,11 +399,11 @@
                 "value":"Query"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":")"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":","
             },
             {
@@ -344,10 +416,26 @@
             },
             {
                 "type":"identifier",
-                "value":"print_query_true"
+                "value":"print"
             },
             {
-                "type":"group",
+                "type":"punctuation",
+                "value":"_"
+            },
+            {
+                "type":"identifier",
+                "value":"query"
+            },
+            {
+                "type":"punctuation",
+                "value":"_"
+            },
+            {
+                "type":"identifier",
+                "value":"true"
+            },
+            {
+                "type":"punctuation",
                 "value":"("
             },
             {
@@ -355,11 +443,11 @@
                 "value":"Query"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":")"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":","
             },
             {
@@ -372,10 +460,26 @@
             },
             {
                 "type":"identifier",
-                "value":"print_query_false"
+                "value":"print"
             },
             {
-                "type":"group",
+                "type":"punctuation",
+                "value":"_"
+            },
+            {
+                "type":"identifier",
+                "value":"query"
+            },
+            {
+                "type":"punctuation",
+                "value":"_"
+            },
+            {
+                "type":"identifier",
+                "value":"false"
+            },
+            {
+                "type":"punctuation",
                 "value":"("
             },
             {
@@ -383,11 +487,11 @@
                 "value":"Query"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":")"
             },
             {
-                "type":"statement terminator",
+                "type":"punctuation",
                 "value":"."
             },
             {
@@ -400,10 +504,18 @@
             },
             {
                 "type":"identifier",
-                "value":"run_opt"
+                "value":"run"
             },
             {
-                "type":"group",
+                "type":"punctuation",
+                "value":"_"
+            },
+            {
+                "type":"identifier",
+                "value":"opt"
+            },
+            {
+                "type":"punctuation",
                 "value":"("
             },
             {
@@ -411,7 +523,7 @@
                 "value":"2"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":")"
             },
             {
@@ -419,8 +531,12 @@
                 "value":" "
             },
             {
-                "type":"operator",
-                "value":":-"
+                "type":"punctuation",
+                "value":":"
+            },
+            {
+                "type":"punctuation",
+                "value":"-"
             },
             {
                 "type":"whitespace",
@@ -431,7 +547,7 @@
                 "value":"write"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":"("
             },
             {
@@ -439,11 +555,11 @@
                 "value":"'Goodbye'"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":")"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":","
             },
             {
@@ -455,7 +571,7 @@
                 "value":"nl"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":","
             },
             {
@@ -467,7 +583,7 @@
                 "value":"halt"
             },
             {
-                "type":"statement terminator",
+                "type":"punctuation",
                 "value":"."
             },
             {
@@ -484,18 +600,26 @@
             },
             {
                 "type":"identifier",
-                "value":"run_opt"
+                "value":"run"
             },
             {
-                "type":"group",
-                "value":"("
-            },
-            {
-                "type":"variable",
+                "type":"punctuation",
                 "value":"_"
             },
             {
-                "type":"group",
+                "type":"identifier",
+                "value":"opt"
+            },
+            {
+                "type":"punctuation",
+                "value":"("
+            },
+            {
+                "type":"punctuation",
+                "value":"_"
+            },
+            {
+                "type":"punctuation",
                 "value":")"
             },
             {
@@ -503,8 +627,12 @@
                 "value":" "
             },
             {
-                "type":"operator",
-                "value":":-"
+                "type":"punctuation",
+                "value":":"
+            },
+            {
+                "type":"punctuation",
+                "value":"-"
             },
             {
                 "type":"whitespace",
@@ -515,7 +643,7 @@
                 "value":"write"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":"("
             },
             {
@@ -523,11 +651,11 @@
                 "value":"'Invalid option'"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":")"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":","
             },
             {
@@ -539,7 +667,7 @@
                 "value":"nl"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":","
             },
             {
@@ -551,7 +679,7 @@
                 "value":"halt"
             },
             {
-                "type":"statement terminator",
+                "type":"punctuation",
                 "value":"."
             },
             {
@@ -575,8 +703,12 @@
                 "value":" "
             },
             {
-                "type":"operator",
-                "value":":-"
+                "type":"punctuation",
+                "value":":"
+            },
+            {
+                "type":"punctuation",
+                "value":"-"
             },
             {
                 "type":"whitespace",
@@ -595,7 +727,7 @@
                 "value":"nl"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":","
             },
             {
@@ -611,7 +743,7 @@
                 "value":"write"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":"("
             },
             {
@@ -619,11 +751,11 @@
                 "value":"'>   Enter a selection followed by a period.'"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":")"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":","
             },
             {
@@ -635,7 +767,7 @@
                 "value":"nl"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":","
             },
             {
@@ -651,7 +783,7 @@
                 "value":"write"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":"("
             },
             {
@@ -659,11 +791,11 @@
                 "value":"'>   1. Run a query'"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":")"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":","
             },
             {
@@ -675,7 +807,7 @@
                 "value":"nl"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":","
             },
             {
@@ -691,7 +823,7 @@
                 "value":"write"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":"("
             },
             {
@@ -699,11 +831,11 @@
                 "value":"'>   2. Exit'"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":")"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":","
             },
             {
@@ -715,7 +847,7 @@
                 "value":"nl"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":","
             },
             {
@@ -727,7 +859,7 @@
                 "value":"nl"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":","
             },
             {
@@ -743,7 +875,7 @@
                 "value":"read"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":"("
             },
             {
@@ -751,11 +883,11 @@
                 "value":"Choice"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":")"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":","
             },
             {
@@ -768,10 +900,18 @@
             },
             {
                 "type":"identifier",
-                "value":"run_opt"
+                "value":"run"
             },
             {
-                "type":"group",
+                "type":"punctuation",
+                "value":"_"
+            },
+            {
+                "type":"identifier",
+                "value":"opt"
+            },
+            {
+                "type":"punctuation",
                 "value":"("
             },
             {
@@ -779,11 +919,11 @@
                 "value":"Choice"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":")"
             },
             {
-                "type":"group",
+                "type":"punctuation",
                 "value":","
             },
             {
@@ -795,7 +935,7 @@
                 "value":"main"
             },
             {
-                "type":"statement terminator",
+                "type":"punctuation",
                 "value":"."
             },
             {

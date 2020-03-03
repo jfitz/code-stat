@@ -11,8 +11,9 @@ class DbaseSpecialFunctionTokenBuilder(TokenBuilder):
     return 'Escape ?Z'
 
 
-  def __init__(self, chars):
+  def __init__(self, chars, previous):
     self.chars = chars
+    self.previous = previous
     self.text = None
 
 
@@ -36,8 +37,7 @@ class DbaseSpecialFunctionTokenBuilder(TokenBuilder):
     if len(line_printable_tokens) == 0:
       return 0
 
-    prev_tokens = ['if', 'case', 'while', '(', '.and.', '.or', '.not.']
-    if line_printable_tokens[-1].text.lower() not in prev_tokens:
+    if line_printable_tokens[-1].text.lower() not in self.previous:
       return 0
 
     return len(self.text)

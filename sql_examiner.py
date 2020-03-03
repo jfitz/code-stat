@@ -75,59 +75,60 @@ class SqlExaminer(Examiner):
     ]
 
     groupers = ['(', ')', ',']
+    group_starts = ['(', ',']
     group_ends = [')']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     keywords = [
-      'ABSOLUTE', 'ACTION', 'ADD', 'ALL', 'ALLOCATE', 'ALTER', 'AND', 'ANY', 'ARE',
+      'ABSOLUTE', 'ACTION', 'ADD', 'ALL', 'ALLOCATE', 'ALTER', 'ARE',
       'AS', 'ASC', 'ASSERTION', 'AT', 'AUTHORIZATION',
-      'BEFORE', 'BEGIN', 'BETWEEN', 'BIT', 'BIT_LENGTH', 'BOTH', 'BY',
+      'BEFORE', 'BEGIN', 'BETWEEN', 'BIT_LENGTH', 'BOTH', 'BY',
       'CALL', 'CASCADE', 'CASCADED', 'CASE', 'CAST', 'CATALOG',
-      'CHAR', 'CHAR_LENGTH', 'CHARACTER', 'CHARACTER_LENGTH',
+      'CHAR_LENGTH', 'CHARACTER_LENGTH',
       'CHECK', 'COALESCE', 'COLLATE', 'COLLATION',
       'COLUMN', 'COMMIT', 'CONDITION', 'CONNECT',
       'CONNECTION', 'CONSTRAINT', 'CONSTRAINTS', 'CONTAINS', 'CONTINUE',
       'CONVERT', 'CORRESPONDING', 'COUNT', 'CREATE', 'CROSS',
       'CURRENT', 'CURRENT_DATE', 'CURRENT_PATH', 'CURRENT_TIME', 'CURRENT_TIMESTAMP',
       'CURRENT_USER', 'CURSOR',
-      'DATE', 'DAY', 'DEALLOCATE', 'DEC', 'DECIMAL', 'DECLARE', 'DEFAULT',
+      'DAY', 'DEALLOCATE', 'DEC', 'DECLARE', 'DEFAULT',
       'DEFERRABLE', 'DEFERRED', 'DELETE', 'DEPTH', 'DESC', 'DESCRIBE',
       'DESCRIPTOR', 'DETERMINISTIC', 'DIAGNOSTICS', 'DISCONNECT', 'DISTINCT',
-      'DO', 'DOMAIN', 'DOUBLE', 'DROP',
+      'DO', 'DOMAIN', 'DROP',
       'ELSE', 'END', 'ESCAPE', 'EXCEPT', 'EXCEPTION',
       'EXEC', 'EXECUTE', 'EXISTS', 'EXIT', 'EXTERNAL', 'EXTRACT',
-      'FALSE', 'FETCH', 'FIRST', 'FLOAT', 'FOR', 'FOREIGN', 'FOUND',
+      'FETCH', 'FIRST', 'FOR', 'FOREIGN', 'FOUND',
       'FROM', 'FULL', 'FUNCTION', 'FUSION',
       'GENERAL', 'GET', 'GLOBAL', 'GO', 'GOTO', 'GRANT', 'GROUP',
       'HANDLER', 'HAVING', 'HOUR',
       'IDENTITY', 'IF', 'IMMEDIATE', 'IN', 'INDICATOR', 'INITIALLY', 'INNER',
-      'INOUT', 'INPUT', 'INSENSITIVE', 'INSERT', 'INT', 'INTEGER', 'INTERSECT',
+      'INOUT', 'INPUT', 'INSENSITIVE', 'INSERT', 'INT', 'INTERSECT',
       'INTERVAL', 'INTO', 'IS', 'ISOLATION',
       'JOIN',
       'KEY',
       'LANGUAGE', 'LAST', 'LEADING', 'LEFT', 'LEVEL', 'LIKE', 'LOCAL',
       'MATCH', 'MAX', 'MIN', 'MINUTE', 'MODULE', 'MONTH',
-      'NAMES', 'NATIONAL', 'NATURAL', 'NCHAR', 'NEXT', 'NO', 'NOT',
-      'NULL', 'NULLIF', 'NUMERIC',
-      'OCTET_LENGTH', 'OF', 'OFF', 'ON', 'ONLY', 'OPEN', 'OPTION', 'OR', 'ORDER',
+      'NAMES', 'NATIONAL', 'NATURAL', 'NEXT', 'NO', 'NOT',
+      'NULLIF', 'NUMERIC',
+      'OCTET_LENGTH', 'OF', 'ONLY', 'OPEN', 'OPTION', 'ORDER',
       'OUTPUT', 'OVERLAPS',
       'PAD', 'PARAMETER', 'PARTIAL', 'PRECISION', 'PREPARE', 'PRESERVE',
       'PRIMARY', 'PRIOR', 'PRIVILEGES', 'PROCEDURE', 'PUBLIC',
-      'READ', 'REAL', 'REFERENCES', 'RELATIVE', 'RESTRICT',
+      'READ', 'REFERENCES', 'RELATIVE', 'RESTRICT',
       'RETURN', 'RETURNS', 'REVOKE', 'RIGHT', 'ROLLBACK', 'ROLLUP',
       'READS', 'ROWS',
       'SCHEMA', 'SCROLL', 'SECOND', 'SECTION', 'SELECT', 'SESSION',
-      'SESSION_USER', 'SET', 'SIZE', 'SMALLINT', 'SOME', 'SPACE',
+      'SESSION_USER', 'SET', 'SIZE', 'SOME', 'SPACE',
       'SPECIFIC', 'SQL', 'SQLCODE', 'SQLERROR',
       'SQLEXCEPTION', 'SQLSTATE', 'SQLWARNING', 'SUBSTRING', 'SUM',
       'SYSTEM_USER',
       'TABLE', 'TEMPORARY', 'THEN', 'TIME', 'TIMESTAMP', 'TIMEZONE_HOUR',
       'TIMEZONE_MINUTE', 'TO', 'TRAILING', 'TRANSACTION', 'TRANSLATE',
-      'TRANSLATION', 'TRIM', 'TRUE',
+      'TRANSLATION', 'TRIM',
       'UNDO', 'UNION', 'UNIQUE', 'UNKNOWN', 'UPDATE', 'UPPER', 'USAGE',
       'USER', 'USING',
-      'VALUE', 'VALUES', 'VARCHAR', 'VARYING', 'VIEW',
+      'VALUE', 'VALUES', 'VARYING', 'VIEW',
       'WHEN', 'WHENEVER', 'WHERE', 'WITH', 'WORK', 'WRITE',
       'YEAR',
       'ZONE'
@@ -135,8 +136,8 @@ class SqlExaminer(Examiner):
 
     keywords_99 = [
       'AFTER', 'ARRAY', 'ASENSITIVE', 'ASYMMETRIC', 'ATOMIC',
-      'BINARY', 'BLOB', 'BOOLEAN', 'BREADTH',
-      'CLOB', 'CLOSE', 'CONSTRUCTOR', 'CUBE',
+      'BINARY', 'BOOLEAN', 'BREADTH',
+      'CLOSE', 'CONSTRUCTOR', 'CUBE',
       'CURRENT_DEFAULT_TRANSFORM_GROUP', 'CURRENT_ROLE',
       'CURRENT_TRANSFORM_GROUP_FOR_TYPE', 'CYCLE',
       'DYNAMIC',
@@ -147,7 +148,7 @@ class SqlExaminer(Examiner):
       'ITERATE',
       'LARGE', 'LATERAL', 'LEAVE', 'LOCALTIME', 'LOCALTIMESTAMP', 'LOCATOR', 'LOOP',
       'MAP', 'METHOD', 'MODIFIES',
-      'NCLOB', 'NEW', 'NONE',
+      'NEW',
       'OBJECT', 'OLD', 'ORDINALITY', 'OUT', 'OUTER',
       'PARTITION',
       'RECURSIVE', 'REF', 'REFERENCING', 'RELEASE', 'REPEAT', 'REGIONAL',
@@ -160,7 +161,6 @@ class SqlExaminer(Examiner):
     ]
 
     keywords_2003 = [
-      'BIGINT',
       'CALLED',
       'ELEMENT',
       'LOWER',
@@ -243,6 +243,24 @@ class SqlExaminer(Examiner):
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
 
+    values = ['TRUE', 'FALSE', 'NULL', 'OFF', 'ON', 'NONE']
+
+    values_tb = ListTokenBuilder(values, 'value', False)
+
+    types = [
+      'BIGINT', 'BIT', 'BLOB',
+      'CHAR', 'CHARACTER', 'CLOB',
+      'DATE', 'DECIMAL', 'DOUBLE',
+      'FLOAT',
+      'INTEGER',
+      'NCHAR', 'NCLOB',
+      'REAL',
+      'SMALLINT',
+      'VARCHAR'
+    ]
+
+    type_tb = ListTokenBuilder(types, 'type', False)
+
     invalid_token_builder = InvalidTokenBuilder()
 
     tokenbuilders = [
@@ -257,6 +275,7 @@ class SqlExaminer(Examiner):
       terminators_tb,
       groupers_tb,
       keyword_tb,
+      values_tb,
       identifier_tb,
       bracketed_identifier_tb,
       comment_tb,
@@ -273,6 +292,7 @@ class SqlExaminer(Examiner):
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     self.calc_operator_3_confidence(group_ends)
+    self.calc_operator_4_confidence(group_starts)
     # operand_types = ['number', 'string', 'symbol']
     # self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()

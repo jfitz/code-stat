@@ -75,6 +75,7 @@ class VisualBasic6Examiner(Examiner):
     ]
 
     groupers = ['(', ')', ',', '[', ']']
+    group_starts = ['(', '[', ',']
     group_ends = [')', ']']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
@@ -194,10 +195,13 @@ class VisualBasic6Examiner(Examiner):
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
 
+    self.convert_keywords_to_identifiers()
+
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     self.calc_operator_3_confidence(group_ends)
+    self.calc_operator_4_confidence(group_starts)
     operand_types = ['number', 'string', 'symbol']
     self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()

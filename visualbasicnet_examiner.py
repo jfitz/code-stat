@@ -76,7 +76,7 @@ class VisualBasicNETExaminer(Examiner):
       '&', '&=', '*', '*=', '/', '/=', '\\', '\\=', '^', '^=',
       '+', '+=', '-', '-=', '>>', '>>=', '<<', '<<=',
       '.', '=', '<', '<=', '>', '>=', '<>',
-      'AddressOf', 'And', 'AndAlso', 'Is', 'IsNot', 'Like',
+      'AddressOf', 'And', 'AndAlso', 'In', 'Is', 'IsNot', 'Like',
       'Or', 'OrElse', 'Xor'
     ]
 
@@ -85,6 +85,7 @@ class VisualBasicNETExaminer(Examiner):
     ]
 
     groupers = ['(', ')', ',', '[', ']']
+    group_starts = ['(', '[', ',']
     group_ends = [')', ']']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
@@ -100,7 +101,7 @@ class VisualBasicNETExaminer(Examiner):
       'Finally', 'For', 'For Each', 'Friend', 'Function',
       'Get', 'GetType', 'GetXMLNamespace', 'Global', 'GoSub', 'GoTo',
       'Handles',
-      'If', 'Implements', 'Imports', 'In', 'Inherits', 'Interface',
+      'If', 'Implements', 'Imports', 'Inherits', 'Interface',
       'Let', 'Lib', 'Loop',
       'Module', 'MustInherit', 'MustOverride',
       'Namespace', 'Narrowing', 'New Constraint', 'New Operator', 'Next',
@@ -111,8 +112,8 @@ class VisualBasicNETExaminer(Examiner):
       'RaiseEvent', 'ReadOnly', 'ReDim', 'REM', 'RemoveHandler', 'Resume',
       'Return', 'Select', 'Set', 'Shadows', 'Shared',
       'Static', 'Step', 'Stop', 'Structure', 'Sub',
-      'SyncLock', 'Then', 'Throw', 'To', 'True', 'Try', 'TryCast',
-      'TypeOf…Is', 'Using',
+      'SyncLock', 'Then', 'Throw', 'To', 'Try', 'TryCast',
+      'TypeOf', 'Using',
       'Wend', 'When', 'While', 'Widening', 'With', 'WithEvents',
       'WriteOnly'
     ]
@@ -137,7 +138,7 @@ class VisualBasicNETExaminer(Examiner):
       'Date', 'Decimal', 'Double',
       'Integer',
       'Long',
-      'MyBase', 'MyClass', 'Object',
+      'Object',
       'SByte', 'Short', 'Single', 'String',
       'UInteger', 'ULong', 'UShort',
     ]
@@ -145,7 +146,8 @@ class VisualBasicNETExaminer(Examiner):
     types_tb = ListTokenBuilder(types, 'type', True)
 
     values = [
-      'False', 'True', 'Nothing'
+      'False', 'True', 'Nothing',
+      'MyBase', 'MyClass'
     ]
 
     values_tb = ListTokenBuilder(values, 'value', True)
@@ -189,6 +191,7 @@ class VisualBasicNETExaminer(Examiner):
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     self.calc_operator_3_confidence(group_ends)
+    self.calc_operator_4_confidence(group_starts)
     operand_types = ['number', 'string', 'symbol']
     self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()

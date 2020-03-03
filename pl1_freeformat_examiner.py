@@ -54,6 +54,7 @@ class PL1FreeFormatExaminer(PL1Examiner):
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     self.calc_operator_3_confidence(self.group_ends)
+    self.calc_operator_4_confidence(self.group_starts)
     operand_types = ['number', 'symbol']
     self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()

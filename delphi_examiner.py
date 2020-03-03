@@ -21,7 +21,8 @@ from pascal_token_builders import (
   BraceCommentTokenBuilder
 )
 from cx_token_builders import (
-  SlashSlashCommentTokenBuilder
+  SlashSlashCommentTokenBuilder,
+  ClassTypeTokenBuilder
 )
 from examiner import Examiner
 
@@ -43,6 +44,7 @@ class DelphiExaminer(Examiner):
     ParenStarCommentTokenBuilder.__escape_z__()
     BraceCommentTokenBuilder.__escape_z__()
     SlashSlashCommentTokenBuilder.__escape_z__()
+    ClassTypeTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
@@ -62,6 +64,7 @@ class DelphiExaminer(Examiner):
     binary_constant_tb = PrefixedIntegerTokenBuilder('%', True, '01')
     char_constant_tb = PrefixedIntegerTokenBuilder('#', True, '0123456789')
     identifier_tb = IdentifierTokenBuilder()
+    class_tb = ClassTypeTokenBuilder()
     string_tb = StringTokenBuilder(["'"], False)
 
     brace_comment_tb = BraceCommentTokenBuilder()
@@ -87,6 +90,7 @@ class DelphiExaminer(Examiner):
     ]
 
     groupers = ['(', ')', ',', '[', ']']
+    group_starts = ['(', '[', ',']
     group_ends = [')', ']']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
@@ -143,6 +147,7 @@ class DelphiExaminer(Examiner):
       known_operator_tb,
       groupers_tb,
       identifier_tb,
+      class_tb,
       string_tb,
       brace_comment_tb,
       paren_star_comment_tb,
@@ -160,6 +165,7 @@ class DelphiExaminer(Examiner):
     self.calc_operator_confidence()
     self.calc_operator_2_confidence()
     self.calc_operator_3_confidence(group_ends)
+    self.calc_operator_4_confidence(group_starts)
     operand_types = ['number', 'string', 'identifier', 'variable', 'symbol']
     self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()

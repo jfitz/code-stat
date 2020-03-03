@@ -283,8 +283,10 @@ class Examiner:
       prev_token = Token('\n', 'newline')
 
       # remove tokens we don't care about
-      drop_types = ['whitespace', 'comment', 'line continuation']
+      drop_types = ['whitespace', 'comment']
       tokens = self.drop_tokens(self.tokens, drop_types)
+
+      tokens = self.join_continued_lines(tokens)
 
       if self.newlines_important == 'never':
         drop_types = ['newline']
@@ -326,8 +328,10 @@ class Examiner:
       prev_token = Token('\n', 'newline')
 
       # remove tokens we don't care about
-      drop_types = ['whitespace', 'comment', 'line continuation']
+      drop_types = ['whitespace', 'comment']
       tokens = self.drop_tokens(self.tokens, drop_types)
+
+      tokens = self.join_continued_lines(tokens)
 
       if self.newlines_important == 'never':
         drop_types = ['newline']
@@ -388,8 +392,10 @@ class Examiner:
       prev_token = Token('\n', 'newline')
 
       # remove tokens we don't care about
-      drop_types = ['whitespace', 'comment', 'line continuation']
+      drop_types = ['whitespace', 'comment']
       tokens = self.drop_tokens(self.tokens, drop_types)
+
+      tokens = self.join_continued_lines(tokens)
 
       if self.newlines_important == 'never':
         drop_types = ['newline']
@@ -412,11 +418,13 @@ class Examiner:
       ]
 
       for token in tokens:
+        token_unary_operator = token.text.lower() in (op.lower() for op in self.unary_operators)
         prev_token_postfix_operator = prev_token.text.lower() in (op.lower() for op in self.postfix_operators)
   
         if prev_token.group == 'operator' and \
-          token.group not in operand_types and \
           not prev_token_postfix_operator and \
+          token.group not in operand_types and \
+          not token_unary_operator and \
           token.text not in group_starts:
           errors += 1
           self.errors.append({
@@ -697,14 +705,20 @@ class Examiner:
     prev_token = Token('\n', 'newline')
 
     for token in tokens:
-      if token.group == 'newline' and prev_token.group == 'line continuation':
-        # don't append newlines after line continuations
-        continue
+      keep = True
 
-      if token.group != 'line continuation':
-        # never append line continations
+      # don't append newlines after line continuations
+      # never append line continations
+      if (token.group == 'newline' and prev_token.group == 'line continuation'):
+        keep = False
+
+      if token.group == 'line continuation':
+        keep = False
+
+      if keep:
         new_tokens.append(token)
 
+      # always remember the last token, even if we dropped it
       prev_token = token
 
     return new_tokens

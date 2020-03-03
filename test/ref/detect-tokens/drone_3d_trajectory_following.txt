@@ -1,10 +1,18 @@
 [
     {
-        "language":"python",
+        "language":"rust",
         "tokens":[
             {
                 "type":"string",
-                "value":"\"\"\"\r\nSimulate a quadrotor following a 3D trajectory\r\n\r\nAuthor: Daniel Ingram (daniel-s-ingram)\r\n\"\"\""
+                "value":"\"\""
+            },
+            {
+                "type":"string",
+                "value":"\"\r\nSimulate a quadrotor following a 3D trajectory\r\n\r\nAuthor: Daniel Ingram (daniel-s-ingram)\r\n\""
+            },
+            {
+                "type":"string",
+                "value":"\"\""
             },
             {
                 "type":"newline",
@@ -15,7 +23,7 @@
                 "value":"\r\n"
             },
             {
-                "type":"keyword",
+                "type":"identifier",
                 "value":"from"
             },
             {
@@ -31,7 +39,7 @@
                 "value":" "
             },
             {
-                "type":"keyword",
+                "type":"identifier",
                 "value":"import"
             },
             {
@@ -59,7 +67,7 @@
                 "value":"\r\n"
             },
             {
-                "type":"keyword",
+                "type":"identifier",
                 "value":"import"
             },
             {
@@ -91,7 +99,7 @@
                 "value":"\r\n"
             },
             {
-                "type":"keyword",
+                "type":"identifier",
                 "value":"from"
             },
             {
@@ -107,7 +115,7 @@
                 "value":" "
             },
             {
-                "type":"keyword",
+                "type":"identifier",
                 "value":"import"
             },
             {
@@ -123,7 +131,7 @@
                 "value":"\r\n"
             },
             {
-                "type":"keyword",
+                "type":"identifier",
                 "value":"from"
             },
             {
@@ -139,7 +147,7 @@
                 "value":" "
             },
             {
-                "type":"keyword",
+                "type":"identifier",
                 "value":"import"
             },
             {
@@ -155,7 +163,7 @@
                 "value":"\r\n"
             },
             {
-                "type":"keyword",
+                "type":"identifier",
                 "value":"from"
             },
             {
@@ -179,7 +187,7 @@
                 "value":" "
             },
             {
-                "type":"keyword",
+                "type":"identifier",
                 "value":"import"
             },
             {
@@ -215,7 +223,7 @@
                 "value":" "
             },
             {
-                "type":"value",
+                "type":"identifier",
                 "value":"True"
             },
             {
@@ -227,8 +235,24 @@
                 "value":"\r\n"
             },
             {
-                "type":"comment",
-                "value":"# Simulation parameters"
+                "type":"operator",
+                "value":"#"
+            },
+            {
+                "type":"whitespace",
+                "value":" "
+            },
+            {
+                "type":"identifier",
+                "value":"Simulation"
+            },
+            {
+                "type":"whitespace",
+                "value":" "
+            },
+            {
+                "type":"identifier",
+                "value":"parameters"
             },
             {
                 "type":"newline",
@@ -383,8 +407,24 @@
                 "value":"\r\n"
             },
             {
-                "type":"comment",
-                "value":"# Proportional coefficients"
+                "type":"operator",
+                "value":"#"
+            },
+            {
+                "type":"whitespace",
+                "value":" "
+            },
+            {
+                "type":"identifier",
+                "value":"Proportional"
+            },
+            {
+                "type":"whitespace",
+                "value":" "
+            },
+            {
+                "type":"identifier",
+                "value":"coefficients"
             },
             {
                 "type":"newline",
@@ -539,8 +579,24 @@
                 "value":"\r\n"
             },
             {
-                "type":"comment",
-                "value":"# Derivative coefficients"
+                "type":"operator",
+                "value":"#"
+            },
+            {
+                "type":"whitespace",
+                "value":" "
+            },
+            {
+                "type":"identifier",
+                "value":"Derivative"
+            },
+            {
+                "type":"whitespace",
+                "value":" "
+            },
+            {
+                "type":"identifier",
+                "value":"coefficients"
             },
             {
                 "type":"newline",
@@ -627,7 +683,7 @@
                 "value":"\r\n"
             },
             {
-                "type":"keyword",
+                "type":"identifier",
                 "value":"def"
             },
             {
@@ -675,7 +731,7 @@
                 "value":")"
             },
             {
-                "type":"operator",
+                "type":"group",
                 "value":":"
             },
             {
@@ -688,7 +744,15 @@
             },
             {
                 "type":"string",
-                "value":"'''\r\n    Calculates the necessary thrust and torques for the quadrotor to\r\n    follow the trajectory described by the sets of coefficients\r\n    x_c, y_c, and z_c.\r\n    '''"
+                "value":"''"
+            },
+            {
+                "type":"string",
+                "value":"'\r\n    Calculates the necessary thrust and torques for the quadrotor to\r\n    follow the trajectory described by the sets of coefficients\r\n    x_c, y_c, and z_c.\r\n    '"
+            },
+            {
+                "type":"string",
+                "value":"''"
             },
             {
                 "type":"newline",
@@ -1515,11 +1579,11 @@
                 "value":" "
             },
             {
-                "type":"value",
+                "type":"identifier",
                 "value":"True"
             },
             {
-                "type":"operator",
+                "type":"group",
                 "value":":"
             },
             {
@@ -1559,7 +1623,7 @@
                 "value":"T"
             },
             {
-                "type":"operator",
+                "type":"group",
                 "value":":"
             },
             {
@@ -1571,8 +1635,68 @@
                 "value":"            "
             },
             {
-                "type":"comment",
-                "value":"# des_x_pos = calculate_position(x_c[i], t)"
+                "type":"operator",
+                "value":"#"
+            },
+            {
+                "type":"whitespace",
+                "value":" "
+            },
+            {
+                "type":"identifier",
+                "value":"des_x_pos"
+            },
+            {
+                "type":"whitespace",
+                "value":" "
+            },
+            {
+                "type":"operator",
+                "value":"="
+            },
+            {
+                "type":"whitespace",
+                "value":" "
+            },
+            {
+                "type":"identifier",
+                "value":"calculate_position"
+            },
+            {
+                "type":"group",
+                "value":"("
+            },
+            {
+                "type":"identifier",
+                "value":"x_c"
+            },
+            {
+                "type":"group",
+                "value":"["
+            },
+            {
+                "type":"identifier",
+                "value":"i"
+            },
+            {
+                "type":"group",
+                "value":"]"
+            },
+            {
+                "type":"group",
+                "value":","
+            },
+            {
+                "type":"whitespace",
+                "value":" "
+            },
+            {
+                "type":"identifier",
+                "value":"t"
+            },
+            {
+                "type":"group",
+                "value":")"
             },
             {
                 "type":"newline",
@@ -1583,8 +1707,68 @@
                 "value":"            "
             },
             {
-                "type":"comment",
-                "value":"# des_y_pos = calculate_position(y_c[i], t)"
+                "type":"operator",
+                "value":"#"
+            },
+            {
+                "type":"whitespace",
+                "value":" "
+            },
+            {
+                "type":"identifier",
+                "value":"des_y_pos"
+            },
+            {
+                "type":"whitespace",
+                "value":" "
+            },
+            {
+                "type":"operator",
+                "value":"="
+            },
+            {
+                "type":"whitespace",
+                "value":" "
+            },
+            {
+                "type":"identifier",
+                "value":"calculate_position"
+            },
+            {
+                "type":"group",
+                "value":"("
+            },
+            {
+                "type":"identifier",
+                "value":"y_c"
+            },
+            {
+                "type":"group",
+                "value":"["
+            },
+            {
+                "type":"identifier",
+                "value":"i"
+            },
+            {
+                "type":"group",
+                "value":"]"
+            },
+            {
+                "type":"group",
+                "value":","
+            },
+            {
+                "type":"whitespace",
+                "value":" "
+            },
+            {
+                "type":"identifier",
+                "value":"t"
+            },
+            {
+                "type":"group",
+                "value":")"
             },
             {
                 "type":"newline",
@@ -3971,7 +4155,7 @@
                 "value":"n_run"
             },
             {
-                "type":"operator",
+                "type":"group",
                 "value":":"
             },
             {
@@ -3999,7 +4183,7 @@
                 "value":"    "
             },
             {
-                "type":"keyword",
+                "type":"identifier",
                 "value":"print"
             },
             {
@@ -4027,7 +4211,7 @@
                 "value":"\r\n"
             },
             {
-                "type":"keyword",
+                "type":"identifier",
                 "value":"def"
             },
             {
@@ -4063,7 +4247,7 @@
                 "value":")"
             },
             {
-                "type":"operator",
+                "type":"group",
                 "value":":"
             },
             {
@@ -4076,7 +4260,15 @@
             },
             {
                 "type":"string",
-                "value":"\"\"\"\r\n    Calculates a position given a set of quintic coefficients and a time.\r\n\r\n    Args\r\n        c: List of coefficients generated by a quintic polynomial \r\n            trajectory generator.\r\n        t: Time at which to calculate the position\r\n\r\n    Returns\r\n        Position\r\n    \"\"\""
+                "value":"\"\""
+            },
+            {
+                "type":"string",
+                "value":"\"\r\n    Calculates a position given a set of quintic coefficients and a time.\r\n\r\n    Args\r\n        c: List of coefficients generated by a quintic polynomial \r\n            trajectory generator.\r\n        t: Time at which to calculate the position\r\n\r\n    Returns\r\n        Position\r\n    \""
+            },
+            {
+                "type":"string",
+                "value":"\"\""
             },
             {
                 "type":"newline",
@@ -4128,7 +4320,11 @@
             },
             {
                 "type":"operator",
-                "value":"**"
+                "value":"*"
+            },
+            {
+                "type":"operator",
+                "value":"*"
             },
             {
                 "type":"number",
@@ -4180,7 +4376,11 @@
             },
             {
                 "type":"operator",
-                "value":"**"
+                "value":"*"
+            },
+            {
+                "type":"operator",
+                "value":"*"
             },
             {
                 "type":"number",
@@ -4232,7 +4432,11 @@
             },
             {
                 "type":"operator",
-                "value":"**"
+                "value":"*"
+            },
+            {
+                "type":"operator",
+                "value":"*"
             },
             {
                 "type":"number",
@@ -4284,7 +4488,11 @@
             },
             {
                 "type":"operator",
-                "value":"**"
+                "value":"*"
+            },
+            {
+                "type":"operator",
+                "value":"*"
             },
             {
                 "type":"number",
@@ -4375,7 +4583,7 @@
                 "value":"\r\n"
             },
             {
-                "type":"keyword",
+                "type":"identifier",
                 "value":"def"
             },
             {
@@ -4411,7 +4619,7 @@
                 "value":")"
             },
             {
-                "type":"operator",
+                "type":"group",
                 "value":":"
             },
             {
@@ -4424,7 +4632,15 @@
             },
             {
                 "type":"string",
-                "value":"\"\"\"\r\n    Calculates a velocity given a set of quintic coefficients and a time.\r\n\r\n    Args\r\n        c: List of coefficients generated by a quintic polynomial \r\n            trajectory generator.\r\n        t: Time at which to calculate the velocity\r\n\r\n    Returns\r\n        Velocity\r\n    \"\"\""
+                "value":"\"\""
+            },
+            {
+                "type":"string",
+                "value":"\"\r\n    Calculates a velocity given a set of quintic coefficients and a time.\r\n\r\n    Args\r\n        c: List of coefficients generated by a quintic polynomial \r\n            trajectory generator.\r\n        t: Time at which to calculate the velocity\r\n\r\n    Returns\r\n        Velocity\r\n    \""
+            },
+            {
+                "type":"string",
+                "value":"\"\""
             },
             {
                 "type":"newline",
@@ -4492,7 +4708,11 @@
             },
             {
                 "type":"operator",
-                "value":"**"
+                "value":"*"
+            },
+            {
+                "type":"operator",
+                "value":"*"
             },
             {
                 "type":"number",
@@ -4560,7 +4780,11 @@
             },
             {
                 "type":"operator",
-                "value":"**"
+                "value":"*"
+            },
+            {
+                "type":"operator",
+                "value":"*"
             },
             {
                 "type":"number",
@@ -4628,7 +4852,11 @@
             },
             {
                 "type":"operator",
-                "value":"**"
+                "value":"*"
+            },
+            {
+                "type":"operator",
+                "value":"*"
             },
             {
                 "type":"number",
@@ -4735,7 +4963,7 @@
                 "value":"\r\n"
             },
             {
-                "type":"keyword",
+                "type":"identifier",
                 "value":"def"
             },
             {
@@ -4771,7 +4999,7 @@
                 "value":")"
             },
             {
-                "type":"operator",
+                "type":"group",
                 "value":":"
             },
             {
@@ -4784,7 +5012,15 @@
             },
             {
                 "type":"string",
-                "value":"\"\"\"\r\n    Calculates an acceleration given a set of quintic coefficients and a time.\r\n\r\n    Args\r\n        c: List of coefficients generated by a quintic polynomial \r\n            trajectory generator.\r\n        t: Time at which to calculate the acceleration\r\n\r\n    Returns\r\n        Acceleration\r\n    \"\"\""
+                "value":"\"\""
+            },
+            {
+                "type":"string",
+                "value":"\"\r\n    Calculates an acceleration given a set of quintic coefficients and a time.\r\n\r\n    Args\r\n        c: List of coefficients generated by a quintic polynomial \r\n            trajectory generator.\r\n        t: Time at which to calculate the acceleration\r\n\r\n    Returns\r\n        Acceleration\r\n    \""
+            },
+            {
+                "type":"string",
+                "value":"\"\""
             },
             {
                 "type":"newline",
@@ -4852,7 +5088,11 @@
             },
             {
                 "type":"operator",
-                "value":"**"
+                "value":"*"
+            },
+            {
+                "type":"operator",
+                "value":"*"
             },
             {
                 "type":"number",
@@ -4920,7 +5160,11 @@
             },
             {
                 "type":"operator",
-                "value":"**"
+                "value":"*"
+            },
+            {
+                "type":"operator",
+                "value":"*"
             },
             {
                 "type":"number",
@@ -5043,7 +5287,7 @@
                 "value":"\r\n"
             },
             {
-                "type":"keyword",
+                "type":"identifier",
                 "value":"def"
             },
             {
@@ -5091,7 +5335,7 @@
                 "value":")"
             },
             {
-                "type":"operator",
+                "type":"group",
                 "value":":"
             },
             {
@@ -5104,7 +5348,15 @@
             },
             {
                 "type":"string",
-                "value":"\"\"\"\r\n    Calculates the ZYX rotation matrix.\r\n\r\n    Args\r\n        Roll: Angular position about the x-axis in radians.\r\n        Pitch: Angular position about the y-axis in radians.\r\n        Yaw: Angular position about the z-axis in radians.\r\n\r\n    Returns\r\n        3x3 rotation matrix as NumPy array\r\n    \"\"\""
+                "value":"\"\""
+            },
+            {
+                "type":"string",
+                "value":"\"\r\n    Calculates the ZYX rotation matrix.\r\n\r\n    Args\r\n        Roll: Angular position about the x-axis in radians.\r\n        Pitch: Angular position about the y-axis in radians.\r\n        Yaw: Angular position about the z-axis in radians.\r\n\r\n    Returns\r\n        3x3 rotation matrix as NumPy array\r\n    \""
+            },
+            {
+                "type":"string",
+                "value":"\"\""
             },
             {
                 "type":"newline",
@@ -5995,7 +6247,7 @@
                 "value":"\r\n"
             },
             {
-                "type":"keyword",
+                "type":"identifier",
                 "value":"def"
             },
             {
@@ -6015,7 +6267,7 @@
                 "value":")"
             },
             {
-                "type":"operator",
+                "type":"group",
                 "value":":"
             },
             {
@@ -6028,7 +6280,15 @@
             },
             {
                 "type":"string",
-                "value":"\"\"\"\r\n    Calculates the x, y, z coefficients for the four segments \r\n    of the trajectory\r\n    \"\"\""
+                "value":"\"\""
+            },
+            {
+                "type":"string",
+                "value":"\"\r\n    Calculates the x, y, z coefficients for the four segments \r\n    of the trajectory\r\n    \""
+            },
+            {
+                "type":"string",
+                "value":"\"\""
             },
             {
                 "type":"newline",
@@ -6563,7 +6823,7 @@
                 "value":")"
             },
             {
-                "type":"operator",
+                "type":"group",
                 "value":":"
             },
             {
@@ -6959,7 +7219,7 @@
                 "value":"\"__main__\""
             },
             {
-                "type":"operator",
+                "type":"group",
                 "value":":"
             },
             {

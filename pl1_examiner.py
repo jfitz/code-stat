@@ -92,6 +92,7 @@ class PL1Examiner(Examiner):
     ]
 
     groupers = ['(', ')', ',', '[', ']', '{', '}']
+    self.group_starts = ['(', '[', ',', '{']
     self.group_ends = [')', ']', '}']
 
     self.groupers_tb = ListTokenBuilder(groupers, 'group', False)
