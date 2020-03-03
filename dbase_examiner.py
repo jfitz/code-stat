@@ -361,25 +361,6 @@ class DbaseExaminer(Examiner):
       self.confidences['EOF'] = 1.0 - num_tokens_after_eof / num_tokens
 
 
-  def join_continued_lines(self, tokens):
-    new_tokens = []
-
-    prev_token = Token('\n', 'newline')
-
-    for token in tokens:
-      if token.group == 'newline' and prev_token.group == 'line continuation':
-        # don't append newlines after line continuations
-        continue
-
-      if token.group != 'line continuation':
-        # never append line continations
-        new_tokens.append(token)
-
-      prev_token = token
-
-    return new_tokens
-
-
   def calc_line_format_confidence_ii(self):
     # remove tokens we don't care about
     drop_types = ['whitespace', 'comment', 'EOF']

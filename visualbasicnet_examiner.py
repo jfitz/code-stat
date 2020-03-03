@@ -14,7 +14,8 @@ from token_builders import (
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
   ListTokenBuilder,
-  LeadCommentTokenBuilder
+  LeadCommentTokenBuilder,
+  SingleCharacterTokenBuilder
 )
 from visualbasic_token_builders import (
   VisualBasicVariableTokenBuilder,
@@ -36,6 +37,7 @@ class VisualBasicNETExaminer(Examiner):
     IdentifierTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
     LeadCommentTokenBuilder.__escape_z__()
+    SingleCharacterTokenBuilder.__escape_z__()
     VisualBasicVariableTokenBuilder.__escape_z__()
     RemarkTokenBuilder.__escape_z__()
     return 'Escape ?Z'
@@ -46,6 +48,7 @@ class VisualBasicNETExaminer(Examiner):
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
+    line_continuation_tb = SingleCharacterTokenBuilder(['_'], 'line continuation')
 
     integer_tb = IntegerTokenBuilder(None)
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
@@ -80,8 +83,6 @@ class VisualBasicNETExaminer(Examiner):
     self.unary_operators = [
       '+', '-', 'Not', 'IsNot'
     ]
-
-    continuation_tb = ListTokenBuilder(['_'], 'line continuation', False)
 
     groupers = ['(', ')', ',', '[', ']']
     group_ends = [')', ']']
@@ -154,7 +155,7 @@ class VisualBasicNETExaminer(Examiner):
     tokenbuilders = [
       newline_tb,
       whitespace_tb,
-      continuation_tb,
+      line_continuation_tb,
       integer_tb,
       integer_exponent_tb,
       real_tb,

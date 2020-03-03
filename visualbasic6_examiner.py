@@ -14,7 +14,8 @@ from token_builders import (
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
   ListTokenBuilder,
-  LeadCommentTokenBuilder
+  LeadCommentTokenBuilder,
+  SingleCharacterTokenBuilder
 )
 from visualbasic_token_builders import (
   VisualBasicVariableTokenBuilder,
@@ -36,6 +37,7 @@ class VisualBasic6Examiner(Examiner):
     IdentifierTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
     LeadCommentTokenBuilder.__escape_z__()
+    SingleCharacterTokenBuilder.__escape_z__()
     VisualBasicVariableTokenBuilder.__escape_z__()
     RemarkTokenBuilder.__escape_z__()
     return 'Escape ?Z'
@@ -46,6 +48,7 @@ class VisualBasic6Examiner(Examiner):
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
+    line_continuation_tb = SingleCharacterTokenBuilder(['_'], 'line continuation')
 
     integer_tb = IntegerTokenBuilder(None)
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
@@ -165,6 +168,7 @@ class VisualBasic6Examiner(Examiner):
     tokenbuilders = [
       newline_tb,
       whitespace_tb,
+      line_continuation_tb,
       integer_tb,
       integer_exponent_tb,
       real_tb,
@@ -198,3 +202,44 @@ class VisualBasic6Examiner(Examiner):
     self.calc_operand_confidence(operand_types)
     self.calc_keyword_confidence()
     self.calc_statistics()
+    self.calc_line_format_confidence()
+
+
+  def calc_line_format_confidence(self):
+    # remove tokens we don't care about
+    drop_types = ['whitespace', 'comment', 'EOF']
+    tokens = self.drop_tokens(self.tokens, drop_types)
+
+    # join continued lines
+    tokens = self.join_continued_lines(tokens)
+
+    # split tokens by lines
+    lines = self.split_tokens_into_lines(tokens)
+
+    # check that line that begin with 'if' or 'elseif' end with 'then'
+    num_lines = len(lines)
+    num_lines_correct = 0
+
+    for line in lines:
+      if len(line) > 0:
+        if line[0].text.lower() in ['if', 'endif']:
+          if line[-1].text.lower() == 'then':
+            num_lines_correct += 1
+          else:
+            self.errors.append({
+              'TYPE': 'LINE FORMAT',
+              'FIRST': line[0].text,
+              'SECOND': line[-1].text
+            })
+        else:
+          num_lines_correct += 1
+      else:
+        num_lines_correct += 1
+
+    line_format_confidence = 1.0
+    if num_lines > 0:
+      line_format_confidence = num_lines_correct / num_lines
+
+    self.confidences['line format'] = line_format_confidence
+
+    return tokens

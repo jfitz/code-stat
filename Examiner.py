@@ -691,6 +691,25 @@ class Examiner:
     # calculate complexity based on boolean constants (boolexity)
 
 
+  def join_continued_lines(self, tokens):
+    new_tokens = []
+
+    prev_token = Token('\n', 'newline')
+
+    for token in tokens:
+      if token.group == 'newline' and prev_token.group == 'line continuation':
+        # don't append newlines after line continuations
+        continue
+
+      if token.group != 'line continuation':
+        # never append line continations
+        new_tokens.append(token)
+
+      prev_token = token
+
+    return new_tokens
+
+
   def unwrapped_code(self):
     tokens = self.unwrap_lines(self.tokens)
     text = ''
