@@ -5,6 +5,7 @@ from codestat_token import Token
 from codestat_tokenizer import Tokenizer
 from token_builders import (
   ListTokenBuilder,
+  IdentifierTokenBuilder,
   StuffedQuoteStringTokenBuilder
 )
 from fortran_token_builders import (
@@ -18,8 +19,9 @@ from examiner import Examiner
 class FortranFixedFormatExaminer(FortranExaminer):
   @staticmethod
   def __escape_z__():
-    StuffedQuoteStringTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
+    IdentifierTokenBuilder.__escape_z__()
+    StuffedQuoteStringTokenBuilder.__escape_z__()
     FortranIdentifierTokenBuilder.__escape_z__()
     FormatSpecifierTokenBuilder.__escape_z__()
     HollerithStringTokenBuilder.__escape_z__()
@@ -32,14 +34,18 @@ class FortranFixedFormatExaminer(FortranExaminer):
     if year is not None and year not in ['66', '1966', '77', '1977']:
       raise CodeStatException('Unknown year for language')
 
-    identifier_tb = FortranIdentifierTokenBuilder()
-    hollerith_tb = HollerithStringTokenBuilder()
-    string_tb = StuffedQuoteStringTokenBuilder(["'", '"'], False)
-    format_tb = FormatSpecifierTokenBuilder()
-
     # FORTRAN-66 should be upper case only
     # FORTRAN-77 may be upper or lower case
     case_significant = year in ['66', '1966']
+
+    if case_significant:
+      identifier_tb = FortranIdentifierTokenBuilder()
+    else:
+      identifier_tb = IdentifierTokenBuilder([], [])
+
+    hollerith_tb = HollerithStringTokenBuilder()
+    string_tb = StuffedQuoteStringTokenBuilder(["'", '"'], False)
+    format_tb = FormatSpecifierTokenBuilder()
 
     known_operators = [
       '=', '+', '-', '*', '/', '**',
