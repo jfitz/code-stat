@@ -1,8 +1,10 @@
 import re
 
 from codestat_token import Token
-from token_builders import TokenBuilder
-
+from token_builders import (
+  TokenBuilder,
+  IdentifierTokenBuilder
+)
 
 # token reader for deleted record function
 class DbaseSpecialFunctionTokenBuilder(TokenBuilder):
@@ -74,6 +76,22 @@ class DbaseFilenameTokenBuilder(TokenBuilder):
     num_dots = self.text.count('.')
 
     if num_dots > 1:
+      return 0
+
+    return len(self.text)
+
+
+# token reader for LIKE wildcards
+class WildCardIdentifierTokenBuilder(IdentifierTokenBuilder):
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(line_printable_tokens) == 0:
+      return 0
+
+    if line_printable_tokens[-1].text.lower() != 'like':
       return 0
 
     return len(self.text)

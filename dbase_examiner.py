@@ -14,12 +14,14 @@ from token_builders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   ListTokenBuilder,
-  SingleCharacterTokenBuilder
+  SingleCharacterTokenBuilder,
+  LeadCommentTokenBuilder
 )
 from cobol_token_builders import AsteriskCommentTokenBuilder
 from dbase_token_builders import (
   DbaseSpecialFunctionTokenBuilder,
   DbaseFilenameTokenBuilder,
+  WildCardIdentifierTokenBuilder,
   BracketedStringTokenBuilder,
   KeywordCommentTokenBuilder,
   KeywordComment2TokenBuilder,
@@ -41,9 +43,11 @@ class DbaseExaminer(Examiner):
     RealExponentTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
+    LeadCommentTokenBuilder.__escape_z__()
     AsteriskCommentTokenBuilder.__escape_z__()
     DbaseSpecialFunctionTokenBuilder.__escape_z__()
     DbaseFilenameTokenBuilder.__escape_z__()
+    WildCardIdentifierTokenBuilder.__escape_z__()
     BracketedStringTokenBuilder.__escape_z__()
     KeywordCommentTokenBuilder.__escape_z__()
     KeywordComment2TokenBuilder.__escape_z__()
@@ -71,15 +75,17 @@ class DbaseExaminer(Examiner):
       extra_chars = ['_']
 
     identifier_tb = IdentifierTokenBuilder(['_'], extra_chars)
+    wild_card_identifier_tb = WildCardIdentifierTokenBuilder('*?', '*?:')
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
     bracket_string_tb = BracketedStringTokenBuilder()
+    text_string_tb = TextBlockTokenBuilder('TEXT', 'ENDTEXT')
 
     line_continuation_tb = SingleCharacterTokenBuilder(';', 'line continuation')
 
     comment_tb = AsteriskCommentTokenBuilder()
-    text_comment_tb = TextBlockTokenBuilder('TEXT', 'ENDTEXT')
+    line_comment_tb = LeadCommentTokenBuilder('&&')
 
     if version == 'ii':
       known_operators = [
@@ -307,13 +313,18 @@ class DbaseExaminer(Examiner):
       string_tb
     ]
 
-    tokenbuilders2 = [
+    tokenbuilders_ii = [
       bracket_string_tb
     ]
 
-    tokenbuilders3 = [
+    tokenbuilders_iii = [
+      line_comment_tb
+    ]
+
+    tokenbuilders2 = [
       filename_tb,
-      text_comment_tb,
+      text_string_tb,
+      wild_card_identifier_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]
@@ -321,9 +332,12 @@ class DbaseExaminer(Examiner):
     tokenbuilders = tokenbuilders1
 
     if version == 'ii':
-      tokenbuilders += tokenbuilders2
+      tokenbuilders += tokenbuilders_ii
 
-    tokenbuilders += tokenbuilders3
+    if version == 'iii':
+      tokenbuilders += tokenbuilders_iii
+
+    tokenbuilders += tokenbuilders2
 
     tokenizer = Tokenizer(tokenbuilders)
     tokens = tokenizer.tokenize(code)
