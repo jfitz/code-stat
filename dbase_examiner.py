@@ -7,6 +7,7 @@ from token_builders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
+  IdentifierTokenBuilder,
   StringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
@@ -18,7 +19,6 @@ from token_builders import (
 from cobol_token_builders import AsteriskCommentTokenBuilder
 from dbase_token_builders import (
   DbaseSpecialFunctionTokenBuilder,
-  DbaseIdentifierTokenBuilder,
   DbaseFilenameTokenBuilder,
   BracketedStringTokenBuilder,
   KeywordCommentTokenBuilder,
@@ -33,6 +33,7 @@ class DbaseExaminer(Examiner):
     InvalidTokenBuilder.__escape_z__()
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
+    IdentifierTokenBuilder.__escape_z__()
     StringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
@@ -42,7 +43,6 @@ class DbaseExaminer(Examiner):
     SingleCharacterTokenBuilder.__escape_z__()
     AsteriskCommentTokenBuilder.__escape_z__()
     DbaseSpecialFunctionTokenBuilder.__escape_z__()
-    DbaseIdentifierTokenBuilder.__escape_z__()
     DbaseFilenameTokenBuilder.__escape_z__()
     BracketedStringTokenBuilder.__escape_z__()
     KeywordCommentTokenBuilder.__escape_z__()
@@ -70,7 +70,7 @@ class DbaseExaminer(Examiner):
     if version == 'iii':
       extra_chars = ['_']
 
-    identifier_tb = DbaseIdentifierTokenBuilder(extra_chars)
+    identifier_tb = IdentifierTokenBuilder(['_'], extra_chars)
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
