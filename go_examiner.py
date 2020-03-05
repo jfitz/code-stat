@@ -54,7 +54,7 @@ class GoExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
     real_tb = RealTokenBuilder(False, False, None)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
-    identifier_tb = IdentifierTokenBuilder()
+    identifier_tb = IdentifierTokenBuilder(['_'], ['_'])
     quotes = ['"', "'", '`', "’"]
     string_tb = StringTokenBuilder(quotes, False)
 

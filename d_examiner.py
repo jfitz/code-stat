@@ -70,7 +70,7 @@ class DExaminer(Examiner):
     # real suffix f F L i
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
     hex_real_tb = HexRealExponentTokenBuilder()
-    identifier_tb = IdentifierTokenBuilder()
+    identifier_tb = IdentifierTokenBuilder(['_'], ['_'])
     attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute')
     # string suffix: c,w,d
     quotes = ['"', "'", "’"]

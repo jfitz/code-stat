@@ -54,7 +54,7 @@ class PrologExaminer(Examiner):
     real_tb = RealTokenBuilder(False, False, '_')
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', '_')
     variable_tb = PrologVariableTokenBuilder()
-    identifier_tb = IdentifierTokenBuilder()
+    identifier_tb = IdentifierTokenBuilder(['_'], ['_'])
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
 

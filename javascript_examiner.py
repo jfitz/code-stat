@@ -61,7 +61,7 @@ class JavaScriptExaminer(Examiner):
     octal_constant_tb = PrefixedIntegerTokenBuilder('0O', False, '01234567')
     binary_constant_tb = PrefixedIntegerTokenBuilder('0B', False, '01')
 
-    identifier_tb = IdentifierTokenBuilder()
+    identifier_tb = IdentifierTokenBuilder(['_'], ['_'])
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
     template_string_tb = StringTokenBuilder(['`'], True)

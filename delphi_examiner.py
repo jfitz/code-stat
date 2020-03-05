@@ -63,7 +63,7 @@ class DelphiExaminer(Examiner):
     octal_constant_tb = PrefixedIntegerTokenBuilder('&', True, '01234567')
     binary_constant_tb = PrefixedIntegerTokenBuilder('%', True, '01')
     char_constant_tb = PrefixedIntegerTokenBuilder('#', True, '0123456789')
-    identifier_tb = IdentifierTokenBuilder()
+    identifier_tb = IdentifierTokenBuilder(['_'], ['_'])
     class_tb = ClassTypeTokenBuilder()
     string_tb = StringTokenBuilder(["'"], False)
 

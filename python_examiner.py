@@ -58,7 +58,7 @@ class PythonExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder('_')
     real_tb = RealTokenBuilder(False, False, '_')
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', '_')
-    identifier_tb = IdentifierTokenBuilder()
+    identifier_tb = IdentifierTokenBuilder(['_'], ['_'])
     decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator')
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)

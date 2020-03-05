@@ -59,7 +59,7 @@ class FsharpExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
     real_tb = RealTokenBuilder(True, True, None)
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', None)
-    identifier_tb = IdentifierTokenBuilder()
+    identifier_tb = IdentifierTokenBuilder(['_'], ['_'])
     class_type_tb = ClassTypeTokenBuilder()
     quotes = ['"']
     string_tb = StringTokenBuilder(quotes, False)

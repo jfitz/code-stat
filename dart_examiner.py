@@ -61,7 +61,7 @@ class DartExaminer(Examiner):
     binary_integer_tb = PrefixedIntegerTokenBuilder('0b', False, '01')
     real_tb = RealTokenBuilder(False, False, "'")
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
-    identifier_tb = IdentifierTokenBuilder()
+    identifier_tb = IdentifierTokenBuilder(['_'], ['_'])
     annotation_tb = PrefixedIdentifierTokenBuilder('@', 'annotation')
     symbol_tb = PrefixedIdentifierTokenBuilder('#', 'symbol')
     quotes = ['"', "'", "’"]

@@ -59,7 +59,7 @@ class ObjectiveCExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
     real_tb = RealTokenBuilder(False, False, None)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
-    identifier_tb = IdentifierTokenBuilder()
+    identifier_tb = IdentifierTokenBuilder(['_'], ['_'])
     directive_tb = DirectiveTokenBuilder()
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, True)

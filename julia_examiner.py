@@ -62,7 +62,7 @@ class JuliaExaminer(Examiner):
     real_tb = RealTokenBuilder(False, False, None)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     imaginary_tb = SuffixedRealTokenBuilder(False, False, ['im', 'cx'], True, None)
-    identifier_tb = IdentifierTokenBuilder()
+    identifier_tb = IdentifierTokenBuilder(['_'], ['_'])
     symbol_tb = PrefixedIdentifierTokenBuilder(':', 'symbol')
     attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute')
     dollar_sign_tb = SingleCharacterTokenBuilder('$', 'identifier')

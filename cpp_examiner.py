@@ -63,7 +63,7 @@ class CppExaminer(Examiner):
     real_tb = RealTokenBuilder(False, False, "'")
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
     suffixed_real_tb = SuffixedRealTokenBuilder(False, False, ['f', 'l'], False, None)
-    identifier_tb = IdentifierTokenBuilder()
+    identifier_tb = IdentifierTokenBuilder(['_'], ['_'])
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
 

@@ -54,7 +54,7 @@ class SqlExaminer(Examiner):
     real_tb = RealTokenBuilder(True, True, None)
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', None)
     string_tb = StuffedQuoteStringTokenBuilder(["'", '"'], False)
-    identifier_tb = IdentifierTokenBuilder()
+    identifier_tb = IdentifierTokenBuilder(['_'], ['_'])
     bracketed_identifier_tb = SqlBracketedIdentifierTokenBuilder()
 
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
