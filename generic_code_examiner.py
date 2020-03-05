@@ -7,6 +7,7 @@ from token_builders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
+  IdentifierTokenBuilder,
   StringTokenBuilder,
   ListTokenBuilder,
   TripleQuoteStringTokenBuilder,
@@ -21,7 +22,6 @@ from cx_token_builders import (
   SlashStarCommentTokenBuilder
 )
 from generic_token_builders import (
-  GenericIdentifierTokenBuilder,
   GenericNumberTokenBuilder
 )
 from examiner import Examiner
@@ -32,6 +32,7 @@ class GenericCodeExaminer(Examiner):
     InvalidTokenBuilder.__escape_z__()
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
+    IdentifierTokenBuilder.__escape_z__()
     StringTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
     TripleQuoteStringTokenBuilder.__escape_z__()
@@ -40,7 +41,6 @@ class GenericCodeExaminer(Examiner):
     BraceCommentTokenBuilder.__escape_z__()
     SlashSlashCommentTokenBuilder.__escape_z__()
     SlashStarCommentTokenBuilder.__escape_z__()
-    GenericIdentifierTokenBuilder.__escape_z__()
     GenericNumberTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
@@ -52,7 +52,7 @@ class GenericCodeExaminer(Examiner):
     newline_tb = NewlineTokenBuilder()
 
     number_tb = GenericNumberTokenBuilder()
-    identifier_tb = GenericIdentifierTokenBuilder()
+    identifier_tb = IdentifierTokenBuilder([], ['_'])
     quotes = ['"', "'", "’", '`']
     string_tb = StringTokenBuilder(quotes, False)
     triple_string_tb = TripleQuoteStringTokenBuilder(quotes)
