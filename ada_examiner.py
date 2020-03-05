@@ -54,7 +54,12 @@ class AdaExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder(False)
     real_tb = RealTokenBuilder(True, True, False)
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', None)
-    identifier_tb = IdentifierTokenBuilder(['_'], ['_'])
+
+    leads = '_'
+    extras = '_'
+    suffixes = ''
+    identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
+
     quotes = ['"']
     string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
     char_tb = AdaCharTokenBuilder(["'", "’"])

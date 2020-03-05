@@ -68,14 +68,16 @@ class DbaseExaminer(Examiner):
     real_tb = RealTokenBuilder(False, False, "'")
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
 
+    leads = '_'
+    extras = '_'
+
     if version == 'ii':
-      extra_chars = [':', '_', "'"]
+      extras = ":_'"
 
-    if version == 'iii':
-      extra_chars = ['_']
+    suffixes = ''
+    identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
 
-    identifier_tb = IdentifierTokenBuilder(['_'], extra_chars)
-    wild_card_identifier_tb = WildCardIdentifierTokenBuilder('*?', '*?:')
+    wild_card_identifier_tb = WildCardIdentifierTokenBuilder('*?', '*?:', '')
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)

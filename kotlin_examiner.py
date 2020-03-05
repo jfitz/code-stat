@@ -59,7 +59,12 @@ class KotlinExaminer(Examiner):
     prefixed_integer_tb = PrefixedIntegerTokenBuilder('0x', False, '0123456789ABCDEFabcdef_')
     real_tb = RealTokenBuilder(True, True, '_')
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', '_')
-    identifier_tb = IdentifierTokenBuilder(['_'], ['_'])
+
+    leads = '_'
+    extras = '_'
+    suffixes = ''
+    identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
+
     decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator')
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)

@@ -41,7 +41,10 @@ class FortranFixedFormatExaminer(FortranExaminer):
     if case_significant:
       identifier_tb = FortranIdentifierTokenBuilder()
     else:
-      identifier_tb = IdentifierTokenBuilder([], [])
+      leads = ''
+      extras = ''
+      suffixes = ''
+      identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
 
     hollerith_tb = HollerithStringTokenBuilder()
     string_tb = StuffedQuoteStringTokenBuilder(["'", '"'], False)

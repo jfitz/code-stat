@@ -41,7 +41,12 @@ class PL1Examiner(Examiner):
     self.real_tb = RealTokenBuilder(False, False, None)
     self.real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     self.binary_real_tb = SuffixedRealTokenBuilder(True, True, ['B'], False, None)
-    self.identifier_tb = IdentifierTokenBuilder(['_'], ['_'])
+
+    leads = '_'
+    extras = '_'
+    suffixes = ''
+    self.identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
+
     quotes = ['"', "'", "’"]
     self.string_tb = StringTokenBuilder(quotes, False)
 

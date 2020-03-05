@@ -770,8 +770,9 @@ class IdentifierTokenBuilder(TokenBuilder):
     return 'Escape ?Z'
 
 
-  def __init__(self, lead_extras, extras):
+  def __init__(self, lead_extras, extras, suffixes):
     self.lead_extras = lead_extras
+    self.suffixes = suffixes
     self.extras = extras
     self.text = None
 
@@ -790,7 +791,10 @@ class IdentifierTokenBuilder(TokenBuilder):
       result = c.isalpha() or c in self.lead_extras
 
     if len(candidate) > 0:
-      result = c.isalpha() or c.isdigit() or c in self.extras
+      result = c.isalpha() or c.isdigit() or c in self.extras or c in self.suffixes
+
+    if len(candidate) > 1 and candidate[-1] in self.suffixes:
+      result = False
 
     return result
 

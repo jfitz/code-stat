@@ -58,7 +58,12 @@ class LuaExaminer(Examiner):
     binary_integer_tb = PrefixedIntegerTokenBuilder('0b', False, '01')
     real_tb = RealTokenBuilder(False, False, "'")
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
-    identifier_tb = IdentifierTokenBuilder(['_'], ['_'])
+
+    leads = '_'
+    extras = '_'
+    suffixes = ''
+    identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
+
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
     bracket_string_tb = DoubleBracketStringTokenBuilder()

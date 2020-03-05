@@ -57,7 +57,12 @@ class PascalExaminer(Examiner):
     octal_constant_tb = PrefixedIntegerTokenBuilder('&', True, '01234567')
     binary_constant_tb = PrefixedIntegerTokenBuilder('%', True, '01')
     char_constant_tb = PrefixedIntegerTokenBuilder('#', True, '0123456789')
-    identifier_tb = IdentifierTokenBuilder(['_'], ['_'])
+
+    leads = '_'
+    extras = '_'
+    suffixes = ''
+    identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
+
     string_tb = StringTokenBuilder(["'"], False)
 
     brace_comment_tb = BraceCommentTokenBuilder()

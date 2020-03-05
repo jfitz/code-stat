@@ -52,7 +52,12 @@ class GenericCodeExaminer(Examiner):
     newline_tb = NewlineTokenBuilder()
 
     number_tb = GenericNumberTokenBuilder()
-    identifier_tb = IdentifierTokenBuilder([], ['_'])
+
+    leads = ''
+    extras = '_'
+    suffixes = ''
+    identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
+
     quotes = ['"', "'", "’", '`']
     string_tb = StringTokenBuilder(quotes, False)
     triple_string_tb = TripleQuoteStringTokenBuilder(quotes)

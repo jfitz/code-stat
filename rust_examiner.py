@@ -67,7 +67,12 @@ class RustExaminer(Examiner):
     octal_integer_tb = PrefixedIntegerTokenBuilder('0o', True, '01234567_')
     hex_integer_tb = PrefixedIntegerTokenBuilder('0x', True, '0123456789ABCDEFabcdef_')
     binary_integer_tb = PrefixedIntegerTokenBuilder('0b', True, '01_')
-    identifier_tb = IdentifierTokenBuilder(['_'], ['_'])
+
+    leads = '_'
+    extras = '_'
+    suffixes = ''
+    identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
+
     attribute_tb = RustAttributeTokenBuilder()
     quotes = ['"', "'"]
     string_tb = StringTokenBuilder(quotes, True)

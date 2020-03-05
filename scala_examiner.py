@@ -64,7 +64,12 @@ class ScalaExaminer(Examiner):
     real_tb = RealTokenBuilder(False, False, "'")
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
     float_real_tb = SuffixedRealTokenBuilder(False, False, ['f'], False, None)
-    identifier_tb = IdentifierTokenBuilder(['_'], ['_'])
+
+    leads = '_'
+    extras = '_'
+    suffixes = ''
+    identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
+
     symbol_tb = PrefixedIdentifierTokenBuilder("'", 'symbol')
     quotes = ['"']
     string_tb = StringTokenBuilder(quotes, False)

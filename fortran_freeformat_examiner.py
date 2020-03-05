@@ -40,7 +40,11 @@ class FortranFreeFormatExaminer(FortranExaminer):
 
     kind_integer_tb = KindIntegerTokenBuilder()
     kind_real_tb = KindRealTokenBuilder()
-    identifier_tb = IdentifierTokenBuilder(['_'], ['_'])
+
+    leads = '_'
+    extras = '_'
+    suffixes = ''
+    identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
 
     bang_comment_tb = LeadCommentTokenBuilder('!')
     quotes = ["'", '"', "’"]
