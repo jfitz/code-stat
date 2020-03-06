@@ -67,7 +67,7 @@ class SwiftExaminer(Examiner):
 
     leads = '_'
     extras = '_'
-    suffixes = ''
+    suffixes = '?'
     identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
 
     attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute')
@@ -99,7 +99,7 @@ class SwiftExaminer(Examiner):
     ]
 
     self.postfix_operators = [
-      '++', '--', ':'
+      '++', '--', ':', '!'
     ]
 
     groupers = ['(', ')', ',', '[', ']', '{', '}']

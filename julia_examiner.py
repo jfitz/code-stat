@@ -65,7 +65,7 @@ class JuliaExaminer(Examiner):
 
     leads = '_'
     extras = '_'
-    suffixes = ''
+    suffixes = '!'
     identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
 
     symbol_tb = PrefixedIdentifierTokenBuilder(':', 'symbol')
