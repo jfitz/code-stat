@@ -99,7 +99,7 @@ class SwiftExaminer(Examiner):
     ]
 
     self.postfix_operators = [
-      '++', '--', ':', '!'
+      '++', '--', ':', '!', '?'
     ]
 
     groupers = ['(', ')', ',', '[', ']', '{', '}']
@@ -172,6 +172,8 @@ class SwiftExaminer(Examiner):
     tokens = tokenizer.tokenize(code)
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
+
+    self.convert_keywords_to_identifiers()
 
     self.calc_token_confidence()
     self.calc_operator_confidence()

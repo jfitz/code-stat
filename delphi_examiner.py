@@ -94,6 +94,8 @@ class DelphiExaminer(Examiner):
       'not', '@', '^', '.'
     ]
 
+    self.postfix_operators = ['^']
+
     groupers = ['(', ')', ',', '[', ']']
     group_starts = ['(', '[', ',']
     group_ends = [')', ']']
@@ -102,26 +104,28 @@ class DelphiExaminer(Examiner):
 
     keywords = [
       'as',
-      'begin', 'break', 'case', 'class', 'const', 'constructor',
+      'begin', 'break',
+      'case', 'class', 'const', 'constructor',
       'default', 'destructor', 'do', 'downto',
       'else', 'end', 'except',
-      'file', 'finally', 'for', 'forward', 'function',
+      'finally', 'for', 'forward', 'function',
       'goto',
       'if', 'implementation', 'inherited', 'interface',
       'label',
-      'object', 'of', 'on', 'out',
+      'object', 'of', 'on', 'otherwise', 'out',
       'packed', 'private', 'procedure', 'program', 'property', 'protected', 'public',
-      'raise', 'read', 'record', 'repeat', 'resourcestring',
-      'set', 'strict',
+      'raise', 'read', 'repeat', 'resourcestring',
+      'strict',
       'then', 'threadvar', 'to', 'try', 'type',
       'unit', 'until', 'uses',
-      'var', 'while', 'with', 'write'
+      'var',
+      'while', 'with', 'write'
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
 
     types = [
-      'array', 'boolean', 'char', 'integer', 'real', 'string'
+      'array', 'boolean', 'char', 'file', 'integer', 'real', 'record', 'set', 'string'
     ]
 
     types_tb = ListTokenBuilder(types, 'type', False)

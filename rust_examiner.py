@@ -92,12 +92,12 @@ class RustExaminer(Examiner):
       '+=', '-=', '*=', '/=', '%=', '^=', '&=', '|-', '<<=', '>>=',
       '=', '==', '!=', '>', '<', '>=', '<=',
       '@', '.', '..', '...', '->', '#', '$', '?',
-      'in'
+      'in', '&mut'
     ]
 
     self.unary_operators = [
       '+', '-', '*',
-      '!', '&',
+      '!', '&', '&mut'
     ]
 
     self.postfix_operators = [
@@ -210,6 +210,7 @@ class RustExaminer(Examiner):
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     self.tokens = self.combine_numbers_and_adjacent_types(tokens)
 
+    self.convert_operators_to_identifiers()
     self.convert_bars_to_groups()
 
     self.calc_token_confidence()
@@ -271,6 +272,17 @@ class RustExaminer(Examiner):
       line_format_confidence = 1.0 - (line_bracket_count / num_bracket_count)
 
     self.confidences['line format'] = line_format_confidence
+
+
+  def convert_operators_to_identifiers(self):
+    prev_token = Token('\n', 'newline')
+
+    for token in self.tokens:
+      if token.text == '*' and prev_token.text == '::':
+        token.group = 'identifier'
+
+      if token.group not in ['whitespace', 'comment', 'newline']:
+        prev_token = token
 
 
   def convert_bars_to_groups(self):

@@ -13,12 +13,10 @@ ForEach-Object {
     ForEach-Object {
         $test = $_.BaseName
         $a = Get-Content $_ | Select-String ":"
-        $c = $a -replace ":", " " | Sort-Object { $_.split()[-1] } -Descending | Select-Object -first 1
+        $c = $a -replace ":", " " -replace '"', '' -replace ',', '' | Sort-Object { [double]$_.split()[-1] } -Descending | Select-Object -first 1
         if (-Not ([string]::IsNullOrEmpty($c))) {
             $d = $c.Trim()
-            $e, $f = $d.Split(' ', 2)
-            $detected = $e -replace '"',''
-            $confidence = $f -replace ',',''
+            $detected, $confidence = $d.Split(' ', 2)
 
             # map detected name to standard name
             If ($names.ContainsKey($detected)) {

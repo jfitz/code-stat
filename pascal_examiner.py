@@ -86,6 +86,8 @@ class PascalExaminer(Examiner):
       'not', '@', '^', '.'
     ]
 
+    self.postfix_operators = ['^']
+
     groupers = ['(', ')', ',', '[', ']']
     group_starts = ['(', '[', ',']
     group_ends = [')', ']']
@@ -93,18 +95,27 @@ class PascalExaminer(Examiner):
     groupers_tb = ListTokenBuilder(groupers, 'group', True)
 
     keywords = [
-      'begin', 'break', 'case', 'const',
-      'do', 'downto', 'else', 'end', 'file', 'for', 'forward',
-      'function', 'goto', 'if', 'label', 'of', 'otherwise',
-      'packed', 'procedure', 'program', 'record', 'repeat', 'reset',
-      'set', 'string', 'then', 'to', 'type', 'until', 'uses',
-      'value', 'var', 'while', 'with'
+      'begin', 'break',
+      'case', 'const',
+      'do', 'downto',
+      'else', 'end',
+      'for', 'forward', 'function',
+      'goto',
+      'if',
+      'label',
+      'of', 'otherwise',
+      'packed', 'procedure', 'program',
+      'repeat', 'reset',
+      'then', 'to', 'type',
+      'until', 'uses',
+      'value', 'var',
+      'while', 'with'
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
 
     types = [
-      'array', 'boolean', 'char', 'integer', 'real'
+      'array', 'boolean', 'char', 'file', 'integer', 'real', 'record', 'set', 'string'
     ]
 
     types_tb = ListTokenBuilder(types, 'type', False)
