@@ -62,10 +62,12 @@ test\bin\run_test.ps1 -json -name sea-creature-basica -action confidence -langua
 # C-78
 test\bin\run_test.ps1 -json -name diamond-c-78 -action confidence -language C-78 -inputfile ".\test\data\C-78\diamond.c" -expected ".\test\ref\confidence\C-78\diamond.txt"
 test\bin\run_test.ps1 -json -name prime_test-c-78 -action confidence -language C-78 -inputfile ".\test\data\C-78\prime_test.c" -expected ".\test\ref\confidence\C-78\prime_test.txt"
-test\bin\run_test.ps1 -json -name decl-c-78 -action confidence -language C-78 -inputfile ".\test\data\C-78\c-decl.c" -expected ".\test\ref\confidence\C-78\c-decl-c.txt"
 test\bin\run_test.ps1 -json -name values-c-78 -action confidence -language C-78 -inputfile ".\test\data\C-78\values.c" -expected ".\test\ref\confidence\C-78\values.txt"
 
+# C-89
+
 # C-99
+test\bin\run_test.ps1 -json -name decl-c-99 -action confidence -language C-99 -inputfile ".\test\data\C-99\c-decl.c" -expected ".\test\ref\confidence\C-99\c-decl-c.txt"
 test\bin\run_test.ps1 -json -name parser-h-99 -action confidence -language C-99 -inputfile ".\test\data\C-99\parser.h" -expected ".\test\ref\confidence\C-99\parser-h.txt"
 test\bin\run_test.ps1 -json -name parser-c-99 -action confidence -language C-99 -inputfile ".\test\data\C-99\parser.c" -expected ".\test\ref\confidence\C-99\parser-c.txt"
 
@@ -118,7 +120,6 @@ test\bin\run_test.ps1 -json -name hrdb-cpp -action confidence -language Cplusplu
 test\bin\run_test.ps1 -json -name date-h-cpp -action confidence -language Cplusplus -inputfile ".\test\data\Cplusplus\date.h" -expected ".\test\ref\confidence\Cplusplus\date_h.txt"
 test\bin\run_test.ps1 -json -name date-cplusplus-cpp -action confidence -language Cplusplus -inputfile ".\test\data\Cplusplus\date.cpp" -expected ".\test\ref\confidence\Cplusplus\date_cpp.txt"
 test\bin\run_test.ps1 -json -name inherit-cplusplus-cpp -action confidence -language Cplusplus -inputfile ".\test\data\Cplusplus\inherit.cpp" -expected ".\test\ref\confidence\Cplusplus\inherit.txt"
-test\bin\run_test.ps1 -json -name values-cpp -action confidence -language Cplusplus -inputfile ".\test\data\Cplusplus\values.cpp" -expected ".\test\ref\confidence\Cplusplus\values.txt"
 
 # C#
 test\bin\run_test.ps1 -json -name calculator1-cs -action confidence -language Csharp -inputfile ".\test\data\Csharp\calculator1.cs" -expected ".\test\ref\confidence\Csharp\calculator1.txt"

@@ -30,10 +30,12 @@ test\bin\run_test.ps1 -json -name sea-creature-basica -action detect -inputfile 
 # C-78
 test\bin\run_test.ps1 -json -name diamond-c-78 -action detect -inputfile ".\test\data\C-78\diamond.c" -expected ".\test\ref\detect\C-78\diamond.txt"
 test\bin\run_test.ps1 -json -name prime_test-c-78 -action detect -inputfile ".\test\data\C-78\prime_test.c" -expected ".\test\ref\detect\C-78\prime_test.txt"
-test\bin\run_test.ps1 -json -name c-decl-c-78 -action detect -inputfile ".\test\data\C-78\c-decl.c" -expected ".\test\ref\detect\C-78\c-decl-c.txt"
 test\bin\run_test.ps1 -json -name values-c-78 -action detect -inputfile ".\test\data\C-78\values.c" -expected ".\test\ref\detect\C-78\values.txt"
 
+# C-89
+
 # C-99
+test\bin\run_test.ps1 -json -name c-decl-c-99 -action detect -inputfile ".\test\data\C-99\c-decl.c" -expected ".\test\ref\detect\C-99\c-decl-c.txt"
 test\bin\run_test.ps1 -json -name parser-h-99 -action detect -inputfile ".\test\data\C-99\parser.h" -expected ".\test\ref\detect\C-99\parser-h.txt"
 test\bin\run_test.ps1 -json -name parser-c-99 -action detect -inputfile ".\test\data\C-99\parser.c" -expected ".\test\ref\detect\C-99\parser-c.txt"
 
@@ -86,7 +88,6 @@ test\bin\run_test.ps1 -json -name hrdb -action detect -inputfile ".\test\data\Cp
 test\bin\run_test.ps1 -json -name date_h -action detect -inputfile ".\test\data\Cplusplus\date.h" -expected ".\test\ref\detect\Cplusplus\date_h.txt"
 test\bin\run_test.ps1 -json -name date_cplusplus -action detect -inputfile ".\test\data\Cplusplus\date.cpp" -expected ".\test\ref\detect\Cplusplus\date_cpp.txt"
 test\bin\run_test.ps1 -json -name inherit_cplusplus -action detect -inputfile ".\test\data\Cplusplus\inherit.cpp" -expected ".\test\ref\detect\Cplusplus\inherit.txt"
-test\bin\run_test.ps1 -json -name values-cpp -action detect -inputfile ".\test\data\Cplusplus\values.cpp" -expected ".\test\ref\detect\Cplusplus\values.txt"
 
 # C#
 test\bin\run_test.ps1 -json -name calculator1 -action detect -inputfile ".\test\data\Csharp\calculator1.cs" -expected ".\test\ref\detect\Csharp\calculator1.txt"

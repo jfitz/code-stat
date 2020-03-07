@@ -121,27 +121,29 @@ class CppExaminer(Examiner):
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
     keywords = [
-      'alignas', 'alignof', 'asm', 'atomic_cancel',
-      'atomic_commit', 'atomic_noexcept', 'auto',
-      'break', 'case', 'catch',
-      'class', 'concept', 'const', 'consteval',
+      'alignas', 'alignof', 'asm', 'atomic_cancel', 'atomic_commit', 'atomic_noexcept',
+      'audit', 'auto', 'axiom',
+      'break',
+      'case', 'catch', 'class', 'concept', 'const', 'consteval',
       'constexpr', 'const_cast', 'continue', 'co_await', 'co_return',
-      'co_yield', 'decltype', 'default', 'do',
-      'dynamic_cast', 'else', 'enum', 'explicit', 'export', 'extern',
-      'for', 'friend', 'goto', 'if', 'import',
-      'inline', 'module', 'mutable', 'namespace',
-      'noexcept', 'nullptr', 'operator',
-      'private', 'protected', 'public',
-      'private:', 'protected:', 'public:',
-      'reflexpr', 'register',
-      'reinterpret_cast', 'requires', 'return', 'signed',
-      'sizeof', 'static', 'static_assert', 'static_cast', 'struct',
-      'switch', 'synchronized', 'template', 'thread_local',
-      'throw', 'try', 'typedef', 'typeid', 'typename', 'union',
-      'unsigned', 'using', 'virtual', 'volatile',
+      'co_yield',
+      'decltype', 'default', 'do', 'dynamic_cast',
+      'else', 'enum', 'explicit', 'export', 'extern',
+      'final', 'for', 'friend',
+      'goto',
+      'if', 'import', 'inline',
+      'module', 'mutable',
+      'namespace', 'noexcept', 'nullptr',
+      'operator', 'override',
+      'private', 'protected', 'public', 'private:', 'protected:', 'public:',
+      'reflexpr', 'register', 'reinterpret_cast', 'requires', 'return',
+      'signed', 'sizeof', 'static', 'static_assert', 'static_cast', 'struct',
+      'switch', 'synchronized',
+      'template', 'thread_local', 'throw', 'transaction_safe', 'transaction_safe_dynamic'
+      'try', 'typedef', 'typeid', 'typename',
+      'union', 'unsigned', 'using',
+      'virtual', 'volatile',
       'while',
-      'override', 'axiom', 'final', 'audit', 'transaction_safe',
-      'transaction_safe_dynamic'
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)

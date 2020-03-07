@@ -117,14 +117,20 @@ class CExaminer(Examiner):
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
     keywords = [
-      'signed', 'unsigned',
-      'typedef', 'enum',
-      'auto', 'extern', 'register', 'static',
-      'for', 'while', 'do',
-      'const', 'volatile', 'sizeof',
-      'if', 'else', 'switch', 'case', 'default',
-      'struct', 'union', 'return',
-      'goto', 'continue', 'break'
+      'auto',
+      'break',
+      'case', 'const', 'continue',
+      'default', 'do',
+      'else', 'enum', 'extern',
+      'for',
+      'goto',
+      'if', 'inline',
+      'register', 'return',
+      'signed', 'sizeof','static', 'struct', 'switch',
+      'typedef',
+      'union', 'unsigned',
+      'volatile',
+      'while'
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
