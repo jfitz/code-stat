@@ -202,13 +202,15 @@ class VisualBasic6Examiner(Examiner):
 
     self.convert_keywords_to_identifiers()
 
+    tokens = self.source_tokens()
+    
     self.calc_token_confidence()
     self.calc_operator_confidence()
-    self.calc_operator_2_confidence()
-    self.calc_operator_3_confidence(group_ends)
-    self.calc_operator_4_confidence(group_starts)
+    self.calc_operator_2_confidence(tokens)
+    self.calc_operator_3_confidence(tokens, group_ends)
+    self.calc_operator_4_confidence(tokens, group_starts)
     operand_types = ['number', 'string', 'symbol']
-    self.calc_operand_confidence(operand_types)
+    self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
     self.calc_statistics()
     self.calc_line_format_confidence()
@@ -217,7 +219,7 @@ class VisualBasic6Examiner(Examiner):
   def calc_line_format_confidence(self):
     # remove tokens we don't care about
     drop_types = ['whitespace', 'comment', 'EOF']
-    tokens = self.drop_tokens(self.tokens, drop_types)
+    tokens = Examiner.drop_tokens(self.tokens, drop_types)
 
     # join continued lines
     tokens = self.join_continued_lines(tokens)

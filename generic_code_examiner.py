@@ -141,13 +141,15 @@ class GenericCodeExaminer(Examiner):
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
 
+    # tokens = self.source_tokens()
+    
     self.calc_token_confidence()
     self.calc_operator_confidence()
-    # self.calc_operator_2_confidence()
-    # self.calc_operator_3_confidence(group_ends)
-    # self.calc_operator_4_confidence(group_starts)
+    # self.calc_operator_2_confidence(tokens)
+    # self.calc_operator_3_confidence(tokens, group_ends)
+    # self.calc_operator_4_confidence(tokens, group_starts)
     # operand_types = ['number', 'symbol']
-    # self.calc_operand_confidence(operand_types)
+    # self.calc_operand_confidence(tokens, operand_types)
     # self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_statistics()

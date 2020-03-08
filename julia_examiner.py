@@ -197,13 +197,15 @@ class JuliaExaminer(Examiner):
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     self.tokens = self.convert_symbols_to_operators(tokens, group_ends)
 
+    tokens = self.source_tokens()
+    
     self.calc_token_confidence()
     self.calc_operator_confidence()
-    self.calc_operator_2_confidence()
-    self.calc_operator_3_confidence(group_ends)
-    # self.calc_operator_4_confidence(group_starts)
+    self.calc_operator_2_confidence(tokens)
+    self.calc_operator_3_confidence(tokens, group_ends)
+    # self.calc_operator_4_confidence(tokens, group_starts)
     operand_types = ['number', 'identifier', 'symbol']
-    self.calc_operand_confidence(operand_types)
+    self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_statistics()
@@ -231,20 +233,7 @@ class JuliaExaminer(Examiner):
 
 
   # two operands in a row decreases confidence
-  def calc_operand_confidence(self, operand_types):
-    tokens = self.tokens
-
-    # remove tokens we don't care about
-    drop_types = ['whitespace', 'comment', 'line continuation']
-    tokens = self.drop_tokens(self.tokens, drop_types)
-
-    if self.newlines_important == 'never':
-      drop_types = ['newline']
-      tokens = self.drop_tokens(tokens, drop_types)
-
-    if self.newlines_important == 'parens':
-      tokens = self.drop_newlines_inside_parens(tokens)
-
+  def calc_operand_confidence(self, tokens, operand_types):
     two_operand_count = 0
     prev_token = Token('\n', 'newline')
     for token in tokens:

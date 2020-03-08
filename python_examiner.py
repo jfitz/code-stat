@@ -164,13 +164,15 @@ class PythonExaminer(Examiner):
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
 
+    tokens = self.source_tokens()
+    
     self.calc_token_confidence()
     self.calc_operator_confidence()
-    self.calc_operator_2_confidence()
-    self.calc_operator_3_confidence(group_ends)
-    self.calc_operator_4_confidence(group_starts)
+    self.calc_operator_2_confidence(tokens)
+    self.calc_operator_3_confidence(tokens, group_ends)
+    self.calc_operator_4_confidence(tokens, group_starts)
     operand_types = ['number', 'string', 'identifier', 'variable', 'symbol']
-    self.calc_operand_confidence(operand_types)
+    self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
     self.calc_line_format_confidence()
     # self.calc_keyword_indent_confidence()
@@ -233,12 +235,12 @@ class PythonExaminer(Examiner):
   def calc_line_format_confidence(self):
     # certain keyword lines end in colon
 
-    tokens = self.unwrap_lines(self.tokens)
+    tokens = self.unwrap_code_lines(self.tokens)
 
     # drop tokens not used by interpreter
     drop_types = ['whitespace', 'comment']
 
-    tokens = self.drop_tokens(tokens, drop_types)
+    tokens = Examiner.drop_tokens(tokens, drop_types)
 
     # split into lines
     lines = self.split_tokens_to_lines(tokens)

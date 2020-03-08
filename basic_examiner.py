@@ -148,13 +148,15 @@ class BasicExaminer(Examiner):
 
     self.convert_numbers_to_line_numbers()
 
+    tokens = self.source_tokens()
+    
     self.calc_token_confidence()
     self.calc_operator_confidence()
-    self.calc_operator_2_confidence()
-    self.calc_operator_3_confidence(group_ends)
-    self.calc_operator_4_confidence(group_starts)
+    self.calc_operator_2_confidence(tokens)
+    self.calc_operator_3_confidence(tokens, group_ends)
+    self.calc_operator_4_confidence(tokens, group_starts)
     operand_types = ['number', 'string', 'identifier', 'variable', 'symbol']
-    self.calc_operand_confidence(operand_types)
+    self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
     self.calc_line_format_confidence()
     self.calc_statistics()

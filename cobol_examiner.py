@@ -49,7 +49,7 @@ class CobolExaminer(Examiner):
 
     drop_types = ['newline', 'whitespace', 'comment', 'line continuation']
 
-    tokens = self.drop_tokens(self.tokens, drop_types)
+    tokens = Examiner.drop_tokens(self.tokens, drop_types)
 
     prev_text = ''
     for token in tokens:
@@ -103,7 +103,7 @@ class CobolExaminer(Examiner):
     # and picture elements are preceded by a PICTURE keyword
     drop_types = ['newline', 'whitespace', 'comment', 'line continuation']
 
-    tokens = self.drop_tokens(self.tokens, drop_types)
+    tokens = Examiner.drop_tokens(self.tokens, drop_types)
 
     errors = 0
     prev_token = Token('\n', 'newline')
