@@ -198,7 +198,8 @@ class JuliaExaminer(Examiner):
     self.tokens = self.convert_symbols_to_operators(tokens, group_ends)
 
     tokens = self.source_tokens()
-    
+    tokens = Examiner.join_implicit_continued_lines(tokens)
+
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence(tokens)

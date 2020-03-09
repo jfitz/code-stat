@@ -152,7 +152,7 @@ class BasicaExaminer(Examiner):
     self.convert_numbers_to_line_numbers()
 
     tokens = self.source_tokens()
-    
+
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence(tokens)

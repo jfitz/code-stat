@@ -142,7 +142,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
     self.convert_stars_to_io_channels()
 
     tokens = self.source_tokens()
-    
+
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence(tokens)

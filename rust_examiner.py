@@ -214,7 +214,8 @@ class RustExaminer(Examiner):
     self.convert_bars_to_groups()
 
     tokens = self.source_tokens()
-    
+    tokens = Examiner.join_all_lines(tokens)
+
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence(tokens)

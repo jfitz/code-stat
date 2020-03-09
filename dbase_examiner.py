@@ -347,7 +347,7 @@ class DbaseExaminer(Examiner):
     self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
 
     tokens = self.source_tokens()
-    
+
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence(tokens)

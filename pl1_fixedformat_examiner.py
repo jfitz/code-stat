@@ -73,7 +73,8 @@ class PL1FixedFormatExaminer(PL1Examiner):
     self.tokens = self.convert_broken_comments_to_comments(tokens)
 
     tokens = self.source_tokens()
-    
+    tokens = Examiner.join_all_lines(tokens)
+
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence(tokens)

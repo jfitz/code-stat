@@ -464,12 +464,6 @@ class Examiner:
 
     tokens = Examiner.join_continued_lines(tokens)
 
-    if self.newlines_important == 'never':
-      tokens = Examiner.join_all_lines(tokens)
-
-    if self.newlines_important == 'parens':
-      tokens = Examiner.join_implicit_continued_lines(tokens)
-
     return tokens
 
 

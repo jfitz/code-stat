@@ -174,7 +174,8 @@ class CsharpExaminer(Examiner):
     self.tokens = self.combine_tokens_and_adjacent_types(tokens, 'number', 'identifier', number_suffixes)
 
     tokens = self.source_tokens()
-    
+    tokens = Examiner.join_all_lines(tokens)
+
     self.calc_token_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence(tokens)
