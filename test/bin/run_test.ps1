@@ -4,7 +4,6 @@ Param
     [string]$language,
     [string]$comment,
     [switch]$wide,
-    [string]$languages,
     [string]$action,
     [switch]$errors,
     [string]$inputfile,
@@ -51,10 +50,6 @@ if ($PSBoundParameters.ContainsKey('comment')) {
 
 if ($wide) {
     $params += "wide"
-}
-
-if ($PSBoundParameters.ContainsKey('languages')) {
-    $params += "languages=$languages"
 }
 
 if ($PSBoundParameters.ContainsKey('tabsize')) {
