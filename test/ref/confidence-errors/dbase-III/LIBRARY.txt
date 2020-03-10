@@ -1,6 +1,18 @@
 [
     {
         "TYPE":"TOKEN",
+        "INVALID":"\u001a\u001a",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
         "INVALID":"\u0002\u0002\u0002\u0001\u0001",
         "FIRST":"",
         "SECOND":""
@@ -62,12 +74,6 @@
     {
         "TYPE":"TOKEN",
         "INVALID":"\u0002\u0006\u0001",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"\u0001",
         "FIRST":"",
         "SECOND":""
     },
@@ -175,13 +181,13 @@
     },
     {
         "TYPE":"LINE FORMAT",
-        "FIRST":"identifier",
-        "SECOND":"LAYOUT"
+        "FIRST":"invalid",
+        "SECOND":"\u001a\u001a"
     },
     {
         "TYPE":"LINE FORMAT",
-        "FIRST":"identifier",
-        "SECOND":"r"
+        "FIRST":"invalid",
+        "SECOND":"\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a"
     },
     {
         "TYPE":"LINE FORMAT",
@@ -192,10 +198,5 @@
         "TYPE":"LINE FORMAT",
         "FIRST":"invalid",
         "SECOND":"\u0001\u0001\u0001\u0001\u0006"
-    },
-    {
-        "TYPE":"LINE FORMAT",
-        "FIRST":"invalid",
-        "SECOND":"\u0001"
     }
 ]

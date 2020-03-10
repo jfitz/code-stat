@@ -57,11 +57,13 @@ class DbaseExaminer(Examiner):
 
   def __init__(self, code, version):
     super().__init__()
+    ctrlz_char = ''
+    code = self.TrimCtrlZText(code, ctrlz_char)
+
     self.newlines_important = 'always'
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
-    ctrlz_tb = SingleCharacterTokenBuilder([''], 'EOF')
 
     integer_tb = IntegerTokenBuilder("'")
     integer_exponent_tb = IntegerExponentTokenBuilder("'")
@@ -297,7 +299,6 @@ class DbaseExaminer(Examiner):
       newline_tb,
       whitespace_tb,
       line_continuation_tb,
-      ctrlz_tb,
       integer_tb,
       integer_exponent_tb,
       real_tb,
@@ -356,30 +357,29 @@ class DbaseExaminer(Examiner):
     operand_types = ['number', 'number', 'function', 'value', 'string', 'filename']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
-    # self.calc_eof_confidence()
+
     if version == 'ii':
       self.calc_line_format_confidence_ii()
     else:
       self.calc_line_format_confidence()
+
     self.calc_statistics()
 
 
-  # any tokens after an EOF reduce confidence
-  def calc_eof_confidence(self):
-    num_tokens = len(self.tokens)
+  # find CTRL-Z in the last 512 bytes of code
+  # assume it is an old CP/M EOF marker
+  @staticmethod
+  def TrimCtrlZText(code, ctrlz_char):
+    if len(code) > 511:
+      ctrlz_position = 0
+      for index in range(-1, -511, -1):
+        if code[index] == ctrlz_char:
+          ctrlz_position = index
 
-    seen_eof = False
-    num_tokens_after_eof = 0
+      if ctrlz_position != 0:
+        code = code[:ctrlz_position]
 
-    for token in self.tokens:
-      if token.group == 'EOF':
-        seen_eof = True
-
-      if seen_eof and token.group != 'EOF':
-        num_tokens_after_eof += 1
-  
-    if num_tokens > 0:
-      self.confidences['EOF'] = 1.0 - num_tokens_after_eof / num_tokens
+    return code
 
 
   def calc_line_format_confidence_ii(self):

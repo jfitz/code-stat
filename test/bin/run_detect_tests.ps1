@@ -238,6 +238,7 @@ test\bin\run_test.ps1 -json -name tpc16-pas -action detect -inputfile ".\test\da
 # PL/1
 test\bin\run_test.ps1 -json -name bpgpli-pl1 -action detect -inputfile ".\test\data\PL1\BPGPLI.pl1" -expected ".\test\ref\detect\PL1\BPGPLI.txt"
 test\bin\run_test.ps1 -json -name checkdt-pl1 -action detect -inputfile ".\test\data\PL1\CHECKDT.pl1" -expected ".\test\ref\detect\PL1\CHECKDT.txt"
+test\bin\run_test.ps1 -json -name crtpln3-pl1 -action detect -inputfile ".\test\data\PL1\CRTPLN3.pl1" -expected ".\test\ref\detect\PL1\CRTPLN3.txt"
 test\bin\run_test.ps1 -json -name mainfact-pl1 -action detect -inputfile ".\test\data\PL1\MAINFACT.pl1" -expected ".\test\ref\detect\PL1\MAINFACT.txt"
 test\bin\run_test.ps1 -json -name example-pl1 -action detect -inputfile ".\test\data\PL1\example.pl1" -expected ".\test\ref\detect\PL1\example.txt"
 test\bin\run_test.ps1 -json -name digrams-pl1 -action detect -inputfile ".\test\data\PL1\digrams.pl1" -expected ".\test\ref\detect\PL1\digrams.txt"
@@ -245,7 +246,6 @@ test\bin\run_test.ps1 -json -name digrams-pl1 -action detect -inputfile ".\test\
 # Prolog
 test\bin\run_test.ps1 -json -name family-main -action detect -inputfile ".\test\data\Prolog\family-main.pl" -expected ".\test\ref\detect\Prolog\family-main.txt"
 test\bin\run_test.ps1 -json -name family-kb -action detect -inputfile ".\test\data\Prolog\family-kb.pl" -expected ".\test\ref\detect\Prolog\family-kb.txt"
-test\bin\run_test.ps1 -json -name crtpln3-pl1 -action detect -inputfile ".\test\data\PL1\CRTPLN3.pl1" -expected ".\test\ref\detect\PL1\CRTPLN3.txt"
 test\bin\run_test.ps1 -json -name family-menu -action detect -inputfile ".\test\data\Prolog\family-menu.pl" -expected ".\test\ref\detect\Prolog\family-menu.txt"
 test\bin\run_test.ps1 -json -name family-queries -action detect -inputfile ".\test\data\Prolog\family-queries.pl" -expected ".\test\ref\detect\Prolog\family-queries.txt"
 test\bin\run_test.ps1 -json -name web-server-hello-prolog -action detect -inputfile ".\test\data\Prolog\web-server-hello.pl" -expected ".\test\ref\detect\Prolog\web-server-hello.txt"
