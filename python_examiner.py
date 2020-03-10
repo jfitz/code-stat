@@ -165,6 +165,8 @@ class PythonExaminer(Examiner):
     self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
 
     tokens = self.source_tokens()
+    tokens = Examiner.join_parens_continued_lines(tokens)
+    tokens = Examiner.join_operator_continued_lines(tokens, self.postfix_operators)
 
     self.calc_token_confidence()
     self.calc_operator_confidence()

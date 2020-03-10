@@ -629,13 +629,9 @@ class Examiner:
     # calculate complexity based on boolean constants (boolexity)
 
 
-  # join lines that are explicitly connected (via line continuation)
+  # join lines that are connected via line continuation
   @staticmethod
   def join_continued_lines(tokens):
-    # remove tokens we don't care about
-    drop_types = ['whitespace', 'comment']
-    tokens = Examiner.drop_tokens(tokens, drop_types)
-
     new_tokens = []
 
     prev_token = Token('\n', 'newline')
@@ -645,7 +641,7 @@ class Examiner:
 
       # don't append newlines after line continuations
       # never append line continations
-      if (token.group == 'newline' and prev_token.group == 'line continuation'):
+      if token.group == 'newline' and prev_token.group == 'line continuation':
         keep = False
 
       if token.group == 'line continuation':
@@ -669,9 +665,33 @@ class Examiner:
     return tokens
 
 
-  # join lines that are implicitly connected
+  # join lines that are connected via dangling operators
   @staticmethod
-  def join_implicit_continued_lines(tokens):
+  def join_operator_continued_lines(tokens, postfix_operators):
+    new_tokens = []
+
+    prev_token = Token('\n', 'newline')
+
+    for token in tokens:
+      keep = True
+
+      # don't append newlines after line continuations
+      # never append line continations
+      if token.group == 'newline' and \
+        prev_token.group == 'operator' and \
+        prev_token.text not in postfix_operators:
+        keep = False
+
+      if keep:
+        new_tokens.append(token)
+        prev_token = token
+
+    return new_tokens
+
+
+  # join lines that are connected with open parentheses
+  @staticmethod
+  def join_parens_continued_lines(tokens):
     new_tokens = []
 
     # keep track of open and close parentheses
