@@ -64,7 +64,7 @@ class DbaseFilenameTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = c.isalpha() or c.isdigit() or c == '.'
+    result = c.isalpha() or c.isdigit() or c in '.-'
 
     return result
 
@@ -73,9 +73,28 @@ class DbaseFilenameTokenBuilder(TokenBuilder):
     if self.text is None:
       return 0
 
+    # a file name can have at most one dot (for the extension)
     num_dots = self.text.count('.')
 
     if num_dots > 1:
+      return 0
+
+    # must follow DO, [SET ... TO, USE, INDEX, LOAD, CALL
+    if len(line_printable_tokens) == 0:
+      return 0
+
+    # file names always follow these keywords
+    predecessors = ['do', 'use', 'index', 'to', 'load', 'call']
+    if line_printable_tokens[-1].text.lower() not in predecessors:
+      return 0
+
+    # TO is a special case; line must start with SET (not STORE)
+    if line_printable_tokens[-1].text.lower() == 'to' and \
+      line_printable_tokens[0].text.lower() not in ['set', 'copy']:
+      return 0
+    
+    # some keywords look like file names but are not
+    if self.text.lower() in ['screen', 'print', 'file']:
       return 0
 
     return len(self.text)

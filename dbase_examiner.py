@@ -74,7 +74,7 @@ class DbaseExaminer(Examiner):
     extras = '_'
 
     if version == 'ii':
-      extras = ":_'"
+      extras = ":_'-"
 
     suffixes = ''
     identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
@@ -312,8 +312,10 @@ class DbaseExaminer(Examiner):
       comment_tb,         # before operators, to catch single asterisk on line
       known_operator_tb,
       function_tb,
+      filename_tb,        # before identifier
       identifier_tb,
-      string_tb
+      string_tb,
+      text_string_tb
     ]
 
     tokenbuilders_ii = [
@@ -325,8 +327,6 @@ class DbaseExaminer(Examiner):
     ]
 
     tokenbuilders2 = [
-      filename_tb,
-      text_string_tb,
       wild_card_identifier_tb,
       self.unknown_operator_tb,
       invalid_token_builder
@@ -370,14 +370,18 @@ class DbaseExaminer(Examiner):
   # assume it is an old CP/M EOF marker
   @staticmethod
   def TrimCtrlZText(code, ctrlz_char):
-    if len(code) > 511:
-      ctrlz_position = 0
-      for index in range(-1, -511, -1):
-        if code[index] == ctrlz_char:
-          ctrlz_position = index
+    length = len(code)
 
-      if ctrlz_position != 0:
-        code = code[:ctrlz_position]
+    if length > 1023:
+      length = 1023
+
+    ctrlz_position = 0
+    for index in range(-1, -length, -1):
+      if code[index] == ctrlz_char:
+        ctrlz_position = index
+
+    if ctrlz_position != 0:
+      code = code[:ctrlz_position]
 
     return code
 
