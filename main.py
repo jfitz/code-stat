@@ -148,8 +148,8 @@ def extract_params(request_args):
 def find_winners(text, tab_size, wide, comment, languages):
   tiebreak_keywords = False
   tiebreak_tokens = False
-  tiebreak_age = False
-  detected_languages, examiners = identify_language(text, tab_size, wide, comment, tiebreak_keywords, tiebreak_tokens, tiebreak_age, languages)
+  tiebreak_simple = False
+  detected_languages, examiners = identify_language(text, tab_size, wide, comment, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages)
 
   # find the highest value
   high_value = 0
@@ -407,6 +407,74 @@ codesAndYears = {
   'visualbasic-net': 2001
 }
 
+simplerLanguages = {
+  'ada-83': None,
+  'ada-95': 'ada-83',
+  'ada-2005': 'ada-95',
+  'ada-2012': 'ada-2005',
+  'awk': None,
+  'basic': None,
+  'basica': 'basic',
+  'c-78': None,
+  'c-89': 'c-78',
+  'c-99': 'c-89',
+  'cplusplus': 'c-99',
+  'csharp': 'java',
+  'cbasic': 'basic',
+  'cobol-68': None,
+  'cobol-74': 'cobol-68',
+  'cobol-85': 'cobol-74',
+  'cobol-2002': 'cobol-85',
+  'cobol-2014': 'cobol-2002',
+  'cobol-2014-acu': 'cobol-2014',
+  'cobol-2014-ibm': 'cobol-2014',
+  'cobol-2014-gnu': 'cobol-2014',
+  'coffeescript': 'javascript',
+  'd': None,
+  'dart': None,
+  'dbase-ii': None,
+  'dbase-iii': 'dbase-ii',
+  'delphi': 'pascal',
+  'eiffel': None,
+  'fortran-66': None,
+  'fortran-77': 'fortran-66',
+  'fortran-90': 'fortran-77',
+  'fortran-95': 'fortran-90',
+  'fortran-2003': 'fortran-95',
+  'fortran-2008': 'fortran-2003',
+  'fsharp': None,
+  'gawk': 'awk',
+  'go': 'pascal',
+  'html': None,
+  'java': 'cplusplus',
+  'javascript': None,
+  'julia': None,
+  'kotlin': None,
+  'lua': None,
+  'matlab': None,
+  'microsoft-basic': 'basic',
+  'objective-c': 'cplusplus',
+  'pascal': None,
+  'pl1-fixed': None,
+  'pl1-free': None,
+  'prolog': None,
+  'python': None,
+  'r': None,
+  'ruby': None,
+  'rust': None,
+  'scala': None,
+  'sql-92': None,
+  'sql-99': 'sql-92',
+  'sql-2003': 'sql-99',
+  'sql-2008': 'sql-2003',
+  'sql-2011': 'sql-2008',
+  'sql-2016': 'sql-2011',
+  'swift': None,
+  'typescript': 'javascript',
+  'visualbasic-6': None,
+  'visualbasic-net': 'visualbasic-6'
+}
+
 
 @app.route('/languages', methods=['GET'])
 def route_languages():
@@ -486,19 +554,19 @@ def route_detect():
 
   tiebreak_keywords = True
   tiebreak_tokens = False
-  tiebreak_age = True
+  tiebreak_simple = True
 
   if 'notiebreak' in request.args:
     tiebreak_keywords = False
     tiebreak_tokens = False
-    tiebreak_age = False
+    tiebreak_simple = False
 
   request_bytes = request.get_data()
 
   http_status = 200
   try:
     text = decode_bytes(request_bytes)
-    detected_languages, _ = identify_language(text, tab_size, wide, comment, tiebreak_keywords, tiebreak_tokens, tiebreak_age, languages)
+    detected_languages, _ = identify_language(text, tab_size, wide, comment, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages)
 
     mydict = {}
     for key in detected_languages:
@@ -1104,7 +1172,7 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
   return examiners
 
 
-def identify_language(code, tab_size, wide, comment, tiebreak_keywords, tiebreak_tokens, tiebreak_age, languages):
+def identify_language(code, tab_size, wide, comment, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages):
   examiners = make_multiple_examiners(code, tab_size, wide, comment, languages)
 
   # get confidence values
@@ -1173,7 +1241,7 @@ def identify_language(code, tab_size, wide, comment, tiebreak_keywords, tiebreak
         confidence = examiners[name].confidence()
         retval[name] = confidence
 
-  if tiebreak_age:
+  if tiebreak_simple:
     # count how many have the greatest confidence
     high_names = []
     for name in examiners:
@@ -1183,19 +1251,14 @@ def identify_language(code, tab_size, wide, comment, tiebreak_keywords, tiebreak
 
     # if a tie among multiple examiners
     if len(high_names) > 1:
-      earliest_year = None
       for name in high_names:
-        year = codesAndYears[name]
-        if earliest_year is None or year < earliest_year:
-          earliest_year = year
-
-      # assign confidence to number of tokens (fewer tokens are better)
-      for name in high_names:
-        year_confidence = 1.0
-        year = codesAndYears[name]
-        if year > earliest_year:
-          year_confidence = 0.99
-        examiners[name].confidences['earliest'] = year_confidence
+        simpler = name
+        while simplerLanguages[simpler] is not None and \
+          simplerLanguages[simpler] in high_names:
+          # when there is a simpler language in the high names list
+          # decrease confidence for this language
+          examiners[simpler].confidences['simplest'] = 0.99
+          simpler = simplerLanguages[simpler]
 
       # recalculate confidence with new factor
       for name in high_names:
@@ -1328,9 +1391,9 @@ if __name__ == '__main__':
         wide = False
         tiebreak_keywords = True
         tiebreak_tokens = False
-        tiebreak_age = False
+        tiebreak_simple = False
         comment = ''
         languages = list(codesAndNames.keys())
-        cProfile.run('identify_language(code, tab_size, wide, comment, tiebreak_keywords, tiebreak_tokens, tiebreak_age, languages)')
+        cProfile.run('identify_language(code, tab_size, wide, comment, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages)')
       else:
         app.run()
