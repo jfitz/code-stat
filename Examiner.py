@@ -177,12 +177,12 @@ class Examiner:
     return new_list
 
 
-  def convert_keywords_to_identifiers(self):
+  def convert_keywords_to_identifiers(self, operators):
     prev_token = Token('\n', 'newline')
 
     for token in self.tokens:
       if token.group == 'keyword' and\
-        prev_token.group == 'operator' and prev_token.text == '.':
+        prev_token.group == 'operator' and prev_token.text in operators:
         token.group = 'identifier'
 
       if token.group not in ['whitespace', 'comment', 'newline']:

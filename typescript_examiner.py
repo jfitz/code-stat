@@ -163,7 +163,7 @@ class TypeScriptExaminer(Examiner):
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
 
-    self.convert_keywords_to_identifiers()
+    self.convert_keywords_to_identifiers(['.'])
 
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)

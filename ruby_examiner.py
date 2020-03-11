@@ -166,7 +166,7 @@ class RubyExaminer(Examiner):
     self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
 
     self.convert_bars_to_groups()
-    self.convert_keywords_to_identifiers()
+    self.convert_keywords_to_identifiers(['.'])
     self.convert_operators_to_identifiers()
 
     tokens = self.source_tokens()
