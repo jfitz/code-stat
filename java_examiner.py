@@ -2,6 +2,7 @@ import string
 import math
 
 from codestat_tokenizer import Tokenizer
+from codestat_token import Token
 from token_builders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
@@ -77,7 +78,7 @@ class JavaExaminer(Examiner):
       '+=', '-=', '*=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>=',
       '!', '&', '|', '~', '<<', '>>', '>>>', '>>>=',
       '^',
-      '.', ':',
+      '.', ':', '::',
       '++', '--', '&&', '||',
       '?', '->',
       'new'
@@ -164,6 +165,9 @@ class JavaExaminer(Examiner):
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
 
+    self.convert_keywords_to_identifiers(['::', '.'])
+    self.convert_operators_to_identifiers(['::', '.'])
+
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
 
@@ -177,3 +181,15 @@ class JavaExaminer(Examiner):
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_statistics()
+
+
+  def convert_operators_to_identifiers(self, key_operators):
+    prev_token = Token('\n', 'newline')
+
+    for token in self.tokens:
+      if token.group == 'operator' and\
+        prev_token.group == 'operator' and prev_token.text in key_operators:
+        token.group = 'identifier'
+
+      if token.group not in ['whitespace', 'comment', 'newline']:
+        prev_token = token
