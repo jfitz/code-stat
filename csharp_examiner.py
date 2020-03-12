@@ -82,7 +82,7 @@ class CsharpExaminer(Examiner):
       '+=', '-=', '*=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>=',
       '!', '&', '|', '~', '<<', '>>',
       '^',
-      '.', ':',
+      '.',
       '++', '--', '->', '&&', '||',
       '?', '??', '?.', '?[',
       '=>',
@@ -98,12 +98,12 @@ class CsharpExaminer(Examiner):
     ]
 
     self.postfix_operators = [
-      '++', '--', ':'
+      '++', '--'
     ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
-    groupers = ['(', ')', ',', '[', ']', '{', '}']
+    groupers = ['(', ')', ',', '[', ']', '{', '}', ':']
     group_starts = ['(', '[', ',', '{']
     group_ends = [')', ']', '}']
 
