@@ -402,6 +402,33 @@ class Examiner:
     self.confidences['operator_4'] = operator_confidence_4
 
 
+  # groups that follow groups reduce confidence
+  def calc_group_confidence(self, tokens, groups):
+    num_groups = self.count_tokens('group')
+
+    group_confidence = 1.0
+
+    if num_groups > 0:
+      errors = 0
+      prev_token = Token('\n', 'newline')
+
+      for token in tokens:
+        if token.group == 'group' and token.text in groups and \
+          prev_token.group == 'group' and prev_token.text in groups:
+          errors += 1
+          self.errors.append({
+            'TYPE': 'GROUP',
+            'FIRST': prev_token.text,
+            'SECOND': token.text
+            })
+
+        prev_token = token
+
+      group_confidence = 1.0 - errors / num_groups
+
+    self.confidences['group'] = group_confidence
+
+
   def calc_paired_blockers_confidence(self, openers, closers):
     # consider the number of matches for begin/end
     ok, num_begin, num_end = self.check_paired_tokens(self.tokens, openers, closers)

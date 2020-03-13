@@ -108,6 +108,7 @@ class ObjectiveCExaminer(Examiner):
     groupers = ['(', ')', ',', '[', ']', '{', '}', ':']
     group_starts = ['(', '[', ',', '{']
     group_ends = [')', ']', '}']
+    group_mids = [',', ':']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
@@ -184,6 +185,7 @@ class ObjectiveCExaminer(Examiner):
     self.calc_operator_2_confidence(tokens)
     self.calc_operator_3_confidence(tokens, group_ends)
     self.calc_operator_4_confidence(tokens, group_starts)
+    self.calc_group_confidence(tokens, group_mids)
     operand_types = ['number', 'string', 'symbol']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
