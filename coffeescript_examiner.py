@@ -131,12 +131,6 @@ class CoffeeScriptExaminer(Examiner):
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
-    types = [
-      'boolean', 'byte', 'char', 'double', 'float', 'int', 'long', 'short', 'void'
-    ]
-
-    types_tb = ListTokenBuilder(types, 'type', True)
-
     values = [
       'true', 'yes', 'on', 'false', 'no', 'off',
       'super', 'this', 'arguments',
@@ -160,7 +154,6 @@ class CoffeeScriptExaminer(Examiner):
       octal_constant_tb,
       binary_constant_tb,
       keyword_tb,
-      types_tb,
       values_tb,
       known_operator_tb,
       groupers_tb,

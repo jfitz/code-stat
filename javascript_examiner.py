@@ -129,12 +129,6 @@ class JavaScriptExaminer(Examiner):
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
-    types = [
-      'boolean', 'byte', 'char', 'double', 'float', 'int', 'long', 'short'
-    ]
-
-    types_tb = ListTokenBuilder(types, 'type', True)
-
     values = [
       'this', 'super', 'null', 'true', 'false'
     ]
@@ -156,7 +150,6 @@ class JavaScriptExaminer(Examiner):
       octal_constant_tb,
       binary_constant_tb,
       keyword_tb,
-      types_tb,
       values_tb,
       known_operator_tb,
       groupers_tb,
