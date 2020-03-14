@@ -130,6 +130,8 @@ class RExaminer(Examiner):
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
 
+    self.convert_keywords_to_identifiers(['<-', '.', '='])
+
     tokens = self.source_tokens()
     tokens = Examiner.join_parens_continued_lines(tokens)
     tokens = Examiner.join_operator_continued_lines(tokens, self.postfix_operators)
