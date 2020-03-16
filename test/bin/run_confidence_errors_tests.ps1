@@ -259,6 +259,8 @@ test\bin\run_test.ps1 -json -name tshow-matlab -action confidence -errors -langu
 test\bin\run_test.ps1 -json -name hello-objc -action confidence -errors -language Objective-C -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\confidence-errors\Objective-C\HelloWorld.txt"
 test\bin\run_test.ps1 -json -name qrmath-objc -action confidence -errors -language Objective-C -inputfile ".\test\data\Objective-C\QRMath.h" -expected ".\test\ref\confidence-errors\Objective-C\QRMath.txt"
 test\bin\run_test.ps1 -json -name qrencoder-objc -action confidence -errors -language Objective-C -inputfile ".\test\data\Objective-C\QREncoder.m" -expected ".\test\ref\confidence-errors\Objective-C\QREncoder.txt"
+test\bin\run_test.ps1 -json -name jsonkit_h-objc -action confidence -errors -language Objective-C -inputfile ".\test\data\Objective-C\JSONKit.h" -expected ".\test\ref\confidence-errors\Objective-C\JSONKit_h.txt"
+test\bin\run_test.ps1 -json -name jsonkit_m-objc -action confidence -errors -language Objective-C -inputfile ".\test\data\Objective-C\JSONKit.m" -expected ".\test\ref\confidence-errors\Objective-C\JSONKit_m.txt"
 
 # Pascal
 test\bin\run_test.ps1 -json -name firework-pas -action confidence -errors -language Pascal -inputfile ".\test\data\Pascal\FIREWORK.PAS" -expected ".\test\ref\confidence-errors\Pascal\FIREWORK.txt"

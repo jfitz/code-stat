@@ -227,6 +227,8 @@ test\bin\run_test.ps1 -json -name tshow-matlab -action detect -inputfile ".\test
 test\bin\run_test.ps1 -json -name hello-objc -action detect -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\detect\Objective-C\HelloWorld.txt"
 test\bin\run_test.ps1 -json -name qrmath-objc -action detect -inputfile ".\test\data\Objective-C\QRMath.h" -expected ".\test\ref\detect\Objective-C\QRMath.txt"
 test\bin\run_test.ps1 -json -name qrencoder-objc -action detect -inputfile ".\test\data\Objective-C\QREncoder.m" -expected ".\test\ref\detect\Objective-C\QREncoder.txt"
+test\bin\run_test.ps1 -json -name jsonkit_h-objc -action detect -inputfile ".\test\data\Objective-C\JSONKit.h" -expected ".\test\ref\detect\Objective-C\JSONKit_h.txt"
+test\bin\run_test.ps1 -json -name jsonkit_m-objc -action detect -inputfile ".\test\data\Objective-C\JSONKit.m" -expected ".\test\ref\detect\Objective-C\JSONKit_m.txt"
 
 # Pascal
 test\bin\run_test.ps1 -json -name firework-pas -action detect -inputfile ".\test\data\Pascal\FIREWORK.PAS" -expected ".\test\ref\detect\Pascal\FIREWORK.txt"

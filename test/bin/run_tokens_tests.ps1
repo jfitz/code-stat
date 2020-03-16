@@ -259,6 +259,8 @@ test\bin\run_test.ps1 -json -name tshow-matlab -action tokens -language Matlab -
 test\bin\run_test.ps1 -json -name hello-objc -action tokens -language Objective-C -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\tokens\Objective-C\HelloWorld.txt"
 test\bin\run_test.ps1 -json -name qrmath-objc -action tokens -language Objective-C -inputfile ".\test\data\Objective-C\QRMath.h" -expected ".\test\ref\tokens\Objective-C\QRMath.txt"
 test\bin\run_test.ps1 -json -name qrencoder-objc -action tokens -language Objective-C -inputfile ".\test\data\Objective-C\QREncoder.m" -expected ".\test\ref\tokens\Objective-C\QREncoder.txt"
+test\bin\run_test.ps1 -json -name jsonkit_h-objc -action tokens -language Objective-C -inputfile ".\test\data\Objective-C\JSONKit.h" -expected ".\test\ref\tokens\Objective-C\JSONKit_h.txt"
+test\bin\run_test.ps1 -json -name jsonkit_m-objc -action tokens -language Objective-C -inputfile ".\test\data\Objective-C\JSONKit.m" -expected ".\test\ref\tokens\Objective-C\JSONKit_m.txt"
 
 # Pascal
 test\bin\run_test.ps1 -json -name firework-pas -action tokens -language Pascal -inputfile ".\test\data\Pascal\FIREWORK.PAS" -expected ".\test\ref\tokens\Pascal\FIREWORK.txt"
