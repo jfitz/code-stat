@@ -78,7 +78,8 @@ class ObjectiveCExaminer(Examiner):
     directives = (
       '#define', '#undef',
       '#ifdef', '#ifndef', '#if', '#endif', '#else', '#elif',
-      '#import', '#line', '#error', '#include', '#pragma'
+      '#import', '#line', '#include', '#pragma',
+      '#warning', '#error'
     )
 
     line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation')
@@ -97,12 +98,13 @@ class ObjectiveCExaminer(Examiner):
 
     self.unary_operators = [
       '+', '-', '*',
-      '!', '&', '^',
-      '++', '--'
+      '!', '&', '^', '~',
+      '++', '--',
+      '##'
     ]
 
     self.postfix_operators = [
-      '++', '--', '&', '->'
+      '++', '--', '&', '->', '*', '^'
     ]
 
     groupers = ['(', ')', ',', '[', ']', '{', '}', ':']
@@ -139,7 +141,7 @@ class ObjectiveCExaminer(Examiner):
     types_tb = ListTokenBuilder(types, 'type', True)
 
     values = [
-      'self', 'super', 'nil', 'YES', 'NO', 'NULL'
+      'self', 'super', 'nil', 'YES', 'NO', 'NULL', '...'
     ]
 
     values_tb = ListTokenBuilder(values, 'value', True)

@@ -80,7 +80,8 @@ class CppExaminer(Examiner):
     directives = (
       '#define', '#undef',
       '#ifdef', '#ifndef', '#if', '#endif', '#else', '#elif',
-      '#line', '#error', '#include', '#pragma'
+      '#line', '#include', '#pragma',
+      '#warning', '#error'
     )
 
     line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation')

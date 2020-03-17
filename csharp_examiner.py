@@ -68,8 +68,9 @@ class CsharpExaminer(Examiner):
 
     directives = (
       '#if', '#else', '#elif', '#endif',
-      '#define', '#undef', '#warning', '#error'
-      '#line', '#region', '#endregion', '#pragma'
+      '#define', '#undef',
+      '#line', '#region', '#endregion', '#pragma',
+      '#warning', '#error'
     )
 
     preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', True)
