@@ -982,15 +982,20 @@ class PrefixedIntegerTokenBuilder(TokenBuilder):
 
 
 # token reader for ! comment
-class LeadCommentTokenBuilder(TokenBuilder):
+class LeadToEndOfLineTokenBuilder(TokenBuilder):
   @staticmethod
   def __escape_z__():
     Token.__escape_z__()
     return 'Escape ?Z'
 
 
-  def __init__(self, lead):
-    self.lead = lead
+  def __init__(self, lead, case_sensitive, group):
+    if case_sensitive:
+      self.lead = lead
+    else:
+      self.lead = lead.lower()
+    self.case_sensitive = case_sensitive
+    self.group = group
     self.text = ''
 
 
@@ -998,8 +1003,12 @@ class LeadCommentTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    if self.text.startswith(self.lead):
-      return [Token(self.text, 'comment')]
+    if self.case_sensitive:
+      if self.text.startswith(self.lead):
+        return [Token(self.text, self.group)]
+    else:
+      if self.text.lower().startswith(self.lead):
+        return [Token(self.text, self.group)]
 
     return None
 
@@ -1007,11 +1016,19 @@ class LeadCommentTokenBuilder(TokenBuilder):
   def accept(self, candidate, c):
     result = False
 
-    if len(candidate) < len(self.lead):
-      result = c == self.lead[len(candidate)]
-    
-    if candidate.startswith(self.lead):
-      result = True
+    if self.case_sensitive:
+      if len(candidate) < len(self.lead):
+        result = c == self.lead[len(candidate)]
+    else:
+      if len(candidate) < len(self.lead):
+        result = c.lower() == self.lead[len(candidate)]
+
+    if self.case_sensitive:
+      if candidate.startswith(self.lead):
+        result = True
+    else:
+      if candidate.lower().startswith(self.lead):
+        result = True
 
     if c in ['\n', '\r']:
       result = False

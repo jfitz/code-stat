@@ -15,7 +15,7 @@ from token_builders import (
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
   ListTokenBuilder,
-  LeadCommentTokenBuilder
+  LeadToEndOfLineTokenBuilder
 )
 from examiner import Examiner
 
@@ -33,7 +33,7 @@ class EiffelExaminer(Examiner):
     RealExponentTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
-    LeadCommentTokenBuilder.__escape_z__()
+    LeadToEndOfLineTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
@@ -59,7 +59,7 @@ class EiffelExaminer(Examiner):
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
 
-    comment_tb = LeadCommentTokenBuilder('--')
+    comment_tb = LeadToEndOfLineTokenBuilder('--', True, 'comment')
 
     known_operators = [
       ':=', '=', '/=',

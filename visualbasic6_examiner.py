@@ -14,7 +14,7 @@ from token_builders import (
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
   ListTokenBuilder,
-  LeadCommentTokenBuilder,
+  LeadToEndOfLineTokenBuilder,
   SingleCharacterTokenBuilder
 )
 from visualbasic_token_builders import (
@@ -36,7 +36,7 @@ class VisualBasic6Examiner(Examiner):
     RealExponentTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
-    LeadCommentTokenBuilder.__escape_z__()
+    LeadToEndOfLineTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     VisualBasicVariableTokenBuilder.__escape_z__()
     RemarkTokenBuilder.__escape_z__()
@@ -65,8 +65,8 @@ class VisualBasic6Examiner(Examiner):
     string_tb = StringTokenBuilder(quotes, False)
 
     remark_tb = RemarkTokenBuilder()
-    comment_tb = LeadCommentTokenBuilder("'")
-    comment2_tb = LeadCommentTokenBuilder("’")
+    comment_tb = LeadToEndOfLineTokenBuilder("'", True, 'comment')
+    comment2_tb = LeadToEndOfLineTokenBuilder("’", True, 'comment')
 
     known_operators = [
       '+', '-', '*', '/', '\\', 'Mod', '^', '&',

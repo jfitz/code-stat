@@ -15,7 +15,7 @@ from token_builders import (
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
   ListTokenBuilder,
-  LeadCommentTokenBuilder,
+  LeadToEndOfLineTokenBuilder,
   SingleCharacterTokenBuilder
 )
 from lua_token_builders import (
@@ -38,7 +38,7 @@ class LuaExaminer(Examiner):
     RealExponentTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
-    LeadCommentTokenBuilder.__escape_z__()
+    LeadToEndOfLineTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     LuaBlockCommentTokenBuilder.__escape_z__()
     DoubleBracketStringTokenBuilder.__escape_z__()
@@ -107,7 +107,7 @@ class LuaExaminer(Examiner):
 
     values_tb = ListTokenBuilder(values, 'value', True)
 
-    line_comment_tb = LeadCommentTokenBuilder('--')
+    line_comment_tb = LeadToEndOfLineTokenBuilder('--', True, 'comment')
     block_comment_tb = LuaBlockCommentTokenBuilder()
 
     invalid_token_builder = InvalidTokenBuilder()

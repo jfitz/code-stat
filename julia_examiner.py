@@ -20,7 +20,7 @@ from token_builders import (
   PrefixedIdentifierTokenBuilder,
   ListTokenBuilder,
   SingleCharacterTokenBuilder,
-  LeadCommentTokenBuilder,
+  LeadToEndOfLineTokenBuilder,
   NestedCommentTokenBuilder
 )
 from examiner import Examiner
@@ -44,7 +44,7 @@ class JuliaExaminer(Examiner):
     PrefixedIdentifierTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
-    LeadCommentTokenBuilder.__escape_z__(),
+    LeadToEndOfLineTokenBuilder.__escape_z__(),
     NestedCommentTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
@@ -77,7 +77,7 @@ class JuliaExaminer(Examiner):
     b_string_tb = PrefixedStringTokenBuilder('b', True, quotes)
     triple_quote_string_tb = TripleQuoteStringTokenBuilder(quotes)
 
-    comment_tb = LeadCommentTokenBuilder('#')
+    comment_tb = LeadToEndOfLineTokenBuilder('#', True, 'comment')
     nested_comment_tb = NestedCommentTokenBuilder('#=', '=#')
 
     line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation')

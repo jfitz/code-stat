@@ -17,7 +17,7 @@ from token_builders import (
   SingleCharacterTokenBuilder,
   PrefixedIntegerTokenBuilder,
   RegexTokenBuilder,
-  LeadCommentTokenBuilder
+  LeadToEndOfLineTokenBuilder
 )
 from examiner import Examiner
 
@@ -38,7 +38,7 @@ class CoffeeScriptExaminer(Examiner):
     SingleCharacterTokenBuilder.__escape_z__()
     PrefixedIntegerTokenBuilder.__escape_z__()
     RegexTokenBuilder.__escape_z__()
-    LeadCommentTokenBuilder.__escape_z__()
+    LeadToEndOfLineTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
@@ -67,7 +67,7 @@ class CoffeeScriptExaminer(Examiner):
     string_tb = StringTokenBuilder(quotes, False)
     template_string_tb = StringTokenBuilder(['`'], True)
 
-    comment_tb = LeadCommentTokenBuilder('#')
+    comment_tb = LeadToEndOfLineTokenBuilder('#', False, 'comment')
 
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
 

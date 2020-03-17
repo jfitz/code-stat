@@ -9,7 +9,7 @@ from token_builders import (
   PrefixedStringTokenBuilder,
   SingleCharacterTokenBuilder,
   ListTokenBuilder,
-  LeadCommentTokenBuilder
+  LeadToEndOfLineTokenBuilder
 )
 from fortran_token_builders import (
   UserDefinedOperatorTokenBuilder,
@@ -25,7 +25,7 @@ class FortranFreeFormatExaminer(FortranExaminer):
     FortranExaminer.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
-    LeadCommentTokenBuilder.__escape_z__()
+    LeadToEndOfLineTokenBuilder.__escape_z__()
     UserDefinedOperatorTokenBuilder.__escape_z__()
     KindIntegerTokenBuilder.__escape_z__()
     KindRealTokenBuilder.__escape_z__()
@@ -46,7 +46,7 @@ class FortranFreeFormatExaminer(FortranExaminer):
     suffixes = ''
     identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
 
-    bang_comment_tb = LeadCommentTokenBuilder('!')
+    bang_comment_tb = LeadToEndOfLineTokenBuilder('!', False, 'comment')
     quotes = ["'", '"', "’"]
     string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
     binary_string_tb = PrefixedStringTokenBuilder('B', False, quotes)

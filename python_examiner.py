@@ -16,7 +16,7 @@ from token_builders import (
   PrefixedIdentifierTokenBuilder,
   ListTokenBuilder,
   SingleCharacterTokenBuilder,
-  LeadCommentTokenBuilder,
+  LeadToEndOfLineTokenBuilder,
   TripleQuoteStringTokenBuilder
 )
 from python_token_builders import (
@@ -40,7 +40,7 @@ class PythonExaminer(Examiner):
     PrefixedIdentifierTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
-    LeadCommentTokenBuilder.__escape_z__()
+    LeadToEndOfLineTokenBuilder.__escape_z__()
     TripleQuoteStringTokenBuilder.__escape_z__()
     RawTripleQuoteCommentTokenBuilder.__escape_z__()
     return 'Escape ?Z'
@@ -73,7 +73,7 @@ class PythonExaminer(Examiner):
     fast_string_tb = PrefixedStringTokenBuilder('f', True, quotes)
     triple_quote_comment_tb = TripleQuoteStringTokenBuilder(quotes)
     raw_triple_quote_comment_tb = RawTripleQuoteCommentTokenBuilder()
-    hash_comment_tb = LeadCommentTokenBuilder('#')
+    hash_comment_tb = LeadToEndOfLineTokenBuilder('#', True, 'comment')
 
     known_operators = [
       '+', '-', '*', '/', '%', '@',

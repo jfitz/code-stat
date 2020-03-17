@@ -15,7 +15,7 @@ from token_builders import (
   RealExponentTokenBuilder,
   ListTokenBuilder,
   SingleCharacterTokenBuilder,
-  LeadCommentTokenBuilder
+  LeadToEndOfLineTokenBuilder
 )
 from cobol_token_builders import AsteriskCommentTokenBuilder
 from dbase_token_builders import (
@@ -43,7 +43,7 @@ class DbaseExaminer(Examiner):
     RealExponentTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
-    LeadCommentTokenBuilder.__escape_z__()
+    LeadToEndOfLineTokenBuilder.__escape_z__()
     AsteriskCommentTokenBuilder.__escape_z__()
     DbaseSpecialFunctionTokenBuilder.__escape_z__()
     DbaseFilenameTokenBuilder.__escape_z__()
@@ -89,7 +89,7 @@ class DbaseExaminer(Examiner):
     line_continuation_tb = SingleCharacterTokenBuilder(';', 'line continuation')
 
     comment_tb = AsteriskCommentTokenBuilder()
-    line_comment_tb = LeadCommentTokenBuilder('&&')
+    line_comment_tb = LeadToEndOfLineTokenBuilder('&&', True, 'comment')
 
     if version == 'ii':
       known_operators = [

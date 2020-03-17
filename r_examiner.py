@@ -14,7 +14,7 @@ from token_builders import (
   IdentifierTokenBuilder,
   ListTokenBuilder,
   SingleCharacterTokenBuilder,
-  LeadCommentTokenBuilder
+  LeadToEndOfLineTokenBuilder
 )
 from r_token_builders import (
   ROperatorTokenBuilder
@@ -35,7 +35,7 @@ class RExaminer(Examiner):
     IdentifierTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
-    LeadCommentTokenBuilder.__escape_z__()
+    LeadToEndOfLineTokenBuilder.__escape_z__()
     ROperatorTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
@@ -60,7 +60,7 @@ class RExaminer(Examiner):
     quotes = ['"', "'", "’", '`']
     string_tb = StringTokenBuilder(quotes, True)
 
-    hash_comment_tb = LeadCommentTokenBuilder('#')
+    hash_comment_tb = LeadToEndOfLineTokenBuilder('#', True, 'comment')
 
     known_operators = [
         '+', '-', '*', '/', '**', '^',

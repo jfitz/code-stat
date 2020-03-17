@@ -14,7 +14,7 @@ from token_builders import (
   ListTokenBuilder,
   SingleCharacterTokenBuilder,
   IdentifierTokenBuilder,
-  LeadCommentTokenBuilder
+  LeadToEndOfLineTokenBuilder
 )
 from prolog_token_builders import (
   PrologVariableTokenBuilder
@@ -35,7 +35,7 @@ class PrologExaminer(Examiner):
     ListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
-    LeadCommentTokenBuilder.__escape_z__()
+    LeadToEndOfLineTokenBuilder.__escape_z__()
     PrologVariableTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
@@ -63,7 +63,7 @@ class PrologExaminer(Examiner):
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
 
-    comment_tb = LeadCommentTokenBuilder('%')
+    comment_tb = LeadToEndOfLineTokenBuilder('%', True, 'comment')
 
     special_symbols = ['!']
     special_symbol_tb = ListTokenBuilder(special_symbols, 'identifier', True)

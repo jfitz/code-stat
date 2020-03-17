@@ -11,7 +11,7 @@ from token_builders import (
   StringTokenBuilder,
   ListTokenBuilder,
   TripleQuoteStringTokenBuilder,
-  LeadCommentTokenBuilder,
+  LeadToEndOfLineTokenBuilder,
   ParenStarCommentTokenBuilder
 )
 from pascal_token_builders import (
@@ -36,7 +36,7 @@ class GenericCodeExaminer(Examiner):
     StringTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
     TripleQuoteStringTokenBuilder.__escape_z__()
-    LeadCommentTokenBuilder.__escape_z__()
+    LeadToEndOfLineTokenBuilder.__escape_z__()
     ParenStarCommentTokenBuilder.__escape_z__()
     BraceCommentTokenBuilder.__escape_z__()
     SlashSlashCommentTokenBuilder.__escape_z__()
@@ -65,23 +65,23 @@ class GenericCodeExaminer(Examiner):
     comment_tbs = []
 
     if comment == 'ada':
-      comment_tbs = [LeadCommentTokenBuilder('--')]
+      comment_tbs = [LeadToEndOfLineTokenBuilder('--', True, 'comment')]
     if comment == 'hash':
-      comment_tbs = [LeadCommentTokenBuilder('#')]
+      comment_tbs = [LeadToEndOfLineTokenBuilder('#', True, 'comment')]
     if comment == 'bang':
-      comment_tbs = [LeadCommentTokenBuilder('!')]
+      comment_tbs = [LeadToEndOfLineTokenBuilder('!', True, 'comment')]
     if comment == 'cobol-inline':
-      comment_tbs = [LeadCommentTokenBuilder('*>')]
+      comment_tbs = [LeadToEndOfLineTokenBuilder('*>', True, 'comment')]
     if comment == 'percent':
-      comment_tbs = [LeadCommentTokenBuilder('%')]
+      comment_tbs = [LeadToEndOfLineTokenBuilder('%', True, 'comment')]
     if comment == 'cobol':
       pass
     if comment == 'fortran':
       pass
     if comment == 'basic':
       comment_tbs = [
-        LeadCommentTokenBuilder("REM"),
-        LeadCommentTokenBuilder("'")
+        LeadToEndOfLineTokenBuilder("REM", False, 'comment'),
+        LeadToEndOfLineTokenBuilder("'", True, 'comment')
       ]
     if comment == 'c':
       comment_tbs = [SlashStarCommentTokenBuilder()]

@@ -15,7 +15,7 @@ from token_builders import (
   IdentifierTokenBuilder,
   PrefixedIdentifierTokenBuilder,
   ListTokenBuilder,
-  LeadCommentTokenBuilder,
+  LeadToEndOfLineTokenBuilder,
   ParenStarCommentTokenBuilder,
   KeywordTokenBuilder
 )
@@ -36,7 +36,7 @@ class MatlabExaminer(Examiner):
     IdentifierTokenBuilder.__escape_z__()
     PrefixedIdentifierTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
-    LeadCommentTokenBuilder.__escape_z__()
+    LeadToEndOfLineTokenBuilder.__escape_z__()
     ParenStarCommentTokenBuilder.__escape_z__()
     KeywordTokenBuilder.__escape_z__()
     MatlabStringTokenBuilder.__escape_z__()
@@ -66,7 +66,7 @@ class MatlabExaminer(Examiner):
     quotes = ['"', "'", "’"]
     string_tb = MatlabStringTokenBuilder(quotes, False)
 
-    line_comment_tb = LeadCommentTokenBuilder('%')
+    line_comment_tb = LeadToEndOfLineTokenBuilder('%', False, 'comment')
     block_comment_tb = ParenStarCommentTokenBuilder('%{', '%}')
 
     line_continuation_tb = KeywordTokenBuilder('...', 'line continuation')

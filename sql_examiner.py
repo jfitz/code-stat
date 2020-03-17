@@ -15,7 +15,7 @@ from token_builders import (
   ListTokenBuilder,
   SingleCharacterTokenBuilder,
   PrefixedIntegerTokenBuilder,
-  LeadCommentTokenBuilder
+  LeadToEndOfLineTokenBuilder
 )
 from sql_token_builders import SqlBracketedIdentifierTokenBuilder
 from examiner import Examiner
@@ -35,7 +35,7 @@ class SqlExaminer(Examiner):
     ListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     PrefixedIntegerTokenBuilder.__escape_z__()
-    LeadCommentTokenBuilder.__escape_z__()
+    LeadToEndOfLineTokenBuilder.__escape_z__()
     SqlBracketedIdentifierTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
@@ -64,7 +64,7 @@ class SqlExaminer(Examiner):
 
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
 
-    comment_tb = LeadCommentTokenBuilder('--')
+    comment_tb = LeadToEndOfLineTokenBuilder('--', True, 'comment')
 
     known_operators = [
       '=', '>', '>=', '<', '<=', '<>', '!=',
@@ -263,8 +263,6 @@ class SqlExaminer(Examiner):
       'SMALLINT',
       'VARCHAR'
     ]
-
-    type_tb = ListTokenBuilder(types, 'type', False)
 
     invalid_token_builder = InvalidTokenBuilder()
 

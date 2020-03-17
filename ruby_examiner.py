@@ -14,7 +14,7 @@ from token_builders import (
   RealExponentTokenBuilder,
   ListTokenBuilder,
   SingleCharacterTokenBuilder,
-  LeadCommentTokenBuilder,
+  LeadToEndOfLineTokenBuilder,
   PrefixedIdentifierTokenBuilder,
   RegexTokenBuilder
 )
@@ -37,7 +37,7 @@ class RubyExaminer(Examiner):
     RealExponentTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
-    LeadCommentTokenBuilder.__escape_z__()
+    LeadToEndOfLineTokenBuilder.__escape_z__()
     PrefixedIdentifierTokenBuilder.__escape_z__()
     RegexTokenBuilder.__escape_z__()
     RubyIdentifierTokenBuilder.__escape_z__()
@@ -63,7 +63,7 @@ class RubyExaminer(Examiner):
     string_tb = StringTokenBuilder(quotes, True)
     heredoc_tb = HereDocTokenBuilder('<<-')
 
-    hash_comment_tb = LeadCommentTokenBuilder('#')
+    hash_comment_tb = LeadToEndOfLineTokenBuilder('#', False, 'comment')
 
     known_operators = [
         '!', '~',

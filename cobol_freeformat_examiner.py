@@ -15,7 +15,7 @@ from token_builders import (
   RealExponentTokenBuilder,
   ListTokenBuilder,
   SingleCharacterTokenBuilder,
-  LeadCommentTokenBuilder,
+  LeadToEndOfLineTokenBuilder,
   BlockTokenBuilder
 )
 from cobol_token_builders import (
@@ -42,7 +42,7 @@ class CobolFreeFormatExaminer(CobolExaminer):
     RealExponentTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
-    LeadCommentTokenBuilder.__escape_z__()
+    LeadToEndOfLineTokenBuilder.__escape_z__()
     BlockTokenBuilder.__escape_z__()
     CobolIdentifierTokenBuilder.__escape_z__()
     PictureTokenBuilder.__escape_z__()
@@ -72,7 +72,7 @@ class CobolFreeFormatExaminer(CobolExaminer):
     nx_string_tb = PrefixedStringTokenBuilder('NX', False, quotes)
     picture_tb = PictureTokenBuilder()
     cr_picture_tb = CRPictureTokenBuilder()
-    inline_comment_tb = LeadCommentTokenBuilder('*>')
+    inline_comment_tb = LeadToEndOfLineTokenBuilder('*>', True, 'comment')
     star_comment_tb = AsteriskCommentTokenBuilder()
 
     terminators_tb = SingleCharacterTokenBuilder('.', 'statement terminator')

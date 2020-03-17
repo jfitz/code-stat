@@ -16,7 +16,7 @@ from token_builders import (
   ListTokenBuilder,
   SingleCharacterTokenBuilder,
   PrefixedIntegerTokenBuilder,
-  LeadCommentTokenBuilder
+  LeadToEndOfLineTokenBuilder
 )
 from basic_token_builders import (
   BasicVariableTokenBuilder,
@@ -40,7 +40,7 @@ class BasicExaminer(Examiner):
     ListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     PrefixedIntegerTokenBuilder.__escape_z__()
-    LeadCommentTokenBuilder.__escape_z__()
+    LeadToEndOfLineTokenBuilder.__escape_z__()
     BasicVariableTokenBuilder.__escape_z__()
     RemarkTokenBuilder.__escape_z__()
     return 'Escape ?Z'
@@ -65,8 +65,8 @@ class BasicExaminer(Examiner):
     quotes = ['"']
     string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
     remark_tb = RemarkTokenBuilder()
-    comment_tb = LeadCommentTokenBuilder("'")
-    comment2_tb = LeadCommentTokenBuilder("’")
+    comment_tb = LeadToEndOfLineTokenBuilder("'", False, 'comment')
+    comment2_tb = LeadToEndOfLineTokenBuilder("’", False, 'comment')
 
     stmt_separator_tb = SingleCharacterTokenBuilder(':', 'statement separator')
 
