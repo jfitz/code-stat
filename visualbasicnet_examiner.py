@@ -68,12 +68,12 @@ class VisualBasicNETExaminer(Examiner):
     comment_tb = LeadToEndOfLineTokenBuilder("'", True, 'comment')
     comment2_tb = LeadToEndOfLineTokenBuilder("’", True, 'comment')
 
-    directives = (
+    directives = [
       '#If', '#Else', '#ElseIf', '#End If',
       '#ExternalSource',
       '#Line', '#Region', '#End Region',
       '#Const'
-    )
+    ]
 
     preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', True)
 

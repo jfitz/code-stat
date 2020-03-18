@@ -49,6 +49,11 @@ class PL1FixedFormatExaminer(PL1Examiner):
       self.label_tb,
       self.slash_star_comment_tb,
       self.preprocessor_tb,
+      self.title_tb,
+      self.subtitle_tb,
+      self.error_tb,
+      self.warn_tb,
+      self.inform_tb,
       self.jcl_tb,
       self.unknown_operator_tb,
       invalid_token_builder

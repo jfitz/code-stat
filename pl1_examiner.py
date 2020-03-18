@@ -15,7 +15,8 @@ from token_builders import (
   SuffixedRealTokenBuilder,
   IdentifierTokenBuilder,
   ListTokenBuilder,
-  SingleCharacterTokenBuilder
+  SingleCharacterTokenBuilder,
+  LeadToEndOfLineTokenBuilder
 )
 from cx_token_builders import (
   SlashStarCommentTokenBuilder
@@ -56,25 +57,27 @@ class PL1Examiner(Examiner):
 
     self.jcl_tb = JCLTokenBuilder()
 
-    directives = (
+    directives = [
       '%ACTIVATE',
       '%DEACTIVATE', '%DECLARE', '%DCL', '%DICTIONARY', '%DO',
-      '%ELSE', '%END', '%ERROR',
+      '%ELSE', '%END',
       '%FATAL',
       '%GOTO',
-      '%IF', '%INCLUDE', '%INFORM',
+      '%IF', '%INCLUDE',
       '%LIST',
       '%NOLIST',
       '%PAGE', '%PROCEDURE', '%PROC',
       '%REPLACE', '%RETURN',
-      '%SBTTL',
-      '%THEN',
-      '%TITLE',
-      '%WARN'
-    )
+      '%THEN'
+    ]
 
     self.line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation')
     self.preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', False)
+    self.title_tb = LeadToEndOfLineTokenBuilder('%TITLE', True, 'preprocessor')
+    self.subtitle_tb = LeadToEndOfLineTokenBuilder('%SBTTL', True, 'preprocessor')
+    self.error_tb = LeadToEndOfLineTokenBuilder('%ERROR', True, 'preprocessor')
+    self.warn_tb = LeadToEndOfLineTokenBuilder('%WARN', True, 'preprocessor')
+    self.inform_tb = LeadToEndOfLineTokenBuilder('%INFORM', True, 'preprocessor')
     self.terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
 
     known_operators = [

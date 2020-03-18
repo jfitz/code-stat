@@ -17,7 +17,8 @@ from token_builders import (
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
   ListTokenBuilder,
-  SingleCharacterTokenBuilder
+  SingleCharacterTokenBuilder,
+  LeadToEndOfLineTokenBuilder
 )
 from cx_token_builders import (
   SlashSlashCommentTokenBuilder,
@@ -43,6 +44,7 @@ class CppExaminer(Examiner):
     IdentifierTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
+    LeadToEndOfLineTokenBuilder.__escape_z__()
     SlashSlashCommentTokenBuilder.__escape_z__()
     SlashStarCommentTokenBuilder.__escape_z__()
     ClassTypeTokenBuilder.__escape_z__()
@@ -77,15 +79,16 @@ class CppExaminer(Examiner):
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
 
-    directives = (
+    directives = [
       '#define', '#undef',
       '#ifdef', '#ifndef', '#if', '#endif', '#else', '#elif',
-      '#line', '#include', '#pragma',
-      '#warning', '#error'
-    )
+      '#line', '#include', '#pragma'
+    ]
 
     line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation')
     c_preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', True)
+    c_warning_tb = LeadToEndOfLineTokenBuilder('#warning', True, 'preprocessor')
+    c_error_tb = LeadToEndOfLineTokenBuilder('#error', True, 'preprocessor')
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
 
     known_operators = [
@@ -189,6 +192,8 @@ class CppExaminer(Examiner):
       slash_slash_comment_tb,
       slash_star_comment_tb,
       c_preprocessor_tb,
+      c_error_tb,
+      c_warning_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]

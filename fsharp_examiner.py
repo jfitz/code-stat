@@ -15,7 +15,8 @@ from token_builders import (
   IdentifierTokenBuilder,
   ListTokenBuilder,
   ParenStarCommentTokenBuilder,
-  TripleQuoteStringTokenBuilder
+  TripleQuoteStringTokenBuilder,
+  LeadToEndOfLineTokenBuilder
 )
 from cx_token_builders import (
   SlashSlashCommentTokenBuilder,
@@ -45,6 +46,7 @@ class FsharpExaminer(Examiner):
     TripleQuoteStringTokenBuilder.__escape_z__()
     SlashSlashCommentTokenBuilder.__escape_z__()
     TripleSlashCommentTokenBuilder.__escape_z__()
+    LeadToEndOfLineTokenBuilder.__escape_z__()
     ClassTypeTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
@@ -76,13 +78,15 @@ class FsharpExaminer(Examiner):
     parens_star_comment_tb = ParenStarCommentTokenBuilder('(*', '*)')
     triple_slash_comment_tb = TripleSlashCommentTokenBuilder()
 
-    directives = (
+    directives = [
       '#if', '#else', '#elif', '#endif',
-      '#define', '#undef', '#warning', '#error'
+      '#define', '#undef',
       '#line', '#region', '#endregion', '#pragma'
-    )
+    ]
 
     preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', True)
+    c_warning_tb = LeadToEndOfLineTokenBuilder('#warning', True, 'preprocessor')
+    c_error_tb = LeadToEndOfLineTokenBuilder('#error', True, 'preprocessor')
 
     known_operators = [
       'and', 'as', 'in', 'new', 'not', 'of', 'or', 'when', 
@@ -177,6 +181,8 @@ class FsharpExaminer(Examiner):
       slash_slash_comment_tb,
       parens_star_comment_tb,
       preprocessor_tb,
+      c_error_tb,
+      c_warning_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]

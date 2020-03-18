@@ -15,7 +15,8 @@ from token_builders import (
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
   ListTokenBuilder,
-  SingleCharacterTokenBuilder
+  SingleCharacterTokenBuilder,
+  LeadToEndOfLineTokenBuilder
 )
 from cx_token_builders import (
   SlashSlashCommentTokenBuilder,
@@ -38,6 +39,7 @@ class CsharpExaminer(Examiner):
     IdentifierTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
+    LeadToEndOfLineTokenBuilder.__escape_z__()
     SlashSlashCommentTokenBuilder.__escape_z__()
     SlashStarCommentTokenBuilder.__escape_z__()
     return 'Escape ?Z'
@@ -66,14 +68,15 @@ class CsharpExaminer(Examiner):
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
 
-    directives = (
+    directives = [
       '#if', '#else', '#elif', '#endif',
       '#define', '#undef',
-      '#line', '#region', '#endregion', '#pragma',
-      '#warning', '#error'
-    )
+      '#line', '#region', '#endregion', '#pragma'
+    ]
 
     preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', True)
+    c_warning_tb = LeadToEndOfLineTokenBuilder('#warning', True, 'preprocessor')
+    c_error_tb = LeadToEndOfLineTokenBuilder('#error', True, 'preprocessor')
 
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
 
@@ -163,6 +166,8 @@ class CsharpExaminer(Examiner):
       slash_slash_comment_tb,
       slash_star_comment_tb,
       preprocessor_tb,
+      c_error_tb,
+      c_warning_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]
