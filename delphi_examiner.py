@@ -168,7 +168,10 @@ class DelphiExaminer(Examiner):
     tokenizer = Tokenizer(tokenbuilders)
     tokens = tokenizer.tokenize(code)
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
-    self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
+    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
+    # tokens = Examiner.combine_identifier_colon(tokens, ['statement separator'], ['begin'], ['whitespace', 'comment', 'newline'])
+    self.tokens = tokens
+    self.convert_identifiers_to_labels()
 
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)

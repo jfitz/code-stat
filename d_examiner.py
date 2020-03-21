@@ -204,6 +204,9 @@ class DExaminer(Examiner):
     tokens = tokenizer.tokenize(code)
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
+    tokens = Examiner.combine_identifier_colon(tokens, ['statement terminator', 'newline'], ['{'], ['whitespace', 'comment'])
+    self.tokens = tokens
+    self.convert_identifiers_to_labels()
 
     number_suffixes = ['f', 'F', 'i', 'I', 'u', 'U', 'l', 'L', 'ul', 'uL', 'Ul', 'UL', 'lu', 'lU', 'Lu', 'LU']
     tokens = self.combine_tokens_and_adjacent_types(tokens, 'number', 'identifier', number_suffixes)

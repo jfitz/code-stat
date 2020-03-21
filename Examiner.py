@@ -166,12 +166,45 @@ class Examiner:
         if new_token is not None:
             new_list.append(new_token)
         new_token = token
+
     if new_token is not None:
       new_list.append(new_token)
 
     return new_list
 
 
+  # convert identifiers followed by colons to labels
+  # but only if they are the first printable tokens on the line
+  @staticmethod
+  def combine_identifier_colon(tokens, separator_groups, separator_texts, ignore_groups):
+    new_list = []
+
+    new_token = None
+    first_printable_token = True
+
+    for token in tokens:
+      if token.text == ':' and \
+        new_token is not None and new_token.group == 'identifier' and \
+        first_printable_token:
+        new_token = Token(new_token.text + token.text, 'label')
+      else:
+        if new_token is not None:
+            new_list.append(new_token)
+            if new_token.group in separator_groups or \
+              new_token.text in separator_texts:
+              first_printable_token = True
+            else:
+              if new_token.group not in ignore_groups:
+                first_printable_token = False
+        new_token = token
+
+    if new_token is not None:
+      new_list.append(new_token)
+
+    return new_list
+
+
+  # convert keywords after specified operators to identifiers
   def convert_keywords_to_identifiers(self, operators):
     prev_token = Token('\n', 'newline')
 
@@ -179,6 +212,19 @@ class Examiner:
       if token.group == 'keyword' and\
         prev_token.group == 'operator' and prev_token.text in operators:
         token.group = 'identifier'
+
+      if token.group not in ['whitespace', 'comment', 'newline']:
+        prev_token = token
+
+
+  # convert identifiers after 'goto' to labels
+  def convert_identifiers_to_labels(self):
+    prev_token = Token('\n', 'newline')
+
+    for token in self.tokens:
+      if token.group == 'identifier' and \
+        prev_token.group == 'keyword' and prev_token.text.lower() == 'goto':
+        token.group = 'label'
 
       if token.group not in ['whitespace', 'comment', 'newline']:
         prev_token = token
