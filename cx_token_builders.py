@@ -120,17 +120,14 @@ class SlashStarCommentTokenBuilder(TokenBuilder):
   def accept(self, candidate, c):
     result = False
 
-    if c == '/' and len(candidate) == 0:
-      result = True
+    if len(candidate) == 0:
+      result = c == '/'
 
-    if c == '*' and len(candidate) == 1:
-      result = True
+    if len(candidate) == 1:
+      result = c == '*'
 
-    if c == '/' and len(candidate) > 2 and candidate[-1] == '*':
-      result = True
-
-    if candidate.startswith('/*') and (candidate[-2] != '*' or candidate[-1] != '/'):
-      result = True
+    if len(candidate) > 1:
+      result = not candidate.endswith('*/')
 
     return result
 
