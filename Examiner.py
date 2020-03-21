@@ -57,38 +57,33 @@ class Examiner:
     return detabbed_text
 
 
-  def invalid_operators(self):
-    tokens = []
-    for token in self.tokens:
-      if token.group == 'invalid operator':
-        tokens.append(token)
+  @staticmethod
+  def find_tokens(tokens, groups):
+    found_tokens = []
 
-    return tokens
+    for token in tokens:
+      if token.group in groups:
+        found_tokens.append(token)
 
-
-  def count_invalid_operators(self):
-    num = 0
-    for token in self.tokens:
-      if token.group == 'invalid operator':
-        num += 1
-
-    return num
+    return found_tokens
 
 
-  def count_known_operators(self):
-    num = 0
-    for token in self.tokens:
-      if token.group == 'operator':
-        num += 1
+  @staticmethod
+  def count_tokens(tokens, groups):
+    count = 0
 
-    return num
+    for token in tokens:
+      if token.group in groups:
+        count += 1
+
+    return count
 
 
-  def count_tokens(self, group):
+  def count_my_tokens(self, groups):
     count = 0
 
     for token in self.tokens:
-      if token.group in group:
+      if token.group in groups:
         count += 1
 
     return count
@@ -212,18 +207,6 @@ class Examiner:
     self.confidences['line_length'] = line_length_confidence
 
 
-  # count invalid tokens
-  @staticmethod
-  def count_invalid_tokens(tokens):
-    num_invalid_tokens = 0
-
-    for token in tokens:
-      if token.group.startswith('invalid'):
-        num_invalid_tokens += 1
-
-    return num_invalid_tokens
-
-
   # unknown tokens reduce confidence
   def calc_token_confidence(self):
     num_invalid_tokens = 0
@@ -250,9 +233,9 @@ class Examiner:
 
   #  unknown operators reduce confidence
   def calc_operator_confidence(self):
-    invalid_operators = self.invalid_operators()
-    num_invalid_operators = self.count_invalid_operators()
-    num_known_operators = self.count_known_operators()
+    invalid_operators = Examiner.find_tokens(self.tokens, ['invalid operator'])
+    num_invalid_operators = Examiner.count_tokens(self.tokens, ['invalid operator'])
+    num_known_operators = Examiner.count_tokens(self.tokens, ['operator'])
     num_operators = num_known_operators + num_invalid_operators
 
     for operator in invalid_operators:
@@ -273,8 +256,8 @@ class Examiner:
 
   # binary operators that follow operators reduce confidence
   def calc_operator_2_confidence(self, tokens):
-    num_invalid_operators = self.count_invalid_operators()
-    num_known_operators = self.count_known_operators()
+    num_invalid_operators = Examiner.count_tokens(tokens, ['invalid operator'])
+    num_known_operators = Examiner.count_tokens(tokens, ['operator'])
     num_operators = num_known_operators + num_invalid_operators
 
     operator_confidence_2 = 1.0
@@ -305,8 +288,8 @@ class Examiner:
 
   # binary operators that follow non-operands reduce confidence
   def calc_operator_3_confidence(self, tokens, group_ends):
-    num_invalid_operators = self.count_invalid_operators()
-    num_known_operators = self.count_known_operators()
+    num_invalid_operators = Examiner.count_tokens(tokens, ['invalid operator'])
+    num_known_operators = Examiner.count_tokens(tokens, ['operator'])
     num_operators = num_known_operators + num_invalid_operators
 
     operator_confidence_3 = 1.0
@@ -356,8 +339,8 @@ class Examiner:
 
   # binary operators that precede non-operands reduce confidence
   def calc_operator_4_confidence(self, tokens, group_starts):
-    num_invalid_operators = self.count_invalid_operators()
-    num_known_operators = self.count_known_operators()
+    num_invalid_operators = Examiner.count_tokens(tokens, ['invalid operator'])
+    num_known_operators = Examiner.count_tokens(tokens, ['operator'])
     num_operators = num_known_operators + num_invalid_operators
 
     operator_confidence_4 = 1.0
@@ -404,7 +387,7 @@ class Examiner:
 
   # groups that follow groups reduce confidence
   def calc_group_confidence(self, tokens, groups):
-    num_groups = self.count_tokens('group')
+    num_groups = self.count_my_tokens('group')
 
     group_confidence = 1.0
 
@@ -570,7 +553,7 @@ class Examiner:
 
   def calc_keyword_confidence(self):
     group = ['keyword', 'type', 'function']
-    num_keywords = self.count_tokens(group)
+    num_keywords = self.count_my_tokens(group)
 
     if num_keywords > 0:
       self.confidences['keyword'] = 1.0
@@ -582,7 +565,7 @@ class Examiner:
         })
 
       num_tokens = len(self.tokens)
-      num_invalid_tokens = Examiner.count_invalid_tokens(self.tokens)
+      num_invalid_tokens = Examiner.count_tokens(self.tokens, ['invalid', 'invalid operator'])
       num_valid_tokens = num_tokens - num_invalid_tokens
 
       # fewer than 1000 tokens and no keyword? possible
