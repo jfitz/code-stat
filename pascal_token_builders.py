@@ -19,15 +19,26 @@ class BraceCommentTokenBuilder(TokenBuilder):
     return [Token(self.text, 'comment')]
 
   def accept(self, candidate, c):
-    result = False
+    if len(candidate) == 0:
+      return c == '{'
 
-    if c == '{' and candidate == '':
-      result = True
+    if len(candidate) > 0:
+      return candidate[-1] != '}'
 
-    if c == '}' and len(candidate) > 0:
-      result = True
+    return True
 
-    if len(candidate) > 0 and candidate[-1] != '}':
-      result = True
 
-    return result
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(self.text) < 2:
+      return 0
+
+    if self.text[0] != '{':
+      return 0
+      
+    if self.text[-1] != '}':
+      return 0
+
+    return len(self.text)

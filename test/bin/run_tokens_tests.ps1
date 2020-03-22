@@ -263,6 +263,7 @@ test\bin\run_test.ps1 -json -name jsonkit_h-objc -action tokens -language Object
 test\bin\run_test.ps1 -json -name jsonkit_m-objc -action tokens -language Objective-C -inputfile ".\test\data\Objective-C\JSONKit.m" -expected ".\test\ref\tokens\Objective-C\JSONKit_m.txt"
 
 # Pascal
+test\bin\run_test.ps1 -json -name label_declare-pas -action tokens -language Pascal -inputfile ".\test\data\Pascal\LabelDeclaration.pas" -expected ".\test\ref\tokens\Pascal\LabelDeclaration.txt"
 test\bin\run_test.ps1 -json -name firework-pas -action tokens -language Pascal -inputfile ".\test\data\Pascal\FIREWORK.PAS" -expected ".\test\ref\tokens\Pascal\FIREWORK.txt"
 test\bin\run_test.ps1 -json -name hello-pas -action tokens -language Pascal -inputfile ".\test\data\Pascal\HELLO.PAS" -expected ".\test\ref\tokens\Pascal\HELLO.txt"
 test\bin\run_test.ps1 -json -name rose-pas -action tokens -language Pascal -inputfile ".\test\data\Pascal\ROSE.PAS" -expected ".\test\ref\tokens\Pascal\ROSE.txt"

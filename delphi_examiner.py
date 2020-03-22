@@ -2,6 +2,7 @@ import string
 import math
 
 from codestat_tokenizer import Tokenizer
+from codestat_token import Token
 from token_builders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
@@ -169,9 +170,10 @@ class DelphiExaminer(Examiner):
     tokens = tokenizer.tokenize(code)
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
-    # tokens = Examiner.combine_identifier_colon(tokens, ['statement separator'], ['begin'], ['whitespace', 'comment', 'newline'])
+    tokens = self.combine_identifier_colon(tokens, ['statement separator'], ['begin'], ['whitespace', 'comment', 'newline'])
     self.tokens = tokens
     self.convert_identifiers_to_labels()
+    self.convert_identifiers_to_labels_2()
 
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
@@ -187,28 +189,58 @@ class DelphiExaminer(Examiner):
     pair_starters = ['unit', 'class', 'begin', 'record', 'case', 'try']
     pair_enders = ['end']
     self.calc_paired_blockers_confidence(pair_starters, pair_enders)
+    self.calc_statistics()
 
-    # get the first and last meaningful tokens
-    first_token = None
-    last_token = None
+
+  # convert identifiers after 'label' and before ';' to labels
+  def convert_identifiers_to_labels_2(self):
+    seen_label_keyword = False
 
     for token in self.tokens:
-      if first_token is None and token.group not in ['whitespace', 'comment', 'newline']:
-        first_token = token
+      if token.group == 'identifier' and seen_label_keyword:
+        token.group = 'label'
 
-      if token.group not in ['whitespace', 'comment', 'newline']:
-        last_token = token
+      if token.text.lower() == 'label':
+        seen_label_keyword = True
 
-    # program should begin with 'program' or 'unit'
-    program_end_confidence = 0.0
-    if first_token is not None:
-      if first_token.text.lower() in ['program', 'unit']:
-        program_end_confidence += 0.75
+      if token.text == ';':
+        seen_label_keyword = False
 
-    # program should end with '.'
-    if last_token is not None:
-      if last_token.text == '.':
-        program_end_confidence += 0.25
 
-    self.confidences['program_end'] = program_end_confidence
-    self.calc_statistics()
+  # convert identifiers followed by colons to labels
+  # but only if they are the first printable tokens on the line
+  @staticmethod
+  def combine_identifier_colon(tokens, separator_groups, separator_texts, ignore_groups):
+    new_list = []
+
+    new_token = None
+    first_printable_token = True
+    in_declaration = True
+
+    for token in tokens:
+      if token.text == ':' and \
+        new_token is not None and new_token.group == 'identifier' and \
+        first_printable_token and \
+        not in_declaration:
+        new_token = Token(new_token.text + token.text, 'label')
+      else:
+        if new_token is not None:
+            new_list.append(new_token)
+            if new_token.group in separator_groups or \
+              new_token.text in separator_texts:
+              first_printable_token = True
+            else:
+              if new_token.group not in ignore_groups:
+                first_printable_token = False
+        new_token = token
+
+      if token.text.lower() in ['procedure', 'function', 'constructor', 'destructor']:
+        in_declaration = True
+
+      if token.text.lower() == 'begin':
+        in_declaration = False
+
+    if new_token is not None:
+      new_list.append(new_token)
+
+    return new_list

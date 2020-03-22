@@ -263,6 +263,7 @@ test\bin\run_test.ps1 -json -name jsonkit_h-objc -action confidence -language Ob
 test\bin\run_test.ps1 -json -name jsonkit_m-objc -action confidence -language Objective-C -inputfile ".\test\data\Objective-C\JSONKit.m" -expected ".\test\ref\confidence\Objective-C\JSONKit_m.txt"
 
 # Pascal
+test\bin\run_test.ps1 -json -name label_declare-pas -action confidence -language Pascal -inputfile ".\test\data\Pascal\LabelDeclaration.pas" -expected ".\test\ref\confidence\Pascal\LabelDeclaration.txt"
 test\bin\run_test.ps1 -json -name firework-pas -action confidence -language Pascal -inputfile ".\test\data\Pascal\FIREWORK.PAS" -expected ".\test\ref\confidence\Pascal\FIREWORK.txt"
 test\bin\run_test.ps1 -json -name hello-pas -action confidence -language Pascal -inputfile ".\test\data\Pascal\HELLO.PAS" -expected ".\test\ref\confidence\Pascal\HELLO.txt"
 test\bin\run_test.ps1 -json -name rose-pas -action confidence -language Pascal -inputfile ".\test\data\Pascal\ROSE.PAS" -expected ".\test\ref\confidence\Pascal\ROSE.txt"
