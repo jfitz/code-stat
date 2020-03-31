@@ -74,7 +74,7 @@ class MicrosoftBasicExaminer(Examiner):
     known_operators = [
       '+', '-', '*', '/', '^',
       '=', '>', '>=', '<', '<=', '<>',
-      '#', '\\', 'AND', 'OR', 'NOT', 'IMP', 'EQV', 'XOR'
+      '#', '\\', 'AND', 'MOD', 'OR', 'NOT', 'IMP', 'EQV', 'XOR'
     ]
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
@@ -124,7 +124,7 @@ class MicrosoftBasicExaminer(Examiner):
       'FIX', 'FRE',
       'HEX$',
       'INKEY', 'INP', 'INPUT$', 'INSTR', 'INT',
-      'LEFT$', 'LEN', 'LOC', 'LOG', 'LPOS',
+      'LEFT$', 'LEN', 'LOC', 'LOF', 'LOG', 'LPOS',
       'MID$', 'MKI$', 'MKD$', 'MKS$',
       'OCT$',
       'PEEK', 'POS',
@@ -173,7 +173,10 @@ class MicrosoftBasicExaminer(Examiner):
     tokenizer = Tokenizer(tokenbuilders)
     tokens = tokenizer.tokenize(code)
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
-    self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
+    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
+    text_operators = ['AND', 'MOD', 'OR', 'NOT', 'IMP', 'EQV', 'XOR']
+    tokens = MicrosoftBasicExaminer.extract_keywords_from_identifiers(tokens, keywords, text_operators)
+    self.tokens = tokens
 
     self.convert_numbers_to_line_numbers()
     self.convert_values_to_functions()
@@ -215,6 +218,60 @@ class MicrosoftBasicExaminer(Examiner):
 
       if token.group not in ['whitespace', 'comment']:
         prev_token = token
+
+
+  @staticmethod
+  def extract_keywords(text, words):
+    new_texts = []
+    new_text = ''
+    while len(text) > 0:
+      found = False
+      for word in words:
+        if text.startswith(word):
+          if len(new_text) > 0:
+            new_texts.append(new_text)
+            new_text = ''
+          new_texts.append(word)
+          # clip out keyword
+          text = text[len(word):]
+          found = True
+          break
+      if not found:
+        new_text += text[0]
+        text = text[1:]
+
+    if len(new_text) > 0:
+      new_texts.append(new_text)
+
+    return new_texts
+
+
+  @staticmethod
+  def extract_keywords_from_identifiers(tokens, keywords, text_operators):
+    new_tokens = []
+
+    words = keywords + text_operators
+
+    for token in tokens:
+      if token.group == 'identifier':
+        new_texts = MicrosoftBasicExaminer.extract_keywords(token.text, words)
+
+        for new_text in new_texts:
+          if new_text in keywords:
+            new_token = Token(new_text, 'keyword')
+          elif new_text in text_operators:
+            new_token = Token(new_text, 'operator')
+          else:
+            if new_text.isdigit():
+              new_token = Token(new_text, 'number')
+            else:
+              new_token = Token(new_text, 'variable')
+
+          new_tokens.append(new_token)
+      else:
+        new_tokens.append(token)
+
+    return new_tokens
 
 
   def calc_line_format_confidence(self):
