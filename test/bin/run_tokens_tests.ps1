@@ -55,6 +55,9 @@ test\bin\run_test.ps1 -json -name rockt2-bas -action tokens -language BASIC -inp
 
 # Microsoft BASIC
 test\bin\run_test.ps1 -json -name doctor-mbasic -action tokens -language Microsoft-BASIC -inputfile ".\test\data\BASIC\doctor.bas" -expected ".\test\ref\tokens\Microsoft-BASIC\doctor.txt"
+test\bin\run_test.ps1 -json -name airinput-mbasic -action tokens -language Microsoft-BASIC -inputfile ".\test\data\BASIC\AIRINPUT.bas" -expected ".\test\ref\tokens\Microsoft-BASIC\AIRINPUT.txt"
+test\bin\run_test.ps1 -json -name backgamm-mbasic -action tokens -language Microsoft-BASIC -inputfile ".\test\data\BASIC\BACKGAMM.bas" -expected ".\test\ref\tokens\Microsoft-BASIC\BACKGAMM.txt"
+test\bin\run_test.ps1 -json -name planes-mbasic -action tokens -language Microsoft-BASIC -inputfile ".\test\data\BASIC\PLANES.bas" -expected ".\test\ref\tokens\Microsoft-BASIC\PLANES.txt"
 
 # BASICA
 test\bin\run_test.ps1 -json -name sea-creature-basica -action tokens -language BASICA -inputfile ".\test\data\BASIC\sea_creature.bas" -expected ".\test\ref\tokens\BASICA\sea_creature.txt"

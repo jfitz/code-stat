@@ -90,20 +90,22 @@ class MicrosoftBasicExaminer(Examiner):
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     keywords = [
+      'BASE',
       'CALL', 'CHAIN', 'MERGE', 'CLEAR', 'CLS', 'CLOSE', 'COMMON',
-      'DATA', 'DEF', 'DEFINT', 'DEFSNG', 'DEFDBL', 'DEFSTR', 'USR', 'DIM',
-      'END', 'ERASE', 'ERROR',
-      'FIELD', 'FOR', 'TO', 'STEP', 'NEXT',
-      'GET', 'GOSUB', 'RETURN', 'GOTO',
-      'IF', 'THEN', 'ELSE', 'INPUT',
+      'DATA', 'DEF', 'DEFDBL', 'DEFINT', 'DEFSNG', 'DEFSTR', 'DIM',
+      'ELSE', 'END', 'ERASE', 'ERROR',
+      'FIELD', 'FOR',
+      'GET', 'GOSUB', 'GOTO',
+      'IF', 'INPUT',
       'KILL',
-      'LET', 'LINE', 'LPRINT', 'USING', 'LSET', 'RSET',
-      'NULL',
-      'ON', 'ERROR', 'OPEN', 'OPTION', 'BASE', 'OUT',
+      'LET', 'LINE', 'LPRINT', 'LSET', 'RSET',
+      'NEXT', 'NULL',
+      'ON', 'ERROR', 'OPEN', 'OPTION', 'OUT',
       'POKE', 'PRINT', 'PUT',
-      'RANDOMIZE', 'READ', 'REM', 'RESTORE', 'RESUME',
-      'STOP', 'SWAP',
-      'TRON', 'TROFF',
+      'RANDOMIZE', 'READ', 'REM', 'RESTORE', 'RESUME', 'RETURN',
+      'STEP', 'STOP', 'SWAP',
+      'THEN', 'TO', 'TRON', 'TROFF',
+      'USING',
       'WAIT', 'WHILE', 'WEND', 'WIDTH', 'WRITE'
     ]
 

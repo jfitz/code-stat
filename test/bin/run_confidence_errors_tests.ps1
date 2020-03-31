@@ -55,6 +55,9 @@ test\bin\run_test.ps1 -json -name rockt2-bas -action confidence -errors -languag
 
 # Microsoft BASIC
 test\bin\run_test.ps1 -json -name doctor-mbasic -action confidence -errors -language Microsoft-BASIC -inputfile ".\test\data\BASIC\doctor.bas" -expected ".\test\ref\confidence-errors\Microsoft-BASIC\doctor.txt"
+test\bin\run_test.ps1 -json -name airinput-mbasic -action confidence -errors -language Microsoft-BASIC -inputfile ".\test\data\BASIC\AIRINPUT.bas" -expected ".\test\ref\confidence-errors\Microsoft-BASIC\AIRINPUT.txt"
+test\bin\run_test.ps1 -json -name backgamm-mbasic -action confidence -errors -language Microsoft-BASIC -inputfile ".\test\data\BASIC\BACKGAMM.bas" -expected ".\test\ref\confidence-errors\Microsoft-BASIC\BACKGAMM.txt"
+test\bin\run_test.ps1 -json -name planes-mbasic -action confidence -errors -language Microsoft-BASIC -inputfile ".\test\data\BASIC\PLANES.bas" -expected ".\test\ref\confidence-errors\Microsoft-BASIC\PLANES.txt"
 
 # BASICA
 test\bin\run_test.ps1 -json -name sea-creature-basica -action confidence -errors -language BASICA -inputfile ".\test\data\BASIC\sea_creature.bas" -expected ".\test\ref\confidence-errors\BASICA\sea_creature.txt"
