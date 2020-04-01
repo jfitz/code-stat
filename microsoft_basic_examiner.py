@@ -90,6 +90,7 @@ class MicrosoftBasicExaminer(Examiner):
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     keywords = [
+      'AS',
       'BASE',
       'CALL', 'CHAIN', 'MERGE', 'CLEAR', 'CLS', 'CLOSE', 'COMMON',
       'DATA', 'DEF', 'DEFDBL', 'DEFINT', 'DEFSNG', 'DEFSTR', 'DIM',
@@ -98,12 +99,12 @@ class MicrosoftBasicExaminer(Examiner):
       'GET', 'GOSUB', 'GOTO',
       'IF', 'INPUT',
       'KILL',
-      'LET', 'LINE', 'LPRINT', 'LSET', 'RSET',
+      'LET', 'LINE', 'LOAD', 'LPRINT', 'LSET', 'RSET',
       'NEXT', 'NULL',
       'ON', 'ERROR', 'OPEN', 'OPTION', 'OUT',
       'POKE', 'PRINT', 'PUT',
-      'RANDOMIZE', 'READ', 'REM', 'RESTORE', 'RESUME', 'RETURN',
-      'STEP', 'STOP', 'SWAP',
+      'RANDOMIZE', 'READ', 'REM', 'RESTORE', 'RESUME', 'RETURN', 'RUN',
+      'STEP', 'STOP', 'SWAP', 'SYSTEM',
       'THEN', 'TO', 'TRON', 'TROFF',
       'USING',
       'WAIT', 'WHILE', 'WEND', 'WIDTH', 'WRITE'
@@ -174,8 +175,7 @@ class MicrosoftBasicExaminer(Examiner):
     tokens = tokenizer.tokenize(code)
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
-    text_operators = ['AND', 'MOD', 'OR', 'NOT', 'IMP', 'EQV', 'XOR']
-    tokens = MicrosoftBasicExaminer.extract_keywords_from_identifiers(tokens, keywords, text_operators)
+    tokens = MicrosoftBasicExaminer.extract_keywords_from_identifiers(tokens, keywords, known_operators)
     self.tokens = tokens
 
     self.convert_numbers_to_line_numbers()
@@ -189,7 +189,7 @@ class MicrosoftBasicExaminer(Examiner):
     self.calc_operator_2_confidence(tokens)
     self.calc_operator_3_confidence(tokens, group_ends)
     self.calc_operator_4_confidence(tokens, group_starts)
-    operand_types = ['number', 'string', 'identifier', 'variable', 'symbol']
+    operand_types = ['number', 'string', 'identifier', 'variable']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
     self.calc_line_format_confidence()
@@ -247,10 +247,10 @@ class MicrosoftBasicExaminer(Examiner):
 
 
   @staticmethod
-  def extract_keywords_from_identifiers(tokens, keywords, text_operators):
+  def extract_keywords_from_identifiers(tokens, keywords, operators):
     new_tokens = []
 
-    words = keywords + text_operators
+    words = keywords + operators
 
     for token in tokens:
       if token.group == 'identifier':
@@ -259,7 +259,7 @@ class MicrosoftBasicExaminer(Examiner):
         for new_text in new_texts:
           if new_text in keywords:
             new_token = Token(new_text, 'keyword')
-          elif new_text in text_operators:
+          elif new_text in operators:
             new_token = Token(new_text, 'operator')
           else:
             if new_text.isdigit():
