@@ -20,7 +20,8 @@ from token_builders import (
 )
 from basic_token_builders import (
   BasicLongVariableTokenBuilder,
-  RemarkTokenBuilder
+  RemarkTokenBuilder,
+  LongUserFunctionTokenBuilder
 )
 from examiner import Examiner
 
@@ -43,6 +44,7 @@ class MicrosoftBasicExaminer(Examiner):
     LeadToEndOfLineTokenBuilder.__escape_z__()
     BasicLongVariableTokenBuilder.__escape_z__()
     RemarkTokenBuilder.__escape_z__()
+    LongUserFunctionTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
@@ -62,6 +64,7 @@ class MicrosoftBasicExaminer(Examiner):
     hex_constant_tb = PrefixedIntegerTokenBuilder('&H', True, '0123456789ABCDEFabcdef_')
     octal_constant_tb = PrefixedIntegerTokenBuilder('&O', True, '01234567_')
     binary_constant_tb = PrefixedIntegerTokenBuilder('&B', True, '01_')
+    user_function_tb = LongUserFunctionTokenBuilder('%#!$&')
     variable_tb = BasicLongVariableTokenBuilder('%#!$&')
     quotes = ['"']
     string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
@@ -134,9 +137,6 @@ class MicrosoftBasicExaminer(Examiner):
       'TAB', 'TAN',
       'USR',
       'VAL', 'VARPTR'
-      'FNA', 'FNB', 'FNC', 'FND', 'FNE', 'FNF', 'FNG', 'FNH', 'FNI', 'FNJ',
-      'FNK', 'FNL', 'FNM', 'FNN', 'FNO', 'FNP', 'FNQ', 'FNR', 'FNS', 'FNT',
-      'FNU', 'FNV', 'FNW', 'FNX', 'FNY', 'FNZ'
     ]
 
     function_tb = ListTokenBuilder(functions, 'function', True)
@@ -160,6 +160,7 @@ class MicrosoftBasicExaminer(Examiner):
       keyword_tb,
       known_operator_tb,
       function_tb,
+      user_function_tb,
       variable_tb,
       groupers_tb,
       string_tb,

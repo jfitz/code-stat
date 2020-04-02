@@ -22,18 +22,16 @@ class BasicVariableTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
+    if len(candidate) == 0:
+      return c.isalpha()
 
-    if len(candidate) == 0 and c.isalpha():
-      result = True
+    if len(candidate) == 1:
+      return c.isdigit() or c in self.suffixes
 
-    if len(candidate) == 1 and c.isdigit():
-      result = True
+    if candidate[-1] in self.suffixes:
+      return False
 
-    if len(candidate) > 0 and (candidate[-1].isalpha or candidate[-1].isdigit()) and c in self.suffixes:
-      result = True
-
-    return result
+    return c in self.suffixes
 
 
 # token reader for variable
@@ -57,16 +55,13 @@ class BasicLongVariableTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
+    if len(candidate) == 0:
+      return c.isalpha()
 
-    if len(candidate) == 0 and c.isalpha():
-      result = True
+    if candidate[-1] in self.suffixes:
+      return False
 
-    if len(candidate) > 0:
-      if candidate[-1] not in self.suffixes:
-        result = c.isalpha() or c.isdigit() or c in self.suffixes
-
-    return result
+    return c.isalpha() or c.isdigit() or c in self.suffixes
 
 
 # token reader for REMARK comment
@@ -128,6 +123,57 @@ class RemarkTokenBuilder(TokenBuilder):
       return 0
 
     if not self.text.startswith("REM"):
+      return 0
+
+    return len(self.text)
+
+
+# token reader for REMARK comment
+class LongUserFunctionTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self, suffixes):
+    self.suffixes = suffixes
+    self.text = ''
+
+
+  def get_tokens(self):
+    if self.text == None:
+      return None
+
+    return [Token(self.text, 'function')]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if len(candidate) == 0:
+      return c == 'F'
+
+    if len(candidate) == 1:
+      return c == 'N'
+
+    if candidate[-1] in self.suffixes:
+      return False
+
+    if candidate[-1].isalpha():
+      return c.isalpha() or c.isdigit() or c in self.suffixes
+
+    return c.isdigit() or c in self.suffixes
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if not self.text.startswith("FN"):
+      return 0
+
+    if len(self.text) < 3:
       return 0
 
     return len(self.text)
