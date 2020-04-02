@@ -277,6 +277,35 @@ class Examiner:
     self.confidences['token'] = token_confidence
 
 
+  # repeated tokens reduce confidence
+  def calc_token_2_confidence(self, allowed_tokens = []):
+    num_repeated_tokens = 0
+    prev_token = Token('\n', 'newline')
+
+    allowed_groups = ['invalid', 'whitespace', 'newline', 'comment', 'group']
+    for token in self.tokens:
+      if token.group not in allowed_groups and token.text not in allowed_tokens:
+        if token.group == prev_token.group and token.text == prev_token.text:
+          num_repeated_tokens += 1
+
+          self.errors.append({
+            'TYPE': 'TOKEN',
+            'REPEATED': token.text,
+            'FIRST': '',
+            'SECOND': ''
+          })
+
+      prev_token = token
+
+    repeat_confidence = 1.0
+
+    if len(self.tokens) > 0:
+      repeat_unconfidence = num_repeated_tokens / len(self.tokens)
+      repeat_confidence = 1.0 - repeat_unconfidence
+
+    self.confidences['repeated token'] = repeat_confidence
+
+
   #  unknown operators reduce confidence
   def calc_operator_confidence(self):
     invalid_operators = Examiner.find_tokens(self.tokens, ['invalid operator'])

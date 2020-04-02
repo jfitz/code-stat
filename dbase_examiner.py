@@ -350,6 +350,7 @@ class DbaseExaminer(Examiner):
     tokens = self.source_tokens()
 
     self.calc_token_confidence()
+    self.calc_token_2_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence(tokens)
     self.calc_operator_3_confidence(tokens, group_ends)

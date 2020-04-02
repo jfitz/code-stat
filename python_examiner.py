@@ -169,6 +169,7 @@ class PythonExaminer(Examiner):
     tokens = Examiner.join_operator_continued_lines(tokens, self.postfix_operators)
 
     self.calc_token_confidence()
+    self.calc_token_2_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence(tokens)
     self.calc_operator_3_confidence(tokens, group_ends)
