@@ -341,12 +341,16 @@ class Examiner:
       errors = 0
       prev_token = Token('\n', 'newline')
 
+      lower_unary_operators = []
+      for op in self.unary_operators:
+        lower_unary_operators.append(op.lower())
+
       for token in tokens:
-        if token.group == 'operator' and\
-          prev_token.group == 'operator' and\
-          prev_token.text not in self.adjective_operators and\
-          prev_token.text not in self.postfix_operators and\
-          token.text.lower() not in (op.lower() for op in self.unary_operators):
+        if token.group == 'operator' and \
+          prev_token.group == 'operator' and \
+          prev_token.text not in self.adjective_operators and \
+          prev_token.text not in self.postfix_operators and \
+          token.text.lower() not in lower_unary_operators:
           errors += 1
           self.errors.append({
             'TYPE': 'OPERATOR2',
@@ -385,19 +389,21 @@ class Examiner:
         'value'
       ]
 
+      lower_unary_operators = []
+      for op in self.unary_operators:
+        lower_unary_operators.append(op.lower())
+
       for token in tokens:
         prev_token_operand = prev_token.group in operand_types or \
-          (prev_token.group == 'group' and prev_token.text in group_ends) or \
+          prev_token.text in group_ends or \
           prev_token.text.lower() == 'end'
   
-        token_unary_operator = token.text.lower() in (op.lower() for op in self.unary_operators)
-  
-        if token.group == 'operator' and\
-          not prev_token_operand and\
-          prev_token.text not in self.adjective_operators and\
-          prev_token.text not in self.postfix_operators and\
-          not (prev_token.group == 'keyword' and token.text in self.keyword_postfix) and\
-          not token_unary_operator:
+        if token.group == 'operator' and \
+          not prev_token_operand and \
+          prev_token.text not in self.adjective_operators and \
+          prev_token.text not in self.postfix_operators and \
+          token.text not in self.keyword_postfix and \
+          token.text.lower() not in lower_unary_operators:
           errors += 1
           self.errors.append({
             'TYPE': 'OPERATOR3',
@@ -437,14 +443,17 @@ class Examiner:
       errors = 0
       prev_token = Token('\n', 'newline')
 
+      lower_unary_operators = []
+      for op in self.unary_operators:
+        lower_unary_operators.append(op.lower())
+
       for token in tokens:
-        token_unary_operator = token.text.lower() in (op.lower() for op in self.unary_operators)
         prev_token_postfix_operator = prev_token.text.lower() in (op.lower() for op in self.postfix_operators)
   
         if prev_token.group == 'operator' and \
           not prev_token_postfix_operator and \
           token.group not in operand_types and \
-          not token_unary_operator and \
+          token.text.lower() not in lower_unary_operators and \
           token.text not in group_starts:
           errors += 1
           self.errors.append({

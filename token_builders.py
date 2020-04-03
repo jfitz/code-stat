@@ -276,39 +276,34 @@ class PrefixedStringTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
+    if c in ['\n', '\r']:
+      return False
 
     if len(candidate) < len(self.prefix):
       if self.case_sensitive:
-        result = c == self.prefix[len(candidate)]
+        return c == self.prefix[len(candidate)]
       else:
-        result = c.lower() == self.prefix[len(candidate)]
+        return c.lower() == self.prefix[len(candidate)]
     
     if len(candidate) == len(self.prefix):
-      result = c in self.quotes
+      return c in self.quotes
 
     if len(candidate) == len(self.prefix) + 1:
-      result = True
+      return True
 
-    if len(candidate) > len(self.prefix) + 1:
-      # no quote stuffing, stop on second quote
-      # assume escaped quotes are allowed
-      quote_count = 0
-      escaped = False
-      for ch in candidate:
-        if ch == candidate[len(self.prefix)] and not escaped:
-          quote_count += 1
-        if ch == '\\':
-          escaped = not escaped
-        else:
-          escaped = False
+    # no quote stuffing, stop on second quote
+    # assume escaped quotes are allowed
+    quote_count = 0
+    escaped = False
+    for ch in candidate:
+      if ch == candidate[len(self.prefix)] and not escaped:
+        quote_count += 1
+      if ch == '\\':
+        escaped = not escaped
+      else:
+        escaped = False
 
-      result = quote_count < 2
-
-    if c in ['\n', '\r']:
-      result = False
-
-    return result
+    return quote_count < 2
 
 
 # token reader for text literal (string)
@@ -437,22 +432,17 @@ class IntegerExponentTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
     if len(candidate) == 0:
-      result = c.isdigit()
+      return c.isdigit()
     
     if self.extra_char is not None and c == self.extra_char:
-      result = len(candidate) > 0 and candidate[-1].isdigit()
+      return candidate[-1].isdigit()
 
-    if len(candidate) > 0:
-      result = c.isdigit() or (
-        c.lower() == 'e' and 'e' not in candidate.lower()
-      ) or (
-        c in '+-' and candidate[-1].lower() == 'e'
-      )
-
-    return result
+    return c.isdigit() or (
+      c.lower() == 'e' and 'e' not in candidate.lower()
+    ) or (
+      c in '+-' and candidate[-1].lower() == 'e'
+    )
 
 
   def get_score(self, line_printable_tokens):
@@ -771,30 +761,22 @@ class RealExponentTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
     if c.isdigit():
-      result = True
+      return True
 
-    if c == '.' and\
-      '.' not in candidate and\
-      self.letter not in candidate.lower():
-      result = True
+    if c == '.':
+      return '.' not in candidate and self.letter not in candidate.lower()
 
-    if self.extra_char is not None and c == self.extra_char:
-      result = len(candidate) > 0 and candidate[-1].isdigit()
+    if c == self.extra_char:
+      return len(candidate) > 0 and candidate[-1].isdigit()
 
-    if c.lower() == self.letter\
-      and len(candidate) > 0 and\
-      self.letter not in candidate.lower():
-      result = True
+    if c.lower() == self.letter:
+      return len(candidate) > 0 and self.letter not in candidate.lower()
 
-    if c in ['+', '-'] and\
-      len(candidate) > 0 and\
-      candidate[-1].lower() == self.letter:
-      result = True
+    if c in ['+', '-']:
+      return len(candidate) > 0 and candidate[-1].lower() == self.letter
 
-    return result
+    return False
 
 
   def get_score(self, line_printable_tokens):
@@ -858,18 +840,13 @@ class IdentifierTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
     if len(candidate) == 0:
-      result = c.isalpha() or c in self.lead_extras
-
-    if len(candidate) > 0:
-      result = c.isalpha() or c.isdigit() or c in self.extras or c in self.suffixes
+      return c.isalpha() or c in self.lead_extras
 
     if len(candidate) > 1 and candidate[-1] in self.suffixes:
-      result = False
+      return False
 
-    return result
+    return c.isalpha() or c.isdigit() or c in self.extras or c in self.suffixes
 
 
 class SingleCharacterTokenBuilder(TokenBuilder):
@@ -979,29 +956,25 @@ class ListTokenBuilder(TokenBuilder):
 
   def accept(self, candidate, c):
     token = candidate + c
-    result = False
 
     if self.case_sensitive:
-      result = token in self.abbrevs
-    else:
-      result = token.lower() in self.abbrevs
+      return token in self.abbrevs
 
-    return result
+    return token.lower() in self.abbrevs
 
 
   def get_score(self, line_printable_tokens):
     if self.text is None:
       return 0
 
-    score = 0
     if self.case_sensitive:
       if self.text in self.legals:
-        score = len(self.text)
+        return len(self.text)
     else:
       if self.text.lower() in self.legals:
-        score = len(self.text)
+        return len(self.text)
 
-    return score
+    return 0
 
 
 # token reader for integer
@@ -1030,18 +1003,13 @@ class PrefixedIntegerTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
     if len(candidate) < len(self.prefix):
       if self.case_sensitive:
-        result = c == self.prefix[len(candidate)]
+        return c == self.prefix[len(candidate)]
       else:
-        result = c.lower() == self.prefix[len(candidate)]
+        return c.lower() == self.prefix[len(candidate)]
     
-    if len(candidate) >= len(self.prefix):
-      result = c in self.allowed_chars
-
-    return result
+    return c in self.allowed_chars
 
 
   def get_score(self, line_printable_tokens):
@@ -1087,26 +1055,19 @@ class LeadToEndOfLineTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
-    if self.case_sensitive:
-      if len(candidate) < len(self.lead):
-        result = c == self.lead[len(candidate)]
-    else:
-      if len(candidate) < len(self.lead):
-        result = c.lower() == self.lead[len(candidate)]
-
-    if self.case_sensitive:
-      if candidate.startswith(self.lead):
-        result = True
-    else:
-      if candidate.lower().startswith(self.lead):
-        result = True
-
     if c in ['\n', '\r']:
-      result = False
+      return False
 
-    return result
+    if len(candidate) < len(self.lead):
+      if self.case_sensitive:
+        return c == self.lead[len(candidate)]
+      else:
+        return c.lower() == self.lead[len(candidate)]
+
+    if self.case_sensitive:
+      return candidate.startswith(self.lead)
+
+    return candidate.lower().startswith(self.lead)
 
 
   def get_score(self, line_printable_tokens):
@@ -1347,37 +1308,31 @@ class NestedCommentTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
+    if len(candidate) == 0:
+      return c == self.opener[0]
 
-    if len(candidate) == 0 and c == self.opener[0]:
-      result = True
-
-    if len(candidate) == 1 and c == self.opener[1]:
-      result = True
+    if len(candidate) == 1:
+      return c == self.opener[1]
 
     if len(candidate) == 2:
-      result = True
+      return True
 
     # walk through candidate and verify open delimiters
-    if len(candidate) > 2:
-      level = 0
-      prev = ''
-      for c in candidate:
-        if prev == self.opener[0] and c == self.opener[1]:
-          level += 1
+    level = 0
+    prev = ''
+    for c in candidate:
+      if prev == self.opener[0] and c == self.opener[1]:
+        level += 1
 
-        if prev == self.closer[0] and c == self.closer[1]:
-          level -= 1
+      if prev == self.closer[0] and c == self.closer[1]:
+        level -= 1
 
-        if level < 0:
-          result = False
+      if level < 0:
+        result = False
 
-        prev = c
+      prev = c
 
-      if level > 0:
-        result = True
-
-    return result
+    return level > 0
 
 
   def get_score(self, line_printable_tokens):
