@@ -311,6 +311,79 @@ class PrefixedStringTokenBuilder(TokenBuilder):
     return result
 
 
+# token reader for text literal (string)
+class SuffixedStringTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self, quotes, suffixes, allow_newline):
+    self.quotes = quotes
+    self.suffixes = suffixes
+    self.allow_newline = allow_newline
+    self.text = ''
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'string')]
+
+
+  def accept(self, candidate, c):
+    # newline breaks a string
+    if c in ['\n', '\r'] and not self.allow_newline:
+      return False
+
+    if len(candidate) == 0:
+      return c in self.quotes
+
+    if len(candidate) == 1:
+      return True
+
+    # no quote stuffing, stop on second quote
+    # assume escaped quotes are allowed
+    c0 = candidate[0]
+    quote_count = 0
+    escaped = False
+
+    for ch in candidate:
+      if ch == c0 and not escaped:
+        quote_count += 1
+
+      if ch == '\\':
+        escaped = not escaped
+      else:
+        escaped = False
+
+    if quote_count < 2:
+      return True
+
+    if candidate[-1] in self.quotes:
+      return c in self.suffixes
+
+    return False
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(self.text) < 3:
+      return 0
+
+    if self.text[-2] != self.text[0]:
+      return 0
+
+    if self.text[-1] not in self.suffixes:
+      return 0
+
+    return len(self.text)
+
+
 # token reader for integer
 class IntegerTokenBuilder(TokenBuilder):
   @staticmethod

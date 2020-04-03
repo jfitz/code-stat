@@ -9,11 +9,14 @@ from token_builders import (
   NewlineTokenBuilder,
   StringTokenBuilder,
   PrefixedStringTokenBuilder,
+  SuffixedStringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
   PrefixedIntegerTokenBuilder,
+  SuffixedIntegerTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
+  SuffixedRealTokenBuilder,
   IdentifierTokenBuilder,
   PrefixedIdentifierTokenBuilder,
   ListTokenBuilder,
@@ -38,11 +41,14 @@ class DExaminer(Examiner):
     NewlineTokenBuilder.__escape_z__()
     StringTokenBuilder.__escape_z__()
     PrefixedStringTokenBuilder.__escape_z__()
+    SuffixedStringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
     PrefixedIntegerTokenBuilder.__escape_z__()
+    SuffixedIntegerTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
+    SuffixedRealTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
     PrefixedIdentifierTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
@@ -62,12 +68,12 @@ class DExaminer(Examiner):
     newline_tb = NewlineTokenBuilder()
 
     integer_tb = IntegerTokenBuilder("'")
-    # integer suffix: L u U Lu LU uL UL
     integer_exponent_tb = IntegerExponentTokenBuilder("'")
     hex_integer_tb = PrefixedIntegerTokenBuilder('0x', False, '0123456789abcdefABCDEF_')
     binary_integer_tb = PrefixedIntegerTokenBuilder('0b', False, '01_')
+    suffixed_integer_tb = SuffixedIntegerTokenBuilder(['U', 'L', 'LU', 'UL'], False, None)
     real_tb = RealTokenBuilder(False, False, "'")
-    # real suffix f F L i
+    suffixed_real_tb = SuffixedRealTokenBuilder(False, False, ['f', 'l', 'i'], False, None)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
     hex_real_tb = HexRealExponentTokenBuilder()
 
@@ -85,6 +91,7 @@ class DExaminer(Examiner):
     x_string_tb = PrefixedStringTokenBuilder('x', True, quotes)
     q_string_tb = PrefixedStringTokenBuilder('q', True, quotes)
     # q{} string
+    cwd_string_tb = SuffixedStringTokenBuilder(quotes, 'cwd', False)
 
     class_type_tb = ClassTypeTokenBuilder()
 
@@ -177,8 +184,10 @@ class DExaminer(Examiner):
       integer_exponent_tb,
       hex_integer_tb,
       binary_integer_tb,
+      suffixed_integer_tb,
       real_tb,
       real_exponent_tb,
+      suffixed_real_tb,
       hex_real_tb,
       keyword_tb,
       types_tb,
@@ -193,6 +202,7 @@ class DExaminer(Examiner):
       x_string_tb,
       backtick_string_tb,
       q_string_tb,
+      cwd_string_tb,
       slash_slash_comment_tb,
       slash_star_comment_tb,
       slash_plus_comment_tb,
