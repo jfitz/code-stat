@@ -20,7 +20,8 @@ from token_builders import (
 )
 from basic_token_builders import (
   BasicVariableTokenBuilder,
-  RemarkTokenBuilder
+  RemarkTokenBuilder,
+  UserFunctionTokenBuilder
 )
 from examiner import Examiner
 
@@ -43,6 +44,7 @@ class BasicExaminer(Examiner):
     LeadToEndOfLineTokenBuilder.__escape_z__()
     BasicVariableTokenBuilder.__escape_z__()
     RemarkTokenBuilder.__escape_z__()
+    UserFunctionTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
@@ -89,29 +91,47 @@ class BasicExaminer(Examiner):
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     keywords = [
-      'AS', 'CHANGE', 'CLOSE', 'DATA', 'DEF', 'DIM', 'ELSE', 'END',
-      'ERROR', 'ERRNO', 'ERRLN',
-      'FILE', 'FOR', 'GOSUB', 'GO', 'GOTO', 'IF', 'INPUT', 'LET', 'LINE',
-      'MAT', 'NEXT', 
-      'ON', 'ONERR', 'OPEN', 'OUTPUT', 'PEEK', 'POKE', 'PRINT',
-      'RANDOMIZE', 'READ', 'REM', 'REMARK',
-      'RESTORE', 'RETURN', 'STEP', 'STOP', 'THEN', 'TO', 'USING'
+      'AS',
+      'CHANGE', 'CLOSE',
+      'DATA', 'DEF', 'DIM',
+      'ELSE', 'END', 'ERROR', 'ERRNO', 'ERRLN',
+      'FILE', 'FOR',
+      'GOSUB', 'GO', 'GOTO',
+      'IF', 'INPUT',
+      'LET', 'LINE',
+      'MAT',
+      'NEXT', 
+      'ON', 'ONERR', 'OPEN', 'OUTPUT',
+      'POKE', 'PRINT',
+      'RANDOMIZE', 'READ', 'REM', 'REMARK', 'RESTORE', 'RETURN',
+      'STEP', 'STOP',
+      'THEN', 'TO',
+      'USING'
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
     functions = [
-      'ASC', 'CHR', 'CHR$', 'STR$', 'TAB', 'POS',
-      'ATN', 'COS', 'SIN', 'TAN',
-      'ABS', 'EXP', 'INT', 'LOG', 'RND', 'SGN', 'SQR',
-      'INSTR', 'LEFT', 'LEFT$', 'LEN', 'MID', 'MID$', 'RIGHT', 'RIGHT$', 'VAL',
-      'CON', 'DET', 'IDN', 'INV', 'TRN', 'ZER',
-      'FNA', 'FNB', 'FNC', 'FND', 'FNE', 'FNF', 'FNG', 'FNH', 'FNI', 'FNJ',
-      'FNK', 'FNL', 'FNM', 'FNN', 'FNO', 'FNP', 'FNQ', 'FNR', 'FNS', 'FNT',
-      'FNU', 'FNV', 'FNW', 'FNX', 'FNY', 'FNZ'
+      'ABS',
+      'ASC',
+      'ATN',
+      'CHR', 'CHR$', 'CON', 'COS',
+      'DET',
+      'EXP',
+      'IDN', 'INSTR', 'INT', 'INV',
+      'LEFT', 'LEFT$', 'LEN', 'LOG',
+      'MID', 'MID$',
+      'POS',
+      'RIGHT', 'RIGHT$', 'RND',
+      'SGN', 'SIN', 'SQR', 'STR$',
+      'TAB', 'TAN', 'TRN',
+      'VAL',
+      'ZER'
     ]
 
     function_tb = ListTokenBuilder(functions, 'function', True)
+
+    user_function_tb = UserFunctionTokenBuilder('%#!$&')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -131,6 +151,7 @@ class BasicExaminer(Examiner):
       keyword_tb,
       known_operator_tb,
       function_tb,
+      user_function_tb,
       variable_tb,
       groupers_tb,
       string_tb,

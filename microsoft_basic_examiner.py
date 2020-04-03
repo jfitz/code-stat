@@ -64,7 +64,6 @@ class MicrosoftBasicExaminer(Examiner):
     hex_constant_tb = PrefixedIntegerTokenBuilder('&H', True, '0123456789ABCDEFabcdef_')
     octal_constant_tb = PrefixedIntegerTokenBuilder('&O', True, '01234567_')
     binary_constant_tb = PrefixedIntegerTokenBuilder('&B', True, '01_')
-    user_function_tb = LongUserFunctionTokenBuilder('%#!$&')
     variable_tb = BasicLongVariableTokenBuilder('%#!$&')
     quotes = ['"']
     string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
@@ -95,19 +94,20 @@ class MicrosoftBasicExaminer(Examiner):
     keywords = [
       'AS',
       'BASE',
-      'CALL', 'CHAIN', 'MERGE', 'CLEAR', 'CLS', 'CLOSE', 'COMMON',
+      'CALL', 'CHAIN', 'CLEAR', 'CLS', 'CLOSE', 'COMMON',
       'DATA', 'DEF', 'DEFDBL', 'DEFINT', 'DEFSNG', 'DEFSTR', 'DIM',
       'ELSE', 'END', 'ERASE', 'ERROR',
       'FIELD', 'FOR',
       'GET', 'GOSUB', 'GOTO',
       'IF', 'INPUT',
       'KILL',
-      'LET', 'LINE', 'LOAD', 'LPRINT', 'LSET', 'RSET',
+      'LET', 'LINE', 'LOAD', 'LPRINT', 'LSET',
+      'MERGE',
       'NEXT', 'NULL',
       'ON', 'ERROR', 'OPEN', 'OPTION', 'OUT',
       'POKE', 'PRINT', 'PUT',
-      'RANDOMIZE', 'READ', 'REM', 'RESTORE', 'RESUME', 'RETURN', 'RUN',
-      'STEP', 'STOP', 'SWAP', 'SYSTEM',
+      'RANDOMIZE', 'READ', 'REM', 'REMARK', 'RESET', 'RESTORE', 'RESUME', 'RETURN', 'RSET', 'RUN',
+      'SET', 'STEP', 'STOP', 'SWAP', 'SYSTEM',
       'THEN', 'TO', 'TRON', 'TROFF',
       'USING',
       'WAIT', 'WHILE', 'WEND', 'WIDTH', 'WRITE'
@@ -124,6 +124,7 @@ class MicrosoftBasicExaminer(Examiner):
     functions = [
       'ABS', 'ASC', 'ATN',
       'CDBL', 'CHR$', 'CINT', 'COS', 'CSNG', 'CVI', 'CVD', 'CVS',
+      'DATE$',
       'EOF', 'EXP',
       'FIX', 'FRE',
       'HEX$',
@@ -134,12 +135,14 @@ class MicrosoftBasicExaminer(Examiner):
       'PEEK', 'POS',
       'RIGHT$',
       'SGN', 'SIN', 'SPACE$', 'SPC', 'SQR', 'STR$', 'STRING$',
-      'TAB', 'TAN',
+      'TAB', 'TAN', 'TIME$',
       'USR',
       'VAL', 'VARPTR'
     ]
 
     function_tb = ListTokenBuilder(functions, 'function', True)
+
+    user_function_tb = LongUserFunctionTokenBuilder('%#!$&')
 
     invalid_token_builder = InvalidTokenBuilder()
 

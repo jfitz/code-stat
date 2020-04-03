@@ -20,7 +20,8 @@ from token_builders import (
 )
 from basic_token_builders import (
   BasicLongVariableTokenBuilder,
-  RemarkTokenBuilder
+  RemarkTokenBuilder,
+  LongUserFunctionTokenBuilder
 )
 from examiner import Examiner
 
@@ -43,6 +44,7 @@ class BasicaExaminer(Examiner):
     LeadToEndOfLineTokenBuilder.__escape_z__()
     BasicLongVariableTokenBuilder.__escape_z__()
     RemarkTokenBuilder.__escape_z__()
+    LongUserFunctionTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
@@ -89,32 +91,50 @@ class BasicaExaminer(Examiner):
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     keywords = [
-      'AS', 'CHANGE', 'CLOSE', 'DATA', 'DEF', 'DIM', 'ELSE', 'END',
-      'ERROR', 'ERRNO', 'ERRLN',
-      'FILE', 'FOR', 'GOSUB', 'GO', 'GOTO', 'IF', 'INPUT', 'LET', 'LINE',
-      'MAT', 'NEXT', 
-      'ON', 'ONERR', 'OPEN', 'OUTPUT', 'PEEK', 'POKE', 'PRINT',
-      'RANDOMIZE', 'READ', 'REM', 'REMARK',
-      'RESTORE', 'RETURN', 'STEP', 'STOP', 'THEN', 'TO', 'USING',
-      'SYSTEM', 'SCREEN', 'WIDTH', 'PAINT', 'CIRCLE', 'COLOR',
-      'WHILE', 'WEND', 'KEY', 'ON', 'OFF', 'PSET', 'LOCATE',
-      'LSET', 'RSET', 'GET', 'PUT', 'FILES'
+      'AS',
+      'BASE',
+      'CALL', 'CHAIN', 'CHANGE', 'CIRCLE', 'CLEAR', 'CLS', 'CLOSE', 'COLOR', 'COMMON',
+      'DATA', 'DEF', 'DEFDBL', 'DEFINT', 'DEFSNG', 'DEFSTR', 'DIM',
+      'ELSE', 'END', 'ERASE', 'ERROR', 'ERRNO', 'ERRLN',
+      'FIELD', 'FILE', 'FILES', 'FOR',
+      'GET', 'GOSUB', 'GO', 'GOTO',
+      'IF', 'INPUT',
+      'KEY', 'KILL',
+      'LET', 'LINE', 'LOCATE', 'LSET',
+      'NEXT',
+      'OFF', 'ON', 'ONERR', 'OPEN', 'OUTPUT', 'OPTION',
+      'PAINT', 'POKE', 'PRINT', 'PSET', 'PUT',
+      'RANDOMIZE', 'READ', 'REM', 'REMARK', 'RESET', 'RESTORE', 'RESUME', 'RETURN', 'RSET',
+      'SCREEN', 'SET', 'STEP', 'STOP', 'SWAP', 'SYSTEM',
+      'THEN', 'TO',
+      'USING',
+      'WAIT', 'WHILE', 'WEND', 'WIDTH', 'WRITE'
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
 
     functions = [
-      'ASC', 'CHR', 'CHR$', 'STR$', 'TAB', 'POS',
-      'ATN', 'COS', 'SIN', 'TAN',
-      'ABS', 'EXP', 'INT', 'LOG', 'RND', 'SGN', 'SQR',
-      'INSTR', 'LEFT', 'LEFT$', 'LEN', 'MID', 'MID$', 'RIGHT', 'RIGHT$', 'VAL',
-      'CON', 'DET', 'IDN', 'INV', 'TRN', 'ZER',
-      'FNA', 'FNB', 'FNC', 'FND', 'FNE', 'FNF', 'FNG', 'FNH', 'FNI', 'FNJ',
-      'FNK', 'FNL', 'FNM', 'FNN', 'FNO', 'FNP', 'FNQ', 'FNR', 'FNS', 'FNT',
-      'FNU', 'FNV', 'FNW', 'FNX', 'FNY', 'FNZ'
+      'ABS', 'ASC', 'ATN',
+      'CDBL', 'CHR$', 'CINT', 'COS', 'CSNG', 'CVI', 'CVD', 'CVS',
+      'DATE$',
+      'EOF', 'EXP',
+      'FIX', 'FRE',
+      'HEX$',
+      'INKEY', 'INP', 'INPUT$', 'INSTR', 'INT',
+      'LEFT$', 'LEN', 'LOC', 'LOF', 'LOG', 'LPOS',
+      'MID$', 'MKI$', 'MKD$', 'MKS$',
+      'OCT$',
+      'PEEK', 'POS',
+      'RIGHT$',
+      'SGN', 'SIN', 'SPACE$', 'SPC', 'SQR', 'STR$', 'STRING$',
+      'TAB', 'TAN', 'TIME$',
+      'USR',
+      'VAL', 'VARPTR'
     ]
 
     function_tb = ListTokenBuilder(functions, 'function', False)
+
+    user_function_tb = LongUserFunctionTokenBuilder('%#!$&')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -134,6 +154,7 @@ class BasicaExaminer(Examiner):
       keyword_tb,
       known_operator_tb,
       function_tb,
+      user_function_tb,
       variable_tb,
       groupers_tb,
       string_tb,
