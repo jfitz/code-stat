@@ -2,6 +2,7 @@ import string
 import math
 
 from codestat_tokenizer import Tokenizer
+from codestat_token import Token
 from token_builders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
@@ -179,6 +180,58 @@ class PythonExaminer(Examiner):
     self.calc_keyword_confidence()
     self.calc_line_format_confidence()
     # self.calc_keyword_indent_confidence()
+
+
+  # binary operators that precede non-operands reduce confidence
+  def calc_operator_4_confidence(self, tokens, group_starts):
+    num_invalid_operators = Examiner.count_tokens(tokens, ['invalid operator'])
+    num_known_operators = Examiner.count_tokens(tokens, ['operator'])
+    num_operators = num_known_operators + num_invalid_operators
+
+    operator_confidence_4 = 1.0
+
+    if num_operators > 0:
+      operand_types = [
+        'number',
+        'string',
+        'variable',
+        'identifier',
+        'function',
+        'symbol',
+        'regex',
+        'type',
+        'value',
+        'picture'
+      ]
+
+      errors = 0
+      prev_token = Token('\n', 'newline')
+
+      lower_unary_operators = []
+      for op in self.unary_operators:
+        lower_unary_operators.append(op.lower())
+
+      for token in tokens:
+        prev_token_postfix_operator = prev_token.text.lower() in (op.lower() for op in self.postfix_operators)
+  
+        if prev_token.group == 'operator' and \
+          not prev_token_postfix_operator and \
+          token.group not in operand_types and \
+          token.text.lower() not in lower_unary_operators and \
+          token.text not in group_starts and \
+          token.text != 'in' and prev_token.text != 'not':
+          errors += 1
+          self.errors.append({
+            'TYPE': 'OPERATOR4',
+            'FIRST': prev_token.text,
+            'SECOND': token.text
+            })
+
+        prev_token = token
+
+      operator_confidence_4 = 1.0 - errors / num_operators
+
+    self.confidences['operator_4'] = operator_confidence_4
 
 
   def calc_keyword_indent_confidence(self):
