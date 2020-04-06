@@ -1328,7 +1328,7 @@ class NestedCommentTokenBuilder(TokenBuilder):
         level -= 1
 
       if level < 0:
-        result = False
+        return False
 
       prev = c
 

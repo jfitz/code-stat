@@ -36,6 +36,7 @@ from lua_examiner import LuaExaminer
 from matlab_examiner import MatlabExaminer
 from microsoft_basic_examiner import MicrosoftBasicExaminer
 from objectivec_examiner import ObjectiveCExaminer
+from octave_examiner import OctaveExaminer
 from pascal_examiner import PascalExaminer
 from pl1_fixedformat_examiner import PL1FixedFormatExaminer
 from pl1_freeformat_examiner import PL1FreeFormatExaminer
@@ -81,6 +82,7 @@ LuaExaminer.__escape_z__()
 MatlabExaminer.__escape_z__()
 MicrosoftBasicExaminer.__escape_z__()
 ObjectiveCExaminer.__escape_z__()
+OctaveExaminer.__escape_z__()
 PascalExaminer.__escape_z__()
 PL1FixedFormatExaminer.__escape_z__()
 PL1FreeFormatExaminer.__escape_z__()
@@ -248,6 +250,7 @@ codesAndNames = {
   'matlab': 'Matlab',
   'microsoft-basic': 'Microsoft-BASIC',
   'objective-c': 'Objective-C',
+  'octave': 'Octave',
   'pascal': 'Pascal',
   'pl1-fixed': 'PL/1-Fixed',
   'pl1-free': 'PL/1-Free',
@@ -317,6 +320,7 @@ codesAndGroups = {
   'matlab': 'Matlab',
   'microsoft-basic': 'BASIC',
   'objective-c': 'Objective-C',
+  'octave': 'matlab',
   'pascal': 'Pascal',
   'pl1-fixed': 'PL/1',
   'pl1-free': 'PL/1',
@@ -386,6 +390,7 @@ codesAndYears = {
   'matlab': 1984,
   'microsoft-basic': 1980,
   'objective-c': 1984,
+  'octave': 1993,
   'pascal': 1970,
   'pl1-fixed': 1964,
   'pl1-free': 1992,
@@ -454,6 +459,7 @@ simplerLanguages = {
   'matlab': None,
   'microsoft-basic': 'basic',
   'objective-c': 'cplusplus',
+  'octave': 'matlab',
   'pascal': None,
   'pl1-fixed': None,
   'pl1-free': None,
@@ -885,6 +891,9 @@ def make_one_examiner(language, code, tab_size, wide, comment):
   if language in ['objective-c', 'objc']:
     examiner = ObjectiveCExaminer(code)
 
+  if language in ['octave']:
+    examiner = OctaveExaminer(code)
+
   if language in ['pascal', 'pas']:
     examiner = PascalExaminer(code)
 
@@ -1111,6 +1120,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
 
   if 'objective-c' in languages:
     examiners['objective-c'] = ObjectiveCExaminer(code)
+
+  if 'octave' in languages:
+    examiners['octave'] = OctaveExaminer(code)
 
   if 'pascal' in languages or 'pas' in languages:
     examiners['pascal'] = PascalExaminer(code)

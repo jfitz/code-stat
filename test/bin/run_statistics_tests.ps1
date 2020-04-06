@@ -265,6 +265,14 @@ test\bin\run_test.ps1 -json -name qrencoder-objc -action statistics -language Ob
 test\bin\run_test.ps1 -json -name jsonkit_h-objc -action statistics -language Objective-C -inputfile ".\test\data\Objective-C\JSONKit.h" -expected ".\test\ref\statistics\Objective-C\JSONKit_h.txt"
 test\bin\run_test.ps1 -json -name jsonkit_m-objc -action statistics -language Objective-C -inputfile ".\test\data\Objective-C\JSONKit.m" -expected ".\test\ref\statistics\Objective-C\JSONKit_m.txt"
 
+# Octave
+test\bin\run_test.ps1 -json -name transpose-octave -action statistics -language Octave -inputfile ".\test\data\Octave\transpose.m" -expected ".\test\ref\statistics\Octave\transpose.txt"
+test\bin\run_test.ps1 -json -name choose-octave -action statistics -language Octave -inputfile ".\test\data\Octave\choose.m" -expected ".\test\ref\statistics\Octave\choose.txt"
+test\bin\run_test.ps1 -json -name fitnormal-octave -action statistics -language Octave -inputfile ".\test\data\Octave\fitnormal.m" -expected ".\test\ref\statistics\Octave\fitnormal.txt"
+test\bin\run_test.ps1 -json -name test_fitnormal-octave -action statistics -language Octave -inputfile ".\test\data\Octave\test_fitnormal.m" -expected ".\test\ref\statistics\Octave\test_fitnormal.txt"
+test\bin\run_test.ps1 -json -name tshow-octave -action statistics -language Octave -inputfile ".\test\data\Octave\tshow.m" -expected ".\test\ref\statistics\Octave\tshow.txt"
+test\bin\run_test.ps1 -json -name ex7_pca-octave -action statistics -language Octave -inputfile ".\test\data\Octave\ex7_pca.m" -expected ".\test\ref\statistics\Octave\ex7_pca.txt"
+
 # Pascal
 test\bin\run_test.ps1 -json -name label_declare-pas -action statistics -language Pascal -inputfile ".\test\data\Pascal\LabelDeclaration.pas" -expected ".\test\ref\statistics\Pascal\LabelDeclaration.txt"
 test\bin\run_test.ps1 -json -name firework-pas -action statistics -language Pascal -inputfile ".\test\data\Pascal\FIREWORK.PAS" -expected ".\test\ref\statistics\Pascal\FIREWORK.txt"
