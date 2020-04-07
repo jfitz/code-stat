@@ -12,7 +12,7 @@ from token_builders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   PrefixedIntegerTokenBuilder,
-  IdentifierTokenBuilder,
+  SuffixedIdentifierTokenBuilder,
   ListTokenBuilder,
   SingleCharacterTokenBuilder,
   PrefixedIdentifierTokenBuilder,
@@ -40,7 +40,7 @@ class SwiftExaminer(Examiner):
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
     PrefixedIntegerTokenBuilder.__escape_z__()
-    IdentifierTokenBuilder.__escape_z__()
+    SuffixedIdentifierTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     PrefixedIdentifierTokenBuilder.__escape_z__()
@@ -68,7 +68,7 @@ class SwiftExaminer(Examiner):
     leads = '_'
     extras = '_'
     suffixes = '?'
-    identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
+    identifier_tb = SuffixedIdentifierTokenBuilder(leads, extras, suffixes)
 
     attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute')
     symbol_tb = SwiftSymbolTokenBuilder('.', 'symbol')

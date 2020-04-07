@@ -79,8 +79,7 @@ class DExaminer(Examiner):
 
     leads = '_'
     extras = '_'
-    suffixes = ''
-    identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
+    identifier_tb = IdentifierTokenBuilder(leads, extras)
 
     attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute')
     # string suffix: c,w,d

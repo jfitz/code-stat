@@ -67,8 +67,7 @@ class DelphiExaminer(Examiner):
 
     leads = '_'
     extras = '_'
-    suffixes = ''
-    identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
+    identifier_tb = IdentifierTokenBuilder(leads, extras)
 
     class_tb = ClassTypeTokenBuilder()
     string_tb = StringTokenBuilder(["'"], False)

@@ -45,8 +45,7 @@ class PL1Examiner(Examiner):
 
     leads = '_'
     extras = '_'
-    suffixes = ''
-    self.identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
+    self.identifier_tb = IdentifierTokenBuilder(leads, extras)
 
     quotes = ['"', "'", "’"]
     self.string_tb = StringTokenBuilder(quotes, False)

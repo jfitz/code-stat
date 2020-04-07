@@ -43,8 +43,7 @@ class FortranFreeFormatExaminer(FortranExaminer):
 
     leads = '_'
     extras = '_'
-    suffixes = ''
-    identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
+    identifier_tb = IdentifierTokenBuilder(leads, extras)
 
     bang_comment_tb = LeadToEndOfLineTokenBuilder('!', False, 'comment')
     quotes = ["'", '"', "’"]

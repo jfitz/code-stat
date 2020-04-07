@@ -62,8 +62,7 @@ class KotlinExaminer(Examiner):
 
     leads = '_'
     extras = '_'
-    suffixes = ''
-    identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
+    identifier_tb = IdentifierTokenBuilder(leads, extras)
 
     decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator')
     quotes = ['"', "'", "’"]

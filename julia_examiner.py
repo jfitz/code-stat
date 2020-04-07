@@ -16,8 +16,8 @@ from token_builders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   SuffixedRealTokenBuilder,
-  IdentifierTokenBuilder,
   PrefixedIdentifierTokenBuilder,
+  SuffixedIdentifierTokenBuilder,
   ListTokenBuilder,
   SingleCharacterTokenBuilder,
   LeadToEndOfLineTokenBuilder,
@@ -40,8 +40,8 @@ class JuliaExaminer(Examiner):
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
     SuffixedRealTokenBuilder.__escape_z__()
-    IdentifierTokenBuilder.__escape_z__()
     PrefixedIdentifierTokenBuilder.__escape_z__()
+    SuffixedIdentifierTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__(),
@@ -66,7 +66,7 @@ class JuliaExaminer(Examiner):
     leads = '_'
     extras = '_'
     suffixes = '!'
-    identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
+    identifier_tb = SuffixedIdentifierTokenBuilder(leads, extras, suffixes)
 
     symbol_tb = PrefixedIdentifierTokenBuilder(':', 'symbol')
     attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute')

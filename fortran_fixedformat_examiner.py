@@ -43,8 +43,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
     else:
       leads = ''
       extras = ''
-      suffixes = ''
-      identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
+      identifier_tb = IdentifierTokenBuilder(leads, extras)
 
     hollerith_tb = HollerithStringTokenBuilder()
     string_tb = StuffedQuoteStringTokenBuilder(["'", '"'], False)

@@ -825,6 +825,79 @@ class IdentifierTokenBuilder(TokenBuilder):
     return 'Escape ?Z'
 
 
+  def __init__(self, lead_extras, extras):
+    self.lead_extras = lead_extras
+    self.extras = extras
+    self.text = None
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'identifier')]
+
+
+  def accept(self, candidate, c):
+    if len(candidate) == 0:
+      return c.isalpha() or c in self.lead_extras
+
+    return c.isalpha() or c.isdigit() or c in self.extras
+
+
+# token reader for identifier
+class PrefixedIdentifierTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self, prefix, group):
+    self.prefix = prefix
+    self.group = group
+    self.text = None
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, self.group)]
+
+
+  def accept(self, candidate, c):
+    result = False
+
+    if len(candidate) < len(self.prefix):
+      result = self.prefix.startswith(candidate + c)
+    else:
+      result = c.isalpha() or c.isdigit() or c == '_'
+
+    return result
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(self.text) < 2:
+      return 0
+
+    if not self.text.startswith(self.prefix):
+      return 0
+
+    return len(self.text)
+
+
+# token reader for identifier
+class SuffixedIdentifierTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
   def __init__(self, lead_extras, extras, suffixes):
     self.lead_extras = lead_extras
     self.suffixes = suffixes
@@ -1171,51 +1244,6 @@ class TripleQuoteStringTokenBuilder(TokenBuilder):
     if self.text[:3] != self.text[-3:]:
       return 0
   
-    return len(self.text)
-
-
-# token reader for identifier
-class PrefixedIdentifierTokenBuilder(TokenBuilder):
-  @staticmethod
-  def __escape_z__():
-    Token.__escape_z__()
-    return 'Escape ?Z'
-
-
-  def __init__(self, prefix, group):
-    self.prefix = prefix
-    self.group = group
-    self.text = None
-
-
-  def get_tokens(self):
-    if self.text is None:
-      return None
-
-    return [Token(self.text, self.group)]
-
-
-  def accept(self, candidate, c):
-    result = False
-
-    if len(candidate) < len(self.prefix):
-      result = self.prefix.startswith(candidate + c)
-    else:
-      result = c.isalpha() or c.isdigit() or c == '_'
-
-    return result
-
-
-  def get_score(self, line_printable_tokens):
-    if self.text is None:
-      return 0
-
-    if len(self.text) < 2:
-      return 0
-
-    if not self.text.startswith(self.prefix):
-      return 0
-
     return len(self.text)
 
 

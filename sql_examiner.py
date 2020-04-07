@@ -57,8 +57,7 @@ class SqlExaminer(Examiner):
 
     leads = '_'
     extras = '_'
-    suffixes = ''
-    identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
+    identifier_tb = IdentifierTokenBuilder(leads, extras)
 
     bracketed_identifier_tb = SqlBracketedIdentifierTokenBuilder()
 

@@ -61,8 +61,7 @@ class PascalExaminer(Examiner):
 
     leads = '_'
     extras = '_'
-    suffixes = ''
-    identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
+    identifier_tb = IdentifierTokenBuilder(leads, extras)
 
     string_tb = StringTokenBuilder(["'"], False)
 

@@ -59,8 +59,7 @@ class CoffeeScriptExaminer(Examiner):
 
     leads = '_'
     extras = '_'
-    suffixes = ''
-    identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
+    identifier_tb = IdentifierTokenBuilder(leads, extras)
 
     dollar_sign_tb = SingleCharacterTokenBuilder('$', 'identifier')
     quotes = ['"', "'", "’"]

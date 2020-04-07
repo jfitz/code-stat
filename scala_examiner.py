@@ -67,8 +67,7 @@ class ScalaExaminer(Examiner):
 
     leads = '_'
     extras = '_'
-    suffixes = ''
-    identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
+    identifier_tb = IdentifierTokenBuilder(leads, extras)
 
     symbol_tb = PrefixedIdentifierTokenBuilder("'", 'symbol')
     quotes = ['"']

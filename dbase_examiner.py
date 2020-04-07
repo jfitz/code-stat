@@ -76,10 +76,9 @@ class DbaseExaminer(Examiner):
     if version == 'ii':
       extras = ":_'-"
 
-    suffixes = ''
-    identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
+    identifier_tb = IdentifierTokenBuilder(leads, extras)
 
-    wild_card_identifier_tb = WildCardIdentifierTokenBuilder('*?', '*?:', '')
+    wild_card_identifier_tb = WildCardIdentifierTokenBuilder('*?', '*?:')
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)

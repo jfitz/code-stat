@@ -12,7 +12,7 @@ from token_builders import (
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
-  IdentifierTokenBuilder,
+  SuffixedIdentifierTokenBuilder,
   ListTokenBuilder,
   LeadToEndOfLineTokenBuilder,
   SingleCharacterTokenBuilder
@@ -34,7 +34,7 @@ class VisualBasicNETExaminer(Examiner):
     IntegerExponentTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
-    IdentifierTokenBuilder.__escape_z__()
+    SuffixedIdentifierTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
@@ -54,12 +54,12 @@ class VisualBasicNETExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
     real_tb = RealTokenBuilder(False, False, None)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
-    variable_tb = VisualBasicVariableTokenBuilder(['$', '%', '#', '!'])
+    variable_tb = VisualBasicVariableTokenBuilder('$%#!')
 
     leads = '_'
     extras = '_'
-    suffixes = ''
-    identifier_tb = IdentifierTokenBuilder(leads, extras, suffixes)
+    suffixes = '$%#!'
+    identifier_tb = SuffixedIdentifierTokenBuilder(leads, extras, suffixes)
 
     quotes = ['"']
     string_tb = StringTokenBuilder(quotes, False)
