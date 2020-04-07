@@ -263,6 +263,8 @@ class SqlExaminer(Examiner):
       'VARCHAR'
     ]
 
+    type_tb = ListTokenBuilder(types, 'type', False)
+
     invalid_token_builder = InvalidTokenBuilder()
 
     tokenbuilders = [
@@ -279,6 +281,7 @@ class SqlExaminer(Examiner):
       keyword_tb,
       values_tb,
       identifier_tb,
+      type_tb,
       bracketed_identifier_tb,
       comment_tb,
       self.unknown_operator_tb,

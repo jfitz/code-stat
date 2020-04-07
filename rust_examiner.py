@@ -150,6 +150,9 @@ class RustExaminer(Examiner):
       'try'
     ]
 
+    keywords += keywords_2018
+    keywords += keywords_future
+
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
     types = [
