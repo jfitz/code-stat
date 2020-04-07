@@ -1264,13 +1264,15 @@ def identify_language(code, tab_size, wide, comment, tiebreak_keywords, tiebreak
     # if a tie among multiple examiners
     if len(high_names) > 1:
       for name in high_names:
-        simpler = name
-        while simplerLanguages[simpler] is not None and \
-          simplerLanguages[simpler] in high_names:
-          # when there is a simpler language in the high names list
-          # decrease confidence for this language
-          examiners[simpler].confidences['simplest'] = 0.99
-          simpler = simplerLanguages[simpler]
+        b = name
+        a = simplerLanguages[name]
+        while a is not None:
+          if a in high_names:
+            # when there is a simpler language in the high names list
+            # decrease confidence for this language
+            examiners[b].confidences['simplest'] = 0.99
+            b = a
+          a = simplerLanguages[a]
 
       # recalculate confidence with new factor
       for name in high_names:
