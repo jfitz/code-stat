@@ -21,7 +21,8 @@ from token_builders import (
 from basic_token_builders import (
   BasicLongVariableTokenBuilder,
   RemarkTokenBuilder,
-  LongUserFunctionTokenBuilder
+  LongUserFunctionTokenBuilder,
+  HardwareFunctionTokenBuilder
 )
 from examiner import Examiner
 
@@ -45,6 +46,7 @@ class BasicaExaminer(Examiner):
     BasicLongVariableTokenBuilder.__escape_z__()
     RemarkTokenBuilder.__escape_z__()
     LongUserFunctionTokenBuilder.__escape_z__()
+    HardwareFunctionTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
@@ -97,7 +99,7 @@ class BasicaExaminer(Examiner):
       'DATA', 'DEF', 'DEFDBL', 'DEFINT', 'DEFSNG', 'DEFSTR', 'DIM',
       'ELSE', 'END', 'ERASE', 'ERROR', 'ERRNO', 'ERRLN',
       'FIELD', 'FILE', 'FILES', 'FOR',
-      'GET', 'GOSUB', 'GO', 'GOTO',
+      'GET', 'GOSUB', 'GOTO',
       'IF', 'INPUT',
       'KEY', 'KILL',
       'LET', 'LINE', 'LOCATE', 'LSET',
@@ -136,6 +138,8 @@ class BasicaExaminer(Examiner):
 
     user_function_tb = LongUserFunctionTokenBuilder('%#!$&')
 
+    hardware_function_tb = HardwareFunctionTokenBuilder()
+
     invalid_token_builder = InvalidTokenBuilder()
 
     tokenbuilders = [
@@ -155,6 +159,7 @@ class BasicaExaminer(Examiner):
       known_operator_tb,
       function_tb,
       user_function_tb,
+      hardware_function_tb,
       variable_tb,
       groupers_tb,
       string_tb,

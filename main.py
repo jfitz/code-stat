@@ -419,7 +419,7 @@ simplerLanguages = {
   'ada-2012': 'ada-2005',
   'awk': None,
   'basic': None,
-  'basica': 'basic',
+  'basica': 'microsoft-basic',
   'c-78': None,
   'c-89': 'c-78',
   'c-99': 'c-89',

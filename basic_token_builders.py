@@ -221,3 +221,47 @@ class LongUserFunctionTokenBuilder(TokenBuilder):
       return 0
 
     return len(self.text)
+
+
+class HardwareFunctionTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self):
+    self.text = ''
+
+
+  def get_tokens(self):
+    if self.text == None:
+      return None
+
+    return [Token(self.text, 'function')]
+
+
+  def accept(self, candidate, c):
+    if len(candidate) == 0:
+      return c == 'U'
+
+    if len(candidate) == 1:
+      return c == 'S'
+
+    if len(candidate) == 2:
+      return c == 'R'
+
+    if len(candidate) == 3:
+      return c.isdigit()
+
+    return False
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if not self.text.startswith("USR"):
+      return 0
+
+    return len(self.text)
