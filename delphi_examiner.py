@@ -16,7 +16,7 @@ from token_builders import (
   ListTokenBuilder,
   SingleCharacterTokenBuilder,
   PrefixedIntegerTokenBuilder,
-  ParenStarCommentTokenBuilder
+  BlockTokenBuilder
 )
 from pascal_token_builders import (
   BraceCommentTokenBuilder
@@ -42,7 +42,7 @@ class DelphiExaminer(Examiner):
     ListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     PrefixedIntegerTokenBuilder.__escape_z__()
-    ParenStarCommentTokenBuilder.__escape_z__()
+    BlockTokenBuilder.__escape_z__()
     BraceCommentTokenBuilder.__escape_z__()
     SlashSlashCommentTokenBuilder.__escape_z__()
     ClassTypeTokenBuilder.__escape_z__()
@@ -73,7 +73,7 @@ class DelphiExaminer(Examiner):
     string_tb = StringTokenBuilder(["'"], False)
 
     brace_comment_tb = BraceCommentTokenBuilder()
-    paren_star_comment_tb = ParenStarCommentTokenBuilder('(*', '*)')
+    paren_star_comment_tb = BlockTokenBuilder('(*', '*)', 'comment')
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
 
     known_operators = [

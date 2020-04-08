@@ -1153,45 +1153,6 @@ class LeadToEndOfLineTokenBuilder(TokenBuilder):
     return len(self.text)
 
 
-# token reader for (* *) comment
-class ParenStarCommentTokenBuilder(TokenBuilder):
-  @staticmethod
-  def __escape_z__():
-    Token.__escape_z__()
-    return 'Escape ?Z'
-
-
-  def __init__(self, opener, closer):
-    self.opener = opener
-    self.closer = closer
-    self.text = ''
-
-
-  def get_tokens(self):
-    if self.text is None:
-      return None
-
-    return [Token(self.text, 'comment')]
-
-
-  def accept(self, candidate, c):
-    result = False
-
-    if len(candidate) == 0 and c == self.opener[0]:
-      result = True
-
-    if len(candidate) == 1 and c == self.opener[1]:
-      result = True
-
-    if len(candidate) > 2 and candidate[-1] == self.closer[0] and c == self.closer[1]:
-      result = True
-
-    if candidate.startswith(self.opener) and not candidate.endswith(self.closer):
-      result = True
-
-    return result
-
-
 # token reader for triple quote string
 class TripleQuoteStringTokenBuilder(TokenBuilder):
   @staticmethod

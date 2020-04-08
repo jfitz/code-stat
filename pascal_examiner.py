@@ -16,7 +16,7 @@ from token_builders import (
   ListTokenBuilder,
   SingleCharacterTokenBuilder,
   PrefixedIntegerTokenBuilder,
-  ParenStarCommentTokenBuilder
+  BlockTokenBuilder
 )
 from pascal_token_builders import (
   BraceCommentTokenBuilder
@@ -38,7 +38,7 @@ class PascalExaminer(Examiner):
     ListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     PrefixedIntegerTokenBuilder.__escape_z__()
-    ParenStarCommentTokenBuilder.__escape_z__()
+    BlockTokenBuilder.__escape_z__()
     BraceCommentTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
@@ -66,7 +66,7 @@ class PascalExaminer(Examiner):
     string_tb = StringTokenBuilder(["'"], False)
 
     brace_comment_tb = BraceCommentTokenBuilder()
-    paren_star_comment_tb = ParenStarCommentTokenBuilder('(*', '*)')
+    paren_star_comment_tb = BlockTokenBuilder('(*', '*)', 'comment')
 
     known_operators = [
       '+', '-', '*', '/',

@@ -12,7 +12,7 @@ from token_builders import (
   ListTokenBuilder,
   TripleQuoteStringTokenBuilder,
   LeadToEndOfLineTokenBuilder,
-  ParenStarCommentTokenBuilder
+  BlockTokenBuilder
 )
 from pascal_token_builders import (
   BraceCommentTokenBuilder
@@ -37,7 +37,7 @@ class GenericCodeExaminer(Examiner):
     ListTokenBuilder.__escape_z__()
     TripleQuoteStringTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
-    ParenStarCommentTokenBuilder.__escape_z__()
+    BlockTokenBuilder.__escape_z__()
     BraceCommentTokenBuilder.__escape_z__()
     SlashSlashCommentTokenBuilder.__escape_z__()
     SlashStarCommentTokenBuilder.__escape_z__()
@@ -92,7 +92,7 @@ class GenericCodeExaminer(Examiner):
     if comment == 'pascal':
       comment_tbs = [
         BraceCommentTokenBuilder(),
-        ParenStarCommentTokenBuilder('(*', '*)')
+        BlockTokenBuilder('(*', '*)', 'comment')
       ]
 
     known_operators = [

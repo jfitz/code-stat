@@ -14,7 +14,7 @@ from token_builders import (
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
   ListTokenBuilder,
-  ParenStarCommentTokenBuilder,
+  BlockTokenBuilder,
   TripleQuoteStringTokenBuilder,
   LeadToEndOfLineTokenBuilder
 )
@@ -42,7 +42,7 @@ class FsharpExaminer(Examiner):
     RealExponentTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
-    ParenStarCommentTokenBuilder.__escape_z__()
+    BlockTokenBuilder.__escape_z__()
     TripleQuoteStringTokenBuilder.__escape_z__()
     SlashSlashCommentTokenBuilder.__escape_z__()
     TripleSlashCommentTokenBuilder.__escape_z__()
@@ -74,7 +74,7 @@ class FsharpExaminer(Examiner):
     char_tb = FsharpCharTokenBuilder(["'", "’"])
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
-    parens_star_comment_tb = ParenStarCommentTokenBuilder('(*', '*)')
+    parens_star_comment_tb = BlockTokenBuilder('(*', '*)', 'comment')
     triple_slash_comment_tb = TripleSlashCommentTokenBuilder()
 
     directives = [
