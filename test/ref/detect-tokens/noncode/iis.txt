@@ -1,6 +1,6 @@
 [
     {
-        "language":"objective-c",
+        "language":"haskell",
         "tokens":[
             {
                 "type":"group",
@@ -551,7 +551,7 @@
                 "value":"Success"
             },
             {
-                "type":"operator",
+                "type":"invalid operator",
                 "value":"!"
             },
             {
@@ -631,7 +631,7 @@
                 "value":" "
             },
             {
-                "type":"identifier",
+                "type":"keyword",
                 "value":"of"
             },
             {
@@ -1235,7 +1235,7 @@
                 "value":"Success"
             },
             {
-                "type":"operator",
+                "type":"invalid operator",
                 "value":"!"
             },
             {
@@ -1315,7 +1315,7 @@
                 "value":" "
             },
             {
-                "type":"identifier",
+                "type":"keyword",
                 "value":"of"
             },
             {
@@ -1919,7 +1919,7 @@
                 "value":"Success"
             },
             {
-                "type":"operator",
+                "type":"invalid operator",
                 "value":"!"
             },
             {
@@ -1999,7 +1999,7 @@
                 "value":" "
             },
             {
-                "type":"identifier",
+                "type":"keyword",
                 "value":"of"
             },
             {
@@ -2603,7 +2603,7 @@
                 "value":"Success"
             },
             {
-                "type":"operator",
+                "type":"invalid operator",
                 "value":"!"
             },
             {
@@ -2683,7 +2683,7 @@
                 "value":" "
             },
             {
-                "type":"identifier",
+                "type":"keyword",
                 "value":"of"
             },
             {
@@ -3287,7 +3287,7 @@
                 "value":"Success"
             },
             {
-                "type":"operator",
+                "type":"invalid operator",
                 "value":"!"
             },
             {
@@ -3367,7 +3367,7 @@
                 "value":" "
             },
             {
-                "type":"identifier",
+                "type":"keyword",
                 "value":"of"
             },
             {
@@ -3740,7 +3740,15 @@
             },
             {
                 "type":"identifier",
-                "value":"IIS_IUSRS"
+                "value":"IIS"
+            },
+            {
+                "type":"value",
+                "value":"_"
+            },
+            {
+                "type":"identifier",
+                "value":"IUSRS"
             },
             {
                 "type":"whitespace",
@@ -4031,7 +4039,7 @@
                 "value":" "
             },
             {
-                "type":"identifier",
+                "type":"keyword",
                 "value":"of"
             },
             {
@@ -4059,7 +4067,7 @@
                 "value":"succeeded"
             },
             {
-                "type":"operator",
+                "type":"invalid operator",
                 "value":"!"
             },
             {
@@ -4127,7 +4135,7 @@
                 "value":"Success"
             },
             {
-                "type":"operator",
+                "type":"invalid operator",
                 "value":"!"
             },
             {
@@ -4207,7 +4215,7 @@
                 "value":" "
             },
             {
-                "type":"identifier",
+                "type":"keyword",
                 "value":"of"
             },
             {
@@ -4580,7 +4588,15 @@
             },
             {
                 "type":"identifier",
-                "value":"IIS_IUSRS"
+                "value":"IIS"
+            },
+            {
+                "type":"value",
+                "value":"_"
+            },
+            {
+                "type":"identifier",
+                "value":"IUSRS"
             },
             {
                 "type":"whitespace",
@@ -4688,7 +4704,15 @@
             },
             {
                 "type":"identifier",
-                "value":"IIS_IUSRS"
+                "value":"IIS"
+            },
+            {
+                "type":"value",
+                "value":"_"
+            },
+            {
+                "type":"identifier",
+                "value":"IUSRS"
             },
             {
                 "type":"operator",
@@ -4763,7 +4787,7 @@
                 "value":" "
             },
             {
-                "type":"identifier",
+                "type":"keyword",
                 "value":"of"
             },
             {
@@ -4791,7 +4815,7 @@
                 "value":"succeeded"
             },
             {
-                "type":"operator",
+                "type":"invalid operator",
                 "value":"!"
             },
             {
@@ -4859,7 +4883,7 @@
                 "value":"Success"
             },
             {
-                "type":"operator",
+                "type":"invalid operator",
                 "value":"!"
             },
             {
@@ -4939,7 +4963,7 @@
                 "value":" "
             },
             {
-                "type":"identifier",
+                "type":"keyword",
                 "value":"of"
             },
             {
@@ -5387,7 +5411,7 @@
                 "value":" "
             },
             {
-                "type":"identifier",
+                "type":"keyword",
                 "value":"of"
             },
             {
@@ -5415,7 +5439,7 @@
                 "value":"succeeded"
             },
             {
-                "type":"operator",
+                "type":"invalid operator",
                 "value":"!"
             },
             {
@@ -5483,7 +5507,7 @@
                 "value":"Success"
             },
             {
-                "type":"operator",
+                "type":"invalid operator",
                 "value":"!"
             },
             {
@@ -5563,7 +5587,7 @@
                 "value":" "
             },
             {
-                "type":"identifier",
+                "type":"keyword",
                 "value":"of"
             },
             {
@@ -5951,7 +5975,7 @@
                 "value":"WARNING"
             },
             {
-                "type":"operator",
+                "type":"invalid operator",
                 "value":"!"
             },
             {
@@ -6004,11 +6028,7 @@
             },
             {
                 "type":"number",
-                "value":"0"
-            },
-            {
-                "type":"identifier",
-                "value":"x80070534"
+                "value":"0x80070534"
             },
             {
                 "type":"newline",
@@ -6083,7 +6103,7 @@
                 "value":"WARNING"
             },
             {
-                "type":"operator",
+                "type":"invalid operator",
                 "value":"!"
             },
             {
@@ -6136,11 +6156,7 @@
             },
             {
                 "type":"number",
-                "value":"0"
-            },
-            {
-                "type":"identifier",
-                "value":"x80070534"
+                "value":"0x80070534"
             },
             {
                 "type":"newline",
@@ -6291,7 +6307,7 @@
                 "value":" "
             },
             {
-                "type":"identifier",
+                "type":"keyword",
                 "value":"of"
             },
             {
@@ -6655,7 +6671,7 @@
                 "value":" "
             },
             {
-                "type":"identifier",
+                "type":"keyword",
                 "value":"of"
             },
             {
@@ -6683,7 +6699,7 @@
                 "value":"succeeded"
             },
             {
-                "type":"operator",
+                "type":"invalid operator",
                 "value":"!"
             },
             {
@@ -6751,7 +6767,7 @@
                 "value":"Success"
             },
             {
-                "type":"operator",
+                "type":"invalid operator",
                 "value":"!"
             },
             {
@@ -6831,7 +6847,7 @@
                 "value":" "
             },
             {
-                "type":"identifier",
+                "type":"keyword",
                 "value":"of"
             },
             {
@@ -7219,7 +7235,7 @@
                 "value":"WARNING"
             },
             {
-                "type":"operator",
+                "type":"invalid operator",
                 "value":"!"
             },
             {
@@ -7272,11 +7288,7 @@
             },
             {
                 "type":"number",
-                "value":"0"
-            },
-            {
-                "type":"identifier",
-                "value":"x80070534"
+                "value":"0x80070534"
             },
             {
                 "type":"newline",
@@ -7351,7 +7363,7 @@
                 "value":"WARNING"
             },
             {
-                "type":"operator",
+                "type":"invalid operator",
                 "value":"!"
             },
             {
@@ -7404,11 +7416,7 @@
             },
             {
                 "type":"number",
-                "value":"0"
-            },
-            {
-                "type":"identifier",
-                "value":"x80070534"
+                "value":"0x80070534"
             },
             {
                 "type":"newline",
@@ -7559,7 +7567,7 @@
                 "value":" "
             },
             {
-                "type":"identifier",
+                "type":"keyword",
                 "value":"of"
             },
             {

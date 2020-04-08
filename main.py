@@ -27,6 +27,7 @@ from fortran_fixedformat_examiner import FortranFixedFormatExaminer
 from fortran_freeformat_examiner import FortranFreeFormatExaminer
 from fsharp_examiner import FsharpExaminer
 from go_examiner import GoExaminer
+from haskell_examiner import HaskellExaminer
 from html_examiner import HTMLExaminer
 from java_examiner import JavaExaminer
 from javascript_examiner import JavaScriptExaminer
@@ -73,6 +74,7 @@ FortranFixedFormatExaminer.__escape_z__()
 FortranFreeFormatExaminer.__escape_z__()
 FsharpExaminer.__escape_z__()
 GoExaminer.__escape_z__()
+HaskellExaminer.__escape_z__()
 HTMLExaminer.__escape_z__()
 JavaExaminer.__escape_z__()
 JavaScriptExaminer.__escape_z__()
@@ -241,12 +243,13 @@ codesAndNames = {
   'fsharp': 'F#',
   'gawk': 'GNU-Awk',
   'go': 'Go',
+  'haskell': 'Haskell',
+  'html': 'HTML',
   'java': 'Java',
   'javascript': 'JavaScript',
   'julia': 'Julia',
   'kotlin': 'Kotlin',
   'lua': 'Lua',
-  'html': 'HTML',
   'matlab': 'Matlab',
   'microsoft-basic': 'Microsoft-BASIC',
   'objective-c': 'Objective-C',
@@ -311,12 +314,13 @@ codesAndGroups = {
   'fsharp': 'F#',
   'gawk': 'Awk',
   'go': 'Go',
+  'haskell': 'Haskell',
+  'html': 'HTML',
   'java': 'Java',
   'javascript': 'JavaScript',
   'julia': 'Julia',
   'kotlin': 'Kotlin',
   'lua': 'Lua',
-  'html': 'HTML',
   'matlab': 'Matlab',
   'microsoft-basic': 'BASIC',
   'objective-c': 'Objective-C',
@@ -381,6 +385,7 @@ codesAndYears = {
   'fsharp': 2010,
   'gawk': 1986,
   'go': 2010,
+  'haskell': 1998,
   'html': 1990,
   'java': 1995,
   'javascript': 1995,
@@ -450,6 +455,7 @@ simplerLanguages = {
   'fsharp': None,
   'gawk': 'awk',
   'go': 'pascal',
+  'haskell': None,
   'html': None,
   'java': 'cplusplus',
   'javascript': None,
@@ -864,6 +870,9 @@ def make_one_examiner(language, code, tab_size, wide, comment):
   if language in ['go', 'golang']:
     examiner = GoExaminer(code)
 
+  if language in ['haskell']:
+    examiner = HaskellExaminer(code)
+
   if language in ['html', 'php']:
     examiner = HTMLExaminer(code)
 
@@ -1093,6 +1102,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
 
   if 'go' in languages or 'golang' in languages:
     examiners['go'] = GoExaminer(code)
+
+  if 'haskell' in languages:
+    examiners['haskell'] = HaskellExaminer(code)
 
   if 'html' in languages:
     examiners['html'] = HTMLExaminer(code)

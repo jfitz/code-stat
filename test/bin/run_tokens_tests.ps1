@@ -217,6 +217,11 @@ test\bin\run_test.ps1 -json -name samples-fs -action tokens -language Fsharp -in
 # Go
 test\bin\run_test.ps1 -json -name find-cli-go -action tokens -language Go -inputfile ".\test\data\Go\find-cli.go" -expected ".\test\ref\tokens\Go\find-cli.txt"
 
+# Haskell
+test\bin\run_test.ps1 -json -name calendar-hs -action tokens -language Haskell -inputfile ".\test\data\Haskell\calendar.hs" -expected ".\test\ref\tokens\Haskell\calendar.txt"
+test\bin\run_test.ps1 -json -name todo-hs -action tokens -language Haskell -inputfile ".\test\data\Haskell\todo.hs" -expected ".\test\ref\tokens\Haskell\todo.txt"
+test\bin\run_test.ps1 -json -name rna-hs -action tokens -language Haskell -inputfile ".\test\data\Haskell\rna.hs" -expected ".\test\ref\tokens\Haskell\rna.txt"
+
 # HTML
 test\bin\run_test.ps1 -json -name knuth-html -action tokens -language HTML -inputfile ".\test\data\HTML\knuth.html" -expected ".\test\ref\tokens\HTML\knuth.txt"
 test\bin\run_test.ps1 -json -name developer-html -action tokens -language HTML -inputfile ".\test\data\HTML\developer-css.html" -expected ".\test\ref\tokens\HTML\developer-css.txt"

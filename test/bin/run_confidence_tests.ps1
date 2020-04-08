@@ -217,6 +217,11 @@ test\bin\run_test.ps1 -json -name samples-fs -action confidence -language Fsharp
 # Go
 test\bin\run_test.ps1 -json -name find-cli-go -action confidence -language Go -inputfile ".\test\data\Go\find-cli.go" -expected ".\test\ref\confidence\Go\find-cli.txt"
 
+# Haskell
+test\bin\run_test.ps1 -json -name calendar-hs -action confidence -language Haskell -inputfile ".\test\data\Haskell\calendar.hs" -expected ".\test\ref\confidence\Haskell\calendar.txt"
+test\bin\run_test.ps1 -json -name todo-hs -action confidence -language Haskell -inputfile ".\test\data\Haskell\todo.hs" -expected ".\test\ref\confidence\Haskell\todo.txt"
+test\bin\run_test.ps1 -json -name rna-hs -action confidence -language Haskell -inputfile ".\test\data\Haskell\rna.hs" -expected ".\test\ref\confidence\Haskell\rna.txt"
+
 # HTML
 test\bin\run_test.ps1 -json -name knuth-html -action confidence -language HTML -inputfile ".\test\data\HTML\knuth.html" -expected ".\test\ref\confidence\HTML\knuth.txt"
 test\bin\run_test.ps1 -json -name developer-html -action confidence -language HTML -inputfile ".\test\data\HTML\developer-css.html" -expected ".\test\ref\confidence\HTML\developer-css.txt"
