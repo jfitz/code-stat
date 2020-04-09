@@ -100,6 +100,10 @@ class PrologExaminer(Examiner):
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
+    values = ['(-)']
+
+    value_tb = ListTokenBuilder(values, 'value', True)
+
     invalid_token_builder = InvalidTokenBuilder()
 
     tokenbuilders = [
@@ -118,6 +122,7 @@ class PrologExaminer(Examiner):
       groupers_tb,
       identifier_tb,
       string_tb,
+      value_tb,
       comment_tb,
       self.unknown_operator_tb,
       invalid_token_builder

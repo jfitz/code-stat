@@ -13,11 +13,15 @@ from token_builders import (
   PrefixedIntegerTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
-  IdentifierTokenBuilder,
   ListTokenBuilder,
   SingleCharacterTokenBuilder,
   LeadToEndOfLineTokenBuilder,
   BlockTokenBuilder
+)
+from haskell_token_builders import (
+  HaskellIdentifierTokenBuilder,
+  HaskellClassTokenBuilder,
+  HaskellOperatorTokenBuilder
 )
 from examiner import Examiner
 
@@ -33,11 +37,12 @@ class HaskellExaminer(Examiner):
     PrefixedIntegerTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
-    IdentifierTokenBuilder.__escape_z__()
     ListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
     BlockTokenBuilder.__escape_z__()
+    HaskellClassTokenBuilder.__escape_z__()
+    HaskellIdentifierTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
@@ -54,9 +59,8 @@ class HaskellExaminer(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
     wildcard_tb = SingleCharacterTokenBuilder('_', 'value')
 
-    leads = ''
-    extras = ''
-    identifier_tb = IdentifierTokenBuilder(leads, extras)
+    identifier_tb = HaskellIdentifierTokenBuilder()
+    class_tb = HaskellClassTokenBuilder()
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
@@ -66,28 +70,14 @@ class HaskellExaminer(Examiner):
 
     line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation')
 
-    known_operators = [
-      '..', '...',
-      '=', '==',
-      '#', '$', '%', '&', '*', '+', '.', '/',
-      '<', '>', '?', '@', '\\',
-      '^', '|', '-', '~', '->', '<-', '>>='
-    ]
-
-    self.unary_operators = [
-    ]
-
-    self.postfix_operators = [
-    ]
-
-    groupers = ['(', ')', ',', '[', ']', '{', '}', ':', '::', '|']
+    groupers = ['(', ')', ',', '[', ']', '{', '}', ':', '::']
     # group_starts = ['(', '[', ',', '{']
     # group_ends = [')', ']', '}']
     group_mids = [',', ':']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    operators_tb = HaskellOperatorTokenBuilder('#$%&*+./<=>?@\\^|-~')
 
     keywords = [
       'case', 'class',
@@ -104,6 +94,10 @@ class HaskellExaminer(Examiner):
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
+    values = ['True', 'False', 'Nothing']
+
+    value_tb = ListTokenBuilder(values, 'value', True)
+
     invalid_token_builder = InvalidTokenBuilder()
 
     tokenbuilders = [
@@ -117,9 +111,11 @@ class HaskellExaminer(Examiner):
       real_exponent_tb,
       keyword_tb,
       groupers_tb,
-      known_operator_tb,
+      operators_tb,
       wildcard_tb,
       identifier_tb,
+      value_tb,
+      class_tb,
       string_tb,
       line_comment_tb,
       block_comment_tb,
@@ -132,6 +128,7 @@ class HaskellExaminer(Examiner):
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     # tokens = Examiner.combine_identifier_colon(tokens, ['statement terminator', 'newline'], ['{'], ['whitespace', 'comment'])
+    HaskellExaminer.convert_keywords_to_identifiers(tokens)
     self.tokens = tokens
     # self.convert_identifiers_to_labels()
 
@@ -150,3 +147,14 @@ class HaskellExaminer(Examiner):
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_statistics()
+
+
+  @staticmethod
+  def convert_keywords_to_identifiers(tokens):
+    prev_token = Token('\n', 'newline')
+
+    for token in tokens:
+      if prev_token.text == 'type' and token.group != 'class':
+        prev_token.group = 'identifier'
+
+      prev_token = token
