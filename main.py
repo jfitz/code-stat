@@ -10,7 +10,6 @@ from generic_code_examiner import GenericCodeExaminer
 from ada_examiner import AdaExaminer
 from awk_examiner import AwkExaminer
 from basic_examiner import BasicExaminer
-from basica_examiner import BasicaExaminer
 from cbasic_examiner import CBasicExaminer
 from c_examiner import CExaminer
 from cobol_fixedformat_examiner import CobolFixedFormatExaminer
@@ -57,7 +56,6 @@ GenericCodeExaminer.__escape_z__()
 AdaExaminer.__escape_z__()
 AwkExaminer.__escape_z__()
 BasicExaminer.__escape_z__()
-BasicaExaminer.__escape_z__()
 CBasicExaminer.__escape_z__()
 CExaminer.__escape_z__()
 CobolFixedFormatExaminer.__escape_z__()
@@ -213,6 +211,7 @@ codesAndNames = {
   'awk': 'Awk',
   'basic': 'BASIC',
   'basica': 'BASICA',
+  'basic-80': 'BASIC-80',
   'c-78': 'C-K&R',
   'c-89': 'C-89',
   'c-99': 'C-99',
@@ -251,7 +250,6 @@ codesAndNames = {
   'kotlin': 'Kotlin',
   'lua': 'Lua',
   'matlab': 'Matlab',
-  'microsoft-basic': 'Microsoft-BASIC',
   'objective-c': 'Objective-C',
   'octave': 'Octave',
   'pascal': 'Pascal',
@@ -284,6 +282,7 @@ codesAndGroups = {
   'awk': 'Awk',
   'basic': 'BASIC',
   'basica': 'BASIC',
+  'basic-80': 'BASIC',
   'c-78': 'C',
   'c-89': 'C',
   'c-99': 'C',
@@ -322,7 +321,6 @@ codesAndGroups = {
   'kotlin': 'Kotlin',
   'lua': 'Lua',
   'matlab': 'Matlab',
-  'microsoft-basic': 'BASIC',
   'objective-c': 'Objective-C',
   'octave': 'matlab',
   'pascal': 'Pascal',
@@ -355,6 +353,7 @@ codesAndYears = {
   'awk': 1977,
   'basic': 1965,
   'basica': 1982,
+  'basic-80': 1980,
   'c-78': 1978,
   'c-89': 1989,
   'c-99': 1999,
@@ -393,7 +392,6 @@ codesAndYears = {
   'kotlin': 2011,
   'lua': 1993,
   'matlab': 1984,
-  'microsoft-basic': 1980,
   'objective-c': 1984,
   'octave': 1993,
   'pascal': 1970,
@@ -424,7 +422,8 @@ simplerLanguages = {
   'ada-2012': 'ada-2005',
   'awk': None,
   'basic': None,
-  'basica': 'microsoft-basic',
+  'basica': 'basic-80',
+  'basic-80': 'basic',
   'c-78': None,
   'c-89': 'c-78',
   'c-99': 'c-89',
@@ -463,7 +462,6 @@ simplerLanguages = {
   'kotlin': None,
   'lua': None,
   'matlab': None,
-  'microsoft-basic': 'basic',
   'objective-c': 'cplusplus',
   'octave': 'matlab',
   'pascal': None,
@@ -780,8 +778,11 @@ def make_one_examiner(language, code, tab_size, wide, comment):
   if language in ['basic', 'bas']:
     examiner = BasicExaminer(code)
 
+  if language in ['basic-80', 'mbasic', 'mba']:
+    examiner = MicrosoftBasicExaminer(code, 'basic-80')
+
   if language in ['basica']:
-    examiner = BasicaExaminer(code)
+    examiner = MicrosoftBasicExaminer(code, 'basica')
 
   if language in ['c-78', 'c']:
     examiner = CExaminer(code, '78')
@@ -894,9 +895,6 @@ def make_one_examiner(language, code, tab_size, wide, comment):
   if language in ['matlab', 'm']:
     examiner = MatlabExaminer(code)
 
-  if language in ['microsoft-basic', 'mbasic', 'mba']:
-    examiner = MicrosoftBasicExaminer(code)
-
   if language in ['objective-c', 'objc']:
     examiner = ObjectiveCExaminer(code)
 
@@ -993,8 +991,11 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
   if 'basic' in languages or 'bas' in languages:
     examiners['basic'] = BasicExaminer(code)
 
+  if 'basic-80' in languages or 'mbasic' in languages or 'mba' in languages:
+    examiners['basic-80'] = MicrosoftBasicExaminer(code, 'basic-80')
+
   if 'basica' in languages:
-    examiners['basica'] = BasicaExaminer(code)
+    examiners['basica'] = MicrosoftBasicExaminer(code, 'basica')
 
   if 'cbasic' in languages:
     examiners['cbasic'] = CBasicExaminer(code)
@@ -1126,9 +1127,6 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
 
   if 'matlab' in languages or 'm' in languages:
     examiners['matlab'] = MatlabExaminer(code)
-
-  if 'microsoft-basic' in languages or 'mbasic' in languages or 'mba' in languages:
-    examiners['microsoft-basic'] = MicrosoftBasicExaminer(code)
 
   if 'objective-c' in languages:
     examiners['objective-c'] = ObjectiveCExaminer(code)

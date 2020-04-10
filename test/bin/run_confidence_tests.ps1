@@ -53,11 +53,11 @@ test\bin\run_test.ps1 -json -name life-bas -action confidence -language BASIC -i
 test\bin\run_test.ps1 -json -name income-bas -action confidence -language BASIC -inputfile ".\test\data\BASIC\income.bas" -expected ".\test\ref\confidence\BASIC\income.txt"
 test\bin\run_test.ps1 -json -name rockt2-bas -action confidence -language BASIC -inputfile ".\test\data\BASIC\rockt2.bas" -expected ".\test\ref\confidence\BASIC\rockt2.txt"
 
-# Microsoft BASIC
-test\bin\run_test.ps1 -json -name doctor-mbasic -action confidence -language Microsoft-BASIC -inputfile ".\test\data\BASIC\doctor.bas" -expected ".\test\ref\confidence\Microsoft-BASIC\doctor.txt"
-test\bin\run_test.ps1 -json -name airinput-mbasic -action confidence -language Microsoft-BASIC -inputfile ".\test\data\BASIC\AIRINPUT.bas" -expected ".\test\ref\confidence\Microsoft-BASIC\AIRINPUT.txt"
-test\bin\run_test.ps1 -json -name backgamm-mbasic -action confidence -language Microsoft-BASIC -inputfile ".\test\data\BASIC\BACKGAMM.bas" -expected ".\test\ref\confidence\Microsoft-BASIC\BACKGAMM.txt"
-test\bin\run_test.ps1 -json -name planes-mbasic -action confidence -language Microsoft-BASIC -inputfile ".\test\data\BASIC\PLANES.bas" -expected ".\test\ref\confidence\Microsoft-BASIC\PLANES.txt"
+# BASIC-80
+test\bin\run_test.ps1 -json -name doctor-mbasic -action confidence -language BASIC-80 -inputfile ".\test\data\BASIC\doctor.bas" -expected ".\test\ref\confidence\BASIC-80\doctor.txt"
+test\bin\run_test.ps1 -json -name airinput-mbasic -action confidence -language BASIC-80 -inputfile ".\test\data\BASIC\AIRINPUT.bas" -expected ".\test\ref\confidence\BASIC-80\AIRINPUT.txt"
+test\bin\run_test.ps1 -json -name backgamm-mbasic -action confidence -language BASIC-80 -inputfile ".\test\data\BASIC\BACKGAMM.bas" -expected ".\test\ref\confidence\BASIC-80\BACKGAMM.txt"
+test\bin\run_test.ps1 -json -name planes-mbasic -action confidence -language BASIC-80 -inputfile ".\test\data\BASIC\PLANES.bas" -expected ".\test\ref\confidence\BASIC-80\PLANES.txt"
 
 # BASICA
 test\bin\run_test.ps1 -json -name sea-creature-basica -action confidence -language BASICA -inputfile ".\test\data\BASIC\sea_creature.bas" -expected ".\test\ref\confidence\BASICA\sea_creature.txt"

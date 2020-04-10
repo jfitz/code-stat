@@ -50,7 +50,7 @@ class MicrosoftBasicExaminer(Examiner):
     return 'Escape ?Z'
 
 
-  def __init__(self, code):
+  def __init__(self, code, version):
     super().__init__()
 
     whitespace_tb = WhitespaceTokenBuilder()
@@ -81,7 +81,7 @@ class MicrosoftBasicExaminer(Examiner):
       '#', '\\', 'AND', 'MOD', 'OR', 'NOT', 'IMP', 'EQV', 'XOR'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False)
 
     self.unary_operators = [
       '+', '-', '#', 'NOT'
@@ -98,15 +98,15 @@ class MicrosoftBasicExaminer(Examiner):
       'BASE',
       'CALL', 'CHAIN', 'CLEAR', 'CLS', 'CLOSE', 'COMMON',
       'DATA', 'DEF', 'DEFDBL', 'DEFINT', 'DEFSNG', 'DEFSTR', 'DIM',
-      'ELSE', 'END', 'ERASE', 'ERROR',
-      'FIELD', 'FOR',
+      'ELSE', 'END', 'ERASE', 'ERRLN', 'ERRNO', 'ERROR',
+      'FIELD', 'FILE', 'FILES', 'FOR',
       'GET', 'GOSUB', 'GOTO',
       'IF', 'INPUT',
       'KILL',
       'LET', 'LINE', 'LOAD', 'LPRINT', 'LSET',
       'MERGE',
       'NEXT', 'NULL',
-      'ON', 'ERROR', 'OPEN', 'OPTION', 'OUT',
+      'OFF', 'ON', 'ONERR', 'OPEN', 'OPTION', 'OUT', 'OUTPUT',
       'POKE', 'PRINT', 'PUT',
       'RANDOMIZE', 'READ', 'REM', 'REMARK', 'RESET', 'RESTORE', 'RESUME', 'RETURN', 'RSET', 'RUN',
       'SET', 'STEP', 'STOP', 'SWAP', 'SYSTEM',
@@ -115,11 +115,11 @@ class MicrosoftBasicExaminer(Examiner):
       'WAIT', 'WHILE', 'WEND', 'WIDTH', 'WRITE'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
 
     self.values = ['ERR', 'ERL', 'RND']
 
-    values_tb = ListTokenBuilder(self.values, 'value', True)
+    values_tb = ListTokenBuilder(self.values, 'value', False)
 
     # do not include RND() - it is a value and later converted to function
     # if followed by open parenthesis
@@ -142,7 +142,7 @@ class MicrosoftBasicExaminer(Examiner):
       'VAL', 'VARPTR'
     ]
 
-    function_tb = ListTokenBuilder(functions, 'function', True)
+    function_tb = ListTokenBuilder(functions, 'function', False)
 
     user_function_tb = LongUserFunctionTokenBuilder('%#!$&')
 

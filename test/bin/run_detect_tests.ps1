@@ -21,11 +21,11 @@ test\bin\run_test.ps1 -json -name life -action detect -inputfile ".\test\data\BA
 test\bin\run_test.ps1 -json -name income -action detect -inputfile ".\test\data\BASIC\income.bas" -expected ".\test\ref\detect\BASIC\income.txt"
 test\bin\run_test.ps1 -json -name rockt2 -action detect -inputfile ".\test\data\BASIC\rockt2.bas" -expected ".\test\ref\detect\BASIC\rockt2.txt"
 
-# Microsoft BASIC
-test\bin\run_test.ps1 -json -name doctor-mbasic -action detect -inputfile ".\test\data\BASIC\doctor.bas" -expected ".\test\ref\detect\Microsoft-BASIC\doctor.txt"
-test\bin\run_test.ps1 -json -name airinput-mbasic -action detect -inputfile ".\test\data\BASIC\AIRINPUT.bas" -expected ".\test\ref\detect\Microsoft-BASIC\AIRINPUT.txt"
-test\bin\run_test.ps1 -json -name backgamm-mbasic -action detect -inputfile ".\test\data\BASIC\BACKGAMM.bas" -expected ".\test\ref\detect\Microsoft-BASIC\BACKGAMM.txt"
-test\bin\run_test.ps1 -json -name planes-mbasic -action detect -inputfile ".\test\data\BASIC\PLANES.bas" -expected ".\test\ref\detect\Microsoft-BASIC\PLANES.txt"
+# BASIC-80
+test\bin\run_test.ps1 -json -name doctor-mbasic -action detect -inputfile ".\test\data\BASIC\doctor.bas" -expected ".\test\ref\detect\BASIC-80\doctor.txt"
+test\bin\run_test.ps1 -json -name airinput-mbasic -action detect -inputfile ".\test\data\BASIC\AIRINPUT.bas" -expected ".\test\ref\detect\BASIC-80\AIRINPUT.txt"
+test\bin\run_test.ps1 -json -name backgamm-mbasic -action detect -inputfile ".\test\data\BASIC\BACKGAMM.bas" -expected ".\test\ref\detect\BASIC-80\BACKGAMM.txt"
+test\bin\run_test.ps1 -json -name planes-mbasic -action detect -inputfile ".\test\data\BASIC\PLANES.bas" -expected ".\test\ref\detect\BASIC-80\PLANES.txt"
 
 # BASICA
 test\bin\run_test.ps1 -json -name sea-creature-basica -action detect -inputfile ".\test\data\BASIC\sea_creature.bas" -expected ".\test\ref\detect\BASICA\sea_creature.txt"
