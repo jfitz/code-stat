@@ -112,7 +112,7 @@ class CppExaminer(Examiner):
     ]
 
     self.postfix_operators = [
-      '++', '--', '&'
+      '++', '--', '&', '*'
     ]
 
     groupers = ['(', ')', ',', '[', ']', '{', '}', ':']

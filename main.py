@@ -212,7 +212,7 @@ codesAndNames = {
   'basic': 'BASIC',
   'basica': 'BASICA',
   'basic-80': 'BASIC-80',
-  'c-78': 'C-K&R',
+  'c-78': 'C-78',
   'c-89': 'C-89',
   'c-99': 'C-99',
   'cplusplus': 'C++',
@@ -784,7 +784,7 @@ def make_one_examiner(language, code, tab_size, wide, comment):
   if language in ['basica']:
     examiner = MicrosoftBasicExaminer(code, 'basica')
 
-  if language in ['c-78', 'c']:
+  if language in ['c-78', 'c', 'c-k&r']:
     examiner = CExaminer(code, '78')
 
   if language in ['c-89', 'c']:
@@ -1000,7 +1000,7 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
   if 'cbasic' in languages:
     examiners['cbasic'] = CBasicExaminer(code)
 
-  if 'c-78' in languages or 'c' in languages:
+  if 'c-78' in languages or 'c' in languages or 'c-k&r' in languages:
     examiners['c-78'] = CExaminer(code, '78')
 
   if 'c-89' in languages or 'c' in languages:
