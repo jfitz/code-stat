@@ -366,7 +366,7 @@ class Examiner:
 
 
   # binary operators that follow non-operands reduce confidence
-  def calc_operator_3_confidence(self, tokens, group_ends):
+  def calc_operator_3_confidence(self, tokens, group_ends, operand_types):
     num_invalid_operators = Examiner.count_tokens(tokens, ['invalid operator'])
     num_known_operators = Examiner.count_tokens(tokens, ['operator'])
     num_operators = num_known_operators + num_invalid_operators
@@ -376,18 +376,6 @@ class Examiner:
     if num_operators > 0:
       errors = 0
       prev_token = Token('\n', 'newline')
-
-      operand_types = [
-        'number',
-        'string',
-        'variable',
-        'identifier',
-        'function',
-        'symbol',
-        'regex',
-        'type',
-        'value'
-      ]
 
       lower_unary_operators = []
       for op in self.unary_operators:
@@ -419,7 +407,7 @@ class Examiner:
 
 
   # binary operators that precede non-operands reduce confidence
-  def calc_operator_4_confidence(self, tokens, group_starts):
+  def calc_operator_4_confidence(self, tokens, group_starts, operand_types):
     num_invalid_operators = Examiner.count_tokens(tokens, ['invalid operator'])
     num_known_operators = Examiner.count_tokens(tokens, ['operator'])
     num_operators = num_known_operators + num_invalid_operators
@@ -427,19 +415,6 @@ class Examiner:
     operator_confidence_4 = 1.0
 
     if num_operators > 0:
-      operand_types = [
-        'number',
-        'string',
-        'variable',
-        'identifier',
-        'function',
-        'symbol',
-        'regex',
-        'type',
-        'value',
-        'picture'
-      ]
-
       errors = 0
       prev_token = Token('\n', 'newline')
 

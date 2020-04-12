@@ -62,6 +62,6 @@ main = do
         aminoAcids = decodeAll rna
 
     putStrLn (concatMap show aminoAcids)
-Example usage:
-$ echo "ACAUGUCAGUACGUAGCUAC" | runghc decode.hs
-ThrCysGlnTyrValAlaThr
+-- Example usage:
+-- $ echo "ACAUGUCAGUACGUAGCUAC" | runghc decode.hs
+-- ThrCysGlnTyrValAlaThr

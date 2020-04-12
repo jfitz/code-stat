@@ -71,13 +71,23 @@ class HaskellExaminer(Examiner):
     line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation')
 
     groupers = ['(', ')', ',', '[', ']', '{', '}', ':', '::']
-    # group_starts = ['(', '[', ',', '{']
-    # group_ends = [')', ']', '}']
+    group_starts = ['(', '[', ',', '{']
+    group_ends = [')', ']', '}']
     group_mids = [',', ':']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     operators_tb = HaskellOperatorTokenBuilder('#$%&*+./<=>?@\\^|-~')
+
+    known_operators = [
+      "'", '..'
+    ]
+
+    known_operators_tb = ListTokenBuilder(known_operators, 'operator', False)
+
+    self.postfix_operators = [
+      '..', "'"
+    ]
 
     keywords = [
       'case', 'class',
@@ -112,6 +122,7 @@ class HaskellExaminer(Examiner):
       keyword_tb,
       groupers_tb,
       operators_tb,
+      known_operators_tb,
       wildcard_tb,
       identifier_tb,
       value_tb,
@@ -135,12 +146,27 @@ class HaskellExaminer(Examiner):
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
 
+    operand_types = [
+      'number',
+      'string',
+      'variable',
+      'identifier',
+      'function',
+      'class',
+      'symbol',
+      'regex',
+      'type',
+      'value',
+      'picture',
+      'keyword'
+    ]
+
     self.calc_token_confidence()
     # self.calc_token_2_confidence(['*', ';'])
     self.calc_operator_confidence()
     # self.calc_operator_2_confidence(tokens)
-    # self.calc_operator_3_confidence(tokens, group_ends)
-    # self.calc_operator_4_confidence(tokens, group_starts)
+    self.calc_operator_3_confidence(tokens, group_ends, operand_types)
+    self.calc_operator_4_confidence(tokens, group_starts, operand_types)
     self.calc_group_confidence(tokens, group_mids)
     # operand_types = ['number']
     # self.calc_operand_confidence(tokens, operand_types)

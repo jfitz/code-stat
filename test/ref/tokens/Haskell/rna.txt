@@ -3032,83 +3032,23 @@
         "value":"\r\n"
     },
     {
-        "type":"class",
-        "value":"Example"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"usage"
-    },
-    {
-        "type":"group",
-        "value":":"
+        "type":"comment",
+        "value":"-- Example usage:"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"operator",
-        "value":"$"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"echo"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"string",
-        "value":"\"ACAUGUCAGUACGUAGCUAC\""
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"runghc"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"decode"
-    },
-    {
-        "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"identifier",
-        "value":"hs"
+        "type":"comment",
+        "value":"-- $ echo \"ACAUGUCAGUACGUAGCUAC\" | runghc decode.hs"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"class",
-        "value":"ThrCysGlnTyrValAlaThr"
+        "type":"comment",
+        "value":"-- ThrCysGlnTyrValAlaThr"
     }
 ]

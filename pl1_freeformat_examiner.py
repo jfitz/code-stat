@@ -58,12 +58,25 @@ class PL1FreeFormatExaminer(PL1Examiner):
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
 
+    operand_types = [
+      'number',
+      'string',
+      'variable',
+      'identifier',
+      'function',
+      'symbol',
+      'regex',
+      'type',
+      'value',
+      'picture'
+    ]
+
     self.calc_token_confidence()
     self.calc_token_2_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence(tokens)
-    self.calc_operator_3_confidence(tokens, self.group_ends)
-    self.calc_operator_4_confidence(tokens, self.group_starts)
+    self.calc_operator_3_confidence(tokens, self.group_ends, operand_types)
+    self.calc_operator_4_confidence(tokens, self.group_starts, operand_types)
     operand_types = ['number', 'symbol']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()

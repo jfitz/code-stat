@@ -168,12 +168,25 @@ class PythonExaminer(Examiner):
     tokens = Examiner.join_parens_continued_lines(tokens)
     tokens = Examiner.join_operator_continued_lines(tokens, self.postfix_operators)
 
+    operand_types = [
+      'number',
+      'string',
+      'variable',
+      'identifier',
+      'function',
+      'symbol',
+      'regex',
+      'type',
+      'value',
+      'picture'
+    ]
+
     self.calc_token_confidence()
     self.calc_token_2_confidence()
     self.calc_operator_confidence()
     self.calc_operator_2_confidence(tokens)
-    self.calc_operator_3_confidence(tokens, group_ends)
-    self.calc_operator_4_confidence(tokens, group_starts)
+    self.calc_operator_3_confidence(tokens, group_ends, operand_types)
+    self.calc_operator_4_confidence(tokens, group_starts, operand_types)
     operand_types = ['number', 'string', 'identifier', 'variable', 'symbol']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
@@ -182,7 +195,7 @@ class PythonExaminer(Examiner):
 
 
   # binary operators that precede non-operands reduce confidence
-  def calc_operator_4_confidence(self, tokens, group_starts):
+  def calc_operator_4_confidence(self, tokens, group_starts, operand_types):
     num_invalid_operators = Examiner.count_tokens(tokens, ['invalid operator'])
     num_known_operators = Examiner.count_tokens(tokens, ['operator'])
     num_operators = num_known_operators + num_invalid_operators
@@ -190,19 +203,6 @@ class PythonExaminer(Examiner):
     operator_confidence_4 = 1.0
 
     if num_operators > 0:
-      operand_types = [
-        'number',
-        'string',
-        'variable',
-        'identifier',
-        'function',
-        'symbol',
-        'regex',
-        'type',
-        'value',
-        'picture'
-      ]
-
       errors = 0
       prev_token = Token('\n', 'newline')
 
