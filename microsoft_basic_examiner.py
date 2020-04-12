@@ -115,6 +115,13 @@ class MicrosoftBasicExaminer(Examiner):
       'WAIT', 'WHILE', 'WEND', 'WIDTH', 'WRITE'
     ]
 
+    keywords_basica = [
+      'COLOR', 'KEY', 'PAINT', 'PLAY', 'SCREEN', 'SOUND'
+    ]
+
+    if version in ['basica', 'gw-basic']:
+      keywords += keywords_basica
+
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
 
     self.values = ['ERR', 'ERL', 'RND']

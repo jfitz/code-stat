@@ -76,6 +76,7 @@ class CoffeeScriptExaminer(Examiner):
       '+=', '-=', '*=', '/=', '%=', '**=', '&=', '|=', '^=', '<<=', '>>=',
       '!', '&', '|', '~', '<<', '>>', '>>>', '>>>=',
       '^', '**',
+      '->', '=>',
       '.', ':', '...',
       '++', '--', '&&', '||',
       '?', '?=', '?.',
@@ -93,6 +94,7 @@ class CoffeeScriptExaminer(Examiner):
       '!', '~',
       '++', '--', ':',
       'not',
+      '->', '=>',
       '.', '@',
       'new', 'delete'
     ]
@@ -115,7 +117,6 @@ class CoffeeScriptExaminer(Examiner):
       'if', 'then', 'else', 'unless',
       'switch', 'when', 'default',
       'return',
-      '->', '=>',
       'do',
       'throw', 'try', 'catch', 'finally',
       'class', 'extends', 'typeof', 'instanceof',
