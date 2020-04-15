@@ -21,12 +21,10 @@ class CobolIdentifierTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = c.isalpha() or c.isdigit()
-
     if len(candidate) > 0 and c == '-':
-      result = True
+      return True
 
-    return result
+    return c.isalpha() or c.isdigit()
 
 
 # token reader for PIC descriptor
@@ -175,21 +173,16 @@ class CobolPreprocessorTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
+    if c in ['\n', '\r']:
+      return False
 
     if len(candidate) == 0:
-      result = c == self.prefix[0]
+      return c == self.prefix[0]
 
     if len(candidate) == 1:
-      result = c == self.prefix[1]
+      return c == self.prefix[1]
 
-    if candidate.startswith(self.prefix):
-      result = True
-
-    if c in ['\n', '\r']:
-      result = False
-
-    return result
+    return candidate.startswith(self.prefix)
 
 
   def get_score(self, line_printable_tokens):
@@ -222,18 +215,13 @@ class AsteriskCommentTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
+    if c in ['\r', '\n']:
+      return False
 
     if len(candidate) == 0:
-      result = c == '*'
+      return c == '*'
 
-    if len(candidate) > 0:
-      result = True
-
-    if c in ['\r', '\n']:
-      result = False
-
-    return result
+    return True
 
 
   def get_score(self, line_printable_tokens):

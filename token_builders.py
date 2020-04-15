@@ -92,9 +92,7 @@ class WhitespaceTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = c.isspace() and c != '\n' and c != '\r'
-
-    return result
+    return c.isspace() and c != '\n' and c != '\r'
 
 
 # token reader for newline
@@ -117,15 +115,16 @@ class NewlineTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
+    if c not in ['\n', '\r']:
+      return False
 
     if candidate == '':
-      result = c == '\r' or c == '\n'
+      return c == '\r' or c == '\n'
 
-    if candidate == '\r' and c == '\n':
-      result = True
+    if candidate == '\r':
+      return c == '\n'
 
-    return result
+    return False
 
 
 # token reader for text literal (string)
@@ -213,28 +212,22 @@ class StuffedQuoteStringTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
+    if c in ['\n', '\r']:
+      return False
 
-    if len(candidate) == 0 and c in self.quotes:
-      result = True
+    if len(candidate) == 0:
+      return c in self.quotes
 
     if len(candidate) == 1:
-      result = True
+      return True
 
-    if len(candidate) > 1:
-      # a quote character is accepted, even after closing quote
-      if c == candidate[0]:
-        result = True
-      else:
-        # if number of quotes is even, string is closed
-        count = candidate.count(candidate[0])
-        result = count % 2 == 1
+    # a quote character is accepted, even after closing quote
+    if c == candidate[0]:
+      return True
 
-    # newline breaks a string
-    if c in ['\n', '\r']:
-      result = False
-
-    return result
+    # if number of quotes is even, string is closed
+    count = candidate.count(candidate[0])
+    return count % 2 == 1
 
 
   def get_score(self, line_printable_tokens):
@@ -400,15 +393,13 @@ class IntegerTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
     if c.isdigit():
-      result = True
+      return True
     
-    if self.extra_char is not None and c == self.extra_char:
-      result = len(candidate) > 0 and candidate[-1].isdigit()
+    if len(candidate) > 0 and candidate[-1].isdigit():
+      return self.extra_char is not None and c == self.extra_char
 
-    return result
+    return False
 
 
 # token reader for integer with exponent
@@ -502,33 +493,31 @@ class SuffixedIntegerTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
     groups = ["".join(x) for _, x in itertools.groupby(candidate, key=self.digit_or_underscore)]
 
     if len(groups) == 0:
-      result = c.isdigit()
+      return c.isdigit()
 
     if len(groups) == 1:
       if self.extra_char is not None:
         if self.case_sensitive:
-          result = c.isdigit() or c == self.extra_char or c in self.abbrevs
+          return c.isdigit() or c == self.extra_char or c in self.abbrevs
         else:
-          result = c.isdigit() or c == self.extra_char or c.lower() in self.abbrevs
+          return c.isdigit() or c == self.extra_char or c.lower() in self.abbrevs
       else:
         if self.case_sensitive:
-          result = c.isdigit() or c in self.abbrevs
+          return c.isdigit() or c in self.abbrevs
         else:
-          result = c.isdigit() or c.lower() in self.abbrevs
+          return c.isdigit() or c.lower() in self.abbrevs
 
     if len(groups) == 2:
       suffix = groups[1] + c
       if self.case_sensitive:
-        result = suffix in self.abbrevs
+        return suffix in self.abbrevs
       else:
-        result = suffix.lower() in self.abbrevs
+        return suffix.lower() in self.abbrevs
 
-    return result
+    return False
 
 
   def get_score(self, line_printable_tokens):
@@ -576,18 +565,16 @@ class RealTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
     if c.isdigit():
-      result = True
+      return True
     
     if c == '.' and '.' not in candidate:
-      result = True
+      return True
 
-    if self.extra_char is not None and c == self.extra_char:
-      result = len(candidate) > 0 and candidate[-1].isdigit()
+    if len(candidate) > 0 and candidate[-1].isdigit():
+      return self.extra_char is not None and c == self.extra_char
 
-    return result
+    return False
 
 
   def get_score(self, line_printable_tokens):
@@ -662,22 +649,20 @@ class SuffixedRealTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
     if c.isdigit():
       if len(candidate) == 0:
-        result = True
-      else:
-        result = candidate[-1] in self.digits
+        return True
+
+      return candidate[-1] in self.digits
 
     if c == '.' and '.' not in candidate:
       if len(candidate) > 0:
-        result = candidate[-1].isdigit()
-      else:
-        result = True
+        return candidate[-1].isdigit()
+
+      return True
 
     if self.extra_char is not None and c == self.extra_char:
-      result = len(candidate) > 0 and candidate[-1].isdigit()
+      return len(candidate) > 0 and candidate[-1].isdigit()
 
     # if any digits before or after decimal, check suffix
     if any(str.isdigit(ch) for ch in candidate):
@@ -690,13 +675,14 @@ class SuffixedRealTokenBuilder(TokenBuilder):
           trailings = c
         else:
           trailings = m.group(0) + c
+
         # check proposed suffix is in list of abbrevs
         if self.case_sensitive:
-          result = trailings in self.abbrevs
-        else:
-          result = trailings.lower() in self.abbrevs
+          return trailings in self.abbrevs
 
-    return result
+        return trailings.lower() in self.abbrevs
+
+    return False
 
 
   def get_score(self, line_printable_tokens):
@@ -867,14 +853,10 @@ class PrefixedIdentifierTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
     if len(candidate) < len(self.prefix):
-      result = self.prefix.startswith(candidate + c)
-    else:
-      result = c.isalpha() or c.isdigit() or c == '_'
+      return self.prefix.startswith(candidate + c)
 
-    return result
+    return c.isalpha() or c.isdigit() or c == '_'
 
 
   def get_score(self, line_printable_tokens):
@@ -1178,21 +1160,16 @@ class TripleQuoteStringTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
+    if len(candidate) > 5:
+      return candidate[-3:] != candidate[:3]
 
-    if len(candidate) == 0 and c in '"\'':
-      result = True
+    if len(candidate) > 2:
+      return candidate[:3] in self.quote_set
 
-    if len(candidate) in [1, 2]:
-      result = c == candidate[0]
+    if len(candidate) > 0:
+      return c == candidate[0]
 
-    if len(candidate) > 2 and candidate[:3] in self.quote_set:
-      result = True
-
-    if len(candidate) > 5 and candidate[-3:] == candidate[:3]:
-      result = False
-
-    return result
+    return c in '"\''
 
 
   def get_score(self, line_printable_tokens):
@@ -1229,34 +1206,29 @@ class RegexTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
- 
+    if c in ['\r', '\n']:
+      return False
+
     if len(candidate) == 0:
-      result = c == '/'
+      return c == '/'
 
     if len(candidate) == 1:
-      result = True
+      return True
 
-    if len(candidate) > 1:
-      slash_count = 0
-      escaped = False
-      for ch in candidate:
-        if ch == '/' and not escaped:
-          slash_count += 1
-        if ch == '\\':
-          escaped = not escaped
-        else:
-          escaped = False
-
-      if slash_count < 2:
-        result = True
+    slash_count = 0
+    escaped = False
+    for ch in candidate:
+      if ch == '/' and not escaped:
+        slash_count += 1
+      if ch == '\\':
+        escaped = not escaped
       else:
-        result = c.isalpha()
+        escaped = False
 
-    if c in ['\r', '\n']:
-      result = False
+    if slash_count < 2:
+      return True
 
-    return result
+    return c.isalpha()
 
 
   def get_score(self, line_printable_tokens):
@@ -1378,15 +1350,10 @@ class BlockTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
     if len(candidate) < len(self.prefix):
-      result = c.lower() == self.prefix[len(candidate)]
+      return c.lower() == self.prefix[len(candidate)]
 
-    if len(candidate) >= len(self.prefix):
-      result = not candidate.lower().endswith(self.suffix)
-
-    return result
+    return not candidate.lower().endswith(self.suffix)
 
 
   def get_score(self, line_printable_tokens):

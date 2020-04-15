@@ -22,10 +22,10 @@ class CBasicVariableTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
     if len(candidate) == 0:
-      result = c.isalpha()
+      return c.isalpha()
+
+    result = False
 
     if len(candidate) > 0:
       result = c.isalpha() or c.isdigit() or c == '.' or c in self.suffixes
@@ -176,12 +176,7 @@ class CBasicLineContinuationTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
     if len(candidate) == 0:
-      result = c == '\\'
+      return c == '\\'
 
-    if len(candidate) > 0:
-      result = c not in ['\r', '\n']
-
-    return result
+    return c not in ['\r', '\n']

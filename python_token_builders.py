@@ -22,21 +22,16 @@ class RawTripleQuoteCommentTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
+    if len(candidate) > 6:
+      return candidate[-3:] != candidate[1:4]
 
-    if len(candidate) == 0 and c == 'r':
-      result = True
+    if len(candidate) > 3:
+      return candidate[1:4] in ['"""', "'''"]
 
-    if len(candidate) == 1 and c in '"\'':
-      result = True
+    if len(candidate) > 1:
+      return c == candidate[1]
 
-    if len(candidate) in [2, 3]:
-      result = c == candidate[1]
+    if len(candidate) == 1:
+      return c in '"\''
 
-    if len(candidate) > 3 and candidate[1:4] in ['"""', "'''"]:
-      result = True
-
-    if len(candidate) > 6 and candidate[-3:] == candidate[1:4]:
-      result = False
-
-    return result
+    return c == 'r'

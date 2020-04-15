@@ -21,21 +21,16 @@ class DashDashCommentTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
-    if candidate.startswith('--'):
-      result = True
-
-    if c == '-' and candidate == '-':
-      result = True
-
-    if c == '-' and candidate == '':
-      result = True
-
     if c in ['\n', '\r']:
-      result = False
+      return False
 
-    return result
+    if candidate == '':
+      return c == '-'
+
+    if candidate == '-':
+      return c == '-'
+
+    return True
 
 
   def get_score(self, line_printable_tokens):
@@ -69,34 +64,28 @@ class AdaCharTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
+    if c in ['\n', '\r']:
+      return False
 
-    if len(candidate) == 0 and c in self.quotes:
-      result = True
+    if len(candidate) == 0:
+      return c in self.quotes
 
     if len(candidate) == 1:
-      result = True
+      return True
 
-    if len(candidate) > 1:
-      # no quote stuffing, stop on second quote
-      # assume escaped quotes are allowed
-      quote_count = 0
-      escaped = False
-      for ch in candidate:
-        if ch == candidate[0] and not escaped:
-          quote_count += 1
-        if ch == '\\':
-          escaped = not escaped
-        else:
-          escaped = False
+    # no quote stuffing, stop on second quote
+    # assume escaped quotes are allowed
+    quote_count = 0
+    escaped = False
+    for ch in candidate:
+      if ch == candidate[0] and not escaped:
+        quote_count += 1
+      if ch == '\\':
+        escaped = not escaped
+      else:
+        escaped = False
 
-      result = quote_count < 2
-
-    # newline breaks a string
-    if c in ['\n', '\r']:
-      result = False
-
-    return result
+    return quote_count < 2
 
 
   def get_score(self, line_printable_tokens):

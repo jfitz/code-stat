@@ -19,15 +19,7 @@ class PrologVariableTokenBuilder(TokenBuilder):
     return [Token(self.text, 'variable')]
 
   def accept(self, candidate, c):
-    result = False
+    if len(candidate) == 0:
+      return (c.isalpha() and c.isupper()) or c == '_'
 
-    if c.isalpha() and c.isupper():
-      result = True
-
-    if len(candidate) > 0 and c.isdigit():
-      result = True
-
-    if c == '_':
-      result = True
-
-    return result
+    return c.isalpha() or c.isdigit() or c == '_'

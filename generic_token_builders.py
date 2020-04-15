@@ -20,21 +20,19 @@ class GenericNumberTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
 
     if len(candidate) == 0:
-      result = c.isdigit() or c in ['+', '-']
+      return c.isdigit() or c in ['+', '-']
 
-    if len(candidate) > 0:
-      if candidate[-1] in ['E', 'e']:
-        result = c.isdigit()
-      elif candidate[-1].isdigit():
-        result = c.isdigit() or c.isalpha() or c == '.'
-      elif candidate[-1] in ['+', '-']:
-        result = c.isdigit()
-      elif candidate[-1].isalpha():
-        result = c.isalpha()
-      elif candidate[-1] == '.':
-        result = c.isdigit()
+    if candidate[-1] in ['E', 'e']:
+      return c.isdigit()
+    elif candidate[-1].isdigit():
+      return c.isdigit() or c.isalpha() or c == '.'
+    elif candidate[-1] in ['+', '-']:
+      return c.isdigit()
+    elif candidate[-1].isalpha():
+      return c.isalpha()
+    elif candidate[-1] == '.':
+      return c.isdigit()
 
-    return result
+    return False

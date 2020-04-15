@@ -19,12 +19,7 @@ class DirectiveTokenBuilder(TokenBuilder):
     return [Token(self.text, 'directive')]
 
   def accept(self, candidate, c):
-    result = False
-
     if len(candidate) == 0:
-      result = c == '@'
+      return c == '@'
 
-    if len(candidate) > 0:
-      result = c.isalpha() or c.isdigit() or c == '_'
-
-    return result
+    return c.isalpha() or c.isdigit() or c == '_'

@@ -21,21 +21,16 @@ class JCLTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
-    if candidate == '' and c == '/':
-      result = True
-
-    if candidate == '/' and c == '/':
-      result = True
-
-    if candidate.startswith('//'):
-      result = True
-
     if c in ['\n', '\r']:
-      result = False
+      return False
 
-    return result
+    if candidate == '':
+      return c == '/'
+
+    if candidate == '/':
+      return c == '/'
+
+    return candidate.startswith('//')
 
 
   def get_score(self, line_printable_tokens):

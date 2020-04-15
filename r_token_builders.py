@@ -21,21 +21,16 @@ class ROperatorTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
+    if c in [' ', '\t', '\n', '\r']:
+      return False
 
-    if len(candidate) == 0 and c == '%':
-      result = True
+    if len(candidate) == 0:
+      return c == '%'
 
     if len(candidate) == 1:
-      result = True
+      return True
 
-    if len(candidate) > 1 and candidate[-1] != candidate[0]:
-        result = True
-
-    if c in [' ', '\t', '\n', '\r']:
-      result = False
-
-    return result
+    return candidate[-1] != candidate[0]
 
 
   def get_score(self, line_printable_tokens):

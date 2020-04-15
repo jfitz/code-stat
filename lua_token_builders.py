@@ -21,24 +21,19 @@ class LuaBlockCommentTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
+    if len(candidate) == 0:
+      return c == '-'
 
-    if len(candidate) == 0 and c == '-':
-      result = True
+    if len(candidate) == 1:
+      return c == '-'
 
-    if len(candidate) == 1 and c == '-':
-      result = True
+    if len(candidate) == 2:
+      return c == '['
 
-    if len(candidate) == 2 and c == '[':
-      result = True
+    if len(candidate) == 3:
+      return c == '['
 
-    if len(candidate) == 3 and c == '[':
-      result = True
-
-    if len(candidate) > 3 and not candidate.endswith(']]'):
-      result = True
-
-    return result
+    return not candidate.endswith(']]')
 
 
   def get_score(self, line_printable_tokens):
@@ -75,15 +70,10 @@ class DoubleBracketStringTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
+    if len(candidate) < 2:
+      return c == '['
 
-    if len(candidate) in [0, 1] and c == '[':
-      result = True
-
-    if len(candidate) > 1 and not candidate.endswith(']]'):
-      result = True
-
-    return result
+    return not candidate.endswith(']]')
 
 
   def get_score(self, line_printable_tokens):

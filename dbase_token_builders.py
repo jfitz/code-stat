@@ -27,9 +27,7 @@ class DbaseSpecialFunctionTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = len(candidate) == 0 and c in self.chars
-
-    return result
+    return len(candidate) == 0 and c in self.chars
 
 
   def get_score(self, line_printable_tokens):
@@ -64,9 +62,7 @@ class DbaseFilenameTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = c.isalpha() or c.isdigit() or c in '.-'
-
-    return result
+    return c.isalpha() or c.isdigit() or c in '.-'
 
 
   def get_score(self, line_printable_tokens):
@@ -247,14 +243,11 @@ class KeywordCommentTokenBuilder(TokenBuilder):
       return False
 
     token = candidate + c
-    result = False
 
     if self.case_sensitive:
-      result = token in self.abbrevs
-    else:
-      result = token.lower() in self.abbrevs
+      return token in self.abbrevs
 
-    return result
+    return token.lower() in self.abbrevs
 
 
   def get_score(self, line_printable_tokens):
@@ -398,18 +391,18 @@ class TextBlockTokenBuilder(TokenBuilder):
     ]
 
   def accept(self, candidate, c):
-    result = False
- 
     if len(candidate) < len(self.start_keyword):
-      result = self.start_keyword.startswith(candidate.lower())
-    else:
-      if candidate.lower().startswith(self.start_keyword):
-        result = True
+      return self.start_keyword.startswith(candidate.lower())
 
-        # if the text ends with the end keyword
-        # stop accepting characters
-        if candidate.lower().endswith(self.end_keyword):
-          result = False
+    result = False
+
+    if candidate.lower().startswith(self.start_keyword):
+      result = True
+
+      # if the text ends with the end keyword
+      # stop accepting characters
+      if candidate.lower().endswith(self.end_keyword):
+        result = False
 
     return result
 

@@ -24,15 +24,13 @@ class FortranIdentifierTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
     if c.isupper():
-      result = True
+      return True
 
     if len(candidate) > 0 and c.isdigit():
-      result = True
+      return True
 
-    return result
+    return False
 
 
 # token reader for FORMAT specifiers (but not Hollerith specifiers)
@@ -70,33 +68,31 @@ class FormatSpecifierTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
     if len(candidate) == 0:
-      result = c.isdigit() or c in 'IFEDGALXP'
+      return c.isdigit() or c in 'IFEDGALXP'
 
     if self.t1.match(candidate):
-      result = c.isdigit() or c in 'IFEDGALXP'
+      return c.isdigit() or c in 'IFEDGALXP'
 
     if self.p2.match(candidate):
-      result = c.isdigit()
+      return c.isdigit()
 
     if self.p3.match(candidate):
-      result = c.isdigit() or c == '.'
+      return c.isdigit() or c == '.'
 
     if self.t4.match(candidate):
-      result = c.isdigit()
+      return c.isdigit()
 
     if self.p5.match(candidate):
-      result = c == 'E'
+      return c == 'E'
 
     if self.t6.match(candidate):
-      result = c.isdigit()
+      return c.isdigit()
 
     if self.p7.match(candidate):
-        result = c.isdigit()
+      return c.isdigit()
 
-    return result
+    return False
 
 
   def get_score(self, line_printable_tokens):
@@ -197,19 +193,16 @@ class UserDefinedOperatorTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
     if len(candidate) == 0:
-      result = c == '.'
+      return c == '.'
 
     if len(candidate) == 1:
-      result = c.isalpha() or c.isdigit()
+      return c.isalpha() or c.isdigit()
 
-    if len(candidate) > 1:
-      if candidate[-1] != candidate[0]:
-        result = c.isalpha() or c.isdigit() or c == '.'
+    if candidate[-1] != candidate[0]:
+      return c.isalpha() or c.isdigit() or c == '.'
 
-    return result
+    return False
 
 
   def get_score(self, line_printable_tokens):
@@ -245,19 +238,16 @@ class KindIntegerTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
     if c.isdigit():
-      result = True
+      return True
     
     if len(candidate) > 0:
       if candidate.count('_') == 0:
-        result = c.isdigit() or c == '_'
+        return c.isdigit() or c == '_'
 
-      if candidate.count('_') > 0:
-        result = c.isdigit() or c.isalpha() or c == '_'
+      return c.isdigit() or c.isalpha() or c == '_'
 
-    return result
+    return False
 
 
 # token reader for real (no exponent)
@@ -280,18 +270,20 @@ class KindRealTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
+    if c.isdigit():
+      return True
+    
     result = False
 
-    if c.isdigit():
-      result = True
-    
     if len(candidate) > 0:
+
       if candidate.count('_') == 0:
         result = c.isdigit() or c == '.' or c == '_'
+
         if c == '.' and '.' not in candidate:
-          result = True
+          return True
 
       if candidate.count('_') > 0:
-        result = c.isdigit() or c.isalpha() or c == '_'
+        return c.isdigit() or c.isalpha() or c == '_'
 
     return result

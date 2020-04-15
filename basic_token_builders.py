@@ -95,24 +95,19 @@ class RemarkTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
-    if c == 'R' and candidate == '':
-      result = True
-
-    if c == 'E' and candidate == 'R':
-      result = True
-
-    if c == 'M' and candidate == 'RE':
-      result = True
-
-    if candidate.startswith('REM'):
-      result = True
-
     if c in ['\n', '\r']:
-      result = False
+      return False
 
-    return result
+    if candidate == '':
+      return c == 'R'
+
+    if candidate == 'R':
+      return c == 'E'
+
+    if candidate == 'RE':
+      return c == 'M'
+
+    return True
 
 
   def get_score(self, line_printable_tokens):

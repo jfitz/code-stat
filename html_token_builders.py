@@ -24,15 +24,10 @@ class HTMLIdentifierTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
     if len(candidate) == 0:
-      result = c.isalpha()
+      return c.isalpha()
 
-    if len(candidate) > 0:
-      result = c.isalpha() or c == '-'
-
-    return result
+    return c.isalpha() or c == '-'
 
 
 # accept characters to match item in list
@@ -82,15 +77,13 @@ class HTMLAttributeTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
     if len(candidate) == 0:
-      result = c == '&'
+      return c == '&'
 
     if len(candidate) > 0 and candidate[-1] != ';':
-      result = c.isalpha() or c == ';'
+      return c.isalpha() or c == ';'
 
-    return result
+    return False
 
 
   def get_score(self, line_printable_tokens):

@@ -19,24 +19,19 @@ class RubyIdentifierTokenBuilder(TokenBuilder):
     return [Token(self.text, 'identifier')]
 
   def accept(self, candidate, c):
-    result = False
-
     if len(candidate) == 0:
-      result = c.isalpha() or c == '_' or c == '@'
+      return c.isalpha() or c == '_' or c == '@'
 
     if len(candidate) == 1:
       if candidate == '@':
-        result = c.isalpha() or c == '_' or c == '@'
+        return c.isalpha() or c == '_' or c == '@'
       else:
-        result = c.isalpha() or c.isdigit() or c in ['_', '?', '!']
+        return c.isalpha() or c.isdigit() or c in ['_', '?', '!']
 
-    if len(candidate) > 1:
-      result = c.isalpha() or c.isdigit() or c in ['_', '?', '!']
+    if candidate[-1] in ['?', '!']:
+      return False
 
-    if len(candidate) > 1 and candidate[-1] in ['?', '!']:
-      result = False
-
-    return result
+    return c.isalpha() or c.isdigit() or c in ['_', '?', '!']
 
 
 # token reader for identifier
@@ -75,23 +70,23 @@ class HereDocTokenBuilder(TokenBuilder):
     ]
 
   def accept(self, candidate, c):
-    result = False
- 
     if len(candidate) < len(self.operator):
-      result = self.operator.startswith(candidate)
-    else:
-      if candidate.startswith(self.operator):
-        result = True
+      return self.operator.startswith(candidate)
 
-        # if the last line begins with the marker from the first line
-        # stop accepting characters
-        lines = candidate.split('\n')
-        if len(lines) > 1:
-          first_line = lines[0]
-          last_line = lines[-1]
-          marker = first_line[len(self.operator):].rstrip()
-          if last_line.startswith(marker):
-            result = False
+    result = False
+
+    if candidate.startswith(self.operator):
+      result = True
+
+      # if the last line begins with the marker from the first line
+      # stop accepting characters
+      lines = candidate.split('\n')
+      if len(lines) > 1:
+        first_line = lines[0]
+        last_line = lines[-1]
+        marker = first_line[len(self.operator):].rstrip()
+        if last_line.startswith(marker):
+          result = False
 
     return result
 

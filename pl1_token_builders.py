@@ -20,18 +20,13 @@ class PL1LabelTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
-    if len(candidate) == 0:
-      result = c.isalpha()
-
-    if len(candidate) > 0:
-      result = c.isalpha() or c.isdigit() or c == ':'
-
     if len(candidate) > 1 and candidate[-1] == ':':
-      result = False
+      return False
 
-    return result
+    if len(candidate) > 1:
+      return c.isalpha() or c.isdigit() or c == ':'
+
+    return c.isalpha()
 
 
 # token reader for start comment
@@ -45,28 +40,22 @@ class PL1CommentStartTokenBuilder(TokenBuilder):
   def __init__(self):
     self.text = ''
 
+
   def get_tokens(self):
     if self.text is None:
       return None
 
     return [Token(self.text, 'comment-start')]
 
+
   def accept(self, candidate, c):
-    result = False
+    if len(candidate) == 0:
+      return c == '/'
 
-    if c == '/' and len(candidate) == 0:
-      result = True
+    if len(candidate) == 1:
+      return c == '*'
 
-    if c == '*' and len(candidate) == 1:
-      result = True
-
-    if c == '/' and len(candidate) > 2 and candidate[-1] == '*':
-      result = True
-
-    if candidate.startswith('/*') and (candidate[-2] != '*' or candidate[-1] != '/'):
-      result = True
-
-    return result
+    return not candidate.endswith('*/')
 
 
   def get_score(self, line_printable_tokens):

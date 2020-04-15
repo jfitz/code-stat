@@ -21,26 +21,21 @@ class RustRawStringTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
     if len(candidate) == 0:
-      result = c == 'r'
+      return c == 'r'
 
     if len(candidate) == 1:
-      result = c in ['#', '"']
+      return c in ['#', '"']
 
-    if len(candidate) > 1:
-      if '"' in candidate:
-        # count hashes
-        parts = candidate.split('"')
-        num_hashes = len(parts[0]) - 1
-        # build suffix
-        suffix = '"' + '#' * num_hashes
-        result = not candidate.endswith(suffix)
-      else:
-        result = c in ['#', '"']
+    if '"' in candidate:
+      # count hashes
+      parts = candidate.split('"')
+      num_hashes = len(parts[0]) - 1
+      # build suffix
+      suffix = '"' + '#' * num_hashes
+      return not candidate.endswith(suffix)
 
-    return result
+    return c in ['#', '"']
 
 
   def get_score(self, line_printable_tokens):
@@ -89,24 +84,19 @@ class RustAttributeTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
+    if c in ['\n', '\r']:
+      return False
 
     if len(candidate) == 0:
-      result = c == '#'
+      return c == '#'
 
     if len(candidate) == 1:
-      result = c in ['!', '[']
+      return c in ['!', '[']
 
-    if len(candidate) > 1:
-      if candidate == '#!':
-        result = c == '['
-      else:
-        result = candidate[-1] != ']'
+    if candidate == '#!':
+      return c == '['
 
-    if c in ['\n', '\r']:
-      result = False
-
-    return result
+    return candidate[-1] != ']'
 
 
   def get_score(self, line_printable_tokens):

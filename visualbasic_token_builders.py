@@ -24,18 +24,13 @@ class VisualBasicVariableTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
     if len(candidate) == 0:
-      result = c.isalpha()
+      return c.isalpha()
 
     if len(candidate) > 0:
-      result = c.isalpha() or c.isdigit() or c in self.suffixes
+      return c.isalpha() or c.isdigit() or c in self.suffixes
 
-    if len(candidate) > 1 and candidate[-1] in self.suffixes:
-      result = False
-
-    return result
+    return candidate[-1] not in self.suffixes
 
 
 # token reader for REMARK comment
@@ -65,21 +60,16 @@ class RemarkTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
-    if c == 'R' and candidate == '':
-      result = True
-
-    if c == 'e' and candidate == 'R':
-      result = True
-
-    if c == 'm' and candidate == 'Re':
-      result = True
-
-    if candidate.startswith('Rem'):
-      result = True
-
     if c in ['\n', '\r']:
-      result = False
+      return False
 
-    return result
+    if candidate == '':
+      return c == 'R'
+
+    if candidate == 'R':
+      return c == 'e'
+
+    if candidate == 'Re':
+      return c == 'm'
+
+    return candidate.startswith('Rem')

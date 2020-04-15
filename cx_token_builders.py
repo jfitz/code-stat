@@ -21,21 +21,19 @@ class SlashSlashCommentTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
+    if c in ['\n', '\r']:
+      return False
 
     if candidate.startswith('//'):
-      result = True
+      return True
 
-    if c == '/' and candidate == '/':
-      result = True
+    if candidate == '/':
+      return c == '/'
 
-    if c == '/' and candidate == '':
-      result = True
+    if candidate == '':
+      return c == '/'
 
-    if c in ['\n', '\r']:
-      result = False
-
-    return result
+    return False
 
 
   def get_score(self, line_printable_tokens):
@@ -68,24 +66,22 @@ class TripleSlashCommentTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
-    if candidate == '':
-      result = c == '/'
-
-    if candidate == '/':
-      result = c == '/'
-
-    if candidate == '//':
-      result = c == '/'
+    if c in ['\n', '\r']:
+      return False
 
     if candidate.startswith('///'):
-      result = True
+      return True
 
-    if c in ['\n', '\r']:
-      result = False
+    if candidate == '':
+      return c == '/'
 
-    return result
+    if candidate == '/':
+      return c == '/'
+
+    if candidate == '//':
+      return c == '/'
+
+    return False
 
 
   def get_score(self, line_printable_tokens):
@@ -118,18 +114,13 @@ class SlashStarCommentTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
     if len(candidate) == 0:
-      result = c == '/'
+      return c == '/'
 
     if len(candidate) == 1:
-      result = c == '*'
+      return c == '*'
 
-    if len(candidate) > 1:
-      result = not candidate.endswith('*/')
-
-    return result
+    return not candidate.endswith('*/')
 
 
   def get_score(self, line_printable_tokens):
@@ -162,23 +153,20 @@ class ClassTypeTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    result = False
-
     if len(candidate) == 0:
-      result = c == '<'
+      return c == '<'
 
-    if len(candidate) > 0:
-      level = 0
-      for ch in candidate:
-        if ch == '<':
-          level += 1
-        if ch == '>' and level > 0:
-          level -= 1
+    level = 0
+    for ch in candidate:
+      if ch == '<':
+        level += 1
+      if ch == '>' and level > 0:
+        level -= 1
 
-      if level > 0:
-        result = c.isalpha() or c.isdigit() or c in "</\\ ,_.:*>'"
+    if level > 0:
+      return c.isalpha() or c.isdigit() or c in "</\\ ,_.:*>'"
 
-    return result
+    return False
 
 
   def get_score(self, line_printable_tokens):
