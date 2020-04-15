@@ -36,7 +36,6 @@ from lua_examiner import LuaExaminer
 from matlab_examiner import MatlabExaminer
 from microsoft_basic_examiner import MicrosoftBasicExaminer
 from objectivec_examiner import ObjectiveCExaminer
-from octave_examiner import OctaveExaminer
 from pascal_examiner import PascalExaminer
 from pl1_fixedformat_examiner import PL1FixedFormatExaminer
 from pl1_freeformat_examiner import PL1FreeFormatExaminer
@@ -82,7 +81,6 @@ LuaExaminer.__escape_z__()
 MatlabExaminer.__escape_z__()
 MicrosoftBasicExaminer.__escape_z__()
 ObjectiveCExaminer.__escape_z__()
-OctaveExaminer.__escape_z__()
 PascalExaminer.__escape_z__()
 PL1FixedFormatExaminer.__escape_z__()
 PL1FreeFormatExaminer.__escape_z__()
@@ -893,13 +891,13 @@ def make_one_examiner(language, code, tab_size, wide, comment):
     examiner = LuaExaminer(code)
 
   if language in ['matlab', 'm']:
-    examiner = MatlabExaminer(code)
+    examiner = MatlabExaminer(code, 'matlab')
 
   if language in ['objective-c', 'objc']:
     examiner = ObjectiveCExaminer(code)
 
   if language in ['octave']:
-    examiner = OctaveExaminer(code)
+    examiner = MatlabExaminer(code, 'octave')
 
   if language in ['pascal', 'pas']:
     examiner = PascalExaminer(code)
@@ -1126,13 +1124,13 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
     examiners['lua'] = LuaExaminer(code)
 
   if 'matlab' in languages or 'm' in languages:
-    examiners['matlab'] = MatlabExaminer(code)
+    examiners['matlab'] = MatlabExaminer(code, 'matlab')
 
   if 'objective-c' in languages:
     examiners['objective-c'] = ObjectiveCExaminer(code)
 
   if 'octave' in languages:
-    examiners['octave'] = OctaveExaminer(code)
+    examiners['octave'] = MatlabExaminer(code, 'octave')
 
   if 'pascal' in languages or 'pas' in languages:
     examiners['pascal'] = PascalExaminer(code)

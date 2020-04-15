@@ -56,7 +56,7 @@ class KotlinExaminer(Examiner):
 
     integer_tb = IntegerTokenBuilder('_')
     integer_exponent_tb = IntegerExponentTokenBuilder('_')
-    prefixed_integer_tb = PrefixedIntegerTokenBuilder('0x', False, '0123456789ABCDEFabcdef_')
+    hex_integer_tb = PrefixedIntegerTokenBuilder('0x', False, '0123456789ABCDEFabcdef_')
     real_tb = RealTokenBuilder(True, True, '_')
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', '_')
 
@@ -176,7 +176,7 @@ class KotlinExaminer(Examiner):
       terminators_tb,
       integer_tb,
       integer_exponent_tb,
-      prefixed_integer_tb,
+      hex_integer_tb,
       real_tb,
       real_exponent_tb,
       keyword_tb,

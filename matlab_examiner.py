@@ -43,7 +43,7 @@ class MatlabExaminer(Examiner):
     return 'Escape ?Z'
 
 
-  def __init__(self, code):
+  def __init__(self, code, version):
     super().__init__()
 
     whitespace_tb = WhitespaceTokenBuilder()
@@ -65,8 +65,10 @@ class MatlabExaminer(Examiner):
     quotes = ['"', "'", "’"]
     string_tb = MatlabStringTokenBuilder(quotes, False)
 
-    line_comment_tb = LeadToEndOfLineTokenBuilder('%', False, 'comment')
-    block_comment_tb = BlockTokenBuilder('%{', '%}', 'comment')
+    line_comment_m_tb = LeadToEndOfLineTokenBuilder('%', False, 'comment')
+    line_comment_o_tb = LeadToEndOfLineTokenBuilder('#', False, 'comment')
+    block_comment_m_tb = BlockTokenBuilder('%{', '%}', 'comment')
+    block_comment_o_tb = BlockTokenBuilder('#{', '#}', 'comment')
 
     line_continuation_tb = KeywordTokenBuilder('...', 'line continuation')
 
@@ -76,6 +78,13 @@ class MatlabExaminer(Examiner):
       '&', '|', '&&', '||', '~',
       '@', '.', '.?'
     ]
+
+    operators_octave =[
+      '++', '--', '+=', '-=', '*=', '/=', '^=', '!', '!=', '**'
+    ]
+
+    if version == 'octave':
+      known_operators += operators_octave
 
     self.unary_operators = [
       '+', '-', '~', '@'
@@ -108,6 +117,13 @@ class MatlabExaminer(Examiner):
     'while'
     ]
 
+    keywords_octave = [
+      'endfor', 'endif', 'endwhile'
+    ]
+
+    if version == 'octave':
+      keywords += keywords_octave
+
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
 
     values = [
@@ -136,11 +152,24 @@ class MatlabExaminer(Examiner):
       command_tb,
       metaclass_tb,
       string_tb,
-      line_comment_tb,
-      block_comment_tb,
+      line_comment_m_tb,
+      block_comment_m_tb
+    ]
+
+    tokenbuilders_2 = [
+      line_comment_o_tb,
+      block_comment_o_tb
+    ]
+
+    if version == 'octave':
+      tokenbuilders += tokenbuilders_2
+
+    tokenbuilders_9 = [
       self.unknown_operator_tb,
       invalid_token_builder
     ]
+
+    tokenbuilders += tokenbuilders_9
 
     tokenizer = Tokenizer(tokenbuilders)
     tokens = tokenizer.tokenize(code)
