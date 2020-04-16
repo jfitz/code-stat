@@ -195,7 +195,10 @@ class JuliaExaminer(Examiner):
     tokens = tokenizer.tokenize(code)
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
-    self.tokens = self.convert_symbols_to_operators(tokens, group_ends)
+    tokens = JuliaExaminer.split_symbols_to_operators_identifiers(tokens, group_ends)
+    self.tokens = tokens
+
+    self.convert_keywords_to_identifiers()
 
     tokens = self.source_tokens()
     tokens = Examiner.join_parens_continued_lines(tokens)
@@ -227,7 +230,8 @@ class JuliaExaminer(Examiner):
     self.calc_statistics()
 
 
-  def convert_symbols_to_operators(self, tokens, group_ends):
+  @staticmethod
+  def split_symbols_to_operators_identifiers(tokens, group_ends):
     new_tokens = []
     prev_token = Token('\n', 'newline')
 
@@ -246,6 +250,18 @@ class JuliaExaminer(Examiner):
         prev_token = token
 
     return new_tokens
+
+
+  def convert_keywords_to_identifiers(self):
+    prev_token = Token('\n', 'newline')
+
+    for token in self.tokens:
+      if token.group == 'keyword' and token.text == 'type' and \
+        (prev_token.group != 'keyword' or prev_token.text not in ['primitive', 'abstract']):
+        token.group = 'identifier'
+
+      if token.group not in ['whitespace', 'comment', 'newline']:
+        prev_token = token
 
 
   # two operands in a row decreases confidence
