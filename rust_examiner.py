@@ -56,6 +56,8 @@ class RustExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
     line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation')
@@ -67,18 +69,23 @@ class RustExaminer(Examiner):
     octal_integer_tb = PrefixedIntegerTokenBuilder('0o', True, '01234567_')
     hex_integer_tb = PrefixedIntegerTokenBuilder('0x', True, '0123456789ABCDEFabcdef_')
     binary_integer_tb = PrefixedIntegerTokenBuilder('0b', True, '01_')
+    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
+    operand_types.append('identifier')
 
     attribute_tb = RustAttributeTokenBuilder()
+
     quotes = ['"', "'"]
     string_tb = StringTokenBuilder(quotes, True)
     bstring_tb = PrefixedStringTokenBuilder('b', True, quotes)
     rstring_tb = RustRawStringTokenBuilder()
+    operand_types.append('string')
 
     class_type_tb = ClassTypeTokenBuilder()
+    operand_types.append('class')
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = NestedCommentTokenBuilder('/*', '*/')
@@ -168,12 +175,14 @@ class RustExaminer(Examiner):
     ]
 
     types_tb = ListTokenBuilder(types, 'type', True)
+    operand_types.append('type')
 
     values = [
       'self', 'true', 'false', 'super', '_'
     ]
 
     values_tb = ListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -217,19 +226,6 @@ class RustExaminer(Examiner):
 
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
-
-    operand_types = [
-      'number',
-      'string',
-      'variable',
-      'identifier',
-      'function',
-      'symbol',
-      'regex',
-      'type',
-      'value',
-      'picture'
-    ]
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()

@@ -51,6 +51,8 @@ class PythonExaminer(Examiner):
     super().__init__()
     self.newlines_important = 'always'
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
     stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator')
@@ -59,18 +61,23 @@ class PythonExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder('_')
     real_tb = RealTokenBuilder(False, False, '_')
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', '_')
+    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
+    operand_types.append('identifier')
 
     decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator')
+
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
     raw_string_tb = PrefixedStringTokenBuilder('r', True, quotes)
     byte_string_tb = PrefixedStringTokenBuilder('b', True, quotes)
     unicode_string_tb = PrefixedStringTokenBuilder('u', True, quotes)
     fast_string_tb = PrefixedStringTokenBuilder('f', True, quotes)
+    operand_types.append('string')
+
     triple_quote_comment_tb = TripleQuoteStringTokenBuilder(quotes)
     raw_triple_quote_comment_tb = RawTripleQuoteCommentTokenBuilder()
     hash_comment_tb = LeadToEndOfLineTokenBuilder('#', True, 'comment')
@@ -129,6 +136,7 @@ class PythonExaminer(Examiner):
     ]
 
     values_tb = ListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -167,19 +175,6 @@ class PythonExaminer(Examiner):
     tokens = self.source_tokens()
     tokens = Examiner.join_parens_continued_lines(tokens)
     tokens = Examiner.join_operator_continued_lines(tokens, self.postfix_operators)
-
-    operand_types = [
-      'number',
-      'string',
-      'variable',
-      'identifier',
-      'function',
-      'symbol',
-      'regex',
-      'type',
-      'value',
-      'picture'
-    ]
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()

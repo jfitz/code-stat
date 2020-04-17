@@ -45,6 +45,8 @@ class TypeScriptExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -55,13 +57,16 @@ class TypeScriptExaminer(Examiner):
     hex_constant_tb = PrefixedIntegerTokenBuilder('0H', False, '0123456789ABCDEFabcdef')
     octal_constant_tb = PrefixedIntegerTokenBuilder('0O', False, '01234567')
     binary_constant_tb = PrefixedIntegerTokenBuilder('0B', False, '01')
+    operand_types.append('number')
 
     leads = '_$'
     extras = '_$'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
+    operand_types.append('identifier')
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
+    operand_types.append('string')
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
@@ -100,6 +105,7 @@ class TypeScriptExaminer(Examiner):
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     regex_tb = RegexTokenBuilder()
+    operand_types.append('regex')
 
     keywords = [
       'break', 'case', 'catch', 'class', 'const', 'continue',
@@ -123,12 +129,14 @@ class TypeScriptExaminer(Examiner):
     ]
 
     types_tb = ListTokenBuilder(types, 'type', True)
+    operand_types.append('type')
 
     values = [
       'this', 'super', 'null', 'true', 'false', 'undefined'
     ]
 
     values_tb = ListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -166,19 +174,6 @@ class TypeScriptExaminer(Examiner):
 
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
-
-    operand_types = [
-      'number',
-      'string',
-      'variable',
-      'identifier',
-      'function',
-      'symbol',
-      'regex',
-      'type',
-      'value',
-      'picture'
-    ]
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()

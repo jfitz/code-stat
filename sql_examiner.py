@@ -46,6 +46,8 @@ class SqlExaminer(Examiner):
     if year is not None and year not in ['92', '1992', '99', '1999', '2003', '2008', '2011', '2016']:
       raise CodeStatException('Unknown year for language')
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -53,13 +55,17 @@ class SqlExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
     real_tb = RealTokenBuilder(True, True, None)
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', None)
-    string_tb = StuffedQuoteStringTokenBuilder(["'", '"'], False)
+    operand_types.append('number')
+
+    quotes = ["'", '"']
+    string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
+    operand_types.append('string')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
-
     bracketed_identifier_tb = SqlBracketedIdentifierTokenBuilder()
+    operand_types.append('identifier')
 
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
 
@@ -250,6 +256,7 @@ class SqlExaminer(Examiner):
     values = ['TRUE', 'FALSE', 'NULL', 'OFF', 'ON', 'NONE']
 
     values_tb = ListTokenBuilder(values, 'value', False)
+    operand_types.append('value')
 
     types = [
       'BIGINT', 'BIT', 'BLOB',
@@ -264,6 +271,7 @@ class SqlExaminer(Examiner):
     ]
 
     type_tb = ListTokenBuilder(types, 'type', False)
+    operand_types.append('type')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -298,19 +306,6 @@ class SqlExaminer(Examiner):
 
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
-
-    operand_types = [
-      'number',
-      'string',
-      'variable',
-      'identifier',
-      'function',
-      'symbol',
-      'regex',
-      'type',
-      'value',
-      'picture'
-    ]
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()

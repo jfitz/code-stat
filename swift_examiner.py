@@ -55,6 +55,8 @@ class SwiftExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
     stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator')
@@ -63,7 +65,10 @@ class SwiftExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder('_')
     real_tb = RealTokenBuilder(True, True, '_')
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', '_')
+    operand_types.append('number')
+
     argument_tb = SwiftArgumentTokenBuilder()
+    operand_types.append('identifier')
 
     leads = '_'
     extras = '_'
@@ -71,12 +76,16 @@ class SwiftExaminer(Examiner):
     identifier_tb = SuffixedIdentifierTokenBuilder(leads, extras, suffixes)
 
     attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute')
+
     symbol_tb = SwiftSymbolTokenBuilder('.', 'symbol')
+    operand_types.append('symbol')
+
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, True)
     triple_quote_comment_tb = TripleQuoteStringTokenBuilder(quotes)
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
+    operand_types.append('string')
 
     known_operators = [
         '+', '-', '*', '/', '%',
@@ -134,12 +143,14 @@ class SwiftExaminer(Examiner):
     ]
 
     types_tb = ListTokenBuilder(types, 'type', True)
+    operand_types.append('type')
 
     values = [
       'nil', 'Self', 'false', 'true'
     ]
 
     values_tb = ListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -177,19 +188,6 @@ class SwiftExaminer(Examiner):
 
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
-
-    operand_types = [
-      'number',
-      'string',
-      'variable',
-      'identifier',
-      'function',
-      'symbol',
-      'regex',
-      'type',
-      'value',
-      'picture'
-    ]
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()

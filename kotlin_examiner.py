@@ -51,6 +51,8 @@ class KotlinExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -59,19 +61,25 @@ class KotlinExaminer(Examiner):
     hex_integer_tb = PrefixedIntegerTokenBuilder('0x', False, '0123456789ABCDEFabcdef_')
     real_tb = RealTokenBuilder(True, True, '_')
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', '_')
+    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
+    operand_types.append('identifier')
 
     decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator')
+
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
     triple_quote_string_tb = TripleQuoteStringTokenBuilder(quotes)
+    operand_types.append('string')
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
+
     class_tb = ClassTypeTokenBuilder()
+    operand_types.append('class')
 
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
 
@@ -161,12 +169,14 @@ class KotlinExaminer(Examiner):
     ]
 
     type_tb = ListTokenBuilder(types, 'type', True)
+    operand_types.append('type')
 
     values = [
       'false', 'null', 'this', 'true'
     ]
 
     values_tb = ListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -203,19 +213,6 @@ class KotlinExaminer(Examiner):
 
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
-
-    operand_types = [
-      'number',
-      'string',
-      'variable',
-      'identifier',
-      'function',
-      'symbol',
-      'regex',
-      'type',
-      'value',
-      'picture'
-    ]
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()

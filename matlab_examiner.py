@@ -46,6 +46,8 @@ class MatlabExaminer(Examiner):
   def __init__(self, code, version):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -55,15 +57,20 @@ class MatlabExaminer(Examiner):
     binary_integer_tb = PrefixedIntegerTokenBuilder('0b', False, '01')
     real_tb = RealTokenBuilder(False, False, "'")
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
+    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
+    operand_types.append('identifier')
 
     command_tb = PrefixedIdentifierTokenBuilder('!', 'command')
+
     metaclass_tb = PrefixedIdentifierTokenBuilder('?', 'metaclass')
+
     quotes = ['"', "'", "’"]
     string_tb = MatlabStringTokenBuilder(quotes, False)
+    operand_types.append('string')
 
     line_comment_m_tb = LeadToEndOfLineTokenBuilder('%', False, 'comment')
     line_comment_o_tb = LeadToEndOfLineTokenBuilder('#', False, 'comment')
@@ -131,6 +138,7 @@ class MatlabExaminer(Examiner):
     ]
 
     values_tb = ListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -178,19 +186,6 @@ class MatlabExaminer(Examiner):
 
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
-
-    operand_types = [
-      'number',
-      'string',
-      'variable',
-      'identifier',
-      'function',
-      'symbol',
-      'regex',
-      'type',
-      'value',
-      'picture'
-    ]
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()

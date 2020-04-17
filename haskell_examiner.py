@@ -49,6 +49,8 @@ class HaskellExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -57,13 +59,17 @@ class HaskellExaminer(Examiner):
     hex_integer_tb = PrefixedIntegerTokenBuilder('0x', False, '0123456789abcdefABCDEF')
     real_tb = RealTokenBuilder(False, False, "'")
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
-    wildcard_tb = SingleCharacterTokenBuilder('_', 'value')
+    operand_types.append('number')
 
     identifier_tb = HaskellIdentifierTokenBuilder()
+    operand_types.append('identifier')
+
     class_tb = HaskellClassTokenBuilder()
+    operand_types.append('class')
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
+    operand_types.append('string')
 
     line_comment_tb = LeadToEndOfLineTokenBuilder('--', False, 'comment')
     block_comment_tb = BlockTokenBuilder('{-', '-}', 'comment')
@@ -103,10 +109,12 @@ class HaskellExaminer(Examiner):
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+    operand_types.append('keyword')
 
-    values = ['True', 'False', 'Nothing']
+    values = ['True', 'False', 'Nothing', '_']
 
     value_tb = ListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -123,7 +131,6 @@ class HaskellExaminer(Examiner):
       groupers_tb,
       operators_tb,
       known_operators_tb,
-      wildcard_tb,
       identifier_tb,
       value_tb,
       class_tb,
@@ -145,21 +152,6 @@ class HaskellExaminer(Examiner):
 
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
-
-    operand_types = [
-      'number',
-      'string',
-      'variable',
-      'identifier',
-      'function',
-      'class',
-      'symbol',
-      'regex',
-      'type',
-      'value',
-      'picture',
-      'keyword'
-    ]
 
     self.calc_token_confidence()
     # self.calc_token_2_confidence(['*', ';'])

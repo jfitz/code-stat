@@ -50,6 +50,8 @@ class CobolFixedFormatExaminer(CobolExaminer):
     if year is not None and year not in ['68', '1968', '74', '1974', '85', '1985']:
       raise CodeStatException('Unknown year for language')
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -57,11 +59,18 @@ class CobolFixedFormatExaminer(CobolExaminer):
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
     real_tb = RealTokenBuilder(False, True, None)
     real_exponent_tb = RealExponentTokenBuilder(False, True, 'E', None)
+    operand_types.append('number')
+
     identifier_tb = CobolIdentifierTokenBuilder()
+    operand_types.append('identifier')
+
     quotes = ['"', "'", "’"]
     string_tb = StuffedQuoteStringTokenBuilder(quotes, True)
+    operand_types.append('string')
+
     picture_tb = PictureTokenBuilder()
     cr_picture_tb = CRPictureTokenBuilder()
+    operand_types.append('picture')
 
     terminators_tb = SingleCharacterTokenBuilder('.', 'statement terminator')
 
@@ -208,6 +217,7 @@ class CobolFixedFormatExaminer(CobolExaminer):
       values += values_85
 
     value_tb = ListTokenBuilder(values, 'value', False)
+    operand_types.append('value')
 
     exec_tb = BlockTokenBuilder('EXEC', 'END-EXEC', 'exec block')
 
@@ -249,19 +259,6 @@ class CobolFixedFormatExaminer(CobolExaminer):
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
 
-    operand_types = [
-      'number',
-      'string',
-      'variable',
-      'identifier',
-      'function',
-      'symbol',
-      'regex',
-      'type',
-      'value',
-      'picture'
-    ]
-
     self.calc_token_confidence()
     self.calc_token_2_confidence()
     self.calc_operator_confidence()
@@ -271,7 +268,6 @@ class CobolFixedFormatExaminer(CobolExaminer):
     self.calc_operator_2_confidence(tokens, allow_pairs)
     # self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
     self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
-    # operand_types = ['number', 'string', 'symbol']
     # self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
     self.calc_picture_confidence()

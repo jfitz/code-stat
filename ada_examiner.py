@@ -47,6 +47,8 @@ class AdaExaminer(Examiner):
     if year is not None and year not in ['83', '1983', '95', '1995', '2005', '2012']:
       raise CodeStatException('Unknown year for language')
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -54,14 +56,17 @@ class AdaExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder(False)
     real_tb = RealTokenBuilder(True, True, False)
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', None)
+    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
+    operand_types.append('identifier')
 
     quotes = ['"']
     string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
     char_tb = AdaCharTokenBuilder(["'", "’"])
+    operand_types.append('string')
 
     dash_dash_comment_tb = DashDashCommentTokenBuilder()
 
@@ -145,12 +150,14 @@ class AdaExaminer(Examiner):
     ]
 
     types_tb = ListTokenBuilder(types, 'type', True)
+    operand_types.append('type')
 
     values = [
       'null', 'others', '<>'
     ]
 
     values_tb = ListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -186,16 +193,6 @@ class AdaExaminer(Examiner):
 
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
-
-    operand_types = [
-      'number',
-      'string',
-      'variable',
-      'identifier',
-      'function',
-      'type',
-      'value'
-    ]
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()

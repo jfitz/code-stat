@@ -53,6 +53,8 @@ class JuliaExaminer(Examiner):
     super().__init__()
     self.newlines_important = 'parens'
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -62,20 +64,27 @@ class JuliaExaminer(Examiner):
     real_tb = RealTokenBuilder(False, False, None)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     imaginary_tb = SuffixedRealTokenBuilder(False, False, ['im', 'cx'], True, None)
+    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     suffixes = '!'
     identifier_tb = SuffixedIdentifierTokenBuilder(leads, extras, suffixes)
+    operand_types.append('identifier')
 
     symbol_tb = PrefixedIdentifierTokenBuilder(':', 'symbol')
+    operand_types.append('symbol')
+
     attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute')
+
     dollar_sign_tb = SingleCharacterTokenBuilder('$', 'identifier')
+
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
     raw_string_tb = PrefixedStringTokenBuilder('raw', True, quotes)
     b_string_tb = PrefixedStringTokenBuilder('b', True, quotes)
     triple_quote_string_tb = TripleQuoteStringTokenBuilder(quotes)
+    operand_types.append('string')
 
     comment_tb = LeadToEndOfLineTokenBuilder('#', True, 'comment')
     nested_comment_tb = NestedCommentTokenBuilder('#=', '=#')
@@ -151,12 +160,14 @@ class JuliaExaminer(Examiner):
     ]
 
     types_tb = ListTokenBuilder(types, 'type', True)
+    operand_types.append('type')
 
     values = [
       'false', 'true'
     ]
 
     values_tb = ListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -203,19 +214,6 @@ class JuliaExaminer(Examiner):
     tokens = self.source_tokens()
     tokens = Examiner.join_parens_continued_lines(tokens)
     tokens = Examiner.join_operator_continued_lines(tokens, self.postfix_operators)
-
-    operand_types = [
-      'number',
-      'string',
-      'variable',
-      'identifier',
-      'function',
-      'symbol',
-      'regex',
-      'type',
-      'value',
-      'picture'
-    ]
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()

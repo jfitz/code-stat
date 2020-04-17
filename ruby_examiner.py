@@ -49,6 +49,8 @@ class RubyExaminer(Examiner):
     super().__init__()
     self.newlines_important = 'parens'
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
     stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator')
@@ -57,10 +59,18 @@ class RubyExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder('_')
     real_tb = RealTokenBuilder(True, True, '_')
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', '_')
+    operand_types.append('number')
+
     identifier_tb = RubyIdentifierTokenBuilder()
+    operand_types.append('identifier')
+
     symbol_tb = PrefixedIdentifierTokenBuilder(':', 'symbol')
+    operand_types.append('symbol')
+
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, True)
+    operand_types.append('string')
+
     heredoc_tb = HereDocTokenBuilder('<<-')
 
     hash_comment_tb = LeadToEndOfLineTokenBuilder('#', False, 'comment')
@@ -104,6 +114,7 @@ class RubyExaminer(Examiner):
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     regex_tb = RegexTokenBuilder()
+    operand_types.append('regex')
 
     keywords = [
       'BEGIN', 'END',
@@ -130,6 +141,7 @@ class RubyExaminer(Examiner):
     ]
 
     values_tb = ListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     array_markers = ['%w', '%q', '%Q', '%i', '%s', '%x']
 
@@ -172,19 +184,6 @@ class RubyExaminer(Examiner):
     tokens = self.source_tokens()
     tokens = Examiner.join_parens_continued_lines(tokens)
     tokens = Examiner.join_operator_continued_lines(tokens, self.postfix_operators)
-
-    operand_types = [
-      'number',
-      'string',
-      'variable',
-      'identifier',
-      'function',
-      'symbol',
-      'regex',
-      'type',
-      'value',
-      'picture'
-    ]
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()

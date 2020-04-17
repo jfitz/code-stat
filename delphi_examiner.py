@@ -52,6 +52,8 @@ class DelphiExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
     stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator')
@@ -64,13 +66,18 @@ class DelphiExaminer(Examiner):
     octal_constant_tb = PrefixedIntegerTokenBuilder('&', True, '01234567')
     binary_constant_tb = PrefixedIntegerTokenBuilder('%', True, '01')
     char_constant_tb = PrefixedIntegerTokenBuilder('#', True, '0123456789')
+    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
+    operand_types.append('identifier')
 
     class_tb = ClassTypeTokenBuilder()
+    operand_types.append('class')
+
     string_tb = StringTokenBuilder(["'"], False)
+    operand_types.append('string')
 
     brace_comment_tb = BraceCommentTokenBuilder()
     paren_star_comment_tb = BlockTokenBuilder('(*', '*)', 'comment')
@@ -129,12 +136,14 @@ class DelphiExaminer(Examiner):
     ]
 
     types_tb = ListTokenBuilder(types, 'type', False)
+    operand_types.append('type')
 
     values = [
       'false', 'nil', 'true'
     ]
 
     values_tb = ListTokenBuilder(values, 'value', False)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -176,19 +185,6 @@ class DelphiExaminer(Examiner):
 
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
-
-    operand_types = [
-      'number',
-      'string',
-      'variable',
-      'identifier',
-      'function',
-      'symbol',
-      'regex',
-      'type',
-      'value',
-      'picture'
-    ]
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()

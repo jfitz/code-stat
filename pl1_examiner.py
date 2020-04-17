@@ -33,6 +33,8 @@ class PL1Examiner(Examiner):
   def __init__(self):
     super().__init__()
 
+    self.operand_types = []
+
     self.whitespace_tb = WhitespaceTokenBuilder()
     self.newline_tb = NewlineTokenBuilder()
 
@@ -42,13 +44,16 @@ class PL1Examiner(Examiner):
     self.real_tb = RealTokenBuilder(False, False, None)
     self.real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     self.binary_real_tb = SuffixedRealTokenBuilder(True, True, ['B'], False, None)
+    self.operand_types.append('number')
 
     leads = '_'
     extras = '_'
     self.identifier_tb = IdentifierTokenBuilder(leads, extras)
+    self.operand_types.append('identifier')
 
     quotes = ['"', "'", "’"]
     self.string_tb = StringTokenBuilder(quotes, False)
+    self.operand_types.append('string')
 
     self.label_tb = PL1LabelTokenBuilder()
 
@@ -177,6 +182,7 @@ class PL1Examiner(Examiner):
     ]
 
     self.function_tb = ListTokenBuilder(functions, 'function', False)
+    self.operand_types.append('function')
 
     format_items = [
       'A',
@@ -191,6 +197,7 @@ class PL1Examiner(Examiner):
     ]
 
     self.format_item_tb = ListTokenBuilder(format_items, 'format', True)
+    self.operand_types.append('format')
 
     options = [
       'APPEND',
@@ -258,9 +265,11 @@ class PL1Examiner(Examiner):
     ]
 
     self.types_tb = ListTokenBuilder(types, 'type', False)
+    self.operand_types.append('type')
 
     values = [
       'SYSIN', 'SYSPRINT'
     ]
 
     self.values_tb = ListTokenBuilder(values, 'value', False)
+    self.operand_types.append('value')

@@ -48,18 +48,23 @@ class GenericCodeExaminer(Examiner):
   def __init__(self, code, comment):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
     number_tb = GenericNumberTokenBuilder()
+    operand_types.append('number')
 
     leads = ''
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
+    operand_types.append('identifier')
 
     quotes = ['"', "'", "’", '`']
     string_tb = StringTokenBuilder(quotes, False)
     triple_string_tb = TripleQuoteStringTokenBuilder(quotes)
+    operand_types.append('string')
 
     comment_tbs = []
 
@@ -146,19 +151,6 @@ class GenericCodeExaminer(Examiner):
     # tokens = self.source_tokens()
     # tokens = Examiner.join_all_lines(tokens)
 
-    operand_types = [
-      'number',
-      'string',
-      'variable',
-      'identifier',
-      'function',
-      'symbol',
-      'regex',
-      'type',
-      'value',
-      'picture'
-    ]
-
     self.calc_token_confidence()
     self.calc_token_2_confidence()
     self.calc_operator_confidence()
@@ -168,7 +160,6 @@ class GenericCodeExaminer(Examiner):
     # self.calc_operator_2_confidence(tokens, allow_pairs)
     # self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
     # self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
-    # operand_types = ['number', 'symbol']
     # self.calc_operand_confidence(tokens, operand_types)
     # self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])

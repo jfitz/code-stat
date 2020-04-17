@@ -57,21 +57,28 @@ class ObjectiveCExaminer(Examiner):
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
+    operand_types = []
+
     integer_tb = IntegerTokenBuilder(None)
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
     real_tb = RealTokenBuilder(False, False, None)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
+    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
+    operand_types.append('identifier')
 
     directive_tb = DirectiveTokenBuilder()
+
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, True)
     prefixed_string_tb = PrefixedStringTokenBuilder('@', False, quotes)
+    operand_types.append('string')
 
     class_type_tb = ClassTypeTokenBuilder()
+    operand_types.append('class')
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
@@ -141,12 +148,14 @@ class ObjectiveCExaminer(Examiner):
     ]
 
     types_tb = ListTokenBuilder(types, 'type', True)
+    operand_types.append('type')
 
     values = [
       'self', 'super', 'nil', 'YES', 'NO', 'NULL', '...'
     ]
 
     values_tb = ListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -188,19 +197,6 @@ class ObjectiveCExaminer(Examiner):
 
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
-
-    operand_types = [
-      'number',
-      'string',
-      'variable',
-      'identifier',
-      'function',
-      'symbol',
-      'regex',
-      'type',
-      'value',
-      'picture'
-    ]
 
     self.calc_token_confidence()
     self.calc_token_2_confidence(['*', ';'])

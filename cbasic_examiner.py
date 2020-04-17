@@ -53,6 +53,8 @@ class CBasicExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
     line_continuation_tb = CBasicLineContinuationTokenBuilder()
@@ -63,9 +65,15 @@ class CBasicExaminer(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     hex_constant_tb = CBasicSuffixedIntegerTokenBuilder('0123456789ABCDEF', 'H')
     binary_constant_tb = CBasicSuffixedIntegerTokenBuilder('01', 'B')
+    operand_types.append('number')
+
     variable_tb = CBasicVariableTokenBuilder('%$')
+    operand_types.append('identifier')
+
     quotes = ['"']
     string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
+    operand_types.append('string')
+
     remark_tb = RemarkTokenBuilder()
     comment_tb = LeadToEndOfLineTokenBuilder("'", False, 'comment')
     comment2_tb = LeadToEndOfLineTokenBuilder("’", False, 'comment')
@@ -120,6 +128,7 @@ class CBasicExaminer(Examiner):
     ]
 
     function_tb = ListTokenBuilder(functions, 'function', False)
+    operand_types.append('function')
 
     directives = [
       '%LIST', '%NOLIST',
@@ -166,19 +175,6 @@ class CBasicExaminer(Examiner):
 
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
-
-    operand_types = [
-      'number',
-      'string',
-      'variable',
-      'identifier',
-      'function',
-      'symbol',
-      'regex',
-      'type',
-      'value',
-      'picture'
-    ]
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()

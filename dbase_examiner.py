@@ -62,6 +62,8 @@ class DbaseExaminer(Examiner):
 
     self.newlines_important = 'always'
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -69,6 +71,7 @@ class DbaseExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder("'")
     real_tb = RealTokenBuilder(False, False, "'")
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
+    operand_types.append('number')
 
     leads = '_'
     extras = '_'
@@ -77,13 +80,14 @@ class DbaseExaminer(Examiner):
       extras = ":_'-"
 
     identifier_tb = IdentifierTokenBuilder(leads, extras)
-
     wild_card_identifier_tb = WildCardIdentifierTokenBuilder('*?', '*?:')
+    operand_types.append('identifier')
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
     bracket_string_tb = BracketedStringTokenBuilder()
     text_string_tb = TextBlockTokenBuilder('TEXT', 'ENDTEXT')
+    operand_types.append('string')
 
     line_continuation_tb = SingleCharacterTokenBuilder(';', 'line continuation')
 
@@ -245,6 +249,7 @@ class DbaseExaminer(Examiner):
       ]
 
     values_tb = ListTokenBuilder(values, 'value', False)
+    operand_types.append('value')
 
     if version == 'ii':
       functions = [
@@ -289,6 +294,7 @@ class DbaseExaminer(Examiner):
       ]
 
     function_tb = ListTokenBuilder(functions, 'function', False)
+    operand_types.append('function')
 
     filename_tb = DbaseFilenameTokenBuilder()
 
@@ -347,19 +353,6 @@ class DbaseExaminer(Examiner):
     self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
 
     tokens = self.source_tokens()
-
-    operand_types = [
-      'number',
-      'string',
-      'variable',
-      'identifier',
-      'function',
-      'symbol',
-      'regex',
-      'type',
-      'value',
-      'picture'
-    ]
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()

@@ -44,12 +44,19 @@ class AwkExaminer(Examiner):
   def __init__(self, code, extension):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
     integer_tb = IntegerTokenBuilder(None)
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
+    real_tb = RealTokenBuilder(False, False, None)
+    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
+    operand_types.append('number')
+
     num_variable_tb = PrefixedIntegerTokenBuilder('$', False, '0123456789')
+    operand_types.append('variable')
 
     known_variables = [
       'ARGC', 'ARGV',
@@ -67,15 +74,18 @@ class AwkExaminer(Examiner):
       known_variables += known_variables_gnu
 
     variable_tb = ListTokenBuilder(known_variables, 'variable', True)
-    real_tb = RealTokenBuilder(False, False, None)
-    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
+    operand_types.append('identifier')
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
+    operand_types.append('string')
+
+    regex_tb = RegexTokenBuilder()
+    operand_types.append('regex')
 
     hash_comment_tb = LeadToEndOfLineTokenBuilder('#', False, 'comment')
 
@@ -108,8 +118,6 @@ class AwkExaminer(Examiner):
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
-
-    regex_tb = RegexTokenBuilder()
 
     keywords = [
       'BEGIN', 'END',
@@ -152,19 +160,6 @@ class AwkExaminer(Examiner):
     tokens = self.source_tokens()
     tokens = Examiner.join_parens_continued_lines(tokens)
     tokens = Examiner.join_operator_continued_lines(tokens, self.postfix_operators)
-
-    operand_types = [
-      'number',
-      'string',
-      'variable',
-      'identifier',
-      'function',
-      'symbol',
-      'regex',
-      'type',
-      'value',
-      'picture'
-    ]
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()

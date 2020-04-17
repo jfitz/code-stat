@@ -80,19 +80,6 @@ class PL1FixedFormatExaminer(PL1Examiner):
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
 
-    operand_types = [
-      'number',
-      'string',
-      'variable',
-      'identifier',
-      'function',
-      'symbol',
-      'regex',
-      'type',
-      'value',
-      'picture'
-    ]
-
     self.calc_token_confidence()
     self.calc_token_2_confidence()
     self.calc_operator_confidence()
@@ -100,8 +87,8 @@ class PL1FixedFormatExaminer(PL1Examiner):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, self.group_ends, operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, self.group_starts, operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, self.group_ends, self.operand_types, allow_pairs)
+    self.calc_operator_4_confidence(tokens, self.group_starts, self.operand_types, allow_pairs)
     operand_types = ['number', 'symbol']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()

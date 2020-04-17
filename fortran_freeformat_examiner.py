@@ -38,19 +38,25 @@ class FortranFreeFormatExaminer(FortranExaminer):
     if year is not None and year not in ['90', '1990', '95', '1995', '2003', '2008']:
       raise CodeStatException('Unknown year for language')
 
+    operand_types = []
+
     kind_integer_tb = KindIntegerTokenBuilder()
     kind_real_tb = KindRealTokenBuilder()
+    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
+    operand_types.append('identifier')
 
     bang_comment_tb = LeadToEndOfLineTokenBuilder('!', False, 'comment')
+
     quotes = ["'", '"', "’"]
     string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
     binary_string_tb = PrefixedStringTokenBuilder('B', False, quotes)
     octal_string_tb = PrefixedStringTokenBuilder('O', False, quotes)
     hex_string_tb = PrefixedStringTokenBuilder('Z', False, quotes)
+    operand_types.append('string')
 
     known_operators = [
       '=', '+', '-', '*', '/', '**',
@@ -123,6 +129,7 @@ class FortranFreeFormatExaminer(FortranExaminer):
     ]
 
     types_tb = ListTokenBuilder(types, 'type', False)
+    operand_types.append('type')
 
     tokenbuilders = [
       self.newline_tb,
@@ -164,19 +171,6 @@ class FortranFreeFormatExaminer(FortranExaminer):
     self.convert_stars_to_io_channels()
 
     tokens = self.source_tokens()
-
-    operand_types = [
-      'number',
-      'string',
-      'variable',
-      'identifier',
-      'function',
-      'symbol',
-      'regex',
-      'type',
-      'value',
-      'picture'
-    ]
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()

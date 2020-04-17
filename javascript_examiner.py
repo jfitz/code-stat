@@ -49,6 +49,8 @@ class JavaScriptExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -60,14 +62,17 @@ class JavaScriptExaminer(Examiner):
     hex_constant_tb = PrefixedIntegerTokenBuilder('0X', False, '0123456789ABCDEFabcdef')
     octal_constant_tb = PrefixedIntegerTokenBuilder('0O', False, '01234567')
     binary_constant_tb = PrefixedIntegerTokenBuilder('0B', False, '01')
+    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
+    operand_types.append('identifier')
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
     template_string_tb = StringTokenBuilder(['`'], True)
+    operand_types.append('string')
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
@@ -106,6 +111,7 @@ class JavaScriptExaminer(Examiner):
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     regex_tb = RegexTokenBuilder()
+    operand_types.append('regex')
 
     keywords = [
       'abstract',
@@ -133,6 +139,7 @@ class JavaScriptExaminer(Examiner):
     ]
 
     values_tb = ListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -172,19 +179,6 @@ class JavaScriptExaminer(Examiner):
 
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
-
-    operand_types = [
-      'number',
-      'string',
-      'variable',
-      'identifier',
-      'function',
-      'symbol',
-      'regex',
-      'type',
-      'value',
-      'picture'
-    ]
 
     self.calc_token_confidence()
     self.calc_token_2_confidence([';'])

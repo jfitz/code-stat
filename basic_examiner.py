@@ -51,6 +51,8 @@ class BasicExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -63,9 +65,15 @@ class BasicExaminer(Examiner):
     hex_constant_tb = PrefixedIntegerTokenBuilder('&H', True, '0123456789ABCDEFabcdef_')
     octal_constant_tb = PrefixedIntegerTokenBuilder('&O', True, '01234567_')
     binary_constant_tb = PrefixedIntegerTokenBuilder('&B', True, '01_')
+    operand_types.append('number')
+
     variable_tb = BasicVariableTokenBuilder('%#!$&')
+    operand_types.append('identifier')
+
     quotes = ['"']
     string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
+    operand_types.append('string')
+
     remark_tb = RemarkTokenBuilder()
     comment_tb = LeadToEndOfLineTokenBuilder("'", False, 'comment')
     comment2_tb = LeadToEndOfLineTokenBuilder("’", False, 'comment')
@@ -130,6 +138,7 @@ class BasicExaminer(Examiner):
     ]
 
     function_tb = ListTokenBuilder(functions, 'function', True)
+    operand_types.append('function')
 
     user_function_tb = UserFunctionTokenBuilder('%#!$&')
 
@@ -170,19 +179,6 @@ class BasicExaminer(Examiner):
     self.convert_numbers_to_line_numbers()
 
     tokens = self.source_tokens()
-
-    operand_types = [
-      'number',
-      'string',
-      'variable',
-      'identifier',
-      'function',
-      'symbol',
-      'regex',
-      'type',
-      'value',
-      'picture'
-    ]
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()

@@ -34,6 +34,8 @@ class FortranFixedFormatExaminer(FortranExaminer):
     if year is not None and year not in ['66', '1966', '77', '1977']:
       raise CodeStatException('Unknown year for language')
 
+    operand_types = []
+
     # FORTRAN-66 should be upper case only
     # FORTRAN-77 may be upper or lower case
     case_significant = year in ['66', '1966']
@@ -44,10 +46,14 @@ class FortranFixedFormatExaminer(FortranExaminer):
       leads = ''
       extras = ''
       identifier_tb = IdentifierTokenBuilder(leads, extras)
+    operand_types.append('identifier')
 
     hollerith_tb = HollerithStringTokenBuilder()
     string_tb = StuffedQuoteStringTokenBuilder(["'", '"'], False)
+    operand_types.append('string')
+
     format_tb = FormatSpecifierTokenBuilder()
+    operand_types.append('format')
 
     known_operators = [
       '=', '+', '-', '*', '/', '**',
@@ -101,6 +107,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
       types += types_77
 
     types_tb = ListTokenBuilder(types, 'type', case_significant)
+    operand_types.append('type')
 
     tokenbuilders1 = [
       self.newline_tb,
@@ -141,19 +148,6 @@ class FortranFixedFormatExaminer(FortranExaminer):
     self.convert_stars_to_io_channels()
 
     tokens = self.source_tokens()
-
-    operand_types = [
-      'number',
-      'string',
-      'variable',
-      'identifier',
-      'function',
-      'symbol',
-      'regex',
-      'type',
-      'value',
-      'picture'
-    ]
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()

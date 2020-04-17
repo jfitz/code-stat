@@ -46,6 +46,8 @@ class VisualBasic6Examiner(Examiner):
   def __init__(self, code):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
     line_continuation_tb = SingleCharacterTokenBuilder(['_'], 'line continuation')
@@ -54,7 +56,10 @@ class VisualBasic6Examiner(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
     real_tb = RealTokenBuilder(False, False, None)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
+    operand_types.append('number')
+
     variable_tb = VisualBasicVariableTokenBuilder('$%#!')
+    operand_types.append('identifier')
 
     leads = '_'
     extras = '_'
@@ -63,6 +68,7 @@ class VisualBasic6Examiner(Examiner):
 
     quotes = ['"']
     string_tb = StringTokenBuilder(quotes, False)
+    operand_types.append('string')
 
     remark_tb = RemarkTokenBuilder()
     comment_tb = LeadToEndOfLineTokenBuilder("'", True, 'comment')
@@ -154,6 +160,7 @@ class VisualBasic6Examiner(Examiner):
     ]
 
     function_tb = ListTokenBuilder(functions, 'function', True)
+    operand_types.append('function')
 
     types = [
       'Binary', 'Control', 'Currency', 'Double', 'Dynaset', 'Integer',
@@ -161,6 +168,7 @@ class VisualBasic6Examiner(Examiner):
     ]
 
     types_tb = ListTokenBuilder(types, 'type', True)
+    operand_types.append('type')
 
     values = [
       'False', 'True', 'App', 'Base', 'Clipboard', 'Debug', 'Erl', 'Err',
@@ -168,6 +176,7 @@ class VisualBasic6Examiner(Examiner):
     ]
 
     values_tb = ListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -207,19 +216,6 @@ class VisualBasic6Examiner(Examiner):
 
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
-
-    operand_types = [
-      'number',
-      'string',
-      'variable',
-      'identifier',
-      'function',
-      'symbol',
-      'regex',
-      'type',
-      'value',
-      'picture'
-    ]
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()
