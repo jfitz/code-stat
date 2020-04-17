@@ -83,15 +83,15 @@ class AdaExaminer(Examiner):
     ]
 
     groupers = ['(', ')', ',', '=>', ':']
-    # group_starts = ['(', ',']
-    group_ends = [')']
+    group_starts = ['(', ',']
+    group_ends = [')', ';']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False)
 
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
 
     keywords = [
-      'abort', 'accept', 'access', 'array', 'at',
+      'abort', 'accept', 'access', 'all', 'array', 'at',
       'begin', 'body',
       'case', 'constant',
       'declare', 'delay', 'delta', 'digits', 'do',
@@ -147,7 +147,7 @@ class AdaExaminer(Examiner):
     types_tb = ListTokenBuilder(types, 'type', True)
 
     values = [
-      'all', 'null', 'others', '<>'
+      'null', 'others', '<>'
     ]
 
     values_tb = ListTokenBuilder(values, 'value', True)
@@ -178,7 +178,11 @@ class AdaExaminer(Examiner):
     tokenizer = Tokenizer(tokenbuilders)
     tokens = tokenizer.tokenize(code)
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
-    self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
+    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
+    self.tokens = tokens
+    self.convert_keywords_to_identifiers()
+    self.convert_then_to_operator()
+    self.convert_else_to_operator()
 
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
@@ -189,21 +193,59 @@ class AdaExaminer(Examiner):
       'variable',
       'identifier',
       'function',
-      'symbol',
-      'regex',
       'type',
-      'value',
-      'picture'
+      'value'
     ]
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()
     self.calc_operator_confidence()
-    self.calc_operator_2_confidence(tokens)
-    self.calc_operator_3_confidence(tokens, group_ends, operand_types)
-    # self.calc_operator_4_confidence(tokens, group_starts, operand_types)
-    operand_types = ['number', 'string', 'symbol']
+
+    allow_pairs = [
+      ['and', 'then'],
+      ['or', 'else']
+    ]
+
+    self.calc_operator_2_confidence(tokens, allow_pairs)
+    self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
+    self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
     # self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_statistics()
+
+
+  # convert keywords after '.' or "'" to identifiers
+  def convert_keywords_to_identifiers(self):
+    prev_token = Token('\n', 'newline')
+
+    for token in self.tokens:
+      if token.group == 'keyword' and prev_token.text in ['.', "'"]:
+        token.group = 'identifier'
+
+      if token.group not in ['whitespace', 'comment', 'newline']:
+        prev_token = token
+
+
+  # convert 'then' keyword after 'and' to operator
+  def convert_then_to_operator(self):
+    prev_token = Token('\n', 'newline')
+
+    for token in self.tokens:
+      if token.text == 'then' and prev_token.text == 'and':
+        token.group = 'operator'
+
+      if token.group not in ['whitespace', 'comment', 'newline']:
+        prev_token = token
+
+
+  # convert 'else' keyword after 'or' to operator
+  def convert_else_to_operator(self):
+    prev_token = Token('\n', 'newline')
+
+    for token in self.tokens:
+      if token.text == 'else' and prev_token.text == 'or':
+        token.group = 'operator'
+
+      if token.group not in ['whitespace', 'comment', 'newline']:
+        prev_token = token

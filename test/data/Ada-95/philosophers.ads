@@ -72,8 +72,8 @@ package Windows is
   -- with the character Under. 
 
   procedure Borders (W      : in out Window;
-                     Corner : in     Character
-                     Down   : in     Character
+                     Corner : in     Character;
+                     Down   : in     Character;
                      Across : in     Character);
   -- Pre:  All parameters are defined
   -- Post: Draw border around current writable area in window with 
@@ -452,10 +452,9 @@ package body Windows is
   end Title;
  
   procedure Borders (W       : in out Window;
-                     Corner  : in     Character
-                     Down    : in     Character
-                     Across  : in     Character is
-, 
+                     Corner  : in     Character;
+                     Down    : in     Character;
+                     Across  : in     Character) is
   begin
     -- Put top line of border
     Screen.MoveCursor (W.First);
