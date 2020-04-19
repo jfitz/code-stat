@@ -114,6 +114,7 @@ class GenericCodeExaminer(Examiner):
 
     groupers = ['(', ')', ',', '[', ']', '{', '}', ';']
     # group_starts = ['(', '[', ',', '{']
+    group_mids = [',', ';']
     # group_ends = [')', ']', '}']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
@@ -160,6 +161,7 @@ class GenericCodeExaminer(Examiner):
     # self.calc_operator_2_confidence(tokens, allow_pairs)
     # self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
     # self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
+    self.calc_group_confidence(tokens, group_mids)
     # self.calc_operand_confidence(tokens, operand_types)
     # self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])

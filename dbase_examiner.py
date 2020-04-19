@@ -135,6 +135,7 @@ class DbaseExaminer(Examiner):
 
     groupers = ['(', ')', ',']
     group_starts = ['(', ',']
+    group_mids = [',']
     group_ends = [')']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False, True)
@@ -356,6 +357,7 @@ class DbaseExaminer(Examiner):
     self.calc_operator_2_confidence(tokens, allow_pairs)
     self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
     self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
+    self.calc_group_confidence(tokens, group_mids)
     operand_types = ['number', 'number', 'function', 'value', 'string', 'filename']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()

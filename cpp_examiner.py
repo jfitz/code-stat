@@ -119,6 +119,7 @@ class CppExaminer(Examiner):
     group_starts = ['(', '[', ',', '{']
     group_ends = [')', ']', '}']
     group_mids = [',', ':']
+    group_mids = [',', ':']
 
     groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
