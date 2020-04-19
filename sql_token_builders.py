@@ -17,7 +17,7 @@ class SqlBracketedIdentifierTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'identifier')]
+    return [Token(self.text, 'identifier', True)]
 
 
   def accept(self, candidate, c):

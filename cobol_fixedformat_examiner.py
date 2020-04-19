@@ -72,7 +72,7 @@ class CobolFixedFormatExaminer(CobolExaminer):
     cr_picture_tb = CRPictureTokenBuilder()
     operand_types.append('picture')
 
-    terminators_tb = SingleCharacterTokenBuilder('.', 'statement terminator')
+    terminators_tb = SingleCharacterTokenBuilder('.', 'statement terminator', False)
 
     known_operators = [
       'ADD', 'SUBTRACT', 'MULTIPLY', 'DIVIDE',
@@ -82,7 +82,7 @@ class CobolFixedFormatExaminer(CobolExaminer):
       ':'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
 
     self.unary_operators = [
       '+', '-'
@@ -92,7 +92,7 @@ class CobolFixedFormatExaminer(CobolExaminer):
     group_starts = ['(']
     # group_ends = [')']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
     keywords = [
       'ACCEPT', 'ACCESS', 'ADD', 'ADDRESS', 'ADVANCING', 'AFTER', 'ALL',
@@ -204,7 +204,7 @@ class CobolFixedFormatExaminer(CobolExaminer):
     if year in ['85', '1985']:
       keywords += keywords_85
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, False)
 
     values = [
       'BLANK', 'SPACE', 'SPACES', 'ZERO', 'ZEROES', 'ZEROS',
@@ -216,7 +216,7 @@ class CobolFixedFormatExaminer(CobolExaminer):
     if year in ['85', '1985']:
       values += values_85
 
-    value_tb = ListTokenBuilder(values, 'value', False)
+    value_tb = ListTokenBuilder(values, 'value', True, False)
     operand_types.append('value')
 
     exec_tb = BlockTokenBuilder('EXEC', 'END-EXEC', 'exec block')
@@ -266,8 +266,8 @@ class CobolFixedFormatExaminer(CobolExaminer):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    # self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    # self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     # self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
     self.calc_picture_confidence()
@@ -282,12 +282,12 @@ class CobolFixedFormatExaminer(CobolExaminer):
 
     if len(line_number) > 0:
       if line_number.isspace():
-        token = Token(line_number, 'whitespace')
+        token = Token(line_number, 'whitespace', False)
       else:
         if line_number.isdigit():
-          token = Token(line_number, 'line number')
+          token = Token(line_number, 'line number', False)
         else:
-          token = Token(line_number, 'line identification')
+          token = Token(line_number, 'line identification', False)
 
     return token
 
@@ -297,9 +297,9 @@ class CobolFixedFormatExaminer(CobolExaminer):
 
     if line_indicator in ['*', '/', 'D', 'd']:
       # the entire line is a comment (including DEBUG lines)
-      token = Token(line[6:], 'comment')
+      token = Token(line[6:], 'comment', False)
     if line_indicator == '$':
-      token = Token(line[6:], 'preprocessor')
+      token = Token(line[6:], 'preprocessor', False)
 
     return token
 
@@ -308,13 +308,13 @@ class CobolFixedFormatExaminer(CobolExaminer):
     token = None
 
     if line_indicator == ' ':
-      token = Token(' ', 'whitespace')
+      token = Token(' ', 'whitespace', False)
     else:
       if line_indicator == '-':
-        token = Token(line_indicator, 'continuation line')
+        token = Token(line_indicator, 'continuation line', False)
       else:
         if line_indicator != '':
-          token = Token(line_indicator, 'invalid')
+          token = Token(line_indicator, 'invalid', False)
 
     return token
 
@@ -338,7 +338,7 @@ class CobolFixedFormatExaminer(CobolExaminer):
       line_identification = line[72:]
 
     if line.startswith(('//', '/*')):
-      tokens.append(Token(line, 'jcl'))
+      tokens.append(Token(line, 'jcl', False))
     else:
       line_number = line[:6]
       token = self.tokenize_line_number(line_number)
@@ -360,9 +360,9 @@ class CobolFixedFormatExaminer(CobolExaminer):
 
     # tokenize the line identification
     if len(line_identification) > 0:
-      tokens.append(Token(line_identification, 'line identification'))
+      tokens.append(Token(line_identification, 'line identification', False))
 
-    tokens.append(Token('\n', 'newline'))
+    tokens.append(Token('\n', 'newline', False))
 
     return tokens
 

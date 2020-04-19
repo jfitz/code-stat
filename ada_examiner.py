@@ -70,7 +70,7 @@ class AdaExaminer(Examiner):
 
     dash_dash_comment_tb = DashDashCommentTokenBuilder()
 
-    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
+    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)
 
     known_operators = [
       'and', 'or', 'xor',
@@ -91,9 +91,9 @@ class AdaExaminer(Examiner):
     group_starts = ['(', ',']
     group_ends = [')', ';']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
 
     keywords = [
       'abort', 'accept', 'access', 'all', 'array', 'at',
@@ -141,7 +141,7 @@ class AdaExaminer(Examiner):
     if year in ['2012']:
       keywords += keywords_2012
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
 
     types = [
       'character', 'duration', 'float', 'integer',
@@ -149,14 +149,14 @@ class AdaExaminer(Examiner):
       'array', 'range'
     ]
 
-    types_tb = ListTokenBuilder(types, 'type', True)
+    types_tb = ListTokenBuilder(types, 'type', True, True)
     operand_types.append('type')
 
     values = [
       'null', 'others', '<>'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True)
+    values_tb = ListTokenBuilder(values, 'value', True, True)
     operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
@@ -204,8 +204,8 @@ class AdaExaminer(Examiner):
     ]
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
     # self.calc_paired_blockers_confidence(['{'], ['}'])
@@ -214,11 +214,12 @@ class AdaExaminer(Examiner):
 
   # convert keywords after '.' or "'" to identifiers
   def convert_keywords_to_identifiers(self):
-    prev_token = Token('\n', 'newline')
+    prev_token = Token('\n', 'newline', False)
 
     for token in self.tokens:
       if token.group == 'keyword' and prev_token.text in ['.', "'"]:
         token.group = 'identifier'
+        token.is_operand = True
 
       if token.group not in ['whitespace', 'comment', 'newline']:
         prev_token = token
@@ -226,7 +227,7 @@ class AdaExaminer(Examiner):
 
   # convert 'then' keyword after 'and' to operator
   def convert_then_to_operator(self):
-    prev_token = Token('\n', 'newline')
+    prev_token = Token('\n', 'newline', False)
 
     for token in self.tokens:
       if token.text == 'then' and prev_token.text == 'and':
@@ -238,7 +239,7 @@ class AdaExaminer(Examiner):
 
   # convert 'else' keyword after 'or' to operator
   def convert_else_to_operator(self):
-    prev_token = Token('\n', 'newline')
+    prev_token = Token('\n', 'newline', False)
 
     for token in self.tokens:
       if token.text == 'else' and prev_token.text == 'or':

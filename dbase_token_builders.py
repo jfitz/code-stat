@@ -23,7 +23,7 @@ class DbaseSpecialFunctionTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'function')]
+    return [Token(self.text, 'function', True)]
 
 
   def accept(self, candidate, c):
@@ -58,7 +58,7 @@ class DbaseFilenameTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'filename')]
+    return [Token(self.text, 'filename', True)]
 
 
   def accept(self, candidate, c):
@@ -128,7 +128,7 @@ class BracketedStringTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'string')]
+    return [Token(self.text, 'string', True)]
 
 
   def accept(self, candidate, c):
@@ -229,11 +229,11 @@ class KeywordCommentTokenBuilder(TokenBuilder):
       return None
 
     if self.token2 is None:
-      token1 = Token(self.token1, 'keyword')
+      token1 = Token(self.token1, 'keyword', False)
       tokens = [token1]
     else:
-      token1 = Token(self.token1, 'keyword')
-      token2 = Token(self.token2, 'comment')
+      token1 = Token(self.token1, 'keyword', False)
+      token2 = Token(self.token2, 'comment', False)
       tokens = [token1, token2]
     return tokens
 
@@ -299,10 +299,10 @@ class KeywordComment2TokenBuilder(TokenBuilder):
       if len(g) != 4:
         return None
 
-    token1 = Token(g[0], 'keyword')
-    token2 = Token(g[1], 'whitespace')
-    token3 = Token(g[2], 'keyword')
-    token4 = Token(g[3], 'comment')
+    token1 = Token(g[0], 'keyword', False)
+    token2 = Token(g[1], 'whitespace', False)
+    token3 = Token(g[2], 'keyword', False)
+    token4 = Token(g[3], 'comment', False)
 
     tokens = [token1, token2, token3, token4]
 
@@ -380,9 +380,9 @@ class TextBlockTokenBuilder(TokenBuilder):
     len_start = len(self.start_keyword)
     len_end = len(self.end_keyword)
 
-    starter_token = Token(self.text[:len_start], 'keyword')
-    ender_token = Token(self.text[-len_end:], 'keyword')
-    content = Token(self.text[len_start:-len_end], 'string')
+    starter_token = Token(self.text[:len_start], 'keyword', False)
+    ender_token = Token(self.text[-len_end:], 'keyword', False)
+    content = Token(self.text[len_start:-len_end], 'string', True)
 
     return [
       starter_token,

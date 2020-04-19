@@ -20,7 +20,7 @@ class VisualBasicVariableTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'identifier')]
+    return [Token(self.text, 'identifier', True)]
 
 
   def accept(self, candidate, c):
@@ -49,12 +49,12 @@ class RemarkTokenBuilder(TokenBuilder):
     if self.text == None:
       return None
 
-    token1 = Token('', 'comment')
-    token2 = Token('', 'comment')
+    token1 = Token('', 'comment', False)
+    token2 = Token('', 'comment', False)
 
-    if self.text.startswith('Remark'):
-      token1 = Token('Remark', 'keyword')
-      token2 = Token(self.text[6:], 'comment')
+    if self.text.startswith('Remark', False):
+      token1 = Token('Remark', 'keyword', False)
+      token2 = Token(self.text[6:], 'comment', False)
 
     return [token1, token2]
 

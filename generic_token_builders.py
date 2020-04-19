@@ -16,7 +16,7 @@ class GenericNumberTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'number')]
+    return [Token(self.text, 'number', True)]
 
 
   def accept(self, candidate, c):

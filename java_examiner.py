@@ -48,8 +48,6 @@ class JavaExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
-    operand_types = []
-
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -57,25 +55,21 @@ class JavaExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder('_')
     real_tb = RealTokenBuilder(False, False, '_')
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', '_')
-    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
-    operand_types.append('identifier')
 
-    decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator')
+    decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator', False)
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
-    operand_types.append('string')
 
     class_type_tb = ClassTypeTokenBuilder()
-    operand_types.append('class')
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
 
-    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
+    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)
 
     known_operators = [
       '+', '-', '*', '/', '%',
@@ -89,7 +83,7 @@ class JavaExaminer(Examiner):
       'new'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
 
     self.unary_operators = [
       '+', '-',
@@ -107,7 +101,7 @@ class JavaExaminer(Examiner):
     group_ends = [')', ']', '}']
     group_mids = [',', ':']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
     keywords = [
       'abstract', 'assert', 'break',
@@ -124,7 +118,7 @@ class JavaExaminer(Examiner):
       'volatile', 'while'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
 
     types = [
       'boolean', 'byte', 'char', 'double', 'float', 'int', 'long',
@@ -133,15 +127,13 @@ class JavaExaminer(Examiner):
       'File', 'Exception', 'IOException'
     ]
 
-    types_tb = ListTokenBuilder(types, 'type', True)
-    operand_types.append('type')
+    types_tb = ListTokenBuilder(types, 'type', True, True)
 
     values = [
       'false', 'null', 'this', 'true'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True)
-    operand_types.append('value')
+    values_tb = ListTokenBuilder(values, 'value', True, True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -189,8 +181,8 @@ class JavaExaminer(Examiner):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
     operand_types = ['number', 'string', 'symbol']
     self.calc_operand_confidence(tokens, operand_types)
@@ -200,7 +192,7 @@ class JavaExaminer(Examiner):
 
 
   def convert_operators_to_identifiers(self, key_operators):
-    prev_token = Token('\n', 'newline')
+    prev_token = Token('\n', 'newline', False)
 
     for token in self.tokens:
       if token.group == 'operator' and\

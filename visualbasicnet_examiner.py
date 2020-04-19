@@ -46,20 +46,16 @@ class VisualBasicNETExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
-    operand_types = []
-
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
-    line_continuation_tb = SingleCharacterTokenBuilder(['_'], 'line continuation')
+    line_continuation_tb = SingleCharacterTokenBuilder(['_'], 'line continuation', False)
 
     integer_tb = IntegerTokenBuilder(None)
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
     real_tb = RealTokenBuilder(False, False, None)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
-    operand_types.append('number')
 
     variable_tb = VisualBasicVariableTokenBuilder('$%#!')
-    operand_types.append('identifier')
 
     leads = '_'
     extras = '_'
@@ -68,7 +64,6 @@ class VisualBasicNETExaminer(Examiner):
 
     quotes = ['"']
     string_tb = StringTokenBuilder(quotes, False)
-    operand_types.append('string')
 
     remark_tb = RemarkTokenBuilder()
     comment_tb = LeadToEndOfLineTokenBuilder("'", True, 'comment')
@@ -81,7 +76,7 @@ class VisualBasicNETExaminer(Examiner):
       '#Const'
     ]
 
-    preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', True)
+    preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', False, True)
 
     known_operators = [
       '&', '&=', '*', '*=', '/', '/=', '\\', '\\=', '^', '^=',
@@ -99,9 +94,9 @@ class VisualBasicNETExaminer(Examiner):
     group_starts = ['(', '[', ',']
     group_ends = [')', ']']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
 
     keywords = [
       'AddHandler', 'Alias', 'As',
@@ -129,7 +124,7 @@ class VisualBasicNETExaminer(Examiner):
       'WriteOnly'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
 
     functions = [
       'Asc', 'AscW', 'Chr', 'ChrW', 'Filter', 'Format',
@@ -139,8 +134,7 @@ class VisualBasicNETExaminer(Examiner):
       'StrReverse', 'Trim', 'UCase'
     ]
 
-    function_tb = ListTokenBuilder(functions, 'function', True)
-    operand_types.append('function')
+    function_tb = ListTokenBuilder(functions, 'function', True, True)
 
     types = [
       'Boolean', 'Byte',
@@ -155,16 +149,14 @@ class VisualBasicNETExaminer(Examiner):
       'UInteger', 'ULong', 'UShort',
     ]
 
-    types_tb = ListTokenBuilder(types, 'type', True)
-    operand_types.append('type')
+    types_tb = ListTokenBuilder(types, 'type', True, True)
 
     values = [
       'False', 'True', 'Nothing',
       'MyBase', 'MyClass'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True)
-    operand_types.append('value')
+    values_tb = ListTokenBuilder(values, 'value', True, True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -214,8 +206,8 @@ class VisualBasicNETExaminer(Examiner):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     operand_types = ['number', 'string', 'symbol']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
@@ -223,7 +215,7 @@ class VisualBasicNETExaminer(Examiner):
 
 
   def convert_functions_to_identifiers(self):
-    prev_token = Token('\n', 'newline')
+    prev_token = Token('\n', 'newline', False)
 
     for token in self.tokens:
       if token.group == 'function' and\

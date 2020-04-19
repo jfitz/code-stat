@@ -18,7 +18,7 @@ class CBasicVariableTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'identifier')]
+    return [Token(self.text, 'identifier', True)]
 
 
   def accept(self, candidate, c):
@@ -52,7 +52,7 @@ class CBasicLabelTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'label')]
+    return [Token(self.text, 'label', False)]
 
 
   def accept(self, candidate, c):
@@ -107,7 +107,7 @@ class CBasicSuffixedIntegerTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'number')]
+    return [Token(self.text, 'number', True)]
 
 
   def accept(self, candidate, c):
@@ -156,7 +156,7 @@ class CBasicLineContinuationTokenBuilder(TokenBuilder):
       return None
 
     # line continuation character
-    tokens = [Token(self.text[0], 'line continuation')]
+    tokens = [Token(self.text[0], 'line continuation', False)]
     rest = self.text[1:]
 
     # whitespace before text
@@ -166,11 +166,11 @@ class CBasicLineContinuationTokenBuilder(TokenBuilder):
       rest = rest[1:]
 
     if whitespace != '':
-      tokens.append(Token(whitespace, 'whitespace'))
+      tokens.append(Token(whitespace, 'whitespace', False))
 
     # text (which may contain whitespace)
     if rest != '':
-      tokens.append(Token(rest, 'comment'))
+      tokens.append(Token(rest, 'comment', False))
     
     return tokens
 

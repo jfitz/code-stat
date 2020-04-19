@@ -21,7 +21,7 @@ class SwiftArgumentTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'identifier')]
+    return [Token(self.text, 'identifier', True)]
 
 
   def accept(self, candidate, c):
@@ -53,8 +53,8 @@ class SwiftSymbolTokenBuilder(PrefixedIdentifierTokenBuilder):
     return 'Escape ?Z'
 
 
-  def __init__(self, prefix, group):
-    super().__init__(prefix, group)
+  def __init__(self, prefix, group, is_operand):
+    super().__init__(prefix, group, is_operand)
 
 
   def get_score(self, line_printable_tokens):

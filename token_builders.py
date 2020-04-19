@@ -69,7 +69,7 @@ class InvalidTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'invalid')]
+    return [Token(self.text, 'invalid', False)]
 
 
 # token reader for whitespace
@@ -88,7 +88,7 @@ class WhitespaceTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'whitespace')]
+    return [Token(self.text, 'whitespace', False)]
 
 
   def accept(self, candidate, c):
@@ -111,7 +111,7 @@ class NewlineTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'newline')]
+    return [Token(self.text, 'newline', False)]
 
 
   def accept(self, candidate, c):
@@ -145,7 +145,7 @@ class StringTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'string')]
+    return [Token(self.text, 'string', True)]
 
 
   def accept(self, candidate, c):
@@ -208,7 +208,7 @@ class StuffedQuoteStringTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'string')]
+    return [Token(self.text, 'string', True)]
 
 
   def accept(self, candidate, c):
@@ -265,7 +265,7 @@ class PrefixedStringTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'string')]
+    return [Token(self.text, 'string', True)]
 
 
   def accept(self, candidate, c):
@@ -318,7 +318,7 @@ class SuffixedStringTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'string')]
+    return [Token(self.text, 'string', True)]
 
 
   def accept(self, candidate, c):
@@ -389,7 +389,7 @@ class IntegerTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'number')]
+    return [Token(self.text, 'number', True)]
 
 
   def accept(self, candidate, c):
@@ -419,7 +419,7 @@ class IntegerExponentTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'number')]
+    return [Token(self.text, 'number', True)]
 
 
   def accept(self, candidate, c):
@@ -482,7 +482,7 @@ class SuffixedIntegerTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'number')]
+    return [Token(self.text, 'number', True)]
 
 
   def digit_or_underscore(self, c):
@@ -561,7 +561,7 @@ class RealTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'number')]
+    return [Token(self.text, 'number', True)]
 
 
   def accept(self, candidate, c):
@@ -645,7 +645,7 @@ class SuffixedRealTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'number')]
+    return [Token(self.text, 'number', True)]
 
 
   def accept(self, candidate, c):
@@ -743,7 +743,7 @@ class RealExponentTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'number')]
+    return [Token(self.text, 'number', True)]
 
 
   def accept(self, candidate, c):
@@ -821,7 +821,7 @@ class IdentifierTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'identifier')]
+    return [Token(self.text, 'identifier', True)]
 
 
   def accept(self, candidate, c):
@@ -839,9 +839,10 @@ class PrefixedIdentifierTokenBuilder(TokenBuilder):
     return 'Escape ?Z'
 
 
-  def __init__(self, prefix, group):
+  def __init__(self, prefix, group, is_operand):
     self.prefix = prefix
     self.group = group
+    self.is_operand = is_operand
     self.text = None
 
 
@@ -849,7 +850,7 @@ class PrefixedIdentifierTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, self.group)]
+    return [Token(self.text, self.group, self.is_operand)]
 
 
   def accept(self, candidate, c):
@@ -891,7 +892,7 @@ class SuffixedIdentifierTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'identifier')]
+    return [Token(self.text, 'identifier', True)]
 
 
   def accept(self, candidate, c):
@@ -911,9 +912,10 @@ class SingleCharacterTokenBuilder(TokenBuilder):
     return 'Escape ?Z'
 
 
-  def __init__(self, legals, group):
+  def __init__(self, legals, group, is_operand):
     self.legals = legals
     self.group = group
+    self.is_operand = is_operand
     self.text = ''
 
 
@@ -921,7 +923,7 @@ class SingleCharacterTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, self.group)]
+    return [Token(self.text, self.group, self.is_operand)]
 
 
   def accept(self, candidate, c):
@@ -945,7 +947,7 @@ class KeywordTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, self.group)]
+    return [Token(self.text, self.group, False)]
 
 
   def accept(self, candidate, c):
@@ -961,7 +963,7 @@ class ListTokenBuilder(TokenBuilder):
     return 'Escape ?Z'
 
 
-  def __init__(self, legals, group, case_sensitive):
+  def __init__(self, legals, group, is_operand, case_sensitive):
     if case_sensitive:
       self.legals = legals
     else:
@@ -973,6 +975,7 @@ class ListTokenBuilder(TokenBuilder):
         self.abbrevs[legal[:i+1]] = 1
 
     self.group = group
+    self.is_operand = is_operand
     self.case_sensitive = case_sensitive
     self.text = ''
 
@@ -1006,7 +1009,7 @@ class ListTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, self.group)]
+    return [Token(self.text, self.group, self.is_operand)]
 
 
   def accept(self, candidate, c):
@@ -1054,7 +1057,7 @@ class PrefixedIntegerTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'number')]
+    return [Token(self.text, 'number', True)]
 
 
   def accept(self, candidate, c):
@@ -1101,10 +1104,10 @@ class LeadToEndOfLineTokenBuilder(TokenBuilder):
 
     if self.case_sensitive:
       if self.text.startswith(self.lead):
-        return [Token(self.text, self.group)]
+        return [Token(self.text, self.group, False)]
     else:
       if self.text.lower().startswith(self.lead):
-        return [Token(self.text, self.group)]
+        return [Token(self.text, self.group, False)]
 
     return None
 
@@ -1156,7 +1159,7 @@ class TripleQuoteStringTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'string')]
+    return [Token(self.text, 'string', True)]
 
 
   def accept(self, candidate, c):
@@ -1202,7 +1205,7 @@ class RegexTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'regex')]
+    return [Token(self.text, 'regex', True)]
 
 
   def accept(self, candidate, c):
@@ -1265,7 +1268,7 @@ class NestedCommentTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'comment')]
+    return [Token(self.text, 'comment', False)]
 
 
   def accept(self, candidate, c):
@@ -1346,7 +1349,7 @@ class BlockTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, self.texttype)]
+    return [Token(self.text, self.texttype, False)]
 
 
   def accept(self, candidate, c):

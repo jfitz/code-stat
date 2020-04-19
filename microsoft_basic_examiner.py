@@ -53,8 +53,6 @@ class MicrosoftBasicExaminer(Examiner):
   def __init__(self, code, version):
     super().__init__()
 
-    operand_types = []
-
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -68,20 +66,17 @@ class MicrosoftBasicExaminer(Examiner):
     hex_constant_tb = PrefixedIntegerTokenBuilder('&H', True, '0123456789ABCDEFabcdef_')
     octal_constant_tb = PrefixedIntegerTokenBuilder('&O', True, '01234567_')
     binary_constant_tb = PrefixedIntegerTokenBuilder('&B', True, '01_')
-    operand_types.append('number')
 
     variable_tb = BasicLongVariableTokenBuilder('%#!$&')
-    operand_types.append('identifier')
 
     quotes = ['"']
     string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
-    operand_types.append('string')
 
     remark_tb = RemarkTokenBuilder()
     comment_tb = LeadToEndOfLineTokenBuilder("'", True, 'comment')
     comment2_tb = LeadToEndOfLineTokenBuilder("’", True, 'comment')
 
-    stmt_separator_tb = SingleCharacterTokenBuilder(':', 'statement separator')
+    stmt_separator_tb = SingleCharacterTokenBuilder(':', 'statement separator', False)
 
     known_operators = [
       '+', '-', '*', '/', '^',
@@ -89,7 +84,7 @@ class MicrosoftBasicExaminer(Examiner):
       '#', '\\', 'AND', 'MOD', 'OR', 'NOT', 'IMP', 'EQV', 'XOR'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, False)
 
     self.unary_operators = [
       '+', '-', '#', 'NOT'
@@ -99,7 +94,7 @@ class MicrosoftBasicExaminer(Examiner):
     group_starts = ['(', ',']
     group_ends = [')']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
     keywords = [
       'AS',
@@ -130,12 +125,11 @@ class MicrosoftBasicExaminer(Examiner):
     if version in ['basica', 'gw-basic']:
       keywords += keywords_basica
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, False)
 
     self.values = ['ERR', 'ERL', 'RND']
 
-    values_tb = ListTokenBuilder(self.values, 'value', False)
-    operand_types.append('value')
+    values_tb = ListTokenBuilder(self.values, 'value', True, False)
 
     # do not include RND() - it is a value and later converted to function
     # if followed by open parenthesis
@@ -158,10 +152,9 @@ class MicrosoftBasicExaminer(Examiner):
       'VAL', 'VARPTR'
     ]
 
-    function_tb = ListTokenBuilder(functions, 'function', False)
+    function_tb = ListTokenBuilder(functions, 'function', True, False)
     user_function_tb = LongUserFunctionTokenBuilder('%#!$&')
     hardware_function_tb = HardwareFunctionTokenBuilder()
-    operand_types.append('function')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -215,8 +208,8 @@ class MicrosoftBasicExaminer(Examiner):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     operand_types = ['number', 'string', 'identifier', 'variable']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
@@ -225,7 +218,7 @@ class MicrosoftBasicExaminer(Examiner):
 
 
   def convert_numbers_to_line_numbers(self):
-    prev_token = Token('\n', 'newline')
+    prev_token = Token('\n', 'newline', False)
 
     for token in self.tokens:
       if token.group == 'number' and\
@@ -237,7 +230,7 @@ class MicrosoftBasicExaminer(Examiner):
 
 
   def convert_values_to_functions(self):
-    prev_token = Token('\n', 'newline')
+    prev_token = Token('\n', 'newline', False)
 
     for token in self.tokens:
       if token.group == 'group' and token.text == '(' and \
@@ -286,14 +279,14 @@ class MicrosoftBasicExaminer(Examiner):
 
         for new_text in new_texts:
           if new_text in keywords:
-            new_token = Token(new_text, 'keyword')
+            new_token = Token(new_text, 'keyword', False)
           elif new_text in operators:
-            new_token = Token(new_text, 'operator')
+            new_token = Token(new_text, 'operator', False)
           else:
             if new_text.isdigit():
-              new_token = Token(new_text, 'number')
+              new_token = Token(new_text, 'number', True)
             else:
-              new_token = Token(new_text, 'identifier')
+              new_token = Token(new_text, 'identifier', True)
 
           new_tokens.append(new_token)
       else:

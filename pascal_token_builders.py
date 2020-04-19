@@ -16,7 +16,7 @@ class BraceCommentTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'comment')]
+    return [Token(self.text, 'comment', False)]
 
   def accept(self, candidate, c):
     if len(candidate) == 0:

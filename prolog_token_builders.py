@@ -16,7 +16,7 @@ class PrologVariableTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'variable')]
+    return [Token(self.text, 'variable', True)]
 
   def accept(self, candidate, c):
     if len(candidate) == 0:

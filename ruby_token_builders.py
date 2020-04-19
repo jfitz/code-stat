@@ -16,7 +16,7 @@ class RubyIdentifierTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'identifier')]
+    return [Token(self.text, 'identifier', True)]
 
   def accept(self, candidate, c):
     if len(candidate) == 0:
@@ -54,10 +54,10 @@ class HereDocTokenBuilder(TokenBuilder):
     lines = self.text.split('\n')
     oper = lines[0][:3]
     marker = lines[-1]
-    content = Token('\n'.join(lines[1:-1]), 'here doc')
-    op_token = Token(oper, 'operator')
-    mark_token = Token(marker, 'doc marker')
-    newline_token = Token('\n', 'newline')
+    content = Token('\n'.join(lines[1:-1]), 'here doc', False)
+    op_token = Token(oper, 'operator', False)
+    mark_token = Token(marker, 'doc marker', False)
+    newline_token = Token('\n', 'newline', False)
 
     # the marker token is used twice - once at beginning and once at end
     return [

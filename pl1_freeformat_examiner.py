@@ -65,8 +65,8 @@ class PL1FreeFormatExaminer(PL1Examiner):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, self.group_ends, self.operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, self.group_starts, self.operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, self.group_ends, allow_pairs)
+    self.calc_operator_4_confidence(tokens, self.group_starts, allow_pairs)
     operand_types = ['number', 'symbol']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()

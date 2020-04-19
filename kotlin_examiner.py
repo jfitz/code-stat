@@ -51,8 +51,6 @@ class KotlinExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
-    operand_types = []
-
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -61,27 +59,23 @@ class KotlinExaminer(Examiner):
     hex_integer_tb = PrefixedIntegerTokenBuilder('0x', False, '0123456789ABCDEFabcdef_')
     real_tb = RealTokenBuilder(True, True, '_')
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', '_')
-    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
-    operand_types.append('identifier')
 
-    decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator')
+    decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator', False)
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
     triple_quote_string_tb = TripleQuoteStringTokenBuilder(quotes)
-    operand_types.append('string')
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
 
     class_tb = ClassTypeTokenBuilder()
-    operand_types.append('class')
 
-    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
+    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)
 
     known_operators = [
       '+', '-', '*', '/', '%',
@@ -103,7 +97,7 @@ class KotlinExaminer(Examiner):
 
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
 
     self.unary_operators = [
       '+', '-',
@@ -119,7 +113,7 @@ class KotlinExaminer(Examiner):
     group_starts = ['(', '[', ',', '{']
     group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
     keywords = [
       'as', 'as?',
@@ -161,22 +155,20 @@ class KotlinExaminer(Examiner):
       'vararg'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
 
     types = [
       'Byte', 'Short', 'Int', 'Long', 'Float', 'Double', 'Char',
       'u', 'f', 'ul'
     ]
 
-    type_tb = ListTokenBuilder(types, 'type', True)
-    operand_types.append('type')
+    type_tb = ListTokenBuilder(types, 'type', True, True)
 
     values = [
       'false', 'null', 'this', 'true'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True)
-    operand_types.append('value')
+    values_tb = ListTokenBuilder(values, 'value', True, True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -221,8 +213,8 @@ class KotlinExaminer(Examiner):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     operand_types = ['number', 'string', 'symbol']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
@@ -237,7 +229,7 @@ class KotlinExaminer(Examiner):
     new_token = None
     for token in tokens:
       if token.group == 'type' and new_token is not None and new_token.group == 'number':
-        new_token = Token(new_token.text + token.text, 'number')
+        new_token = Token(new_token.text + token.text, 'number', True)
       else:
         if new_token is not None:
             new_list.append(new_token)

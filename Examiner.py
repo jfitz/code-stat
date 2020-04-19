@@ -13,7 +13,7 @@ class Examiner:
     ]
 
     self.tokens = []
-    self.unknown_operator_tb = ListTokenBuilder(operators, 'invalid operator', True)
+    self.unknown_operator_tb = ListTokenBuilder(operators, 'invalid operator', False, True)
     self.unary_operators = []
     self.postfix_operators = []
     self.adjective_operators = []
@@ -90,7 +90,7 @@ class Examiner:
 
 
   def convert_identifiers_to_functions(self):
-    prev_token = Token('\n', 'newline')
+    prev_token = Token('\n', 'newline', False)
 
     for token in self.tokens:
       if token.group == 'identifier' and\
@@ -161,7 +161,7 @@ class Examiner:
     new_token = None
     for token in tokens:
       if token.group == group and new_token is not None and new_token.group == group:
-        new_token = Token(new_token.text + token.text, group)
+        new_token = Token(new_token.text + token.text, group, token.is_operand)
       else:
         if new_token is not None:
             new_list.append(new_token)
@@ -186,7 +186,7 @@ class Examiner:
       if token.text == ':' and \
         new_token is not None and new_token.group == 'identifier' and \
         first_printable_token:
-        new_token = Token(new_token.text + token.text, 'label')
+        new_token = Token(new_token.text + token.text, 'label', False)
       else:
         if new_token is not None:
             new_list.append(new_token)
@@ -206,12 +206,13 @@ class Examiner:
 
   # convert keywords after specified operators to identifiers
   def convert_keywords_to_identifiers(self, operators):
-    prev_token = Token('\n', 'newline')
+    prev_token = Token('\n', 'newline', False)
 
     for token in self.tokens:
       if token.group == 'keyword' and\
         prev_token.group == 'operator' and prev_token.text in operators:
         token.group = 'identifier'
+        token.is_operand = True
 
       if token.group not in ['whitespace', 'comment', 'newline']:
         prev_token = token
@@ -219,12 +220,13 @@ class Examiner:
 
   # convert identifiers after 'goto' to labels
   def convert_identifiers_to_labels(self):
-    prev_token = Token('\n', 'newline')
+    prev_token = Token('\n', 'newline', False)
 
     for token in self.tokens:
       if token.group == 'identifier' and \
         prev_token.group == 'keyword' and prev_token.text.lower() == 'goto':
         token.group = 'label'
+        token.is_operand = False
 
       if token.group not in ['whitespace', 'comment', 'newline']:
         prev_token = token
@@ -280,7 +282,7 @@ class Examiner:
   # repeated tokens reduce confidence
   def calc_token_2_confidence(self, allowed_tokens = []):
     num_repeated_tokens = 0
-    prev_token = Token('\n', 'newline')
+    prev_token = Token('\n', 'newline', False)
 
     allowed_groups = ['invalid', 'whitespace', 'newline', 'comment', 'group']
     for token in self.tokens:
@@ -339,7 +341,7 @@ class Examiner:
 
     if num_operators > 0:
       errors = 0
-      prev_token = Token('\n', 'newline')
+      prev_token = Token('\n', 'newline', False)
 
       lower_unary_operators = []
       for op in self.unary_operators:
@@ -367,7 +369,7 @@ class Examiner:
 
 
   # binary operators that follow non-operands reduce confidence
-  def calc_operator_3_confidence(self, tokens, group_ends, operand_types, allow_pairs):
+  def calc_operator_3_confidence(self, tokens, group_ends, allow_pairs):
     num_invalid_operators = Examiner.count_tokens(tokens, ['invalid operator'])
     num_known_operators = Examiner.count_tokens(tokens, ['operator'])
     num_operators = num_known_operators + num_invalid_operators
@@ -376,14 +378,14 @@ class Examiner:
 
     if num_operators > 0:
       errors = 0
-      prev_token = Token('\n', 'newline')
+      prev_token = Token('\n', 'newline', False)
 
       lower_unary_operators = []
       for op in self.unary_operators:
         lower_unary_operators.append(op.lower())
 
       for token in tokens:
-        prev_token_operand = prev_token.group in operand_types or \
+        prev_token_operand = prev_token.is_operand or \
           prev_token.text in group_ends or \
           prev_token.text.lower() == 'end'
   
@@ -409,7 +411,7 @@ class Examiner:
 
 
   # binary operators that precede non-operands reduce confidence
-  def calc_operator_4_confidence(self, tokens, group_starts, operand_types, allow_pairs):
+  def calc_operator_4_confidence(self, tokens, group_starts, allow_pairs):
     num_invalid_operators = Examiner.count_tokens(tokens, ['invalid operator'])
     num_known_operators = Examiner.count_tokens(tokens, ['operator'])
     num_operators = num_known_operators + num_invalid_operators
@@ -418,7 +420,7 @@ class Examiner:
 
     if num_operators > 0:
       errors = 0
-      prev_token = Token('\n', 'newline')
+      prev_token = Token('\n', 'newline', False)
 
       lower_unary_operators = []
       for op in self.unary_operators:
@@ -429,7 +431,7 @@ class Examiner:
   
         if prev_token.group == 'operator' and \
           not prev_token_postfix_operator and \
-          token.group not in operand_types and \
+          not token.is_operand and \
           token.text.lower() not in lower_unary_operators and \
           token.text not in group_starts and \
           [prev_token.text, token.text] not in allow_pairs:
@@ -455,7 +457,7 @@ class Examiner:
 
     if num_groups > 0:
       errors = 0
-      prev_token = Token('\n', 'newline')
+      prev_token = Token('\n', 'newline', False)
 
       for token in tokens:
         if token.group == 'group' and token.text in groups and \
@@ -499,9 +501,9 @@ class Examiner:
     unwrapped_tokens = []
     include = True
     prev_tokens = [
-      Token('', 'newline'),
-      Token('', 'newline'),
-      Token('', 'newline')
+      Token('', 'newline', False),
+      Token('', 'newline', False),
+      Token('', 'newline', False)
     ]
 
     for token in tokens:
@@ -514,7 +516,7 @@ class Examiner:
         prev_tokens[-1].group == 'newline' and \
         prev_tokens[-2].group == 'line continuation':
         if prev_tokens[-3].group != 'whitespace':
-          unwrapped_tokens.append(Token(' ', 'whitespace'))
+          unwrapped_tokens.append(Token(' ', 'whitespace', False))
       elif include:
         unwrapped_tokens.append(token)
         prev_tokens.append(token)
@@ -546,7 +548,7 @@ class Examiner:
     for token in tokens:
       if token.group == type2 and token.text in set2 and \
          new_token is not None and new_token.group == type1:
-        new_token = Token(new_token.text + token.text, type1)
+        new_token = Token(new_token.text + token.text, type1, token.is_operand)
       else:
         if new_token is not None:
           new_list.append(new_token)
@@ -560,7 +562,7 @@ class Examiner:
   # two operands in a row decreases confidence
   def calc_operand_confidence(self, tokens, operand_types):
     two_operand_count = 0
-    prev_token = Token('\n', 'newline')
+    prev_token = Token('\n', 'newline', False)
     for token in tokens:
       if token.group in operand_types and prev_token.group in operand_types:
         two_operand_count += 1
@@ -588,7 +590,7 @@ class Examiner:
     value_types = ['number', 'string', 'symbol']
 
     two_value_count = 0
-    prev_token = Token('\n', 'newline')
+    prev_token = Token('\n', 'newline', False)
     for token in tokens:
       if token.group in value_types and\
         prev_token.group in value_types and\
@@ -706,7 +708,7 @@ class Examiner:
   def join_continued_lines(tokens):
     new_tokens = []
 
-    prev_token = Token('\n', 'newline')
+    prev_token = Token('\n', 'newline', False)
 
     for token in tokens:
       keep = True
@@ -742,7 +744,7 @@ class Examiner:
   def join_operator_continued_lines(tokens, postfix_operators):
     new_tokens = []
 
-    prev_token = Token('\n', 'newline')
+    prev_token = Token('\n', 'newline', False)
 
     for token in tokens:
       keep = True

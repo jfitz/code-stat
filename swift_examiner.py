@@ -55,37 +55,31 @@ class SwiftExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
-    operand_types = []
-
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
-    stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator')
+    stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator', False)
 
     integer_tb = IntegerTokenBuilder('_')
     integer_exponent_tb = IntegerExponentTokenBuilder('_')
     real_tb = RealTokenBuilder(True, True, '_')
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', '_')
-    operand_types.append('number')
 
     argument_tb = SwiftArgumentTokenBuilder()
-    operand_types.append('identifier')
 
     leads = '_'
     extras = '_'
     suffixes = '?'
     identifier_tb = SuffixedIdentifierTokenBuilder(leads, extras, suffixes)
 
-    attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute')
+    attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute', False)
 
-    symbol_tb = SwiftSymbolTokenBuilder('.', 'symbol')
-    operand_types.append('symbol')
+    symbol_tb = SwiftSymbolTokenBuilder('.', 'symbol', True)
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, True)
     triple_quote_comment_tb = TripleQuoteStringTokenBuilder(quotes)
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
-    operand_types.append('string')
 
     known_operators = [
         '+', '-', '*', '/', '%',
@@ -99,7 +93,7 @@ class SwiftExaminer(Examiner):
         '&+', '&-', '&*'
       ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
 
     self.unary_operators = [
       '+', '-',
@@ -115,7 +109,7 @@ class SwiftExaminer(Examiner):
     group_starts = ['(', '[', ',', '{']
     group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
     keywords = [
       'associatedtype', 'class', 'deinit', 'enum', 'extension', 'fileprivate',
@@ -135,22 +129,20 @@ class SwiftExaminer(Examiner):
       'required', 'right', 'set', 'Type', 'unowned', 'weak', 'willSet'
     ]
     
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
 
     types = [
       'char', 'double', 'float', 'int',
       'long', 'short',
     ]
 
-    types_tb = ListTokenBuilder(types, 'type', True)
-    operand_types.append('type')
+    types_tb = ListTokenBuilder(types, 'type', True, True)
 
     values = [
       'nil', 'Self', 'false', 'true'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True)
-    operand_types.append('value')
+    values_tb = ListTokenBuilder(values, 'value', True, True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -196,8 +188,8 @@ class SwiftExaminer(Examiner):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     operand_types = ['number', 'string', 'symbol']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()

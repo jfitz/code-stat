@@ -46,8 +46,6 @@ class MatlabExaminer(Examiner):
   def __init__(self, code, version):
     super().__init__()
 
-    operand_types = []
-
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -57,20 +55,17 @@ class MatlabExaminer(Examiner):
     binary_integer_tb = PrefixedIntegerTokenBuilder('0b', False, '01')
     real_tb = RealTokenBuilder(False, False, "'")
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
-    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
-    operand_types.append('identifier')
 
-    command_tb = PrefixedIdentifierTokenBuilder('!', 'command')
+    command_tb = PrefixedIdentifierTokenBuilder('!', 'command', False)
 
-    metaclass_tb = PrefixedIdentifierTokenBuilder('?', 'metaclass')
+    metaclass_tb = PrefixedIdentifierTokenBuilder('?', 'metaclass', False)
 
     quotes = ['"', "'", "’"]
     string_tb = MatlabStringTokenBuilder(quotes, False)
-    operand_types.append('string')
 
     line_comment_m_tb = LeadToEndOfLineTokenBuilder('%', False, 'comment')
     line_comment_o_tb = LeadToEndOfLineTokenBuilder('#', False, 'comment')
@@ -105,9 +100,9 @@ class MatlabExaminer(Examiner):
     group_starts = ['(', '[', ',', '{']
     group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
 
     keywords = [
     'break',
@@ -131,14 +126,13 @@ class MatlabExaminer(Examiner):
     if version == 'octave':
       keywords += keywords_octave
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
 
     values = [
       'inf', 'Nan'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True)
-    operand_types.append('value')
+    values_tb = ListTokenBuilder(values, 'value', True, True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -194,8 +188,8 @@ class MatlabExaminer(Examiner):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     # operand_types = ['number']
     # self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()

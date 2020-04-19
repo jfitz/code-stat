@@ -54,8 +54,6 @@ class ScalaExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
-    operand_types = []
-
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -66,26 +64,22 @@ class ScalaExaminer(Examiner):
     real_tb = RealTokenBuilder(False, False, "'")
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
     float_real_tb = SuffixedRealTokenBuilder(False, False, ['f'], False, None)
-    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
-    operand_types.append('identifier')
 
-    symbol_tb = PrefixedIdentifierTokenBuilder("'", 'symbol')
-    operand_types.append('symbol')
+    symbol_tb = PrefixedIdentifierTokenBuilder("'", 'symbol', True)
 
     quotes = ['"']
     string_tb = StringTokenBuilder(quotes, False)
     triple_string_tb = TripleQuoteStringTokenBuilder(quotes)
-    operand_types.append('string')
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
 
-    line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation')
-    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
+    line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation', False)
+    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)
 
     known_operators = [
       '+', '-', '*', '/', '%', '&', '|', '^', '<<', '>>', '&&', '||',
@@ -112,9 +106,9 @@ class ScalaExaminer(Examiner):
     group_starts = ['(', '[', ',', '{']
     group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
 
     keywords = [
       'abstract',
@@ -135,14 +129,13 @@ class ScalaExaminer(Examiner):
       'yield'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
 
     values = [
       'false', 'true', 'null', 'this', 'super'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True)
-    operand_types.append('value')
+    values_tb = ListTokenBuilder(values, 'value', True, True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -187,8 +180,8 @@ class ScalaExaminer(Examiner):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     operand_types = ['number', 'symbol']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()

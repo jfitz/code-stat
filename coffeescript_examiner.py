@@ -45,8 +45,6 @@ class CoffeeScriptExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
-    operand_types = []
-
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -58,22 +56,19 @@ class CoffeeScriptExaminer(Examiner):
     hex_constant_tb = PrefixedIntegerTokenBuilder('0X', False, '0123456789ABCDEFabcdef')
     octal_constant_tb = PrefixedIntegerTokenBuilder('0O', False, '01234567')
     binary_constant_tb = PrefixedIntegerTokenBuilder('0B', False, '01')
-    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
-    dollar_sign_tb = SingleCharacterTokenBuilder('$', 'identifier')
-    operand_types.append('identifier')
+    dollar_sign_tb = SingleCharacterTokenBuilder('$', 'identifier', False)
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
     template_string_tb = StringTokenBuilder(['`'], True)
-    operand_types.append('string')
 
     comment_tb = LeadToEndOfLineTokenBuilder('#', False, 'comment')
 
-    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
+    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)
 
     known_operators = [
       '+', '-', '*', '/', '%',
@@ -92,7 +87,7 @@ class CoffeeScriptExaminer(Examiner):
       'new', 'delete'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
 
     self.unary_operators = [
       '+', '-',
@@ -112,10 +107,9 @@ class CoffeeScriptExaminer(Examiner):
     # group_starts = ['(', '[', ',', '{']
     group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
     regex_tb = RegexTokenBuilder()
-    operand_types.append('regex')
 
     keywords = [
       'for', 'while', 'loop', 'by',
@@ -135,7 +129,7 @@ class CoffeeScriptExaminer(Examiner):
       'implements', 'interface', 'enum'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
 
     values = [
       'true', 'yes', 'on', 'false', 'no', 'off',
@@ -143,8 +137,7 @@ class CoffeeScriptExaminer(Examiner):
       'null', 'undefined', 'Infinity', 'Nan'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True)
-    operand_types.append('value')
+    values_tb = ListTokenBuilder(values, 'value', True, True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -189,8 +182,8 @@ class CoffeeScriptExaminer(Examiner):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    # self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    # self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     operand_types = ['number', 'string', 'symbol']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()

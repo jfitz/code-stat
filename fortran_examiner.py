@@ -48,7 +48,7 @@ class FortranExaminer(Examiner):
 
 
   def convert_numbers_to_lineNumbers(self):
-    prev_token = Token('\n', 'newline')
+    prev_token = Token('\n', 'newline', False)
 
     for token in self.tokens:
       if token.group == 'number' and\
@@ -61,10 +61,10 @@ class FortranExaminer(Examiner):
 
   def convert_stars_to_io_channels(self):
     prev_tokens = [
-      Token('\n', 'newline'),
-      Token('\n', 'newline'),
-      Token('\n', 'newline'),
-      Token('\n', 'newline')
+      Token('\n', 'newline', False),
+      Token('\n', 'newline', False),
+      Token('\n', 'newline', False),
+      Token('\n', 'newline', False)
     ]
 
     for token in self.tokens:

@@ -34,8 +34,6 @@ class FortranFixedFormatExaminer(FortranExaminer):
     if year is not None and year not in ['66', '1966', '77', '1977']:
       raise CodeStatException('Unknown year for language')
 
-    operand_types = []
-
     # FORTRAN-66 should be upper case only
     # FORTRAN-77 may be upper or lower case
     case_significant = year in ['66', '1966']
@@ -46,14 +44,11 @@ class FortranFixedFormatExaminer(FortranExaminer):
       leads = ''
       extras = ''
       identifier_tb = IdentifierTokenBuilder(leads, extras)
-    operand_types.append('identifier')
 
     hollerith_tb = HollerithStringTokenBuilder()
     string_tb = StuffedQuoteStringTokenBuilder(["'", '"'], False)
-    operand_types.append('string')
 
     format_tb = FormatSpecifierTokenBuilder()
-    operand_types.append('format')
 
     known_operators = [
       '=', '+', '-', '*', '/', '**',
@@ -61,7 +56,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
       '.AND.', '.OR.', '.NOT.'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', case_significant)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, case_significant)
 
     self.unary_operators = [
       '+', '-'
@@ -71,7 +66,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
     # group_starts = ['(', ',']
     # group_ends = [')']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
     keywords = [
       'IF', 'GO', 'TO', 'GOTO', 'GO TO', 'ASSIGN',
@@ -93,7 +88,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
     if year in ['77', '1977']:
       keywords += keywords_77
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', case_significant)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, case_significant)
 
     types = [
       'INTEGER', 'REAL', 'COMPLEX', 'DOUBLE PRECISION', 'LOGICAL'
@@ -106,8 +101,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
     if year in ['77', '1977']:
       types += types_77
 
-    types_tb = ListTokenBuilder(types, 'type', case_significant)
-    operand_types.append('type')
+    types_tb = ListTokenBuilder(types, 'type', True, case_significant)
 
     tokenbuilders1 = [
       self.newline_tb,
@@ -156,8 +150,8 @@ class FortranFixedFormatExaminer(FortranExaminer):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    # self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    # self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    # self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    # self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     operand_types = ['number', 'string', 'identifier', 'variable', 'symbol']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
@@ -200,10 +194,10 @@ class FortranFixedFormatExaminer(FortranExaminer):
 
     if len(line_number) > 0:
       if line_number.isspace():
-        tokens.append(Token(line_number, 'whitespace'))
+        tokens.append(Token(line_number, 'whitespace', False))
       else:
         if line_number.isdigit():
-          tokens.append(Token(line_number, 'line number'))
+          tokens.append(Token(line_number, 'line number', True))
         else:
           ln_2 = line_number.lstrip()
           ln_3 = ln_2.rstrip()
@@ -212,18 +206,18 @@ class FortranFixedFormatExaminer(FortranExaminer):
         front_count = len(line_number) - len(ln_2)
         if front_count > 0:
           front_space = ' ' * front_count
-          tokens.append(Token(front_space, 'whitespace'))
+          tokens.append(Token(front_space, 'whitespace', False))
 
         if ln_3.strip().isdigit():
-          tokens.append(Token(ln_3, 'line number'))
+          tokens.append(Token(ln_3, 'line number', False))
         else:
-          tokens.append(Token(line_number, 'invalid'))
+          tokens.append(Token(line_number, 'invalid', False))
 
         back_space = ''
         back_count = len(ln_2) - len(ln_3)
         if back_count > 0:
           back_space = ' ' * back_count
-          tokens.append(Token(back_space, 'whitespace'))
+          tokens.append(Token(back_space, 'whitespace', False))
 
     return tokens
 
@@ -240,7 +234,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
     # 73-: identification, traditionally sequence number (ignored)
 
     if line.startswith(('//', '/*')):
-      tokens.append(Token(line, 'jcl'))
+      tokens.append(Token(line, 'jcl', False))
     else:
       line_indicator = line[0:1]
       line_number = line[1:5]
@@ -254,28 +248,28 @@ class FortranFixedFormatExaminer(FortranExaminer):
 
       # tokenize the line indicator
       if line_indicator in ['C', '*']:
-        tokens.append(Token(line, 'comment'))
+        tokens.append(Token(line, 'comment', False))
       else:
         if len(line_indicator) > 0 and line_indicator != ' ':
-          tokens.append(Token(line, 'invalid'))
+          tokens.append(Token(line, 'invalid', False))
         else:
           tokens += self.tokenize_line_number(line_number)
 
           # tokenize line continuation character
           if len(line_continuation) > 0:
             if line_continuation.isspace():
-              tokens.append(Token(line_continuation, 'whitespace'))
+              tokens.append(Token(line_continuation, 'whitespace', False))
             else:
-              tokens.append(Token(line_continuation, 'line continuation'))
+              tokens.append(Token(line_continuation, 'line continuation', False))
 
           # tokenize the code
           tokens += tokenizer.tokenize(line_text)
 
           # tokenize the line identification
           if len(line_identification) > 0:
-            tokens.append(Token(line_identification, 'line identification'))
+            tokens.append(Token(line_identification, 'line identification', False))
 
-    tokens.append(Token('\n', 'newline'))
+    tokens.append(Token('\n', 'newline', False))
 
     return tokens
 

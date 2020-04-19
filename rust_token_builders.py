@@ -17,7 +17,7 @@ class RustRawStringTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'string')]
+    return [Token(self.text, 'string', True)]
 
 
   def accept(self, candidate, c):
@@ -80,7 +80,7 @@ class RustAttributeTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'attribute')]
+    return [Token(self.text, 'attribute', False)]
 
 
   def accept(self, candidate, c):

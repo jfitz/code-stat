@@ -54,8 +54,6 @@ class CExaminer(Examiner):
   def __init__(self, code, year):
     super().__init__()
 
-    operand_types = []
-
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -67,19 +65,15 @@ class CExaminer(Examiner):
     real_tb = RealTokenBuilder(False, False, "'")
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
     suffixed_real_tb = SuffixedRealTokenBuilder(False, False, ['f', 'l'], False, None)
-    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
-    operand_types.append('identifier')
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
-    operand_types.append('string')
 
     class_type_tb = ClassTypeTokenBuilder()
-    operand_types.append('class')
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
@@ -90,11 +84,11 @@ class CExaminer(Examiner):
       '#line', '#include', '#pragma'
     ]
 
-    line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation')
-    c_preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', True)
+    line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation', False)
+    c_preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', False, True)
     c_warning_tb = LeadToEndOfLineTokenBuilder('#warning', True, 'preprocessor')
     c_error_tb = LeadToEndOfLineTokenBuilder('#error', True, 'preprocessor')
-    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
+    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)
 
     known_operators = [
       '+', '-', '*', '/', '%',
@@ -122,9 +116,9 @@ class CExaminer(Examiner):
     group_ends = [')', ']', '}']
     group_mids = [',', ':']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
 
     keywords = [
       'auto',
@@ -143,7 +137,7 @@ class CExaminer(Examiner):
       'while'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
 
     types = [
       'char', 'double', 'float', 'int',
@@ -160,8 +154,7 @@ class CExaminer(Examiner):
     if year in ['99']:
       types += types_99
 
-    types_tb = ListTokenBuilder(types, 'type', True)
-    operand_types.append('type')
+    types_tb = ListTokenBuilder(types, 'type', True, True)
 
     values = ['NULL']
 
@@ -175,8 +168,7 @@ class CExaminer(Examiner):
     if year in ['99']:
       values += values_99
 
-    values_tb = ListTokenBuilder(values, 'value', True)
-    operand_types.append('value')
+    values_tb = ListTokenBuilder(values, 'value', True, True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -235,8 +227,8 @@ class CExaminer(Examiner):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
     operand_types = ['number']
     self.calc_operand_confidence(tokens, operand_types)

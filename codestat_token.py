@@ -6,9 +6,10 @@ class Token:
     return 'Escape ?Z'
 
 
-  def __init__(self, text, group):
+  def __init__(self, text, group, is_operand):
     self.text = text
     self.group = group
+    self.is_operand = is_operand
 
 
   def __str__(self):

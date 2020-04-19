@@ -17,7 +17,7 @@ class SlashSlashCommentTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'comment')]
+    return [Token(self.text, 'comment', False)]
 
 
   def accept(self, candidate, c):
@@ -62,7 +62,7 @@ class TripleSlashCommentTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'comment')]
+    return [Token(self.text, 'comment', False)]
 
 
   def accept(self, candidate, c):
@@ -110,7 +110,7 @@ class SlashStarCommentTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'comment')]
+    return [Token(self.text, 'comment', False)]
 
 
   def accept(self, candidate, c):
@@ -149,7 +149,7 @@ class ClassTypeTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'type')]
+    return [Token(self.text, 'type', True)]
 
 
   def accept(self, candidate, c):

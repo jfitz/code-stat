@@ -44,8 +44,6 @@ class AwkExaminer(Examiner):
   def __init__(self, code, extension):
     super().__init__()
 
-    operand_types = []
-
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -53,10 +51,8 @@ class AwkExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
     real_tb = RealTokenBuilder(False, False, None)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
-    operand_types.append('number')
 
     num_variable_tb = PrefixedIntegerTokenBuilder('$', False, '0123456789')
-    operand_types.append('variable')
 
     known_variables = [
       'ARGC', 'ARGV',
@@ -73,24 +69,21 @@ class AwkExaminer(Examiner):
     if extension == 'gnu':
       known_variables += known_variables_gnu
 
-    variable_tb = ListTokenBuilder(known_variables, 'variable', True)
+    variable_tb = ListTokenBuilder(known_variables, 'variable', True, True)
+
+    regex_tb = RegexTokenBuilder()
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
-    operand_types.append('identifier')
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
-    operand_types.append('string')
-
-    regex_tb = RegexTokenBuilder()
-    operand_types.append('regex')
 
     hash_comment_tb = LeadToEndOfLineTokenBuilder('#', False, 'comment')
 
-    line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation')
-    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
+    line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation', False)
+    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)
 
     known_operators = [
       '=', '+', '-', '*', '/', '%', '^',
@@ -115,9 +108,9 @@ class AwkExaminer(Examiner):
     group_starts = ['(', '[', ',', '{']
     group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
 
     keywords = [
       'BEGIN', 'END',
@@ -126,7 +119,7 @@ class AwkExaminer(Examiner):
       'function', 'func', 'exit'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -168,8 +161,8 @@ class AwkExaminer(Examiner):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     operand_types = ['number', 'symbol']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()

@@ -18,7 +18,7 @@ class BasicVariableTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'identifier')]
+    return [Token(self.text, 'identifier', True)]
 
 
   def accept(self, candidate, c):
@@ -51,7 +51,7 @@ class BasicLongVariableTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'identifier')]
+    return [Token(self.text, 'identifier', True)]
 
 
   def accept(self, candidate, c):
@@ -80,16 +80,16 @@ class RemarkTokenBuilder(TokenBuilder):
     if self.text == None:
       return None
 
-    token1 = Token('', 'comment')
-    token2 = Token('', 'comment')
+    token1 = Token('', 'comment', False)
+    token2 = Token('', 'comment', False)
 
     if self.text.startswith('REM'):
-      token1 = Token('REM', 'keyword')
-      token2 = Token(self.text[3:], 'comment')
+      token1 = Token('REM', 'keyword', False)
+      token2 = Token(self.text[3:], 'comment', False)
 
     if self.text.startswith('REMARK'):
-      token1 = Token('REMARK', 'keyword')
-      token2 = Token(self.text[6:], 'comment')
+      token1 = Token('REMARK', 'keyword', False)
+      token2 = Token(self.text[6:], 'comment', False)
 
     return [token1, token2]
 
@@ -140,7 +140,7 @@ class UserFunctionTokenBuilder(TokenBuilder):
     if self.text == None:
       return None
 
-    return [Token(self.text, 'function')]
+    return [Token(self.text, 'function', True)]
 
 
   def accept(self, candidate, c):
@@ -186,7 +186,7 @@ class LongUserFunctionTokenBuilder(TokenBuilder):
     if self.text == None:
       return None
 
-    return [Token(self.text, 'function')]
+    return [Token(self.text, 'function', True)]
 
 
   def accept(self, candidate, c):
@@ -233,7 +233,7 @@ class HardwareFunctionTokenBuilder(TokenBuilder):
     if self.text == None:
       return None
 
-    return [Token(self.text, 'function')]
+    return [Token(self.text, 'function', True)]
 
 
   def accept(self, candidate, c):

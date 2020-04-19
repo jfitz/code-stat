@@ -17,7 +17,7 @@ class HaskellIdentifierTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'identifier')]
+    return [Token(self.text, 'identifier', True)]
 
 
   def accept(self, candidate, c):
@@ -43,7 +43,7 @@ class HaskellClassTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'class')]
+    return [Token(self.text, 'class', True)]
 
 
   def accept(self, candidate, c):
@@ -70,7 +70,7 @@ class HaskellOperatorTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'operator')]
+    return [Token(self.text, 'operator', True)]
 
 
   def accept(self, _, c):

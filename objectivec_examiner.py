@@ -57,28 +57,22 @@ class ObjectiveCExaminer(Examiner):
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
-    operand_types = []
-
     integer_tb = IntegerTokenBuilder(None)
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
     real_tb = RealTokenBuilder(False, False, None)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
-    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
-    operand_types.append('identifier')
 
     directive_tb = DirectiveTokenBuilder()
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, True)
     prefixed_string_tb = PrefixedStringTokenBuilder('@', False, quotes)
-    operand_types.append('string')
 
     class_type_tb = ClassTypeTokenBuilder()
-    operand_types.append('class')
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
@@ -89,11 +83,11 @@ class ObjectiveCExaminer(Examiner):
       '#import', '#line', '#include', '#pragma'
     ]
 
-    line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation')
-    c_preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', True)
+    line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation', False)
+    c_preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', False, True)
     c_warning_tb = LeadToEndOfLineTokenBuilder('#warning', True, 'preprocessor')
     c_error_tb = LeadToEndOfLineTokenBuilder('#error', True, 'preprocessor')
-    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
+    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)
 
     known_operators = [
       '+', '-', '*', '/', '%',
@@ -121,9 +115,9 @@ class ObjectiveCExaminer(Examiner):
     group_ends = [')', ']', '}']
     group_mids = [',', ':']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
 
     keywords = [
       'break', 'case', 'continue', 'default',
@@ -138,7 +132,7 @@ class ObjectiveCExaminer(Examiner):
       'atomic', 'nonatomic', 'retain'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
 
     types = [
       'auto', 'char', 'const', 'double', 'enum', 'extern',
@@ -147,15 +141,13 @@ class ObjectiveCExaminer(Examiner):
       'volatile', '_Bool', '_Complex', '_Imaginary', 'BOOL', 'Class', 
     ]
 
-    types_tb = ListTokenBuilder(types, 'type', True)
-    operand_types.append('type')
+    types_tb = ListTokenBuilder(types, 'type', True, True)
 
     values = [
       'self', 'super', 'nil', 'YES', 'NO', 'NULL', '...'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True)
-    operand_types.append('value')
+    values_tb = ListTokenBuilder(values, 'value', True, True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -205,8 +197,8 @@ class ObjectiveCExaminer(Examiner):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
     operand_types = ['number', 'string', 'symbol']
     self.calc_operand_confidence(tokens, operand_types)

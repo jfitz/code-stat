@@ -16,7 +16,7 @@ class CobolExaminer(Examiner):
 
 
   def convert_numbers_to_pictures(self):
-    prev_token = Token('newline', '\n')
+    prev_token = Token('newline', '\n', False)
 
     for token in self.tokens:
       if token.group == 'number' and all_nines(token.text) and\
@@ -28,7 +28,7 @@ class CobolExaminer(Examiner):
 
 
   def convert_numbers_to_levels(self):
-    prev_token = Token('newline', '\n')
+    prev_token = Token('newline', '\n', False)
 
     for token in self.tokens:
       if token.group == 'number' and token.text.isdigit() and len(token.text) <= 2 and\
@@ -106,7 +106,7 @@ class CobolExaminer(Examiner):
     tokens = Examiner.drop_tokens(self.tokens, drop_types)
 
     errors = 0
-    prev_token = Token('\n', 'newline')
+    prev_token = Token('\n', 'newline', False)
     for token in tokens:
 
       if prev_token.group == 'keyword' and prev_token.text in ['PIC', 'PICTURE']:

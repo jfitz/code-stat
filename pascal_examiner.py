@@ -46,11 +46,9 @@ class PascalExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
-    operand_types = []
-
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
-    stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator')
+    stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator', False)
 
     integer_tb = IntegerTokenBuilder(None)
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
@@ -60,15 +58,12 @@ class PascalExaminer(Examiner):
     octal_constant_tb = PrefixedIntegerTokenBuilder('&', True, '01234567')
     binary_constant_tb = PrefixedIntegerTokenBuilder('%', True, '01')
     char_constant_tb = PrefixedIntegerTokenBuilder('#', True, '0123456789')
-    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
-    operand_types.append('identifier')
 
     string_tb = StringTokenBuilder(["'"], False)
-    operand_types.append('string')
 
     brace_comment_tb = BraceCommentTokenBuilder()
     paren_star_comment_tb = BlockTokenBuilder('(*', '*)', 'comment')
@@ -84,7 +79,7 @@ class PascalExaminer(Examiner):
       'div', 'mod', 'shl', 'shr', 'in'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, False)
 
     self.unary_operators = [
       '+', '-',
@@ -97,7 +92,7 @@ class PascalExaminer(Examiner):
     group_starts = ['(', '[', ',']
     group_ends = [')', ']']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', True)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, True)
 
     keywords = [
       'begin', 'break',
@@ -117,21 +112,19 @@ class PascalExaminer(Examiner):
       'while', 'with'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, False)
 
     types = [
       'array', 'boolean', 'char', 'file', 'integer', 'real', 'record', 'set', 'string'
     ]
 
-    types_tb = ListTokenBuilder(types, 'type', False)
-    operand_types.append('type')
+    types_tb = ListTokenBuilder(types, 'type', True, False)
 
     values = [
       'false', 'nil', 'true'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', False)
-    operand_types.append('value')
+    values_tb = ListTokenBuilder(values, 'value', True, False)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -179,8 +172,8 @@ class PascalExaminer(Examiner):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     operand_types = ['number', 'string', 'identifier', 'variable']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
@@ -218,7 +211,7 @@ class PascalExaminer(Examiner):
         new_token is not None and new_token.group == 'identifier' and \
         first_printable_token and \
         not in_declaration:
-        new_token = Token(new_token.text + token.text, 'label')
+        new_token = Token(new_token.text + token.text, 'label', False)
       else:
         if new_token is not None:
             new_list.append(new_token)

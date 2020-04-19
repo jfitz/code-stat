@@ -17,7 +17,7 @@ class CobolIdentifierTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'identifier')]
+    return [Token(self.text, 'identifier', True)]
 
 
   def accept(self, candidate, c):
@@ -45,11 +45,11 @@ class PictureTokenBuilder(TokenBuilder):
     tokens = None
     if self.text[-1] == '.':
       # a terminating dot is not part of the PIC
-      token1 = Token(self.text[:-1], 'picture')
-      token2 = Token('.', 'statement terminator')
+      token1 = Token(self.text[:-1], 'picture', True)
+      token2 = Token('.', 'statement terminator', False)
       tokens = [token1, token2]
     else:
-      tokens = [Token(self.text, 'picture')]
+      tokens = [Token(self.text, 'picture', True)]
 
     return tokens
 
@@ -103,11 +103,11 @@ class CRPictureTokenBuilder(TokenBuilder):
     tokens = None
     if self.text[-1] == '.':
       # a terminating dot is not part of the PIC
-      token1 = Token(self.text[:-1], 'picture')
-      token2 = Token('.', 'statement terminator')
+      token1 = Token(self.text[:-1], 'picture', True)
+      token2 = Token('.', 'statement terminator', False)
       tokens = [token1, token2]
     else:
-      tokens = [Token(self.text, 'picture')]
+      tokens = [Token(self.text, 'picture', True)]
 
     return tokens
 
@@ -167,7 +167,7 @@ class CobolPreprocessorTokenBuilder(TokenBuilder):
       return None
 
     if self.text.startswith(self.prefix):
-      return [Token(self.text, 'preprocessor')]
+      return [Token(self.text, 'preprocessor', False)]
 
     return None
 
@@ -211,7 +211,7 @@ class AsteriskCommentTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'comment')]
+    return [Token(self.text, 'comment', False)]
 
 
   def accept(self, candidate, c):

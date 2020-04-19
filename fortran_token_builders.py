@@ -20,7 +20,7 @@ class FortranIdentifierTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'identifier')]
+    return [Token(self.text, 'identifier', True)]
 
 
   def accept(self, candidate, c):
@@ -64,7 +64,7 @@ class FormatSpecifierTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'format')]
+    return [Token(self.text, 'format', True)]
 
 
   def accept(self, candidate, c):
@@ -133,7 +133,7 @@ class HollerithStringTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'string')]
+    return [Token(self.text, 'string', True)]
 
 
   def accept(self, candidate, c):
@@ -189,7 +189,7 @@ class UserDefinedOperatorTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'line number')]
+    return [Token(self.text, 'line number', False)]
 
 
   def accept(self, candidate, c):
@@ -234,7 +234,7 @@ class KindIntegerTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'number')]
+    return [Token(self.text, 'number', True)]
 
 
   def accept(self, candidate, c):
@@ -266,7 +266,7 @@ class KindRealTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'number')]
+    return [Token(self.text, 'number', True)]
 
 
   def accept(self, candidate, c):

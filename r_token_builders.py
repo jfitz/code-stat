@@ -17,7 +17,7 @@ class ROperatorTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'operator')]
+    return [Token(self.text, 'operator', False)]
 
 
   def accept(self, candidate, c):

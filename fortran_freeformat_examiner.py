@@ -38,16 +38,12 @@ class FortranFreeFormatExaminer(FortranExaminer):
     if year is not None and year not in ['90', '1990', '95', '1995', '2003', '2008']:
       raise CodeStatException('Unknown year for language')
 
-    operand_types = []
-
     kind_integer_tb = KindIntegerTokenBuilder()
     kind_real_tb = KindRealTokenBuilder()
-    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
-    operand_types.append('identifier')
 
     bang_comment_tb = LeadToEndOfLineTokenBuilder('!', False, 'comment')
 
@@ -56,7 +52,6 @@ class FortranFreeFormatExaminer(FortranExaminer):
     binary_string_tb = PrefixedStringTokenBuilder('B', False, quotes)
     octal_string_tb = PrefixedStringTokenBuilder('O', False, quotes)
     hex_string_tb = PrefixedStringTokenBuilder('Z', False, quotes)
-    operand_types.append('string')
 
     known_operators = [
       '=', '+', '-', '*', '/', '**',
@@ -66,21 +61,21 @@ class FortranFreeFormatExaminer(FortranExaminer):
       ':', '::', '=>', '%'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, False)
 
     self.unary_operators = [
       '+', '-'
     ]
 
     user_operator_tb = UserDefinedOperatorTokenBuilder()
-    continuation_tb = SingleCharacterTokenBuilder('&', 'line continuation')
-    stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator')
+    continuation_tb = SingleCharacterTokenBuilder('&', 'line continuation', False)
+    stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator', False)
 
     groupers = ['(', ')', ',', '[', ']']
     # group_starts = ['(', '[', ',', '{']
     # group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
     keywords = [
       'IF', 'THEN', 'ELSE', 'ENDIF', 'END IF', 'GO', 'TO', 'GOTO', 'GO TO',
@@ -121,15 +116,14 @@ class FortranFreeFormatExaminer(FortranExaminer):
     if year in ['2008']:
       keywords += keywords_2008
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, False)
 
     types = [
       'INTEGER', 'REAL', 'COMPLEX', 'DOUBLE PRECISION', 'DOUBLEPRECISION',
       'DOUBLE', 'PRECISION', 'LOGICAL', 'CHARACTER'
     ]
 
-    types_tb = ListTokenBuilder(types, 'type', False)
-    operand_types.append('type')
+    types_tb = ListTokenBuilder(types, 'type', True, False)
 
     tokenbuilders = [
       self.newline_tb,
@@ -179,8 +173,8 @@ class FortranFreeFormatExaminer(FortranExaminer):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    # self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    # self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    # self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    # self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     operand_types = ['number', 'string', 'identifier', 'variable', 'symbol']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()

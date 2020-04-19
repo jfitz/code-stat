@@ -51,8 +51,6 @@ class BasicExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
-    operand_types = []
-
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -65,20 +63,17 @@ class BasicExaminer(Examiner):
     hex_constant_tb = PrefixedIntegerTokenBuilder('&H', True, '0123456789ABCDEFabcdef_')
     octal_constant_tb = PrefixedIntegerTokenBuilder('&O', True, '01234567_')
     binary_constant_tb = PrefixedIntegerTokenBuilder('&B', True, '01_')
-    operand_types.append('number')
 
     variable_tb = BasicVariableTokenBuilder('%#!$&')
-    operand_types.append('identifier')
 
     quotes = ['"']
     string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
-    operand_types.append('string')
 
     remark_tb = RemarkTokenBuilder()
     comment_tb = LeadToEndOfLineTokenBuilder("'", False, 'comment')
     comment2_tb = LeadToEndOfLineTokenBuilder("’", False, 'comment')
 
-    stmt_separator_tb = SingleCharacterTokenBuilder(':', 'statement separator')
+    stmt_separator_tb = SingleCharacterTokenBuilder(':', 'statement separator', False)
 
     known_operators = [
       '+', '-', '*', '/', '^',
@@ -86,7 +81,7 @@ class BasicExaminer(Examiner):
       '#', '\\', '#', 'AND', 'OR', 'NOT'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
 
     self.unary_operators = [
       '+', '-', '#', 'NOT'
@@ -96,7 +91,7 @@ class BasicExaminer(Examiner):
     group_starts = ['(', ',']
     group_ends = [')']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
     keywords = [
       'AS',
@@ -117,7 +112,7 @@ class BasicExaminer(Examiner):
       'USING'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
 
     functions = [
       'ABS',
@@ -137,8 +132,7 @@ class BasicExaminer(Examiner):
       'ZER'
     ]
 
-    function_tb = ListTokenBuilder(functions, 'function', True)
-    operand_types.append('function')
+    function_tb = ListTokenBuilder(functions, 'function', True, True)
 
     user_function_tb = UserFunctionTokenBuilder('%#!$&')
 
@@ -187,8 +181,8 @@ class BasicExaminer(Examiner):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     operand_types = ['number', 'string', 'identifier', 'variable', 'symbol']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
@@ -197,7 +191,7 @@ class BasicExaminer(Examiner):
 
 
   def convert_numbers_to_line_numbers(self):
-    prev_token = Token('\n', 'newline')
+    prev_token = Token('\n', 'newline', False)
 
     for token in self.tokens:
       if token.group == 'number' and\

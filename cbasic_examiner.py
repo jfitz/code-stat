@@ -53,8 +53,6 @@ class CBasicExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
-    operand_types = []
-
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
     line_continuation_tb = CBasicLineContinuationTokenBuilder()
@@ -65,20 +63,17 @@ class CBasicExaminer(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     hex_constant_tb = CBasicSuffixedIntegerTokenBuilder('0123456789ABCDEF', 'H')
     binary_constant_tb = CBasicSuffixedIntegerTokenBuilder('01', 'B')
-    operand_types.append('number')
 
     variable_tb = CBasicVariableTokenBuilder('%$')
-    operand_types.append('identifier')
 
     quotes = ['"']
     string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
-    operand_types.append('string')
 
     remark_tb = RemarkTokenBuilder()
     comment_tb = LeadToEndOfLineTokenBuilder("'", False, 'comment')
     comment2_tb = LeadToEndOfLineTokenBuilder("’", False, 'comment')
 
-    stmt_separator_tb = SingleCharacterTokenBuilder(':', 'statement separator')
+    stmt_separator_tb = SingleCharacterTokenBuilder(':', 'statement separator', False)
 
     known_operators = [
       '+', '-', '*', '/', '^',
@@ -87,7 +82,7 @@ class CBasicExaminer(Examiner):
       'AND', 'EQ', 'GE', 'GT', 'LE', 'LT', 'NE', 'OR', 'XOR'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
 
     self.unary_operators = [
       '+', '-', '#', 'NOT'
@@ -97,7 +92,7 @@ class CBasicExaminer(Examiner):
     group_starts = ['(', ',']
     group_ends = [')']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
     keywords = [
       'AS', 'BUFF', 'CALL',  'CHAIN', 'CLOSE', 'COMMON', 'CONSOLE', 'CREATE',
@@ -114,7 +109,7 @@ class CBasicExaminer(Examiner):
       'BEAM', 'CLEAR', 'CLIP', 'POSITION'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, False)
 
     label_tb = CBasicLabelTokenBuilder(keywords)
 
@@ -127,8 +122,7 @@ class CBasicExaminer(Examiner):
       'RECL', 'RECS', 'SADD', 'SIZE', 'UCASE$', 'VARPTR'
     ]
 
-    function_tb = ListTokenBuilder(functions, 'function', False)
-    operand_types.append('function')
+    function_tb = ListTokenBuilder(functions, 'function', True, False)
 
     directives = [
       '%LIST', '%NOLIST',
@@ -136,7 +130,7 @@ class CBasicExaminer(Examiner):
       '%INCLUDE', '%CHAIN'
     ]
 
-    directive_tb = ListTokenBuilder(directives, 'directive', False)
+    directive_tb = ListTokenBuilder(directives, 'directive', False, False)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -183,8 +177,8 @@ class CBasicExaminer(Examiner):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     operand_types = ['number', 'string', 'symbol']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
@@ -193,7 +187,7 @@ class CBasicExaminer(Examiner):
 
 
   def convert_numbers_to_line_numbers(self):
-    prev_token = Token('\n', 'newline')
+    prev_token = Token('\n', 'newline', False)
 
     prev_line_continuation = False
     line_continuation = False

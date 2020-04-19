@@ -44,8 +44,6 @@ class RExaminer(Examiner):
     super().__init__()
     self.newlines_important = 'parens'
 
-    operand_types = []
-
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -53,16 +51,13 @@ class RExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder('_')
     real_tb = RealTokenBuilder(False, False, '_')
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', '_')
-    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
-    operand_types.append('identifier')
 
     quotes = ['"', "'", "’", '`']
     string_tb = StringTokenBuilder(quotes, True)
-    operand_types.append('string')
 
     hash_comment_tb = LeadToEndOfLineTokenBuilder('#', True, 'comment')
 
@@ -80,15 +75,15 @@ class RExaminer(Examiner):
       '!', '@', '.'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
-    stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator')
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
+    stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator', False)
     user_operator_tb = ROperatorTokenBuilder()
 
     groupers = ['(', ')', ',', '[', ']', '{', '}']
     group_starts = ['(', '[', ',', '{']
     group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
     keywords = [
       'if', 'else', 'repeat', 'while',
@@ -97,7 +92,7 @@ class RExaminer(Examiner):
       'colnames', 'rownames', 'cbind', 'dim'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
 
     values = [
       'TRUE', 'FALSE', 'NULL', 'Inf', 'NaN', 'NA',
@@ -105,8 +100,7 @@ class RExaminer(Examiner):
       '...'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True)
-    operand_types.append('value')
+    values_tb = ListTokenBuilder(values, 'value', True, True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -148,8 +142,8 @@ class RExaminer(Examiner):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     operand_types = ['number', 'string', 'identifier', 'variable', 'symbol']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()

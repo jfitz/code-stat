@@ -51,24 +51,20 @@ class PythonExaminer(Examiner):
     super().__init__()
     self.newlines_important = 'always'
 
-    operand_types = []
-
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
-    stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator')
+    stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator', False)
 
     integer_tb = IntegerTokenBuilder('_')
     integer_exponent_tb = IntegerExponentTokenBuilder('_')
     real_tb = RealTokenBuilder(False, False, '_')
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', '_')
-    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
-    operand_types.append('identifier')
 
-    decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator')
+    decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator', False)
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
@@ -76,7 +72,6 @@ class PythonExaminer(Examiner):
     byte_string_tb = PrefixedStringTokenBuilder('b', True, quotes)
     unicode_string_tb = PrefixedStringTokenBuilder('u', True, quotes)
     fast_string_tb = PrefixedStringTokenBuilder('f', True, quotes)
-    operand_types.append('string')
 
     triple_quote_comment_tb = TripleQuoteStringTokenBuilder(quotes)
     raw_triple_quote_comment_tb = RawTripleQuoteCommentTokenBuilder()
@@ -93,7 +88,7 @@ class PythonExaminer(Examiner):
       '++', '--', 'and', 'or', 'in', 'is', 'not'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
 
     self.unary_operators = [
       '+', '-',
@@ -114,10 +109,10 @@ class PythonExaminer(Examiner):
     group_starts = ['(', '[', ',', '{']
     group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
     continuation_chars = ['\\']
-    line_continuation_tb = ListTokenBuilder(continuation_chars, 'line continuation', False)
+    line_continuation_tb = ListTokenBuilder(continuation_chars, 'line continuation', False, False)
 
     keywords = [
       'import', 'from', 'as', 'def', 'class',
@@ -129,14 +124,13 @@ class PythonExaminer(Examiner):
       'print'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
 
     values = [
       'False', 'None', 'True'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True)
-    operand_types.append('value')
+    values_tb = ListTokenBuilder(values, 'value', True, True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -185,8 +179,8 @@ class PythonExaminer(Examiner):
     ]
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     operand_types = ['number', 'string', 'identifier', 'variable', 'symbol']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()

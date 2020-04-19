@@ -54,8 +54,6 @@ class FsharpExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
-    operand_types = []
-
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -63,22 +61,18 @@ class FsharpExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
     real_tb = RealTokenBuilder(True, True, None)
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', None)
-    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
-    operand_types.append('identifier')
 
     class_type_tb = ClassTypeTokenBuilder()
-    operand_types.append('class')
 
     quotes = ['"']
     string_tb = StringTokenBuilder(quotes, False)
     triple_quote_string_tb = TripleQuoteStringTokenBuilder(quotes)
     prefixed_string_tb = PrefixedStringTokenBuilder('@', False, quotes)
     char_tb = FsharpCharTokenBuilder(["'", "’"])
-    operand_types.append('string')
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     parens_star_comment_tb = BlockTokenBuilder('(*', '*)', 'comment')
@@ -90,7 +84,7 @@ class FsharpExaminer(Examiner):
       '#line', '#region', '#endregion', '#pragma'
     ]
 
-    preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', True)
+    preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', False, True)
     c_warning_tb = LeadToEndOfLineTokenBuilder('#warning', True, 'preprocessor')
     c_error_tb = LeadToEndOfLineTokenBuilder('#error', True, 'preprocessor')
 
@@ -121,7 +115,7 @@ class FsharpExaminer(Examiner):
       "'"
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
 
     groupers = [
       '(', ')', ',', '[', ']', '{', '}',
@@ -134,7 +128,7 @@ class FsharpExaminer(Examiner):
     # group_starts = ['(', '[', ',', '{', '[|', '[<']
     group_ends = [')', ']', '}', '|]', '>]']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
     keywords = [
       'abstract', 'assert', 'break', 'class', 'default', 'delegate',
@@ -148,22 +142,20 @@ class FsharpExaminer(Examiner):
       'val', 'while', 'with', 'yield', 'yield!'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
 
     types = [
       'bool', 'byte', 'char', 'decimal', 'double', 'float', 'int', 'long', 'object',
       'sbyte', 'short', 'string', 'uint', 'ulong', 'ushort', 'void'
     ]
 
-    types_tb = ListTokenBuilder(types, 'type', True)
-    operand_types.append('type')
+    types_tb = ListTokenBuilder(types, 'type', True, True)
 
     values = [
       'base', 'false', 'null', 'true', '_'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True)
-    operand_types.append('value')
+    values_tb = ListTokenBuilder(values, 'value', True, True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -210,8 +202,8 @@ class FsharpExaminer(Examiner):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    # self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    # self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     operand_types = ['number', 'string', 'symbol']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()

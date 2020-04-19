@@ -44,35 +44,29 @@ class PrologExaminer(Examiner):
     super().__init__()
     self.newlines_important = 'parens'
 
-    operand_types = []
-
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
-    stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator')
-    stmt_terminator_tb = SingleCharacterTokenBuilder('.', 'statement terminator')
+    stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator', False)
+    stmt_terminator_tb = SingleCharacterTokenBuilder('.', 'statement terminator', False)
 
     integer_tb = IntegerTokenBuilder('_')
     integer_exponent_tb = IntegerExponentTokenBuilder('_')
     real_tb = RealTokenBuilder(False, False, '_')
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', '_')
-    operand_types.append('number')
 
     variable_tb = PrologVariableTokenBuilder()
-    operand_types.append('variable')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
-    operand_types.append('identifier')
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
-    operand_types.append('string')
 
     comment_tb = LeadToEndOfLineTokenBuilder('%', True, 'comment')
 
     special_symbols = ['!']
-    special_symbol_tb = ListTokenBuilder(special_symbols, 'identifier', True)
+    special_symbol_tb = ListTokenBuilder(special_symbols, 'identifier', True, True)
 
     known_operators = [
         '-->', ':-',
@@ -91,13 +85,13 @@ class PrologExaminer(Examiner):
       '+', '-', ':-', '\\', '\\+'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
 
     groupers = ['(', ')', ',', '[', ']', '{', '}', '|']
     group_starts = ['(', '[', ',', '{']
     group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
     keywords = [
       'dynamic', 'discontiguous', 'initialization', 'meta_predicate',
@@ -105,12 +99,11 @@ class PrologExaminer(Examiner):
       'thread_initialization', 'volatile'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
 
     values = ['(-)']
 
-    value_tb = ListTokenBuilder(values, 'value', True)
-    operand_types.append('value')
+    value_tb = ListTokenBuilder(values, 'value', True, True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -152,8 +145,8 @@ class PrologExaminer(Examiner):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     operand_types = ['number', 'string', 'identifier', 'variable', 'symbol']
     self.calc_operand_confidence(tokens, operand_types)
     # self.calc_keyword_confidence()

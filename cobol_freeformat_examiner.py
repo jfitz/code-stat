@@ -58,8 +58,6 @@ class CobolFreeFormatExaminer(CobolExaminer):
     if year is not None and year not in ['2002', '2014']:
       raise CodeStatException('Unknown year for language')
 
-    operand_types = []
-
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -67,25 +65,21 @@ class CobolFreeFormatExaminer(CobolExaminer):
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
     real_tb = RealTokenBuilder(False, True, None)
     real_exponent_tb = RealExponentTokenBuilder(False, True, 'E', None)
-    operand_types.append('number')
 
     identifier_tb = CobolIdentifierTokenBuilder()
-    operand_types.append('identifier')
 
     quotes = ['"', "'", "’"]
     string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
     n_string_tb = PrefixedStringTokenBuilder('N', False, quotes)
     nx_string_tb = PrefixedStringTokenBuilder('NX', False, quotes)
-    operand_types.append('string')
 
     picture_tb = PictureTokenBuilder()
     cr_picture_tb = CRPictureTokenBuilder()
-    operand_types.append('picture')
 
     inline_comment_tb = LeadToEndOfLineTokenBuilder('*>', True, 'comment')
     star_comment_tb = AsteriskCommentTokenBuilder()
 
-    terminators_tb = SingleCharacterTokenBuilder('.', 'statement terminator')
+    terminators_tb = SingleCharacterTokenBuilder('.', 'statement terminator', False)
 
     known_operators = [
       'ADD', 'SUBTRACT', 'MULTIPLY', 'DIVIDE',
@@ -96,7 +90,7 @@ class CobolFreeFormatExaminer(CobolExaminer):
       ':'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
 
     self.unary_operators = [
       '+', '-', 'NOT'
@@ -106,7 +100,7 @@ class CobolFreeFormatExaminer(CobolExaminer):
     group_starts = ['(']
     # group_ends = [')']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
     keywords = [
       'ACCEPT', 'ACCESS', 'ADD', 'ADDRESS', 'ADVANCING', 'AFTER', 'ALL',
@@ -352,7 +346,7 @@ class CobolFreeFormatExaminer(CobolExaminer):
     if extension.lower() == 'gnu':
       keywords += keywords_gnu
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, False)
 
     values = [
       'BLANK', 'SPACE', 'SPACES', 'ZERO', 'ZEROES', 'ZEROS',
@@ -364,8 +358,7 @@ class CobolFreeFormatExaminer(CobolExaminer):
     if year in ['2002', '2014']:
       values += values_2002
 
-    value_tb = ListTokenBuilder(values, 'value', False)
-    operand_types.append('value')
+    value_tb = ListTokenBuilder(values, 'value', True, False)
 
     cobol_preprocessor_tb = CobolPreprocessorTokenBuilder()
 
@@ -419,8 +412,8 @@ class CobolFreeFormatExaminer(CobolExaminer):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    # self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    # self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     # self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
     self.calc_picture_confidence()

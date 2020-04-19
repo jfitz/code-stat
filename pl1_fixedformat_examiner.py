@@ -87,8 +87,8 @@ class PL1FixedFormatExaminer(PL1Examiner):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, self.group_ends, self.operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, self.group_starts, self.operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, self.group_ends, allow_pairs)
+    self.calc_operator_4_confidence(tokens, self.group_starts, allow_pairs)
     operand_types = ['number', 'symbol']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
@@ -107,7 +107,7 @@ class PL1FixedFormatExaminer(PL1Examiner):
     # but if columns 1 and 2 are '//', then the line is JCL
 
     if line.startswith(('//', '/*')):
-      tokens.append(Token(line, 'jcl'))
+      tokens.append(Token(line, 'jcl', False))
     else:
       line_indicator = line[0:1]
       if wide:
@@ -119,20 +119,20 @@ class PL1FixedFormatExaminer(PL1Examiner):
 
       # tokenize the line indicator
       if line_indicator in ['C', '*']:
-        tokens.append(Token(line, 'comment'))
+        tokens.append(Token(line, 'comment', False))
       else:
         if len(line_indicator) > 0 and line_indicator != ' ':
-          tokens.append(Token(line, 'invalid'))
+          tokens.append(Token(line, 'invalid', False))
         else:
-          tokens.append(Token(' ', 'whitespace'))
+          tokens.append(Token(' ', 'whitespace', False))
           # tokenize the code
           tokens += tokenizer.tokenize(line_text)
 
           # tokenize the line identification
           if len(line_identification) > 0:
-            tokens.append(Token(line_identification, 'line identification'))
+            tokens.append(Token(line_identification, 'line identification', False))
 
-    tokens.append(Token('\n', 'newline'))
+    tokens.append(Token('\n', 'newline', False))
 
     return tokens
 

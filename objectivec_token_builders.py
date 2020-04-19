@@ -16,7 +16,7 @@ class DirectiveTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'directive')]
+    return [Token(self.text, 'directive', False)]
 
   def accept(self, candidate, c):
     if len(candidate) == 0:

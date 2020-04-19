@@ -17,7 +17,7 @@ class LuaBlockCommentTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'comment')]
+    return [Token(self.text, 'comment', False)]
 
 
   def accept(self, candidate, c):
@@ -66,7 +66,7 @@ class DoubleBracketStringTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'string')]
+    return [Token(self.text, 'string', False)]
 
 
   def accept(self, candidate, c):

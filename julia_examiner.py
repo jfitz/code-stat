@@ -53,8 +53,6 @@ class JuliaExaminer(Examiner):
     super().__init__()
     self.newlines_important = 'parens'
 
-    operand_types = []
-
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -64,33 +62,29 @@ class JuliaExaminer(Examiner):
     real_tb = RealTokenBuilder(False, False, None)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     imaginary_tb = SuffixedRealTokenBuilder(False, False, ['im', 'cx'], True, None)
-    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     suffixes = '!'
     identifier_tb = SuffixedIdentifierTokenBuilder(leads, extras, suffixes)
-    operand_types.append('identifier')
 
-    symbol_tb = PrefixedIdentifierTokenBuilder(':', 'symbol')
-    operand_types.append('symbol')
+    symbol_tb = PrefixedIdentifierTokenBuilder(':', 'symbol', True)
 
-    attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute')
+    attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute', False)
 
-    dollar_sign_tb = SingleCharacterTokenBuilder('$', 'identifier')
+    dollar_sign_tb = SingleCharacterTokenBuilder('$', 'identifier', True)
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
     raw_string_tb = PrefixedStringTokenBuilder('raw', True, quotes)
     b_string_tb = PrefixedStringTokenBuilder('b', True, quotes)
     triple_quote_string_tb = TripleQuoteStringTokenBuilder(quotes)
-    operand_types.append('string')
 
     comment_tb = LeadToEndOfLineTokenBuilder('#', True, 'comment')
     nested_comment_tb = NestedCommentTokenBuilder('#=', '=#')
 
-    line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation')
-    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
+    line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation', False)
+    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)
 
     known_operators = [
       'where', 'in', 'isa', '′', "'",
@@ -113,7 +107,7 @@ class JuliaExaminer(Examiner):
       'ν', 'ξ', 'ο', 'π', 'ρ', 'ς', 'σ', 'τ', 'υ', 'φ', 'χ', 'ψ', 'ω'
     ]
 
-    greek_letter_tb = ListTokenBuilder(greek_letters, 'identifier', True)
+    greek_letter_tb = ListTokenBuilder(greek_letters, 'identifier', True, True)
 
     self.unary_operators = [
       'isa', '+', '-', '~', '!', '.', ':', '::', "'",
@@ -128,9 +122,9 @@ class JuliaExaminer(Examiner):
     # group_starts = ['(', '[', ',', '{']
     group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
 
     keywords = [
       'baremodule', 'begin', 'break',
@@ -151,7 +145,7 @@ class JuliaExaminer(Examiner):
       'abstract', 'mutable', 'primitive', 'type'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
 
     types = [
        'Int8', 'UInt8', 'Int16', 'UInt16', 'Int32', 'UInt32', 'Int64', 'UInt64',
@@ -159,15 +153,13 @@ class JuliaExaminer(Examiner):
        'Bool', 'Char'
     ]
 
-    types_tb = ListTokenBuilder(types, 'type', True)
-    operand_types.append('type')
+    types_tb = ListTokenBuilder(types, 'type', True, True)
 
     values = [
       'false', 'true'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True)
-    operand_types.append('value')
+    values_tb = ListTokenBuilder(values, 'value', True, True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -222,8 +214,8 @@ class JuliaExaminer(Examiner):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    # self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    # self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     operand_types = ['number', 'identifier', 'symbol']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
@@ -234,16 +226,16 @@ class JuliaExaminer(Examiner):
   @staticmethod
   def split_symbols_to_operators_identifiers(tokens, group_ends):
     new_tokens = []
-    prev_token = Token('\n', 'newline')
+    prev_token = Token('\n', 'newline', False)
 
     for token in tokens:
       if token.group == 'symbol' and \
         (prev_token.group in ['identifier', 'number'] or \
           (prev_token.group == 'group' and prev_token.text in group_ends)):
         # split the symbol into two, and insert the first into our results
-        token0 = Token(':', 'operator')
+        token0 = Token(':', 'operator', False)
         new_tokens.append(token0)
-        token = Token(token.text[1:], 'identifier')
+        token = Token(token.text[1:], 'identifier', True)
 
       new_tokens.append(token)
 
@@ -254,7 +246,7 @@ class JuliaExaminer(Examiner):
 
 
   def convert_keywords_to_identifiers(self):
-    prev_token = Token('\n', 'newline')
+    prev_token = Token('\n', 'newline', False)
 
     for token in self.tokens:
       if token.group == 'keyword' and token.text == 'type' and \
@@ -268,7 +260,7 @@ class JuliaExaminer(Examiner):
   # two operands in a row decreases confidence
   def calc_operand_confidence(self, tokens, operand_types):
     two_operand_count = 0
-    prev_token = Token('\n', 'newline')
+    prev_token = Token('\n', 'newline', False)
     for token in tokens:
       if token.group in operand_types and prev_token.group in operand_types:
         if token.group != 'identifier' or prev_token.group != 'number':

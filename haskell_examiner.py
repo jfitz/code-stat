@@ -49,8 +49,6 @@ class HaskellExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
-    operand_types = []
-
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -59,29 +57,25 @@ class HaskellExaminer(Examiner):
     hex_integer_tb = PrefixedIntegerTokenBuilder('0x', False, '0123456789abcdefABCDEF')
     real_tb = RealTokenBuilder(False, False, "'")
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
-    operand_types.append('number')
 
     identifier_tb = HaskellIdentifierTokenBuilder()
-    operand_types.append('identifier')
 
     class_tb = HaskellClassTokenBuilder()
-    operand_types.append('class')
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
-    operand_types.append('string')
 
     line_comment_tb = LeadToEndOfLineTokenBuilder('--', False, 'comment')
     block_comment_tb = BlockTokenBuilder('{-', '-}', 'comment')
 
-    line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation')
+    line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation', False)
 
     groupers = ['(', ')', ',', '[', ']', '{', '}', ':', '::']
     group_starts = ['(', '[', ',', '{']
     group_ends = [')', ']', '}']
     group_mids = [',', ':']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
     operators_tb = HaskellOperatorTokenBuilder('#$%&*+./<=>?@\\^|-~')
 
@@ -89,7 +83,7 @@ class HaskellExaminer(Examiner):
       "'", '..'
     ]
 
-    known_operators_tb = ListTokenBuilder(known_operators, 'operator', False)
+    known_operators_tb = ListTokenBuilder(known_operators, 'operator', False, False)
 
     self.postfix_operators = [
       '..', "'"
@@ -108,13 +102,11 @@ class HaskellExaminer(Examiner):
       'where'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
-    operand_types.append('keyword')
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', True, True)
 
     values = ['True', 'False', 'Nothing', '_']
 
-    value_tb = ListTokenBuilder(values, 'value', True)
-    operand_types.append('value')
+    value_tb = ListTokenBuilder(values, 'value', True, True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -160,8 +152,8 @@ class HaskellExaminer(Examiner):
     allow_pairs = []
 
     # self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
     # operand_types = ['number']
     # self.calc_operand_confidence(tokens, operand_types)
@@ -172,7 +164,7 @@ class HaskellExaminer(Examiner):
 
   @staticmethod
   def convert_keywords_to_identifiers(tokens):
-    prev_token = Token('\n', 'newline')
+    prev_token = Token('\n', 'newline', False)
 
     for token in tokens:
       if prev_token.text == 'type' and token.group != 'class':

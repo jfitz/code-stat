@@ -17,7 +17,7 @@ class JCLTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'jcl')]
+    return [Token(self.text, 'jcl', False)]
 
 
   def accept(self, candidate, c):

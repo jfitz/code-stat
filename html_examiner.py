@@ -65,7 +65,7 @@ class HTMLExaminer(Examiner):
     unicode_tb = HTMLUnicodeTokenBuilder()
     operand_types.append('character')
 
-    groupers_tb = ListTokenBuilder(['<', '</', '>', '/>'], 'group', False)
+    groupers_tb = ListTokenBuilder(['<', '</', '>', '/>'], 'group', False, False)
     group_starts = ['<']
     group_ends = ['>', '/>']
 
@@ -76,7 +76,7 @@ class HTMLExaminer(Examiner):
       '='
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
 
     punctuation = [
       '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+',
@@ -84,7 +84,7 @@ class HTMLExaminer(Examiner):
       ',', '.', '?', '>', '/', '\\', '|' # omit '<'
     ]
 
-    punctuation_tb = ListTokenBuilder(punctuation, 'punctuation', False)
+    punctuation_tb = ListTokenBuilder(punctuation, 'punctuation', False, False)
 
     keywords = [
       'a', 'abbr', 'address', 'area', 'article', 'aside', 'audio',
@@ -115,7 +115,7 @@ class HTMLExaminer(Examiner):
       'wbr'
     ]
 
-    keyword_tb = HTMLListTokenBuilder(keywords, 'keyword', False)
+    keyword_tb = HTMLListTokenBuilder(keywords, 'keyword', False, False)
 
     comment_tb = BlockTokenBuilder('<!--', '-->', 'comment')
 
@@ -159,8 +159,8 @@ class HTMLExaminer(Examiner):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     # self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
     self.calc_statistics()

@@ -49,27 +49,23 @@ class RubyExaminer(Examiner):
     super().__init__()
     self.newlines_important = 'parens'
 
-    operand_types = []
-
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
-    stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator')
+    stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator', False)
 
     integer_tb = IntegerTokenBuilder('_')
     integer_exponent_tb = IntegerExponentTokenBuilder('_')
     real_tb = RealTokenBuilder(True, True, '_')
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', '_')
-    operand_types.append('number')
 
     identifier_tb = RubyIdentifierTokenBuilder()
-    operand_types.append('identifier')
 
-    symbol_tb = PrefixedIdentifierTokenBuilder(':', 'symbol')
-    operand_types.append('symbol')
+    symbol_tb = PrefixedIdentifierTokenBuilder(':', 'symbol', True)
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, True)
-    operand_types.append('string')
+
+    regex_tb = RegexTokenBuilder()
 
     heredoc_tb = HereDocTokenBuilder('<<-')
 
@@ -94,7 +90,7 @@ class RubyExaminer(Examiner):
         '<<-'
       ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
 
     self.unary_operators = [
       '+', '-',
@@ -111,10 +107,7 @@ class RubyExaminer(Examiner):
     group_starts = ['(', '[', ',', '{']
     group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
-
-    regex_tb = RegexTokenBuilder()
-    operand_types.append('regex')
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
     keywords = [
       'BEGIN', 'END',
@@ -134,18 +127,17 @@ class RubyExaminer(Examiner):
       'yield'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
 
     values = [
       'nil', 'self', 'true', 'false', 'super'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True)
-    operand_types.append('value')
+    values_tb = ListTokenBuilder(values, 'value', True, True)
 
     array_markers = ['%w', '%q', '%Q', '%i', '%s', '%x']
 
-    array_marker_tb = ListTokenBuilder(array_markers, 'identifier', True)
+    array_marker_tb = ListTokenBuilder(array_markers, 'identifier', True, True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -192,8 +184,8 @@ class RubyExaminer(Examiner):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     operand_types = ['number', 'string', 'symbol']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
@@ -230,12 +222,13 @@ class RubyExaminer(Examiner):
 
 
   def convert_operators_to_identifiers(self):
-    prev_token = Token('\n', 'newline')
+    prev_token = Token('\n', 'newline', False)
 
     for token in self.tokens:
       if token.group == 'operator' and\
         prev_token.group == 'keyword' and prev_token.text == 'def':
         token.group = 'identifier'
+        token.is_operand = True
 
       if token.group not in ['whitespace', 'comment', 'newline']:
         prev_token = token
@@ -248,7 +241,7 @@ class RubyExaminer(Examiner):
     num_close = 0
 
     prev_token_lower = ''
-    prev_token = Token('\n', 'newline')
+    prev_token = Token('\n', 'newline', False)
 
     prev_reqs = [';', '=']
     conditional_openers = ['if', 'case', 'while', 'until', 'unless']

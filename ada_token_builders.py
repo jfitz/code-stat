@@ -17,7 +17,7 @@ class DashDashCommentTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'comment')]
+    return [Token(self.text, 'comment', False)]
 
 
   def accept(self, candidate, c):
@@ -60,7 +60,7 @@ class AdaCharTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'string')]
+    return [Token(self.text, 'string', True)]
 
 
   def accept(self, candidate, c):

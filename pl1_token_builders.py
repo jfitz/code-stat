@@ -16,7 +16,7 @@ class PL1LabelTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'label')]
+    return [Token(self.text, 'label', False)]
 
 
   def accept(self, candidate, c):
@@ -45,7 +45,7 @@ class PL1CommentStartTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'comment-start')]
+    return [Token(self.text, 'comment-start', False)]
 
 
   def accept(self, candidate, c):
@@ -83,7 +83,7 @@ class PL1CommentMiddleTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'comment-middle')]
+    return [Token(self.text, 'comment-middle', False)]
 
   def accept(self, candidate, c):
     return not candidate.endswith('*/')
@@ -114,7 +114,7 @@ class PL1CommentEndTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'comment-end')]
+    return [Token(self.text, 'comment-end', False)]
 
   def accept(self, candidate, c):
     return not candidate.endswith('*/')

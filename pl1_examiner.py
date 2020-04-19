@@ -33,8 +33,6 @@ class PL1Examiner(Examiner):
   def __init__(self):
     super().__init__()
 
-    self.operand_types = []
-
     self.whitespace_tb = WhitespaceTokenBuilder()
     self.newline_tb = NewlineTokenBuilder()
 
@@ -44,16 +42,13 @@ class PL1Examiner(Examiner):
     self.real_tb = RealTokenBuilder(False, False, None)
     self.real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     self.binary_real_tb = SuffixedRealTokenBuilder(True, True, ['B'], False, None)
-    self.operand_types.append('number')
 
     leads = '_'
     extras = '_'
     self.identifier_tb = IdentifierTokenBuilder(leads, extras)
-    self.operand_types.append('identifier')
 
     quotes = ['"', "'", "’"]
     self.string_tb = StringTokenBuilder(quotes, False)
-    self.operand_types.append('string')
 
     self.label_tb = PL1LabelTokenBuilder()
 
@@ -75,14 +70,14 @@ class PL1Examiner(Examiner):
       '%THEN'
     ]
 
-    self.line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation')
-    self.preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', False)
+    self.line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation', False)
+    self.preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', False, False)
     self.title_tb = LeadToEndOfLineTokenBuilder('%TITLE', True, 'preprocessor')
     self.subtitle_tb = LeadToEndOfLineTokenBuilder('%SBTTL', True, 'preprocessor')
     self.error_tb = LeadToEndOfLineTokenBuilder('%ERROR', True, 'preprocessor')
     self.warn_tb = LeadToEndOfLineTokenBuilder('%WARN', True, 'preprocessor')
     self.inform_tb = LeadToEndOfLineTokenBuilder('%INFORM', True, 'preprocessor')
-    self.terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
+    self.terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)
 
     known_operators = [
       '+', '-', '*', '/', '**',
@@ -107,9 +102,9 @@ class PL1Examiner(Examiner):
     self.group_starts = ['(', '[', ',', '{']
     self.group_ends = [')', ']', '}']
 
-    self.groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    self.groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
-    self.known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    self.known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
 
     keywords = [
       'ALLOCATE', 'ALLOC',
@@ -129,7 +124,7 @@ class PL1Examiner(Examiner):
       'WHEN', 'WRITE'
      ]
 
-    self.keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
+    self.keyword_tb = ListTokenBuilder(keywords, 'keyword', False, False)
 
     attributes = [
       'ALIGNED', 'ANY', 'AREA',
@@ -154,7 +149,7 @@ class PL1Examiner(Examiner):
       'VARIABLE', 'VARYING', 'VAR'
     ]
 
-    self.attributes_tb = ListTokenBuilder(attributes, 'attribute', False)
+    self.attributes_tb = ListTokenBuilder(attributes, 'attribute', False, False)
 
     functions = [
       'ABS', 'ACOS', 'ACTUALCOUNT', 'ADD', 'ADDR', 'ADDREL', 'ALLOCATION', 'ALLOCN',
@@ -181,8 +176,7 @@ class PL1Examiner(Examiner):
       'WARN'
     ]
 
-    self.function_tb = ListTokenBuilder(functions, 'function', False)
-    self.operand_types.append('function')
+    self.function_tb = ListTokenBuilder(functions, 'function', True, False)
 
     format_items = [
       'A',
@@ -196,8 +190,7 @@ class PL1Examiner(Examiner):
       'X'
     ]
 
-    self.format_item_tb = ListTokenBuilder(format_items, 'format', True)
-    self.operand_types.append('format')
+    self.format_item_tb = ListTokenBuilder(format_items, 'format', True, True)
 
     options = [
       'APPEND',
@@ -232,7 +225,7 @@ class PL1Examiner(Examiner):
       'WAIT_FOR_RECORD', 'WHILE', 'WORLD_PROTECTION', 'WRITE_BEHIND', 'WRITE_CHECK'
     ]
 
-    self.options_tb = ListTokenBuilder(options, 'option', False)
+    self.options_tb = ListTokenBuilder(options, 'option', False, False)
 
     conditions = [
       'ANYCONDITION',
@@ -246,7 +239,7 @@ class PL1Examiner(Examiner):
       'ZERODIVIDE', 'ZDIV'
     ]
 
-    self.conditions_tb = ListTokenBuilder(conditions, 'condition', False)
+    self.conditions_tb = ListTokenBuilder(conditions, 'condition', False, False)
 
     subroutines = [
       'DISPLAY',
@@ -257,19 +250,17 @@ class PL1Examiner(Examiner):
       'SPACEBLOCK'
     ]
 
-    self.subroutines_tb = ListTokenBuilder(subroutines, 'subroutine', False)
+    self.subroutines_tb = ListTokenBuilder(subroutines, 'subroutine', False, False)
 
     types = [
       'FIXED', 'BINARY', 'FLOAT', 'DECIMAL',
       'BIT', 'CHARACTER', 'PICTURE'
     ]
 
-    self.types_tb = ListTokenBuilder(types, 'type', False)
-    self.operand_types.append('type')
+    self.types_tb = ListTokenBuilder(types, 'type', True, False)
 
     values = [
       'SYSIN', 'SYSPRINT'
     ]
 
-    self.values_tb = ListTokenBuilder(values, 'value', False)
-    self.operand_types.append('value')
+    self.values_tb = ListTokenBuilder(values, 'value', True, False)

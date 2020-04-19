@@ -46,8 +46,6 @@ class SqlExaminer(Examiner):
     if year is not None and year not in ['92', '1992', '99', '1999', '2003', '2008', '2011', '2016']:
       raise CodeStatException('Unknown year for language')
 
-    operand_types = []
-
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -55,19 +53,16 @@ class SqlExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
     real_tb = RealTokenBuilder(True, True, None)
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', None)
-    operand_types.append('number')
 
     quotes = ["'", '"']
     string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
-    operand_types.append('string')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
     bracketed_identifier_tb = SqlBracketedIdentifierTokenBuilder()
-    operand_types.append('identifier')
 
-    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator')
+    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)
 
     comment_tb = LeadToEndOfLineTokenBuilder('--', True, 'comment')
 
@@ -78,7 +73,7 @@ class SqlExaminer(Examiner):
       '.'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', True)
+    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
 
     self.unary_operators = [
       'NOT', 'EXISTS', 'ANY', 'ALL'
@@ -88,7 +83,7 @@ class SqlExaminer(Examiner):
     group_starts = ['(', ',']
     group_ends = [')']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False)
+    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
 
     keywords = [
       'ABSOLUTE', 'ACTION', 'ADD', 'ALL', 'ALLOCATE', 'ALTER', 'ARE',
@@ -251,12 +246,11 @@ class SqlExaminer(Examiner):
     if year in ['2016']:
       keywords += keywords_2016
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, False)
 
     values = ['TRUE', 'FALSE', 'NULL', 'OFF', 'ON', 'NONE']
 
-    values_tb = ListTokenBuilder(values, 'value', False)
-    operand_types.append('value')
+    values_tb = ListTokenBuilder(values, 'value', True, False)
 
     types = [
       'BIGINT', 'BIT', 'BLOB',
@@ -270,8 +264,7 @@ class SqlExaminer(Examiner):
       'VARCHAR'
     ]
 
-    type_tb = ListTokenBuilder(types, 'type', False)
-    operand_types.append('type')
+    type_tb = ListTokenBuilder(types, 'type', True, False)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -314,8 +307,8 @@ class SqlExaminer(Examiner):
     allow_pairs = []
 
     self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, operand_types, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, operand_types, allow_pairs)
+    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     # operand_types = ['number', 'string', 'symbol']
     # self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
