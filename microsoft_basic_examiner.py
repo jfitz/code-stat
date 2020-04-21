@@ -212,7 +212,7 @@ class MicrosoftBasicExaminer(Examiner):
     self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
     self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
-    operand_types = ['number', 'string', 'identifier', 'variable']
+    operand_types = ['number', 'string', 'variable']
     self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
     self.calc_line_format_confidence()
@@ -276,7 +276,7 @@ class MicrosoftBasicExaminer(Examiner):
     words = keywords + operators
 
     for token in tokens:
-      if token.group == 'identifier':
+      if token.group == 'variable':
         new_texts = MicrosoftBasicExaminer.extract_keywords(token.text, words)
 
         for new_text in new_texts:
@@ -288,7 +288,7 @@ class MicrosoftBasicExaminer(Examiner):
             if new_text.isdigit():
               new_token = Token(new_text, 'number', True)
             else:
-              new_token = Token(new_text, 'identifier', True)
+              new_token = Token(new_text, 'variable', True)
 
           new_tokens.append(new_token)
       else:

@@ -18,7 +18,7 @@ class CBasicVariableTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    return [Token(self.text, 'identifier', True)]
+    return [Token(self.text, 'variable', True)]
 
 
   def accept(self, candidate, c):
