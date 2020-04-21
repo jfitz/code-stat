@@ -66,6 +66,7 @@ test\bin\run_test.ps1 -json -name sea-creature-basica -action tokens -language B
 test\bin\run_test.ps1 -json -name diamond-c-78 -action tokens -language C-78 -inputfile ".\test\data\C-78\diamond.c" -expected ".\test\ref\tokens\C-78\diamond.txt"
 test\bin\run_test.ps1 -json -name prime_test-c-78 -action tokens -language C-78 -inputfile ".\test\data\C-78\prime_test.c" -expected ".\test\ref\tokens\C-78\prime_test.txt"
 test\bin\run_test.ps1 -json -name values-c-78 -action tokens -language C-78 -inputfile ".\test\data\C-78\values.c" -expected ".\test\ref\tokens\C-78\values.txt"
+test\bin\run_test.ps1 -json -name j_interpreter-c-78 -action tokens -language C-78 -inputfile ".\test\data\C-78\j_interpreter.c" -expected ".\test\ref\tokens\C-78\j_interpreter.txt"
 
 # C-89
 

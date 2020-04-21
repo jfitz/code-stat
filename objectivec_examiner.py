@@ -120,25 +120,43 @@ class ObjectiveCExaminer(Examiner):
     known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
 
     keywords = [
-      'break', 'case', 'continue', 'default',
-      'do', 'else', 'for', 'goto',
-      'if', 'inline', 'restrict', 'return',
-      'sizeof', 'switch', 'typedef', 'while',
-      'bycopy', 'byref', 'id', 'IMP', 'in', 'inout',
-      'oneway', 'out', 'Protocol', 'SEL',
+      'atomic',
+      'break', 'bycopy', 'byref',
+      'case', 'continue',
+      'default', 'do',
+      'else',
+      'for',
+      'goto',
+      'if', 'IMP', 'in', 'inline', 'inout',
+      'nonatomic',
+      'oneway', 'out',
+      'Protocol',
+      'restrict', 'retain', 'return',
+      'SEL', 'sizeof', 'switch',
+      'typedef',
+      'while',
       '@interface', '@end', '@implementation', '@protocol', '@class',
       '@public', '@protected', '@private', '@property', '@try', '@throw',
-      '@catch()', '@finally', '@synthesize', '@dynamic', '@selector',
-      'atomic', 'nonatomic', 'retain'
+      '@catch()', '@finally', '@synthesize', '@dynamic', '@selector'
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
 
     types = [
-      'auto', 'char', 'const', 'double', 'enum', 'extern',
-      'float', 'int', 'long', 'register',
-      'short', 'signed', 'static', 'struct', 'union', 'unsigned', 'void',
-      'volatile', '_Bool', '_Complex', '_Imaginary', 'BOOL', 'Class', 
+      'auto',
+      'char', 'const',
+      'double',
+      'enum', 'extern',
+      'float',
+      'id', 'int',
+      'long',
+      'register',
+      'short', 'signed', 'static', 'struct',
+      'union', 'unsigned',
+      'void', 'volatile',
+      '_Bool', '_Complex', '_Imaginary',
+      'BOOL',
+      'Class'
     ]
 
     types_tb = ListTokenBuilder(types, 'type', True, True)
