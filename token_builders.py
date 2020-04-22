@@ -3,6 +3,21 @@ import itertools
 
 from codestat_token import Token
 
+# count characters in string
+def count_not_escaped(c, candidate):
+  count = 0
+  escaped = False
+  for ch in candidate:
+    if ch == c and not escaped:
+      count += 1
+    if ch == '\\':
+      escaped = not escaped
+    else:
+      escaped = False
+  
+  return count
+
+
 # generic TokenBuilder (to hold common functions)
 class TokenBuilder:
   @staticmethod
@@ -161,18 +176,7 @@ class StringTokenBuilder(TokenBuilder):
 
     # no quote stuffing, stop on second quote
     # assume escaped quotes are allowed
-    c0 = candidate[0]
-    quote_count = 0
-    escaped = False
-
-    for ch in candidate:
-      if ch == c0 and not escaped:
-        quote_count += 1
-
-      if ch == '\\':
-        escaped = not escaped
-      else:
-        escaped = False
+    quote_count = count_not_escaped(candidate[0], candidate)
 
     return quote_count < 2
 
@@ -227,6 +231,7 @@ class StuffedQuoteStringTokenBuilder(TokenBuilder):
 
     # if number of quotes is even, string is closed
     count = candidate.count(candidate[0])
+
     return count % 2 == 1
 
 
@@ -286,15 +291,7 @@ class PrefixedStringTokenBuilder(TokenBuilder):
 
     # no quote stuffing, stop on second quote
     # assume escaped quotes are allowed
-    quote_count = 0
-    escaped = False
-    for ch in candidate:
-      if ch == candidate[len(self.prefix)] and not escaped:
-        quote_count += 1
-      if ch == '\\':
-        escaped = not escaped
-      else:
-        escaped = False
+    quote_count = count_not_escaped(candidate[len(self.prefix)], candidate)
 
     return quote_count < 2
 
@@ -334,18 +331,7 @@ class SuffixedStringTokenBuilder(TokenBuilder):
 
     # no quote stuffing, stop on second quote
     # assume escaped quotes are allowed
-    c0 = candidate[0]
-    quote_count = 0
-    escaped = False
-
-    for ch in candidate:
-      if ch == c0 and not escaped:
-        quote_count += 1
-
-      if ch == '\\':
-        escaped = not escaped
-      else:
-        escaped = False
+    quote_count = count_not_escaped(candidate[0], candidate)
 
     if quote_count < 2:
       return True
@@ -1218,15 +1204,7 @@ class RegexTokenBuilder(TokenBuilder):
     if len(candidate) == 1:
       return True
 
-    slash_count = 0
-    escaped = False
-    for ch in candidate:
-      if ch == '/' and not escaped:
-        slash_count += 1
-      if ch == '\\':
-        escaped = not escaped
-      else:
-        escaped = False
+    slash_count = count_not_escaped('/', candidate)
 
     if slash_count < 2:
       return True

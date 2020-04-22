@@ -10,6 +10,7 @@ class PerlIdentifierTokenBuilder(TokenBuilder):
 
 
   def __init__(self):
+    self.leads = '$@%#'
     self.text = ''
 
 
@@ -25,12 +26,12 @@ class PerlIdentifierTokenBuilder(TokenBuilder):
       return False
 
     if len(candidate) == 0:
-      return c in '$@%#'
+      return c in self.leads
 
-    if candidate[-1] in '$@%#':
-      return c in '$@%#' or c.isalpha() or c.isalnum() or c == '_'
+    if candidate[-1] in self.leads:
+      return c in self.leads or c.isalnum() or c == '_'
 
-    return c.isalpha() or c.isalnum() or c == '_'
+    return c.isalnum() or c == '_'
 
 
   def get_score(self, line_printable_tokens):
@@ -42,7 +43,7 @@ class PerlIdentifierTokenBuilder(TokenBuilder):
       return 0
 
     # cannot end with special prefix char
-    if self.text[-1] in '$@%#':
+    if self.text[-1] in self.leads:
       return 0
 
     return len(self.text)
