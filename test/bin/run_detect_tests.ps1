@@ -255,6 +255,10 @@ test\bin\run_test.ps1 -json -name rose-pas -action detect -inputfile ".\test\dat
 test\bin\run_test.ps1 -json -name spider-pas -action detect -inputfile ".\test\data\Pascal\SPIDER.PAS" -expected ".\test\ref\detect\Pascal\SPIDER.txt"
 test\bin\run_test.ps1 -json -name tpc16-pas -action detect -inputfile ".\test\data\Pascal\TPC16.PAS" -expected ".\test\ref\detect\Pascal\TPC16.txt"
 
+# Perl
+test\bin\run_test.ps1 -json -name perligata-perl -action detect -inputfile ".\test\data\Perl\Perligata.pm" -expected ".\test\ref\detect\Perl\Perligata.txt"
+test\bin\run_test.ps1 -json -name physics-perl -action detect -inputfile ".\test\data\Perl\Physics.pm" -expected ".\test\ref\detect\Perl\Physics.txt"
+
 # PL/1
 test\bin\run_test.ps1 -json -name bpgpli-pl1 -action detect -inputfile ".\test\data\PL1\BPGPLI.pl1" -expected ".\test\ref\detect\PL1\BPGPLI.txt"
 test\bin\run_test.ps1 -json -name checkdt-pl1 -action detect -inputfile ".\test\data\PL1\CHECKDT.pl1" -expected ".\test\ref\detect\PL1\CHECKDT.txt"

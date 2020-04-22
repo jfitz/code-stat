@@ -37,6 +37,7 @@ from matlab_examiner import MatlabExaminer
 from microsoft_basic_examiner import MicrosoftBasicExaminer
 from objectivec_examiner import ObjectiveCExaminer
 from pascal_examiner import PascalExaminer
+from perl_examiner import PerlExaminer
 from pl1_fixedformat_examiner import PL1FixedFormatExaminer
 from pl1_freeformat_examiner import PL1FreeFormatExaminer
 from prolog_examiner import PrologExaminer
@@ -82,6 +83,7 @@ MatlabExaminer.__escape_z__()
 MicrosoftBasicExaminer.__escape_z__()
 ObjectiveCExaminer.__escape_z__()
 PascalExaminer.__escape_z__()
+PerlExaminer.__escape_z__()
 PL1FixedFormatExaminer.__escape_z__()
 PL1FreeFormatExaminer.__escape_z__()
 PrologExaminer.__escape_z__()
@@ -251,6 +253,7 @@ codesAndNames = {
   'objective-c': 'Objective-C',
   'octave': 'Octave',
   'pascal': 'Pascal',
+  'perl': 'Perl',
   'pl1-fixed': 'PL/1-Fixed',
   'pl1-free': 'PL/1-Free',
   'prolog': 'Prolog',
@@ -322,6 +325,7 @@ codesAndGroups = {
   'objective-c': 'Objective-C',
   'octave': 'matlab',
   'pascal': 'Pascal',
+  'perl': 'Perl',
   'pl1-fixed': 'PL/1',
   'pl1-free': 'PL/1',
   'prolog': 'Prolog',
@@ -393,6 +397,7 @@ codesAndYears = {
   'objective-c': 1984,
   'octave': 1993,
   'pascal': 1970,
+  'perl': 1980,
   'pl1-fixed': 1964,
   'pl1-free': 1992,
   'prolog': 1972,
@@ -463,6 +468,7 @@ simplerLanguages = {
   'objective-c': 'cplusplus',
   'octave': 'matlab',
   'pascal': None,
+  'perl': 'awk',
   'pl1-fixed': None,
   'pl1-free': None,
   'prolog': None,
@@ -902,6 +908,9 @@ def make_one_examiner(language, code, tab_size, wide, comment):
   if language in ['pascal', 'pas']:
     examiner = PascalExaminer(code)
 
+  if language in ['perl', 'pl', 'pm']:
+    examiner = PerlExaminer(code)
+
   if language in ['pl1-fixed', 'pl1-fixed-format']:
     examiner = PL1FixedFormatExaminer(code, tab_size, wide)
 
@@ -1134,6 +1143,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
 
   if 'pascal' in languages or 'pas' in languages:
     examiners['pascal'] = PascalExaminer(code)
+
+  if 'perl' in languages or 'pl' in languages or 'pm' in languages:
+    examiners['perl'] = PerlExaminer(code)
 
   if 'pl1-fixed' in languages or 'pl1' in languages:
     examiners['pl1-fixed'] = PL1FixedFormatExaminer(code, tab_size, wide)

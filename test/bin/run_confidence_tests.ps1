@@ -287,6 +287,10 @@ test\bin\run_test.ps1 -json -name rose-pas -action confidence -language Pascal -
 test\bin\run_test.ps1 -json -name spider-pas -action confidence -language Pascal -inputfile ".\test\data\Pascal\SPIDER.PAS" -expected ".\test\ref\confidence\Pascal\SPIDER.txt"
 test\bin\run_test.ps1 -json -name tpc16-pas -action confidence -language Pascal -inputfile ".\test\data\Pascal\TPC16.PAS" -expected ".\test\ref\confidence\Pascal\TPC16.txt"
 
+# Perl
+test\bin\run_test.ps1 -json -name perligata-perl -action confidence -language Perl -inputfile ".\test\data\Perl\Perligata.pm" -expected ".\test\ref\confidence\Perl\Perligata.txt"
+test\bin\run_test.ps1 -json -name physics-perl -action confidence -language Perl -inputfile ".\test\data\Perl\Physics.pm" -expected ".\test\ref\confidence\Perl\Physics.txt"
+
 # PL/1
 test\bin\run_test.ps1 -json -name bpgpli-pl1 -action confidence -language PL1-Fixed -inputfile ".\test\data\PL1\BPGPLI.pl1" -expected ".\test\ref\confidence\PL1\BPGPLI.txt"
 test\bin\run_test.ps1 -json -name checkdt-pl1 -action confidence -language PL1-Free -inputfile ".\test\data\PL1\CHECKDT.pl1" -expected ".\test\ref\confidence\PL1\CHECKDT.txt"
