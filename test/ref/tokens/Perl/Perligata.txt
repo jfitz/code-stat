@@ -440,32 +440,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"identifier",
-        "value":"converte"
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "type":"regex",
+        "value":"/^converte?$/i"
     },
     {
         "type":"group",
@@ -540,32 +516,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"identifier",
-        "value":"investiga"
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "type":"regex",
+        "value":"/^investiga?$/i"
     },
     {
         "type":"group",
@@ -640,32 +592,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"identifier",
-        "value":"discribe"
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "type":"regex",
+        "value":"/^discribe?$/i"
     },
     {
         "type":"group",
@@ -1040,20 +968,16 @@
         "value":"s"
     },
     {
+        "type":"regex",
+        "value":"/\\A#!.*\\n/"
+    },
+    {
         "type":"operator",
         "value":"/"
     },
     {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"comment",
-        "value":"#!.*\\n//;"
+        "type":"statement terminator",
+        "value":";"
     },
     {
         "type":"newline",
@@ -1400,20 +1324,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"S"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\S/"
     },
     {
         "type":"group",
@@ -3296,36 +3208,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"group",
-        "value":":"
-    },
-    {
-        "type":"identifier",
-        "value":"$roman"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"ix"
+        "type":"regex",
+        "value":"/(?:$roman)/ix"
     },
     {
         "type":"statement terminator",
@@ -3648,52 +3532,12 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
+        "type":"regex",
+        "value":"/\\b(\\d+)\\b/to"
     },
     {
         "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"d"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"to_rn"
+        "value":"_rn"
     },
     {
         "type":"group",
@@ -3968,20 +3812,8 @@
         "value":"{"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"D"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\D/"
     },
     {
         "type":"group",
@@ -4412,40 +4244,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"$roman"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\b($roman)\\b/"
     },
     {
         "type":"identifier",
@@ -4680,40 +4480,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"$roman"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\b($roman)\\b/"
     },
     {
         "type":"identifier",
@@ -6204,20 +5972,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"$from"
-    },
-    {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/$from$/"
     },
     {
         "type":"identifier",
@@ -24268,20 +24024,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"identifier",
-        "value":"inscribement"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^inscribement/"
     },
     {
         "type":"group",
@@ -28664,20 +28408,8 @@
         "value":"tr"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"n"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\n/"
     },
     {
         "type":"line continuation",
@@ -28780,32 +28512,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A\\s+/"
     },
     {
         "type":"operator",
@@ -28892,20 +28600,8 @@
         "value":"tr"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"n"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\n/"
     },
     {
         "type":"line continuation",
@@ -28988,40 +28684,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"adnota"
-    },
-    {
-        "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A(adnota.*)/"
     },
     {
         "type":"operator",
@@ -29116,128 +28780,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"nuntius"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"finis"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"t"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"t"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"n"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A(nuntius|finis)[ \\t]*[.]?[ \\t]*\\n(.*)/"
     },
     {
         "type":"operator",
@@ -29604,152 +29148,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"Adic"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"group",
-        "value":":"
-    },
-    {
-        "type":"identifier",
-        "value":"emen"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"identifier",
-        "value":"tum"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"que"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"ve"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"identifier",
-        "value":"sic"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"identifier",
-        "value":"cis"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\Adic(?:emen)?tum(que|ve|)\\s+sic\\s+\\b(.*?)\\s+cis\\b/"
     },
     {
         "type":"operator",
@@ -29984,144 +29384,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"Asic"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"que"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"ve"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"identifier",
-        "value":"cis"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"identifier",
-        "value":"dic"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"group",
-        "value":":"
-    },
-    {
-        "type":"identifier",
-        "value":"emen"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"identifier",
-        "value":"tum"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\Asic(que|ve|)\\s+(.*?)\\s+cis\\s+dic(?:emen)?tum\\b/"
     },
     {
         "type":"operator",
@@ -30356,48 +29620,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"atque"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"vel"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A(atque|vel)\\b/"
     },
     {
         "type":"operator",
@@ -30600,104 +29824,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"$roman"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"identifier",
-        "value":"im"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"group",
-        "value":":"
-    },
-    {
-        "type":"identifier",
-        "value":"o"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"ae"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"que"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"ve"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A(($roman)im(?:o|ae)(que|ve|))\\b/"
     },
     {
         "type":"operator",
@@ -30976,120 +30104,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"$roman"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"identifier",
-        "value":"im"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"group",
-        "value":":"
-    },
-    {
-        "type":"identifier",
-        "value":"um"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"os"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"am"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"as"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"que"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"ve"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A(($roman)im(?:um|os|am|as)(que|ve|))\\b/"
     },
     {
         "type":"operator",
@@ -31368,72 +30384,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"$roman"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"que"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"ve"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A(($roman)(que|ve|))\\b/"
     },
     {
         "type":"operator",
@@ -31716,16 +30668,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"$tokensque"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/$tokensque/"
     },
     {
         "type":"operator",
@@ -31928,16 +30872,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"$tokensve"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/$tokensve/"
     },
     {
         "type":"operator",
@@ -32140,16 +31076,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"$tokens"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/$tokens/"
     },
     {
         "type":"operator",
@@ -32296,116 +31224,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"identifier",
-        "value":"a"
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"identifier",
-        "value":"z"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"um"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"identifier",
-        "value":"ementum"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"que"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"ve"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A(([a-z]+?)(um|)ementum)(que|ve|)\\b/"
     },
     {
         "type":"operator",
@@ -32712,116 +31532,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"identifier",
-        "value":"a"
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"identifier",
-        "value":"z"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"um"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"identifier",
-        "value":"ementa"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"que"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"ve"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A(([a-z]+?)(um|)ementa)(que|ve|)\\b/"
     },
     {
         "type":"operator",
@@ -33128,116 +31840,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"identifier",
-        "value":"a"
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"identifier",
-        "value":"z"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"um"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"identifier",
-        "value":"emento"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"que"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"ve"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A(([a-z]+?)(um|)emento)(que|ve|)\\b/"
     },
     {
         "type":"operator",
@@ -33544,116 +32148,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"identifier",
-        "value":"a"
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"identifier",
-        "value":"z"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"um"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"identifier",
-        "value":"ementis"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"que"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"ve"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A(([a-z]+?)(um|)ementis)(que|ve|)\\b/"
     },
     {
         "type":"operator",
@@ -33880,96 +32376,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"identifier",
-        "value":"a"
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"identifier",
-        "value":"z"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"identifier",
-        "value":"orum"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"que"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"ve"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A(([a-z]+)orum)(que|ve|)\\b/"
     },
     {
         "type":"operator",
@@ -34204,96 +32612,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"identifier",
-        "value":"a"
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"identifier",
-        "value":"z"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"identifier",
-        "value":"uum"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"que"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"ve"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A(([a-z]+)uum)(que|ve|)\\b/"
     },
     {
         "type":"operator",
@@ -34528,96 +32848,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"identifier",
-        "value":"a"
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"identifier",
-        "value":"z"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"identifier",
-        "value":"um"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"que"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"ve"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A(([a-z]+)um)(que|ve|)\\b/"
     },
     {
         "type":"operator",
@@ -34852,96 +33084,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"identifier",
-        "value":"a"
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"identifier",
-        "value":"z"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"identifier",
-        "value":"a"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"que"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"ve"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A(([a-z]+)a)(que|ve|)\\b/"
     },
     {
         "type":"operator",
@@ -35176,96 +33320,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"identifier",
-        "value":"a"
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"identifier",
-        "value":"z"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"identifier",
-        "value":"ibus"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"que"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"ve"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A(([a-z]+)ibus)(que|ve|)\\b/"
     },
     {
         "type":"operator",
@@ -35500,96 +33556,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"identifier",
-        "value":"a"
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"identifier",
-        "value":"z"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"identifier",
-        "value":"us"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"que"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"ve"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A(([a-z]+)us)(que|ve|)\\b/"
     },
     {
         "type":"operator",
@@ -35824,96 +33792,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"identifier",
-        "value":"a"
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"identifier",
-        "value":"z"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"identifier",
-        "value":"o"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"que"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"ve"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A(([a-z]+)o)(que|ve|)\\b/"
     },
     {
         "type":"operator",
@@ -36148,96 +34028,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"identifier",
-        "value":"a"
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"identifier",
-        "value":"z"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"identifier",
-        "value":"is"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"que"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"ve"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A(([a-z]+)is)(que|ve|)\\b/"
     },
     {
         "type":"operator",
@@ -36472,96 +34264,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"identifier",
-        "value":"a"
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"identifier",
-        "value":"z"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"identifier",
-        "value":"tori"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"que"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"ve"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A(([a-z]+)tori)(que|ve|)\\b/"
     },
     {
         "type":"operator",
@@ -36796,96 +34500,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"identifier",
-        "value":"a"
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"identifier",
-        "value":"z"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"que"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"ve"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A(([a-z]+)i)(que|ve|)\\b/"
     },
     {
         "type":"operator",
@@ -37120,96 +34736,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"identifier",
-        "value":"a"
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"identifier",
-        "value":"z"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"identifier",
-        "value":"ere"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"que"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"ve"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A(([a-z]+)ere)(que|ve|)\\b/"
     },
     {
         "type":"operator",
@@ -37444,116 +34972,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"identifier",
-        "value":"a"
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"identifier",
-        "value":"z"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"um"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"identifier",
-        "value":"e"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"que"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"ve"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A(([a-z]+?)(um|)e)(que|ve|)\\b/"
     },
     {
         "type":"operator",
@@ -37860,96 +35280,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"identifier",
-        "value":"a"
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"identifier",
-        "value":"z"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"identifier",
-        "value":"torem"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"que"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"ve"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A(([a-z]+)torem)(que|ve|)\\b/"
     },
     {
         "type":"operator",
@@ -38184,40 +35516,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A([.])/"
     },
     {
         "type":"operator",
@@ -38368,72 +35668,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"S"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"que"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"ve"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"b"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A(\\S+)(que|ve|)\\b/"
     },
     {
         "type":"operator",
@@ -38692,40 +35928,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"S"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/\\A(\\S+)/"
     },
     {
         "type":"operator",
@@ -41432,44 +38636,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"identifier",
-        "value":"SUBNAME_"
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"identifier",
-        "value":"D"
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^SUBNAME_?A?D?$/"
     },
     {
         "type":"whitespace",
@@ -41520,40 +38688,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"PERIOD"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"DO"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"END"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"CONNECTIVE"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/PERIOD|DO|END|CONNECTIVE/"
     },
     {
         "type":"newline",
@@ -41764,64 +38900,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"_"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"O"
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"identifier",
-        "value":"BD"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/_(O?A?)([BD])?/"
     },
     {
         "type":"statement terminator",
@@ -42712,28 +39792,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"SUBNAME_"
-    },
-    {
-        "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"identifier",
-        "value":"_ACCUSATIVE"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/SUBNAME_.*_ACCUSATIVE/"
     },
     {
         "type":"newline",
@@ -42804,36 +39864,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"SUBNAME_"
-    },
-    {
-        "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"identifier",
-        "value":"_DATIVE"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"OWNER_D"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/SUBNAME_.*_DATIVE|OWNER_D/"
     },
     {
         "type":"whitespace",
@@ -42912,36 +39944,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"SUBNAME_"
-    },
-    {
-        "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"identifier",
-        "value":"_DATIVE"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"OWNER_D"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/SUBNAME_.*_DATIVE|OWNER_D/"
     },
     {
         "type":"group",
@@ -43212,36 +40216,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"SUBNAME_"
-    },
-    {
-        "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"identifier",
-        "value":"_DATIVE"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"OWNER_D"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/SUBNAME_.*_DATIVE|OWNER_D/"
     },
     {
         "type":"whitespace",
@@ -43404,28 +40380,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"SUBNAME_"
-    },
-    {
-        "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"identifier",
-        "value":"_GENITIVE"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/SUBNAME_.*_GENITIVE/"
     },
     {
         "type":"whitespace",
@@ -44356,40 +41312,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"NUMERAL"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"ORDINAL"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^(NUMERAL|ORDINAL)$/"
     },
     {
         "type":"newline",
@@ -45604,48 +42528,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"group",
-        "value":":"
-    },
-    {
-        "type":"identifier",
-        "value":"ACCUSATIVE"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"NAME"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^(?:ACCUSATIVE|NAME)$/"
     },
     {
         "type":"newline",
@@ -46252,24 +43136,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"W"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^\\W/"
     },
     {
         "type":"newline",
@@ -49260,20 +46128,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"identifier",
-        "value":"SUBNAME"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^SUBNAME/"
     },
     {
         "type":"whitespace",
@@ -49460,72 +46316,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"operator",
-        "value":"and"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"operator",
-        "value":"or"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"operator",
-        "value":"&"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"group",
-        "value":"{"
-    },
-    {
-        "type":"number",
-        "value":"2"
-    },
-    {
-        "type":"group",
-        "value":"}"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^(and|or|[&|]{2})$/"
     },
     {
         "type":"group",
@@ -49900,16 +46692,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"PERIOD"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/PERIOD/"
     },
     {
         "type":"whitespace",
@@ -50272,16 +47056,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"CONNECTIVE"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/CONNECTIVE/"
     },
     {
         "type":"whitespace",
@@ -50576,16 +47352,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"$eatend"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/$eatend/"
     },
     {
         "type":"whitespace",
@@ -50908,16 +47676,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"$noeatend"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/$noeatend/"
     },
     {
         "type":"whitespace",
@@ -51656,36 +48416,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"ACCUSATIVE"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"DATIVE"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/(ACCUSATIVE|DATIVE)$/"
     },
     {
         "type":"newline",
@@ -54148,24 +50880,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"DATIVE"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"OWNER_D"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/DATIVE|OWNER_D/"
     },
     {
         "type":"group",
@@ -54592,24 +51308,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"PERIOD"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"CONNECTIVE"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/PERIOD|CONNECTIVE/"
     },
     {
         "type":"group",
@@ -55524,24 +52224,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"PERIOD"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"CONNECTIVE"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/PERIOD|CONNECTIVE/"
     },
     {
         "type":"group",
@@ -56848,20 +53532,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"o"
-    },
-    {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/o$/"
     },
     {
         "type":"newline",
@@ -56936,68 +53608,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"finis"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"nuntius"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"factor"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"em"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^(finis|nuntius|factor(em|i))$/"
     },
     {
         "type":"newline",
@@ -57220,32 +53832,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"keyword",
-        "value":"bless"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^(bless)$/"
     },
     {
         "type":"whitespace",
@@ -57280,32 +53868,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"operator",
-        "value":"%"
-    },
-    {
-        "type":"invalid operator",
-        "value":"@"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^[%@]/"
     },
     {
         "type":"whitespace",
@@ -57544,40 +54108,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"print"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"printf"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^(print|printf)$/"
     },
     {
         "type":"whitespace",
@@ -57656,40 +54188,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"keyword",
-        "value":"package"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"keyword",
-        "value":"use"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^(package|use)$/"
     },
     {
         "type":"group",
@@ -58044,52 +54544,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"%"
-    },
-    {
-        "type":"invalid operator",
-        "value":"@"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"group",
-        "value":"{"
-    },
-    {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^[\\$%@]\\{$/"
     },
     {
         "type":"group",
@@ -59620,40 +56076,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"operator",
-        "value":"!"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"operator",
-        "value":"<=>"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"operator",
-        "value":"cmp"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^!(<=>|cmp)/"
     },
     {
         "type":"identifier",
@@ -60268,48 +56692,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"operator",
-        "value":"%"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"invalid operator",
-        "value":"@"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^([\\%\\@])/"
     },
     {
         "type":"line continuation",
@@ -63232,48 +59616,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"operator",
-        "value":"%"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"invalid operator",
-        "value":"@"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^([\\%\\@])/"
     },
     {
         "type":"line continuation",
@@ -64108,48 +60452,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"operator",
-        "value":"%"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"invalid operator",
-        "value":"@"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^([\\%\\@])/"
     },
     {
         "type":"line continuation",
@@ -65644,48 +61948,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"operator",
-        "value":"%"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"invalid operator",
-        "value":"@"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^([\\%\\@])/"
     },
     {
         "type":"line continuation",
@@ -66504,20 +62768,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"identifier",
-        "value":"inque"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^inque/"
     },
     {
         "type":"group",
@@ -67348,48 +63600,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"operator",
-        "value":"%"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"invalid operator",
-        "value":"@"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^([\\%\\@])/"
     },
     {
         "type":"line continuation",

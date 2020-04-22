@@ -187,9 +187,9 @@ test\bin\run_test.ps1 -json -name samples-fs -action detect -inputfile ".\test\d
 test\bin\run_test.ps1 -json -name find-cli-go -action detect -inputfile ".\test\data\Go\find-cli.go" -expected ".\test\ref\detect\Go\find-cli.txt"
 
 # Haskell
-test\bin\run_test.ps1 -json -name calendar-hs -action detect -errors -inputfile ".\test\data\Haskell\calendar.hs" -expected ".\test\ref\detect\Haskell\calendar.txt"
-test\bin\run_test.ps1 -json -name todo-hs -action detect -errors -inputfile ".\test\data\Haskell\todo.hs" -expected ".\test\ref\detect\Haskell\todo.txt"
-test\bin\run_test.ps1 -json -name rna-hs -action detect -errors -inputfile ".\test\data\Haskell\todo.hs" -expected ".\test\ref\detect\Haskell\rna.txt"
+test\bin\run_test.ps1 -json -name calendar-hs -action detect -inputfile ".\test\data\Haskell\calendar.hs" -expected ".\test\ref\detect\Haskell\calendar.txt"
+test\bin\run_test.ps1 -json -name todo-hs -action detect -inputfile ".\test\data\Haskell\todo.hs" -expected ".\test\ref\detect\Haskell\todo.txt"
+test\bin\run_test.ps1 -json -name rna-hs -action detect -inputfile ".\test\data\Haskell\todo.hs" -expected ".\test\ref\detect\Haskell\rna.txt"
 
 # HTML
 test\bin\run_test.ps1 -json -name knuth-html -action detect -inputfile ".\test\data\HTML\knuth.html" -expected ".\test\ref\detect\HTML\knuth.txt"

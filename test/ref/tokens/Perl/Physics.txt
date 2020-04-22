@@ -34988,28 +34988,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^\\s+/"
     },
     {
         "type":"operator",
@@ -35184,24 +35164,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^\\(/"
     },
     {
         "type":"operator",
@@ -35308,24 +35272,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^\\)/"
     },
     {
         "type":"operator",
@@ -35432,76 +35380,12 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^\\*\\*/"
     },
     {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"||"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"$def"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"="
-    },
-    {
-        "type":"operator",
-        "value":"~"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/ || $def =~ s/"
     },
     {
         "type":"operator",
@@ -35624,24 +35508,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^\\*/"
     },
     {
         "type":"operator",
@@ -35748,24 +35616,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^\\//"
     },
     {
         "type":"operator",
@@ -35872,20 +35724,8 @@
         "value":"s"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"identifier",
-        "value":"$number_re"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^$number_re/"
     },
     {
         "type":"operator",
@@ -36048,120 +35888,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"group",
-        "value":"["
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"n"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"r"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"t"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"f"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"group",
-        "value":"]"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"regex",
+        "value":"/^([^\\ \\n\\r\\t\\f\\(\\)\\/\\^\\*]+)/"
     },
     {
         "type":"group",
@@ -36816,24 +36544,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"identifier",
-        "value":"$p"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "type":"regex",
+        "value":"/^$p/i"
     },
     {
         "type":"group",

@@ -16,7 +16,8 @@ from token_builders import (
   IdentifierTokenBuilder,
   ListTokenBuilder,
   SingleCharacterTokenBuilder,
-  LeadToEndOfLineTokenBuilder
+  LeadToEndOfLineTokenBuilder,
+  RegexTokenBuilder
 )
 from perl_token_builders import (
   PerlIdentifierTokenBuilder,
@@ -40,6 +41,7 @@ class PerlExaminer(Examiner):
     ListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
+    RegexTokenBuilder.__escape_z__()
     PerlIdentifierTokenBuilder.__escape_z__()
     PerlQStringTokenBuilder.__escape_z__()
     return 'Escape ?Z'
@@ -67,6 +69,8 @@ class PerlExaminer(Examiner):
     string_tb = StringTokenBuilder(quotes, False)
 
     q_string_tb = PerlQStringTokenBuilder()
+
+    regex_tb = RegexTokenBuilder()
 
     comment_tb = LeadToEndOfLineTokenBuilder('#', False, 'comment')
 
@@ -155,6 +159,7 @@ class PerlExaminer(Examiner):
       perl_identfier_tb,
       string_tb,
       q_string_tb,
+      regex_tb,
       preprocessor_tb,
       comment_tb,
       self.unknown_operator_tb,
