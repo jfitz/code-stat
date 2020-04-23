@@ -964,16 +964,8 @@
         "value":"    "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A#!.*\\n/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "value":"s/\\A#!.*\\n//"
     },
     {
         "type":"statement terminator",
@@ -3528,36 +3520,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\b(\\d+)\\b/to"
-    },
-    {
-        "type":"identifier",
-        "value":"_rn"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"$1"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"ge"
+        "value":"s/\\b(\\d+)\\b/to_rn($1)/ge"
     },
     {
         "type":"statement terminator",
@@ -4240,68 +4204,8 @@
         "value":"        "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\b($roman)\\b/"
-    },
-    {
-        "type":"identifier",
-        "value":"$1"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"from_rn"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"$1"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"group",
-        "value":":"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"$1"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"ge"
+        "value":"s/\\b($roman)\\b/$1 ? from_rn($1) : $1/ge"
     },
     {
         "type":"whitespace",
@@ -4476,68 +4380,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\b($roman)\\b/"
-    },
-    {
-        "type":"identifier",
-        "value":"$1"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"?"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"from_rn"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"$1"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"group",
-        "value":":"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"$1"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"ge"
+        "value":"s/\\b($roman)\\b/$1 ? from_rn($1) : $1/ge"
     },
     {
         "type":"statement terminator",
@@ -5968,20 +5812,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/$from$/"
-    },
-    {
-        "type":"identifier",
-        "value":"$to"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "value":"s/$from$/$to/"
     },
     {
         "type":"whitespace",
@@ -28404,24 +28236,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"tr"
-    },
-    {
         "type":"regex",
-        "value":"/\\n/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"n"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "value":"tr/\\n/\\n/"
     },
     {
         "type":"statement terminator",
@@ -28508,16 +28324,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A\\s+/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "value":"s/\\A\\s+//"
     },
     {
         "type":"statement terminator",
@@ -28596,24 +28404,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"tr"
-    },
-    {
         "type":"regex",
-        "value":"/\\n/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"n"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "value":"tr/\\n/\\n/"
     },
     {
         "type":"group",
@@ -28680,20 +28472,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A(adnota.*)/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "value":"s/\\A(adnota.*)//i"
     },
     {
         "type":"group",
@@ -28776,20 +28556,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A(nuntius|finis)[ \\t]*[.]?[ \\t]*\\n(.*)/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"smi"
+        "value":"s/\\A(nuntius|finis)[ \\t]*[.]?[ \\t]*\\n(.*)//smi"
     },
     {
         "type":"group",
@@ -29144,20 +28912,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\Adic(?:emen)?tum(que|ve|)\\s+sic\\s+\\b(.*?)\\s+cis\\b/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"si"
+        "value":"s/\\Adic(?:emen)?tum(que|ve|)\\s+sic\\s+\\b(.*?)\\s+cis\\b//si"
     },
     {
         "type":"group",
@@ -29380,20 +29136,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\Asic(que|ve|)\\s+(.*?)\\s+cis\\s+dic(?:emen)?tum\\b/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"si"
+        "value":"s/\\Asic(que|ve|)\\s+(.*?)\\s+cis\\s+dic(?:emen)?tum\\b//si"
     },
     {
         "type":"group",
@@ -29616,20 +29360,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A(atque|vel)\\b/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "value":"s/\\A(atque|vel)\\b//i"
     },
     {
         "type":"group",
@@ -29820,20 +29552,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A(($roman)im(?:o|ae)(que|ve|))\\b/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"ix"
+        "value":"s/\\A(($roman)im(?:o|ae)(que|ve|))\\b//ix"
     },
     {
         "type":"whitespace",
@@ -30100,20 +29820,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A(($roman)im(?:um|os|am|as)(que|ve|))\\b/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"ix"
+        "value":"s/\\A(($roman)im(?:um|os|am|as)(que|ve|))\\b//ix"
     },
     {
         "type":"whitespace",
@@ -30380,20 +30088,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A(($roman)(que|ve|))\\b/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"ix"
+        "value":"s/\\A(($roman)(que|ve|))\\b//ix"
     },
     {
         "type":"whitespace",
@@ -30664,20 +30360,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/$tokensque/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "value":"s/$tokensque//i"
     },
     {
         "type":"group",
@@ -30868,20 +30552,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/$tokensve/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "value":"s/$tokensve//i"
     },
     {
         "type":"group",
@@ -31072,20 +30744,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/$tokens/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "value":"s/$tokens//i"
     },
     {
         "type":"group",
@@ -31220,20 +30880,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A(([a-z]+?)(um|)ementum)(que|ve|)\\b/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "value":"s/\\A(([a-z]+?)(um|)ementum)(que|ve|)\\b//i"
     },
     {
         "type":"group",
@@ -31528,20 +31176,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A(([a-z]+?)(um|)ementa)(que|ve|)\\b/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "value":"s/\\A(([a-z]+?)(um|)ementa)(que|ve|)\\b//i"
     },
     {
         "type":"group",
@@ -31836,20 +31472,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A(([a-z]+?)(um|)emento)(que|ve|)\\b/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "value":"s/\\A(([a-z]+?)(um|)emento)(que|ve|)\\b//i"
     },
     {
         "type":"group",
@@ -32144,20 +31768,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A(([a-z]+?)(um|)ementis)(que|ve|)\\b/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "value":"s/\\A(([a-z]+?)(um|)ementis)(que|ve|)\\b//i"
     },
     {
         "type":"group",
@@ -32372,20 +31984,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A(([a-z]+)orum)(que|ve|)\\b/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "value":"s/\\A(([a-z]+)orum)(que|ve|)\\b//i"
     },
     {
         "type":"group",
@@ -32608,20 +32208,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A(([a-z]+)uum)(que|ve|)\\b/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "value":"s/\\A(([a-z]+)uum)(que|ve|)\\b//i"
     },
     {
         "type":"group",
@@ -32844,20 +32432,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A(([a-z]+)um)(que|ve|)\\b/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "value":"s/\\A(([a-z]+)um)(que|ve|)\\b//i"
     },
     {
         "type":"group",
@@ -33080,20 +32656,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A(([a-z]+)a)(que|ve|)\\b/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "value":"s/\\A(([a-z]+)a)(que|ve|)\\b//i"
     },
     {
         "type":"group",
@@ -33316,20 +32880,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A(([a-z]+)ibus)(que|ve|)\\b/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "value":"s/\\A(([a-z]+)ibus)(que|ve|)\\b//i"
     },
     {
         "type":"group",
@@ -33552,20 +33104,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A(([a-z]+)us)(que|ve|)\\b/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "value":"s/\\A(([a-z]+)us)(que|ve|)\\b//i"
     },
     {
         "type":"group",
@@ -33788,20 +33328,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A(([a-z]+)o)(que|ve|)\\b/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "value":"s/\\A(([a-z]+)o)(que|ve|)\\b//i"
     },
     {
         "type":"group",
@@ -34024,20 +33552,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A(([a-z]+)is)(que|ve|)\\b/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "value":"s/\\A(([a-z]+)is)(que|ve|)\\b//i"
     },
     {
         "type":"group",
@@ -34260,20 +33776,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A(([a-z]+)tori)(que|ve|)\\b/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "value":"s/\\A(([a-z]+)tori)(que|ve|)\\b//i"
     },
     {
         "type":"group",
@@ -34496,20 +34000,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A(([a-z]+)i)(que|ve|)\\b/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "value":"s/\\A(([a-z]+)i)(que|ve|)\\b//i"
     },
     {
         "type":"group",
@@ -34732,20 +34224,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A(([a-z]+)ere)(que|ve|)\\b/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "value":"s/\\A(([a-z]+)ere)(que|ve|)\\b//i"
     },
     {
         "type":"group",
@@ -34968,20 +34448,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A(([a-z]+?)(um|)e)(que|ve|)\\b/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "value":"s/\\A(([a-z]+?)(um|)e)(que|ve|)\\b//i"
     },
     {
         "type":"group",
@@ -35276,20 +34744,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A(([a-z]+)torem)(que|ve|)\\b/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"i"
+        "value":"s/\\A(([a-z]+)torem)(que|ve|)\\b//i"
     },
     {
         "type":"group",
@@ -35512,16 +34968,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A([.])/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "value":"s/\\A([.])//"
     },
     {
         "type":"group",
@@ -35664,16 +35112,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A(\\S+)(que|ve|)\\b/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "value":"s/\\A(\\S+)(que|ve|)\\b//"
     },
     {
         "type":"group",
@@ -35924,16 +35364,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/\\A(\\S+)/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "value":"s/\\A(\\S+)//"
     },
     {
         "type":"whitespace",
@@ -56072,20 +55504,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/^!(<=>|cmp)/"
-    },
-    {
-        "type":"identifier",
-        "value":"$1"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "value":"s/^!(<=>|cmp)/$1/"
     },
     {
         "type":"whitespace",
@@ -56688,24 +56108,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/^([\\%\\@])/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "value":"s/^([\\%\\@])/\\$/"
     },
     {
         "type":"statement terminator",
@@ -59612,24 +59016,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/^([\\%\\@])/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "value":"s/^([\\%\\@])/\\$/"
     },
     {
         "type":"statement terminator",
@@ -60448,24 +59836,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/^([\\%\\@])/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "value":"s/^([\\%\\@])/\\$/"
     },
     {
         "type":"statement terminator",
@@ -61944,24 +61316,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/^([\\%\\@])/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "value":"s/^([\\%\\@])/\\$/"
     },
     {
         "type":"statement terminator",
@@ -63596,24 +62952,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/^([\\%\\@])/"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "value":"s/^([\\%\\@])/\\$/"
     },
     {
         "type":"statement terminator",

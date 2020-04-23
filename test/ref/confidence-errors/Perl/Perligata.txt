@@ -157,7 +157,19 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"$",
+        "INVALID":"@",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"@",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"@",
         "FIRST":"",
         "SECOND":""
     },
@@ -181,12 +193,6 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"$",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
         "INVALID":"@",
         "FIRST":"",
         "SECOND":""
@@ -199,43 +205,7 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"$",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
         "INVALID":"@",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"@",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"$",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"@",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"@",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"$",
         "FIRST":"",
         "SECOND":""
     },
@@ -457,7 +427,19 @@
     },
     {
         "TYPE":"OPERATOR",
-        "INVALID":"$",
+        "INVALID":"@",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"@",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"@",
         "FIRST":"",
         "SECOND":""
     },
@@ -481,12 +463,6 @@
     },
     {
         "TYPE":"OPERATOR",
-        "INVALID":"$",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"OPERATOR",
         "INVALID":"@",
         "FIRST":"",
         "SECOND":""
@@ -499,43 +475,7 @@
     },
     {
         "TYPE":"OPERATOR",
-        "INVALID":"$",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"OPERATOR",
         "INVALID":"@",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"OPERATOR",
-        "INVALID":"@",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"OPERATOR",
-        "INVALID":"$",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"OPERATOR",
-        "INVALID":"@",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"OPERATOR",
-        "INVALID":"@",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"OPERATOR",
-        "INVALID":"$",
         "FIRST":"",
         "SECOND":""
     },
@@ -564,36 +504,11 @@
         "TYPE":"OPERATOR2",
         "FIRST":".",
         "SECOND":"."
-    },
-    {
-        "TYPE":"OPERATOR2",
-        "FIRST":"/",
-        "SECOND":"ge"
-    },
-    {
-        "TYPE":"OPERATOR2",
-        "FIRST":"/",
-        "SECOND":"ge"
-    },
-    {
-        "TYPE":"OPERATOR2",
-        "FIRST":"/",
-        "SECOND":"ge"
-    },
-    {
-        "TYPE":"OPERATOR2",
-        "FIRST":"/",
-        "SECOND":"or"
     },
     {
         "TYPE":"OPERATOR2",
         "FIRST":".",
         "SECOND":"="
-    },
-    {
-        "TYPE":"OPERATOR2",
-        "FIRST":"/",
-        "SECOND":"or"
     },
     {
         "TYPE":"OPERATOR2",
@@ -657,11 +572,6 @@
     },
     {
         "TYPE":"OPERATOR2",
-        "FIRST":"/",
-        "SECOND":"?"
-    },
-    {
-        "TYPE":"OPERATOR2",
         "FIRST":".",
         "SECOND":"="
     },
@@ -717,21 +627,6 @@
     },
     {
         "TYPE":"OPERATOR3",
-        "FIRST":"/",
-        "SECOND":"ge"
-    },
-    {
-        "TYPE":"OPERATOR3",
-        "FIRST":"/",
-        "SECOND":"ge"
-    },
-    {
-        "TYPE":"OPERATOR3",
-        "FIRST":"/",
-        "SECOND":"ge"
-    },
-    {
-        "TYPE":"OPERATOR3",
         "FIRST":"(",
         "SECOND":"%"
     },
@@ -764,11 +659,6 @@
         "TYPE":"OPERATOR3",
         "FIRST":"(",
         "SECOND":"%"
-    },
-    {
-        "TYPE":"OPERATOR3",
-        "FIRST":"/",
-        "SECOND":"or"
     },
     {
         "TYPE":"OPERATOR3",
@@ -804,11 +694,6 @@
         "TYPE":"OPERATOR3",
         "FIRST":".",
         "SECOND":"="
-    },
-    {
-        "TYPE":"OPERATOR3",
-        "FIRST":"/",
-        "SECOND":"or"
     },
     {
         "TYPE":"OPERATOR3",
@@ -897,13 +782,8 @@
     },
     {
         "TYPE":"OPERATOR3",
-        "FIRST":"/",
-        "SECOND":"?"
-    },
-    {
-        "TYPE":"OPERATOR3",
-        "FIRST":"$",
-        "SECOND":"/"
+        "FIRST":".",
+        "SECOND":"="
     },
     {
         "TYPE":"OPERATOR3",
@@ -912,38 +792,13 @@
     },
     {
         "TYPE":"OPERATOR3",
-        "FIRST":"$",
-        "SECOND":"/"
-    },
-    {
-        "TYPE":"OPERATOR3",
         "FIRST":".",
         "SECOND":"="
     },
     {
         "TYPE":"OPERATOR3",
-        "FIRST":"$",
-        "SECOND":"/"
-    },
-    {
-        "TYPE":"OPERATOR3",
         "FIRST":".",
         "SECOND":"="
-    },
-    {
-        "TYPE":"OPERATOR3",
-        "FIRST":"$",
-        "SECOND":"/"
-    },
-    {
-        "TYPE":"OPERATOR3",
-        "FIRST":".",
-        "SECOND":"="
-    },
-    {
-        "TYPE":"OPERATOR3",
-        "FIRST":"$",
-        "SECOND":"/"
     },
     {
         "TYPE":"OPERATOR3",
@@ -964,11 +819,6 @@
         "TYPE":"OPERATOR4",
         "FIRST":".",
         "SECOND":"."
-    },
-    {
-        "TYPE":"OPERATOR4",
-        "FIRST":"/",
-        "SECOND":";"
     },
     {
         "TYPE":"OPERATOR4",
@@ -1012,36 +862,6 @@
     },
     {
         "TYPE":"OPERATOR4",
-        "FIRST":"/",
-        "SECOND":"ge"
-    },
-    {
-        "TYPE":"OPERATOR4",
-        "FIRST":"ge",
-        "SECOND":";"
-    },
-    {
-        "TYPE":"OPERATOR4",
-        "FIRST":"/",
-        "SECOND":"ge"
-    },
-    {
-        "TYPE":"OPERATOR4",
-        "FIRST":"ge",
-        "SECOND":"for"
-    },
-    {
-        "TYPE":"OPERATOR4",
-        "FIRST":"/",
-        "SECOND":"ge"
-    },
-    {
-        "TYPE":"OPERATOR4",
-        "FIRST":"ge",
-        "SECOND":";"
-    },
-    {
-        "TYPE":"OPERATOR4",
         "FIRST":"%",
         "SECOND":"$$"
     },
@@ -1054,11 +874,6 @@
         "TYPE":"OPERATOR4",
         "FIRST":"%",
         "SECOND":"$$$"
-    },
-    {
-        "TYPE":"OPERATOR4",
-        "FIRST":"/",
-        "SECOND":"or"
     },
     {
         "TYPE":"OPERATOR4",
@@ -1097,21 +912,6 @@
     },
     {
         "TYPE":"OPERATOR4",
-        "FIRST":"/",
-        "SECOND":";"
-    },
-    {
-        "TYPE":"OPERATOR4",
-        "FIRST":"/",
-        "SECOND":";"
-    },
-    {
-        "TYPE":"OPERATOR4",
-        "FIRST":"/",
-        "SECOND":")"
-    },
-    {
-        "TYPE":"OPERATOR4",
         "FIRST":"+",
         "SECOND":"}"
     },
@@ -1144,21 +944,6 @@
         "TYPE":"OPERATOR4",
         "FIRST":".",
         "SECOND":"="
-    },
-    {
-        "TYPE":"OPERATOR4",
-        "FIRST":"/",
-        "SECOND":")"
-    },
-    {
-        "TYPE":"OPERATOR4",
-        "FIRST":"/",
-        "SECOND":")"
-    },
-    {
-        "TYPE":"OPERATOR4",
-        "FIRST":"/",
-        "SECOND":"or"
     },
     {
         "TYPE":"OPERATOR4",
@@ -1272,13 +1057,8 @@
     },
     {
         "TYPE":"OPERATOR4",
-        "FIRST":"/",
-        "SECOND":"?"
-    },
-    {
-        "TYPE":"OPERATOR4",
-        "FIRST":"/",
-        "SECOND":";"
+        "FIRST":".",
+        "SECOND":"="
     },
     {
         "TYPE":"OPERATOR4",
@@ -1287,38 +1067,13 @@
     },
     {
         "TYPE":"OPERATOR4",
-        "FIRST":"/",
-        "SECOND":";"
-    },
-    {
-        "TYPE":"OPERATOR4",
         "FIRST":".",
         "SECOND":"="
     },
     {
         "TYPE":"OPERATOR4",
-        "FIRST":"/",
-        "SECOND":";"
-    },
-    {
-        "TYPE":"OPERATOR4",
         "FIRST":".",
         "SECOND":"="
-    },
-    {
-        "TYPE":"OPERATOR4",
-        "FIRST":"/",
-        "SECOND":";"
-    },
-    {
-        "TYPE":"OPERATOR4",
-        "FIRST":".",
-        "SECOND":"="
-    },
-    {
-        "TYPE":"OPERATOR4",
-        "FIRST":"/",
-        "SECOND":";"
     },
     {
         "TYPE":"OPERATOR4",

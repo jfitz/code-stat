@@ -1,5 +1,22 @@
+import re
+
 from codestat_token import Token
 from token_builders import TokenBuilder
+
+# count characters in string
+def count_not_escaped(c, candidate):
+  count = 0
+  escaped = False
+  for ch in candidate:
+    if ch == c and not escaped:
+      count += 1
+    if ch == '\\':
+      escaped = not escaped
+    else:
+      escaped = False
+  
+  return count
+
 
 # token reader for user-defined operator
 class PerlIdentifierTokenBuilder(TokenBuilder):
@@ -49,7 +66,7 @@ class PerlIdentifierTokenBuilder(TokenBuilder):
     return len(self.text)
 
 
-# token reader for user-defined operator
+# token reader for q{} and related strings
 class PerlQStringTokenBuilder(TokenBuilder):
   @staticmethod
   def __escape_z__():
@@ -118,3 +135,210 @@ class PerlQStringTokenBuilder(TokenBuilder):
         escaped = False
     
     return level
+
+
+# token reader for regular expression m//
+class MRegexTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self):
+    self.pattern = re.compile(r'\Am/.+/[a-z]*\Z')
+    self.text = None
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'regex', True)]
+
+
+  def accept(self, candidate, c):
+    if c in ['\r', '\n']:
+      return False
+
+    if len(candidate) == 0:
+      return c == 'm'
+
+    if len(candidate) == 1:
+      return c == '/'
+
+    if len(candidate) == 2:
+      return True
+
+    slash_count = count_not_escaped('/', candidate)
+
+    if slash_count < 2:
+      return True
+
+    return c.isalpha()
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if not self.pattern.match(self.text):
+      return 0
+
+    return len(self.text)
+
+
+# token reader for regular expression s///
+class SRegexTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self):
+    self.pattern = re.compile(r'\As/.+/[a-z]*\Z')
+    self.text = None
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'regex', True)]
+
+
+  def accept(self, candidate, c):
+    if c in ['\r', '\n']:
+      return False
+
+    if len(candidate) == 0:
+      return c == 's'
+
+    if len(candidate) == 1:
+      return c == '/'
+
+    if len(candidate) == 2:
+      return True
+
+    slash_count = count_not_escaped('/', candidate)
+
+    if slash_count < 3:
+      return True
+
+    return c.isalpha()
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if not self.pattern.match(self.text):
+      return 0
+
+    return len(self.text)
+
+
+# token reader for regular expression s///
+class YRegexTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self):
+    self.pattern = re.compile(r'\Ay/.+/[a-z]*\Z')
+    self.text = None
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'regex', True)]
+
+
+  def accept(self, candidate, c):
+    if c in ['\r', '\n']:
+      return False
+
+    if len(candidate) == 0:
+      return c == 'y'
+
+    if len(candidate) == 1:
+      return c == '/'
+
+    if len(candidate) == 2:
+      return True
+
+    slash_count = count_not_escaped('/', candidate)
+
+    if slash_count < 3:
+      return True
+
+    return c.isalpha()
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if not self.pattern.match(self.text):
+      return 0
+
+    return len(self.text)
+
+
+# token reader for regular expression s///
+class TrRegexTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self):
+    self.pattern = re.compile(r'\Atr/.+/[a-z]*\Z')
+    self.text = None
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'regex', True)]
+
+
+  def accept(self, candidate, c):
+    if c in ['\r', '\n']:
+      return False
+
+    if len(candidate) == 0:
+      return c == 't'
+
+    if len(candidate) == 1:
+      return c == 'r'
+
+    if len(candidate) == 2:
+      return c == '/'
+
+    if len(candidate) == 3:
+      return True
+
+    slash_count = count_not_escaped('/', candidate)
+
+    if slash_count < 3:
+      return True
+
+    return c.isalpha()
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if not self.pattern.match(self.text):
+      return 0
+
+    return len(self.text)

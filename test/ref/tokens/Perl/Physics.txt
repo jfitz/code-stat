@@ -34984,16 +34984,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/^\\s+/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "value":"s/^\\s+//"
     },
     {
         "type":"statement terminator",
@@ -35160,16 +35152,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/^\\(/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "value":"s/^\\(//"
     },
     {
         "type":"group",
@@ -35268,16 +35252,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/^\\)/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "value":"s/^\\)//"
     },
     {
         "type":"group",
@@ -35376,36 +35352,44 @@
         "value":" "
     },
     {
+        "type":"regex",
+        "value":"s/^\\*\\*//"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"||"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
         "type":"identifier",
-        "value":"s"
+        "value":"$def"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"operator",
+        "value":"~"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"regex",
-        "value":"/^\\*\\*/"
-    },
-    {
-        "type":"regex",
-        "value":"/ || $def =~ s/"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "value":"s/^\\^//"
     },
     {
         "type":"group",
@@ -35504,16 +35488,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/^\\*/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "value":"s/^\\*//"
     },
     {
         "type":"group",
@@ -35612,16 +35588,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/^\\//"
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "value":"s/^\\///"
     },
     {
         "type":"group",
@@ -35720,20 +35688,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
         "type":"regex",
-        "value":"/^$number_re/"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"io"
+        "value":"s/^$number_re//io"
     },
     {
         "type":"group",

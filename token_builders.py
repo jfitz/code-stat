@@ -1174,7 +1174,7 @@ class TripleQuoteStringTokenBuilder(TokenBuilder):
     return len(self.text)
 
 
-# token reader for identifier
+# token reader for regular expression
 class RegexTokenBuilder(TokenBuilder):
   @staticmethod
   def __escape_z__():
