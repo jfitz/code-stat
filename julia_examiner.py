@@ -49,7 +49,7 @@ class JuliaExaminer(Examiner):
     return 'Escape ?Z'
 
 
-  def __init__(self, code):
+  def __init__(self, code, block_comment_limit):
     super().__init__()
     self.newlines_important = 'parens'
 
@@ -81,7 +81,7 @@ class JuliaExaminer(Examiner):
     triple_quote_string_tb = TripleQuoteStringTokenBuilder(quotes)
 
     comment_tb = LeadToEndOfLineTokenBuilder('#', True, 'comment')
-    nested_comment_tb = NestedCommentTokenBuilder('#=', '=#')
+    nested_comment_tb = NestedCommentTokenBuilder('#=', '=#', block_comment_limit)
 
     line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation', False)
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)

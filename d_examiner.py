@@ -61,7 +61,7 @@ class DExaminer(Examiner):
     return 'Escape ?Z'
 
 
-  def __init__(self, code):
+  def __init__(self, code, block_comment_limit):
     super().__init__()
 
     whitespace_tb = WhitespaceTokenBuilder()
@@ -96,7 +96,7 @@ class DExaminer(Examiner):
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
-    slash_plus_comment_tb = NestedCommentTokenBuilder('/+', '+/')
+    slash_plus_comment_tb = NestedCommentTokenBuilder('/+', '+/', block_comment_limit)
 
     line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation', False)
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)

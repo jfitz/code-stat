@@ -1236,10 +1236,11 @@ class NestedCommentTokenBuilder(TokenBuilder):
     return 'Escape ?Z'
 
 
-  def __init__(self, opener, closer):
-    self.text = ''
+  def __init__(self, opener, closer, limit):
     self.opener = opener
     self.closer = closer
+    self.limit = limit
+    self.text = ''
 
 
   def get_tokens(self):
@@ -1250,6 +1251,9 @@ class NestedCommentTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
+    if len(candidate) > self.limit:
+      return False
+
     if len(candidate) == 0:
       return c == self.opener[0]
 

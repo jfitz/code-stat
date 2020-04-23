@@ -53,7 +53,7 @@ class RustExaminer(Examiner):
     return 'Escape ?Z'
 
 
-  def __init__(self, code):
+  def __init__(self, code, block_comment_limit):
     super().__init__()
 
     whitespace_tb = WhitespaceTokenBuilder()
@@ -82,7 +82,7 @@ class RustExaminer(Examiner):
     class_type_tb = ClassTypeTokenBuilder()
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
-    slash_star_comment_tb = NestedCommentTokenBuilder('/*', '*/')
+    slash_star_comment_tb = NestedCommentTokenBuilder('/*', '*/', block_comment_limit)
 
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)
 

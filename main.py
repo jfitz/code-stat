@@ -147,11 +147,11 @@ def extract_params(request_args):
   return languages, comment, tab_size, wide, get_errors
 
 
-def find_winners(text, tab_size, wide, comment, languages):
+def find_winners(text, tab_size, wide, comment, block_comment_limit, languages):
   tiebreak_keywords = False
   tiebreak_tokens = False
   tiebreak_simple = False
-  detected_languages, examiners = identify_language(text, tab_size, wide, comment, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages)
+  detected_languages, examiners = identify_language(text, tab_size, wide, comment, block_comment_limit, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages)
 
   # find the highest value
   high_value = 0
@@ -169,17 +169,17 @@ def find_winners(text, tab_size, wide, comment, languages):
   return winning_languages, examiners
 
 
-def build_language_list(languages, text, tab_size, wide, comment):
+def build_language_list(languages, text, tab_size, wide, comment, block_comment_limit):
   examiners = None
 
   if len(languages) > 0:
     # detect for specified languages, pick the most confident
-    winning_languages, examiners = find_winners(text, tab_size, wide, comment, languages)
+    winning_languages, examiners = find_winners(text, tab_size, wide, comment, block_comment_limit, languages)
   else:
     # tokenize as generic
     winning_languages = ['generic']
     examiners = {}
-    examiner = make_one_examiner('generic', text, tab_size, wide, comment)
+    examiner = make_one_examiner('generic', text, tab_size, wide, comment, block_comment_limit)
     examiners['generic'] = examiner
 
   return winning_languages, examiners
@@ -575,12 +575,14 @@ def route_detect():
     tiebreak_tokens = False
     tiebreak_simple = False
 
+  block_comment_limit = 2048
+
   request_bytes = request.get_data()
 
   http_status = 200
   try:
     text = decode_bytes(request_bytes)
-    detected_languages, _ = identify_language(text, tab_size, wide, comment, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages)
+    detected_languages, _ = identify_language(text, tab_size, wide, comment, block_comment_limit, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages)
 
     mydict = {}
     for key in detected_languages:
@@ -603,12 +605,14 @@ def route_tokens():
   if len(languages) == 0:
     languages = list(codesAndNames.keys())
 
+  block_comment_limit = 2048
+
   request_bytes = request.get_data()
 
   http_status = 200
   try:
     text = decode_bytes(request_bytes)
-    winning_languages, examiners = build_language_list(languages, text, tab_size, wide, comment)
+    winning_languages, examiners = build_language_list(languages, text, tab_size, wide, comment, block_comment_limit)
 
     list_of_dicts = []
 
@@ -637,12 +641,14 @@ def route_confidence():
   if len(languages) == 0:
     languages = list(codesAndNames.keys())
 
+  block_comment_limit = 2048
+
   request_bytes = request.get_data()
 
   http_status = 200
   try:
     text = decode_bytes(request_bytes)
-    winning_languages, examiners = build_language_list(languages, text, tab_size, wide, comment)
+    winning_languages, examiners = build_language_list(languages, text, tab_size, wide, comment, block_comment_limit)
 
     operation = ''
     list_of_dicts = []
@@ -677,10 +683,12 @@ def route_statistics():
 
   request_bytes = request.get_data()
 
+  block_comment_limit = 2048
+
   http_status = 200
   try:
     text = decode_bytes(request_bytes)
-    winning_languages, examiners = build_language_list(languages, text, tab_size, wide, comment)
+    winning_languages, examiners = build_language_list(languages, text, tab_size, wide, comment, block_comment_limit)
 
     list_of_dicts = []
 
@@ -755,7 +763,7 @@ def truncate_lines(text, width):
   return truncated_lines
 
 
-def make_one_examiner(language, code, tab_size, wide, comment):
+def make_one_examiner(language, code, tab_size, wide, comment, block_comment_limit):
   examiner = None
 
   if language in ['generic']:
@@ -834,7 +842,7 @@ def make_one_examiner(language, code, tab_size, wide, comment):
     examiner = CoffeeScriptExaminer(code)
 
   if language in ['d']:
-    examiner = DExaminer(code)
+    examiner = DExaminer(code, block_comment_limit)
 
   if language in ['dart']:
     examiner = DartExaminer(code)
@@ -888,7 +896,7 @@ def make_one_examiner(language, code, tab_size, wide, comment):
     examiner = JavaScriptExaminer(code)
 
   if language in ['julia', 'jl']:
-    examiner = JuliaExaminer(code)
+    examiner = JuliaExaminer(code, block_comment_limit)
 
   if language in ['kotlin', 'kt']:
     examiner = KotlinExaminer(code)
@@ -930,7 +938,7 @@ def make_one_examiner(language, code, tab_size, wide, comment):
     examiner = RubyExaminer(code)
 
   if language in ['rust', 'rs']:
-    examiner = RustExaminer(code)
+    examiner = RustExaminer(code, block_comment_limit)
 
   if language in ['scala']:
     examiner = ScalaExaminer(code)
@@ -971,7 +979,7 @@ def make_one_examiner(language, code, tab_size, wide, comment):
   return examiner
 
 
-def make_multiple_examiners(code, tab_size, wide, comment, languages):
+def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, languages):
   examiners = {}
 
   if 'generic' in languages:
@@ -1059,7 +1067,7 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
     examiners['coffeescript'] = CoffeeScriptExaminer(code)
 
   if 'd' in languages:
-    examiners['d'] = DExaminer(code)
+    examiners['d'] = DExaminer(code, block_comment_limit)
 
   if 'dart' in languages:
     examiners['dart'] = DartExaminer(code)
@@ -1124,7 +1132,7 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
     examiners['javascript'] = JavaScriptExaminer(code)
 
   if 'julia' in languages:
-    examiners['julia'] = JuliaExaminer(code)
+    examiners['julia'] = JuliaExaminer(code, block_comment_limit)
 
   if 'kotlin' in languages:
     examiners['kotlin'] = KotlinExaminer(code)
@@ -1166,7 +1174,7 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
     examiners['ruby'] = RubyExaminer(code)
 
   if 'rust' in languages:
-    examiners['rust'] = RustExaminer(code)
+    examiners['rust'] = RustExaminer(code, block_comment_limit)
 
   if 'scala' in languages:
     examiners['scala'] = ScalaExaminer(code)
@@ -1204,8 +1212,8 @@ def make_multiple_examiners(code, tab_size, wide, comment, languages):
   return examiners
 
 
-def identify_language(code, tab_size, wide, comment, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages):
-  examiners = make_multiple_examiners(code, tab_size, wide, comment, languages)
+def identify_language(code, tab_size, wide, comment, block_comment_limit, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages):
+  examiners = make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, languages)
 
   # get confidence values
   retval = {}
@@ -1352,10 +1360,10 @@ def unwrap_lines(text, language):
   return unwrapped_text
 
 
-def tokenize(code, language, tab_size, wide, comment):
+def tokenize(code, language, tab_size, wide, comment, block_comment_limit):
   retval = []
 
-  examiner = make_one_examiner(language, code, tab_size, wide, comment)
+  examiner = make_one_examiner(language, code, tab_size, wide, comment, block_comment_limit)
 
   if examiner is not None:
     retval = examiner.tokens
@@ -1363,10 +1371,10 @@ def tokenize(code, language, tab_size, wide, comment):
   return retval
 
 
-def tokenize_confidence(code, language, tab_size, get_errors, wide, comment):
+def tokenize_confidence(code, language, tab_size, get_errors, wide, comment, block_comment_limit):
   retval = []
 
-  examiner = make_one_examiner(language, code, tab_size, wide, comment)
+  examiner = make_one_examiner(language, code, tab_size, wide, comment, block_comment_limit)
 
   if examiner is not None:
     if get_errors:
@@ -1377,10 +1385,10 @@ def tokenize_confidence(code, language, tab_size, get_errors, wide, comment):
   return retval
 
 
-def tokenize_statistics(code, language, tab_size, wide, comment):
+def tokenize_statistics(code, language, tab_size, wide, comment, block_comment_limit):
   retval = []
 
-  examiner = make_one_examiner(language, code, tab_size, wide, comment)
+  examiner = make_one_examiner(language, code, tab_size, wide, comment, block_comment_limit)
 
   if examiner is not None:
     retval = examiner.statistics
@@ -1403,8 +1411,10 @@ if __name__ == '__main__':
     language = 'rust'
     tab_size = 4
     wide = False
-    tokenize(code, language, tab_size, wide, '')
-    # cProfile.run("tokenize(code, language, tab_size, wide, '')")
+    comment = ''
+    block_comment_limit = 2048
+    # tokenize(code, language, tab_size, wide, comment, block_comment_limit)
+    cProfile.run("tokenize(code, language, tab_size, wide, comment, block_comment_limit)")
   else:
     if args.confidence is not None:
       print('Confidencing file ' + args.confidence)
@@ -1414,7 +1424,9 @@ if __name__ == '__main__':
       language = 'ruby'
       tab_size = 4
       wide = False
-      cProfile.run("tokenize_confidence(code, language, False, tab_size, wide, '')")
+      comment = ''
+      block_comment_limit = 2048
+      cProfile.run("tokenize_confidence(code, language, False, tab_size, wide, comment, block_comment_limit)")
     else:
       if args.detect is not None:
         print('Detecting file ' + args.detect)
@@ -1427,7 +1439,8 @@ if __name__ == '__main__':
         tiebreak_tokens = False
         tiebreak_simple = False
         comment = ''
+        block_comment_limit = 2048
         languages = list(codesAndNames.keys())
-        cProfile.run('identify_language(code, tab_size, wide, comment, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages)')
+        cProfile.run('identify_language(code, tab_size, wide, comment, block_comment_limit, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages)')
       else:
         app.run()
