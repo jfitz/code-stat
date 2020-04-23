@@ -18,7 +18,7 @@ def count_not_escaped(c, candidate):
   return count
 
 
-# token reader for user-defined operator
+# token reader for Perl variable
 class PerlIdentifierTokenBuilder(TokenBuilder):
   @staticmethod
   def __escape_z__():
@@ -61,6 +61,49 @@ class PerlIdentifierTokenBuilder(TokenBuilder):
 
     # cannot end with special prefix char
     if self.text[-1] in self.leads:
+      return 0
+
+    return len(self.text)
+
+
+# token reader for Perl dollar-caret variable
+class PerlDollarCaretIdentifierTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self):
+    self.text = ''
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'identifier', True)]
+
+
+  def accept(self, candidate, c):
+    if c in [' ', '\t', '\n', '\r']:
+      return False
+
+    if len(candidate) == 0:
+      return c == '$'
+
+    if len(candidate) == 1:
+      return c == '^'
+
+    return c.isalnum() or c == '_'
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    # must have at least three chars
+    if len(self.text) < 3:
       return 0
 
     return len(self.text)

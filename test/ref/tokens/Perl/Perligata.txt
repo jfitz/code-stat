@@ -4464,7 +4464,7 @@
         "value":"%"
     },
     {
-        "type":"invalid operator",
+        "type":"identifiers",
         "value":"$$"
     },
     {
@@ -4772,7 +4772,7 @@
         "value":"%"
     },
     {
-        "type":"invalid operator",
+        "type":"identifiers",
         "value":"$$"
     },
     {
@@ -5580,12 +5580,12 @@
         "value":"%"
     },
     {
-        "type":"invalid operator",
-        "value":"$$$"
+        "type":"identifiers",
+        "value":"$$"
     },
     {
-        "type":"group",
-        "value":")"
+        "type":"identifiers",
+        "value":"$)"
     },
     {
         "type":"newline",
@@ -27652,8 +27652,12 @@
         "value":"("
     },
     {
-        "type":"invalid operator",
-        "value":"$$$$"
+        "type":"identifiers",
+        "value":"$$"
+    },
+    {
+        "type":"identifiers",
+        "value":"$$"
     },
     {
         "type":"group",
@@ -29648,12 +29652,8 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"+"
+        "type":"identifiers",
+        "value":"$+"
     },
     {
         "type":"group",
@@ -29672,12 +29672,8 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"+"
+        "type":"identifiers",
+        "value":"$+"
     },
     {
         "type":"statement terminator",
@@ -29916,12 +29912,8 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"+"
+        "type":"identifiers",
+        "value":"$+"
     },
     {
         "type":"group",
@@ -29940,12 +29932,8 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"+"
+        "type":"identifiers",
+        "value":"$+"
     },
     {
         "type":"statement terminator",
@@ -30184,12 +30172,8 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"+"
+        "type":"identifiers",
+        "value":"$+"
     },
     {
         "type":"group",
@@ -30208,12 +30192,8 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"operator",
-        "value":"+"
+        "type":"identifiers",
+        "value":"$+"
     },
     {
         "type":"statement terminator",
@@ -52348,12 +52328,36 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
-        "value":"$"
+        "type":"identifiers",
+        "value":"$#"
     },
     {
-        "type":"comment",
-        "value":"#{$_[0]};"
+        "type":"group",
+        "value":"{"
+    },
+    {
+        "type":"identifier",
+        "value":"$_"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"group",
+        "value":"}"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
     },
     {
         "type":"newline",

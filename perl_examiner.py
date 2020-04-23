@@ -21,6 +21,7 @@ from token_builders import (
 )
 from perl_token_builders import (
   PerlIdentifierTokenBuilder,
+  PerlDollarCaretIdentifierTokenBuilder,
   PerlQStringTokenBuilder,
   MRegexTokenBuilder,
   SRegexTokenBuilder,
@@ -47,6 +48,7 @@ class PerlExaminer(Examiner):
     LeadToEndOfLineTokenBuilder.__escape_z__()
     RegexTokenBuilder.__escape_z__()
     PerlIdentifierTokenBuilder.__escape_z__()
+    PerlDollarCaretIdentifierTokenBuilder.__escape_z__()
     PerlQStringTokenBuilder.__escape_z__()
     MRegexTokenBuilder.__escape_z__()
     SRegexTokenBuilder.__escape_z__()
@@ -72,6 +74,17 @@ class PerlExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder(leads, extras)
 
     perl_identfier_tb = PerlIdentifierTokenBuilder()
+
+    specials = [
+      '$_', '@_', '$$', '$"', '$(', '$)', '$>', '$<', '$;', '$]', '$[',
+      '$&', '$`', "$'", '$+', '@+', '%+', '@-', '%-', '$,', '$.',
+      '$/', '$\\', '$|', '$%', '$-', '$:', '$=', '$^', '$~', '$!',
+      '$?', '$@', '$#', '$*'
+    ]
+
+    specials_tb = ListTokenBuilder(specials, 'identifiers', True, False)
+
+    dollar_carat_tb = PerlDollarCaretIdentifierTokenBuilder()
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
@@ -169,6 +182,8 @@ class PerlExaminer(Examiner):
       known_operator_tb,
       identifier_tb,
       perl_identfier_tb,
+      specials_tb,
+      dollar_carat_tb,
       string_tb,
       q_string_tb,
       regex_tb,
