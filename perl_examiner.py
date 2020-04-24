@@ -26,7 +26,8 @@ from perl_token_builders import (
   MRegexTokenBuilder,
   SRegexTokenBuilder,
   YRegexTokenBuilder,
-  TrRegexTokenBuilder
+  TrRegexTokenBuilder,
+  PerlPrototypeTokenBuilder
 )
 from examiner import Examiner
 
@@ -54,6 +55,7 @@ class PerlExaminer(Examiner):
     SRegexTokenBuilder.__escape_z__()
     YRegexTokenBuilder.__escape_z__()
     TrRegexTokenBuilder.__escape_z__()
+    PerlPrototypeTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
@@ -97,6 +99,8 @@ class PerlExaminer(Examiner):
     y_regex_tb = YRegexTokenBuilder()
     tr_regex_tb = TrRegexTokenBuilder()
 
+    prototype_tb = PerlPrototypeTokenBuilder()
+
     comment_tb = LeadToEndOfLineTokenBuilder('#', False, 'comment')
 
     directives = [
@@ -114,7 +118,7 @@ class PerlExaminer(Examiner):
       'ne', 'gt', 'ge', 'le', 'lt', 'eq',
       '!', '&', '|', '~', '<<', '>>',
       '^',
-      '.',
+      '.', '..',
       '++', '--', '->', '=>', '&&', '||',
       '?', '<->', '<=>',
       'and', 'cmp', 'or', 'xor'
@@ -180,6 +184,7 @@ class PerlExaminer(Examiner):
       values_tb,
       groupers_tb,
       known_operator_tb,
+      prototype_tb,
       identifier_tb,
       perl_identfier_tb,
       specials_tb,

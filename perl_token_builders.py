@@ -385,3 +385,49 @@ class TrRegexTokenBuilder(TokenBuilder):
       return 0
 
     return len(self.text)
+
+
+# token reader for Perl prototypes
+class PerlPrototypeTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self):
+    self.text = ''
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'prototype', False)]
+
+
+  def accept(self, candidate, c):
+    if c in [' ', '\t', '\n', '\r']:
+      return False
+
+    return c in '$@%\\'
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    # must have at least three previous tokens
+    if len(line_printable_tokens) < 3:
+      return 0
+
+    if line_printable_tokens[-3].text != 'sub':
+      return 0
+
+    if line_printable_tokens[-2].group != 'identifier':
+      return 0
+
+    if line_printable_tokens[-1].text != '(':
+      return 0
+
+    return len(self.text)
