@@ -4,11 +4,11 @@ from codestat_token import Token
 from token_builders import TokenBuilder
 
 # count characters in string
-def count_not_escaped(c, candidate):
+def count_not_escaped(cs, candidate):
   count = 0
   escaped = False
   for ch in candidate:
-    if ch == c and not escaped:
+    if ch in cs and not escaped:
       count += 1
     if ch == '\\':
       escaped = not escaped
@@ -133,12 +133,31 @@ class PerlQStringTokenBuilder(TokenBuilder):
       return c == 'q'
 
     if len(candidate) == 1:
-      return c in 'qrwx{'
+      return c in 'qrwx{('
 
     if candidate in ['qq', 'qr', 'qw', 'qx']:
-      return c == '{'
+      return c in '{('
 
-    return PerlQStringTokenBuilder.count_level(candidate) > 0
+    bch = None
+    ech = None
+
+    if len(candidate) > 1:
+      if candidate[1] == '{':
+        bch = '{'
+        ech = '}'
+      if candidate[1] == '(':
+        bch = '('
+        ech = ')'
+
+    if len(candidate) > 2 and bch is None:
+      if candidate[2] == '{':
+        bch = '{'
+        ech = '}'
+      if candidate[2] == '(':
+        bch = '('
+        ech = ')'
+
+    return PerlQStringTokenBuilder.count_level(candidate, bch, ech) > 0
 
 
   def get_score(self, line_printable_tokens):
@@ -149,27 +168,46 @@ class PerlQStringTokenBuilder(TokenBuilder):
     if len(self.text) < 3:
       return 0
 
-    # must contain { and }
-    if self.text[-1] != '}':
+    # must contain { and } or ( and )
+    bch = None
+    ech = None
+
+    if len(self.text) > 1:
+      if self.text[1] == '{':
+        bch = '{'
+        ech = '}'
+      if self.text[1] == '(':
+        bch = '('
+        ech = ')'
+
+    if len(self.text) > 2 and bch is None:
+      if self.text[2] == '{':
+        bch = '{'
+        ech = '}'
+      if self.text[2] == '(':
+        bch = '('
+        ech = ')'
+
+    if self.text[-1] != ech:
       return 0
 
     # must have balanced braces
-    if PerlQStringTokenBuilder.count_level(self.text) > 0:
+    if PerlQStringTokenBuilder.count_level(self.text, bch, ech) > 0:
       return 0
 
     return len(self.text)
 
 
   @staticmethod
-  def count_level(candidate):
+  def count_level(candidate, bch, ech):
     level = 0
     escaped = False
 
     for ch in candidate:
-      if ch == '{' and not escaped:
+      if ch == bch and not escaped:
         level += 1
 
-      if ch == '}' and not escaped and level > 0:
+      if ch == ech and not escaped and level > 0:
         level -= 1
 
       if ch == '\\':
@@ -189,7 +227,6 @@ class MRegexTokenBuilder(TokenBuilder):
 
 
   def __init__(self):
-    self.pattern = re.compile(r'\Am/.+/[a-z]*\Z')
     self.text = None
 
 
@@ -208,14 +245,25 @@ class MRegexTokenBuilder(TokenBuilder):
       return c == 'm'
 
     if len(candidate) == 1:
-      return c == '/'
+      return c in '/{(!#'
 
     if len(candidate) == 2:
       return True
 
-    slash_count = count_not_escaped('/', candidate)
+    bch = candidate[1]
+    ech = candidate[1]
 
-    if slash_count < 2:
+    if bch == '{':
+      ech = '}'
+    if bch == '(':
+      ech = ')'
+
+    if ech == bch:
+      count = count_not_escaped([bch], candidate)
+    else:
+      count = count_not_escaped([bch, ech], candidate)
+
+    if count < 2:
       return True
 
     return c.isalpha()
@@ -225,7 +273,21 @@ class MRegexTokenBuilder(TokenBuilder):
     if self.text is None:
       return 0
 
-    if not self.pattern.match(self.text):
+    if len(self.text) < 2:
+      return 0
+
+    bch = self.text[1]
+    ech = self.text[1]
+
+    if bch == '{':
+      ech = '}'
+    if bch == '(':
+      ech = ')'
+
+    regex = r'\Am' + bch + '.+' + ech + r'[a-z]*\Z'
+    pattern = re.compile(regex)
+
+    if not pattern.match(self.text):
       return 0
 
     return len(self.text)
@@ -240,7 +302,6 @@ class SRegexTokenBuilder(TokenBuilder):
 
 
   def __init__(self):
-    self.pattern = re.compile(r'\As/.+/[a-z]*\Z')
     self.text = None
 
 
@@ -264,9 +325,11 @@ class SRegexTokenBuilder(TokenBuilder):
     if len(candidate) == 2:
       return True
 
-    slash_count = count_not_escaped('/', candidate)
+    bch = candidate[1]
 
-    if slash_count < 3:
+    count = count_not_escaped([bch], candidate)
+
+    if count < 3:
       return True
 
     return c.isalpha()
@@ -276,7 +339,15 @@ class SRegexTokenBuilder(TokenBuilder):
     if self.text is None:
       return 0
 
-    if not self.pattern.match(self.text):
+    if len(self.text) < 2:
+      return 0
+
+    bch = self.text[1]
+
+    regex = r'\As' + bch + '.+' + bch + r'[a-z]*\Z'
+    pattern = re.compile(regex)
+
+    if not pattern.match(self.text):
       return 0
 
     return len(self.text)
@@ -291,7 +362,6 @@ class YRegexTokenBuilder(TokenBuilder):
 
 
   def __init__(self):
-    self.pattern = re.compile(r'\Ay/.+/[a-z]*\Z')
     self.text = None
 
 
@@ -315,9 +385,11 @@ class YRegexTokenBuilder(TokenBuilder):
     if len(candidate) == 2:
       return True
 
-    slash_count = count_not_escaped('/', candidate)
+    bch = candidate[1]
 
-    if slash_count < 3:
+    count = count_not_escaped([bch], candidate)
+
+    if count < 3:
       return True
 
     return c.isalpha()
@@ -327,7 +399,15 @@ class YRegexTokenBuilder(TokenBuilder):
     if self.text is None:
       return 0
 
-    if not self.pattern.match(self.text):
+    if len(self.text) < 2:
+      return 0
+
+    bch = self.text[1]
+
+    regex = r'\Ay' + bch + '.+' + bch + r'[a-z]*\Z'
+    pattern = re.compile(regex)
+
+    if not pattern.match(self.text):
       return 0
 
     return len(self.text)
@@ -342,7 +422,6 @@ class TrRegexTokenBuilder(TokenBuilder):
 
 
   def __init__(self):
-    self.pattern = re.compile(r'\Atr/.+/[a-z]*\Z')
     self.text = None
 
 
@@ -369,9 +448,11 @@ class TrRegexTokenBuilder(TokenBuilder):
     if len(candidate) == 3:
       return True
 
-    slash_count = count_not_escaped('/', candidate)
+    bch = candidate[1]
 
-    if slash_count < 3:
+    count = count_not_escaped([bch], candidate)
+
+    if count < 3:
       return True
 
     return c.isalpha()
@@ -381,7 +462,15 @@ class TrRegexTokenBuilder(TokenBuilder):
     if self.text is None:
       return 0
 
-    if not self.pattern.match(self.text):
+    if len(self.text) < 2:
+      return 0
+
+    bch = self.text[1]
+
+    regex = r'\Atr' + bch + '.+' + bch + r'[a-z]*\Z'
+    pattern = re.compile(regex)
+
+    if not pattern.match(self.text):
       return 0
 
     return len(self.text)
@@ -428,6 +517,48 @@ class PerlPrototypeTokenBuilder(TokenBuilder):
       return 0
 
     if line_printable_tokens[-1].text != '(':
+      return 0
+
+    return len(self.text)
+
+
+# token reader for Perl prototypes
+class PerlSigilBraceTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self):
+    self.text = ''
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    if len(self.text) != 2:
+      return None
+
+    return [
+      Token(self.text[0], 'identifier', True),
+      Token(self.text[1], 'group', False)
+    ]
+
+
+  def accept(self, candidate, c):
+    if len(candidate) == 0:
+      return c in '$@%'
+
+    return len(candidate) == 1 and c == '{'
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(self.text) != 2:
       return 0
 
     return len(self.text)

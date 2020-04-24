@@ -108,20 +108,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"qw"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"Exporter"
-    },
-    {
-        "type":"group",
-        "value":")"
+        "type":"string",
+        "value":"qw(Exporter)"
     },
     {
         "type":"statement terminator",
@@ -148,80 +136,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"qw"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"identifier",
-        "value":"$VERSION"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"identifier",
-        "value":"@EXPORT_OK"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"identifier",
-        "value":"%EXPORT_TAGS"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"identifier",
-        "value":"$debug"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"identifier",
-        "value":"$number_re"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"group",
-        "value":")"
+        "type":"string",
+        "value":"qw(\r\n    $VERSION\r\n    @EXPORT_OK\r\n    %EXPORT_TAGS\r\n    $debug\r\n    $number_re\r\n)"
     },
     {
         "type":"statement terminator",
@@ -320,152 +236,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"qw"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"identifier",
-        "value":"$number_re"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"identifier",
-        "value":"GetTypeUnit"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"identifier",
-        "value":"GetUnit"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"identifier",
-        "value":"InitBaseUnit"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"identifier",
-        "value":"InitPrefix"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"identifier",
-        "value":"InitTypes"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"identifier",
-        "value":"InitUnit"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"identifier",
-        "value":"ListTypes"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"identifier",
-        "value":"ListUnits"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"identifier",
-        "value":"NumBases"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"identifier",
-        "value":"DeleteNames"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"group",
-        "value":")"
+        "type":"string",
+        "value":"qw(\r\n    $number_re\r\n    GetTypeUnit\r\n    GetUnit\r\n    InitBaseUnit\r\n    InitPrefix\r\n    InitTypes\r\n    InitUnit\r\n    ListTypes\r\n    ListUnits\r\n    NumBases\r\n    DeleteNames\r\n)"
     },
     {
         "type":"statement terminator",
@@ -2421,11 +2193,7 @@
     },
     {
         "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"operator",
-        "value":"*"
+        "value":"**"
     },
     {
         "type":"number",
@@ -2461,11 +2229,7 @@
     },
     {
         "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"operator",
-        "value":"*"
+        "value":"**"
     },
     {
         "type":"number",
@@ -2501,11 +2265,7 @@
     },
     {
         "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"operator",
-        "value":"*"
+        "value":"**"
     },
     {
         "type":"number",
@@ -2541,11 +2301,7 @@
     },
     {
         "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"operator",
-        "value":"*"
+        "value":"**"
     },
     {
         "type":"number",
@@ -2581,11 +2337,7 @@
     },
     {
         "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"operator",
-        "value":"*"
+        "value":"**"
     },
     {
         "type":"number",
@@ -2621,11 +2373,7 @@
     },
     {
         "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"operator",
-        "value":"*"
+        "value":"**"
     },
     {
         "type":"number",
@@ -20016,7 +19764,7 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -21792,7 +21540,7 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"$"
     },
     {
@@ -22152,7 +21900,7 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -22580,7 +22328,7 @@
         "value":"("
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -22721,11 +22469,7 @@
     },
     {
         "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"operator",
-        "value":"="
+        "value":".="
     },
     {
         "type":"whitespace",
@@ -22765,11 +22509,7 @@
     },
     {
         "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"operator",
-        "value":"="
+        "value":".="
     },
     {
         "type":"whitespace",
@@ -22813,11 +22553,7 @@
     },
     {
         "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"operator",
-        "value":"="
+        "value":".="
     },
     {
         "type":"whitespace",
@@ -25473,11 +25209,7 @@
     },
     {
         "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"operator",
-        "value":"*="
+        "value":"**="
     },
     {
         "type":"whitespace",
@@ -26804,7 +26536,7 @@
         "value":"["
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -28164,7 +27896,7 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -29829,11 +29561,7 @@
     },
     {
         "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"operator",
-        "value":"="
+        "value":".="
     },
     {
         "type":"whitespace",
@@ -29876,7 +29604,7 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {

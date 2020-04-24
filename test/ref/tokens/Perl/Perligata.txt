@@ -2768,7 +2768,7 @@
         "value":"{"
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -2837,11 +2837,7 @@
     },
     {
         "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"operator",
-        "value":"*"
+        "value":"**"
     },
     {
         "type":"identifier",
@@ -4980,7 +4976,7 @@
         "value":" "
     },
     {
-        "type":"operator",
+        "type":"identifier",
         "value":"%"
     },
     {
@@ -5076,7 +5072,7 @@
         "value":" "
     },
     {
-        "type":"operator",
+        "type":"identifier",
         "value":"%"
     },
     {
@@ -5172,7 +5168,7 @@
         "value":" "
     },
     {
-        "type":"operator",
+        "type":"identifier",
         "value":"%"
     },
     {
@@ -5268,7 +5264,7 @@
         "value":" "
     },
     {
-        "type":"operator",
+        "type":"identifier",
         "value":"%"
     },
     {
@@ -5852,7 +5848,7 @@
         "value":" "
     },
     {
-        "type":"operator",
+        "type":"identifier",
         "value":"%"
     },
     {
@@ -15120,7 +15116,7 @@
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -16732,28 +16728,8 @@
         "value":"("
     },
     {
-        "type":"identifier",
-        "value":"qw"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"excerpe"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"group",
-        "value":")"
+        "type":"string",
+        "value":"qw( excerpe )"
     },
     {
         "type":"group",
@@ -19212,36 +19188,8 @@
         "value":"("
     },
     {
-        "type":"identifier",
-        "value":"qw"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"reperi"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"nomina"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"group",
-        "value":")"
+        "type":"string",
+        "value":"qw( reperi nomina )"
     },
     {
         "type":"group",
@@ -23952,7 +23900,7 @@
         "value":" "
     },
     {
-        "type":"operator",
+        "type":"identifier",
         "value":"%"
     },
     {
@@ -24184,7 +24132,7 @@
         "value":" "
     },
     {
-        "type":"operator",
+        "type":"identifier",
         "value":"%"
     },
     {
@@ -24300,7 +24248,7 @@
         "value":" "
     },
     {
-        "type":"operator",
+        "type":"identifier",
         "value":"%"
     },
     {
@@ -24408,7 +24356,7 @@
         "value":" "
     },
     {
-        "type":"operator",
+        "type":"identifier",
         "value":"%"
     },
     {
@@ -24516,7 +24464,7 @@
         "value":" "
     },
     {
-        "type":"operator",
+        "type":"identifier",
         "value":"%"
     },
     {
@@ -31741,11 +31689,7 @@
     },
     {
         "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"operator",
-        "value":"="
+        "value":".="
     },
     {
         "type":"whitespace",
@@ -35381,11 +35325,7 @@
     },
     {
         "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"operator",
-        "value":"="
+        "value":".="
     },
     {
         "type":"whitespace",
@@ -35692,36 +35632,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"qw"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"Word"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"Role"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"Meaning"
-    },
-    {
-        "type":"group",
-        "value":")"
+        "type":"string",
+        "value":"qw(Word Role Meaning)"
     },
     {
         "type":"statement terminator",
@@ -35756,56 +35668,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"qw"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"operator",
-        "value":"=="
-    },
-    {
-        "type":"operator",
-        "value":"=="
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"=="
-    },
-    {
-        "type":"operator",
-        "value":"=="
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"=="
-    },
-    {
-        "type":"operator",
-        "value":"=="
-    },
-    {
-        "type":"operator",
-        "value":"=="
-    },
-    {
-        "type":"operator",
-        "value":"="
-    },
-    {
-        "type":"group",
-        "value":")"
+        "type":"string",
+        "value":"qw(==== ==== =======)"
     },
     {
         "type":"statement terminator",
@@ -35884,7 +35748,7 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -35904,36 +35768,8 @@
         "value":"{"
     },
     {
-        "type":"identifier",
-        "value":"qw"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"raw"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"lex"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"perl"
-    },
-    {
-        "type":"group",
-        "value":")"
+        "type":"string",
+        "value":"qw(raw lex perl)"
     },
     {
         "type":"group",
@@ -37400,7 +37236,7 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -38293,11 +38129,7 @@
     },
     {
         "type":"operator",
-        "value":"||"
-    },
-    {
-        "type":"operator",
-        "value":"="
+        "value":"||="
     },
     {
         "type":"whitespace",
@@ -38393,11 +38225,7 @@
     },
     {
         "type":"operator",
-        "value":"||"
-    },
-    {
-        "type":"operator",
-        "value":"="
+        "value":"||="
     },
     {
         "type":"whitespace",
@@ -40112,7 +39940,7 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -40933,11 +40761,7 @@
     },
     {
         "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"operator",
-        "value":"="
+        "value":".="
     },
     {
         "type":"whitespace",
@@ -43664,7 +43488,7 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -47972,7 +47796,7 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -54452,7 +54276,7 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -55000,7 +54824,7 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -55136,7 +54960,7 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -55348,7 +55172,7 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -55612,7 +55436,7 @@
         "value":"("
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -55956,7 +55780,7 @@
         "value":"("
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -56160,7 +55984,7 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -56233,11 +56057,7 @@
     },
     {
         "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"operator",
-        "value":"="
+        "value":".="
     },
     {
         "type":"whitespace",
@@ -56664,7 +56484,7 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -58876,7 +58696,7 @@
         "value":"("
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -59068,7 +58888,7 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -59129,11 +58949,7 @@
     },
     {
         "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"operator",
-        "value":"="
+        "value":".="
     },
     {
         "type":"whitespace",
@@ -59696,7 +59512,7 @@
         "value":"("
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -59888,7 +59704,7 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -59949,11 +59765,7 @@
     },
     {
         "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"operator",
-        "value":"="
+        "value":".="
     },
     {
         "type":"whitespace",
@@ -61184,7 +60996,7 @@
         "value":"("
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -61368,7 +61180,7 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -61429,11 +61241,7 @@
     },
     {
         "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"operator",
-        "value":"="
+        "value":".="
     },
     {
         "type":"whitespace",
@@ -62812,7 +62620,7 @@
         "value":"("
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -63004,7 +62812,7 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
+        "type":"identifier",
         "value":"@"
     },
     {
@@ -63065,11 +62873,7 @@
     },
     {
         "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"operator",
-        "value":"="
+        "value":".="
     },
     {
         "type":"whitespace",

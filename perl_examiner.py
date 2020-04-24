@@ -27,7 +27,8 @@ from perl_token_builders import (
   SRegexTokenBuilder,
   YRegexTokenBuilder,
   TrRegexTokenBuilder,
-  PerlPrototypeTokenBuilder
+  PerlPrototypeTokenBuilder,
+  PerlSigilBraceTokenBuilder
 )
 from examiner import Examiner
 
@@ -56,6 +57,7 @@ class PerlExaminer(Examiner):
     YRegexTokenBuilder.__escape_z__()
     TrRegexTokenBuilder.__escape_z__()
     PerlPrototypeTokenBuilder.__escape_z__()
+    PerlSigilBraceTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
@@ -88,6 +90,8 @@ class PerlExaminer(Examiner):
 
     dollar_carat_tb = PerlDollarCaretIdentifierTokenBuilder()
 
+    sigilbrace_tb = PerlSigilBraceTokenBuilder()
+
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
 
@@ -112,13 +116,13 @@ class PerlExaminer(Examiner):
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)
 
     known_operators = [
-      '+', '-', '*', '/', '%',
+      '+', '-', '*', '**', '/', '%',
       '=', '==', '!=', '>', '>=', '<', '<=',
-      '+=', '-=', '*=', '/=', '%=', '&=', '|=', '^=',
+      '+=', '-=', '*=', '**=', '/=', '%=', '&=', '|=', '^=', '&&=', '||=',
       'ne', 'gt', 'ge', 'le', 'lt', 'eq',
       '!', '&', '|', '~', '<<', '>>',
       '^',
-      '.', '..',
+      '.', '..', '.=',
       '++', '--', '->', '=>', '&&', '||',
       '?', '<->', '<=>',
       'and', 'cmp', 'or', 'xor'
@@ -189,6 +193,7 @@ class PerlExaminer(Examiner):
       perl_identfier_tb,
       specials_tb,
       dollar_carat_tb,
+      sigilbrace_tb,
       string_tb,
       q_string_tb,
       regex_tb,
