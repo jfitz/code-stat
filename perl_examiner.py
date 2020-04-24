@@ -154,16 +154,16 @@ class PerlExaminer(Examiner):
       'else', 'elsif', 'eval', 'exit', 'exp',
       'for', 'foreach',
       'if',
-      'lock',
+      'last', 'lock',
       'my',
-      'no',
+      'next', 'no',
       'our',
       'package',
-      'return',
-      'sub',
+      'redo', 'return',
+      'say', 'sub',
       'taint',
-      'unless', 'until', 'use',
-      'while'
+      'undef', 'unless', 'until', 'use',
+      'wantarray', 'while'
     ]
 
     keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)

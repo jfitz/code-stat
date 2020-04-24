@@ -4,18 +4,45 @@ from codestat_token import Token
 from token_builders import TokenBuilder
 
 # count characters in string
-def count_not_escaped(cs, candidate):
+def count_not_escaped(c, candidate):
   count = 0
   escaped = False
+
   for ch in candidate:
-    if ch in cs and not escaped:
+    if ch == c and not escaped:
       count += 1
+
     if ch == '\\':
       escaped = not escaped
     else:
       escaped = False
   
   return count
+
+
+# count groups for regex operators
+def count_regex_group(bch, ech, candidate):
+  group_count = 0
+  level = 0
+  escaped = False
+  for ch in candidate:
+    if ch == bch and not escaped:
+      level += 1
+
+    if ch == ech and not escaped:
+      level -= 1
+      if level == 0:
+        group_count += 1
+    
+    if level < 0:
+      level = 0
+
+    if ch == '\\':
+      escaped = not escaped
+    else:
+      escaped = False
+
+  return group_count
 
 
 # token reader for Perl variable
@@ -251,7 +278,7 @@ class MRegexTokenBuilder(TokenBuilder):
       return True
 
     bch = candidate[1]
-    ech = candidate[1]
+    ech = bch
 
     if bch == '{':
       ech = '}'
@@ -259,12 +286,15 @@ class MRegexTokenBuilder(TokenBuilder):
       ech = ')'
 
     if ech == bch:
-      count = count_not_escaped([bch], candidate)
-    else:
-      count = count_not_escaped([bch, ech], candidate)
+      count = count_not_escaped(bch, candidate)
+      if count < 2:
+        return True
 
-    if count < 2:
-      return True
+    else:
+      count = count_regex_group(bch, ech, candidate)
+      if count < 1:
+        return True
+
 
     return c.isalpha()
 
@@ -280,9 +310,11 @@ class MRegexTokenBuilder(TokenBuilder):
     ech = self.text[1]
 
     if bch == '{':
-      ech = '}'
+      bch = '\\{'
+      ech = '\\}'
     if bch == '(':
-      ech = ')'
+      bch = '\\('
+      ech = '\\)'
 
     regex = r'\Am' + bch + '.+' + ech + r'[a-z]*\Z'
     pattern = re.compile(regex)
@@ -320,17 +352,27 @@ class SRegexTokenBuilder(TokenBuilder):
       return c == 's'
 
     if len(candidate) == 1:
-      return c == '/'
+      return c in '/{(!#'
 
     if len(candidate) == 2:
       return True
 
     bch = candidate[1]
+    ech = bch
 
-    count = count_not_escaped([bch], candidate)
+    if bch == '{':
+      ech = '}'
+    if bch == '(':
+      ech = ')'
 
-    if count < 3:
-      return True
+    if ech == bch:
+      count = count_not_escaped(bch, candidate)
+      if count < 3:
+        return True
+    else:
+      count = count_regex_group(bch, ech, candidate)
+      if count < 2:
+        return True
 
     return c.isalpha()
 
@@ -343,8 +385,16 @@ class SRegexTokenBuilder(TokenBuilder):
       return 0
 
     bch = self.text[1]
+    ech = self.text[1]
 
-    regex = r'\As' + bch + '.+' + bch + r'[a-z]*\Z'
+    if bch == '{':
+      bch = '\\{'
+      ech = '\\}'
+    if bch == '(':
+      bch = '\\('
+      ech = '\\)'
+
+    regex = r'\As' + bch + '.+' + ech + r'[a-z]*\Z'
     pattern = re.compile(regex)
 
     if not pattern.match(self.text):
@@ -380,17 +430,27 @@ class YRegexTokenBuilder(TokenBuilder):
       return c == 'y'
 
     if len(candidate) == 1:
-      return c == '/'
+      return c in '/{(!#'
 
     if len(candidate) == 2:
       return True
 
     bch = candidate[1]
+    ech = bch
 
-    count = count_not_escaped([bch], candidate)
+    if bch == '{':
+      ech = '}'
+    if bch == '(':
+      ech = ')'
 
-    if count < 3:
-      return True
+    if ech == bch:
+      count = count_not_escaped(bch, candidate)
+      if count < 3:
+        return True
+    else:
+      count = count_regex_group(bch, ech, candidate)
+      if count < 2:
+        return True
 
     return c.isalpha()
 
@@ -403,8 +463,16 @@ class YRegexTokenBuilder(TokenBuilder):
       return 0
 
     bch = self.text[1]
+    ech = self.text[1]
 
-    regex = r'\Ay' + bch + '.+' + bch + r'[a-z]*\Z'
+    if bch == '{':
+      bch = '\\{'
+      ech = '\\}'
+    if bch == '(':
+      bch = '\\('
+      ech = '\\)'
+
+    regex = r'\Ay' + bch + '.+' + ech + r'[a-z]*\Z'
     pattern = re.compile(regex)
 
     if not pattern.match(self.text):
@@ -443,17 +511,27 @@ class TrRegexTokenBuilder(TokenBuilder):
       return c == 'r'
 
     if len(candidate) == 2:
-      return c == '/'
+      return c in '/{(!#'
 
     if len(candidate) == 3:
       return True
 
-    bch = candidate[1]
+    bch = candidate[2]
+    ech = bch
 
-    count = count_not_escaped([bch], candidate)
+    if bch == '{':
+      ech = '}'
+    if bch == '(':
+      ech = ')'
 
-    if count < 3:
-      return True
+    if ech == bch:
+      count = count_not_escaped(bch, candidate)
+      if count < 3:
+        return True
+    else:
+      count = count_regex_group(bch, ech, candidate)
+      if count < 2:
+        return True
 
     return c.isalpha()
 
@@ -462,12 +540,20 @@ class TrRegexTokenBuilder(TokenBuilder):
     if self.text is None:
       return 0
 
-    if len(self.text) < 2:
+    if len(self.text) < 3:
       return 0
 
-    bch = self.text[1]
+    bch = self.text[2]
+    ech = self.text[2]
 
-    regex = r'\Atr' + bch + '.+' + bch + r'[a-z]*\Z'
+    if bch == '{':
+      bch = '\\{'
+      ech = '\\}'
+    if bch == '(':
+      bch = '\\('
+      ech = '\\)'
+
+    regex = r'\Atr' + bch + '.+' + ech + r'[a-z]*\Z'
     pattern = re.compile(regex)
 
     if not pattern.match(self.text):

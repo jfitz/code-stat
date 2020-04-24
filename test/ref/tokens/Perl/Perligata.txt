@@ -1672,136 +1672,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"m"
-    },
-    {
-        "type":"group",
-        "value":"{"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"identifier",
-        "value":"at"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"S"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"identifier",
-        "value":"line"
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"d"
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"operator",
-        "value":"."
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"}"
-    },
-    {
-        "type":"identifier",
-        "value":"s"
+        "type":"regex",
+        "value":"m{(.*)at\\s+(\\S+)\\s+line\\s+(\\d+)(.*)}s"
     },
     {
         "type":"whitespace",
@@ -4092,7 +3964,7 @@
         "value":"("
     },
     {
-        "type":"identifier",
+        "type":"keyword",
         "value":"wantarray"
     },
     {
@@ -5784,7 +5656,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"keyword",
         "value":"next"
     },
     {
@@ -35260,7 +35132,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"keyword",
         "value":"next"
     },
     {
@@ -38664,7 +38536,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"keyword",
         "value":"undef"
     },
     {
@@ -38788,7 +38660,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"keyword",
         "value":"undef"
     },
     {
@@ -42460,36 +42332,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
-        "type":"group",
-        "value":"{"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"group",
-        "value":"}"
-    },
-    {
-        "type":"group",
-        "value":"{"
-    },
-    {
-        "type":"identifier",
-        "value":"$perl"
-    },
-    {
-        "type":"operator",
-        "value":"->"
-    },
-    {
-        "type":"group",
-        "value":"}"
+        "type":"regex",
+        "value":"s{^}{$perl->}"
     },
     {
         "type":"statement terminator",
@@ -42756,76 +42600,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
-        "type":"group",
-        "value":"{"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"W"
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"}"
-    },
-    {
-        "type":"group",
-        "value":"{"
-    },
-    {
-        "type":"identifier",
-        "value":"$1"
-    },
-    {
-        "type":"identifier",
-        "value":"$owner"
-    },
-    {
-        "type":"operator",
-        "value":"->"
-    },
-    {
-        "type":"group",
-        "value":"{"
-    },
-    {
-        "type":"identifier",
-        "value":"raw"
-    },
-    {
-        "type":"group",
-        "value":"}"
-    },
-    {
-        "type":"group",
-        "value":"::"
-    },
-    {
-        "type":"group",
-        "value":"}"
+        "type":"regex",
+        "value":"s{^(\\W*)}{$1$owner->{raw}::}"
     },
     {
         "type":"statement terminator",
@@ -42900,76 +42676,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"s"
-    },
-    {
-        "type":"group",
-        "value":"{"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"line continuation",
-        "value":"\\"
-    },
-    {
-        "type":"identifier",
-        "value":"W"
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":"}"
-    },
-    {
-        "type":"group",
-        "value":"{"
-    },
-    {
-        "type":"identifier",
-        "value":"$1"
-    },
-    {
-        "type":"identifier",
-        "value":"$owner"
-    },
-    {
-        "type":"operator",
-        "value":"->"
-    },
-    {
-        "type":"group",
-        "value":"{"
-    },
-    {
-        "type":"identifier",
-        "value":"raw"
-    },
-    {
-        "type":"group",
-        "value":"}"
-    },
-    {
-        "type":"group",
-        "value":"::"
-    },
-    {
-        "type":"group",
-        "value":"}"
+        "type":"regex",
+        "value":"s{^(\\W*)}{$1$owner->{raw}::}"
     },
     {
         "type":"statement terminator",
@@ -43748,7 +43456,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"keyword",
         "value":"last"
     },
     {
@@ -43928,7 +43636,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"keyword",
         "value":"last"
     },
     {
@@ -44108,7 +43816,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"keyword",
         "value":"last"
     },
     {
@@ -46172,7 +45880,7 @@
         "value":"              "
     },
     {
-        "type":"identifier",
+        "type":"keyword",
         "value":"last"
     },
     {
@@ -46456,7 +46164,7 @@
         "value":"              "
     },
     {
-        "type":"identifier",
+        "type":"keyword",
         "value":"last"
     },
     {
@@ -46780,7 +46488,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"keyword",
         "value":"last"
     },
     {
@@ -47048,7 +46756,7 @@
         "value":"              "
     },
     {
-        "type":"identifier",
+        "type":"keyword",
         "value":"last"
     },
     {
@@ -52540,44 +52248,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"m"
-    },
-    {
-        "type":"group",
-        "value":"{"
-    },
-    {
-        "type":"operator",
-        "value":"^"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"grep"
-    },
-    {
-        "type":"operator",
-        "value":"|"
-    },
-    {
-        "type":"identifier",
-        "value":"map"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"invalid operator",
-        "value":"$"
-    },
-    {
-        "type":"group",
-        "value":"}"
+        "type":"regex",
+        "value":"m{^(grep|map)$}"
     },
     {
         "type":"statement terminator",
