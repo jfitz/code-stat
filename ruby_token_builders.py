@@ -56,7 +56,7 @@ class HereDocTokenBuilder(TokenBuilder):
     marker = lines[-1]
     content = Token('\n'.join(lines[1:-1]), 'here doc', False)
     op_token = Token(oper, 'operator', False)
-    mark_token = Token(marker, 'doc marker', False)
+    mark_token = Token(marker, 'doc marker', True)
     newline_token = Token('\n', 'newline', False)
 
     # the marker token is used twice - once at beginning and once at end

@@ -118,11 +118,13 @@ class PerlExaminer(Examiner):
     known_operators = [
       '+', '-', '*', '**', '/', '%',
       '=', '==', '!=', '>', '>=', '<', '<=',
-      '+=', '-=', '*=', '**=', '/=', '%=', '&=', '|=', '^=', '&&=', '||=',
+      '**=', '+=', '*=', '&=', '&.=', '<<=', '&&=',
+      '-=', '/=', '|=', '|.=', '>>=', '||=',
+      '.=', '%=', '^=', '^.=', '//=', 'x=',
       'ne', 'gt', 'ge', 'le', 'lt', 'eq',
       '!', '&', '|', '~', '<<', '>>',
       '^',
-      '.', '..', '.=',
+      '.', '..', '...',
       '++', '--', '->', '=>', '&&', '||',
       '?', '<->', '<=>',
       'and', 'cmp', 'or', 'xor'
@@ -166,7 +168,7 @@ class PerlExaminer(Examiner):
       'wantarray', 'while'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
+    keyword_tb = ListTokenBuilder(keywords, 'keyword', True, True)
 
     values = ['NULL']
 
