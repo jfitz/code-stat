@@ -18,7 +18,8 @@ from token_builders import (
   SuffixedRealTokenBuilder,
   IdentifierTokenBuilder,
   PrefixedIdentifierTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   SingleCharacterTokenBuilder
 )
 from cx_token_builders import (
@@ -44,7 +45,8 @@ class ScalaExaminer(Examiner):
     SuffixedRealTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
     PrefixedIdentifierTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     SlashSlashCommentTokenBuilder.__escape_z__()
     SlashStarCommentTokenBuilder.__escape_z__()
@@ -107,9 +109,9 @@ class ScalaExaminer(Examiner):
     group_mids = [',', ':']
     group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
+    known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     keywords = [
       'abstract',
@@ -130,13 +132,13 @@ class ScalaExaminer(Examiner):
       'yield'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
+    keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
     values = [
       'false', 'true', 'null', 'this', 'super'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True, True)
+    values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 

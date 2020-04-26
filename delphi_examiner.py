@@ -13,7 +13,8 @@ from token_builders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   SingleCharacterTokenBuilder,
   PrefixedIntegerTokenBuilder,
   BlockTokenBuilder
@@ -39,7 +40,8 @@ class DelphiExaminer(Examiner):
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     PrefixedIntegerTokenBuilder.__escape_z__()
     BlockTokenBuilder.__escape_z__()
@@ -88,7 +90,7 @@ class DelphiExaminer(Examiner):
       'div', 'mod', 'shl', 'shr', 'is', 'in'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, False)
+    known_operator_tb = CaseInsensitiveListTokenBuilder(known_operators, 'operator', False)
 
     self.unary_operators = [
       '+', '-',
@@ -102,7 +104,7 @@ class DelphiExaminer(Examiner):
     group_mids = [',', ':']
     group_ends = [')', ']']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
     keywords = [
       'as',
@@ -124,19 +126,19 @@ class DelphiExaminer(Examiner):
       'while', 'with', 'write'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, False)
+    keyword_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
 
     types = [
       'array', 'boolean', 'char', 'file', 'integer', 'real', 'record', 'set', 'string'
     ]
 
-    types_tb = ListTokenBuilder(types, 'type', True, False)
+    types_tb = CaseInsensitiveListTokenBuilder(types, 'type', True)
 
     values = [
       'false', 'nil', 'true'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True, False)
+    values_tb = CaseInsensitiveListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 

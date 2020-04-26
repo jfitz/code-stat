@@ -18,7 +18,8 @@ from token_builders import (
   SuffixedRealTokenBuilder,
   PrefixedIdentifierTokenBuilder,
   SuffixedIdentifierTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   SingleCharacterTokenBuilder,
   LeadToEndOfLineTokenBuilder,
   NestedCommentTokenBuilder
@@ -42,7 +43,8 @@ class JuliaExaminer(Examiner):
     SuffixedRealTokenBuilder.__escape_z__()
     PrefixedIdentifierTokenBuilder.__escape_z__()
     SuffixedIdentifierTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__(),
     NestedCommentTokenBuilder.__escape_z__()
@@ -107,7 +109,7 @@ class JuliaExaminer(Examiner):
       'ν', 'ξ', 'ο', 'π', 'ρ', 'ς', 'σ', 'τ', 'υ', 'φ', 'χ', 'ψ', 'ω'
     ]
 
-    greek_letter_tb = ListTokenBuilder(greek_letters, 'identifier', True, True)
+    greek_letter_tb = CaseSensitiveListTokenBuilder(greek_letters, 'identifier', True)
 
     self.unary_operators = [
       'isa', '+', '-', '~', '!', '.', ':', '::', "'",
@@ -123,9 +125,9 @@ class JuliaExaminer(Examiner):
     group_mids = [',']
     group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
+    known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     keywords = [
       'baremodule', 'begin', 'break',
@@ -146,7 +148,7 @@ class JuliaExaminer(Examiner):
       'abstract', 'mutable', 'primitive', 'type'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
+    keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
     types = [
        'Int8', 'UInt8', 'Int16', 'UInt16', 'Int32', 'UInt32', 'Int64', 'UInt64',
@@ -154,13 +156,13 @@ class JuliaExaminer(Examiner):
        'Bool', 'Char'
     ]
 
-    types_tb = ListTokenBuilder(types, 'type', True, True)
+    types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
 
     values = [
       'false', 'true'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True, True)
+    values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 

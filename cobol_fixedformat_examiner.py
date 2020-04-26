@@ -12,7 +12,8 @@ from token_builders import (
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   SingleCharacterTokenBuilder,
   BlockTokenBuilder
 )
@@ -35,7 +36,8 @@ class CobolFixedFormatExaminer(CobolExaminer):
     IntegerExponentTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     BlockTokenBuilder.__escape_z__()
     CobolIdentifierTokenBuilder.__escape_z__()
@@ -82,7 +84,7 @@ class CobolFixedFormatExaminer(CobolExaminer):
       ':'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
+    known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     self.unary_operators = [
       '+', '-'
@@ -93,7 +95,7 @@ class CobolFixedFormatExaminer(CobolExaminer):
     group_mids = [',']
     # group_ends = [')']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
     keywords = [
       'ACCEPT', 'ACCESS', 'ADD', 'ADDRESS', 'ADVANCING', 'AFTER', 'ALL',
@@ -205,7 +207,7 @@ class CobolFixedFormatExaminer(CobolExaminer):
     if year in ['85', '1985']:
       keywords += keywords_85
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, False)
+    keyword_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
 
     values = [
       'BLANK', 'SPACE', 'SPACES', 'ZERO', 'ZEROES', 'ZEROS',
@@ -217,7 +219,7 @@ class CobolFixedFormatExaminer(CobolExaminer):
     if year in ['85', '1985']:
       values += values_85
 
-    value_tb = ListTokenBuilder(values, 'value', True, False)
+    value_tb = CaseInsensitiveListTokenBuilder(values, 'value', True)
     operand_types.append('value')
 
     exec_tb = BlockTokenBuilder('EXEC', 'END-EXEC', 'exec block')

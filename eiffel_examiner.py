@@ -14,7 +14,8 @@ from token_builders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   LeadToEndOfLineTokenBuilder
 )
 from examiner import Examiner
@@ -32,7 +33,8 @@ class EiffelExaminer(Examiner):
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
@@ -83,9 +85,9 @@ class EiffelExaminer(Examiner):
     group_mids = [',', ';', ':']
     group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
+    known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     keywords = [
       'across', 'agent', 'alias', 'all', 'as', 'assign', 'attribute',
@@ -105,19 +107,19 @@ class EiffelExaminer(Examiner):
       'when'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
+    keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
     types = [
       'Current', 'Precursor', 'Result', 'Void', 'TUPLE'
     ]
 
-    types_tb = ListTokenBuilder(types, 'type', True, True)
+    types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
 
     values = [
       'False', 'True', '?'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True, True)
+    values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 

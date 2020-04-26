@@ -14,7 +14,8 @@ from token_builders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   LeadToEndOfLineTokenBuilder,
   SingleCharacterTokenBuilder
 )
@@ -37,7 +38,8 @@ class LuaExaminer(Examiner):
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     LuaBlockCommentTokenBuilder.__escape_z__()
@@ -89,9 +91,9 @@ class LuaExaminer(Examiner):
     group_mids = [',']
     group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
+    known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     keywords = [
       'break', 'do', 'else', 'elseif', 'end',
@@ -99,13 +101,13 @@ class LuaExaminer(Examiner):
       'local', 'repeat', 'return', 'then', 'until', 'while'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
+    keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
     values = [
       'false', 'true', 'nil', '...'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True, True)
+    values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
 
     line_comment_tb = LeadToEndOfLineTokenBuilder('--', True, 'comment')
     block_comment_tb = LuaBlockCommentTokenBuilder()

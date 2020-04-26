@@ -14,7 +14,8 @@ from token_builders import (
   RealExponentTokenBuilder,
   SuffixedRealTokenBuilder,
   IdentifierTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   SingleCharacterTokenBuilder,
   LeadToEndOfLineTokenBuilder
 )
@@ -71,7 +72,7 @@ class PL1Examiner(Examiner):
     ]
 
     self.line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation', False)
-    self.preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', False, False)
+    self.preprocessor_tb = CaseInsensitiveListTokenBuilder(directives, 'preprocessor', False)
     self.title_tb = LeadToEndOfLineTokenBuilder('%TITLE', True, 'preprocessor')
     self.subtitle_tb = LeadToEndOfLineTokenBuilder('%SBTTL', True, 'preprocessor')
     self.error_tb = LeadToEndOfLineTokenBuilder('%ERROR', True, 'preprocessor')
@@ -103,9 +104,9 @@ class PL1Examiner(Examiner):
     self.group_mids = [',']
     self.group_ends = [')', ']', '}']
 
-    self.groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    self.groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
-    self.known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
+    self.known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     keywords = [
       'ALLOCATE', 'ALLOC',
@@ -125,7 +126,7 @@ class PL1Examiner(Examiner):
       'WHEN', 'WRITE'
      ]
 
-    self.keyword_tb = ListTokenBuilder(keywords, 'keyword', False, False)
+    self.keyword_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
 
     attributes = [
       'ALIGNED', 'ANY', 'AREA',
@@ -150,7 +151,7 @@ class PL1Examiner(Examiner):
       'VARIABLE', 'VARYING', 'VAR'
     ]
 
-    self.attributes_tb = ListTokenBuilder(attributes, 'attribute', False, False)
+    self.attributes_tb = CaseInsensitiveListTokenBuilder(attributes, 'attribute', False)
 
     functions = [
       'ABS', 'ACOS', 'ACTUALCOUNT', 'ADD', 'ADDR', 'ADDREL', 'ALLOCATION', 'ALLOCN',
@@ -177,7 +178,7 @@ class PL1Examiner(Examiner):
       'WARN'
     ]
 
-    self.function_tb = ListTokenBuilder(functions, 'function', True, False)
+    self.function_tb = CaseInsensitiveListTokenBuilder(functions, 'function', True)
 
     format_items = [
       'A',
@@ -191,7 +192,7 @@ class PL1Examiner(Examiner):
       'X'
     ]
 
-    self.format_item_tb = ListTokenBuilder(format_items, 'format', True, True)
+    self.format_item_tb = CaseSensitiveListTokenBuilder(format_items, 'format', True)
 
     options = [
       'APPEND',
@@ -226,7 +227,7 @@ class PL1Examiner(Examiner):
       'WAIT_FOR_RECORD', 'WHILE', 'WORLD_PROTECTION', 'WRITE_BEHIND', 'WRITE_CHECK'
     ]
 
-    self.options_tb = ListTokenBuilder(options, 'option', False, False)
+    self.options_tb = CaseInsensitiveListTokenBuilder(options, 'option', False)
 
     conditions = [
       'ANYCONDITION',
@@ -240,7 +241,7 @@ class PL1Examiner(Examiner):
       'ZERODIVIDE', 'ZDIV'
     ]
 
-    self.conditions_tb = ListTokenBuilder(conditions, 'condition', False, False)
+    self.conditions_tb = CaseInsensitiveListTokenBuilder(conditions, 'condition', False)
 
     subroutines = [
       'DISPLAY',
@@ -251,17 +252,17 @@ class PL1Examiner(Examiner):
       'SPACEBLOCK'
     ]
 
-    self.subroutines_tb = ListTokenBuilder(subroutines, 'subroutine', False, False)
+    self.subroutines_tb = CaseInsensitiveListTokenBuilder(subroutines, 'subroutine', False)
 
     types = [
       'FIXED', 'BINARY', 'FLOAT', 'DECIMAL',
       'BIT', 'CHARACTER', 'PICTURE'
     ]
 
-    self.types_tb = ListTokenBuilder(types, 'type', True, False)
+    self.types_tb = CaseInsensitiveListTokenBuilder(types, 'type', True)
 
     values = [
       'SYSIN', 'SYSPRINT'
     ]
 
-    self.values_tb = ListTokenBuilder(values, 'value', True, False)
+    self.values_tb = CaseInsensitiveListTokenBuilder(values, 'value', True)

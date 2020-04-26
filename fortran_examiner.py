@@ -7,7 +7,8 @@ from token_builders import (
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
-  ListTokenBuilder
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder
 )
 from jcl_token_builders import (
   JCLTokenBuilder
@@ -25,7 +26,8 @@ class FortranExaminer(Examiner):
     IntegerExponentTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 

@@ -16,7 +16,8 @@ from token_builders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   SingleCharacterTokenBuilder,
   LeadToEndOfLineTokenBuilder
 )
@@ -42,7 +43,8 @@ class CExaminer(Examiner):
     RealExponentTokenBuilder.__escape_z__()
     SuffixedRealTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
     SlashSlashCommentTokenBuilder.__escape_z__()
@@ -85,7 +87,7 @@ class CExaminer(Examiner):
     ]
 
     line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation', False)
-    c_preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', False, True)
+    c_preprocessor_tb = CaseSensitiveListTokenBuilder(directives, 'preprocessor', False)
     c_warning_tb = LeadToEndOfLineTokenBuilder('#warning', True, 'preprocessor')
     c_error_tb = LeadToEndOfLineTokenBuilder('#error', True, 'preprocessor')
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)
@@ -116,9 +118,9 @@ class CExaminer(Examiner):
     group_ends = [')', ']', '}']
     group_mids = [',', ':']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
+    known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     keywords = [
       'auto',
@@ -137,7 +139,7 @@ class CExaminer(Examiner):
       'while'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
+    keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
     types = [
       'char', 'double', 'float', 'int',
@@ -154,7 +156,7 @@ class CExaminer(Examiner):
     if year in ['99']:
       types += types_99
 
-    types_tb = ListTokenBuilder(types, 'type', True, True)
+    types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
 
     values = ['NULL']
 
@@ -168,7 +170,7 @@ class CExaminer(Examiner):
     if year in ['99']:
       values += values_99
 
-    values_tb = ListTokenBuilder(values, 'value', True, True)
+    values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 

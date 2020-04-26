@@ -13,7 +13,8 @@ from token_builders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   SingleCharacterTokenBuilder,
   PrefixedIntegerTokenBuilder,
   RegexTokenBuilder,
@@ -34,7 +35,8 @@ class CoffeeScriptExaminer(Examiner):
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     PrefixedIntegerTokenBuilder.__escape_z__()
     RegexTokenBuilder.__escape_z__()
@@ -87,7 +89,7 @@ class CoffeeScriptExaminer(Examiner):
       'new', 'delete'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
+    known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     self.unary_operators = [
       '+', '-',
@@ -108,7 +110,7 @@ class CoffeeScriptExaminer(Examiner):
     group_mids = [',']
     group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
     regex_tb = RegexTokenBuilder()
 
@@ -130,7 +132,7 @@ class CoffeeScriptExaminer(Examiner):
       'implements', 'interface', 'enum'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
+    keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
     values = [
       'true', 'yes', 'on', 'false', 'no', 'off',
@@ -138,7 +140,7 @@ class CoffeeScriptExaminer(Examiner):
       'null', 'undefined', 'Infinity', 'Nan'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True, True)
+    values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 

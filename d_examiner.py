@@ -19,7 +19,8 @@ from token_builders import (
   SuffixedRealTokenBuilder,
   IdentifierTokenBuilder,
   PrefixedIdentifierTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   SingleCharacterTokenBuilder,
   NestedCommentTokenBuilder
 )
@@ -51,7 +52,8 @@ class DExaminer(Examiner):
     SuffixedRealTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
     PrefixedIdentifierTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     SlashSlashCommentTokenBuilder.__escape_z__()
     SlashStarCommentTokenBuilder.__escape_z__()
@@ -128,9 +130,9 @@ class DExaminer(Examiner):
     group_mids = [',']
     group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
+    known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     keywords = [
       'abstract', 'alias', 'align', 'asm', 'assert', 'auto',
@@ -152,7 +154,7 @@ class DExaminer(Examiner):
       '__gshared', '__traits', '__vector', '__parameters'
 ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
+    keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
     types = [
       'bool', 'byte', 'cdouble', 'cent', 'cfloat', 'char', 'creal',
@@ -161,7 +163,7 @@ class DExaminer(Examiner):
       'void', 'wchar'
     ]
 
-    types_tb = ListTokenBuilder(types, 'type', True, True)
+    types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
 
     values = [
       'false', 'null', 'super', 'this', 'true',
@@ -171,7 +173,7 @@ class DExaminer(Examiner):
       '__VENDOR__', '__VERSION__'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True, True)
+    values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 

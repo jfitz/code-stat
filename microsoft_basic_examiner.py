@@ -13,7 +13,8 @@ from token_builders import (
   RealTokenBuilder,
   SuffixedRealTokenBuilder,
   RealExponentTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   SingleCharacterTokenBuilder,
   PrefixedIntegerTokenBuilder,
   LeadToEndOfLineTokenBuilder
@@ -39,7 +40,8 @@ class MicrosoftBasicExaminer(Examiner):
     RealTokenBuilder.__escape_z__()
     SuffixedRealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     PrefixedIntegerTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
@@ -84,7 +86,7 @@ class MicrosoftBasicExaminer(Examiner):
       '#', '\\', 'AND', 'MOD', 'OR', 'NOT', 'IMP', 'EQV', 'XOR'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, False)
+    known_operator_tb = CaseInsensitiveListTokenBuilder(known_operators, 'operator', False)
 
     self.unary_operators = [
       '+', '-', '#', 'NOT'
@@ -95,7 +97,7 @@ class MicrosoftBasicExaminer(Examiner):
     group_mids = [',', ';', ':']
     group_ends = [')']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
     keywords = [
       'AS',
@@ -126,11 +128,11 @@ class MicrosoftBasicExaminer(Examiner):
     if version in ['basica', 'gw-basic']:
       keywords += keywords_basica
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, False)
+    keyword_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
 
     self.values = ['ERR', 'ERL', 'RND']
 
-    values_tb = ListTokenBuilder(self.values, 'value', True, False)
+    values_tb = CaseInsensitiveListTokenBuilder(self.values, 'value', True)
 
     # do not include RND() - it is a value and later converted to function
     # if followed by open parenthesis
@@ -153,7 +155,7 @@ class MicrosoftBasicExaminer(Examiner):
       'VAL', 'VARPTR'
     ]
 
-    function_tb = ListTokenBuilder(functions, 'function', True, False)
+    function_tb = CaseInsensitiveListTokenBuilder(functions, 'function', True)
     user_function_tb = LongUserFunctionTokenBuilder('%#!$&')
     hardware_function_tb = HardwareFunctionTokenBuilder()
 

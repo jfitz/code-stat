@@ -13,7 +13,8 @@ from token_builders import (
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   SingleCharacterTokenBuilder,
   LeadToEndOfLineTokenBuilder
 )
@@ -41,7 +42,8 @@ class DbaseExaminer(Examiner):
     IntegerExponentTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
     AsteriskCommentTokenBuilder.__escape_z__()
@@ -107,7 +109,7 @@ class DbaseExaminer(Examiner):
         '&', '$', '#', '!'
       ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, False)
+    known_operator_tb = CaseInsensitiveListTokenBuilder(known_operators, 'operator', False)
 
     if version == 'ii':
       self.unary_operators = [
@@ -138,7 +140,7 @@ class DbaseExaminer(Examiner):
     group_mids = [',']
     group_ends = [')']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, True)
+    groupers_tb = CaseSensitiveListTokenBuilder(groupers, 'group', False)
 
     if version == 'ii':
       keywords = [
@@ -218,7 +220,7 @@ class DbaseExaminer(Examiner):
         'GETS', 'LOCK', 'FREEZE', 'NOFOLLOW', 'NOMENU'
       ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, False)
+    keyword_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
 
     keyword_comments = []
     if version == 'ii':
@@ -244,7 +246,7 @@ class DbaseExaminer(Examiner):
         '.T.', '.F.'
       ]
 
-    values_tb = ListTokenBuilder(values, 'value', True, False)
+    values_tb = CaseInsensitiveListTokenBuilder(values, 'value', True)
 
     if version == 'ii':
       functions = [
@@ -288,7 +290,7 @@ class DbaseExaminer(Examiner):
         'YEAR'
       ]
 
-    function_tb = ListTokenBuilder(functions, 'function', True, False)
+    function_tb = CaseInsensitiveListTokenBuilder(functions, 'function', True)
 
     filename_tb = DbaseFilenameTokenBuilder()
 

@@ -13,7 +13,8 @@ from token_builders import (
   RealExponentTokenBuilder,
   PrefixedIntegerTokenBuilder,
   SuffixedIdentifierTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   SingleCharacterTokenBuilder,
   PrefixedIdentifierTokenBuilder,
   TripleQuoteStringTokenBuilder
@@ -41,7 +42,8 @@ class SwiftExaminer(Examiner):
     RealExponentTokenBuilder.__escape_z__()
     PrefixedIntegerTokenBuilder.__escape_z__()
     SuffixedIdentifierTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     PrefixedIdentifierTokenBuilder.__escape_z__()
     TripleQuoteStringTokenBuilder.__escape_z__()
@@ -93,7 +95,7 @@ class SwiftExaminer(Examiner):
         '&+', '&-', '&*'
       ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
+    known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     self.unary_operators = [
       '+', '-',
@@ -110,7 +112,7 @@ class SwiftExaminer(Examiner):
     group_mids = [',']
     group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
     keywords = [
       'associatedtype', 'class', 'deinit', 'enum', 'extension', 'fileprivate',
@@ -130,20 +132,20 @@ class SwiftExaminer(Examiner):
       'required', 'right', 'set', 'Type', 'unowned', 'weak', 'willSet'
     ]
     
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
+    keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
     types = [
       'char', 'double', 'float', 'int',
       'long', 'short',
     ]
 
-    types_tb = ListTokenBuilder(types, 'type', True, True)
+    types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
 
     values = [
       'nil', 'Self', 'false', 'true'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True, True)
+    values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 

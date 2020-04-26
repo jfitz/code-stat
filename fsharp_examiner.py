@@ -13,7 +13,8 @@ from token_builders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   BlockTokenBuilder,
   TripleQuoteStringTokenBuilder,
   LeadToEndOfLineTokenBuilder
@@ -41,7 +42,8 @@ class FsharpExaminer(Examiner):
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     BlockTokenBuilder.__escape_z__()
     TripleQuoteStringTokenBuilder.__escape_z__()
     SlashSlashCommentTokenBuilder.__escape_z__()
@@ -84,7 +86,7 @@ class FsharpExaminer(Examiner):
       '#line', '#region', '#endregion', '#pragma'
     ]
 
-    preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', False, True)
+    preprocessor_tb = CaseSensitiveListTokenBuilder(directives, 'preprocessor', False)
     c_warning_tb = LeadToEndOfLineTokenBuilder('#warning', True, 'preprocessor')
     c_error_tb = LeadToEndOfLineTokenBuilder('#error', True, 'preprocessor')
 
@@ -115,7 +117,7 @@ class FsharpExaminer(Examiner):
       "'"
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
+    known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     groupers = [
       '(', ')', ',', '[', ']', '{', '}',
@@ -129,7 +131,7 @@ class FsharpExaminer(Examiner):
     group_mids = [',', ';', '^', '|']
     group_ends = [')', ']', '}', '|]', '>]']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
     keywords = [
       'abstract', 'assert', 'break', 'class', 'default', 'delegate',
@@ -143,20 +145,20 @@ class FsharpExaminer(Examiner):
       'val', 'while', 'with', 'yield', 'yield!'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
+    keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
     types = [
       'bool', 'byte', 'char', 'decimal', 'double', 'float', 'int', 'long', 'object',
       'sbyte', 'short', 'string', 'uint', 'ulong', 'ushort', 'void'
     ]
 
-    types_tb = ListTokenBuilder(types, 'type', True, True)
+    types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
 
     values = [
       'base', 'false', 'null', 'true', '_'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True, True)
+    values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 

@@ -942,18 +942,15 @@ class KeywordTokenBuilder(TokenBuilder):
 
 
 # accept characters to match item in list
-class ListTokenBuilder(TokenBuilder):
+class CaseInsensitiveListTokenBuilder(TokenBuilder):
   @staticmethod
   def __escape_z__():
     Token.__escape_z__()
     return 'Escape ?Z'
 
 
-  def __init__(self, legals, group, is_operand, case_sensitive):
-    if case_sensitive:
-      self.legals = legals
-    else:
-      self.legals = list(map(str.lower, legals))
+  def __init__(self, legals, group, is_operand):
+    self.legals = list(map(str.lower, legals))
 
     self.abbrevs = {}
     for legal in self.legals:
@@ -962,7 +959,6 @@ class ListTokenBuilder(TokenBuilder):
 
     self.group = group
     self.is_operand = is_operand
-    self.case_sensitive = case_sensitive
     self.text = ''
 
 
@@ -981,12 +977,8 @@ class ListTokenBuilder(TokenBuilder):
       candidate += c
       i += 1
 
-      if self.case_sensitive:
-        if candidate in self.legals:
-          best_candidate = candidate
-      else:
-        if candidate.lower() in self.legals:
-          best_candidate = candidate
+      if candidate.lower() in self.legals:
+        best_candidate = candidate
 
     self.text = best_candidate
 
@@ -1000,10 +992,6 @@ class ListTokenBuilder(TokenBuilder):
 
   def accept(self, candidate, c):
     token = candidate + c
-
-    if self.case_sensitive:
-      return token in self.abbrevs
-
     return token.lower() in self.abbrevs
 
 
@@ -1011,12 +999,72 @@ class ListTokenBuilder(TokenBuilder):
     if self.text is None:
       return 0
 
-    if self.case_sensitive:
-      if self.text in self.legals:
-        return len(self.text)
-    else:
-      if self.text.lower() in self.legals:
-        return len(self.text)
+    if self.text.lower() in self.legals:
+      return len(self.text)
+
+    return 0
+
+
+# accept characters to match item in list
+class CaseSensitiveListTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self, legals, group, is_operand):
+    self.legals = legals
+
+    self.abbrevs = {}
+    for legal in self.legals:
+      for i in range(len(legal)):
+        self.abbrevs[legal[:i+1]] = 1
+
+    self.group = group
+    self.is_operand = is_operand
+    self.text = ''
+
+
+  def attempt(self, text):
+    self.text = None
+    best_candidate = None
+    candidate = ''
+    i = 0
+
+    while i < len(text):
+      c = text[i]
+
+      if not self.accept(candidate, c):
+        break
+
+      candidate += c
+      i += 1
+
+      if candidate in self.legals:
+        best_candidate = candidate
+
+    self.text = best_candidate
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, self.group, self.is_operand)]
+
+
+  def accept(self, candidate, c):
+    token = candidate + c
+    return token in self.abbrevs
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if self.text in self.legals:
+      return len(self.text)
 
     return 0
 

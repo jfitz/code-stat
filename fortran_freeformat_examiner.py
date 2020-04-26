@@ -8,7 +8,8 @@ from token_builders import (
   StuffedQuoteStringTokenBuilder,
   PrefixedStringTokenBuilder,
   SingleCharacterTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   LeadToEndOfLineTokenBuilder
 )
 from fortran_token_builders import (
@@ -25,6 +26,8 @@ class FortranFreeFormatExaminer(FortranExaminer):
     FortranExaminer.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
     UserDefinedOperatorTokenBuilder.__escape_z__()
     KindIntegerTokenBuilder.__escape_z__()
@@ -61,7 +64,7 @@ class FortranFreeFormatExaminer(FortranExaminer):
       ':', '::', '=>', '%'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, False)
+    known_operator_tb = CaseInsensitiveListTokenBuilder(known_operators, 'operator', False)
 
     self.unary_operators = [
       '+', '-'
@@ -76,7 +79,7 @@ class FortranFreeFormatExaminer(FortranExaminer):
     group_mids = [',']
     # group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
     keywords = [
       'IF', 'THEN', 'ELSE', 'ENDIF', 'END IF', 'GO', 'TO', 'GOTO', 'GO TO',
@@ -117,14 +120,14 @@ class FortranFreeFormatExaminer(FortranExaminer):
     if year in ['2008']:
       keywords += keywords_2008
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, False)
+    keyword_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
 
     types = [
       'INTEGER', 'REAL', 'COMPLEX', 'DOUBLE PRECISION', 'DOUBLEPRECISION',
       'DOUBLE', 'PRECISION', 'LOGICAL', 'CHARACTER'
     ]
 
-    types_tb = ListTokenBuilder(types, 'type', True, False)
+    types_tb = CaseInsensitiveListTokenBuilder(types, 'type', True)
 
     tokenbuilders = [
       self.newline_tb,

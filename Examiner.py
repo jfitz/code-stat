@@ -1,5 +1,5 @@
 from codestat_token import Token
-from token_builders import ListTokenBuilder
+from token_builders import CaseSensitiveListTokenBuilder
 
 class Examiner:
   def __init__(self):
@@ -13,7 +13,7 @@ class Examiner:
     ]
 
     self.tokens = []
-    self.unknown_operator_tb = ListTokenBuilder(operators, 'invalid operator', False, True)
+    self.unknown_operator_tb = CaseSensitiveListTokenBuilder(operators, 'invalid operator', False)
     self.unary_operators = []
     self.postfix_operators = []
     self.adjective_operators = []

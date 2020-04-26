@@ -13,7 +13,8 @@ from token_builders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   SingleCharacterTokenBuilder,
   PrefixedIntegerTokenBuilder,
   BlockTokenBuilder
@@ -35,7 +36,8 @@ class PascalExaminer(Examiner):
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     PrefixedIntegerTokenBuilder.__escape_z__()
     BlockTokenBuilder.__escape_z__()
@@ -79,7 +81,7 @@ class PascalExaminer(Examiner):
       'div', 'mod', 'shl', 'shr', 'in'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, False)
+    known_operator_tb = CaseInsensitiveListTokenBuilder(known_operators, 'operator', False)
 
     self.unary_operators = [
       '+', '-',
@@ -93,7 +95,7 @@ class PascalExaminer(Examiner):
     group_mids = [',']
     group_ends = [')', ']']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, True)
+    groupers_tb = CaseSensitiveListTokenBuilder(groupers, 'group', False)
 
     keywords = [
       'begin', 'break',
@@ -113,19 +115,19 @@ class PascalExaminer(Examiner):
       'while', 'with'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, False)
+    keyword_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
 
     types = [
       'array', 'boolean', 'char', 'file', 'integer', 'real', 'record', 'set', 'string'
     ]
 
-    types_tb = ListTokenBuilder(types, 'type', True, False)
+    types_tb = CaseInsensitiveListTokenBuilder(types, 'type', True)
 
     values = [
       'false', 'nil', 'true'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True, False)
+    values_tb = CaseInsensitiveListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 

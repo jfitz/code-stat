@@ -13,7 +13,8 @@ from token_builders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   SuffixedIdentifierTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   LeadToEndOfLineTokenBuilder,
   SingleCharacterTokenBuilder
 )
@@ -35,7 +36,8 @@ class VisualBasic6Examiner(Examiner):
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
     SuffixedIdentifierTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     VisualBasicVariableTokenBuilder.__escape_z__()
@@ -85,9 +87,9 @@ class VisualBasic6Examiner(Examiner):
     group_mids = [',']
     group_ends = [')', ']']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
+    known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     keywords = [
       'Access', 'Alias', 'Any',
@@ -129,7 +131,7 @@ class VisualBasic6Examiner(Examiner):
       'While', 'Width', 'Write', 'ZOrder'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
+    keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
     functions = [
       'Abs', 'AddItem', 'AddNew', 'Asc', 'Atn',
@@ -155,21 +157,21 @@ class VisualBasic6Examiner(Examiner):
       'Val', 'Year'
     ]
 
-    function_tb = ListTokenBuilder(functions, 'function', True, True)
+    function_tb = CaseSensitiveListTokenBuilder(functions, 'function', True)
 
     types = [
       'Binary', 'Control', 'Currency', 'Double', 'Dynaset', 'Integer',
       'Long', 'Single', 'String', 'Variant'
     ]
 
-    types_tb = ListTokenBuilder(types, 'type', True, True)
+    types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
 
     values = [
       'False', 'True', 'App', 'Base', 'Clipboard', 'Debug', 'Erl', 'Err',
       'Printer', 'Me', 'Nothing', 'Null'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True, True)
+    values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 

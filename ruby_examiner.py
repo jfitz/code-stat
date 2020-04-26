@@ -12,7 +12,8 @@ from token_builders import (
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   SingleCharacterTokenBuilder,
   LeadToEndOfLineTokenBuilder,
   PrefixedIdentifierTokenBuilder,
@@ -35,7 +36,8 @@ class RubyExaminer(Examiner):
     IntegerExponentTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
     PrefixedIdentifierTokenBuilder.__escape_z__()
@@ -90,7 +92,7 @@ class RubyExaminer(Examiner):
         '<<-'
       ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
+    known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     self.unary_operators = [
       '+', '-',
@@ -108,7 +110,7 @@ class RubyExaminer(Examiner):
     group_mids = [',']
     group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
     keywords = [
       'BEGIN', 'END',
@@ -128,17 +130,17 @@ class RubyExaminer(Examiner):
       'yield'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
+    keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
     values = [
       'nil', 'self', 'true', 'false', 'super'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True, True)
+    values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
 
     array_markers = ['%w', '%q', '%Q', '%i', '%s', '%x']
 
-    array_marker_tb = ListTokenBuilder(array_markers, 'identifier', True, True)
+    array_marker_tb = CaseSensitiveListTokenBuilder(array_markers, 'identifier', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 

@@ -11,7 +11,8 @@ from token_builders import (
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   SingleCharacterTokenBuilder,
   IdentifierTokenBuilder,
   LeadToEndOfLineTokenBuilder
@@ -32,7 +33,8 @@ class PrologExaminer(Examiner):
     IntegerExponentTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
@@ -66,7 +68,7 @@ class PrologExaminer(Examiner):
     comment_tb = LeadToEndOfLineTokenBuilder('%', True, 'comment')
 
     special_symbols = ['!']
-    special_symbol_tb = ListTokenBuilder(special_symbols, 'identifier', True, True)
+    special_symbol_tb = CaseSensitiveListTokenBuilder(special_symbols, 'identifier', True)
 
     known_operators = [
         '-->', ':-',
@@ -85,14 +87,14 @@ class PrologExaminer(Examiner):
       '+', '-', ':-', '\\', '\\+'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
+    known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     groupers = ['(', ')', ',', '[', ']', '{', '}', '|']
     group_starts = ['(', '[', ',', '{']
     group_mids = [',', '|']
     group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
     keywords = [
       'dynamic', 'discontiguous', 'initialization', 'meta_predicate',
@@ -100,11 +102,11 @@ class PrologExaminer(Examiner):
       'thread_initialization', 'volatile'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
+    keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
     values = ['(-)']
 
-    value_tb = ListTokenBuilder(values, 'value', True, True)
+    value_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 

@@ -13,7 +13,8 @@ from token_builders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   SuffixedIdentifierTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   LeadToEndOfLineTokenBuilder,
   SingleCharacterTokenBuilder
 )
@@ -35,7 +36,8 @@ class VisualBasicNETExaminer(Examiner):
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
     SuffixedIdentifierTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     VisualBasicVariableTokenBuilder.__escape_z__()
@@ -76,7 +78,7 @@ class VisualBasicNETExaminer(Examiner):
       '#Const'
     ]
 
-    preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', False, True)
+    preprocessor_tb = CaseSensitiveListTokenBuilder(directives, 'preprocessor', False)
 
     known_operators = [
       '&', '&=', '*', '*=', '/', '/=', '\\', '\\=', '^', '^=',
@@ -95,9 +97,9 @@ class VisualBasicNETExaminer(Examiner):
     group_mids = [',']
     group_ends = [')', ']']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
+    known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     keywords = [
       'AddHandler', 'Alias', 'As',
@@ -125,7 +127,7 @@ class VisualBasicNETExaminer(Examiner):
       'WriteOnly'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
+    keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
     functions = [
       'Asc', 'AscW', 'Chr', 'ChrW', 'Filter', 'Format',
@@ -135,7 +137,7 @@ class VisualBasicNETExaminer(Examiner):
       'StrReverse', 'Trim', 'UCase'
     ]
 
-    function_tb = ListTokenBuilder(functions, 'function', True, True)
+    function_tb = CaseSensitiveListTokenBuilder(functions, 'function', True)
 
     types = [
       'Boolean', 'Byte',
@@ -150,14 +152,14 @@ class VisualBasicNETExaminer(Examiner):
       'UInteger', 'ULong', 'UShort',
     ]
 
-    types_tb = ListTokenBuilder(types, 'type', True, True)
+    types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
 
     values = [
       'False', 'True', 'Nothing',
       'MyBase', 'MyClass'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True, True)
+    values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 

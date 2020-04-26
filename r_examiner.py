@@ -12,7 +12,8 @@ from token_builders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   SingleCharacterTokenBuilder,
   LeadToEndOfLineTokenBuilder
 )
@@ -33,7 +34,8 @@ class RExaminer(Examiner):
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
     ROperatorTokenBuilder.__escape_z__()
@@ -75,7 +77,7 @@ class RExaminer(Examiner):
       '!', '@', '.'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
+    known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
     stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator', False)
     user_operator_tb = ROperatorTokenBuilder()
 
@@ -84,7 +86,7 @@ class RExaminer(Examiner):
     group_mids = [',']
     group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
     keywords = [
       'if', 'else', 'repeat', 'while',
@@ -93,7 +95,7 @@ class RExaminer(Examiner):
       'colnames', 'rownames', 'cbind', 'dim'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
+    keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
     values = [
       'TRUE', 'FALSE', 'NULL', 'Inf', 'NaN', 'NA',
@@ -101,7 +103,7 @@ class RExaminer(Examiner):
       '...'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True, True)
+    values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 

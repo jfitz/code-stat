@@ -4,7 +4,8 @@ from codestat_exception import CodeStatException
 from codestat_token import Token
 from codestat_tokenizer import Tokenizer
 from token_builders import (
-  ListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
   IdentifierTokenBuilder,
   StuffedQuoteStringTokenBuilder
 )
@@ -19,7 +20,8 @@ from examiner import Examiner
 class FortranFixedFormatExaminer(FortranExaminer):
   @staticmethod
   def __escape_z__():
-    ListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
     StuffedQuoteStringTokenBuilder.__escape_z__()
     FortranIdentifierTokenBuilder.__escape_z__()
@@ -56,7 +58,10 @@ class FortranFixedFormatExaminer(FortranExaminer):
       '.AND.', '.OR.', '.NOT.'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, case_significant)
+    if case_significant:
+      known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
+    else:
+      known_operator_tb = CaseInsensitiveListTokenBuilder(known_operators, 'operator', False)
 
     self.unary_operators = [
       '+', '-'
@@ -67,7 +72,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
     group_mids = [',']
     # group_ends = [')']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseSensitiveListTokenBuilder(groupers, 'group', False)
 
     keywords = [
       'IF', 'GO', 'TO', 'GOTO', 'GO TO', 'ASSIGN',
@@ -89,7 +94,10 @@ class FortranFixedFormatExaminer(FortranExaminer):
     if year in ['77', '1977']:
       keywords += keywords_77
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, case_significant)
+    if case_significant:
+      keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
+    else:
+      keyword_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
 
     types = [
       'INTEGER', 'REAL', 'COMPLEX', 'DOUBLE PRECISION', 'LOGICAL'
@@ -102,7 +110,10 @@ class FortranFixedFormatExaminer(FortranExaminer):
     if year in ['77', '1977']:
       types += types_77
 
-    types_tb = ListTokenBuilder(types, 'type', True, case_significant)
+    if case_significant:
+      types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
+    else:
+      types_tb = CaseInsensitiveListTokenBuilder(types, 'type', True)
 
     tokenbuilders1 = [
       self.newline_tb,

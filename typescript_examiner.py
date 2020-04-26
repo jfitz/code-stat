@@ -12,7 +12,8 @@ from token_builders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   PrefixedIntegerTokenBuilder,
   RegexTokenBuilder
 )
@@ -34,7 +35,8 @@ class TypeScriptExaminer(Examiner):
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     PrefixedIntegerTokenBuilder.__escape_z__()
     RegexTokenBuilder.__escape_z__()
     SlashSlashCommentTokenBuilder.__escape_z__()
@@ -66,7 +68,7 @@ class TypeScriptExaminer(Examiner):
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
 
-    terminators_tb = ListTokenBuilder([';'], 'statement terminator', False, False)
+    terminators_tb = CaseInsensitiveListTokenBuilder([';'], 'statement terminator', False)
 
     known_operators = [
       '+', '-', '*', '/', '%',
@@ -80,7 +82,7 @@ class TypeScriptExaminer(Examiner):
       'new', 'delete'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
+    known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     self.unary_operators = [
       '+', '-',
@@ -98,7 +100,7 @@ class TypeScriptExaminer(Examiner):
     group_mids = [',']
     group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseSensitiveListTokenBuilder(groupers, 'group', False)
 
     regex_tb = RegexTokenBuilder()
 
@@ -116,20 +118,20 @@ class TypeScriptExaminer(Examiner):
       'set', 'type', 'from', 'of'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
+    keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
     types = [
       'any', 'boolean', 'byte', 'char', 'number', 'string', 'symbol',
       'void', 'never', 'object'
     ]
 
-    types_tb = ListTokenBuilder(types, 'type', True, True)
+    types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
 
     values = [
       'this', 'super', 'null', 'true', 'false', 'undefined'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True, True)
+    values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 

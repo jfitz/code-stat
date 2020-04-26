@@ -13,7 +13,8 @@ from token_builders import (
   RealTokenBuilder,
   SuffixedRealTokenBuilder,
   RealExponentTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   SingleCharacterTokenBuilder,
   PrefixedIntegerTokenBuilder,
   LeadToEndOfLineTokenBuilder
@@ -38,7 +39,8 @@ class BasicExaminer(Examiner):
     RealTokenBuilder.__escape_z__()
     SuffixedRealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     PrefixedIntegerTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
@@ -81,7 +83,7 @@ class BasicExaminer(Examiner):
       '#', '\\', '#', 'AND', 'OR', 'NOT'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
+    known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     self.unary_operators = [
       '+', '-', '#', 'NOT'
@@ -92,7 +94,7 @@ class BasicExaminer(Examiner):
     group_mids = [',', ';']
     group_ends = [')']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
     keywords = [
       'AS',
@@ -113,7 +115,7 @@ class BasicExaminer(Examiner):
       'USING'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
+    keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
     functions = [
       'ABS',
@@ -133,7 +135,7 @@ class BasicExaminer(Examiner):
       'ZER'
     ]
 
-    function_tb = ListTokenBuilder(functions, 'function', True, True)
+    function_tb = CaseInsensitiveListTokenBuilder(functions, 'function', True)
 
     user_function_tb = UserFunctionTokenBuilder('%#!$&')
 

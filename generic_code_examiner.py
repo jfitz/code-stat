@@ -9,7 +9,8 @@ from token_builders import (
   NewlineTokenBuilder,
   IdentifierTokenBuilder,
   StringTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   TripleQuoteStringTokenBuilder,
   LeadToEndOfLineTokenBuilder,
   BlockTokenBuilder
@@ -34,7 +35,8 @@ class GenericCodeExaminer(Examiner):
     NewlineTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
     StringTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     TripleQuoteStringTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
     BlockTokenBuilder.__escape_z__()
@@ -117,9 +119,9 @@ class GenericCodeExaminer(Examiner):
     group_mids = [',', ';']
     # group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
+    known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     invalid_token_builder = InvalidTokenBuilder()
 

@@ -11,7 +11,8 @@ from token_builders import (
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   SingleCharacterTokenBuilder,
   PrefixedIntegerTokenBuilder,
   LeadToEndOfLineTokenBuilder
@@ -38,7 +39,8 @@ class CBasicExaminer(Examiner):
     IntegerExponentTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     PrefixedIntegerTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
@@ -82,7 +84,7 @@ class CBasicExaminer(Examiner):
       'AND', 'EQ', 'GE', 'GT', 'LE', 'LT', 'NE', 'OR', 'XOR'
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
+    known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     self.unary_operators = [
       '+', '-', '#', 'NOT'
@@ -93,7 +95,7 @@ class CBasicExaminer(Examiner):
     group_mids = [',']
     group_ends = [')']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
     keywords = [
       'AS', 'BUFF', 'CALL',  'CHAIN', 'CLOSE', 'COMMON', 'CONSOLE', 'CREATE',
@@ -110,7 +112,7 @@ class CBasicExaminer(Examiner):
       'BEAM', 'CLEAR', 'CLIP', 'POSITION'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, False)
+    keyword_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
 
     label_tb = CBasicLabelTokenBuilder(keywords)
 
@@ -123,7 +125,7 @@ class CBasicExaminer(Examiner):
       'RECL', 'RECS', 'SADD', 'SIZE', 'UCASE$', 'VARPTR'
     ]
 
-    function_tb = ListTokenBuilder(functions, 'function', True, False)
+    function_tb = CaseInsensitiveListTokenBuilder(functions, 'function', True)
 
     directives = [
       '%LIST', '%NOLIST',
@@ -131,7 +133,7 @@ class CBasicExaminer(Examiner):
       '%INCLUDE', '%CHAIN'
     ]
 
-    directive_tb = ListTokenBuilder(directives, 'directive', False, False)
+    directive_tb = CaseInsensitiveListTokenBuilder(directives, 'directive', False)
 
     invalid_token_builder = InvalidTokenBuilder()
 

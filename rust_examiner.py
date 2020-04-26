@@ -15,7 +15,8 @@ from token_builders import (
   RealExponentTokenBuilder,
   PrefixedIntegerTokenBuilder,
   IdentifierTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   SingleCharacterTokenBuilder,
   NestedCommentTokenBuilder
 )
@@ -43,7 +44,8 @@ class RustExaminer(Examiner):
     RealExponentTokenBuilder.__escape_z__()
     PrefixedIntegerTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     SlashSlashCommentTokenBuilder.__escape_z__()
     NestedCommentTokenBuilder.__escape_z__()
@@ -108,9 +110,9 @@ class RustExaminer(Examiner):
     group_mids = [',', ':', '::', '=>']
     group_ends = [')', ']', '}', ')|']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
+    known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     keywords = [
       'as',
@@ -155,7 +157,7 @@ class RustExaminer(Examiner):
     keywords += keywords_2018
     keywords += keywords_future
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
+    keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
     types = [
       'Self',
@@ -169,13 +171,13 @@ class RustExaminer(Examiner):
       'f64'
     ]
 
-    types_tb = ListTokenBuilder(types, 'type', True, True)
+    types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
 
     values = [
       'self', 'true', 'false', 'super', '_'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True, True)
+    values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 

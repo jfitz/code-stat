@@ -13,7 +13,8 @@ from token_builders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   SingleCharacterTokenBuilder
 )
 from ada_token_builders import (
@@ -34,7 +35,8 @@ class AdaExaminer(Examiner):
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     AdaCharTokenBuilder.__escape_z__()
     DashDashCommentTokenBuilder.__escape_z__()
@@ -92,9 +94,9 @@ class AdaExaminer(Examiner):
     group_mids = [',', '=>', ':']
     group_ends = [')', ';']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
+    known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     keywords = [
       'abort', 'accept', 'access', 'all', 'array', 'at',
@@ -142,7 +144,7 @@ class AdaExaminer(Examiner):
     if year in ['2012']:
       keywords += keywords_2012
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', False, True)
+    keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
     types = [
       'character', 'duration', 'float', 'integer',
@@ -150,14 +152,14 @@ class AdaExaminer(Examiner):
       'array', 'range'
     ]
 
-    types_tb = ListTokenBuilder(types, 'type', True, True)
+    types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
     operand_types.append('type')
 
     values = [
       'null', 'others', '<>'
     ]
 
-    values_tb = ListTokenBuilder(values, 'value', True, True)
+    values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
     operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()

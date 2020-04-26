@@ -10,7 +10,8 @@ from token_builders import (
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   BlockTokenBuilder
 )
 from html_token_builders import (
@@ -32,7 +33,8 @@ class HTMLExaminer(Examiner):
     IntegerExponentTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     BlockTokenBuilder.__escape_z__()
     HTMLIdentifierTokenBuilder.__escape_z__()
     HTMLListTokenBuilder.__escape_z__()
@@ -65,7 +67,7 @@ class HTMLExaminer(Examiner):
     unicode_tb = HTMLUnicodeTokenBuilder()
     operand_types.append('character')
 
-    groupers_tb = ListTokenBuilder(['<', '</', '>', '/>'], 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(['<', '</', '>', '/>'], 'group', False)
     group_starts = ['<']
     group_ends = ['>', '/>']
 
@@ -76,7 +78,7 @@ class HTMLExaminer(Examiner):
       '='
     ]
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
+    known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     punctuation = [
       '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+',
@@ -84,7 +86,7 @@ class HTMLExaminer(Examiner):
       ',', '.', '?', '>', '/', '\\', '|' # omit '<'
     ]
 
-    punctuation_tb = ListTokenBuilder(punctuation, 'punctuation', False, False)
+    punctuation_tb = CaseInsensitiveListTokenBuilder(punctuation, 'punctuation', False)
 
     keywords = [
       'a', 'abbr', 'address', 'area', 'article', 'aside', 'audio',
@@ -115,7 +117,7 @@ class HTMLExaminer(Examiner):
       'wbr'
     ]
 
-    keyword_tb = HTMLListTokenBuilder(keywords, 'keyword', False, False)
+    keyword_tb = HTMLListTokenBuilder(keywords, 'keyword', False)
 
     comment_tb = BlockTokenBuilder('<!--', '-->', 'comment')
 

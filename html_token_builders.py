@@ -1,7 +1,7 @@
 from codestat_token import Token
 from token_builders import (
   TokenBuilder,
-  ListTokenBuilder
+  CaseInsensitiveListTokenBuilder
 )
 
 # token reader for identifier
@@ -31,7 +31,7 @@ class HTMLIdentifierTokenBuilder(TokenBuilder):
 
 
 # accept characters to match item in list
-class HTMLListTokenBuilder(ListTokenBuilder):
+class HTMLListTokenBuilder(CaseInsensitiveListTokenBuilder):
   @staticmethod
   def __escape_z__():
     Token.__escape_z__()

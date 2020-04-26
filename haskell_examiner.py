@@ -13,7 +13,8 @@ from token_builders import (
   PrefixedIntegerTokenBuilder,
   RealTokenBuilder,
   RealExponentTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   SingleCharacterTokenBuilder,
   LeadToEndOfLineTokenBuilder,
   BlockTokenBuilder
@@ -37,7 +38,8 @@ class HaskellExaminer(Examiner):
     PrefixedIntegerTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
     BlockTokenBuilder.__escape_z__()
@@ -75,7 +77,7 @@ class HaskellExaminer(Examiner):
     group_ends = [')', ']', '}']
     group_mids = [',', ':']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
     operators_tb = HaskellOperatorTokenBuilder('#$%&*+./<=>?@\\^|-~')
 
@@ -83,7 +85,7 @@ class HaskellExaminer(Examiner):
       "'", '..'
     ]
 
-    known_operators_tb = ListTokenBuilder(known_operators, 'operator', False, False)
+    known_operators_tb = CaseInsensitiveListTokenBuilder(known_operators, 'operator', False)
 
     self.postfix_operators = [
       '..', "'"
@@ -102,11 +104,11 @@ class HaskellExaminer(Examiner):
       'where'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True, True)
+    keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', True)
 
     values = ['True', 'False', 'Nothing', '_']
 
-    value_tb = ListTokenBuilder(values, 'value', True, True)
+    value_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 

@@ -14,7 +14,8 @@ from token_builders import (
   RealTokenBuilder,
   RealExponentTokenBuilder,
   IdentifierTokenBuilder,
-  ListTokenBuilder,
+  CaseInsensitiveListTokenBuilder,
+  CaseSensitiveListTokenBuilder,
   SingleCharacterTokenBuilder,
   LeadToEndOfLineTokenBuilder,
   RegexTokenBuilder
@@ -45,7 +46,8 @@ class PerlExaminer(Examiner):
     RealTokenBuilder.__escape_z__()
     RealExponentTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
-    ListTokenBuilder.__escape_z__()
+    CaseInsensitiveListTokenBuilder.__escape_z__()
+    CaseSensitiveListTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
     RegexTokenBuilder.__escape_z__()
@@ -86,7 +88,7 @@ class PerlExaminer(Examiner):
       '$?', '$@', '$#', '$*'
     ]
 
-    specials_tb = ListTokenBuilder(specials, 'identifiers', True, False)
+    specials_tb = CaseInsensitiveListTokenBuilder(specials, 'identifiers', True)
 
     dollar_carat_tb = PerlDollarCaretIdentifierTokenBuilder()
 
@@ -107,12 +109,14 @@ class PerlExaminer(Examiner):
 
     comment_tb = LeadToEndOfLineTokenBuilder('#', False, 'comment')
 
+    line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation', False)
+
     directives = [
       '#line'
     ]
 
-    line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation', False)
-    preprocessor_tb = ListTokenBuilder(directives, 'preprocessor', False, True)
+    preprocessor_tb = CaseSensitiveListTokenBuilder(directives, 'preprocessor', False)
+
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)
 
     known_operators = [
@@ -145,9 +149,9 @@ class PerlExaminer(Examiner):
     group_mids = [',', ':', '::']
     group_ends = [')', ']', '}']
 
-    groupers_tb = ListTokenBuilder(groupers, 'group', False, False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
-    known_operator_tb = ListTokenBuilder(known_operators, 'operator', False, True)
+    known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     keywords = [
       'bless', 'break',
@@ -168,11 +172,11 @@ class PerlExaminer(Examiner):
       'wantarray', 'while'
     ]
 
-    keyword_tb = ListTokenBuilder(keywords, 'keyword', True, True)
+    keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', True)
 
     values = ['NULL']
 
-    values_tb = ListTokenBuilder(values, 'value', True, True)
+    values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
