@@ -496,6 +496,12 @@ def route_languages():
   return Response(json_text, mimetype='application/json')
 
 
+@app.route('/simple', methods=['GET'])
+def route_simple():
+  json_text = json.dumps(simplerLanguages)
+  return Response(json_text, mimetype='application/json')
+
+
 @app.route('/detab', methods=['POST'])
 def route_detab():
   _, _, tab_size, _, _ = extract_params(request.args)
