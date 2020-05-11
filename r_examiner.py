@@ -7,6 +7,7 @@ from token_builders import (
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
   StringTokenBuilder,
+  PrefixedRawStringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
@@ -29,6 +30,7 @@ class RExaminer(Examiner):
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
     StringTokenBuilder.__escape_z__()
+    PrefixedRawStringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
@@ -60,6 +62,7 @@ class RExaminer(Examiner):
 
     quotes = ['"', "'", "’", '`']
     string_tb = StringTokenBuilder(quotes, True)
+    raw_string_tb = PrefixedRawStringTokenBuilder('r', True, quotes)
 
     hash_comment_tb = LeadToEndOfLineTokenBuilder('#', True, 'comment')
 
@@ -122,6 +125,7 @@ class RExaminer(Examiner):
       groupers_tb,
       identifier_tb,
       string_tb,
+      raw_string_tb,
       hash_comment_tb,
       self.unknown_operator_tb,
       invalid_token_builder
