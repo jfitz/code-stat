@@ -296,6 +296,19 @@ class PrefixedStringTokenBuilder(TokenBuilder):
     return quote_count < 2
 
 
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(self.text) < len(self.prefix) + 2:
+      return 0
+
+    if self.text[-1] != self.text[len(self.prefix)]:
+      return 0
+
+    return len(self.text)
+
+
 # token reader for text literal (string)
 class SuffixedStringTokenBuilder(TokenBuilder):
   @staticmethod
