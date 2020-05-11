@@ -9,6 +9,7 @@ from token_builders import (
   NewlineTokenBuilder,
   StringTokenBuilder,
   PrefixedStringTokenBuilder,
+  PrefixedRawStringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
   PrefixedIntegerTokenBuilder,
@@ -35,6 +36,7 @@ class DartExaminer(Examiner):
     NewlineTokenBuilder.__escape_z__()
     StringTokenBuilder.__escape_z__()
     PrefixedStringTokenBuilder.__escape_z__()
+    PrefixedRawStringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
     PrefixedIntegerTokenBuilder.__escape_z__()
@@ -74,7 +76,7 @@ class DartExaminer(Examiner):
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
-    raw_string_tb = PrefixedStringTokenBuilder('r', True, quotes)
+    raw_string_tb = PrefixedRawStringTokenBuilder('r', True, quotes)
 
     class_type_tb = ClassTypeTokenBuilder()
 

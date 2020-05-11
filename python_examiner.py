@@ -9,6 +9,7 @@ from token_builders import (
   NewlineTokenBuilder,
   StringTokenBuilder,
   PrefixedStringTokenBuilder,
+  PrefixedRawStringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
@@ -34,6 +35,7 @@ class PythonExaminer(Examiner):
     NewlineTokenBuilder.__escape_z__()
     StringTokenBuilder.__escape_z__()
     PrefixedStringTokenBuilder.__escape_z__()
+    PrefixedRawStringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
@@ -70,7 +72,7 @@ class PythonExaminer(Examiner):
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, False)
-    raw_string_tb = PrefixedStringTokenBuilder('r', True, quotes)
+    raw_string_tb = PrefixedRawStringTokenBuilder('r', True, quotes)
     byte_string_tb = PrefixedStringTokenBuilder('b', True, quotes)
     unicode_string_tb = PrefixedStringTokenBuilder('u', True, quotes)
     fast_string_tb = PrefixedStringTokenBuilder('f', True, quotes)

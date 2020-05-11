@@ -309,6 +309,64 @@ class PrefixedStringTokenBuilder(TokenBuilder):
     return len(self.text)
 
 
+# token reader for prefixed text literal (string)
+class PrefixedRawStringTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self, prefix, case_sensitive, quotes):
+    if case_sensitive:
+      self.prefix = prefix
+    else:
+      self.prefix = prefix.lower()
+    self.case_sensitive = case_sensitive
+    self.quotes = quotes
+    self.text = ''
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'string', True)]
+
+
+  def accept(self, candidate, c):
+    if c in ['\n', '\r']:
+      return False
+
+    if len(candidate) < len(self.prefix):
+      if self.case_sensitive:
+        return c == self.prefix[len(candidate)]
+      else:
+        return c.lower() == self.prefix[len(candidate)]
+    
+    if len(candidate) == len(self.prefix):
+      return c in self.quotes
+
+    if len(candidate) == len(self.prefix) + 1:
+      return True
+
+    # no quote stuffing, stop on second quote
+    return candidate[-1] != candidate[len(self.prefix)]
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(self.text) < len(self.prefix) + 2:
+      return 0
+
+    if self.text[-1] != self.text[len(self.prefix)]:
+      return 0
+
+    return len(self.text)
+
+
 # token reader for text literal (string)
 class SuffixedStringTokenBuilder(TokenBuilder):
   @staticmethod
