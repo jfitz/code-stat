@@ -61,6 +61,8 @@ test\bin\run_test.ps1 -json -name planes-mbasic -action confidence -language BAS
 
 # BASICA
 test\bin\run_test.ps1 -json -name sea-creature-basica -action confidence -language BASICA -inputfile ".\test\data\BASIC\sea_creature.bas" -expected ".\test\ref\confidence\BASICA\sea_creature.txt"
+test\bin\run_test.ps1 -json -name lanturn-basica -action confidence -language BASICA -inputfile ".\test\data\BASIC\lanturn.bas" -expected ".\test\ref\confidence\BASICA\lanturn.txt"
+test\bin\run_test.ps1 -json -name gw3d-basica -action confidence -language BASICA -inputfile ".\test\data\BASIC\GW3D.bas" -expected ".\test\ref\confidence\BASICA\GW3D.txt"
 
 # C-78
 test\bin\run_test.ps1 -json -name diamond-c-78 -action confidence -language C-78 -inputfile ".\test\data\C-78\diamond.c" -expected ".\test\ref\confidence\C-78\diamond.txt"

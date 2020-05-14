@@ -215,22 +215,22 @@ class FortranFixedFormatExaminer(FortranExaminer):
           ln_2 = line_number.lstrip()
           ln_3 = ln_2.rstrip()
 
-        front_space = ''
-        front_count = len(line_number) - len(ln_2)
-        if front_count > 0:
-          front_space = ' ' * front_count
-          tokens.append(Token(front_space, 'whitespace', False))
+          front_space = ''
+          front_count = len(line_number) - len(ln_2)
+          if front_count > 0:
+            front_space = ' ' * front_count
+            tokens.append(Token(front_space, 'whitespace', False))
 
-        if ln_3.strip().isdigit():
-          tokens.append(Token(ln_3, 'line number', False))
-        else:
-          tokens.append(Token(line_number, 'invalid', False))
+          if ln_3.strip().isdigit():
+            tokens.append(Token(ln_3, 'line number', False))
+          else:
+            tokens.append(Token(line_number, 'invalid', False))
 
-        back_space = ''
-        back_count = len(ln_2) - len(ln_3)
-        if back_count > 0:
-          back_space = ' ' * back_count
-          tokens.append(Token(back_space, 'whitespace', False))
+          back_space = ''
+          back_count = len(ln_2) - len(ln_3)
+          if back_count > 0:
+            back_space = ' ' * back_count
+            tokens.append(Token(back_space, 'whitespace', False))
 
     return tokens
 
