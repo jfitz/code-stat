@@ -28,7 +28,7 @@ ForEach-Object {
                 }
 
                 If ($detected -ne $language) {
-                    Write-Output "$language $test $detected $confidence"
+                    Write-Output "$test $language $detected $confidence"
                 }
             }
         }

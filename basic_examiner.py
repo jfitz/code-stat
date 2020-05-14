@@ -171,9 +171,9 @@ class BasicExaminer(Examiner):
     tokenizer = Tokenizer(tokenbuilders)
     tokens = tokenizer.tokenize(code)
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
-    self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
-
-    self.convert_numbers_to_line_numbers()
+    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
+    tokens = BasicExaminer.convert_numbers_to_line_numbers(tokens)
+    self.tokens = tokens
 
     tokens = self.source_tokens()
 
@@ -194,16 +194,18 @@ class BasicExaminer(Examiner):
     self.calc_statistics()
 
 
-  def convert_numbers_to_line_numbers(self):
+  @staticmethod
+  def convert_numbers_to_line_numbers(tokens):
     prev_token = Token('\n', 'newline', False)
 
-    for token in self.tokens:
-      if token.group == 'number' and\
-        prev_token.group == 'newline':
+    for token in tokens:
+      if token.group == 'number' and prev_token.group == 'newline':
         token.group = 'line number'
 
       if token.group not in ['whitespace', 'comment']:
         prev_token = token
+
+    return tokens
 
 
   # check each line begins with a line number
@@ -218,7 +220,10 @@ class BasicExaminer(Examiner):
 
         if line[0].group == 'line number':
           num_lines_correct += 1
-    
+        elif len(line) > 1 and \
+          line[0].group == 'whitespace' and line[1].group == 'line number':
+          num_lines_correct += 1
+
     line_format_confidence = 0.0
 
     if num_lines > 0:

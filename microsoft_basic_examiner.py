@@ -196,9 +196,9 @@ class MicrosoftBasicExaminer(Examiner):
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     tokens = MicrosoftBasicExaminer.extract_keywords_from_identifiers(tokens, keywords, known_operators)
+    tokens = MicrosoftBasicExaminer.convert_numbers_to_line_numbers(tokens)
     self.tokens = tokens
 
-    self.convert_numbers_to_line_numbers()
     self.convert_values_to_functions()
 
     tokens = self.source_tokens()
@@ -221,16 +221,18 @@ class MicrosoftBasicExaminer(Examiner):
     self.calc_statistics()
 
 
-  def convert_numbers_to_line_numbers(self):
+  @staticmethod
+  def convert_numbers_to_line_numbers(tokens):
     prev_token = Token('\n', 'newline', False)
 
-    for token in self.tokens:
-      if token.group == 'number' and\
-        prev_token.group == 'newline':
+    for token in tokens:
+      if token.group == 'number' and prev_token.group == 'newline':
         token.group = 'line number'
 
       if token.group not in ['whitespace', 'comment']:
         prev_token = token
+
+    return tokens
 
 
   def convert_values_to_functions(self):
@@ -309,6 +311,9 @@ class MicrosoftBasicExaminer(Examiner):
         num_lines += 1
 
         if line[0].group == 'line number':
+          num_lines_correct += 1
+        elif len(line) > 1 and \
+          line[0].group == 'whitespace' and line[1].group == 'line number':
           num_lines_correct += 1
     
     line_format_confidence = 0.0
