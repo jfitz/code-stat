@@ -100,8 +100,8 @@ class MicrosoftBasicExaminer(Examiner):
     groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
     keywords = [
-      'AS',
-      'BASE',
+      # 'AS',  ## promoted from variable after FIELD
+      # 'BASE',  ## promoted from variable after OPTION
       'CALL', 'CHAIN', 'CLEAR', 'CLS', 'CLOSE', 'COMMON',
       'DATA', 'DEF', 'DEFDBL', 'DEFINT', 'DEFSNG', 'DEFSTR', 'DIM',
       'ELSE', 'END', 'ERASE', 'ERRLN', 'ERRNO', 'ERROR',
@@ -114,7 +114,8 @@ class MicrosoftBasicExaminer(Examiner):
       'NEXT', 'NULL',
       'OFF', 'ON', 'ONERR', 'OPEN', 'OPTION', 'OUT', 'OUTPUT',
       'POKE', 'PRINT', 'PUT',
-      'RANDOMIZE', 'READ', 'REM', 'REMARK', 'RESET', 'RESTORE', 'RESUME', 'RETURN', 'RSET', 'RUN',
+      'RANDOMIZE', 'READ', 'REM', 'REMARK', 'RESET', 'RESTORE', 'RESUME',
+      'RETURN', 'RSET', 'RUN',
       'SET', 'STEP', 'STOP', 'SWAP', 'SYSTEM',
       'THEN', 'TO', 'TRON', 'TROFF',
       'USING',
@@ -130,9 +131,9 @@ class MicrosoftBasicExaminer(Examiner):
 
     keyword_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
 
-    self.values = ['ERR', 'ERL', 'RND']
+    values = ['ERR', 'ERL', 'RND']
 
-    values_tb = CaseInsensitiveListTokenBuilder(self.values, 'value', True)
+    values_tb = CaseInsensitiveListTokenBuilder(values, 'value', True)
 
     # do not include RND() - it is a value and later converted to function
     # if followed by open parenthesis
@@ -197,9 +198,10 @@ class MicrosoftBasicExaminer(Examiner):
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     tokens = MicrosoftBasicExaminer.extract_keywords_from_identifiers(tokens, keywords, known_operators)
     tokens = MicrosoftBasicExaminer.convert_numbers_to_line_numbers(tokens)
+    tokens = MicrosoftBasicExaminer.convert_as_to_keyword(tokens)
+    tokens = MicrosoftBasicExaminer.convert_base_to_keyword(tokens)
+    tokens = MicrosoftBasicExaminer.convert_values_to_functions(tokens, values)
     self.tokens = tokens
-
-    self.convert_values_to_functions()
 
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
@@ -235,16 +237,51 @@ class MicrosoftBasicExaminer(Examiner):
     return tokens
 
 
-  def convert_values_to_functions(self):
+  @staticmethod
+  def convert_as_to_keyword(tokens):
+    seen_field = False
+
+    for token in tokens:
+      if token.group == 'newline':
+        seen_field = False
+
+      if token.group == 'keyword' and token.text.lower() == 'field':
+        seen_field = True
+
+      if token.group == 'variable' and token.text.lower() == 'as' and seen_field:
+        token.group = 'keyword'
+
+    return tokens
+
+
+  @staticmethod
+  def convert_base_to_keyword(tokens):
     prev_token = Token('\n', 'newline', False)
 
-    for token in self.tokens:
+    for token in tokens:
+      if token.group == 'variable' and token.text.lower() == 'base' and \
+        prev_token.group == 'keyword' and prev_token.text.lower() == 'option':
+        token.group = 'keyword'
+
+      if token.group not in ['whitespace', 'comment']:
+        prev_token = token
+
+    return tokens
+
+
+  @staticmethod
+  def convert_values_to_functions(tokens, values):
+    prev_token = Token('\n', 'newline', False)
+
+    for token in tokens:
       if token.group == 'group' and token.text == '(' and \
-        prev_token.group == 'value' and prev_token.text in self.values:
+        prev_token.group == 'value' and prev_token.text in values:
         prev_token.group = 'function'
 
       if token.group not in ['whitespace', 'comment']:
         prev_token = token
+
+    return tokens
 
 
   @staticmethod
