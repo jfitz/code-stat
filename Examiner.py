@@ -451,7 +451,7 @@ class Examiner:
 
   # groups that follow groups reduce confidence
   def calc_group_confidence(self, tokens, groups):
-    num_groups = self.count_my_tokens('group')
+    num_groups = self.count_my_tokens(['group'])
 
     group_confidence = 1.0
 
@@ -616,8 +616,8 @@ class Examiner:
 
 
   def calc_keyword_confidence(self):
-    group = ['keyword', 'type', 'function']
-    num_keywords = self.count_my_tokens(group)
+    groups = ['keyword', 'type', 'function']
+    num_keywords = self.count_my_tokens(groups)
 
     if num_keywords > 0:
       self.confidences['keyword'] = 1.0
@@ -629,7 +629,8 @@ class Examiner:
         })
 
       num_tokens = len(self.tokens)
-      num_invalid_tokens = Examiner.count_tokens(self.tokens, ['invalid', 'invalid operator'])
+      invalid_groups = ['invalid', 'invalid operator']
+      num_invalid_tokens = Examiner.count_tokens(self.tokens, invalid_groups)
       num_valid_tokens = num_tokens - num_invalid_tokens
 
       # fewer than 1000 tokens and no keyword? possible
