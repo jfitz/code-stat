@@ -123,7 +123,7 @@ class MicrosoftBasicExaminer(Examiner):
     ]
 
     keywords_basica = [
-      'COLOR', 'KEY', 'PAINT', 'PLAY', 'SCREEN', 'SOUND'
+      'COLOR', 'KEY', 'LOCATE', 'PAINT', 'PLAY', 'SCREEN', 'SOUND'
     ]
 
     if version in ['basica', 'gw-basic']:
@@ -216,8 +216,8 @@ class MicrosoftBasicExaminer(Examiner):
     self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
     self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
-    operand_types = ['number', 'string', 'variable']
-    self.calc_operand_confidence(tokens, operand_types)
+    # operand_types = ['number', 'string', 'variable']
+    # self.calc_operand_confidence(tokens, operand_types)
     self.calc_keyword_confidence()
     self.calc_line_format_confidence()
     self.calc_statistics()
