@@ -201,6 +201,7 @@ class MicrosoftBasicExaminer(Examiner):
     tokens = MicrosoftBasicExaminer.convert_as_to_keyword(tokens)
     tokens = MicrosoftBasicExaminer.convert_base_to_keyword(tokens)
     tokens = MicrosoftBasicExaminer.convert_values_to_functions(tokens, values)
+    tokens = MicrosoftBasicExaminer.convert_operators_to_values(tokens)
     self.tokens = tokens
 
     tokens = self.source_tokens()
@@ -262,6 +263,31 @@ class MicrosoftBasicExaminer(Examiner):
       if token.group == 'variable' and token.text.lower() == 'base' and \
         prev_token.group == 'keyword' and prev_token.text.lower() == 'option':
         token.group = 'keyword'
+
+      if token.group not in ['whitespace', 'comment']:
+        prev_token = token
+
+    return tokens
+
+
+  @staticmethod
+  def convert_operators_to_values(tokens):
+    prev_token = Token('\n', 'newline', False)
+    seen_put = False
+
+    for token in tokens:
+      if token.group == 'newline':
+        seen_put = False
+
+      if token.group == 'keyword' and token.text.lower() == 'put':
+        seen_put = True
+
+      # TODO: check not in open parens
+      if token.group == 'operator' and \
+        token.text.lower() in ['and', 'or', 'xor'] and \
+        seen_put and \
+        prev_token.text == ',':
+        token.group = 'value'
 
       if token.group not in ['whitespace', 'comment']:
         prev_token = token
