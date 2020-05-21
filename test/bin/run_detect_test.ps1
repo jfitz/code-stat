@@ -13,7 +13,7 @@ Write-Output "****** ****** ******"
 Write-Output "Starting test $name..."
 Write-Output ""
 
-$testbed = "$env:USERPROFILE\Projects\CodeStat"
+$testbed = "$env:USERPROFILE\Projects\CodeStat\testbed"
 $actual = "$testbed\$name\out.txt"
 
 $params = @()
