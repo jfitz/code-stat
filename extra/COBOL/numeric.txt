@@ -1,0 +1,521 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID.    CBLNUMC1.
+       AUTHOR.        SIMOTIME ENTERPRISES.
+      *****************************************************************
+      * Copyright (C) 1987-2018 SimoTime Enterprises.                 *
+      *                                                               *
+      * All rights reserved.  Unpublished, all rights reserved under  *
+      * copyright law and international treaty.  Use of a copyright   *
+      * notice is precautionary only and does not imply publication   *
+      * or disclosure.                                                *
+      *                                                               *
+      * Permission to use, copy, modify and distribute this software  *
+      * for any commercial purpose requires a fee to be paid to       *
+      * SimoTime Enterprises. Once the fee is received by SimoTime    *
+      * the latest version of the software will be delivered and a    *
+      * license will be granted for use within an enterprise,         *
+      * provided the SimoTime copyright notice appear on all copies   *
+      * of the software. The SimoTime name or Logo may not be used    *
+      * in any advertising or publicity pertaining to the use of the  *
+      * software without the written permission of SimoTime           *
+      * Enterprises.                                                  *
+      *                                                               *
+      * Permission to use, copy and modify this software for any      *
+      * non-commercial purpose and without fee is hereby granted,     *
+      * provided the SimoTime copyright notice appear on all copies   *
+      * of the software. The SimoTime name or Logo may not be used in *
+      * any advertising or publicity pertaining to the use of the     *
+      * software without the written permission of SimoTime           *
+      * Enterprises.                                                  *
+      *                                                               *
+      * SimoTime Enterprises makes no warranty or representations     *
+      * about the suitability of the software for any purpose. It is  *
+      * provided "AS IS" without any expressed or implied warranty,   *
+      * including the implied warranties of merchantability, fitness  *
+      * for a particular purpose and non-infringement. SimoTime       *
+      * Enterprises shall not be liable for any direct, indirect,     *
+      * special or consequential damages resulting from the loss of   *
+      * use, data or projects, whether in an action of contract or    *
+      * tort, arising out of or in connection with the use or         *
+      * performance of this software                                  *
+      *                                                               *
+      * SimoTime Enterprises                                          *
+      * 15 Carnoustie Drive                                           *
+      * Novato, CA 94949-5849                                         *
+      * 415.883.6565                                                  *
+      *                                                               *
+      * RESTRICTED RIGHTS LEGEND                                      *
+      * Use, duplication, or disclosure by the Government is subject  *
+      * to restrictions as set forth in subparagraph (c)(1)(ii) of    *
+      * the Rights in Technical Data and Computer Software clause at  *
+      * DFARS 52.227-7013 or subparagraphs (c)(1) and (2) of          *
+      * Commercial  Computer Software - Restricted Rights  at 48      *
+      * CFR 52.227-19, as applicable.  Contact SimoTime Enterprises,  *
+      * 15 Carnoustie Drive, Novato, CA 94949-5849.                   *
+      *                                                               *
+      *****************************************************************
+      *      This program is provided by SimoTime Enterprises         *
+      *        Our e-mail address is: helpdesk@simotime.com           *
+      *     Also, visit our Web Site at http://www.simotime.com       *
+      *                                                               *
+      *****************************************************************
+      *
+      *****************************************************************
+      * Source Member: CBLNUMC1.CBL
+      *****************************************************************
+      *
+      * CBLNUMC1 - Test and scan a numeric field.
+      *
+      *
+      * DESCRIPTION
+      * -----------
+      * This program will first test the contents of a numeric field
+      * for numeric values.
+      * The program will then use a redefinition of the field to scan
+      * from left to right for valid digits (i.e. values of 0-9).
+      * The Reference Modification capability of COBOL is used to scan
+      * the field.
+      *
+      *****************************************************************
+      *
+      * MAINTENANCE
+      * -----------
+      * 1996/03/15 Simmons, Created program.
+      * 1996/03/15 Simmons, No changes to date.
+      *
+      *****************************************************************
+      *
+       ENVIRONMENT DIVISION.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+      *****************************************************************
+      *    Data-structure for Title and Copyright...
+      *    ------------------------------------------------------------
+       01  SIM-TITLE.
+           05  T1 pic X(11) value '* CBLNUMC1 '.
+           05  T2 pic X(34) value 'Test or Scan a Numeric Field      '.
+           05  T3 pic X(10) value ' v07.11.20'.
+           05  T4 pic X(24) value ' http://www.simotime.com'.
+       01  SIM-COPYRIGHT.
+           05  C1 pic X(11) value '* CBLNUMC1 '.
+           05  C2 pic X(20) value 'Copyright 1987-2018 '.
+           05  C3 pic X(28) value '--- SimoTime Enterprises ---'.
+           05  C4 pic X(20) value ' All Rights Reserved'.
+
+       01  SIM-THANKS-01.
+           05  C1 pic X(11) value '* CBLNUMC1 '.
+           05  C2 pic X(32) value 'Thank you for using this softwar'.
+           05  C3 pic X(32) value 'e provided from SimoTime Enterpr'.
+           05  C4 pic X(04) value 'ises'.
+
+       01  SIM-THANKS-02.
+           05  C1 pic X(11) value '* CBLNUMC1 '.
+           05  C2 pic X(32) value 'Please send all inquires or sugg'.
+           05  C3 pic X(32) value 'estions to the helpdesk@simotime'.
+           05  C4 pic X(04) value '.com'.
+
+      *****************************************************************
+      *    Buffer used for posting messages to the console.
+      *    ------------------------------------------------------------
+       01  MESSAGE-BUFFER.
+           05  MESSAGE-HEADER      pic X(11)   value '* CBLNUMC1 '.
+           05  MESSAGE-TEXT        pic X(68).
+
+      *    The Field used for ALPHAMERIC, NUMERIC (unsigned)
+      *    and SIGNED (Numeric).
+       01  FIELD-AS-NUMERIC        pic 9(16).
+       01  FIELD-AS-SIGNED         redefines FIELD-AS-NUMERIC
+                                   pic S9(16).
+       01  FIELD-AS-ALPHAMERIC     redefines FIELD-AS-NUMERIC
+                                   pic X(16).
+
+      *    Fields used for scanning by reference modification...
+       01  IX-1                    pic 999     value 0.
+       01  STOP-SCAN               pic 999     value 16.
+       01  DIGIT-FLAG              pic X       value 'U'.
+
+      *    Fields used for leading/trailing signed fields...
+       01  FIELD-SIGN-TRAIL        pic S9(9)V99 SIGN TRAILING SEPARATE
+                                   value -1000000.
+       01  OTHER-SIGN-TRAIL        pic S9(9)V99 SIGN TRAILING
+                                   value -1000000.
+       01  FIELD-SIGN-LEAD         pic S9(9)V99 SIGN LEADING
+                                   value -1000000.
+
+      *    Fields used for editing to print or display the value...
+       01  TEST-DOLLAR-AMOUNT      pic 9999999V99  value 1256.98.
+       01  NUMBER-DISPLAY          pic Z,ZZZ,ZZ9.99.
+
+      *    Fields for explicit decimal point...
+       01  NUMBER-DECIMAL-5-2      pic 9(5).9(2).
+       01  NUMBER-DECIMAL-5-2X     redefines NUMBER-DECIMAL-5-2
+                                   pic X(8).
+       01  WORK-EIGHT              pic X(8).
+
+       01  FP-SHORT                COMP-1  value 0.
+       01  FP-LONG                 COMP-2  value 0.
+
+       01  PI-VALUE                pic 9v9999999   value 0.
+
+       01  PIC-S9-LOW-VALUES       pic S9(7).
+       01  PIC-S9-LOW-VALUES-R     redefines PIC-S9-LOW-VALUES
+                                   pic X(7).
+
+       01  PIC-S9-COMP-3           pic S9(4)   COMP-3  value 0.
+      *****************************************************************
+       PROCEDURE DIVISION.
+
+           perform Z-POST-COPYRIGHT.
+
+      *    The following examples use the COBOL capabilty of testing
+      *    if a field contains a numeric value. The examples use the
+      *    IF field-name IS NUMERIC capability.
+      *
+      *    Example-01, Move all digits into the field...
+      *
+           move '*'                          to MESSAGE-TEXT
+           perform Z-POST-CONSOLE-MESSAGE
+           move '* Field contains all digits'  to MESSAGE-TEXT
+           perform Z-POST-CONSOLE-MESSAGE
+           move '0000000000000001' to FIELD-AS-ALPHAMERIC
+           perform TEST-SIMPLE-NUMERIC
+      *
+      *    EXAMPLE-02, Move a right-adjusted, numeric value with
+      *    leading spaces into the field...
+      *
+           move '* Field contains leading spaces'  to MESSAGE-TEXT
+           perform Z-POST-CONSOLE-MESSAGE
+           move '             123' to FIELD-AS-ALPHAMERIC
+           perform TEST-SIMPLE-NUMERIC
+      *
+      *    Example-03, Create a value of +1 with the sign in the
+      *    high-order bits of the units position (byte)...
+      *    The EBCDIC value is X'F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0C1'
+      *    The ASCII  value is X'30303030303030303030303030303031'
+      *
+           move '* Field contains sign in zone of units position'
+             to MESSAGE-TEXT
+           perform Z-POST-CONSOLE-MESSAGE
+           add 1 to ZERO giving FIELD-AS-SIGNED
+           perform TEST-SIMPLE-NUMERIC
+      *
+      *    !!! CAUTION !!! CAUTION !!! CAUTION !!! CAUTION !!!
+      *
+      *    Example-03 may give different results when executing
+      *    in an EBCDIC or ASCII environment. Notice that a
+      *    signed number for EBCDIC is not all digits and a signed
+      *    number for ASCII is all digits.
+      *    If the "FIELD-AS-SIGNED" is used in the "IF NUMERIC" test
+      *    the results will be the same. If a redefinition of the
+      *    field as a "PIC X" is used the results will be different.
+      *
+      *    Example-04, Create a value of -1 with the sign in the
+      *    high-order bits of the units position (byte)...
+      *    The EBCDIC value is X'F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0D1'
+      *    The ASCII  value is X'30303030303030303030303030303071'
+      *
+           move '* Field contains sign in zone of units position'
+             to MESSAGE-TEXT
+           perform Z-POST-CONSOLE-MESSAGE
+           subtract 1 from ZERO giving FIELD-AS-SIGNED
+           perform TEST-SIMPLE-NUMERIC
+      *
+      *    Example-05, Create a value of ZERO...
+      *    The EBCDIC value is X'F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0C0'
+      *    The ASCII  value is X'30303030303030303030303030303030'
+      *
+           move '* Field contains sign in zone of units position'
+             to MESSAGE-TEXT
+           perform Z-POST-CONSOLE-MESSAGE
+      *    MOVE ALL ZEROES TO FIELD-AS-ALPHAMERIC
+           subtract 1 from 1 giving FIELD-AS-SIGNED
+           perform TEST-SIMPLE-NUMERIC
+      *
+      *    The following examples will scan the sixteen (16) byte
+      *    field from left to right for valid digits.
+      *
+           move '0000000000000001' to FIELD-AS-ALPHAMERIC
+           perform TEST-BY-REFERENCE-MODIFICATION
+
+           move '             123' to FIELD-AS-ALPHAMERIC
+           perform TEST-BY-REFERENCE-MODIFICATION
+
+           move '123             ' to FIELD-AS-ALPHAMERIC
+           perform TEST-BY-REFERENCE-MODIFICATION
+
+           move '000000000000000A' to FIELD-AS-ALPHAMERIC
+           perform TEST-BY-REFERENCE-MODIFICATION
+
+           move '0123456789ABCDEF' to FIELD-AS-ALPHAMERIC
+           perform TEST-BY-REFERENCE-MODIFICATION
+
+      *    Access any byte within a field...
+           move '0123456789ABCDEF' to FIELD-AS-ALPHAMERIC
+           perform ACCESS-ANY-BYTE-IN-FIELD
+
+      *    Test various leading and trailing signed fields...
+           perform TEST-VARIOUS-SIGNED-FIELDS
+
+           perform EDIT-FOR-DISPLAY
+      *
+      *    Example-06, Test for field with explicit decimal point...
+      *
+           move '* Field with explicit decimal point'
+             to MESSAGE-TEXT
+           perform Z-POST-CONSOLE-MESSAGE
+           add 12345.67 to ZERO giving NUMBER-DECIMAL-5-2
+           perform TEST-NUMERIC-EXPLICIT-DECIMAL
+
+           add 76543.21 to ZERO giving NUMBER-DECIMAL-5-2
+           perform TEST-NUMERIC-EXPLICIT-DECIMAL
+
+           move '*'                to MESSAGE-TEXT
+           perform Z-POST-CONSOLE-MESSAGE
+      *
+      *    Example-07, Test for floating point...
+      *
+           move '* Field defined as floating point'
+             to MESSAGE-TEXT
+           perform Z-POST-CONSOLE-MESSAGE
+           compute PI-VALUE = 22 / 7
+           display PI-VALUE
+           compute FP-SHORT = 22 / 7
+           display FP-SHORT
+           compute FP-LONG = 22 / 7
+           display FP-LONG
+           move '*'                to MESSAGE-TEXT
+           perform Z-POST-CONSOLE-MESSAGE
+
+      *
+      *    Example-08, Test for floating point...
+      *
+           move LOW-VALUES to PIC-S9-LOW-VALUES-R
+           if  PIC-S9-LOW-VALUES is numeric
+               move '* LOW-VALUES field is numeric'
+                 to MESSAGE-TEXT
+               perform Z-POST-CONSOLE-MESSAGE
+           else
+               move '* LOW-VALUES field is NOT numeric'
+                 to MESSAGE-TEXT
+               perform Z-POST-CONSOLE-MESSAGE
+           end-if
+           perform Z-POST-CONSOLE-MESSAGE
+
+           move all ZEROES to PIC-S9-LOW-VALUES-R
+           if  PIC-S9-LOW-VALUES is numeric
+               move '* ZEROES field is numeric'
+                 to MESSAGE-TEXT
+               perform Z-POST-CONSOLE-MESSAGE
+           else
+               move '* ZEROES field is NOT numeric'
+                 to MESSAGE-TEXT
+               perform Z-POST-CONSOLE-MESSAGE
+           end-if
+           add 1 to PIC-S9-LOW-VALUES
+           move '*'                to MESSAGE-TEXT
+           perform Z-POST-CONSOLE-MESSAGE
+
+           add 9999 to ZERO giving PIC-S9-COMP-3
+           add 2 to PIC-S9-COMP-3
+
+           perform Z-THANK-YOU.
+
+           GOBACK.
+
+      *****************************************************************
+       ACCESS-ANY-BYTE-IN-FIELD.
+           move '* Access each byte of a field' to MESSAGE-TEXT
+           perform Z-POST-CONSOLE-MESSAGE
+           add 1 to ZERO giving IX-1
+           perform until IX-1 > STOP-SCAN
+               move FIELD-AS-ALPHAMERIC         to MESSAGE-TEXT
+               move 'Position nnn is - '        to MESSAGE-TEXT(18:17)
+               move IX-1                        to MESSAGE-TEXT(27:3)
+               move FIELD-AS-ALPHAMERIC(IX-1:1) to MESSAGE-TEXT(36:2)
+               perform Z-POST-CONSOLE-MESSAGE
+               add 1 to IX-1
+           end-perform
+           exit.
+
+      *****************************************************************
+       EDIT-FOR-DISPLAY.
+           move TEST-DOLLAR-AMOUNT to NUMBER-DISPLAY
+           display '* CBLNUMC1 Edit for Display...'
+           display '* CBLNUMC1 ' NUMBER-DISPLAY
+           exit.
+
+      *****************************************************************
+      * The following routine will perform a test on the same
+      * sixteen (16) bytes of memory using the following field
+      * definitions.
+      * FIELD-AS-NUMERIC                                 PIC 9(16).
+      * FIELD-AS-ALPHAMERIC  REDEFINES FIELD-AS-NUMERIC  PIC X(16).
+      * FIELD-AS-SIGNED      REDEFINES FIELD-AS-NUMERIC  PIC S9(16).
+      *
+       TEST-SIMPLE-NUMERIC.
+           move '* Simple Numeric Check is Starting'  to MESSAGE-TEXT
+           perform Z-POST-CONSOLE-MESSAGE
+
+      *    Test the Alphameric Redefine of the field...
+           move FIELD-AS-ALPHAMERIC          to MESSAGE-TEXT
+           move 'Test Alphameric...'         to MESSAGE-TEXT(18:18)
+           if  FIELD-AS-ALPHAMERIC is NUMERIC
+               move 'Content Numeric...    ' to MESSAGE-TEXT(36:22)
+           else
+               move 'Content NOT Numeric...' to MESSAGE-TEXT(36:22)
+           end-if
+           perform Z-POST-CONSOLE-MESSAGE
+
+      *    Test the Numeric field...
+           move FIELD-AS-NUMERIC  to MESSAGE-TEXT
+           move 'Test Numeric......' to MESSAGE-TEXT(18:18)
+           if  FIELD-AS-NUMERIC is NUMERIC
+               move 'Content Numeric...    ' to MESSAGE-TEXT(36:22)
+           else
+               move 'Content NOT Numeric...' to MESSAGE-TEXT(36:22)
+           end-if
+           perform Z-POST-CONSOLE-MESSAGE
+
+      *    Test the Signed-Numeric Redefine of the field...
+           move FIELD-AS-ALPHAMERIC to MESSAGE-TEXT
+           move 'Test Signed.......' to MESSAGE-TEXT(18:18)
+           if  FIELD-AS-SIGNED is NUMERIC
+               move 'Content Numeric...    ' to MESSAGE-TEXT(36:22)
+               if  FIELD-AS-SIGNED = 0
+                   move 'Numeric and Zero value...    '
+                     to MESSAGE-TEXT(36:29)
+               end-if
+               if  FIELD-AS-SIGNED > 0
+                   move 'Numeric and Positive value...'
+                     to MESSAGE-TEXT(36:29)
+               end-if
+               if  FIELD-AS-SIGNED < 0
+                   move 'Numeric and Negative value...'
+                     to MESSAGE-TEXT(36:29)
+               end-if
+               perform Z-POST-CONSOLE-MESSAGE
+           else
+               move 'Content NOT Numeric...' to MESSAGE-TEXT(36:22)
+               perform Z-POST-CONSOLE-MESSAGE
+           end-if
+
+           move '* Simple Numeric Check is Finished'  to MESSAGE-TEXT
+           perform Z-POST-CONSOLE-MESSAGE
+           move '*'  to MESSAGE-TEXT
+           perform Z-POST-CONSOLE-MESSAGE
+           exit.
+
+      *****************************************************************
+      * This routine uses the Reference Modification feature of COBOL
+      * to scan the ten-byte Alphameric field from left to right.
+      * If a non-digit is found then an 'N' is moved to the
+      * DIGIT-FLAG field and IX-1 is the position where the first
+      * non-digit value was encountered.
+      * If the fields contains all digits then a 'Y' is moved to the
+      * DIGIT-FLAG field and IX-1 is the number of digits.
+      *
+       TEST-BY-REFERENCE-MODIFICATION.
+           move '* Scan for Digits is Starting...' to MESSAGE-TEXT
+           perform Z-POST-CONSOLE-MESSAGE
+           move FIELD-AS-ALPHAMERIC    to MESSAGE-TEXT
+           move 'Scan for Digits...'   to MESSAGE-TEXT(18:18)
+           add 1 to ZERO giving IX-1
+           move 'U' to DIGIT-FLAG
+           perform until IX-1       > STOP-SCAN
+                   or    DIGIT-FLAG = 'N'
+                   if  FIELD-AS-ALPHAMERIC(IX-1:1) < 0
+                   or  FIELD-AS-ALPHAMERIC(IX-1:1) > 9
+                       move 'N' to DIGIT-FLAG
+                   end-if
+                   if  DIGIT-FLAG = 'U'
+                       add 1 to IX-1
+                   end-if
+           end-perform
+           if  IX-1 = STOP-SCAN + 1
+           and DIGIT-FLAG = 'U'
+               subtract 1 from IX-1
+               move 'Y' to DIGIT-FLAG
+               move 'Content ALL Digits... ' to MESSAGE-TEXT(36:22)
+               move IX-1                     to MESSAGE-TEXT(58:3)
+               move DIGIT-FLAG               to MESSAGE-TEXT(62:1)
+               perform Z-POST-CONSOLE-MESSAGE
+           else
+               move 'Content NOT Digits... ' to MESSAGE-TEXT(36:22)
+               move IX-1                     to MESSAGE-TEXT(58:3)
+               move DIGIT-FLAG               to MESSAGE-TEXT(62:1)
+               perform Z-POST-CONSOLE-MESSAGE
+           end-if
+           move '* Scan for Digits is Finished...' to MESSAGE-TEXT
+           perform Z-POST-CONSOLE-MESSAGE
+           move '*'                    to MESSAGE-TEXT
+           perform Z-POST-CONSOLE-MESSAGE
+           exit.
+
+      *****************************************************************
+       TEST-VARIOUS-SIGNED-FIELDS.
+           display  '* CBLNUMC1'
+           display  '* CBLNUMC1 SIGN TRAILING SEPARATE...'
+           display  '* CBLNUMC1 ' FIELD-SIGN-TRAIL
+           evaluate FIELD-SIGN-TRAIL(12:1)
+              when '-' move '+' to FIELD-SIGN-TRAIL(12:1)
+              when '+' move '-' to FIELD-SIGN-TRAIL(12:1)
+              when OTHER display 'FORMAT ERROR'
+           end-evaluate
+           display  '* CBLNUMC1 ' FIELD-SIGN-TRAIL
+
+           display  '* CBLNUMC1'
+           display  '* CBLNUMC1 SIGN TRAILING...'
+           display  '* CBLNUMC1 ' FIELD-SIGN-TRAIL
+           subtract FIELD-SIGN-TRAIL from ZERO giving FIELD-SIGN-TRAIL
+           display  '* CBLNUMC1 ' FIELD-SIGN-TRAIL
+
+           display  '* CBLNUMC1'
+           display  '* CBLNUMC1 SIGN TRAILING...'
+           display  '* CBLNUMC1 ' OTHER-SIGN-TRAIL
+           COMPUTE  OTHER-SIGN-TRAIL = OTHER-SIGN-TRAIL * -1
+           display  '* CBLNUMC1 ' OTHER-SIGN-TRAIL
+
+           display  '* CBLNUMC1'
+           display  '* CBLNUMC1 SIGN LEADING...'
+           display  '* CBLNUMC1 ' FIELD-SIGN-LEAD
+           subtract FIELD-SIGN-LEAD  from ZERO giving FIELD-SIGN-LEAD
+           display  '* CBLNUMC1 ' FIELD-SIGN-LEAD
+           display  '* CBLNUMC1'
+
+           exit.
+
+      ****************************************************************
+       TEST-NUMERIC-EXPLICIT-DECIMAL.
+           display 'Length of NUMBER-DECIMAL-5-2X is '
+                   LENGTH OF NUMBER-DECIMAL-5-2
+
+           display NUMBER-DECIMAL-5-2
+           move NUMBER-DECIMAL-5-2X to WORK-EIGHT
+           display WORK-EIGHT
+           exit.
+
+      *****************************************************************
+      * The following Z-Routines perform administrative tasks         *
+      * for this program.                                             *
+      *****************************************************************
+       Z-POST-CONSOLE-MESSAGE.
+           display MESSAGE-BUFFER
+           move SPACES to MESSAGE-TEXT
+           exit.
+
+      *****************************************************************
+       Z-POST-COPYRIGHT.
+           display SIM-TITLE
+           display SIM-COPYRIGHT
+           exit.
+
+      *****************************************************************
+       Z-THANK-YOU.
+           display SIM-THANKS-01
+           display SIM-THANKS-02
+           exit.
+      *****************************************************************
+      *      This example is provided by SimoTime Enterprises         *
+      *        Our e-mail address is: helpdesk@simotime.com           *
+      *     Also, visit our Web Site at http://www.simotime.com       *
+      *****************************************************************

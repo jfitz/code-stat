@@ -1,0 +1,462 @@
+index.html
+- Color scheme and graphics
+- Token colors high contrast for important tokens, low contrast for others
+- group languages (new, medium, old? common, obscure? by name?)
+- allow selection of wide FORTRAN and wide COBOL
+- omit detect results for zero confidence
+ - only when no languages selected?
+ - option on UI?
++ one language drop-down; three buttons (tokenize, confidence, statistics)
+- modern languages include D, Lua, Scala, TypeScript (base on language year?)
+- improve conversion of C++, C#, F# names
+
+main
+- /tokens parameter for block comment size limit
+- /statistics parameter for block comment size limit
+- /confidence parameter for block comment size limit
+- /detect parameter for block comment size limit
+- consolidate options for --detect, --tokens, --confidence
+- unwrap() returns original code if language not specified
+- all services - return HTTP error if language specified and not recognized
+- separate languages by comma not space ('detect x' test scripts too)
+- tiebreak falls back to simpler language, not older language
++ options to enable tie-breaker adjustments (num keywords, num tokens)
++ respond 'rigoletto' for one-character input
++ respond 'silent dust' for zero data
++ respond 'bleach' for all whitespace
++ respond something else for less that 2 printable tokens
++ respond 'undetermined' if too many (how many) examiners report 1.0
++ respond 'undetermined' if all examiners report low values (how low?)
+
+TokenBuilders
+- PrefixedStringTokenBuilder: options for quote stuffing, escaped quotes
+- IntegerTokenBuilder (et al): don't allow underscore as final character
+- StringTokenBuilder: split newline into MultilineStringTokenBuilder
+
+examiners for:
+ ZZ, Elm, Mint, Futhark, Haxe, Pharo, Nim, OCaml, Racket,
+ Erlang, SmallTalk, Chaos, Occam,
+ HTML with PHP, plain PHP,
+ Raku, Crystal (Ruby), Wolfram,
+ MS-DOS batch, PowerShell, bash,
+ J (APL), K (APL), Groovy, ABAP, Scratch, Logo,
+ True Basic, Small Basic, Modula-2, Oberon, Scheme, AspectJ,
+ Focal, Dibol, dBase IV and higher, Clipper, FoxBase, FoxPro,
+ DataFlex (1982), SAS,
+ JCL, RPG, Lindo, SPSS, Forth, GPSS, CSMP,
+ 8080 ASM, Z-80 ASM, Z-80 Macro ASM, 8086 ASM,
+ Rbase, Clarion, Snobol, Rebol, Condor,
+ 6502 ASM, 6800 ASM, PDP-11 ASM, PDP-8 ASM,
+ IBM 360 ASM, IBM 370 ASM,
+ LISP, Clojure, algol, generic ASM,
+ Pascal-S, BASIC-E,
+ Autocode, IPL, Flow-matic, COMTRAN, FACT, NELIAC, Simula,
+ SNOBOL, CPL, BCPL, JOSS, MUMPS,
+ ALPHARD, ALTRAN, Argus, Automath, BCPL, COMTRAN, CPL, FLOW-MATIC,
+ HOPE,
+ Hypercard, ISWIM, JOVIAL, MacSyma, Mesa, Miranda, Multics Shell,
+ PLANNER, SMP, Sketchpad,
+ BASIC-PLUS, BASIC-PLUS-2, Amiga BASIC, QuickBasic, QBASIC,
+ Turbo BASIC, FreeBasic, MSX BASIC, Pure Basic,
+ VBA, MDL (Zork on GitHub)
+
+Examiner
+- qualifiers group for private/public/protected (unsigned/signed and const/static)
+- identifier in front of open parens is a function (not BASIC, FORTRAN, COBOL)
+- combine 'tabs_to_spaces()' with function in main.py
+- re-think the unwrap() function (it duplicates others)
+
+TokenBuilders
+- remove result
+- return direct value
+
+NestedCommentTokenBuilder
+- limit comment size (1K? 2K? param?)
+
+Environment
+
+Build
+
+Test scripts
+- use variable for action
+- use variable for language
+- combine test script for tokens, statistics, confidence, confidence errors
+
+main.py:decode_bytes() and run_detect_test.py
+- detect Latin-1 encoding
+
+run_detect_test.py
+- handle BOM
+
+Deployment
+- Python 3.7
+- Remove test files
+- Daily test of azure web site (/languages, /tokens, /detect)
+- New version of Python PIP
+
+Python client (codestat_CLI.py)
+- Collect files (names from command line)
+- For each file, send file and collect statistics response
+- Consolidate statistics responses
+- Create report (LOC, SLOC, complexity; total by source code; grand total)
+
+examiners
++ ? make a binary operator (not unary) at the beginning a line comment indicator
+  (doesn't work for C, C++, C#, obj-c, Java, Pascal files which start with + or -)
+  (doesn't work for ruby files which start with regexes /)
+  ? apply in a second phase
+
+generic
++ double dollar signs as block for Tex (Rmd)
++ comment types (cobol or fortran style)
+
+generic ASM
+- perhaps based on text pattern and not tokens (percentage of lines that conform?)
+- values on the left (listing) (xxxx xx xx xx or ooo.ooo ooo ooo ooo)
+- comments start with * or ; (but * may also be used for multiply; check for leading whitespace)
++ label{1,8} :
++ label{1,8} : opcode{1,4} [spaces arguments]
++ label{1,8} [:] spaces opcode{1,4} [spaces arguments]
++ spaces opcode{1,4} [spaces arguments]
++ opcode{1,4} [spaces arguments]
++ spaces directive{1,10} [spaces argument]
+- (directive '.' and identifier or '.' and number) as first token
+- label: identifier or ('.' and identifier as non-first token)
+- opcode: identifier
+- number: $xxxx nnnQ nnnnnnA #xxxx &xxxx $
+- string: ' or "
+- operator: ['+', '-', '*', '/']
+- group: [',', '(', ')']
+
+specific ASM
+- opcodes (list for processor)
+- 8086 has multi mnemonic opcodes such as REPNZ SCAS BYTE PTR ES:[EDI]
+
+ADA
++ Embedded SQL (EXEC ;)
++ tokenize EXEC block
++ numeric literals  base#number#  (2#1001# 10#25#)
+* more source for ADA-95
+* source for ADA-2005
+* source for ADA-2012
++ labels enclosed in << >>
+
+Awk
+
+BASIC
+- identify line numbers after THEN, GOTO, GOSUB (incuding ON GOTO, ON GOSUB) ON ERROR
+
+BASIC-80 / BASICA / GW-BASIC
+- AND, OR, XOR when seen PUT and previous comma is a value, not an operator
+
+C
+* C89 source (has void but not bool, // comment)
++ Embedded SQL (EXEC ;)
++ tokenize EXEC block
+
+C++:
++ Embedded SQL (EXEC ;)
++ tokenize EXEC block
++ backslash at end of line as line continuation (unwrap first?)
++ backslash at end of line in #directive continues (unwrap first?)
++ operator ... unary, postfix
++ raw strings R LR u8R uR UR with "abc()abc" with 'abc' as delimiter and paired but not nested () and possible " within () and may have trailing 's' and may contain newline
++ strings prefix u8 L u U
++ allow adjacent string literals
+
+C#:
++ operator ..
++ unary operator ^
+* 'calculator1' identifies as C++
+
+CBASIC
++ colon as part of GRAPHIC PRINT statement
+
+COBOL fixed-format
++ tokenize EXEC block
++ unclosed quoted strings on continuation extend to column 72
++ extensions: https://www.ibm.com/support/knowledgecenter/SS6SGM_5.1.0/com.ibm.cobol51.aix.doc/PGandLR/ref/rlext.html
++ 'ON' is a value, a keyword after 'OCCURS DEPENDING', 'SORT file', 'IS id'
+- expected keyword confidence assigns value
+- paragraph name is a single identifier followed by period
+
+COBOL free-format
+- P010-wide fails detect
++ tokenize EXEC block
+* more tests from extra
++ Micro-Focus extensions (MF)
+* source for COBOL-85, COBOL-74 Acucobol, IBM, GNU, MF extensions
++ keywords for GNU
++ 'ON' is a value, a keyword after 'OCCURS DEPENDING', 'SORT file', 'IS id'
+- expected keyword confidence assigns value
+- paragraph name is a single identifier followed by period
+- block comment *><[ to *><] (OpenCobol)
+
+CoffeeScript
+- block comment ### / ###
+
+D
+- q {} token string, same as Perl Q string
+- end text with 0x00 or 0x1a
+- end of line \u2028 or \u2029
+
+Dart
+
+dBase II
+- convert function not followed by parens to identifier
+- move CTRL-Z to Examiner
+
+dBase III
+
+dBase IV
++ copy of dBase III
++ allow []
++ allow {}
++ keyword WINDOW ??? ACTIVATE MENU POPUP SCREEN ASSIST BEGIN END TRANSACTION BROWSE CALCULATE
++ keyword CANCEL CHANGE FILE INDEXES STRUCTURE EXTENDED MODIFY VIEW DEACTIVATE DEFINE BAR BOX PAD
++ keyword EXPORT FIND LOAD LOGOUT PLAY MACRO PRIVATE PROCEDURE PROTECT PUBLIC READ RECALL
++ keyword REINDEX RENAME REPLACE REPORT RESUME RETRY ROLLBACK RUN SCAN SEEK SHOW SKIP
++ keyword SUSPEND TOTAL TYPE UNLOCK ZAP
++ value null true false t f (no dots) (keep old dot values)
++ operator := . and or not (no dots) (keep old dot operators) ==
++ line comment with //
++ block comment /* */
++ lines start with keyword, assignment lines start with identifier and =
++ ? comments with &&
+* more source
+
+Clipper
++ copy of dBase IV
+
+Delphi
+- = allows types on rhs
+- combine into Pascal examiner
+
+Eiffel
+
+Fortran
++ embedded SQL (EXEC newline)
++ tokenize EXEC block
+- -66 HELLO detects as SQL (SQL keywords in FTN comment)
+* source for Fortran-2003
+- geo4060 detects as haskell
+
+F sharp
+* more source
+
+Go
+* more source
+
+Haskell
+
+HTML
++ combine adjacent text, whitespace, number, punctuation tokens into text
+
+Java
+
+JavaScript
+? 'values' detects as F# because single quote string isn't a string in F#
+
+Julia
++ numbers may be followed by identifier
++ 'abstract' and 'primitive' must be followed by 'type' to be keyword
+- r'' strings (no escapes)
+
+Kotlin
+
+Lua
++ strings contain any character
+
+Matlab
+
+Modula-2
+- copy of Pascal
+- keywords in upper case only
+- no stuffed quotes
+- braces are groupers, not comments
+- NIL is a value
+
+Objective-C
+- if 'id' is the only thing that pushes code to Objective-C, then discount it
+
+Octave
+
+Pascal
++ Embedded SQL (EXEC ;)
++ tokenize EXEC block
+- stuffed quotes
+- strings with double quotes (Turbo Pascal?)
+
+Perl 5
+- s{}{}, tr{}{}, y{}{} allow () and [] ? new classes for {} regexes?
+- s{}{} et al do not allow characters between groups
+- __END__, __LINE__, __FILE__, __SUB__, __DATA__, __PACKAGE__
+- heredoc (details?)
+- qr// regex
+
+PL/I
++ Embedded SQL (EXEC ;)
++ tokenize EXEC block
+? 'example' has issues (plain text in source)
++ bit string constant is string with suffix B
+- use LabelTokenBuilder class
+
+PL/M
++ copy of PL/1
++ drop JCL tokens
++ drop fixed format and use only free format
++ drop operators with bent bar (negation)
++ hex integer suffix H
++ octal integer suffix Q
++ binary integer suffix B
++ decimal integer suffix D
++ real must have digit before decimal, not required after
++ types BYTE WORD DWORD STRUCTURE POINTER OFFSET REAL CHARINT SHORTINT QWORD HWORD INTEGER LONGINT SHORTINT
++ .B (and .W and .D ?)
++ @ unary operator
++ operators NOT AND OR XOR MINUS PLUS
++ operators + - * / MOD
++ operators < <= <> >= >
++ keywords [
+  'ADDRESS', 'AT',
+  'BASED', 'BY',
+  'CALL', 'CASE',
+  'DATA', 'DECLARE', 'DISABLE', 'DO',
+  'ELSE', 'ENABLE', 'END', 'EOF', 'EXTERNAL',
+  'GO', 'GOTO',
+  'HALT',
+  'IF', 'INITIAL', 'INTERRUPT',
+  'LABEL', 'LITERALLY',
+  'OFFSET',
+  'PROCEDURE', 'PUBLIC',
+  'REENTRANT', 'RETURN',
+  'SELECTOR', 'STRUCTURE',
+  'THEN', 'TO',
+  'WHILE'
+]
++ common identifiers [
+  'ABS', 'ADJUSTRPL',
+  'BLOCKINPUT', 'BLOCKINWORD', 'BLOCKOUTPUT', 'BLOCKOUTWORD', 'BUILDPTR',
+  'CARRY', 'CAUSEINTERRUPT', 'CLEARTASKSWITCHEDFLAG', 'CONTROLREGISTER',
+  'CMPB', 'CMPW',
+  'DEC', 'DOUBLE', 'DEBUGREGISTER',
+  'FINDB', 'FINDHW', 'FINDRB', 'FINDRHW', 'FINDRW', 'FINDW', 'FIX', 'FLAGS', 'FLOAT',
+  'GETACCESSRIGHTS', 'GETREALERROR', 'GETSEGMENTLIMIT',
+  'HIGH',
+  'IABS', 'INHWORD', 'INITREALMATHUNITSKIPRB', 'INT SIZE', 'INWORD SIZE', 'INPUT',
+  'LAST', 'LENGTH', 'LOCALTABLE', 'LOCKSET', 'LOW',
+  'MACHINESTATUS', 'MOVB', 'MOVBIT', 'MOVE', 'MOVHW', 'MOVRB', 'MOVRBIT'
+  'MOVRHW', 'MOVRW', 'MOVW',
+  'NIL',
+  'OFFSETOF', 'OUTHWORD', 'OUTPUT', 'OUTWORD',
+  'PARITY',
+  'RESTOREGLOBALTABLE', 'RESTOREINTERRUPTABLE', 'RESTOREREALSTATUS',
+  'ROL', 'ROR',
+  'SAL', 'SAR', 'SAVEGLOBALTABLE', 'SAVEINTERRUPTTABLE', 'SAVEREALSTATUS',
+  'SCANBIT', 'SCANRBIT', 'SCL', 'SCR', 'SEGMENTREADABLE', 'SEGMENTWRITABLE',
+  'SELECTOROF', 'SETB', 'SETHW', 'SETREALMODE', 'SETW', 'SHL', 'SHLD', 'SHR', 'SHRD',
+  'SIGN', 'SIGNED', 'SKIPB', 'SKIPHW', 'SKIPRHW', 'SKIPRW', 'SKIPW',
+  'STACKBASE', 'STACKPTR',
+  'TASKREGISTER', 'TESTREGISTER', 'TIME',
+  'UNSIGN',
+  'WAITFORINTERRUPT',
+  'XLAT',
+  'ZERO'
+]
+[BLOCKINDWORD BLOCKOUTDWORD CMPD FINDD FINDRD INDWORD MOVD MOVRD OUTDWORD SETD SKIPD SKIPRD]
+[BYTESWAP TESTREGISTER INVALIDATEDATACACHE WBINVALIDATEDATACACHE INVALIDATETLBENTRY]
+
+Prolog
+
+Python
++ allow consecutive strings in calc_operand_confidence()
+- allow 'not' (unary) 'in' (binary) (operator4)
+- operator @
+- r'' strings (no escapes)
+
+R
+? 'basketball' has issues (no keywords, few tokens)
+- r'' strings (no escapes)
+
+Raku
+- copy of Perl 5
+- no undef continue
+- repeat loop given when default say try CATCH class has multi
+- $!private $.public for class members
+- ... ??? !!!
+- < > replaces qw{}
+- << >>
+- no __ keywords
+- keywords $?LINE $?FILE $?PACKAGE
+- =begin END
+- =begin DATA
+- no ~= ->
+- operator ~~ ~& +& ~| +| +< +<=
+- unary operator :
+- s/// and m// take parameters in colons before first /
+- qr// replaced by rx// or regex{}
+
+
+Ruby
++ tokenize regex (which may contain #{} expressions, which may contain '/' characters)
++ examiner seems to take a long time - profile it
+
+Rust
+
+Scala
++ XML literals
+
+SQL
+* extension (T-SQL, PL/SQL)
++ quoted strings with square brackets are identifiers (T-SQL only)
+* Additional source files (square brackets, stored procedures, T-SQL, PL/SQL)
+* source for SQL-99
+* source for SQL-2003
+* source for SQL-2008
+* source for SQL-2011
+* source for SQL-2016
++ Microsoft: nvarchar bigint datetime datetime2 geography
++ Microsoft: SYSTEM_VERSIONING(2016) HISTORY_TABLE(2016) PAD_INDEX(2008) STATISTICS_NORECOMPUTE(2003) FILLFACTOR(2003) IGNORE_DUP_KEY ALLOW_ROW_LOCKS ALLOW_PAGE_LOCKS TEXTIMAGE_ON
++ Microsoft: CLUSTERED GENERATED ALWAYS SYSTEM_TIME
++ Microsoft: DECLARE SET BEGIN END BREAK CONTINUE GOTO ELSE RETURN WAITFOR BULK TRY(2005) CATCH(2005)
++ Drop year distinction and use only plain, Microsoft, Oracle
+
+Swift
+
+TypeScript
+- 'require' (and maybe 'module') are functions, not keywords
+-- or functions when followed by open parens
+
+VB6
+- keywords only at start of line or after 'Then' (and maybe ':') (unsplit lines?)
+  (begintrans call circle clear close cls committrans compare data declare data defXXX dim else elseif end endif exit for if input input$ let open close pset put read redim rem restore set while wend write)
+
+VB.NET
+- 'Then' must be preceded by 'If' or 'ElseIf'
+
+multiple
+
+Stats and analysis
++ cyclomatic complexity
++ halstead complexity (can we calc for multiple functions or classes?)
++ boolexity
+
+Multipart documents
++ Service to extract blocks and analyze each one
++ Markdown (text and code blocks)
++ Rmd (text, TeX, R)
++ HTML (JavaScript)
++ JCL with COBOL, FORTRAN, PL/1
+
+Notes
+- CodeStat analyzes and detects some languages but not all
+- Tokenization is not perfect (C/C++ #define macros not expanded)
+- A program that tokenizes may not compile
+- A program that compiles may not tokenize
+- Language detection is not perfect, especially with small fragments
+- COBOL lines that start with '*' are considered comments (not true for later Cobol)
+- Tokens in one language that are part of comments in another language can cause detection errors
+
+TOKEN
+
+842539d94e101aee4d7b0df2f1ff098fd04fd96e
