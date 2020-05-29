@@ -63,7 +63,7 @@ class CsharpExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder(leads, extras)
 
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, True)
+    string_tb = StringTokenBuilder(quotes, 10)
     prefixed_string_tb = PrefixedStringTokenBuilder('@', False, ['"'])
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()

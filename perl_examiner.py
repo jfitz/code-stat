@@ -95,7 +95,7 @@ class PerlExaminer(Examiner):
     sigilbrace_tb = PerlSigilBraceTokenBuilder()
 
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, False)
+    string_tb = StringTokenBuilder(quotes, 0)
 
     q_string_tb = PerlQStringTokenBuilder()
 

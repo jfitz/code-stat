@@ -28,6 +28,12 @@ test\bin\run_test.ps1 -json -name basic -action tokens -language generic -commen
 test\bin\run_test.ps1 -json -name microsoft -action tokens -language generic -comment ada -inputfile ".\test\data\SQL-92\microsoft.sql" -expected ".\test\ref\tokens\generic-comments\microsoft.txt"
 test\bin\run_test.ps1 -json -name spider -action tokens -language generic -comment basic -inputfile ".\test\data\VisualBasic-6\spider.bas" -expected ".\test\ref\tokens\generic-comments\spider.txt"
 
+# generic assembly
+test\bin\run_test.ps1 -json -name subroutine1-asm -action tokens -language assembly -inputfile ".\test\data\Assembly\subroutine1.asm" -expected ".\test\ref\tokens\Assembly\subroutine1.txt"
+test\bin\run_test.ps1 -json -name subroutine2-asm -action tokens -language assembly -inputfile ".\test\data\Assembly\subroutine2.asm" -expected ".\test\ref\tokens\Assembly\subroutine2.txt"
+test\bin\run_test.ps1 -json -name osint-asm -action tokens -language assembly -inputfile ".\test\data\Assembly\osint.asm" -expected ".\test\ref\tokens\Assembly\osint.txt"
+test\bin\run_test.ps1 -json -name spitbol-asm -action tokens -language assembly -inputfile ".\test\data\Assembly\spitbol.asm" -expected ".\test\ref\tokens\Assembly\spitbol.txt"
+
 # Ada-83
 test\bin\run_test.ps1 -json -name adabkend-adb-83 -action tokens -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\tokens\Ada-83\adabkend-adb.txt"
 test\bin\run_test.ps1 -json -name adabkend-ads-83 -action tokens -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.ads" -expected ".\test\ref\tokens\Ada-83\adabkend-ads.txt"

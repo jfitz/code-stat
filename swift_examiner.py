@@ -78,7 +78,7 @@ class SwiftExaminer(Examiner):
     symbol_tb = SwiftSymbolTokenBuilder('.', 'symbol', True)
 
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, True)
+    string_tb = StringTokenBuilder(quotes, 10)
     triple_quote_comment_tb = TripleQuoteStringTokenBuilder(quotes)
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()

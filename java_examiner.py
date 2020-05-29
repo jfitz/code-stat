@@ -64,7 +64,7 @@ class JavaExaminer(Examiner):
 
     decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator', False)
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, False)
+    string_tb = StringTokenBuilder(quotes, 0)
 
     class_type_tb = ClassTypeTokenBuilder()
 

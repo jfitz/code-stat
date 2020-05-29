@@ -28,6 +28,12 @@ test\bin\run_test.ps1 -json -name basic -action confidence -errors -language gen
 test\bin\run_test.ps1 -json -name microsoft -action confidence -errors -language generic -comment ada -inputfile ".\test\data\SQL-92\microsoft.sql" -expected ".\test\ref\confidence-errors\generic-comments\microsoft.txt"
 test\bin\run_test.ps1 -json -name spider -action confidence -errors -language generic -comment basic -inputfile ".\test\data\VisualBasic-6\spider.bas" -expected ".\test\ref\confidence-errors\generic-comments\spider.txt"
 
+# generic assembly
+test\bin\run_test.ps1 -json -name subroutine1-asm -action confidence -errors -language assembly -inputfile ".\test\data\Assembly\subroutine1.asm" -expected ".\test\ref\confidence-errors\Assembly\subroutine1.txt"
+test\bin\run_test.ps1 -json -name subroutine2-asm -action confidence -errors -language assembly -inputfile ".\test\data\Assembly\subroutine2.asm" -expected ".\test\ref\confidence-errors\Assembly\subroutine2.txt"
+test\bin\run_test.ps1 -json -name osint-asm -action confidence -errors -language assembly -inputfile ".\test\data\Assembly\osint.asm" -expected ".\test\ref\confidence-errors\Assembly\osint.txt"
+test\bin\run_test.ps1 -json -name spitbol-asm -action confidence -errors -language assembly -inputfile ".\test\data\Assembly\spitbol.asm" -expected ".\test\ref\confidence-errors\Assembly\spitbol.txt"
+
 # Ada-83
 test\bin\run_test.ps1 -json -name adabkend-adb-83 -action confidence -errors -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\confidence-errors\Ada-83\adabkend-adb.txt"
 test\bin\run_test.ps1 -json -name adabkend-ads-83 -action confidence -errors -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.ads" -expected ".\test\ref\confidence-errors\Ada-83\adabkend-ads.txt"

@@ -66,7 +66,7 @@ class LuaExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder(leads, extras)
 
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, False)
+    string_tb = StringTokenBuilder(quotes, 0)
     bracket_string_tb = DoubleBracketStringTokenBuilder()
 
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)

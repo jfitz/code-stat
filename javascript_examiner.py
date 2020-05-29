@@ -68,8 +68,8 @@ class JavaScriptExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder(leads, extras)
 
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, False)
-    template_string_tb = StringTokenBuilder(['`'], True)
+    string_tb = StringTokenBuilder(quotes, 0)
+    template_string_tb = StringTokenBuilder(['`'], 10)
 
     regex_tb = RegexTokenBuilder()
 

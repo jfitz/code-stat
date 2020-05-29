@@ -73,7 +73,7 @@ class CExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder(leads, extras)
 
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, False)
+    string_tb = StringTokenBuilder(quotes, 0)
 
     class_type_tb = ClassTypeTokenBuilder()
 

@@ -82,7 +82,7 @@ class DbaseExaminer(Examiner):
     wild_card_identifier_tb = WildCardIdentifierTokenBuilder('*?', '*?:')
 
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, False)
+    string_tb = StringTokenBuilder(quotes, 0)
     bracket_string_tb = BracketedStringTokenBuilder()
     text_string_tb = TextBlockTokenBuilder('TEXT', 'ENDTEXT')
 

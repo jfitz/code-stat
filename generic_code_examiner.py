@@ -64,7 +64,7 @@ class GenericCodeExaminer(Examiner):
     operand_types.append('identifier')
 
     quotes = ['"', "'", "’", '`']
-    string_tb = StringTokenBuilder(quotes, False)
+    string_tb = StringTokenBuilder(quotes, 0)
     triple_string_tb = TripleQuoteStringTokenBuilder(quotes)
     operand_types.append('string')
 

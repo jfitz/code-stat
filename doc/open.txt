@@ -29,9 +29,15 @@ main
 + respond 'undetermined' if all examiners report low values (how low?)
 
 TokenBuilders
+- remove result
+- return direct value
+
 - PrefixedStringTokenBuilder: options for quote stuffing, escaped quotes
 - IntegerTokenBuilder (et al): don't allow underscore as final character
 - StringTokenBuilder: split newline into MultilineStringTokenBuilder
+- BlockTokenBuilder: parameter for case sensitive, use in checks
+- BlockTokenBuilder: faster parsing using result of .find() (check for valid chars)
+- SLashStarCommentTokenBuilder: replace with BlockTokenBuilder
 
 examiners for:
  ZZ, Elm, Mint, Futhark, Haxe, Pharo, Nim, OCaml, Racket,
@@ -65,10 +71,6 @@ Examiner
 - identifier in front of open parens is a function (not BASIC, FORTRAN, COBOL)
 - combine 'tabs_to_spaces()' with function in main.py
 - re-think the unwrap() function (it duplicates others)
-
-TokenBuilders
-- remove result
-- return direct value
 
 NestedCommentTokenBuilder
 - limit comment size (1K? 2K? param?)
@@ -113,12 +115,11 @@ generic
 generic ASM
 - perhaps based on text pattern and not tokens (percentage of lines that conform?)
 - values on the left (listing) (xxxx xx xx xx or ooo.ooo ooo ooo ooo)
-- comments start with * or ; (but * may also be used for multiply; check for leading whitespace)
+- comments start with * or ; or !
 + label{1,8} :
-+ label{1,8} : opcode{1,4} [spaces arguments]
-+ label{1,8} [:] spaces opcode{1,4} [spaces arguments]
-+ spaces opcode{1,4} [spaces arguments]
-+ opcode{1,4} [spaces arguments]
++ label{1,8} [:] spaces opcode{1,4} [spaces arguments [spaces comment]]
++ spaces opcode{1,4} [spaces arguments [spaces comment]]
++ opcode{1,4} [spaces arguments [spaces comment]]
 + spaces directive{1,10} [spaces argument]
 - (directive '.' and identifier or '.' and number) as first token
 - label: identifier or ('.' and identifier as non-first token)
@@ -251,6 +252,7 @@ Haskell
 
 HTML
 + combine adjacent text, whitespace, number, punctuation tokens into text
+- faster, simpler checks for attribute
 
 Java
 
@@ -407,19 +409,13 @@ Scala
 + XML literals
 
 SQL
-* extension (T-SQL, PL/SQL)
++ Drop year distinction and use only plain, Microsoft (T-SQL), Oracle (PL/SQL)
 + quoted strings with square brackets are identifiers (T-SQL only)
 * Additional source files (square brackets, stored procedures, T-SQL, PL/SQL)
-* source for SQL-99
-* source for SQL-2003
-* source for SQL-2008
-* source for SQL-2011
-* source for SQL-2016
 + Microsoft: nvarchar bigint datetime datetime2 geography
 + Microsoft: SYSTEM_VERSIONING(2016) HISTORY_TABLE(2016) PAD_INDEX(2008) STATISTICS_NORECOMPUTE(2003) FILLFACTOR(2003) IGNORE_DUP_KEY ALLOW_ROW_LOCKS ALLOW_PAGE_LOCKS TEXTIMAGE_ON
 + Microsoft: CLUSTERED GENERATED ALWAYS SYSTEM_TIME
 + Microsoft: DECLARE SET BEGIN END BREAK CONTINUE GOTO ELSE RETURN WAITFOR BULK TRY(2005) CATCH(2005)
-+ Drop year distinction and use only plain, Microsoft, Oracle
 
 Swift
 
@@ -428,13 +424,11 @@ TypeScript
 -- or functions when followed by open parens
 
 VB6
-- keywords only at start of line or after 'Then' (and maybe ':') (unsplit lines?)
+- check keywords at start of line or after 'Then' (and maybe ':') (unsplit lines?)
   (begintrans call circle clear close cls committrans compare data declare data defXXX dim else elseif end endif exit for if input input$ let open close pset put read redim rem restore set while wend write)
 
 VB.NET
 - 'Then' must be preceded by 'If' or 'ElseIf'
-
-multiple
 
 Stats and analysis
 + cyclomatic complexity

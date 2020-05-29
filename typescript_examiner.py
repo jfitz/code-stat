@@ -63,7 +63,7 @@ class TypeScriptExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder(leads, extras)
 
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, False)
+    string_tb = StringTokenBuilder(quotes, 0)
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()

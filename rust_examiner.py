@@ -77,7 +77,7 @@ class RustExaminer(Examiner):
     attribute_tb = RustAttributeTokenBuilder()
 
     quotes = ['"', "'"]
-    string_tb = StringTokenBuilder(quotes, True)
+    string_tb = StringTokenBuilder(quotes, 10)
     bstring_tb = PrefixedStringTokenBuilder('b', True, quotes)
     rstring_tb = RustRawStringTokenBuilder()
 

@@ -73,7 +73,7 @@ class DelphiExaminer(Examiner):
 
     class_tb = ClassTypeTokenBuilder()
 
-    string_tb = StringTokenBuilder(["'"], False)
+    string_tb = StringTokenBuilder(["'"], 0)
 
     brace_comment_tb = BraceCommentTokenBuilder()
     paren_star_comment_tb = BlockTokenBuilder('(*', '*)', 'comment')

@@ -58,7 +58,7 @@ class EiffelExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder(leads, extras)
 
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, False)
+    string_tb = StringTokenBuilder(quotes, 0)
 
     comment_tb = LeadToEndOfLineTokenBuilder('--', True, 'comment')
 

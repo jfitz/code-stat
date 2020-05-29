@@ -65,7 +65,7 @@ class HaskellExaminer(Examiner):
     class_tb = HaskellClassTokenBuilder()
 
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, False)
+    string_tb = StringTokenBuilder(quotes, 0)
 
     line_comment_tb = LeadToEndOfLineTokenBuilder('--', False, 'comment')
     block_comment_tb = BlockTokenBuilder('{-', '-}', 'comment')

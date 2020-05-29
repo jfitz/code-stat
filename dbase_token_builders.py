@@ -390,6 +390,30 @@ class TextBlockTokenBuilder(TokenBuilder):
       ender_token
     ]
 
+
+  def attempt(self, text):
+    self.text = None
+
+    if text.find(self.end_keyword.upper()) == -1 and \
+      text.find(self.end_keyword.lower()) == -1:
+      return
+
+    candidate = ''
+    i = 0
+
+    while i < len(text):
+      c = text[i]
+
+      if not self.accept(candidate, c):
+        break
+
+      candidate += c
+      i += 1
+
+    if len(candidate) > 0:
+      self.text = candidate
+
+
   def accept(self, candidate, c):
     if len(candidate) < len(self.start_keyword):
       return self.start_keyword.startswith(candidate.lower())

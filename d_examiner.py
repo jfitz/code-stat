@@ -86,9 +86,9 @@ class DExaminer(Examiner):
     attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute', False)
     # string suffix: c,w,d
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, False)
+    string_tb = StringTokenBuilder(quotes, 0)
     r_string_tb = PrefixedStringTokenBuilder('r', True, quotes)
-    backtick_string_tb = StringTokenBuilder(['`'], False)
+    backtick_string_tb = StringTokenBuilder(['`'], 0)
     x_string_tb = PrefixedStringTokenBuilder('x', True, quotes)
     q_string_tb = PrefixedStringTokenBuilder('q', True, quotes)
     # q{} string

@@ -65,7 +65,7 @@ class RubyExaminer(Examiner):
     symbol_tb = PrefixedIdentifierTokenBuilder(':', 'symbol', True)
 
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, True)
+    string_tb = StringTokenBuilder(quotes, 10)
 
     regex_tb = RegexTokenBuilder()
 

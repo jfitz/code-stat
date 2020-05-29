@@ -65,7 +65,7 @@ class VisualBasic6Examiner(Examiner):
     identifier_tb = SuffixedIdentifierTokenBuilder(leads, extras, suffixes)
 
     quotes = ['"']
-    string_tb = StringTokenBuilder(quotes, False)
+    string_tb = StringTokenBuilder(quotes, 0)
 
     remark_tb = RemarkTokenBuilder()
     comment_tb = LeadToEndOfLineTokenBuilder("'", True, 'comment')

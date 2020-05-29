@@ -49,7 +49,7 @@ class PL1Examiner(Examiner):
     self.identifier_tb = IdentifierTokenBuilder(leads, extras)
 
     quotes = ['"', "'", "’"]
-    self.string_tb = StringTokenBuilder(quotes, False)
+    self.string_tb = StringTokenBuilder(quotes, 0)
 
     self.label_tb = PL1LabelTokenBuilder()
 

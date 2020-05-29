@@ -150,9 +150,9 @@ class StringTokenBuilder(TokenBuilder):
     return 'Escape ?Z'
 
 
-  def __init__(self, quotes, allow_newline):
+  def __init__(self, quotes, newline_limit):
     self.quotes = quotes
-    self.allow_newline = allow_newline
+    self.newline_limit = newline_limit
     self.text = ''
 
 
@@ -165,8 +165,10 @@ class StringTokenBuilder(TokenBuilder):
 
   def accept(self, candidate, c):
     # newline breaks a string
-    if c in ['\n', '\r'] and not self.allow_newline:
-      return False
+    if c in ['\n', '\r']:
+      count = candidate.count('\n') + candidate.count('\r')
+      if count > self.newline_limit:
+        return False
 
     if len(candidate) == 0:
       return c in self.quotes
@@ -1451,6 +1453,29 @@ class BlockTokenBuilder(TokenBuilder):
       return None
 
     return [Token(self.text, self.texttype, False)]
+
+
+  def attempt(self, text):
+    self.text = None
+
+    if text.find(self.suffix.upper()) == -1 and \
+      text.find(self.suffix.lower()) == -1:
+      return
+
+    candidate = ''
+    i = 0
+
+    while i < len(text):
+      c = text[i]
+
+      if not self.accept(candidate, c):
+        break
+
+      candidate += c
+      i += 1
+
+    if len(candidate) > 0:
+      self.text = candidate
 
 
   def accept(self, candidate, c):

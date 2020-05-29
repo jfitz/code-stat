@@ -75,7 +75,7 @@ class DartExaminer(Examiner):
     symbol_tb = PrefixedIdentifierTokenBuilder('#', 'symbol', True)
 
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, False)
+    string_tb = StringTokenBuilder(quotes, 0)
     raw_string_tb = PrefixedRawStringTokenBuilder('r', True, quotes)
 
     class_type_tb = ClassTypeTokenBuilder()

@@ -61,7 +61,7 @@ class RExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder(leads, extras)
 
     quotes = ['"', "'", "’", '`']
-    string_tb = StringTokenBuilder(quotes, True)
+    string_tb = StringTokenBuilder(quotes, 10)
     raw_string_tb = PrefixedRawStringTokenBuilder('r', True, quotes)
 
     hash_comment_tb = LeadToEndOfLineTokenBuilder('#', True, 'comment')

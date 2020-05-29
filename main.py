@@ -7,6 +7,7 @@ from flask import Flask, request, render_template, Response
 
 from codestat_exception import CodeStatException
 from generic_code_examiner import GenericCodeExaminer
+from assembly_generic_examiner import AssemblyGenericExaminer
 from ada_examiner import AdaExaminer
 from awk_examiner import AwkExaminer
 from basic_examiner import BasicExaminer
@@ -53,6 +54,7 @@ from visualbasic6_examiner import VisualBasic6Examiner
 from visualbasicnet_examiner import VisualBasicNETExaminer
 
 GenericCodeExaminer.__escape_z__()
+AssemblyGenericExaminer.__escape_z__()
 AdaExaminer.__escape_z__()
 AwkExaminer.__escape_z__()
 BasicExaminer.__escape_z__()
@@ -204,6 +206,7 @@ def dicts_to_json(list_of_dicts, languages, operation):
 app = Flask(__name__)
 
 codesAndNames = {
+  'assembly': 'Assembly',
   'ada-83': 'Ada-83',
   'ada-95': 'Ada-95',
   'ada-2005': 'Ada-2005',
@@ -276,6 +279,7 @@ codesAndNames = {
 
 
 codesAndGroups = {
+  'assembly': 'Assembly',
   'ada-83': 'Ada',
   'ada-95': 'Ada',
   'ada-2005': 'Ada',
@@ -348,6 +352,7 @@ codesAndGroups = {
 
 
 codesAndYears = {
+  'assembly': 1952,
   'ada-83': 1983,
   'ada-95': 1995,
   'ada-2005': 2005,
@@ -419,6 +424,7 @@ codesAndYears = {
 }
 
 simplerLanguages = {
+  'assembly': None,
   'ada-83': None,
   'ada-95': 'ada-83',
   'ada-2005': 'ada-95',
@@ -775,6 +781,9 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
   if language in ['generic']:
     examiner = GenericCodeExaminer(code, comment)
 
+  if language in ['assembly']:
+    examiner = AssemblyGenericExaminer(code)
+
   if language in ['ada-83']:
     examiner = AdaExaminer(code, '83')
 
@@ -990,6 +999,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
 
   if 'generic' in languages:
     examiners['generic'] = GenericCodeExaminer(code, comment)
+
+  if 'assembly' in languages:
+    examiners['assembly'] = AssemblyGenericExaminer(code)
 
   if 'ada-83' in languages or 'ada' in languages:
     examiners['ada-83'] = AdaExaminer(code, '83')
