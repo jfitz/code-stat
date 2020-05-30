@@ -394,41 +394,21 @@ class TextBlockTokenBuilder(TokenBuilder):
   def attempt(self, text):
     self.text = None
 
-    if text.find(self.end_keyword.upper()) == -1 and \
-      text.find(self.end_keyword.lower()) == -1:
+    end1 = text.find(self.end_keyword.upper())
+    end2 = text.find(self.end_keyword.lower())
+
+    end = min(end1, end2)
+    if end1 == -1:
+      end = end2
+    if end2 == -1:
+      end = end1
+
+    if end == -1:
       return
 
-    candidate = ''
-    i = 0
+    end += len(self.end_keyword)
 
-    while i < len(text):
-      c = text[i]
-
-      if not self.accept(candidate, c):
-        break
-
-      candidate += c
-      i += 1
-
-    if len(candidate) > 0:
-      self.text = candidate
-
-
-  def accept(self, candidate, c):
-    if len(candidate) < len(self.start_keyword):
-      return self.start_keyword.startswith(candidate.lower())
-
-    result = False
-
-    if candidate.lower().startswith(self.start_keyword):
-      result = True
-
-      # if the text ends with the end keyword
-      # stop accepting characters
-      if candidate.lower().endswith(self.end_keyword):
-        result = False
-
-    return result
+    self.text = text[:end]
 
 
   def get_score(self, line_printable_tokens):

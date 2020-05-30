@@ -1458,31 +1458,21 @@ class BlockTokenBuilder(TokenBuilder):
   def attempt(self, text):
     self.text = None
 
-    if text.find(self.suffix.upper()) == -1 and \
-      text.find(self.suffix.lower()) == -1:
+    end1 = text.find(self.suffix.upper())
+    end2 = text.find(self.suffix.lower())
+
+    end = min(end1, end2)
+    if end1 == -1:
+      end = end2
+    if end2 == -1:
+      end = end1
+
+    if end == -1:
       return
 
-    candidate = ''
-    i = 0
+    end += len(self.suffix)
 
-    while i < len(text):
-      c = text[i]
-
-      if not self.accept(candidate, c):
-        break
-
-      candidate += c
-      i += 1
-
-    if len(candidate) > 0:
-      self.text = candidate
-
-
-  def accept(self, candidate, c):
-    if len(candidate) < len(self.prefix):
-      return c.lower() == self.prefix[len(candidate)]
-
-    return not candidate.lower().endswith(self.suffix)
+    self.text = text[:end]
 
 
   def get_score(self, line_printable_tokens):
