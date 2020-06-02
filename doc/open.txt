@@ -36,8 +36,9 @@ TokenBuilders
 - IntegerTokenBuilder (et al): don't allow underscore as final character
 - StringTokenBuilder: split newline into MultilineStringTokenBuilder
 - BlockTokenBuilder: parameter for case sensitive, use in checks
-- BlockTokenBuilder: faster parsing using result of .find() (check for valid chars)
-- SLashStarCommentTokenBuilder: replace with BlockTokenBuilder
+- BlockTokenBuilder: attempt() checks for valid chars in body
+- BlockTokenBuilder: attempt() checks for start string match
+- SlashStarCommentTokenBuilder: replace with BlockTokenBuilder
 
 examiners for:
  ZZ, Elm, Mint, Futhark, Haxe, Pharo, Nim, OCaml, Racket,
@@ -115,19 +116,13 @@ generic
 generic ASM
 - perhaps based on text pattern and not tokens (percentage of lines that conform?)
 - values on the left (listing) (xxxx xx xx xx or ooo.ooo ooo ooo ooo)
-- comments start with * or ; or !
-+ label{1,8} :
-+ label{1,8} [:] spaces opcode{1,4} [spaces arguments [spaces comment]]
-+ spaces opcode{1,4} [spaces arguments [spaces comment]]
-+ opcode{1,4} [spaces arguments [spaces comment]]
-+ spaces directive{1,10} [spaces argument]
-- (directive '.' and identifier or '.' and number) as first token
-- label: identifier or ('.' and identifier as non-first token)
-- opcode: identifier
 - number: $xxxx nnnQ nnnnnnA #xxxx &xxxx $
 - string: ' or "
-- operator: ['+', '-', '*', '/']
-- group: [',', '(', ')']
+- operator =
+- confidence for consistent indent for opcodes
+- confidence for consistent indent for args
+- confidence for consistent indent for comments after column 1
+- newlines always important
 
 specific ASM
 - opcodes (list for processor)

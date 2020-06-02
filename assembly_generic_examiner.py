@@ -116,10 +116,10 @@ class AssemblyGenericExaminer(Examiner):
     ]
 
     tokenizer = Tokenizer(tokenbuilders)
-    tokens = tokenizer.tokenize(code)
+    # get tokens and indents
+    tokens, indents = self.tokenize_code(code, tokenizer)
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
-    tokens = Examiner.combine_identifier_colon(tokens, ['statement terminator', 'newline'], ['{'], ['whitespace', 'comment'])
     self.tokens = tokens
     self.convert_identifiers_to_labels()
 
@@ -141,3 +141,213 @@ class AssemblyGenericExaminer(Examiner):
     # self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_statistics()
+    self.calc_indent_confidence(indents)
+
+
+  def tokenize_code(self, code, tokenizer):
+    lines = code.split('\n')
+
+    tokens = []
+    indents = []
+
+    for line in lines:
+      newline = '\n'
+      if len(line) > 0 and line[-1] == '\r':
+        newline = '\r\n'
+      line = line.rstrip('\r')
+      line = line.rstrip()
+
+      # get tokens and indents
+      line_tokens, line_indents = self.tokenize_line(line, tokenizer)
+      tokens += line_tokens
+      indents.append(line_indents)
+
+      tokens.append(Token(newline, 'newline', False))
+
+    # return tokens and indents
+    return tokens, indents
+
+
+  def tokenize_line(self, line, tokenizer):
+    # break apart the line based on format
+    # The line format is:
+    # label
+    # opcode
+    # arguments
+    # comment
+
+    label = ''
+    label_indent = None
+    lo_space = ''
+    opcode = ''
+    opcode_indent = None
+    oa_space = ''
+    args = ''
+    args_indent = None
+    ac_space = ''
+    comment = ''
+    comment_indent = None
+    line_comment = ''
+    line_comment_indent = None
+    in_quote = False
+    parens_level = 0
+    state = 1
+    column = 0
+    for c in line:
+      # 1 - start
+      if state == 1:
+        if c in '*;!':
+          line_comment = c
+          line_comment_indent = column
+          state = 2
+        elif c.isspace():
+          lo_space = c
+          state = 4
+        else:
+          label = c
+          label_indent = column
+          state = 3
+      # 2 - in line_comment
+      elif state == 2:
+        line_comment += c
+      # 3 - in label
+      elif state == 3:
+        if c in '*;!':
+          line_comment = c
+          line_comment_indent = column
+          state = 2
+        elif c.isspace():
+          lo_space = c
+          state = 4
+        else:
+          label += c
+      # 4 - in label-op whitespace
+      elif state == 4:
+        if c in '*;!':
+          line_comment = c
+          line_comment_indent = column
+          state = 2
+        elif c.isspace():
+          lo_space += c
+        else:
+          opcode = c
+          opcode_indent = column
+          state = 5
+      # 5 - in opcode
+      elif state == 5:
+        if c in '*;!':
+          line_comment = c
+          line_comment_indent = column
+          state = 2
+        elif c.isspace():
+          oa_space = c
+          state = 6
+        else:
+          opcode += c
+      # 6 - in op-args whitespace
+      elif state == 6:
+        if c in '*;!':
+          line_comment = c
+          line_comment_indent = column
+          state = 2
+        elif c.isspace():
+          oa_space += c
+        else:
+          args = c
+          args_indent = column
+          state = 7
+      # 7 - in args
+      elif state == 7:
+        if c in '*;!' and not in_quote and parens_level <= 0:
+          line_comment = c
+          line_comment_indent = column
+          state = 2
+        elif c.isspace() and not in_quote and parens_level <= 0:
+          ac_space = c
+          state = 8
+        else:
+          args += c
+          if c == "'":
+            in_quote = not in_quote
+          if c == '(' and not in_quote:
+            parens_level += 1
+          if c == ')' and not in_quote:
+            parens_level -= 1
+      # 8 - in args-comment whitespace
+      elif state == 8:
+        if c in '*;!':
+          line_comment = c
+          line_comment_indent = column
+          state = 2
+        elif c.isspace():
+          ac_space += c
+        else:
+          comment = c
+          comment_indent = column
+          state = 9
+      # 2 - in line_comment
+      elif state == 9:
+        comment += c
+
+      column += 1
+
+    indents = {
+      'label': label_indent,
+      'opcode': opcode_indent,
+      'args': args_indent,
+      'comment': comment_indent,
+      'line_comment': line_comment_indent
+    }
+
+    # tokenize the code
+    tokens = []
+
+    if len(label) > 0:
+      tokens += tokenizer.tokenize(label)
+
+    if len(lo_space) > 0:
+      tokens += tokenizer.tokenize(lo_space)
+
+    if len(opcode) > 0:
+      tokens += tokenizer.tokenize(opcode)
+
+    if len(oa_space) > 0:
+      tokens += tokenizer.tokenize(oa_space)
+
+    if len(args) > 0:
+      tokens += tokenizer.tokenize(args)
+
+    if len(ac_space) > 0:
+      tokens += tokenizer.tokenize(ac_space)
+
+    if len(comment) > 0:
+      tokens.append(Token(comment, 'comment', False))
+
+    if len(line_comment) > 0:
+      tokens.append(Token(line_comment, 'comment', False))
+
+    return tokens, indents
+
+
+  def calc_indent_confidence(self, indents):
+    opcode_indents = {}
+    for indent_dict in indents:
+      opcode = indent_dict['opcode']
+      if opcode is not None:
+        if opcode in opcode_indents:
+          opcode_indents[opcode] += 1
+        else:
+          opcode_indents[opcode] = 1
+
+    total = 0
+    highest = 0
+
+    for key in opcode_indents:
+      indent = opcode_indents[key]
+      total += indent
+      if indent > highest:
+        highest = indent
+
+    confidence = highest / total
+    
+    self.confidences['opcode_indent'] = confidence
