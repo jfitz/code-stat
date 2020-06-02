@@ -394,6 +394,10 @@ class TextBlockTokenBuilder(TokenBuilder):
   def attempt(self, text):
     self.text = None
 
+    if not text.startswith(self.start_keyword.upper()) and \
+      not text.startswith(self.start_keyword.lower()):
+      return
+
     end1 = text.find(self.end_keyword.upper())
     end2 = text.find(self.end_keyword.lower())
 

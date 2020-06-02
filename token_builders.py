@@ -1458,6 +1458,10 @@ class BlockTokenBuilder(TokenBuilder):
   def attempt(self, text):
     self.text = None
 
+    if not text.startswith(self.prefix.upper()) and \
+      not text.startswith(self.prefix.lower()):
+      return
+
     end1 = text.find(self.suffix.upper())
     end2 = text.find(self.suffix.lower())
 
