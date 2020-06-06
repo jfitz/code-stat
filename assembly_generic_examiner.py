@@ -61,11 +61,11 @@ class AssemblyGenericExaminer(Examiner):
     char_string_tb = PrefixedStringTokenBuilder('C', False, quotes)
 
     known_operators = [
-      '+', '-'
+      '+', '-', '/', '=', '&'
     ]
 
     self.unary_operators = [
-      '+', '-'
+      '+', '-', '=', '&'
     ]
 
     self.postfix_operators = []
@@ -256,6 +256,10 @@ class AssemblyGenericExaminer(Examiner):
           args = c
           args_indent = column
           state = 7
+          if c == "'":
+            in_quote = True
+          if c == '(':
+            parens_level = 1
       # 7 - in args
       elif state == 7:
         if c in '*;!' and not in_quote and parens_level <= 0:
