@@ -1,10 +1,10 @@
 Set-StrictMode -Version Latest
 
 # generic assembly
-test\bin\run_detect_test.ps1 -json -name subroutine1-asm -inputfile ".\test\data\Assembly\subroutine1.asm" -expected ".\test\ref\detect\Assembly\subroutine1.txt"
-test\bin\run_detect_test.ps1 -json -name subroutine2-asm -inputfile ".\test\data\Assembly\subroutine2.asm" -expected ".\test\ref\detect\Assembly\subroutine2.txt"
-test\bin\run_detect_test.ps1 -json -name osint-asm -inputfile ".\test\data\Assembly\osint.asm" -expected ".\test\ref\detect\Assembly\osint.txt"
-test\bin\run_detect_test.ps1 -json -name spitbol-asm -inputfile ".\test\data\Assembly\spitbol.asm" -expected ".\test\ref\detect\Assembly\spitbol.txt"
+test\bin\run_detect_test.ps1 -json -name subroutine1-asm -inputfile ".\test\data\ASM-360\subroutine1.asm" -expected ".\test\ref\detect\Assembly\subroutine1.txt"
+test\bin\run_detect_test.ps1 -json -name subroutine2-asm -inputfile ".\test\data\ASM-360\subroutine2.asm" -expected ".\test\ref\detect\Assembly\subroutine2.txt"
+test\bin\run_detect_test.ps1 -json -name osint-asm -inputfile ".\test\data\ASM-360\osint.asm" -expected ".\test\ref\detect\Assembly\osint.txt"
+test\bin\run_detect_test.ps1 -json -name spitbol-asm -inputfile ".\test\data\ASM-360\spitbol.asm" -expected ".\test\ref\detect\Assembly\spitbol.txt"
 
 # Ada-83
 test\bin\run_detect_test.ps1 -json -name adabkend-adb -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\detect\Ada-83\adabkend-adb.txt"

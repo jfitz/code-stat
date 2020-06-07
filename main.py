@@ -465,7 +465,7 @@ simplerLanguages = {
   'go': 'pascal',
   'haskell': None,
   'html': None,
-  'java': 'cplusplus',
+  'java': None,
   'javascript': None,
   'julia': None,
   'kotlin': None,
