@@ -33,6 +33,8 @@ test\bin\run_test.ps1 -json -name subroutine1-asm -action tokens -language assem
 test\bin\run_test.ps1 -json -name subroutine2-asm -action tokens -language assembly -inputfile ".\test\data\ASM-360\subroutine2.asm" -expected ".\test\ref\tokens\Assembly\subroutine2.txt"
 test\bin\run_test.ps1 -json -name osint-asm -action tokens -language assembly -inputfile ".\test\data\ASM-360\osint.asm" -expected ".\test\ref\tokens\Assembly\osint.txt"
 test\bin\run_test.ps1 -json -name spitbol-asm -action tokens -language assembly -inputfile ".\test\data\ASM-360\spitbol.asm" -expected ".\test\ref\tokens\Assembly\spitbol.txt"
+test\bin\run_test.ps1 -json -name sweet16-asm -action tokens -language assembly -inputfile ".\test\data\ASM-6502\sweet16.asm" -expected ".\test\ref\tokens\Assembly\sweet16.txt"
+test\bin\run_test.ps1 -json -name ET3400-S6-asm -action tokens -language assembly -inputfile ".\test\data\ASM-6800\ET3400-S6.asm" -expected ".\test\ref\tokens\Assembly\ET3400-S6.txt"
 
 # Ada-83
 test\bin\run_test.ps1 -json -name adabkend-adb-83 -action tokens -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\tokens\Ada-83\adabkend-adb.txt"
