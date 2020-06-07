@@ -58,6 +58,8 @@ class RustExaminer(Examiner):
   def __init__(self, code, block_comment_limit):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
     line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation', False)
@@ -69,10 +71,12 @@ class RustExaminer(Examiner):
     octal_integer_tb = PrefixedIntegerTokenBuilder('0o', True, '01234567_')
     hex_integer_tb = PrefixedIntegerTokenBuilder('0x', True, '0123456789ABCDEFabcdef_')
     binary_integer_tb = PrefixedIntegerTokenBuilder('0b', True, '01_')
+    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
+    operand_types.append('identifier')
 
     attribute_tb = RustAttributeTokenBuilder()
 
@@ -80,8 +84,10 @@ class RustExaminer(Examiner):
     string_tb = StringTokenBuilder(quotes, 10)
     bstring_tb = PrefixedStringTokenBuilder('b', True, quotes)
     rstring_tb = RustRawStringTokenBuilder()
+    operand_types.append('string')
 
     class_type_tb = ClassTypeTokenBuilder()
+    operand_types.append('class')
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = NestedCommentTokenBuilder('/*', '*/', block_comment_limit)
@@ -172,12 +178,14 @@ class RustExaminer(Examiner):
     ]
 
     types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
+    operand_types.append('type')
 
     values = [
       'self', 'true', 'false', 'super', '_'
     ]
 
     values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -232,8 +240,9 @@ class RustExaminer(Examiner):
     self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
     self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
-    operand_types = ['number', 'symbol']
-    self.calc_operand_confidence(tokens, operand_types)
+    operand_types_2 = ['number', 'symbol']
+    self.calc_operand_confidence(tokens, operand_types_2)
+    self.calc_operand_n_confidence(tokens, operand_types, 4)
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_line_format_confidence()

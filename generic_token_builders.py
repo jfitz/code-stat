@@ -24,15 +24,33 @@ class GenericNumberTokenBuilder(TokenBuilder):
     if len(candidate) == 0:
       return c.isdigit() or c in ['+', '-']
 
-    if candidate[-1] in ['E', 'e']:
-      return c.isdigit()
-    elif candidate[-1].isdigit():
+    if candidate[-1].isdigit():
       return c.isdigit() or c.isalpha() or c == '.'
-    elif candidate[-1] in ['+', '-']:
+
+    if candidate[-1] == '.':
+      return c.isdigit() or c in ['E', 'e']
+
+    if candidate[-1] in ['E', 'e']:
+      return c.isdigit() or c in ['+', '-']
+
+    if candidate[-1] in ['+', '-']:
       return c.isdigit()
-    elif candidate[-1].isalpha():
+    
+    if candidate[-1].isalpha():
       return c.isalpha()
-    elif candidate[-1] == '.':
-      return c.isdigit()
 
     return False
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(self.text) == 0:
+      return 0
+
+    if self.text[-1].isalnum() or \
+       self.text[-1] == '.':
+      return len(self.text)
+
+    return 0

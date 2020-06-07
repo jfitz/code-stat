@@ -165,5 +165,6 @@ class HTMLExaminer(Examiner):
     self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     # self.calc_group_confidence(tokens, group_mids)
     # self.calc_operand_confidence(tokens, operand_types)
+    # self.calc_operand_n_confidence(tokens, operand_types, 4)
     self.calc_keyword_confidence()
     self.calc_statistics()

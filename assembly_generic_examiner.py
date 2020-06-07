@@ -42,6 +42,8 @@ class AssemblyGenericExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -50,18 +52,21 @@ class AssemblyGenericExaminer(Examiner):
     hex_integer_tb = PrefixedIntegerTokenBuilder('0x', False, '0123456789abcdefABCDEF')
     binary_integer_tb = PrefixedIntegerTokenBuilder('0b', False, '01')
     suffixed_integer_tb = SuffixedIntegerTokenBuilder(['U', 'L', 'LL', 'ULL', 'LLU'], False, None)
+    operand_types.append('number')
 
     leads = '_$.'
     extras = '_$.'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
+    operand_types.append('identifier')
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, 0)
     hex_string_tb = PrefixedStringTokenBuilder('X', False, quotes)
     char_string_tb = PrefixedStringTokenBuilder('C', False, quotes)
+    operand_types.append('string')
 
     known_operators = [
-      '+', '-', '/', '=', '&'
+      '+', '-', '*', '/', '=', '&'
     ]
 
     self.unary_operators = [
@@ -90,6 +95,7 @@ class AssemblyGenericExaminer(Examiner):
     values = ['*']
 
     values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     comment_tb = AssemblyCommentTokenBuilder(';*')
 
@@ -136,8 +142,9 @@ class AssemblyGenericExaminer(Examiner):
     self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
     self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
-    operand_types = ['number']
-    self.calc_operand_confidence(tokens, operand_types)
+    operand_types_2 = ['number']
+    self.calc_operand_confidence(tokens, operand_types_2)
+    self.calc_operand_n_confidence(tokens, operand_types, 4)
     # self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_statistics()
@@ -307,22 +314,22 @@ class AssemblyGenericExaminer(Examiner):
     tokens = []
 
     if len(label) > 0:
-      tokens += tokenizer.tokenize(label)
+      tokens.append(Token(label, 'label', False))
 
     if len(lo_space) > 0:
-      tokens += tokenizer.tokenize(lo_space)
+      tokens.append(Token(lo_space, 'whitespace', False))
 
     if len(opcode) > 0:
-      tokens += tokenizer.tokenize(opcode)
+      tokens.append(Token(opcode, 'opcode', False))
 
     if len(oa_space) > 0:
-      tokens += tokenizer.tokenize(oa_space)
+      tokens.append(Token(oa_space, 'whitespace', False))
 
     if len(args) > 0:
       tokens += tokenizer.tokenize(args)
 
     if len(ac_space) > 0:
-      tokens += tokenizer.tokenize(ac_space)
+      tokens.append(Token(ac_space, 'whitespace', False))
 
     if len(comment) > 0:
       tokens.append(Token(comment, 'comment', False))

@@ -581,6 +581,33 @@ class Examiner:
     self.confidences['operand'] = operand_confidence
 
 
+  # operands in a row decreases confidence
+  def calc_operand_n_confidence(self, tokens, operand_types, max_count):
+    n_operand_count = 0
+    consec_count = 0
+    prev_token = Token('\n', 'newline', False)
+    for token in tokens:
+      if token.group in operand_types:
+        consec_count += 1
+        if consec_count > max_count:
+          n_operand_count += 1
+          self.errors.append({
+            'TYPE': 'OPERAND',
+            'FIRST': prev_token.text,
+            'SECOND': token.text
+            })
+      else:
+        consec_count = 0
+
+      prev_token = token
+
+    operand_confidence = 1.0
+    if len(tokens) > 0:
+      operand_confidence = 1.0 - (n_operand_count / len(tokens))
+
+    self.confidences['operand_n'] = operand_confidence
+
+
   # two values in a row decreases confidence
   def calc_value_value_different_confidence(self, tokens):
     # remove tokens we don't care about

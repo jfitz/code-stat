@@ -60,6 +60,8 @@ class CobolFreeFormatExaminer(CobolExaminer):
     if year is not None and year not in ['2002', '2014']:
       raise CodeStatException('Unknown year for language')
 
+    operand_types = []
+    
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -362,6 +364,7 @@ class CobolFreeFormatExaminer(CobolExaminer):
       values += values_2002
 
     value_tb = CaseInsensitiveListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     cobol_preprocessor_tb = CobolPreprocessorTokenBuilder()
 
@@ -419,6 +422,7 @@ class CobolFreeFormatExaminer(CobolExaminer):
     self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
     # self.calc_operand_confidence(tokens, operand_types)
+    # self.calc_operand_n_confidence(tokens, operand_types, 4)
     self.calc_keyword_confidence()
     self.calc_picture_confidence()
     self.confidences['expected_keywords'] = expected_keyword_confidence

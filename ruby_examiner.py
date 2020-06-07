@@ -49,7 +49,10 @@ class RubyExaminer(Examiner):
 
   def __init__(self, code):
     super().__init__()
+
     self.newlines_important = 'parens'
+
+    operand_types = []
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
@@ -59,15 +62,20 @@ class RubyExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder('_')
     real_tb = RealTokenBuilder(True, True, '_')
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', '_')
+    operand_types.append('number')
 
     identifier_tb = RubyIdentifierTokenBuilder()
+    operand_types.append('identifier')
 
     symbol_tb = PrefixedIdentifierTokenBuilder(':', 'symbol', True)
+    operand_types.append('symbol')
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, 10)
+    operand_types.append('string')
 
     regex_tb = RegexTokenBuilder()
+    operand_types.append('regex')
 
     heredoc_tb = HereDocTokenBuilder('<<-')
 
@@ -137,6 +145,7 @@ class RubyExaminer(Examiner):
     ]
 
     values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     array_markers = ['%w', '%q', '%Q', '%i', '%s', '%x']
 
@@ -190,8 +199,9 @@ class RubyExaminer(Examiner):
     self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
     self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
-    operand_types = ['number', 'string', 'symbol']
-    self.calc_operand_confidence(tokens, operand_types)
+    operand_types_2 = ['number', 'string', 'symbol']
+    self.calc_operand_confidence(tokens, operand_types_2)
+    # self.calc_operand_n_confidence(tokens, operand_types, 4)
     self.calc_keyword_confidence()
     openers = ['begin', 'def', 'do', 'class', 'module']
     closers = ['end']

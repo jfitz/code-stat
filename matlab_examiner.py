@@ -48,6 +48,8 @@ class MatlabExaminer(Examiner):
   def __init__(self, code, version):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -57,10 +59,12 @@ class MatlabExaminer(Examiner):
     binary_integer_tb = PrefixedIntegerTokenBuilder('0b', False, '01')
     real_tb = RealTokenBuilder(False, False, "'")
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
+    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
+    operand_types.append('identifier')
 
     command_tb = PrefixedIdentifierTokenBuilder('!', 'command', False)
 
@@ -68,6 +72,7 @@ class MatlabExaminer(Examiner):
 
     quotes = ['"', "'", "’"]
     string_tb = MatlabStringTokenBuilder(quotes, False)
+    operand_types.append('string')
 
     line_comment_m_tb = LeadToEndOfLineTokenBuilder('%', False, 'comment')
     line_comment_o_tb = LeadToEndOfLineTokenBuilder('#', False, 'comment')
@@ -136,6 +141,7 @@ class MatlabExaminer(Examiner):
     ]
 
     values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -194,8 +200,9 @@ class MatlabExaminer(Examiner):
     self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
     self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     # self.calc_group_confidence(tokens, group_mids)
-    # operand_types = ['number']
-    # self.calc_operand_confidence(tokens, operand_types)
+    # operand_types_2 = ['number']
+    # self.calc_operand_confidence(tokens, operand_types_2)
+    self.calc_operand_n_confidence(tokens, operand_types, 4)
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_statistics()

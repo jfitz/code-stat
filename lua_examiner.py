@@ -51,6 +51,8 @@ class LuaExaminer(Examiner):
     super().__init__()
     self.newlines_important = 'parens'
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -60,14 +62,17 @@ class LuaExaminer(Examiner):
     binary_integer_tb = PrefixedIntegerTokenBuilder('0b', False, '01')
     real_tb = RealTokenBuilder(False, False, "'")
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
+    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
+    operand_types.append('identifier')
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, 0)
     bracket_string_tb = DoubleBracketStringTokenBuilder()
+    operand_types.append('string')
 
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)
 
@@ -108,6 +113,7 @@ class LuaExaminer(Examiner):
     ]
 
     values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     line_comment_tb = LeadToEndOfLineTokenBuilder('--', True, 'comment')
     block_comment_tb = LuaBlockCommentTokenBuilder()
@@ -156,8 +162,9 @@ class LuaExaminer(Examiner):
     self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
     # self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
-    operand_types = ['number', 'identifier']
-    self.calc_operand_confidence(tokens, operand_types)
+    operand_types_2 = ['number', 'identifier']
+    self.calc_operand_confidence(tokens, operand_types_2)
+    self.calc_operand_n_confidence(tokens, operand_types, 4)
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_statistics()

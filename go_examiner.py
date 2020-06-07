@@ -48,6 +48,8 @@ class GoExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
     line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation', False)
@@ -56,15 +58,19 @@ class GoExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
     real_tb = RealTokenBuilder(False, False, None)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
+    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
+    operand_types.append('identifier')
 
     quotes = ['"', "'", '`', "’"]
     string_tb = StringTokenBuilder(quotes, 0)
+    operand_types.append('string')
 
     class_type_tb = ClassTypeTokenBuilder()
+    operand_types.append('class')
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
@@ -138,12 +144,14 @@ class GoExaminer(Examiner):
     ]
 
     types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
+    operand_types.append('type')
 
     values = [
       'nil', 'true', 'false'
     ]
 
     values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -191,8 +199,9 @@ class GoExaminer(Examiner):
     self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
     # self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
-    operand_types = ['number', 'symbol']
-    self.calc_operand_confidence(tokens, operand_types)
+    operand_types_2 = ['number', 'symbol']
+    self.calc_operand_confidence(tokens, operand_types_2)
+    # self.calc_operand_n_confidence(tokens, operand_types, 4)
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_line_format_confidence()

@@ -53,6 +53,8 @@ class KotlinExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -61,21 +63,26 @@ class KotlinExaminer(Examiner):
     hex_integer_tb = PrefixedIntegerTokenBuilder('0x', False, '0123456789ABCDEFabcdef_')
     real_tb = RealTokenBuilder(True, True, '_')
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', '_')
+    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
+    operand_types.append('identifier')
 
     decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator', False)
+    operand_types.append('decorator')
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, 0)
     triple_quote_string_tb = TripleQuoteStringTokenBuilder(quotes)
+    operand_types.append('string')
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
 
     class_tb = ClassTypeTokenBuilder()
+    operand_types.append('class')
 
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)
 
@@ -166,12 +173,14 @@ class KotlinExaminer(Examiner):
     ]
 
     type_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
+    operand_types.append('type')
 
     values = [
       'false', 'null', 'this', 'true'
     ]
 
     values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -219,8 +228,9 @@ class KotlinExaminer(Examiner):
     self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
     self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
-    operand_types = ['number', 'string', 'symbol']
-    self.calc_operand_confidence(tokens, operand_types)
+    operand_types_2 = ['number', 'string', 'symbol']
+    self.calc_operand_confidence(tokens, operand_types_2)
+    self.calc_operand_n_confidence(tokens, operand_types, 4)
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_statistics()

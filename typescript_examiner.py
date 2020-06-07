@@ -47,6 +47,8 @@ class TypeScriptExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -57,13 +59,16 @@ class TypeScriptExaminer(Examiner):
     hex_constant_tb = PrefixedIntegerTokenBuilder('0H', False, '0123456789ABCDEFabcdef')
     octal_constant_tb = PrefixedIntegerTokenBuilder('0O', False, '01234567')
     binary_constant_tb = PrefixedIntegerTokenBuilder('0B', False, '01')
+    operand_types.append('number')
 
     leads = '_$'
     extras = '_$'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
+    operand_types.append('identifier')
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, 0)
+    operand_types.append('string')
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
@@ -126,12 +131,14 @@ class TypeScriptExaminer(Examiner):
     ]
 
     types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
+    operand_types.append('type')
 
     values = [
       'this', 'super', 'null', 'true', 'false', 'undefined'
     ]
 
     values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -180,8 +187,9 @@ class TypeScriptExaminer(Examiner):
     self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
     self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
-    operand_types = ['number', 'string', 'symbol']
-    self.calc_operand_confidence(tokens, operand_types)
+    operand_types_2 = ['number', 'string', 'symbol']
+    self.calc_operand_confidence(tokens, operand_types_2)
+    self.calc_operand_n_confidence(tokens, operand_types, 4)
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_statistics()

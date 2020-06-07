@@ -51,6 +51,8 @@ class HaskellExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -59,13 +61,17 @@ class HaskellExaminer(Examiner):
     hex_integer_tb = PrefixedIntegerTokenBuilder('0x', False, '0123456789abcdefABCDEF')
     real_tb = RealTokenBuilder(False, False, "'")
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
+    operand_types.append('number')
 
     identifier_tb = HaskellIdentifierTokenBuilder()
+    operand_types.append('identifier')
 
     class_tb = HaskellClassTokenBuilder()
+    operand_types.append('class')
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, 0)
+    operand_types.append('string')
 
     line_comment_tb = LeadToEndOfLineTokenBuilder('--', False, 'comment')
     block_comment_tb = BlockTokenBuilder('{-', '-}', 'comment')
@@ -109,6 +115,7 @@ class HaskellExaminer(Examiner):
     values = ['True', 'False', 'Nothing', '_']
 
     value_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -157,8 +164,10 @@ class HaskellExaminer(Examiner):
     self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
     self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
-    # operand_types = ['number']
-    # self.calc_operand_confidence(tokens, operand_types)
+    # operand_types_2 = ['number']
+    # self.calc_operand_confidence(tokens, operand_types_2)
+    # operand_types = ['number', 'string', 'symbol', 'identifier', 'variable']
+    # self.calc_operand_n_confidence(tokens, operand_types, 4)
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_statistics()

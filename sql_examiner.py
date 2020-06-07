@@ -48,6 +48,8 @@ class SqlExaminer(Examiner):
     if year is not None and year not in ['92', '1992', '99', '1999', '2003', '2008', '2011', '2016']:
       raise CodeStatException('Unknown year for language')
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -55,14 +57,17 @@ class SqlExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
     real_tb = RealTokenBuilder(True, True, None)
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', None)
+    operand_types.append('number')
 
     quotes = ["'", '"']
     string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
+    operand_types.append('string')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
     bracketed_identifier_tb = SqlBracketedIdentifierTokenBuilder()
+    operand_types.append('identifier')
 
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)
 
@@ -254,6 +259,7 @@ class SqlExaminer(Examiner):
     values = ['TRUE', 'FALSE', 'NULL', 'OFF', 'ON', 'NONE']
 
     values_tb = CaseInsensitiveListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     types = [
       'BIGINT', 'BIT', 'BLOB',
@@ -268,6 +274,7 @@ class SqlExaminer(Examiner):
     ]
 
     type_tb = CaseInsensitiveListTokenBuilder(types, 'type', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -313,7 +320,8 @@ class SqlExaminer(Examiner):
     self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
     self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
-    # operand_types = ['number', 'string', 'symbol']
-    # self.calc_operand_confidence(tokens, operand_types)
+    # operand_types_2 = ['number', 'string', 'symbol']
+    # self.calc_operand_confidence(tokens, operand_types_2)
+    # self.calc_operand_n_confidence(tokens, operand_types, 4)
     self.calc_keyword_confidence()
     self.calc_statistics()

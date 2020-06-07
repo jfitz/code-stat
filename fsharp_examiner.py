@@ -56,6 +56,8 @@ class FsharpExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -63,18 +65,22 @@ class FsharpExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
     real_tb = RealTokenBuilder(True, True, None)
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', None)
+    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
+    operand_types.append('identifier')
 
     class_type_tb = ClassTypeTokenBuilder()
+    operand_types.append('class')
 
     quotes = ['"']
     string_tb = StringTokenBuilder(quotes, 0)
     triple_quote_string_tb = TripleQuoteStringTokenBuilder(quotes)
     prefixed_string_tb = PrefixedStringTokenBuilder('@', False, quotes)
     char_tb = FsharpCharTokenBuilder(["'", "’"])
+    operand_types.append('string')
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     parens_star_comment_tb = BlockTokenBuilder('(*', '*)', 'comment')
@@ -153,12 +159,14 @@ class FsharpExaminer(Examiner):
     ]
 
     types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
+    operand_types.append('type')
 
     values = [
       'base', 'false', 'null', 'true', '_'
     ]
 
     values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -208,8 +216,9 @@ class FsharpExaminer(Examiner):
     self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
     # self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
-    operand_types = ['number', 'string', 'symbol']
-    self.calc_operand_confidence(tokens, operand_types)
+    operand_types_2 = ['number', 'string', 'symbol']
+    self.calc_operand_confidence(tokens, operand_types_2)
+    # self.calc_operand_n_confidence(tokens, operand_types, 4)
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_statistics()

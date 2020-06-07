@@ -46,6 +46,8 @@ class PrologExaminer(Examiner):
     super().__init__()
     self.newlines_important = 'parens'
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
     stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator', False)
@@ -55,8 +57,10 @@ class PrologExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder('_')
     real_tb = RealTokenBuilder(False, False, '_')
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', '_')
+    operand_types.append('number')
 
     variable_tb = PrologVariableTokenBuilder()
+    operand_types.append('variable')
 
     leads = '_'
     extras = '_'
@@ -64,6 +68,7 @@ class PrologExaminer(Examiner):
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, 0)
+    operand_types.append('string')
 
     comment_tb = LeadToEndOfLineTokenBuilder('%', True, 'comment')
 
@@ -107,6 +112,7 @@ class PrologExaminer(Examiner):
     values = ['(-)']
 
     value_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -151,7 +157,8 @@ class PrologExaminer(Examiner):
     self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
     self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
-    operand_types = ['number', 'string', 'identifier', 'variable', 'symbol']
-    self.calc_operand_confidence(tokens, operand_types)
+    operand_types_2 = ['number', 'string', 'identifier', 'variable', 'symbol']
+    self.calc_operand_confidence(tokens, operand_types_2)
+    self.calc_operand_n_confidence(tokens, operand_types, 4)
     # self.calc_keyword_confidence()
     self.calc_statistics()

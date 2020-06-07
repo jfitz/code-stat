@@ -57,6 +57,8 @@ class JuliaExaminer(Examiner):
     super().__init__()
     self.newlines_important = 'parens'
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -66,15 +68,19 @@ class JuliaExaminer(Examiner):
     real_tb = RealTokenBuilder(False, False, None)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     imaginary_tb = SuffixedRealTokenBuilder(False, False, ['im', 'cx'], True, None)
+    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     suffixes = '!'
     identifier_tb = SuffixedIdentifierTokenBuilder(leads, extras, suffixes)
+    operand_types.append('identifier')
 
     symbol_tb = PrefixedIdentifierTokenBuilder(':', 'symbol', True)
+    operand_types.append('symbol')
 
     attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute', False)
+    operand_types.append('attribute')
 
     dollar_sign_tb = SingleCharacterTokenBuilder('$', 'identifier', True)
 
@@ -83,6 +89,7 @@ class JuliaExaminer(Examiner):
     raw_string_tb = PrefixedRawStringTokenBuilder('raw', True, quotes)
     b_string_tb = PrefixedStringTokenBuilder('b', True, quotes)
     triple_quote_string_tb = TripleQuoteStringTokenBuilder(quotes)
+    operand_types.append('string')
 
     comment_tb = LeadToEndOfLineTokenBuilder('#', True, 'comment')
     nested_comment_tb = NestedCommentTokenBuilder('#=', '=#', block_comment_limit)
@@ -159,12 +166,14 @@ class JuliaExaminer(Examiner):
     ]
 
     types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
+    operand_types.append('type')
 
     values = [
       'false', 'true'
     ]
 
     values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -222,8 +231,9 @@ class JuliaExaminer(Examiner):
     self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
     # self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
-    operand_types = ['number', 'identifier', 'symbol']
-    self.calc_operand_confidence(tokens, operand_types)
+    operand_types_2 = ['number', 'identifier', 'symbol']
+    self.calc_operand_confidence(tokens, operand_types_2)
+    self.calc_operand_n_confidence(tokens, operand_types, 4)
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_statistics()

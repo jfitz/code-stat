@@ -47,6 +47,8 @@ class CoffeeScriptExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -58,15 +60,18 @@ class CoffeeScriptExaminer(Examiner):
     hex_constant_tb = PrefixedIntegerTokenBuilder('0X', False, '0123456789ABCDEFabcdef')
     octal_constant_tb = PrefixedIntegerTokenBuilder('0O', False, '01234567')
     binary_constant_tb = PrefixedIntegerTokenBuilder('0B', False, '01')
+    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
     dollar_sign_tb = SingleCharacterTokenBuilder('$', 'identifier', False)
+    operand_types.append('identifier')
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, 0)
     template_string_tb = StringTokenBuilder(['`'], 10)
+    operand_types.append('string')
 
     comment_tb = LeadToEndOfLineTokenBuilder('#', False, 'comment')
 
@@ -113,6 +118,7 @@ class CoffeeScriptExaminer(Examiner):
     groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
     regex_tb = RegexTokenBuilder()
+    operand_types.append('regex')
 
     keywords = [
       'for', 'while', 'loop', 'by',
@@ -141,6 +147,7 @@ class CoffeeScriptExaminer(Examiner):
     ]
 
     values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -188,8 +195,9 @@ class CoffeeScriptExaminer(Examiner):
     self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
     # self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
-    operand_types = ['number', 'string', 'symbol']
-    self.calc_operand_confidence(tokens, operand_types)
+    operand_types_2 = ['number', 'string', 'symbol']
+    self.calc_operand_confidence(tokens, operand_types_2)
+    self.calc_operand_n_confidence(tokens, operand_types, 4)
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_statistics()

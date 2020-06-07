@@ -55,6 +55,8 @@ class MicrosoftBasicExaminer(Examiner):
   def __init__(self, code, version):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -68,11 +70,14 @@ class MicrosoftBasicExaminer(Examiner):
     hex_constant_tb = PrefixedIntegerTokenBuilder('&H', True, '0123456789ABCDEFabcdef_')
     octal_constant_tb = PrefixedIntegerTokenBuilder('&O', True, '01234567_')
     binary_constant_tb = PrefixedIntegerTokenBuilder('&B', True, '01_')
+    operand_types.append('number')
 
     variable_tb = BasicLongVariableTokenBuilder('%#!$&')
+    operand_types.append('variable')
 
     quotes = ['"']
     string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
+    operand_types.append('string')
 
     remark_tb = RemarkTokenBuilder()
     comment_tb = LeadToEndOfLineTokenBuilder("'", True, 'comment')
@@ -134,6 +139,7 @@ class MicrosoftBasicExaminer(Examiner):
     values = ['ERR', 'ERL', 'RND']
 
     values_tb = CaseInsensitiveListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     # do not include RND() - it is a value and later converted to function
     # if followed by open parenthesis
@@ -159,6 +165,7 @@ class MicrosoftBasicExaminer(Examiner):
     function_tb = CaseInsensitiveListTokenBuilder(functions, 'function', True)
     user_function_tb = LongUserFunctionTokenBuilder('%#!$&')
     hardware_function_tb = HardwareFunctionTokenBuilder()
+    operand_types.append('function')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -217,8 +224,9 @@ class MicrosoftBasicExaminer(Examiner):
     self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
     self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
-    # operand_types = ['number', 'string', 'variable']
-    # self.calc_operand_confidence(tokens, operand_types)
+    # operand_types_2 = ['number', 'string', 'variable']
+    # self.calc_operand_confidence(tokens, operand_types_2)
+    # self.calc_operand_n_confidence(tokens, operand_types, 4)
     self.calc_keyword_confidence()
     self.calc_line_format_confidence()
     self.calc_statistics()

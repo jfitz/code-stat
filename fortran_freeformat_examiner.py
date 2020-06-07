@@ -41,12 +41,16 @@ class FortranFreeFormatExaminer(FortranExaminer):
     if year is not None and year not in ['90', '1990', '95', '1995', '2003', '2008']:
       raise CodeStatException('Unknown year for language')
 
+    operand_types = []
+
     kind_integer_tb = KindIntegerTokenBuilder()
     kind_real_tb = KindRealTokenBuilder()
+    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
+    operand_types.append('identifier')
 
     bang_comment_tb = LeadToEndOfLineTokenBuilder('!', False, 'comment')
 
@@ -55,6 +59,7 @@ class FortranFreeFormatExaminer(FortranExaminer):
     binary_string_tb = PrefixedStringTokenBuilder('B', False, quotes)
     octal_string_tb = PrefixedStringTokenBuilder('O', False, quotes)
     hex_string_tb = PrefixedStringTokenBuilder('Z', False, quotes)
+    operand_types.append('string')
 
     known_operators = [
       '=', '+', '-', '*', '/', '**',
@@ -128,6 +133,7 @@ class FortranFreeFormatExaminer(FortranExaminer):
     ]
 
     types_tb = CaseInsensitiveListTokenBuilder(types, 'type', True)
+    operand_types.append('type')
 
     tokenbuilders = [
       self.newline_tb,
@@ -180,7 +186,8 @@ class FortranFreeFormatExaminer(FortranExaminer):
     # self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
     # self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
-    operand_types = ['number', 'string', 'identifier', 'variable', 'symbol']
-    self.calc_operand_confidence(tokens, operand_types)
+    operand_types_2 = ['number', 'string', 'identifier', 'variable', 'symbol']
+    self.calc_operand_confidence(tokens, operand_types_2)
+    self.calc_operand_n_confidence(tokens, operand_types, 4)
     self.calc_keyword_confidence()
     self.calc_statistics()

@@ -64,6 +64,8 @@ class DbaseExaminer(Examiner):
 
     self.newlines_important = 'always'
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -71,6 +73,7 @@ class DbaseExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder("'")
     real_tb = RealTokenBuilder(False, False, "'")
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
+    operand_types.append('number')
 
     leads = '_'
     extras = '_'
@@ -80,11 +83,13 @@ class DbaseExaminer(Examiner):
 
     identifier_tb = IdentifierTokenBuilder(leads, extras)
     wild_card_identifier_tb = WildCardIdentifierTokenBuilder('*?', '*?:')
+    operand_types.append('identifier')
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, 0)
     bracket_string_tb = BracketedStringTokenBuilder()
     text_string_tb = TextBlockTokenBuilder('TEXT', 'ENDTEXT')
+    operand_types.append('string')
 
     line_continuation_tb = SingleCharacterTokenBuilder(';', 'line continuation', False)
 
@@ -247,6 +252,7 @@ class DbaseExaminer(Examiner):
       ]
 
     values_tb = CaseInsensitiveListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     if version == 'ii':
       functions = [
@@ -291,6 +297,7 @@ class DbaseExaminer(Examiner):
       ]
 
     function_tb = CaseInsensitiveListTokenBuilder(functions, 'function', True)
+    operand_types.append('function')
 
     filename_tb = DbaseFilenameTokenBuilder()
 
@@ -360,8 +367,9 @@ class DbaseExaminer(Examiner):
     self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
     self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
-    operand_types = ['number', 'number', 'function', 'value', 'string', 'filename']
-    self.calc_operand_confidence(tokens, operand_types)
+    operand_types_2 = ['number', 'number', 'function', 'value', 'string', 'filename']
+    self.calc_operand_confidence(tokens, operand_types_2)
+    self.calc_operand_n_confidence(tokens, operand_types, 4)
     self.calc_keyword_confidence()
 
     if version == 'ii':

@@ -66,6 +66,8 @@ class DExaminer(Examiner):
   def __init__(self, code, block_comment_limit):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
@@ -78,12 +80,16 @@ class DExaminer(Examiner):
     suffixed_real_tb = SuffixedRealTokenBuilder(False, False, ['f', 'l', 'i'], False, None)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', "'")
     hex_real_tb = HexRealExponentTokenBuilder()
+    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
+    operand_types.append('identifier')
 
     attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute', False)
+    operand_types.append('attribute')
+
     # string suffix: c,w,d
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, 0)
@@ -93,8 +99,10 @@ class DExaminer(Examiner):
     q_string_tb = PrefixedStringTokenBuilder('q', True, quotes)
     # q{} string
     cwd_string_tb = SuffixedStringTokenBuilder(quotes, 'cwd', False)
+    operand_types.append('string')
 
     class_type_tb = ClassTypeTokenBuilder()
+    operand_types.append('class')
 
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
@@ -164,6 +172,7 @@ class DExaminer(Examiner):
     ]
 
     types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
+    operand_types.append('type')
 
     values = [
       'false', 'null', 'super', 'this', 'true',
@@ -174,6 +183,7 @@ class DExaminer(Examiner):
     ]
 
     values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -239,8 +249,9 @@ class DExaminer(Examiner):
     self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
     self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
-    operand_types = ['number', 'symbol']
-    self.calc_operand_confidence(tokens, operand_types)
+    operand_types_2 = ['number', 'symbol']
+    self.calc_operand_confidence(tokens, operand_types_2)
+    self.calc_operand_n_confidence(tokens, operand_types, 4)
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_statistics()

@@ -55,6 +55,8 @@ class PythonExaminer(Examiner):
     super().__init__()
     self.newlines_important = 'always'
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
     stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator', False)
@@ -63,10 +65,12 @@ class PythonExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder('_')
     real_tb = RealTokenBuilder(False, False, '_')
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', '_')
+    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
+    operand_types.append('identifier')
 
     decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator', False)
 
@@ -76,6 +80,7 @@ class PythonExaminer(Examiner):
     byte_string_tb = PrefixedStringTokenBuilder('b', True, quotes)
     unicode_string_tb = PrefixedStringTokenBuilder('u', True, quotes)
     fast_string_tb = PrefixedStringTokenBuilder('f', True, quotes)
+    operand_types.append('string')
 
     triple_quote_comment_tb = TripleQuoteStringTokenBuilder(quotes)
     raw_triple_quote_comment_tb = RawTripleQuoteCommentTokenBuilder()
@@ -136,6 +141,7 @@ class PythonExaminer(Examiner):
     ]
 
     values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -187,8 +193,9 @@ class PythonExaminer(Examiner):
     self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
     self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
-    operand_types = ['number', 'string', 'identifier', 'variable', 'symbol']
-    self.calc_operand_confidence(tokens, operand_types)
+    operand_types_2 = ['number', 'string', 'identifier', 'variable', 'symbol']
+    self.calc_operand_confidence(tokens, operand_types_2)
+    self.calc_operand_n_confidence(tokens, operand_types, 4)
     self.calc_keyword_confidence()
     self.calc_line_format_confidence()
     # self.calc_keyword_indent_confidence()

@@ -55,6 +55,8 @@ class CBasicExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
     line_continuation_tb = CBasicLineContinuationTokenBuilder()
@@ -65,11 +67,14 @@ class CBasicExaminer(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     hex_constant_tb = CBasicSuffixedIntegerTokenBuilder('0123456789ABCDEF', 'H')
     binary_constant_tb = CBasicSuffixedIntegerTokenBuilder('01', 'B')
+    operand_types.append('number')
 
     variable_tb = CBasicVariableTokenBuilder('%$')
+    operand_types.append('variable')
 
     quotes = ['"']
     string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
+    operand_types.append('string')
 
     remark_tb = RemarkTokenBuilder()
     comment_tb = LeadToEndOfLineTokenBuilder("'", False, 'comment')
@@ -126,6 +131,7 @@ class CBasicExaminer(Examiner):
     ]
 
     function_tb = CaseInsensitiveListTokenBuilder(functions, 'function', True)
+    operand_types.append('function')
 
     directives = [
       '%LIST', '%NOLIST',
@@ -183,8 +189,9 @@ class CBasicExaminer(Examiner):
     self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
     self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
-    operand_types = ['number', 'string', 'symbol']
-    self.calc_operand_confidence(tokens, operand_types)
+    operand_types_2 = ['number', 'string', 'symbol']
+    self.calc_operand_confidence(tokens, operand_types_2)
+    self.calc_operand_n_confidence(tokens, operand_types, 4)
     self.calc_keyword_confidence()
     self.calc_line_format_confidence()
     self.calc_statistics()

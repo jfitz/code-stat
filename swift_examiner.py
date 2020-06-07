@@ -57,6 +57,8 @@ class SwiftExaminer(Examiner):
   def __init__(self, code):
     super().__init__()
 
+    operand_types = []
+
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
     stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator', False)
@@ -65,6 +67,7 @@ class SwiftExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder('_')
     real_tb = RealTokenBuilder(True, True, '_')
     real_exponent_tb = RealExponentTokenBuilder(True, True, 'E', '_')
+    operand_types.append('number')
 
     argument_tb = SwiftArgumentTokenBuilder()
 
@@ -72,16 +75,19 @@ class SwiftExaminer(Examiner):
     extras = '_'
     suffixes = '?'
     identifier_tb = SuffixedIdentifierTokenBuilder(leads, extras, suffixes)
+    operand_types.append('identifier')
 
     attribute_tb = PrefixedIdentifierTokenBuilder('@', 'attribute', False)
 
     symbol_tb = SwiftSymbolTokenBuilder('.', 'symbol', True)
+    operand_types.append('symbol')
 
     quotes = ['"', "'", "’"]
     string_tb = StringTokenBuilder(quotes, 10)
     triple_quote_comment_tb = TripleQuoteStringTokenBuilder(quotes)
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
+    operand_types.append('string')
 
     known_operators = [
         '+', '-', '*', '/', '%',
@@ -140,12 +146,14 @@ class SwiftExaminer(Examiner):
     ]
 
     types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
+    operand_types.append('type')
 
     values = [
       'nil', 'Self', 'false', 'true'
     ]
 
     values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -196,5 +204,6 @@ class SwiftExaminer(Examiner):
     self.calc_group_confidence(tokens, group_mids)
     operand_types = ['number', 'string', 'symbol']
     self.calc_operand_confidence(tokens, operand_types)
+    self.calc_operand_n_confidence(tokens, operand_types, 4)
     self.calc_keyword_confidence()
     self.calc_statistics()

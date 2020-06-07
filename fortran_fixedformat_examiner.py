@@ -40,6 +40,8 @@ class FortranFixedFormatExaminer(FortranExaminer):
     # FORTRAN-77 may be upper or lower case
     case_significant = year in ['66', '1966']
 
+    operand_types = []
+
     if case_significant:
       identifier_tb = FortranIdentifierTokenBuilder()
     else:
@@ -47,8 +49,11 @@ class FortranFixedFormatExaminer(FortranExaminer):
       extras = ''
       identifier_tb = IdentifierTokenBuilder(leads, extras)
 
+    operand_types.append('identifier')
+
     hollerith_tb = HollerithStringTokenBuilder()
     string_tb = StuffedQuoteStringTokenBuilder(["'", '"'], False)
+    operand_types.append('string')
 
     format_tb = FormatSpecifierTokenBuilder()
 
@@ -115,6 +120,8 @@ class FortranFixedFormatExaminer(FortranExaminer):
     else:
       types_tb = CaseInsensitiveListTokenBuilder(types, 'type', True)
 
+    operand_types.append('type')
+
     tokenbuilders1 = [
       self.newline_tb,
       self.whitespace_tb,
@@ -165,8 +172,9 @@ class FortranFixedFormatExaminer(FortranExaminer):
     # self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
     # self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
-    operand_types = ['number', 'string', 'identifier', 'variable', 'symbol']
-    self.calc_operand_confidence(tokens, operand_types)
+    operand_types_2 = ['number', 'string', 'identifier', 'variable', 'symbol']
+    self.calc_operand_confidence(tokens, operand_types_2)
+    self.calc_operand_n_confidence(tokens, operand_types, 4)
     self.calc_keyword_confidence()
     if not wide:
       self.calc_line_length_confidence(code, 80)

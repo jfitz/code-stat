@@ -34,6 +34,8 @@ class PL1Examiner(Examiner):
   def __init__(self):
     super().__init__()
 
+    self.operand_types = []
+
     self.whitespace_tb = WhitespaceTokenBuilder()
     self.newline_tb = NewlineTokenBuilder()
 
@@ -43,15 +45,19 @@ class PL1Examiner(Examiner):
     self.real_tb = RealTokenBuilder(False, False, None)
     self.real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     self.binary_real_tb = SuffixedRealTokenBuilder(True, True, ['B'], False, None)
+    self.operand_types.append('number')
 
     leads = '_'
     extras = '_'
     self.identifier_tb = IdentifierTokenBuilder(leads, extras)
+    self.operand_types.append('identifier')
 
     quotes = ['"', "'", "’"]
     self.string_tb = StringTokenBuilder(quotes, 0)
+    self.operand_types.append('string')
 
     self.label_tb = PL1LabelTokenBuilder()
+    self.operand_types.append('label')
 
     self.slash_star_comment_tb = SlashStarCommentTokenBuilder()
 
@@ -193,6 +199,7 @@ class PL1Examiner(Examiner):
     ]
 
     self.format_item_tb = CaseSensitiveListTokenBuilder(format_items, 'format', True)
+    self.operand_types.append('format')
 
     options = [
       'APPEND',
@@ -260,9 +267,11 @@ class PL1Examiner(Examiner):
     ]
 
     self.types_tb = CaseInsensitiveListTokenBuilder(types, 'type', True)
+    self.operand_types.append('type')
 
     values = [
       'SYSIN', 'SYSPRINT'
     ]
 
     self.values_tb = CaseInsensitiveListTokenBuilder(values, 'value', True)
+    self.operand_types.append('value')
