@@ -35,6 +35,13 @@ test\bin\run_test.ps1 -json -name osint-asm -action confidence -errors -language
 test\bin\run_test.ps1 -json -name spitbol-asm -action confidence -errors -language assembly -inputfile ".\test\data\ASM-360\spitbol.asm" -expected ".\test\ref\confidence-errors\Assembly\spitbol.txt"
 test\bin\run_test.ps1 -json -name sweet16-asm -action confidence -errors -language assembly -inputfile ".\test\data\ASM-6502\sweet16.asm" -expected ".\test\ref\confidence-errors\Assembly\sweet16.txt"
 test\bin\run_test.ps1 -json -name ET3400-S6-asm -action confidence -errors -language assembly -inputfile ".\test\data\ASM-6800\ET3400-S6.asm" -expected ".\test\ref\confidence-errors\Assembly\ET3400-S6.txt"
+test\bin\run_test.ps1 -json -name i8080core-asm -action confidence -errors -language assembly -inputfile ".\test\data\ASM-8080\i8080core.asm" -expected ".\test\ref\confidence-errors\Assembly\i8080core.txt"
+test\bin\run_test.ps1 -json -name microcosm-asm -action confidence -errors -language assembly -inputfile ".\test\data\ASM-8080\microcosm.asm" -expected ".\test\ref\confidence-errors\Assembly\microcosm.txt"
+test\bin\run_test.ps1 -json -name BISTRS-asm -action confidence -errors -language assembly -inputfile ".\test\data\ASM-8086\BISTRS.asm" -expected ".\test\ref\confidence-errors\Assembly\BISTRS.txt"
+test\bin\run_test.ps1 -json -name DSKCOM-asm -action confidence -errors -language assembly -inputfile ".\test\data\ASM-8086\DSKCOM.asm" -expected ".\test\ref\confidence-errors\Assembly\DSKCOM.txt"
+test\bin\run_test.ps1 -json -name FIVEO-asm -action confidence -errors -language assembly -inputfile ".\test\data\ASM-8086\FIVEO.asm" -expected ".\test\ref\confidence-errors\Assembly\FIVEO.txt"
+test\bin\run_test.ps1 -json -name GWEVAL-asm -action confidence -errors -language assembly -inputfile ".\test\data\ASM-8086\GWEVAL.asm" -expected ".\test\ref\confidence-errors\Assembly\GWEVAL.txt"
+test\bin\run_test.ps1 -json -name NEXT86-asm -action confidence -errors -language assembly -inputfile ".\test\data\ASM-8086\NEXT86.asm" -expected ".\test\ref\confidence-errors\Assembly\NEXT86.txt"
 
 # Ada-83
 test\bin\run_test.ps1 -json -name adabkend-adb-83 -action confidence -errors -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\confidence-errors\Ada-83\adabkend-adb.txt"

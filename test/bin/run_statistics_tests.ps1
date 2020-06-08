@@ -33,8 +33,15 @@ test\bin\run_test.ps1 -json -name subroutine1-asm -action statistics -language a
 test\bin\run_test.ps1 -json -name subroutine2-asm -action statistics -language assembly -inputfile ".\test\data\ASM-360\subroutine2.asm" -expected ".\test\ref\statistics\Assembly\subroutine2.txt"
 test\bin\run_test.ps1 -json -name osint-asm -action statistics -language assembly -inputfile ".\test\data\ASM-360\osint.asm" -expected ".\test\ref\statistics\Assembly\osint.txt"
 test\bin\run_test.ps1 -json -name spitbol-asm -action statistics -language assembly -inputfile ".\test\data\ASM-360\spitbol.asm" -expected ".\test\ref\statistics\Assembly\spitbol.txt"
-test\bin\run_test.ps1 -json -name sweet16-asm -action confidence -language assembly -inputfile ".\test\data\ASM-6502\sweet16.asm" -expected ".\test\ref\statistics\Assembly\sweet16.txt"
-test\bin\run_test.ps1 -json -name ET3400-S6-asm -action confidence -language assembly -inputfile ".\test\data\ASM-6800\ET3400-S6.asm" -expected ".\test\ref\statistics\Assembly\ET3400-S6.txt"
+test\bin\run_test.ps1 -json -name sweet16-asm -action statistics -language assembly -inputfile ".\test\data\ASM-6502\sweet16.asm" -expected ".\test\ref\statistics\Assembly\sweet16.txt"
+test\bin\run_test.ps1 -json -name ET3400-S6-asm -action statistics -language assembly -inputfile ".\test\data\ASM-6800\ET3400-S6.asm" -expected ".\test\ref\statistics\Assembly\ET3400-S6.txt"
+test\bin\run_test.ps1 -json -name i8080core-asm -action statistics -language assembly -inputfile ".\test\data\ASM-8080\i8080core.asm" -expected ".\test\ref\statistics\Assembly\i8080core.txt"
+test\bin\run_test.ps1 -json -name microcosm-asm -action statistics -language assembly -inputfile ".\test\data\ASM-8080\microcosm.asm" -expected ".\test\ref\statistics\Assembly\microcosm.txt"
+test\bin\run_test.ps1 -json -name BISTRS-asm -action statistics -language assembly -inputfile ".\test\data\ASM-8086\BISTRS.asm" -expected ".\test\ref\statistics\Assembly\BISTRS.txt"
+test\bin\run_test.ps1 -json -name DSKCOM-asm -action statistics -language assembly -inputfile ".\test\data\ASM-8086\DSKCOM.asm" -expected ".\test\ref\statistics\Assembly\DSKCOM.txt"
+test\bin\run_test.ps1 -json -name FIVEO-asm -action statistics -language assembly -inputfile ".\test\data\ASM-8086\FIVEO.asm" -expected ".\test\ref\statistics\Assembly\FIVEO.txt"
+test\bin\run_test.ps1 -json -name GWEVAL-asm -action statistics -language assembly -inputfile ".\test\data\ASM-8086\GWEVAL.asm" -expected ".\test\ref\statistics\Assembly\GWEVAL.txt"
+test\bin\run_test.ps1 -json -name NEXT86-asm -action statistics -language assembly -inputfile ".\test\data\ASM-8086\NEXT86.asm" -expected ".\test\ref\statistics\Assembly\NEXT86.txt"
 
 # Ada-83
 test\bin\run_test.ps1 -json -name adabkend-adb-83 -action statistics -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\statistics\Ada-83\adabkend-adb.txt"

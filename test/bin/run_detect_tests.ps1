@@ -7,6 +7,13 @@ test\bin\run_detect_test.ps1 -json -name osint-asm -inputfile ".\test\data\ASM-3
 test\bin\run_detect_test.ps1 -json -name spitbol-asm -inputfile ".\test\data\ASM-360\spitbol.asm" -expected ".\test\ref\detect\Assembly\spitbol.txt"
 test\bin\run_detect_test.ps1 -json -name sweet16-asm -inputfile ".\test\data\ASM-6502\sweet16.asm" -expected ".\test\ref\detect\Assembly\sweet16.txt"
 test\bin\run_detect_test.ps1 -json -name ET3400-S6-asm -inputfile ".\test\data\ASM-6800\ET3400-S6.asm" -expected ".\test\ref\detect\Assembly\ET3400-S6.txt"
+test\bin\run_detect_test.ps1 -json -name i8080core-asm -inputfile ".\test\data\ASM-8080\i8080core.asm" -expected ".\test\ref\tokens\Assembly\i8080core.txt"
+test\bin\run_detect_test.ps1 -json -name microcosm-asm -inputfile ".\test\data\ASM-8080\microcosm.asm" -expected ".\test\ref\tokens\Assembly\microcosm.txt"
+test\bin\run_detect_test.ps1 -json -name BISTRS-asm -inputfile ".\test\data\ASM-8086\BISTRS.asm" -expected ".\test\ref\detect\Assembly\BISTRS.txt"
+test\bin\run_detect_test.ps1 -json -name DSKCOM-asm -inputfile ".\test\data\ASM-8086\DSKCOM.asm" -expected ".\test\ref\detect\Assembly\DSKCOM.txt"
+test\bin\run_detect_test.ps1 -json -name FIVEO-asm -inputfile ".\test\data\ASM-8086\FIVEO.asm" -expected ".\test\ref\detect\Assembly\FIVEO.txt"
+test\bin\run_detect_test.ps1 -json -name GWEVAL-asm -inputfile ".\test\data\ASM-8086\GWEVAL.asm" -expected ".\test\ref\detect\Assembly\GWEVAL.txt"
+test\bin\run_detect_test.ps1 -json -name NEXT86-asm -inputfile ".\test\data\ASM-8086\NEXT86.asm" -expected ".\test\ref\detect\Assembly\NEXT86.txt"
 
 # Ada-83
 test\bin\run_detect_test.ps1 -json -name adabkend-adb -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\detect\Ada-83\adabkend-adb.txt"
