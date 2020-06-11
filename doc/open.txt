@@ -9,13 +9,19 @@ index.html
 + one language drop-down; three buttons (tokenize, confidence, statistics)
 - modern languages include D, Lua, Scala, TypeScript (base on language year?)
 - improve conversion of C++, C#, F# names
+- port run_detect_test to JavaScript; don't call /detect; remove /detect
+
+README
+- don't refer to /detect
+- include /statistics, /confidence, /detab, /unwrap
 
 main
-- convert tab to spaces
 - /tokens parameter for block comment size limit
 - /statistics parameter for block comment size limit
 - /confidence parameter for block comment size limit
 - /detect parameter for block comment size limit
+- /confidence_and_statistics return both blocks
+- limit text to 4K; allow larger size as option including all text
 - consolidate options for --detect, --tokens, --confidence
 - unwrap() returns original code if language not specified
 - all services - return HTTP error if language specified and not recognized
@@ -115,15 +121,13 @@ generic
 + comment types (cobol or fortran style)
 
 generic ASM
-- perhaps based on text pattern and not tokens (percentage of lines that conform?)
 - values on the left (listing) (xxxx xx xx xx or ooo.ooo ooo ooo ooo)
 - number: $xxxx nnnQ nnnnnnA #xxxx &xxxx $
-- string: ' or "
 - operator =
-- confidence for consistent indent for opcodes
 - confidence for consistent indent for args
 - confidence for consistent indent for comments after column 1
 - newlines always important
+- 
 
 specific ASM
 - opcodes (list for processor)
@@ -368,14 +372,10 @@ PL/M
 Prolog
 
 Python
-+ allow consecutive strings in calc_operand_confidence()
-- allow 'not' (unary) 'in' (binary) (operator4)
-- operator @
-- r'' strings (no escapes)
++ detab code
 
 R
 ? 'basketball' has issues (no keywords, few tokens)
-- r'' strings (no escapes)
 
 Raku
 - copy of Perl 5

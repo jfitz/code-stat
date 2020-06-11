@@ -440,8 +440,28 @@
         "value":" "
     },
     {
-        "type":"regex",
-        "value":"/^converte?$/i"
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"operator",
+        "value":"^"
+    },
+    {
+        "type":"identifier",
+        "value":"converte"
+    },
+    {
+        "type":"operator",
+        "value":"?"
+    },
+    {
+        "type":"identifier",
+        "value":"$/"
+    },
+    {
+        "type":"identifier",
+        "value":"i"
     },
     {
         "type":"group",
@@ -512,8 +532,28 @@
         "value":" "
     },
     {
-        "type":"regex",
-        "value":"/^investiga?$/i"
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"operator",
+        "value":"^"
+    },
+    {
+        "type":"identifier",
+        "value":"investiga"
+    },
+    {
+        "type":"operator",
+        "value":"?"
+    },
+    {
+        "type":"identifier",
+        "value":"$/"
+    },
+    {
+        "type":"identifier",
+        "value":"i"
     },
     {
         "type":"group",
@@ -584,8 +624,28 @@
         "value":" "
     },
     {
-        "type":"regex",
-        "value":"/^discribe?$/i"
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"operator",
+        "value":"^"
+    },
+    {
+        "type":"identifier",
+        "value":"discribe"
+    },
+    {
+        "type":"operator",
+        "value":"?"
+    },
+    {
+        "type":"identifier",
+        "value":"$/"
+    },
+    {
+        "type":"identifier",
+        "value":"i"
     },
     {
         "type":"group",
@@ -23636,8 +23696,20 @@
         "value":" "
     },
     {
-        "type":"regex",
-        "value":"/^inscribement/"
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"operator",
+        "value":"^"
+    },
+    {
+        "type":"identifier",
+        "value":"inscribement"
+    },
+    {
+        "type":"operator",
+        "value":"/"
     },
     {
         "type":"group",

@@ -39,7 +39,7 @@ class AssemblyGenericExaminer(Examiner):
     return 'Escape ?Z'
 
 
-  def __init__(self, code):
+  def __init__(self, code, tab_size):
     super().__init__()
 
     operand_types = []
@@ -123,7 +123,7 @@ class AssemblyGenericExaminer(Examiner):
 
     tokenizer = Tokenizer(tokenbuilders)
     # get tokens and indents
-    tokens, indents = self.tokenize_code(code, tokenizer)
+    tokens, indents = self.tokenize_code(code, tab_size, tokenizer)
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     self.tokens = tokens
@@ -151,7 +151,7 @@ class AssemblyGenericExaminer(Examiner):
     self.calc_indent_confidence(indents)
 
 
-  def tokenize_code(self, code, tokenizer):
+  def tokenize_code(self, code, tab_size, tokenizer):
     lines = code.split('\n')
 
     tokens = []
@@ -163,6 +163,7 @@ class AssemblyGenericExaminer(Examiner):
         newline = '\r\n'
       line = line.rstrip('\r')
       line = line.rstrip()
+      line = self.tabs_to_spaces(line, tab_size)
 
       # get tokens and indents
       line_tokens, line_indents = self.tokenize_line(line, tokenizer)

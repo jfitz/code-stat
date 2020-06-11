@@ -44,15 +44,16 @@ class Examiner:
       if c == '\n':
         detabbed_text += c
         column = 0
-      else:
-        if c == '\t':
-          next_tab_stop = int((column + tab_size) / tab_size) * tab_size
-          while column < next_tab_stop:
-            detabbed_text += ' '
-            column += 1
-        else:
-          detabbed_text += c
+      elif c == '\r':
+        detabbed_text += c
+      elif c == '\t':
+        next_tab_stop = int((column + tab_size) / tab_size) * tab_size
+        while column < next_tab_stop:
+          detabbed_text += ' '
           column += 1
+      else:
+        detabbed_text += c
+        column += 1
     
     return detabbed_text
 

@@ -782,7 +782,7 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
     examiner = GenericCodeExaminer(code, comment)
 
   if language in ['assembly']:
-    examiner = AssemblyGenericExaminer(code)
+    examiner = AssemblyGenericExaminer(code, tab_size)
 
   if language in ['ada-83']:
     examiner = AdaExaminer(code, '83')
@@ -1001,7 +1001,7 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
     examiners['generic'] = GenericCodeExaminer(code, comment)
 
   if 'assembly' in languages:
-    examiners['assembly'] = AssemblyGenericExaminer(code)
+    examiners['assembly'] = AssemblyGenericExaminer(code, tab_size)
 
   if 'ada-83' in languages or 'ada' in languages:
     examiners['ada-83'] = AdaExaminer(code, '83')
