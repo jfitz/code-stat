@@ -560,30 +560,10 @@ class Examiner:
     return new_list
 
 
-  # two operands in a row decreases confidence
-  def calc_operand_confidence(self, tokens, operand_types):
-    two_operand_count = 0
-    prev_token = Token('\n', 'newline', False)
-    for token in tokens:
-      if token.group in operand_types and prev_token.group in operand_types:
-        two_operand_count += 1
-        self.errors.append({
-          'TYPE': 'OPERAND',
-          'FIRST': prev_token.text,
-          'SECOND': token.text
-          })
-
-      prev_token = token
-
-    operand_confidence = 1.0
-    if len(tokens) > 0:
-      operand_confidence = 1.0 - (two_operand_count / len(tokens))
-
-    self.confidences['operand'] = operand_confidence
-
-
   # operands in a row decreases confidence
   def calc_operand_n_confidence(self, tokens, operand_types, max_count):
+    confidence_name_u = 'OPERAND_' + str(max_count)
+    confidence_name_l = 'operand_' + str(max_count)
     n_operand_count = 0
     consec_count = 0
     prev_token = Token('\n', 'newline', False)
@@ -593,7 +573,7 @@ class Examiner:
         if consec_count > max_count:
           n_operand_count += 1
           self.errors.append({
-            'TYPE': 'OPERAND',
+            'TYPE': confidence_name_u,
             'FIRST': prev_token.text,
             'SECOND': token.text
             })
@@ -606,7 +586,7 @@ class Examiner:
     if len(tokens) > 0:
       operand_confidence = 1.0 - (n_operand_count / len(tokens))
 
-    self.confidences['operand_n'] = operand_confidence
+    self.confidences[confidence_name_l] = operand_confidence
 
 
   # two values in a row decreases confidence

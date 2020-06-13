@@ -196,7 +196,7 @@ class BasicExaminer(Examiner):
     self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
     operand_types_2 = ['number', 'string', 'variable', 'symbol']
-    self.calc_operand_confidence(tokens, operand_types_2)
+    self.calc_operand_n_confidence(tokens, operand_types_2, 2)
     self.calc_operand_n_confidence(tokens, operand_types, 4)
     self.calc_keyword_confidence()
     self.calc_line_format_confidence()
