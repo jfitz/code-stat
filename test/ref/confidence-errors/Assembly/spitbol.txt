@@ -85,6 +85,18 @@
     },
     {
         "TYPE":"TOKEN",
+        "INVALID":"\"",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"\"",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
         "INVALID":"'",
         "FIRST":"",
         "SECOND":""
@@ -2461,6 +2473,16 @@
         "TYPE":"GROUP",
         "FIRST":",",
         "SECOND":","
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":".",
+        "SECOND":"."
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":".",
+        "SECOND":"02284000"
     },
     {
         "TYPE":"OPERAND_4",

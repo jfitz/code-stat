@@ -256,12 +256,12 @@
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"\""
+        "type":"string",
+        "value":"\"MICROCOSM ASSOCIATES 8080/8085 CPU DIAGNOSTIC VERSION 1.0  (C) 1980\""
     },
     {
-        "type":"identifier",
-        "value":"MICROCOSM"
+        "type":"group",
+        "value":","
     },
     {
         "type":"whitespace",
@@ -269,7 +269,7 @@
     },
     {
         "type":"comment",
-        "value":"ASSOCIATES 8080/8085 CPU DIAGNOSTIC VERSION 1.0  (C) 1980\", 0dh, 0ah, 24h"
+        "value":"0dh, 0ah, 24h"
     },
     {
         "type":"newline",
@@ -1272,20 +1272,8 @@
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"\""
-    },
-    {
-        "type":"identifier",
-        "value":"CPU"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"comment",
-        "value":"IS OPERATIONAL$\""
+        "type":"string",
+        "value":"\"CPU IS OPERATIONAL$\""
     },
     {
         "type":"newline",
@@ -1352,16 +1340,8 @@
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"\""
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"comment",
-        "value":"CPU HAS FAILED!    ERROR EXIT=$\""
+        "type":"string",
+        "value":"\" CPU HAS FAILED!    ERROR EXIT=$\""
     },
     {
         "type":"newline",

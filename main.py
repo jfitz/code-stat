@@ -206,11 +206,11 @@ def dicts_to_json(list_of_dicts, languages, operation):
 app = Flask(__name__)
 
 codesAndNames = {
-  'assembly': 'Assembly',
   'ada-83': 'Ada-83',
   'ada-95': 'Ada-95',
   'ada-2005': 'Ada-2005',
   'ada-2012': 'Ada-2012',
+  'assembly': 'Assembly',
   'awk': 'Awk',
   'basic': 'BASIC',
   'basica': 'BASICA',

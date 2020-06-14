@@ -75,9 +75,9 @@ class AssemblyGenericExaminer(Examiner):
 
     self.postfix_operators = []
 
-    groupers = ['(', ')', ',', '[', ']', '{', '}']
-    group_starts = ['(', '[', ',', '{']
-    group_ends = [')', ']', '}']
+    groupers = ['(', ')', ',', '[', ']', '{', '}', ':', '<', '>']
+    group_starts = ['(', '[', ',', '{', '<']
+    group_ends = [')', ']', '}', '>']
     group_mids = [',']
 
     groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
@@ -126,6 +126,7 @@ class AssemblyGenericExaminer(Examiner):
     tokens, indents = self.tokenize_code(code, tab_size, tokenizer)
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
+    tokens = Examiner.combine_identifier_colon(tokens, ['newline'], [], [])
     self.tokens = tokens
     self.convert_identifiers_to_labels()
 
@@ -197,7 +198,9 @@ class AssemblyGenericExaminer(Examiner):
     comment_indent = None
     line_comment = ''
     line_comment_indent = None
+    quotes = ['"', "'", '`']
     in_quote = False
+    quote_char = None
     parens_level = 0
     state = 1
     column = 0
@@ -264,8 +267,9 @@ class AssemblyGenericExaminer(Examiner):
           args = c
           args_indent = column
           state = 7
-          if c == "'":
+          if c in quotes:
             in_quote = True
+            quote_char = c
           if c == '(':
             parens_level = 1
       # 7 - in args
@@ -279,7 +283,11 @@ class AssemblyGenericExaminer(Examiner):
           state = 8
         else:
           args += c
-          if c == "'":
+          if c in quotes:
+            if in_quote:
+              quote_char = None
+            else:
+              quote_char = c
             in_quote = not in_quote
           if c == '(' and not in_quote:
             parens_level += 1
