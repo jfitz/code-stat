@@ -520,7 +520,7 @@ class SuffixedIntegerTokenBuilder(TokenBuilder):
     return 'Escape ?Z'
 
 
-  def __init__(self, suffixes, case_sensitive, extra_char):
+  def __init__(self, suffixes, case_sensitive, extra_chars):
     if case_sensitive:
       self.suffixes = suffixes
     else:
@@ -532,7 +532,7 @@ class SuffixedIntegerTokenBuilder(TokenBuilder):
         self.abbrevs[suffix[:i+1]] = 1
 
     self.case_sensitive = case_sensitive
-    self.extra_char = extra_char
+    self.extra_chars = extra_chars
 
     self.text = None
 
@@ -545,7 +545,7 @@ class SuffixedIntegerTokenBuilder(TokenBuilder):
 
 
   def digit_or_underscore(self, c):
-    if self.extra_char is not None and c == self.extra_char:
+    if self.extra_chars is not None and c in self.extra_chars:
       return True
 
     return c.isdigit()
@@ -558,11 +558,11 @@ class SuffixedIntegerTokenBuilder(TokenBuilder):
       return c.isdigit()
 
     if len(groups) == 1:
-      if self.extra_char is not None:
+      if self.extra_chars is not None:
         if self.case_sensitive:
-          return c.isdigit() or c == self.extra_char or c in self.abbrevs
+          return c.isdigit() or c in self.extra_chars or c in self.abbrevs
         else:
-          return c.isdigit() or c == self.extra_char or c.lower() in self.abbrevs
+          return c.isdigit() or c in self.extra_chars or c.lower() in self.abbrevs
       else:
         if self.case_sensitive:
           return c.isdigit() or c in self.abbrevs

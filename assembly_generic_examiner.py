@@ -13,6 +13,7 @@ from token_builders import (
   IntegerExponentTokenBuilder,
   PrefixedIntegerTokenBuilder,
   SuffixedIntegerTokenBuilder,
+  RealTokenBuilder,
   IdentifierTokenBuilder,
   CaseInsensitiveListTokenBuilder,
   CaseSensitiveListTokenBuilder,
@@ -35,6 +36,7 @@ class AssemblyGenericExaminer(Examiner):
     IntegerExponentTokenBuilder.__escape_z__()
     PrefixedIntegerTokenBuilder.__escape_z__()
     SuffixedIntegerTokenBuilder.__escape_z__()
+    RealTokenBuilder.__escape_z__()
     AssemblyCommentTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
@@ -49,13 +51,17 @@ class AssemblyGenericExaminer(Examiner):
 
     integer_tb = IntegerTokenBuilder("'")
     integer_exponent_tb = IntegerExponentTokenBuilder("'")
-    hex_integer_tb = PrefixedIntegerTokenBuilder('0x', False, '0123456789abcdefABCDEF')
+    real_tb = RealTokenBuilder(True, True, None)
+    hex_integer_1_tb = PrefixedIntegerTokenBuilder('$', False, '0123456789abcdefABCDEF')
+    hex_integer_2_tb = PrefixedIntegerTokenBuilder('#$', False, '0123456789abcdefABCDEF')
+    hex_integer_3_tb = PrefixedIntegerTokenBuilder('&', False, '0123456789abcdefABCDEF')
+    hex_integer_h_tb = SuffixedIntegerTokenBuilder(['h'], False, 'abcdefABCDEF')
     binary_integer_tb = PrefixedIntegerTokenBuilder('0b', False, '01')
-    suffixed_integer_tb = SuffixedIntegerTokenBuilder(['U', 'L', 'LL', 'ULL', 'LLU'], False, None)
+    suffixed_integer_tb = SuffixedIntegerTokenBuilder(['Q', 'A', 'O', 'D', 'B'], False, None)
     operand_types.append('number')
 
-    leads = '_$.'
-    extras = '_$.'
+    leads = '_$#.'
+    extras = '_$#.'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
     operand_types.append('identifier')
 
@@ -66,11 +72,11 @@ class AssemblyGenericExaminer(Examiner):
     operand_types.append('string')
 
     known_operators = [
-      '+', '-', '*', '/', '=', '&'
+      '+', '-', '*', '/', '=', '&', '#', '?'
     ]
 
     self.unary_operators = [
-      '+', '-', '=', '&'
+      '+', '-', '=', '&', '#', '?'
     ]
 
     self.postfix_operators = []
@@ -106,9 +112,13 @@ class AssemblyGenericExaminer(Examiner):
       whitespace_tb,
       integer_tb,
       integer_exponent_tb,
-      hex_integer_tb,
+      hex_integer_1_tb,
+      hex_integer_2_tb,
+      hex_integer_3_tb,
+      hex_integer_h_tb,
       binary_integer_tb,
       suffixed_integer_tb,
+      real_tb,
       values_tb,
       groupers_tb,
       known_operator_tb,
@@ -123,10 +133,11 @@ class AssemblyGenericExaminer(Examiner):
 
     tokenizer = Tokenizer(tokenbuilders)
     # get tokens and indents
-    tokens, indents = self.tokenize_code(code, tab_size, tokenizer)
+    tokens, indents = AssemblyGenericExaminer.tokenize_code(code, tab_size, tokenizer)
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     tokens = Examiner.combine_identifier_colon(tokens, ['newline'], [], [])
+    tokens = AssemblyGenericExaminer.combine_number_and_adjacent_identifier(tokens)
     self.tokens = tokens
     self.convert_identifiers_to_labels()
 
@@ -152,7 +163,8 @@ class AssemblyGenericExaminer(Examiner):
     self.calc_indent_confidence(indents)
 
 
-  def tokenize_code(self, code, tab_size, tokenizer):
+  @staticmethod
+  def tokenize_code(code, tab_size, tokenizer):
     lines = code.split('\n')
 
     tokens = []
@@ -164,10 +176,10 @@ class AssemblyGenericExaminer(Examiner):
         newline = '\r\n'
       line = line.rstrip('\r')
       line = line.rstrip()
-      line = self.tabs_to_spaces(line, tab_size)
+      line = Examiner.tabs_to_spaces(line, tab_size)
 
       # get tokens and indents
-      line_tokens, line_indents = self.tokenize_line(line, tokenizer)
+      line_tokens, line_indents = AssemblyGenericExaminer.tokenize_line(line, tokenizer)
       tokens += line_tokens
       indents.append(line_indents)
 
@@ -177,7 +189,8 @@ class AssemblyGenericExaminer(Examiner):
     return tokens, indents
 
 
-  def tokenize_line(self, line, tokenizer):
+  @staticmethod
+  def tokenize_line(line, tokenizer):
     # break apart the line based on format
     # The line format is:
     # label
@@ -205,16 +218,18 @@ class AssemblyGenericExaminer(Examiner):
     state = 1
     column = 0
     for c in line:
-      # 1 - start
+      # 1 - start (label or label-opcode whitespace)
       if state == 1:
         if c in '*;!':
           line_comment = c
           line_comment_indent = column
           state = 2
         elif c.isspace():
+          # state change to label-opcode whitespace
           lo_space = c
           state = 4
         else:
+          # state change to in label
           label = c
           label_indent = column
           state = 3
@@ -228,11 +243,12 @@ class AssemblyGenericExaminer(Examiner):
           line_comment_indent = column
           state = 2
         elif c.isspace():
+          # state change to in label-opcode whitespace
           lo_space = c
           state = 4
         else:
           label += c
-      # 4 - in label-op whitespace
+      # 4 - in label-opcode whitespace
       elif state == 4:
         if c in '*;!':
           line_comment = c
@@ -241,6 +257,7 @@ class AssemblyGenericExaminer(Examiner):
         elif c.isspace():
           lo_space += c
         else:
+          # state change to in opcode
           opcode = c
           opcode_indent = column
           state = 5
@@ -251,6 +268,7 @@ class AssemblyGenericExaminer(Examiner):
           line_comment_indent = column
           state = 2
         elif c.isspace():
+          # state change to in op-args whitespace
           oa_space = c
           state = 6
         else:
@@ -264,6 +282,7 @@ class AssemblyGenericExaminer(Examiner):
         elif c.isspace():
           oa_space += c
         else:
+          # state change to in args
           args = c
           args_indent = column
           state = 7
@@ -279,20 +298,23 @@ class AssemblyGenericExaminer(Examiner):
           line_comment_indent = column
           state = 2
         elif c.isspace() and not in_quote and parens_level <= 0:
+          # state change to in args-comment whitespace
           ac_space = c
           state = 8
         else:
           args += c
-          if c in quotes:
-            if in_quote:
+          if in_quote:
+            if c == quote_char:
+              in_quote = False
               quote_char = None
-            else:
+          else:
+            if c in quotes:
+              in_quote = True
               quote_char = c
-            in_quote = not in_quote
-          if c == '(' and not in_quote:
-            parens_level += 1
-          if c == ')' and not in_quote:
-            parens_level -= 1
+            if c == '(':
+              parens_level += 1
+            if c == ')':
+              parens_level -= 1
       # 8 - in args-comment whitespace
       elif state == 8:
         if c in '*;!':
@@ -302,10 +324,11 @@ class AssemblyGenericExaminer(Examiner):
         elif c.isspace():
           ac_space += c
         else:
+          # state change to in comment
           comment = c
           comment_indent = column
           state = 9
-      # 2 - in line_comment
+      # 9 - in comment
       elif state == 9:
         comment += c
 
@@ -347,6 +370,28 @@ class AssemblyGenericExaminer(Examiner):
       tokens.append(Token(line_comment, 'comment', False))
 
     return tokens, indents
+
+
+  # combine numbers followed by identfiers to identifiers
+  @staticmethod
+  def combine_number_and_adjacent_identifier(tokens):
+    new_list = []
+
+    new_token = None
+  
+    for token in tokens:
+      if token.group == 'identifier' and \
+        new_token is not None and new_token.group == 'number':
+        new_token = Token(new_token.text + token.text, 'identifier', True)
+      else:
+        if new_token is not None:
+          new_list.append(new_token)
+        new_token = token
+
+    if new_token is not None:
+      new_list.append(new_token)
+
+    return new_list
 
 
   def calc_indent_confidence(self, indents):

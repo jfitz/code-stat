@@ -149,7 +149,7 @@ class PL1FixedFormatExaminer(PL1Examiner):
     for line in lines:
       line = line.rstrip('\r')
       line = line.rstrip()
-      line = self.tabs_to_spaces(line, tab_size)
+      line = Examiner.tabs_to_spaces(line, tab_size)
 
       if mode == 1:
         line_tokens = self.tokenize_line(line, tokenizer1, wide)

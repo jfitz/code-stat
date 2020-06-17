@@ -33,7 +33,8 @@ class Examiner:
     return value
 
 
-  def tabs_to_spaces(self, text, tab_size):
+  @staticmethod
+  def tabs_to_spaces(text, tab_size):
     if tab_size is None:
       tab_size = 8
 

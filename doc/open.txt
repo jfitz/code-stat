@@ -121,17 +121,304 @@ generic
 + comment types (cobol or fortran style)
 
 generic ASM
+- allow space in args, comment only after marker (PDP-11)
+- first item is label if colon, opcode if no colon (PDP-11, 8080, 8086)
 - values on the left (listing) (xxxx xx xx xx or ooo.ooo ooo ooo ooo)
 - number: $xxxx nnnQ nnnnnnA #xxxx &xxxx $
 - operator =
-- confidence for consistent indent for args
-- confidence for consistent indent for comments after column 1
 - newlines always important
-- 
 
 specific ASM
 - opcodes (list for processor)
 - 8086 has multi mnemonic opcodes such as REPNZ SCAS BYTE PTR ES:[EDI]
+
+ASM-PDP-8
+- label terminate ,
+- line comment /
+- space in args
+- line terminator ; (allow multiple instructions per line)
+- end of code $
+
+ASM-PDP-11
+- label terminate :
+- space in args
+- opcodes
+
+ASM-360
+- single quote (part of '&)
+- registers r0 through r15
+- opcodes
+  'A', 'AD', 'ADR', 'AE', 'AER', 'AH', 'AL', 'ALR', 'AP', 'AR',
+  'AU', 'AUR', 'AW', 'AWR', 'AXR',
+  'B', 'BAL', 'BALR', 'BAS', 'BASR', 'BC', 'BCR', 'BCT', 'BCTR',
+  'BE', 'BH', 'BL', 'BM', 'BNE', 'BNH', 'BNL', 'BNM', 'BNP', 'BNO', 'BNZ', 'BO',
+  'BP', 'BR', 'BXH', 'BXLE', 'BZ',
+  'C', 'CD', 'CDR', 'CE', 'CER', 'CH', 'CL', 'CLC', 'CLI', 'CLR', 'CP',
+  'CR', 'CVB', 'CVD',
+  'D', 'DD', 'DDR', 'DE', 'DER', 'DIAGNOSE', 'DP', 'DR',
+  'ED', 'EDMK', 'EX',
+  'HDR', 'HER', 'HIO',
+  'IC', 'ISK',
+  'L',
+  'LA', 'LCR', 'LCDR', 'LCER', 'LD', 'LDR',
+  'LE', 'LER', 'LH', 'LM',
+  'LNDR', 'LNER', 'LNR',
+  'LPDR', 'LPER', 'LPR', 'LPSW', 'LR', 'LRDR', 'LRER',
+  'LTDR', 'LTER', 'LTR',
+  'M', 'MD', 'MDR', 'ME', 'MER', 'MH', 'MP', 'MR', 'MVC', 'MVI',
+  'MVN', 'MVO', 'MVZ', 'MXD', 'MXDR', 'MXR',
+  'N', 'NC', 'NI', 'NOP', 'NOPR', 'NR',
+  'O', 'OC', 'OI', 'OR',
+  'PACK',
+  'RDD',
+  'S', 'SD', 'SDR', 'SE', 'SER', 'SH', 'SIO',
+  'SL', 'SLA', 'SLDA', 'SLDL', 'SLL', 'SLR',
+  'SP', 'SPM',
+  'SR', 'SRA', 'SRDL', 'SRP',
+  'SSK', 'SSM', 'SRDA', 'SRL',
+  'STC', 'STD', 'STE', 'STH', 'STM', 'SU', 'SUR', 'SVC', 'SW', 'SWR', 'SXR',
+  'TCH', 'TIO', 'TM', 'TR', 'TRT', 'TS',
+  'UNPK', 'UNPKU',
+  'WRD',
+  'X', 'XC', 'XI', 'XR',
+  'ZAP',
+
+ASM-370
+- opcodes
+  'BRXH', 'BRXLE',
+  'CLCL',
+  'HDV',
+  'LAM', 'LEDR',
+  'MS', 'MVCL',
+  'RIO',
+  'SIOF', 'STAM',
+  'VA', 'VACD', 'VACDR', 'VACE', 'VACER',
+  'VAD', 'VADQ', 'VADR', 'VADS',
+  'VAE', 'VAEQ', 'VAER', 'VAES',
+  'VAQ', 'VAR', 'VAS',
+  'VC', 'VCD', 'VCDQ', 'VCDR', 'VCDS',
+  'VCE', 'VCEQ', 'VCER', 'VCES',
+  'VCQ', 'VCR', 'VCS',
+  'VDD', 'VDDQ', 'VDDR', 'VDDS',
+  'VDE', 'VDEQ', 'VDER', 'VDES',
+  'VL', 'VLCDR', 'VLCER', 'VLCR',
+  'VLD', 'VLDQ', 'VLDR', 'VLEQ', 'VLH', 'VLINT',
+  'VLM', 'VLMD', 'VLMDQ', 'VLMDR', 'VLMEQ', 'VLMQ', 'VLMR',
+  'VLNDR', 'VLNER', 'VLNR', 'VLPDR', 'VLPER', 'VLPR',
+  'VLQ', 'VLR', 'VLY', 'VLYD', 'VLZDR', 'VLZR',
+  'VM', 'VMAD', 'VMADQ', 'VMADS', 'VMAE', 'VMAEQ', 'VMAES',
+  'VMCD', 'VMCE', 'VMCER',
+  'VMD', 'VMDQ', 'VMDR', 'VMDS',
+  'VME', 'VMEQ', 'VMER', 'VMES',
+  'VMQ', 'VMR', 'VMS', 'VMSD', 'VMSDQ', 'VMSDS', 'VMSE', 'VMSEQ', 'VMSES',
+  'VN', 'VNQ', 'VNR', 'VNS',
+  'VO', 'VOQ', 'VOR', 'VOS',
+  'VS', 'VSD', 'VSDQ', 'VSDR', 'VSDS',
+  'VSE', 'VSEQ', 'VSER', 'VSES',
+  'VSQD', 'VSQDR', 'VSQE', 'VSQER',
+  'VSQ', 'VSR', 'VSS', 'VST', 'VSTD', 'VSTE', 'VSTH', 'VSTKD', 'VSTMD',
+  'VTAD', 'VTAE', 'VTSD', 'VTSE',
+  'VX', 'VXQ', 'VXR', 'VXS',
+  'VMXSE', 'VMNSE', 'VMXAE', 'VLELE', 'VSELE', 'VMXDS', 'VMNSD', 'VMXAD',
+  'VLELD', 'VXELD', 'VSPSD', 'VAPSD', 'VTVM', 'VCVM', 'VCZVM', 'VCOVM',
+  'VXVC', 'VXVMM', 'VRRS', 'VRSVC', 'VRSV', 'VLVM', 'VLCVM', 'VSTVM', 'VNVM',
+  'VOVM', 'VXVM', ' VSRSV', 'VMRSV', 'VSRRS', 'VLVCA', 'VRCL', 'VSVMM',
+  'VLVXA', 'VSVTP', 'VACSV', 'VACRS',
+  'STNSM', 'SOTSM', 'SIOP', 'MC', 'LRA', 'CONCS', 'DISCS', 'STIDP', 'SCK',
+  'SPT', 'STPT', 'SPKA', 'IPK', 'PTLB', 'SPX', STPX', 'STAP', 'RRB',
+  'PC', 'SAC', 'IPTE',
+  'IVSK', 'IAC', 'SSAR', 'EPAR', 'ESAR', 'PT', 'ISKE', 'RRBE', 'SSKE', 'TB',
+  'STCTL', 'LCTL', 'CS', 'CDS', 'CLM', 'STCM', 'ICM',
+  'MVCK', 'MVCP', 'MVCS', 'VLI', 'VSTI', 'VLID', 'VSTID', 'VSRL',
+  'VSLL', 'VLBIX', 'LASP', 'TPROT', 'STRAG',
+  'MVCSK', 'MVCDK', 'DPFET', 'MVHHI', 'MVGHI', 'MVHI', 'CHHSI', 'CLHHSI',
+  'CGHSI', 'CLGHSI', 'CHSI', 'CLFHSI', 'TBEGIN', 'TBEGINC', 'MVCIN', 'UNPKA',
+
+ASM-390
+- opcodes
+  'BASSM', 'BSG', 'BSM',
+  'CLRCH', 'CMPS', 'CLRIO', 'CMSG',
+  'LAE', 'LXDR',
+  'MDE',
+  'PFPO', 'PR', 'PTFF',
+  'SAM24', 'SAM31', 'SCKPF',
+  'TAM', 'TMPS', 'TMSG', 'TRACE', 'TRAP2',
+  'TMH',' TMLH', 'TML', 'TMLL', 'TMHH', 'TMHL',
+  'BRC', 'BRAS', 'BRCT', 'BRCTG',
+  'LHI', 'LGHI',
+  'AHI', 'AGHI',
+  'MHI', 'MGHI',
+  'CHI', 'CGHI',
+  'MVCLE', 'CLCLE',
+  'UPT',
+  'SIE', 'PCF', 'CFC', 'DEP', 'DCTP', 'MAD', 'MUN', 'STCAP', 'SERVC',
+  'IPM', 'DXR', 'PGIN', 'PGOUT', 'CSCH', 'HSCH', 'MSCH', 'SSCH', 'STSCH', 'TSCH',
+  'TPI', 'SAL', 'RSCH', 'STCRW', 'STCPS', 'RCHP', 'SCHM', 'STZP', 'SZP',
+  'TPZI', 'BAKR', 'CKSM', 'MADS', 'SQDR', 'STURA', 'MSTA', 'PALB', 'EREG',
+  'ESTA', 'LURA', 'TAR', 'SQDR', 'SAR', 'EAR', 'CSP', 'MSR', 'MVPG', 'MVST',
+  'CUSE', 'BSG', 'CLST', 'SRST', 'XSCH', 'RP', 'STCKE', 'SACF', 'STSI',
+  'SRNM', 'STFPC', 'LFPC', 'TRE', 'CUUTF', 'CUTFU', 'STFL', 'LPSWE',
+  'TRAP4', 'LPEBR', 'LNEBR', 'LTEBR', 'LCEBR', 'LDEBR', 'LXDBR', 'LDEBR',
+  'MXDBR', 'KEBR', 'CEBR', 'AEBR', 'SEBR', 'MDEBR', 'DEBR', 'MAEBR',
+  'MSEBR', 'LPDBR', 'LCDBR', 'SQEBR', 'MEEBR', 'KDBR', 'CDBR', 'ADBR',
+  'MDBR', 'DDBR', 'SDBR', 'LDER', 'LXDR', 'MAER', 'MSER', 'SQXR', 'MEER',
+  'MADR', 'MSDR', 'LPXBR', 'LNXBR', 'LTXBR', 'LCXBR', 'LCXBR', 'LEDBR',
+  'LDXBR', 'LEXBR', 'FIXBR', 'KXBR', 'CXBR', 'AXBR', 'SXBR', 'MXBR', 'DXBR',
+  'TBEDR', 'TBDR', 'DIEBR', 'FIEBR', 'THDER', 'DIDBR', 'FIDBR', 'LPXR',
+  'LNXR', 'LTXR', 'LCXR', 'LXR', 'LEXR', 'FIXR', 'CXR', 'LZER', 'LZDR',
+  'LZXR', 'FIER', 'FIDR', 'SFPC', 'EFPC', 'CEFBR', 'CDFBR', 'CXFBR', 'CEGBR',
+  'CDGBR', 'CXGBR', 'CGDBR', 'CGEBR', 'CGXBR',
+  'CEFR', 'CDFR', CXFR', CFDR', 'CFXR', 'CEGR', 'CDGR', 'CXGR', 'CGER', 'CGDR', 'CGXR',
+  'LMC', 'LPGR', 'LNGR', 'LTGR', 'LCGR', 'LGC', 'LURAG', 'AGR', 'SGR',
+  'ALGR', 'SLGR', 'MSGR', 'DSGR', 'EREGG', 'LRVGR', 'LPGFR', 'LNGFR',
+  'LTGFR', 'LCGFR', 'LGFR', 'LLGFR', 'LLGTR', 'AGFR', 'SGFR', 'ALGFR',
+  'SLGFR', 'MSGFR', 'DSGFR', 'LRVR', 'CGR', 'CLGR', 'STURG', 'CGFR',
+  'CLGFR', 'BCTGR', 'NGR', 'OGR', 'XGR', 'MLGR', 'DLGR', 'ALCGR', 'SLBGR',
+  'EPSW', 'TRTT', 'TRTO', 'TROT', 'TROO', 'MLR', 'DLR', 'ALCR', 'SLBR', 'ESEA',
+  'LARL', 'LGFI', 'BRCL', 'BRASL', 'XIHF', 'XILF', 'IIHF', 'IILF',
+  'NIHF', 'NILF', 'OIHF', 'OILF', 'LLIHF', 'LLILF', 'LLHRL', 'LGHRL',
+  'LHRL', 'AGFI', 'AFI', 'ALGFI', 'ALFI', 'CGFI', 'CFI', 'LLGFRL', 'STRL',
+  'EXRL', 'PFDRL', 'CGHRL','CHRL', 'CLGHRL', 'CLHRL', 'CGRL', 'CLGRL',
+  'CRL', 'CLGFRL', 'CLRL', 'MVCOS', 'ECTG', 'CSST', 'PKU',
+  'LRAG', 'LG', 'AG', 'SG', 'ALG', 'SLG', 'MSG', 'DSG', 'CVBG',
+  'LRVG', 'LGF', 'LGH', 'LLGF', 'LLGT', 'AGF', 'SGF', 'ALGF', 'SLGF',
+  'MSGF', 'DSGF', 'LRV', 'LRVH', 'CG', 'CLG', 'STG', 'CVDG', 'STRVG',
+  'CGF', 'CLGF', 'STRV', 'STRVH', 'BCTG', 'NG', 'OG', 'XG', 'MLG',
+  'DLG', 'ALCG', 'SLBG', 'STPQ', 'LPQ', 'LLGC', 'LLGH', 'ML', 'DL',
+  'ALC', 'SLB', 'PKA',
+  'DIL', 'BDIL', 'ANUM', 'COMP', 'MCPU', 'MIO', 'BIFLAG', 'MULDIV',
+  'LMG', 'SRAG', 'SLAG', 'SRLG', 'SLLG', 'TRACG', 'RLLG', 'RLL',
+  'CLMH', 'CLMY', 'CLT', 'CLTH', 'CLTL', 'CLTNE', 'CLTE', 'CLTNL',
+  'CLTNH', 'STMG', 'STCTG', 'STMH', 'STCMH', 'LCTLG', 'CSG', 'CDSG',
+  'BXHG', 'BXLEG', 'ICMH', 'MVCLU', 'CLCLU', 'LMH', 'LMY', 'TP',
+  'SRAK', 'SLAK', 'SRLK', 'SRLK', 'LOCG', 'BRXHG', 'BRXLG', 'LDEB',
+  'LXDB', 'LXEB', 'MXDB', 'KEB', 'CEB', 'AEB', 'SEB', 'MDEB', 'DEB',
+  'MAEB', 'MSEB', 'TCEB', 'TCDB', 'TCXB', 'SQEB', 'SQDB', 'MEEB',
+  'KDB', 'CDB', 'ADB', 'SDB', 'MDB', 'DDB', 'MADB', 'MSDB', 'LDE',
+  'LXD', 'LXE', 'SQE', 'SQD', 'MEE', 'PLO', 'LMD',
+
+ASM-360Z
+  'IIHH', 'IIHL', 'IILH', 'IILL',
+  'LLIHH', 'LLIHL', 'LLILH', 'LLILL',
+  'NIHH', 'NIHL', 'NILH', 'NILL',
+  'OIHH', 'OIHL', 'OILH', 'OILL',
+  'SAM64',
+
+ASM-6502
+- registers A X Y PC SP SR
+- opcodes
+  'ADC', 'AND', 'ASL',
+  'BCC', 'BCS', 'BEQ', 'BIT', 'BMI', 'BNE',	'BPL', 'BRK', 'BVC', 'BVS',
+  'CLC', 'CLD', 'CLI', 'CLV', 'CMP', 'CPX', 'CPY',
+  'DEC', 'DEX', 'DEY',
+  'EOR',
+  'INC', 'INX', 'INY',
+  'JMP', 'JSR',
+  'LDA', 'LDX', 'LDY', 'LSR',
+  'NOP',
+  'ORA',
+  'PHA', 'PHP', 'PLA', 'PLP',
+  'ROL', 'ROR', 'RTI', 'RTS',
+  'SBC', 'SEC', 'SED', 'SEI', 'STA', 'STX', 'STY',
+  'TAX', 'TAY', 'TSX', 'TXA', 'TXS', 'TYA'
+
+ASM-6800
+- registers A B X PC SP SR
+- opcodes
+  'ABA', 'ADC', 'ADD', 'AND', 'ASL', 'ASR',
+  'BCC', 'BCS', 'BEQ', 'BGE', 'BGT', 'BHI', 'BIT', 'BLE', 'BLS', 'BLT', 'BMI', 'BNE', 'BPL', 'BRA', 'BSR', 'BVC', 'BVS',
+  'CBA', 'CLC', 'CLI', 'CLR', 'CLV', 'CMP', 'COM', 'CPX',
+  'DAA', 'DEC', 'DES', 'DEX',
+  'EOR',
+  'INC', 'INS', 'INX',
+  'JMP', 'JSR',
+  'LDA', 'LDS', 'LDX', 'LSR',
+  'NEG', 'NOP',
+  'ORA',
+  'PSH', 'PUL',
+  'ROL', 'ROR', 'RTI', 'RTS',
+  'SBA', 'SBC', 'SEC', 'SEI', 'SEV', 'STA', 'STS', 'STX', 'SUB', 'SWI',
+  'TAB', 'TAP', 'TBA', 'TPA', 'TST', 'TSX', 'TXS',
+  'WAI',
+
+ASM-8080
+- registers A, B, C, D, E, H, L, PSW, F
+- opcodes
+  'ACI', 'ADC', 'ADD', 'ADI', 'ANA', 'ANI',
+  'CALL', 'CC', 'CM', 'CMA', 'CMC', 'CMP', 'CNC', 'CNZ', 'CP', 'CPE', 'CPI', 'CPO', 'CZ',
+  'DAA', 'DAD', 'DCR', 'DCX', 'DI',
+  'EI',
+  'HLT',
+  'IN', 'INR', 'INX',
+  'JC', 'JM', 'JMP', 'JNC', 'JNZ', 'JP', 'JPE', 'JPO', 'JZ',
+  'LDAX', 'LHLD', 'LXI',
+  'MOV', 'MVI',
+  'NOP',
+  'ORA', 'ORI', 'OUT',
+  'PCHL', 'POP', 'PUSH',
+  'RAL', 'RAR', 'RC', 'RIM', 'RLC', 'RET', 'RM', 'RNC', 'RNZ', 'RP', 'RPE', 'RPO', 'RRC', 'RST', 'RZ	',
+  'SBB', 'SBI', 'SHLD', 'SIM', 'SPHL', 'STA', 'STC', 'STAX', 'SUB', 'SUI',
+  'XCHG', 'XRA', 'XRI', 'XTHL',
+
+ASM-8086 (16-bit, not x86)
+- registers
+  AL AH BL BH CL CH DL DH AX BX CX DX CS DS SS ES IP SI DI BP SP
+- 8086 opcodes
+  'AAA', 'AAD', 'AAM', 'AAS', 'ADC', 'ADD', 'AND',
+  'CALL', 'CBW', 'CLC', 'CLD', 'CLI', 'CMC', 'CMP', 'CMPS', 'CMPSB', 'CMPW', 'CMPXCHG', 'CWD',
+  'DAA', 'DAS', 'DEC', 'DIV',
+  'ESC',
+  'FWAIT',
+  'F2XM1', 'FABS', 'FADD', 'FADDP', 'FBLD', 'FBSTP', 'FCHS', 'FCLEX', 'FCOM', 'FCOMP',
+  'FCOMPP', 'FCOS', 'FDECSTP', 'FDISI', 'FDIV', 'FDIVP', 'FDIVR', 'FDIVRP',
+  'FENI', 'FFREE', 'FIADD', 'FICOM', 'FICOMP', 'FIDIV', 'FIDIVR', 'FILD',
+  'FIMUL', 'FINCSTP', 'FINIT', 'FIST', 'FISTP', 'FISUB', 'FISUBR', 'FLD', 'FLD1',
+  'FLDCW', 'FLDENV', 'FLDL2E', 'FLDL2T', 'FLDLG2', 'FLDLN2', 'FLDPI',
+  'FLDZ', 'FMUL', 'FMULP', 'FNCLEX', 'FNDISI', 'FNENI', 'FNINIT', 'FNOP', 'FNSAVE',
+  'FNSTCW', 'FNSTENV', 'FNSTSW', 'FPATAN', 'FPREM', 'FPREM1', 'FPTAN', 'FRNDINT',
+  'FRSTOR', 'FSAVE', 'FSCALE', 'FSETPM', 'FSIN', 'FSINCOS', 'FSQRT', 'FST', 'FSTCW',
+  'FSTENV', 'FSTP', 'FSTSW', 'FSUB', 'FSUBP', 'FSUBRP', 'FTST', 'FUCOM', 'FUCOMP',
+  'FUCOMPP', 'FXAM', 'FXCH', 'FXTRACT', 'FYL2X', 'FYL2XP1',
+  'HLT',
+  'IDIV', 'IMUL', 'IN', 'INC', 'INT', 'INTO', 'INVD', 'IRET', 'IRETD',
+  'JA', 'JAE', 'JB', 'JBE', 'JC', 'JCXZ', 'JE', 'JECXZ', 'JG', 'JGE', 'JL', 'JLE', 'JMP', 'JNA', 'JNAE', 'JNB', 'JNBE', 'JNC', 'JNE', 'JNG', 'JNGE', 'JNL', 'JNLE', 'JNO', 'JNP', 'JNS', 'JO', 'JP', 'JPE', 'JPO', 'JNZ', 'JS', 'JZ',
+  'LAHF', 'LAR', 'LDS', 'LEA', 'LES', 'LOCK', 'LODS', 'LODSB', 'LODSW', 'LOOP', 'LOOPE', 'LOOPNE', 'LOOPNZ', 'LOOPZ',x
+  'MOV', 'MOVS', 'MOVSB', 'MOVSW', 'MUL',
+  'NEG', 'NOP', 'NOT',
+  'OR', 'OUT',
+  'POP', 'POPF', 'POPFD', 'PUSH', 'PUSHF', 'PUSHFD',
+  'RCL', 'RCR', 'REP', 'REPE', 'REPNE', 'REPNZ', 'REPZ', 'RET', 'RETF', 'ROL', 'ROR',
+  'SAHF', 'SAL', 'SAR', 'SBB', 'SCAS', 'SCASB', 'SCASW', 'SHL', 'SHR', 'STC', 'STD', 'STI', 'STOS', 'STOSB', 'STOSW', 'SUB',
+  'TEST',
+  'WAIT', 'WBINVD',
+  'XCHG', 'XLAT', 'XLATB', 'XOR',
+
+- 80168 opcodes
+  'BOUND',
+  'ENTER',
+  'INS',
+  'LEAVE',
+  'OUTS',
+  'POPA', 'POPAD', 'PUSHA', 'PUSHAD',
+
+- 80286 opcodes
+  'ARPL',
+  'CLTS',
+  'LGDT', 'LIDT', 'LLDT', 'LMSW', 'LSL', 'LSS',
+  'SGDT', 'SIDT', 'SLDT', 'SMSW', 'STR',
+  'VERR', 'VERW',
+
+- 80386 opcodes
+  'BSF', 'BSR', 'BT', 'BTC', 'BTR', 'BTS',
+  'CDQ', 'CWDE',
+  'LFS', 'LGS', 'LSS',
+  'MOVSX', 'MOVZX',
+  'SETAE', 'SETB', 'SETC', 'SETNAE', 'SETNB', 'SETNE', 'SETNZ', 'SETG', 'SETGE', 'SETL', 'SETLE', 'SETNC', 'SETNG', 'SETNGE', 'SETNL', 'SETNLE', 'SETNO', 'SETNP', 'SETNS', 'SETE', 'SETO', 'SETP', 'SETPE', 'SETPO', 'SETS', 'SETZ',
+  'SHLD', 'SHRD',
+
+- 80486 opcodes
+  'BSWAP',
+  'INVPLG',
 
 ADA
 + Embedded SQL (EXEC ;)
