@@ -15,6 +15,9 @@ test\bin\run_detect_test.ps1 -json -name FIVEO-asm -inputfile ".\test\data\ASM-8
 test\bin\run_detect_test.ps1 -json -name GWEVAL-asm -inputfile ".\test\data\ASM-8086\GWEVAL.asm" -expected ".\test\ref\detect\Assembly\GWEVAL.txt"
 test\bin\run_detect_test.ps1 -json -name NEXT86-asm -inputfile ".\test\data\ASM-8086\NEXT86.asm" -expected ".\test\ref\detect\Assembly\NEXT86.txt"
 
+# ASM 6502
+test\bin\run_detect_test.ps1 -json -name sweet16-asm -inputfile ".\test\data\ASM-6502\sweet16.asm" -expected ".\test\ref\detect\ASM-6502\sweet16.txt"
+
 # Ada-83
 test\bin\run_detect_test.ps1 -json -name adabkend-adb -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\detect\Ada-83\adabkend-adb.txt"
 test\bin\run_detect_test.ps1 -json -name adabkend-ads -inputfile ".\test\data\Ada-83\adabkend.ads" -expected ".\test\ref\detect\Ada-83\adabkend-ads.txt"

@@ -46,6 +46,7 @@ def count_tokens(statistic, groups):
 # identify language with highest confidence
 # break ties
 def identify_language(code, params, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages):
+  tiebreak_override = True
   confidences = make_confidences(code, params, languages)
 
   # get confidence values
@@ -125,6 +126,35 @@ def identify_language(code, params, tiebreak_keywords, tiebreak_tokens, tiebreak
             confidences[b]['simplest'] = 0.99
             b = a
           a = simpler_languages[a]
+
+      # recalculate confidence with new factor
+      for language in high_languages:
+        confidence = calc_confidence(confidences[language])
+        retval[language] = confidence
+
+  if tiebreak_override:
+    # count how many have the greatest confidence
+    high_languages = []
+    for language in confidences:
+      confidence = calc_confidence(confidences[language])
+      if confidence == highest_confidence:
+        high_languages.append(language)
+
+    # if a tie among multiple examiners
+    if len(high_languages) > 1:
+      url = "http://" + target + "/" + "override"
+      # request languages
+      resp = requests.get(url)
+      content = resp.content
+      override_language = json.loads(content)
+
+      for language in high_languages:
+        if language in override_language:
+          loser = override_language[language]
+          if loser in high_languages:
+            print('in high languages\n')
+            # decrease confidence for loser language
+            confidences[loser]['overridden'] = 0.99
 
       # recalculate confidence with new factor
       for language in high_languages:

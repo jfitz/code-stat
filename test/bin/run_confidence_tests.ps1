@@ -43,6 +43,9 @@ test\bin\run_test.ps1 -json -name FIVEO-asm -action confidence -language assembl
 test\bin\run_test.ps1 -json -name GWEVAL-asm -action confidence -language assembly -inputfile ".\test\data\ASM-8086\GWEVAL.asm" -expected ".\test\ref\confidence\Assembly\GWEVAL.txt"
 test\bin\run_test.ps1 -json -name NEXT86-asm -action confidence -language assembly -inputfile ".\test\data\ASM-8086\NEXT86.asm" -expected ".\test\ref\confidence\Assembly\NEXT86.txt"
 
+# ASM 6502
+test\bin\run_test.ps1 -json -name sweet16-asm -action confidence -language asm-6502 -inputfile ".\test\data\ASM-6502\sweet16.asm" -expected ".\test\ref\confidence\ASM-6502\sweet16.txt"
+
 # Ada-83
 test\bin\run_test.ps1 -json -name adabkend-adb-83 -action confidence -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\confidence\Ada-83\adabkend-adb.txt"
 test\bin\run_test.ps1 -json -name adabkend-ads-83 -action confidence -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.ads" -expected ".\test\ref\confidence\Ada-83\adabkend-ads.txt"

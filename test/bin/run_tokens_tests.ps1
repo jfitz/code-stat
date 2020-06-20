@@ -43,6 +43,9 @@ test\bin\run_test.ps1 -json -name FIVEO-asm -action tokens -language assembly -i
 test\bin\run_test.ps1 -json -name GWEVAL-asm -action tokens -language assembly -inputfile ".\test\data\ASM-8086\GWEVAL.asm" -expected ".\test\ref\tokens\Assembly\GWEVAL.txt"
 test\bin\run_test.ps1 -json -name NEXT86-asm -action tokens -language assembly -inputfile ".\test\data\ASM-8086\NEXT86.asm" -expected ".\test\ref\tokens\Assembly\NEXT86.txt"
 
+# ASM 6502
+test\bin\run_test.ps1 -json -name sweet16-asm -action tokens -language asm-6502 -inputfile ".\test\data\ASM-6502\sweet16.asm" -expected ".\test\ref\tokens\ASM-6502\sweet16.txt"
+
 # Ada-83
 test\bin\run_test.ps1 -json -name adabkend-adb-83 -action tokens -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\tokens\Ada-83\adabkend-adb.txt"
 test\bin\run_test.ps1 -json -name adabkend-ads-83 -action tokens -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.ads" -expected ".\test\ref\tokens\Ada-83\adabkend-ads.txt"

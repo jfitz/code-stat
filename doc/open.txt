@@ -59,13 +59,13 @@ examiners for:
  DataFlex (1982), SAS,
  JCL, RPG, Lindo, SPSS, Forth, GPSS, CSMP,
  8080 ASM, Z-80 ASM, Z-80 Macro ASM, 8086 ASM,
- Rbase, Clarion, Snobol, Rebol, Condor,
- 6502 ASM, 6800 ASM, PDP-11 ASM, PDP-8 ASM,
- IBM 360 ASM, IBM 370 ASM,
+ Rbase, Clarion, Rebol, Condor,
+ 6800 ASM, PDP-11 ASM, PDP-8 ASM,
+ IBM 360 ASM, IBM 370 ASM, IBM 390 ASM, IBM series Z ASM,
  LISP, Clojure, algol,
  Pascal-S, BASIC-E,
  Autocode, IPL, Flow-matic, COMTRAN, FACT, NELIAC, Simula,
- SNOBOL, CPL, BCPL, JOSS, MUMPS,
+ SNOBOL, Spitbol, CPL, BCPL, JOSS, MUMPS,
  ALPHARD, ALTRAN, Argus, Automath, BCPL, COMTRAN, CPL, FLOW-MATIC,
  HOPE,
  Hypercard, ISWIM, JOVIAL, MacSyma, Mesa, Miranda, Multics Shell,
@@ -138,6 +138,7 @@ ASM-PDP-8
 - space in args
 - line terminator ; (allow multiple instructions per line)
 - end of code $
+- second field may be an octal number or an identifier (with or without label)
 
 ASM-PDP-11
 - label terminate :
@@ -297,7 +298,7 @@ ASM-390
   'KDB', 'CDB', 'ADB', 'SDB', 'MDB', 'DDB', 'MADB', 'MSDB', 'LDE',
   'LXD', 'LXE', 'SQE', 'SQD', 'MEE', 'PLO', 'LMD',
 
-ASM-360Z
+ASM-series-z
   'IIHH', 'IIHL', 'IILH', 'IILL',
   'LLIHH', 'LLIHL', 'LLILH', 'LLILL',
   'NIHH', 'NIHL', 'NILH', 'NILL',
@@ -306,21 +307,6 @@ ASM-360Z
 
 ASM-6502
 - registers A X Y PC SP SR
-- opcodes
-  'ADC', 'AND', 'ASL',
-  'BCC', 'BCS', 'BEQ', 'BIT', 'BMI', 'BNE',	'BPL', 'BRK', 'BVC', 'BVS',
-  'CLC', 'CLD', 'CLI', 'CLV', 'CMP', 'CPX', 'CPY',
-  'DEC', 'DEX', 'DEY',
-  'EOR',
-  'INC', 'INX', 'INY',
-  'JMP', 'JSR',
-  'LDA', 'LDX', 'LDY', 'LSR',
-  'NOP',
-  'ORA',
-  'PHA', 'PHP', 'PLA', 'PLP',
-  'ROL', 'ROR', 'RTI', 'RTS',
-  'SBC', 'SEC', 'SED', 'SEI', 'STA', 'STX', 'STY',
-  'TAX', 'TAY', 'TSX', 'TXA', 'TXS', 'TYA'
 
 ASM-6800
 - registers A B X PC SP SR
@@ -393,7 +379,7 @@ ASM-8086 (16-bit, not x86)
   'WAIT', 'WBINVD',
   'XCHG', 'XLAT', 'XLATB', 'XOR',
 
-- 80168 opcodes
+- 80186 opcodes
   'BOUND',
   'ENTER',
   'INS',

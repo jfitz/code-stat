@@ -8,6 +8,7 @@ from flask import Flask, request, render_template, Response
 from codestat_exception import CodeStatException
 from generic_code_examiner import GenericCodeExaminer
 from assembly_generic_examiner import AssemblyGenericExaminer
+from assembly_6502_examiner import Assembly6502Examiner
 from ada_examiner import AdaExaminer
 from awk_examiner import AwkExaminer
 from basic_examiner import BasicExaminer
@@ -55,6 +56,7 @@ from visualbasicnet_examiner import VisualBasicNETExaminer
 
 GenericCodeExaminer.__escape_z__()
 AssemblyGenericExaminer.__escape_z__()
+Assembly6502Examiner.__escape_z__()
 AdaExaminer.__escape_z__()
 AwkExaminer.__escape_z__()
 BasicExaminer.__escape_z__()
@@ -205,12 +207,13 @@ def dicts_to_json(list_of_dicts, languages, operation):
 
 app = Flask(__name__)
 
-codesAndNames = {
+codes_and_names = {
   'ada-83': 'Ada-83',
   'ada-95': 'Ada-95',
   'ada-2005': 'Ada-2005',
   'ada-2012': 'Ada-2012',
   'assembly': 'Assembly',
+  'asm-6502': 'ASM-6502',
   'awk': 'Awk',
   'basic': 'BASIC',
   'basica': 'BASICA',
@@ -278,8 +281,9 @@ codesAndNames = {
 }
 
 
-codesAndGroups = {
+codes_and_groups = {
   'assembly': 'Assembly',
+  'asm-6502': 'Assembly',
   'ada-83': 'Ada',
   'ada-95': 'Ada',
   'ada-2005': 'Ada',
@@ -351,8 +355,9 @@ codesAndGroups = {
 }
 
 
-codesAndYears = {
+codes_and_years = {
   'assembly': 1952,
+  'asm-6502': 1977,
   'ada-83': 1983,
   'ada-95': 1995,
   'ada-2005': 2005,
@@ -423,8 +428,9 @@ codesAndYears = {
   'visualbasic-net': 2001
 }
 
-simplerLanguages = {
+simpler_languages = {
   'assembly': None,
+  'asm-6502': None,
   'ada-83': None,
   'ada-95': 'ada-83',
   'ada-2005': 'ada-95',
@@ -495,16 +501,38 @@ simplerLanguages = {
   'visualbasic-net': 'visualbasic-6'
 }
 
+override_language = {
+  'asm-6502': 'assembly',
+  'asm-6800': 'assembly',
+  'asm-8080': 'assembly',
+  'asm-8086': 'assembly',
+  'asm-80186': 'assembly',
+  'asm-80286': 'assembly',
+  'asm-80386': 'assembly',
+  'asm-80486': 'assembly',
+  'asm-z-80': 'assembly',
+  'asm-ibm-360': 'assembly',
+  'asm-ibm-370': 'assembly',
+  'asm-ibm-390': 'assembly',
+  'asm-ibm-series-z': 'assembly'
+}
+
 
 @app.route('/languages', methods=['GET'])
 def route_languages():
-  json_text = json.dumps(codesAndNames)
+  json_text = json.dumps(codes_and_names)
   return Response(json_text, mimetype='application/json')
 
 
 @app.route('/simple', methods=['GET'])
 def route_simple():
-  json_text = json.dumps(simplerLanguages)
+  json_text = json.dumps(simpler_languages)
+  return Response(json_text, mimetype='application/json')
+
+
+@app.route('/override', methods=['GET'])
+def route_override():
+  json_text = json.dumps(override_language)
   return Response(json_text, mimetype='application/json')
 
 
@@ -576,7 +604,7 @@ def route_detect():
   languages, _, tab_size, wide, comment = extract_params(request.args)
 
   if len(languages) == 0:
-    languages = list(codesAndNames.keys())
+    languages = list(codes_and_names.keys())
 
   tiebreak_keywords = True
   tiebreak_tokens = False
@@ -598,7 +626,7 @@ def route_detect():
 
     mydict = {}
     for key in detected_languages:
-      new_key = codesAndNames[key]
+      new_key = codes_and_names[key]
       mydict[new_key] = detected_languages[key]
 
     json_text = json.dumps(mydict)
@@ -615,7 +643,7 @@ def route_tokens():
   languages, comment, tab_size, wide, _ = extract_params(request.args)
 
   if len(languages) == 0:
-    languages = list(codesAndNames.keys())
+    languages = list(codes_and_names.keys())
 
   block_comment_limit = 2048
 
@@ -651,7 +679,7 @@ def route_confidence():
   languages, comment, tab_size, wide, get_errors = extract_params(request.args)
 
   if len(languages) == 0:
-    languages = list(codesAndNames.keys())
+    languages = list(codes_and_names.keys())
 
   block_comment_limit = 2048
 
@@ -691,7 +719,7 @@ def route_statistics():
   languages, comment, tab_size, wide, _ = extract_params(request.args)
 
   if len(languages) == 0:
-    languages = list(codesAndNames.keys())
+    languages = list(codes_and_names.keys())
 
   request_bytes = request.get_data()
 
@@ -783,6 +811,9 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
 
   if language in ['assembly']:
     examiner = AssemblyGenericExaminer(code, tab_size)
+
+  if language in ['asm-6502']:
+    examiner = Assembly6502Examiner(code, tab_size)
 
   if language in ['ada-83']:
     examiner = AdaExaminer(code, '83')
@@ -1002,6 +1033,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
 
   if 'assembly' in languages:
     examiners['assembly'] = AssemblyGenericExaminer(code, tab_size)
+
+  if 'asm-6502' in languages:
+    examiners['asm-6502'] = Assembly6502Examiner(code, tab_size)
 
   if 'ada-83' in languages or 'ada' in languages:
     examiners['ada-83'] = AdaExaminer(code, '83')
@@ -1231,6 +1265,7 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
 
 
 def identify_language(code, tab_size, wide, comment, block_comment_limit, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages):
+  tiebreak_override = True
   examiners = make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, languages)
 
   # get confidence values
@@ -1311,14 +1346,36 @@ def identify_language(code, tab_size, wide, comment, block_comment_limit, tiebre
     if len(high_names) > 1:
       for name in high_names:
         b = name
-        a = simplerLanguages[name]
+        a = simpler_languages[name]
         while a is not None:
           if a in high_names:
             # when there is a simpler language in the high names list
             # decrease confidence for this language
             examiners[b].confidences['simplest'] = 0.99
             b = a
-          a = simplerLanguages[a]
+          a = simpler_languages[a]
+
+      # recalculate confidence with new factor
+      for name in high_names:
+        confidence = examiners[name].confidence()
+        retval[name] = confidence
+
+  if tiebreak_override:
+    # count how many have the greatest confidence
+    high_names = []
+    for name in examiners:
+      confidence = examiners[name].confidence()
+      if confidence == highest_confidence:
+        high_names.append(name)
+
+    # if a tie among multiple examiners
+    if len(high_names) > 1:
+      for name in high_names:
+        if name in override_language:
+          loser = override_language[name]
+          if loser in high_names:
+            # decrease confidence for loser language
+            examiners[loser].confidences['overridden'] = 0.99
 
       # recalculate confidence with new factor
       for name in high_names:
@@ -1458,7 +1515,7 @@ if __name__ == '__main__':
         tiebreak_simple = False
         comment = ''
         block_comment_limit = 2048
-        languages = list(codesAndNames.keys())
+        languages = list(codes_and_names.keys())
         cProfile.run('identify_language(code, tab_size, wide, comment, block_comment_limit, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages)')
       else:
         app.run()
