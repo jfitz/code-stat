@@ -5,7 +5,6 @@ test\bin\run_detect_test.ps1 -json -name subroutine1-asm -inputfile ".\test\data
 test\bin\run_detect_test.ps1 -json -name subroutine2-asm -inputfile ".\test\data\ASM-360\subroutine2.asm" -expected ".\test\ref\detect\Assembly\subroutine2.txt"
 test\bin\run_detect_test.ps1 -json -name osint-asm -inputfile ".\test\data\ASM-360\osint.asm" -expected ".\test\ref\detect\Assembly\osint.txt"
 test\bin\run_detect_test.ps1 -json -name spitbol-asm -inputfile ".\test\data\ASM-360\spitbol.asm" -expected ".\test\ref\detect\Assembly\spitbol.txt"
-test\bin\run_detect_test.ps1 -json -name sweet16-asm -inputfile ".\test\data\ASM-6502\sweet16.asm" -expected ".\test\ref\detect\Assembly\sweet16.txt"
 test\bin\run_detect_test.ps1 -json -name ET3400-S6-asm -inputfile ".\test\data\ASM-6800\ET3400-S6.asm" -expected ".\test\ref\detect\Assembly\ET3400-S6.txt"
 test\bin\run_detect_test.ps1 -json -name i8080core-asm -inputfile ".\test\data\ASM-8080\i8080core.asm" -expected ".\test\ref\detect\Assembly\i8080core.txt"
 test\bin\run_detect_test.ps1 -json -name microcosm-asm -inputfile ".\test\data\ASM-8080\microcosm.asm" -expected ".\test\ref\detect\Assembly\microcosm.txt"

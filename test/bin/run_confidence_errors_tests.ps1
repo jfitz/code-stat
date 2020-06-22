@@ -33,7 +33,6 @@ test\bin\run_test.ps1 -json -name subroutine1-asm -action confidence -errors -la
 test\bin\run_test.ps1 -json -name subroutine2-asm -action confidence -errors -language assembly -inputfile ".\test\data\ASM-360\subroutine2.asm" -expected ".\test\ref\confidence-errors\Assembly\subroutine2.txt"
 test\bin\run_test.ps1 -json -name osint-asm -action confidence -errors -language assembly -inputfile ".\test\data\ASM-360\osint.asm" -expected ".\test\ref\confidence-errors\Assembly\osint.txt"
 test\bin\run_test.ps1 -json -name spitbol-asm -action confidence -errors -language assembly -inputfile ".\test\data\ASM-360\spitbol.asm" -expected ".\test\ref\confidence-errors\Assembly\spitbol.txt"
-test\bin\run_test.ps1 -json -name sweet16-asm -action confidence -errors -language assembly -inputfile ".\test\data\ASM-6502\sweet16.asm" -expected ".\test\ref\confidence-errors\Assembly\sweet16.txt"
 test\bin\run_test.ps1 -json -name ET3400-S6-asm -action confidence -errors -language assembly -inputfile ".\test\data\ASM-6800\ET3400-S6.asm" -expected ".\test\ref\confidence-errors\Assembly\ET3400-S6.txt"
 test\bin\run_test.ps1 -json -name i8080core-asm -action confidence -errors -language assembly -inputfile ".\test\data\ASM-8080\i8080core.asm" -expected ".\test\ref\confidence-errors\Assembly\i8080core.txt"
 test\bin\run_test.ps1 -json -name microcosm-asm -action confidence -errors -language assembly -inputfile ".\test\data\ASM-8080\microcosm.asm" -expected ".\test\ref\confidence-errors\Assembly\microcosm.txt"

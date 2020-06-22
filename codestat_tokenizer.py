@@ -115,7 +115,7 @@ class Tokenizer():
 
 
   @staticmethod
-  def tokenize_asm_code(code, tab_size, tokenizer):
+  def tokenize_asm_code(code, tab_size, tokenizer, opcode_extras, label_leads, label_mids, label_ends):
     lines = code.split('\n')
 
     tokens = []
@@ -130,7 +130,7 @@ class Tokenizer():
       line = Tokenizer.tabs_to_spaces(line, tab_size)
 
       # get tokens and indents
-      line_tokens, line_indents = Tokenizer.tokenize_asm_line(line, tokenizer)
+      line_tokens, line_indents = Tokenizer.tokenize_asm_line(line, tokenizer, opcode_extras, label_leads, label_mids, label_ends)
       tokens += line_tokens
       indents.append(line_indents)
 
@@ -141,13 +141,26 @@ class Tokenizer():
 
 
   @staticmethod
-  def tokenize_asm_line(line, tokenizer):
+  def tokenize_asm_line(line, tokenizer, opcode_extras, label_leads, label_mids, label_ends):
+    label_ends = ':,'
+    comment_leads = '*;!'
     # break apart the line based on format
     # The line format is:
     # label
     # opcode
     # arguments
     # comment
+
+    START_LABEL_OR_WHITESPACE = 1
+    AFTER_LABEL = 2
+    IN_LINE_COMMENT = 3
+    IN_LABEL = 4
+    LABEL_OPCODE_WHITESPACE = 5
+    IN_OPCODE = 6
+    OPCDE_ARGS_WHITESPACE = 7
+    IN_ARGS = 8
+    ARGS_COMMENT_WHITESPACE = 9
+    IN_COMMENT = 10
 
     label = ''
     label_indent = None
@@ -166,92 +179,103 @@ class Tokenizer():
     in_quote = False
     quote_char = None
     parens_level = 0
-    state = 1
+    state = START_LABEL_OR_WHITESPACE
     column = 0
     for c in line:
-      # 1 - start (label or label-opcode whitespace)
-      if state == 1:
-        if c in '*;!':
+      # start (label or label-opcode whitespace)
+      if state == START_LABEL_OR_WHITESPACE:
+        if c in comment_leads:
           line_comment = c
           line_comment_indent = column
-          state = 2
+          state = IN_LINE_COMMENT
         elif c.isspace():
           # state change to label-opcode whitespace
           lo_space = c
-          state = 4
+          state = LABEL_OPCODE_WHITESPACE
         else:
           # state change to in label
           label = c
           label_indent = column
-          state = 3
-      # 2 - in line_comment
-      elif state == 2:
+          state = IN_LABEL
+      # in line_comment
+      elif state == IN_LINE_COMMENT:
         line_comment += c
-      # 3 - in label
-      elif state == 3:
-        if c in '*;!':
+      # in label
+      elif state == IN_LABEL:
+        if c in comment_leads:
           line_comment = c
           line_comment_indent = column
-          state = 2
+          state = IN_LINE_COMMENT
         elif c.isspace():
           # state change to in label-opcode whitespace
           lo_space = c
-          state = 4
+          state = LABEL_OPCODE_WHITESPACE
+        elif c in label_ends:
+          label += c
+          state = AFTER_LABEL
         else:
           label += c
-      # 4 - in label-opcode whitespace
-      elif state == 4:
-        if c in '*;!':
+      # after label and first character of whitespace or opcode
+      elif state == AFTER_LABEL:
+        if c.isspace():
+          lo_space = c
+          state = LABEL_OPCODE_WHITESPACE
+        else:
+          opcode = c
+          state = IN_OPCODE
+      # in label-opcode whitespace
+      elif state == LABEL_OPCODE_WHITESPACE:
+        if c in comment_leads:
           line_comment = c
           line_comment_indent = column
-          state = 2
+          state = IN_LINE_COMMENT
         elif c.isspace():
           lo_space += c
         else:
           # state change to in opcode
           opcode = c
           opcode_indent = column
-          state = 5
-      # 5 - in opcode
-      elif state == 5:
-        if c in '*;!':
+          state = IN_OPCODE
+      # in opcode
+      elif state == IN_OPCODE:
+        if c in comment_leads:
           line_comment = c
           line_comment_indent = column
-          state = 2
+          state = IN_LINE_COMMENT
         elif c.isspace():
           # state change to in op-args whitespace
           oa_space = c
-          state = 6
+          state = OPCDE_ARGS_WHITESPACE
         else:
           opcode += c
-      # 6 - in op-args whitespace
-      elif state == 6:
-        if c in '*;!':
+      # in op-args whitespace
+      elif state == OPCDE_ARGS_WHITESPACE:
+        if c in comment_leads:
           line_comment = c
           line_comment_indent = column
-          state = 2
+          state = IN_LINE_COMMENT
         elif c.isspace():
           oa_space += c
         else:
           # state change to in args
           args = c
           args_indent = column
-          state = 7
+          state = IN_ARGS
           if c in quotes:
             in_quote = True
             quote_char = c
           if c == '(':
             parens_level = 1
-      # 7 - in args
-      elif state == 7:
-        if c in '*;!' and not in_quote and parens_level <= 0:
+      # in args
+      elif state == IN_ARGS:
+        if c in comment_leads and not in_quote and parens_level <= 0:
           line_comment = c
           line_comment_indent = column
-          state = 2
+          state = IN_LINE_COMMENT
         elif c.isspace() and not in_quote and parens_level <= 0:
           # state change to in args-comment whitespace
           ac_space = c
-          state = 8
+          state = ARGS_COMMENT_WHITESPACE
         else:
           args += c
           if in_quote:
@@ -266,21 +290,21 @@ class Tokenizer():
               parens_level += 1
             if c == ')':
               parens_level -= 1
-      # 8 - in args-comment whitespace
-      elif state == 8:
-        if c in '*;!':
+      # in args-comment whitespace
+      elif state == ARGS_COMMENT_WHITESPACE:
+        if c in comment_leads:
           line_comment = c
           line_comment_indent = column
-          state = 2
+          state = IN_LINE_COMMENT
         elif c.isspace():
           ac_space += c
         else:
           # state change to in comment
           comment = c
           comment_indent = column
-          state = 9
-      # 9 - in comment
-      elif state == 9:
+          state = IN_COMMENT
+      # in comment
+      elif state == IN_COMMENT:
         comment += c
 
       column += 1
@@ -297,13 +321,19 @@ class Tokenizer():
     tokens = []
 
     if len(label) > 0:
-      tokens.append(Token(label, 'label', False))
+      if Tokenizer.check_label_format(label, label_leads, label_mids, label_ends):
+        tokens.append(Token(label, 'label', False))
+      else:
+        tokens.append(Token(label, 'invalid', False))
 
     if len(lo_space) > 0:
       tokens.append(Token(lo_space, 'whitespace', False))
 
     if len(opcode) > 0:
-      tokens.append(Token(opcode, 'opcode', False))
+      if Tokenizer.check_opcode_format(opcode, opcode_extras):
+        tokens.append(Token(opcode, 'opcode', False))
+      else:
+        tokens.append(Token(opcode, 'invalid', False))
 
     if len(oa_space) > 0:
       tokens.append(Token(oa_space, 'whitespace', False))
@@ -323,6 +353,35 @@ class Tokenizer():
     return tokens, indents
 
 
+  # check token matches rules for label
+  @staticmethod
+  def check_label_format(label, label_leads, label_mids, label_ends):
+    l0 = label[0]
+    if not (l0.isalpha() or l0 in label_leads):
+      return False
+
+    llast = label[-1]
+    if not (llast.isalnum() or llast in label_ends):
+      return False
+
+    lmid = label[1:-1]
+    for lc in lmid:
+      if not (lc.isalnum() or lc in label_mids):
+        return False
+  
+    return True
+
+
+  # check token matches rules for opcode
+  @staticmethod
+  def check_opcode_format(opcode, extras):
+    for oc in opcode:
+      if not (oc.isalnum() or oc in extras):
+        return False
+
+    return True
+  
+  
   # combine numbers followed by identfiers to identifiers
   @staticmethod
   def combine_number_and_adjacent_identifier(tokens):

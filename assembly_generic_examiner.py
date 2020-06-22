@@ -133,7 +133,11 @@ class AssemblyGenericExaminer(Examiner):
 
     tokenizer = Tokenizer(tokenbuilders)
     # get tokens and indents
-    tokens, indents = Tokenizer.tokenize_asm_code(code, tab_size, tokenizer)
+    opcode_extras = '.&=,()+-*/'
+    label_leads = '.&'
+    label_mids = '.&'
+    label_ends = ':,'
+    tokens, indents = Tokenizer.tokenize_asm_code(code, tab_size, tokenizer, opcode_extras, label_leads, label_mids, label_ends)
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     tokens = Examiner.combine_identifier_colon(tokens, ['newline'], [], [])
