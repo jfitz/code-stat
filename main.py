@@ -9,6 +9,7 @@ from codestat_exception import CodeStatException
 from generic_code_examiner import GenericCodeExaminer
 from assembly_generic_examiner import AssemblyGenericExaminer
 from assembly_6502_examiner import Assembly6502Examiner
+from assembly_6800_examiner import Assembly6800Examiner
 from ada_examiner import AdaExaminer
 from awk_examiner import AwkExaminer
 from basic_examiner import BasicExaminer
@@ -57,6 +58,7 @@ from visualbasicnet_examiner import VisualBasicNETExaminer
 GenericCodeExaminer.__escape_z__()
 AssemblyGenericExaminer.__escape_z__()
 Assembly6502Examiner.__escape_z__()
+Assembly6800Examiner.__escape_z__()
 AdaExaminer.__escape_z__()
 AwkExaminer.__escape_z__()
 BasicExaminer.__escape_z__()
@@ -214,6 +216,7 @@ codes_and_names = {
   'ada-2012': 'Ada-2012',
   'assembly': 'Assembly',
   'asm-6502': 'ASM-6502',
+  'asm-6800': 'ASM-6800',
   'awk': 'Awk',
   'basic': 'BASIC',
   'basica': 'BASICA',
@@ -282,12 +285,13 @@ codes_and_names = {
 
 
 codes_and_groups = {
-  'assembly': 'Assembly',
-  'asm-6502': 'Assembly',
   'ada-83': 'Ada',
   'ada-95': 'Ada',
   'ada-2005': 'Ada',
   'ada-2012': 'Ada',
+  'assembly': 'Assembly',
+  'asm-6502': 'Assembly',
+  'asm-6800': 'Assembly',
   'awk': 'Awk',
   'basic': 'BASIC',
   'basica': 'BASIC',
@@ -356,12 +360,13 @@ codes_and_groups = {
 
 
 codes_and_years = {
-  'assembly': 1952,
-  'asm-6502': 1977,
   'ada-83': 1983,
   'ada-95': 1995,
   'ada-2005': 2005,
   'ada-2012': 2012,
+  'assembly': 1952,
+  'asm-6502': 1977,
+  'asm-6800': 1978,
   'awk': 1977,
   'basic': 1965,
   'basica': 1982,
@@ -429,12 +434,13 @@ codes_and_years = {
 }
 
 simpler_languages = {
-  'assembly': None,
-  'asm-6502': None,
   'ada-83': None,
   'ada-95': 'ada-83',
   'ada-2005': 'ada-95',
   'ada-2012': 'ada-2005',
+  'assembly': None,
+  'asm-6502': None,
+  'asm-6800': None,
   'awk': None,
   'basic': None,
   'basica': 'basic-80',
@@ -809,12 +815,6 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
   if language in ['generic']:
     examiner = GenericCodeExaminer(code, comment)
 
-  if language in ['assembly']:
-    examiner = AssemblyGenericExaminer(code, tab_size)
-
-  if language in ['asm-6502']:
-    examiner = Assembly6502Examiner(code, tab_size)
-
   if language in ['ada-83']:
     examiner = AdaExaminer(code, '83')
 
@@ -826,6 +826,15 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
 
   if language in ['ada-2012', 'ada']:
     examiner = AdaExaminer(code, '2012')
+
+  if language in ['assembly']:
+    examiner = AssemblyGenericExaminer(code, tab_size)
+
+  if language in ['asm-6502']:
+    examiner = Assembly6502Examiner(code, tab_size)
+
+  if language in ['asm-6800']:
+    examiner = Assembly6800Examiner(code, tab_size)
 
   if language in ['awk']:
     examiner = AwkExaminer(code, '')
@@ -1031,12 +1040,6 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
   if 'generic' in languages:
     examiners['generic'] = GenericCodeExaminer(code, comment)
 
-  if 'assembly' in languages:
-    examiners['assembly'] = AssemblyGenericExaminer(code, tab_size)
-
-  if 'asm-6502' in languages:
-    examiners['asm-6502'] = Assembly6502Examiner(code, tab_size)
-
   if 'ada-83' in languages or 'ada' in languages:
     examiners['ada-83'] = AdaExaminer(code, '83')
 
@@ -1048,6 +1051,15 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
 
   if 'ada-2012' in languages or 'ada' in languages:
     examiners['ada-2012'] = AdaExaminer(code, '2012')
+
+  if 'assembly' in languages:
+    examiners['assembly'] = AssemblyGenericExaminer(code, tab_size)
+
+  if 'asm-6502' in languages:
+    examiners['asm-6502'] = Assembly6502Examiner(code, tab_size)
+
+  if 'asm-6800' in languages:
+    examiners['asm-6800'] = Assembly6800Examiner(code, tab_size)
 
   if 'awk' in languages:
     examiners['awk'] = AwkExaminer(code, '')

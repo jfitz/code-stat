@@ -33,7 +33,6 @@ test\bin\run_test.ps1 -json -name subroutine1-asm -action confidence -language a
 test\bin\run_test.ps1 -json -name subroutine2-asm -action confidence -language assembly -inputfile ".\test\data\ASM-360\subroutine2.asm" -expected ".\test\ref\confidence\Assembly\subroutine2.txt"
 test\bin\run_test.ps1 -json -name osint-asm -action confidence -language assembly -inputfile ".\test\data\ASM-360\osint.asm" -expected ".\test\ref\confidence\Assembly\osint.txt"
 test\bin\run_test.ps1 -json -name spitbol-asm -action confidence -language assembly -inputfile ".\test\data\ASM-360\spitbol.asm" -expected ".\test\ref\confidence\Assembly\spitbol.txt"
-test\bin\run_test.ps1 -json -name ET3400-S6-asm -action confidence -language assembly -inputfile ".\test\data\ASM-6800\ET3400-S6.asm" -expected ".\test\ref\confidence\Assembly\ET3400-S6.txt"
 test\bin\run_test.ps1 -json -name i8080core-asm -action confidence -language assembly -inputfile ".\test\data\ASM-8080\i8080core.asm" -expected ".\test\ref\confidence\Assembly\i8080core.txt"
 test\bin\run_test.ps1 -json -name microcosm-asm -action confidence -language assembly -inputfile ".\test\data\ASM-8080\microcosm.asm" -expected ".\test\ref\confidence\Assembly\microcosm.txt"
 test\bin\run_test.ps1 -json -name BISTRS-asm -action confidence -language assembly -inputfile ".\test\data\ASM-8086\BISTRS.asm" -expected ".\test\ref\confidence\Assembly\BISTRS.txt"
@@ -44,6 +43,9 @@ test\bin\run_test.ps1 -json -name NEXT86-asm -action confidence -language assemb
 
 # ASM 6502
 test\bin\run_test.ps1 -json -name sweet16-asm -action confidence -language asm-6502 -inputfile ".\test\data\ASM-6502\sweet16.asm" -expected ".\test\ref\confidence\ASM-6502\sweet16.txt"
+
+# ASM 6800
+test\bin\run_test.ps1 -json -name ET3400-S6-asm -action confidence -language asm-6800 -inputfile ".\test\data\ASM-6800\ET3400-S6.asm" -expected ".\test\ref\confidence\ASM-6800\ET3400-S6.txt"
 
 # Ada-83
 test\bin\run_test.ps1 -json -name adabkend-adb-83 -action confidence -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\confidence\Ada-83\adabkend-adb.txt"

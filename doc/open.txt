@@ -113,7 +113,7 @@ Python client (codestat_CLI.py)
 examiners
 + ? make a binary operator (not unary) at the beginning a line comment indicator
   (doesn't work for C, C++, C#, obj-c, Java, Pascal files which start with + or -)
-  (doesn't work for ruby files which start with regexes /)
+  (doesn't work for Perl, Ruby files which start with regexes /)
   ? apply in a second phase
 
 generic
@@ -129,10 +129,6 @@ generic ASM
 - operator =
 - newlines always important
 
-specific ASM
-- opcodes (list for processor)
-- 8086 has multi mnemonic opcodes such as REPNZ SCAS BYTE PTR ES:[EDI]
-
 ASM-PDP-8
 - label terminate ,
 - line comment /
@@ -140,11 +136,45 @@ ASM-PDP-8
 - line terminator ; (allow multiple instructions per line)
 - end of code $
 - second field may be an octal number or an identifier (with or without label)
+- opcodes
+'AND', 'TAD', 'ISZ', 'DCA', 'JMS', 'JMP',
+'CDF', 'CIF', 'RDF', 'RIF', 'RIB', 'RMF',
+'CLA', 'CLL', 'CMA', 'CML', 'IAC', 'RAR', 'RAL', 'RTR', 'RTL', 'BSW',
+'SMA', 'SZA', 'SNL', 'SPA', 'SNA', 'SZL', 'OSR', 'HLT', 'MQA', 'MQL',
+'SEL', 'LCD', 'XDR', 'STR', 'SER', 'SDN', 'INTR', 'INIT',
+'DILC', 'DICD', 'DISD', 'DILX', 'DILY', DIXY', 'DILE', 'DIRE',
+'RCSF', 'RCRA', 'RCRB', 'RCNO', 'RCRC', 'RCNI', 'RCSD', 'RCSE', 'RCRD', 'RCSI', 'RCTF',
+'RPE', RSF', 'RRB', 'RFC', 'PCE', 'PSF', 'PCF', 'PPC', 'PLS',
+'KCF', 'KSF', 'KCC', 'KRS', 'KIE', 'KRB', 'TFL', 'TSF', 'TCF', 'TPC', 'TSK', 'TLS'
+
 
 ASM-PDP-11
 - label terminate :
 - space in args
 - opcodes
+'CLR', 'CLRB', 'COM', 'COMB', 'INC', 'INCB', 'DEC', 'DECB', 'NEG', 'NEGB',
+'NOP', 'TST', 'TSTB', 'TSTSET', 'WRTLCK', 'ASR', 'ASRB', 'ASL', 'ASLB',
+'ROR', 'RORB', 'ROL', 'ROLB', 'SWAB', 'ADC', 'ADCB', 'SBC', 'SBCB', 'SXT',
+'MOV', 'MOVB', 'ADD', 'SUB', 'CMP', 'CMPB', 'ASH', 'ASHC',
+'MUL', 'DIV', 'BIT', 'BITB', 'BIC', 'BICB', 'BIS', 'BISB',
+'XOR', 'CLR', 'CLRB', 'BR', 'BNE', 'BPL', 'BEQ', 'BMI', 'BVC',
+'BVS', 'BCC', 'BCS', 'BGE', 'BLT', 'BGT', 'BLE', 'SOB', 'BHI',
+'BLOS', 'BHIS', 'BLO',
+'JMP', 'JSR', 'RTS', 'MARK', 'EMT', 'TRAP', 'BPT', 'IOT', 'CSM',
+'RTI', 'RTT', 'HALT', 'WAIT', 'RESET',
+'MTPD', 'MTPI', 'MFPD', 'MTPS', 'MFPS', 'MFPT',
+'CLC', 'CLV', 'CLZ', 'CLN', 'CCC', 'SEC', 'SEV', 'SEZ', 'SEN', 'SCC',
+'FADD', 'FSUB', 'FMUL', 'FDIV',
+'DIV', 'MUL'
+- directives
+'.odd', '.even', '.blkb', '.blkw', '.byte', '.word', '.ascii', '.end', '.hex'
+'.radix'
+- operators + - * / & | # @
+- unary @ # + -
+- postfix +
+- group < > ( )
+- numbers 10d 10. 1010b 10^O 10^D 10^B
+- value .
 
 ASM-360
 - single quote (part of '&)
@@ -311,22 +341,7 @@ ASM-6502
 
 ASM-6800
 - registers A B X PC SP SR
-- opcodes
-  'ABA', 'ADC', 'ADD', 'AND', 'ASL', 'ASR',
-  'BCC', 'BCS', 'BEQ', 'BGE', 'BGT', 'BHI', 'BIT', 'BLE', 'BLS', 'BLT', 'BMI', 'BNE', 'BPL', 'BRA', 'BSR', 'BVC', 'BVS',
-  'CBA', 'CLC', 'CLI', 'CLR', 'CLV', 'CMP', 'COM', 'CPX',
-  'DAA', 'DEC', 'DES', 'DEX',
-  'EOR',
-  'INC', 'INS', 'INX',
-  'JMP', 'JSR',
-  'LDA', 'LDS', 'LDX', 'LSR',
-  'NEG', 'NOP',
-  'ORA',
-  'PSH', 'PUL',
-  'ROL', 'ROR', 'RTI', 'RTS',
-  'SBA', 'SBC', 'SEC', 'SEI', 'SEV', 'STA', 'STS', 'STX', 'SUB', 'SWI',
-  'TAB', 'TAP', 'TBA', 'TPA', 'TST', 'TSX', 'TXS',
-  'WAI',
+- < and > unary operators
 
 ASM-8080
 - registers A, B, C, D, E, H, L, PSW, F
@@ -346,6 +361,18 @@ ASM-8080
   'RAL', 'RAR', 'RC', 'RIM', 'RLC', 'RET', 'RM', 'RNC', 'RNZ', 'RP', 'RPE', 'RPO', 'RRC', 'RST', 'RZ	',
   'SBB', 'SBI', 'SHLD', 'SIM', 'SPHL', 'STA', 'STC', 'STAX', 'SUB', 'SUI',
   'XCHG', 'XRA', 'XRI', 'XTHL',
+
+ASM-Z-80
+- registers A B C D E H L AF BC DE HL IX IY
+- opcodes
+'ADC', 'ADD', 'AND', 'BIT', 'CALL', 'CCF', 'CP', 'CPD', 'CPDR',
+'CPI', 'CPIR', 'CPL', 'DAA', 'DEC', 'DI', 'DJNZ', 'EI', 'EX',
+'EXX', 'HALT', 'IM', 'IN', 'INC', 'IND', 'INDR', 'INI', 'INIR',
+'JP', 'JR', 'LD', 'LDD', 'LDDR', 'LDI', 'LDIR', 'NEG', 'NOP',
+'OR', 'OTDR', 'OTIR', 'OUT', 'OUTD', 'OUTI', 'POP', 'PUSH',
+'RES', 'RET', 'RETI', 'RETN', 'RL', 'RLA', 'RLC', 'RLCA', 'RLD',
+'RR', 'RRA', 'RRC', 'RRCA', 'RRD', 'RST', 'SBC', 'SCF', 'SET',
+'SLA', 'SRA', 'SRL', 'SUB', 'XOR'
 
 ASM-8086 (16-bit, not x86)
 - registers
