@@ -47,6 +47,10 @@ test\bin\run_test.ps1 -json -name sweet16-asm -action statistics -language asm-6
 # ASM 6800
 test\bin\run_test.ps1 -json -name ET3400-S6-asm -action statistics -language asm-6800 -inputfile ".\test\data\ASM-6800\ET3400-S6.asm" -expected ".\test\ref\statistics\ASM-6800\ET3400-S6.txt"
 
+# ASM 8080
+test\bin\run_test.ps1 -json -name i8080core-asm -action statistics -language asm-8080 -inputfile ".\test\data\ASM-8080\i8080core.asm" -expected ".\test\ref\statistics\ASM-8080\i8080core.txt"
+test\bin\run_test.ps1 -json -name microcosm-asm -action statistics -language asm-8080 -inputfile ".\test\data\ASM-8080\microcosm.asm" -expected ".\test\ref\statistics\ASM-8080\microcosm.txt"
+
 # Ada-83
 test\bin\run_test.ps1 -json -name adabkend-adb-83 -action statistics -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\statistics\Ada-83\adabkend-adb.txt"
 test\bin\run_test.ps1 -json -name adabkend-ads-83 -action statistics -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.ads" -expected ".\test\ref\statistics\Ada-83\adabkend-ads.txt"

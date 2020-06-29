@@ -33,8 +33,6 @@ test\bin\run_test.ps1 -json -name subroutine1-asm -action tokens -language assem
 test\bin\run_test.ps1 -json -name subroutine2-asm -action tokens -language assembly -inputfile ".\test\data\ASM-360\subroutine2.asm" -expected ".\test\ref\tokens\Assembly\subroutine2.txt"
 test\bin\run_test.ps1 -json -name osint-asm -action tokens -language assembly -inputfile ".\test\data\ASM-360\osint.asm" -expected ".\test\ref\tokens\Assembly\osint.txt"
 test\bin\run_test.ps1 -json -name spitbol-asm -action tokens -language assembly -inputfile ".\test\data\ASM-360\spitbol.asm" -expected ".\test\ref\tokens\Assembly\spitbol.txt"
-test\bin\run_test.ps1 -json -name i8080core-asm -action tokens -language assembly -inputfile ".\test\data\ASM-8080\i8080core.asm" -expected ".\test\ref\tokens\Assembly\i8080core.txt"
-test\bin\run_test.ps1 -json -name microcosm-asm -action tokens -language assembly -inputfile ".\test\data\ASM-8080\microcosm.asm" -expected ".\test\ref\tokens\Assembly\microcosm.txt"
 test\bin\run_test.ps1 -json -name BISTRS-asm -action tokens -language assembly -inputfile ".\test\data\ASM-8086\BISTRS.asm" -expected ".\test\ref\tokens\Assembly\BISTRS.txt"
 test\bin\run_test.ps1 -json -name DSKCOM-asm -action tokens -language assembly -inputfile ".\test\data\ASM-8086\DSKCOM.asm" -expected ".\test\ref\tokens\Assembly\DSKCOM.txt"
 test\bin\run_test.ps1 -json -name FIVEO-asm -action tokens -language assembly -inputfile ".\test\data\ASM-8086\FIVEO.asm" -expected ".\test\ref\tokens\Assembly\FIVEO.txt"
@@ -45,7 +43,11 @@ test\bin\run_test.ps1 -json -name NEXT86-asm -action tokens -language assembly -
 test\bin\run_test.ps1 -json -name sweet16-asm -action tokens -language asm-6502 -inputfile ".\test\data\ASM-6502\sweet16.asm" -expected ".\test\ref\tokens\ASM-6502\sweet16.txt"
 
 # ASM 6800
-test\bin\run_test.ps1 -json -name ET3400-S6-asm -action tokens -language asm-6800 -inputfile ".\test\data\ASM-6800\ET3400-S6.asm" -expected ".\test\ref\tokens\ASM-6800\ET3400-S6.txt"
+test\bin\run_test.ps1 -json -name ET3400-S6-asm -action tokens -language assembly -inputfile ".\test\data\ASM-6800\ET3400-S6.asm" -expected ".\test\ref\tokens\ASM-6800\ET3400-S6.txt"
+
+# ASM 8080
+test\bin\run_test.ps1 -json -name i8080core-asm -action tokens -language asm-8080 -inputfile ".\test\data\ASM-8080\i8080core.asm" -expected ".\test\ref\tokens\ASM-8080\i8080core.txt"
+test\bin\run_test.ps1 -json -name microcosm-asm -action tokens -language asm-8080 -inputfile ".\test\data\ASM-8080\microcosm.asm" -expected ".\test\ref\tokens\ASM-8080\microcosm.txt"
 
 # Ada-83
 test\bin\run_test.ps1 -json -name adabkend-adb-83 -action tokens -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\tokens\Ada-83\adabkend-adb.txt"

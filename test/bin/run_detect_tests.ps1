@@ -19,6 +19,10 @@ test\bin\run_detect_test.ps1 -json -name sweet16-asm -inputfile ".\test\data\ASM
 # ASM 6800
 test\bin\run_detect_test.ps1 -json -name ET3400-S6-asm -inputfile ".\test\data\ASM-6800\ET3400-S6.asm" -expected ".\test\ref\detect\ASM-6800\ET3400-S6.txt"
 
+# ASM 8080
+test\bin\run_detect_test.ps1 -json -name i8080core-asm -inputfile ".\test\data\ASM-8080\i8080core.asm" -expected ".\test\ref\detect\ASM-8080\i8080core.txt"
+test\bin\run_detect_test.ps1 -json -name microcosm-asm -inputfile ".\test\data\ASM-8080\microcosm.asm" -expected ".\test\ref\detect\ASM-8080\microcosm.txt"
+
 # Ada-83
 test\bin\run_detect_test.ps1 -json -name adabkend-adb -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\detect\Ada-83\adabkend-adb.txt"
 test\bin\run_detect_test.ps1 -json -name adabkend-ads -inputfile ".\test\data\Ada-83\adabkend.ads" -expected ".\test\ref\detect\Ada-83\adabkend-ads.txt"
@@ -397,7 +401,6 @@ test\bin\run_detect_test.ps1 -json -name polyglot-py-rb-languages -notiebreak -l
 test\bin\run_detect_test.ps1 -json -name noncode-empty -inputfile ".\test\data\noncode\empty.txt" -expected ".\test\ref\detect\noncode\empty.txt"
 test\bin\run_detect_test.ps1 -json -name noncode-whitespace -inputfile ".\test\data\noncode\whitespace.txt" -expected ".\test\ref\detect\noncode\whitespace.txt"
 test\bin\run_detect_test.ps1 -json -name noncode-win-ini -inputfile ".\test\data\noncode\win.ini" -expected ".\test\ref\detect\noncode\win.txt"
-test\bin\run_detect_test.ps1 -json -name noncode-iis -inputfile ".\test\data\noncode\iis.log" -expected ".\test\ref\detect\noncode\iis.txt"
 test\bin\run_detect_test.ps1 -json -name noncode-setutc -inputfile ".\test\data\noncode\setutc.reg" -expected ".\test\ref\detect\noncode\setutc.txt"
 test\bin\run_detect_test.ps1 -json -name noncode-diagwrn -inputfile ".\test\data\noncode\diagwrn.xml" -expected ".\test\ref\detect\noncode\diagwrn.txt"
 test\bin\run_detect_test.ps1 -json -name noncode-profile-xlsx -inputfile ".\test\data\noncode\profile.xlsx" -expected ".\test\ref\detect\noncode\profile.txt"

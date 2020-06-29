@@ -10,6 +10,7 @@ from generic_code_examiner import GenericCodeExaminer
 from assembly_generic_examiner import AssemblyGenericExaminer
 from assembly_6502_examiner import Assembly6502Examiner
 from assembly_6800_examiner import Assembly6800Examiner
+from assembly_8080_examiner import Assembly8080Examiner
 from ada_examiner import AdaExaminer
 from awk_examiner import AwkExaminer
 from basic_examiner import BasicExaminer
@@ -59,6 +60,7 @@ GenericCodeExaminer.__escape_z__()
 AssemblyGenericExaminer.__escape_z__()
 Assembly6502Examiner.__escape_z__()
 Assembly6800Examiner.__escape_z__()
+Assembly8080Examiner.__escape_z__()
 AdaExaminer.__escape_z__()
 AwkExaminer.__escape_z__()
 BasicExaminer.__escape_z__()
@@ -217,6 +219,7 @@ codes_and_names = {
   'assembly': 'Assembly',
   'asm-6502': 'ASM-6502',
   'asm-6800': 'ASM-6800',
+  'asm-8080': 'ASM-8080',
   'awk': 'Awk',
   'basic': 'BASIC',
   'basica': 'BASICA',
@@ -292,6 +295,7 @@ codes_and_groups = {
   'assembly': 'Assembly',
   'asm-6502': 'Assembly',
   'asm-6800': 'Assembly',
+  'asm-8080': 'Assembly',
   'awk': 'Awk',
   'basic': 'BASIC',
   'basica': 'BASIC',
@@ -367,6 +371,7 @@ codes_and_years = {
   'assembly': 1952,
   'asm-6502': 1977,
   'asm-6800': 1978,
+  'asm-8080': 1975,
   'awk': 1977,
   'basic': 1965,
   'basica': 1982,
@@ -441,6 +446,7 @@ simpler_languages = {
   'assembly': None,
   'asm-6502': None,
   'asm-6800': None,
+  'asm-8080': None,
   'awk': None,
   'basic': None,
   'basica': 'basic-80',
@@ -836,6 +842,9 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
   if language in ['asm-6800']:
     examiner = Assembly6800Examiner(code, tab_size)
 
+  if language in ['asm-8080']:
+    examiner = Assembly8080Examiner(code, tab_size)
+
   if language in ['awk']:
     examiner = AwkExaminer(code, '')
 
@@ -1060,6 +1069,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
 
   if 'asm-6800' in languages:
     examiners['asm-6800'] = Assembly6800Examiner(code, tab_size)
+
+  if 'asm-8080' in languages:
+    examiners['asm-8080'] = Assembly8080Examiner(code, tab_size)
 
   if 'awk' in languages:
     examiners['awk'] = AwkExaminer(code, '')
