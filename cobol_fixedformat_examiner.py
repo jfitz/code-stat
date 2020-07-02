@@ -257,29 +257,34 @@ class CobolFixedFormatExaminer(CobolExaminer):
     self.convert_numbers_to_pictures()
     self.convert_numbers_to_levels()
 
-    expected_keyword_confidence = self.check_expected_keywords()
+    self.calc_statistics()
 
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()
-    self.calc_operator_confidence()
 
-    allow_pairs = []
+    num_operators = self.count_my_tokens(['operator'])
+    if num_operators > 0:
+      self.calc_operator_confidence()
+      allow_pairs = []
+      self.calc_operator_2_confidence(tokens, allow_pairs)
+      # self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+      self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
 
-    self.calc_operator_2_confidence(tokens, allow_pairs)
-    # self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
+
     # self.calc_operand_n_confidence(tokens, operand_types, 2)
     # self.calc_operand_n_confidence(tokens, operand_types, 4)
+
     self.calc_keyword_confidence()
+
     self.calc_picture_confidence()
     if not wide:
       self.calc_line_length_confidence(code, 80)
+    expected_keyword_confidence = self.check_expected_keywords()
     self.confidences['expected_keywords'] = expected_keyword_confidence
-    self.calc_statistics()
 
 
   def tokenize_line_number(self, line_number):

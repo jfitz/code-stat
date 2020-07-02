@@ -194,26 +194,32 @@ class AdaExaminer(Examiner):
     self.convert_then_to_operator()
     self.convert_else_to_operator()
 
+    self.calc_statistics()
+
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()
-    self.calc_operator_confidence()
 
-    allow_pairs = [
-      ['and', 'then'],
-      ['or', 'else']
-    ]
+    num_operators = self.count_my_tokens(['operator'])
+    if num_operators > 0:
+      self.calc_operator_confidence()
+      allow_pairs = [
+        ['and', 'then'],
+        ['or', 'else']
+      ]
+      self.calc_operator_2_confidence(tokens, allow_pairs)
+      self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+      self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
 
-    self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
+
     self.calc_operand_n_confidence(tokens, operand_types, 2)
+
     self.calc_keyword_confidence()
+
     # self.calc_paired_blockers_confidence(['{'], ['}'])
-    self.calc_statistics()
 
 
   # convert keywords after '.' or "'" to identifiers

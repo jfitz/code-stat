@@ -43,7 +43,7 @@ test\bin\run_test.ps1 -json -name NEXT86-asm -action tokens -language assembly -
 test\bin\run_test.ps1 -json -name sweet16-asm -action tokens -language asm-6502 -inputfile ".\test\data\ASM-6502\sweet16.asm" -expected ".\test\ref\tokens\ASM-6502\sweet16.txt"
 
 # ASM 6800
-test\bin\run_test.ps1 -json -name ET3400-S6-asm -action tokens -language assembly -inputfile ".\test\data\ASM-6800\ET3400-S6.asm" -expected ".\test\ref\tokens\ASM-6800\ET3400-S6.txt"
+test\bin\run_test.ps1 -json -name ET3400-S6-asm -action tokens -language asm-6800 -inputfile ".\test\data\ASM-6800\ET3400-S6.asm" -expected ".\test\ref\tokens\ASM-6800\ET3400-S6.txt"
 
 # ASM 8080
 test\bin\run_test.ps1 -json -name i8080core-asm -action tokens -language asm-8080 -inputfile ".\test\data\ASM-8080\i8080core.asm" -expected ".\test\ref\tokens\ASM-8080\i8080core.txt"

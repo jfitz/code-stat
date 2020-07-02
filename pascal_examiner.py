@@ -173,25 +173,31 @@ class PascalExaminer(Examiner):
     self.convert_identifiers_to_labels()
     self.convert_identifiers_to_labels_2()
 
+    self.calc_statistics()
+
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()
-    self.calc_operator_confidence()
 
-    allow_pairs = []
+    num_operators = self.count_my_tokens(['operator'])
+    if num_operators > 0:
+      self.calc_operator_confidence()
+      allow_pairs = []
+      self.calc_operator_2_confidence(tokens, allow_pairs)
+      self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+      self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
 
-    self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
+
     operand_types_2 = ['number', 'string', 'identifier', 'variable']
     self.calc_operand_n_confidence(tokens, operand_types_2, 2)
     self.calc_operand_n_confidence(tokens, operand_types, 4)
+
     self.calc_keyword_confidence()
+
     self.calc_paired_blockers_confidence(['begin', 'record', 'case'], ['end'])
-    self.calc_statistics()
 
 
   # convert identifiers after 'label' and before ';' to labels

@@ -146,24 +146,33 @@ class Assembly6502Examiner(Examiner):
     self.tokens = tokens
     self.convert_identifiers_to_labels()
 
+    self.calc_statistics()
+
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
 
     self.calc_token_confidence()
     self.calc_token_2_confidence([])
-    self.calc_operator_confidence()
-    allow_pairs = []
-    self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
+
+    num_operators = self.count_my_tokens(['operator'])
+    if num_operators > 0:
+      self.calc_operator_confidence()
+      allow_pairs = []
+      self.calc_operator_2_confidence(tokens, allow_pairs)
+      self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+      self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
+
     self.calc_group_confidence(tokens, group_mids)
+
     operand_types_2 = ['number']
     self.calc_operand_n_confidence(tokens, operand_types_2, 2)
     self.calc_operand_n_confidence(tokens, operand_types, 4)
     self.calc_opcode_confidence(opcodes)
+
     # self.calc_paired_blockers_confidence(['{'], ['}'])
-    self.calc_statistics()
     self.calc_indent_confidence(indents)
+
+
   # combine numbers followed by identfiers to identifiers
   @staticmethod
   def combine_number_and_adjacent_identifier(tokens):
@@ -205,7 +214,10 @@ class Assembly6502Examiner(Examiner):
       if indent > highest:
         highest = indent
 
-    confidence = highest / total
+    if total > 0:
+      confidence = highest / total
+    else:
+      confidence = 0.0
     
     self.confidences['opcode_indent'] = confidence
 

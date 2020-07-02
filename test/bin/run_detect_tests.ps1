@@ -5,8 +5,6 @@ test\bin\run_detect_test.ps1 -json -name subroutine1-asm -inputfile ".\test\data
 test\bin\run_detect_test.ps1 -json -name subroutine2-asm -inputfile ".\test\data\ASM-360\subroutine2.asm" -expected ".\test\ref\detect\Assembly\subroutine2.txt"
 test\bin\run_detect_test.ps1 -json -name osint-asm -inputfile ".\test\data\ASM-360\osint.asm" -expected ".\test\ref\detect\Assembly\osint.txt"
 test\bin\run_detect_test.ps1 -json -name spitbol-asm -inputfile ".\test\data\ASM-360\spitbol.asm" -expected ".\test\ref\detect\Assembly\spitbol.txt"
-test\bin\run_detect_test.ps1 -json -name i8080core-asm -inputfile ".\test\data\ASM-8080\i8080core.asm" -expected ".\test\ref\detect\Assembly\i8080core.txt"
-test\bin\run_detect_test.ps1 -json -name microcosm-asm -inputfile ".\test\data\ASM-8080\microcosm.asm" -expected ".\test\ref\detect\Assembly\microcosm.txt"
 test\bin\run_detect_test.ps1 -json -name BISTRS-asm -inputfile ".\test\data\ASM-8086\BISTRS.asm" -expected ".\test\ref\detect\Assembly\BISTRS.txt"
 test\bin\run_detect_test.ps1 -json -name DSKCOM-asm -inputfile ".\test\data\ASM-8086\DSKCOM.asm" -expected ".\test\ref\detect\Assembly\DSKCOM.txt"
 test\bin\run_detect_test.ps1 -json -name FIVEO-asm -inputfile ".\test\data\ASM-8086\FIVEO.asm" -expected ".\test\ref\detect\Assembly\FIVEO.txt"

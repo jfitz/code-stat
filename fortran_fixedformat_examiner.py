@@ -160,25 +160,31 @@ class FortranFixedFormatExaminer(FortranExaminer):
     self.convert_numbers_to_lineNumbers()
     self.convert_stars_to_io_channels()
 
+    self.calc_statistics()
+
     tokens = self.source_tokens()
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()
-    self.calc_operator_confidence()
 
-    allow_pairs = []
+    num_operators = self.count_my_tokens(['operator'])
+    if num_operators > 0:
+      self.calc_operator_confidence()
+      allow_pairs = []
+      self.calc_operator_2_confidence(tokens, allow_pairs)
+      # self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+      # self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
 
-    self.calc_operator_2_confidence(tokens, allow_pairs)
-    # self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
-    # self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
+
     operand_types_2 = ['number', 'string', 'identifier', 'variable', 'symbol']
     self.calc_operand_n_confidence(tokens, operand_types_2, 2)
     self.calc_operand_n_confidence(tokens, operand_types, 4)
+
     self.calc_keyword_confidence()
+
     if not wide:
       self.calc_line_length_confidence(code, 80)
-    self.calc_statistics()
 
 
   def unwrapped_code(self, lines):

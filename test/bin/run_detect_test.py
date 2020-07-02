@@ -16,8 +16,9 @@ def make_confidences(code, params, languages):
     url = "http://" + target + "/" + "confidence" + "?" + paramstext
     resp = requests.post(url, data=code)
     content = resp.content
-    confidence = json.loads(content)
-    confidences[language] = confidence
+    if len(content) > 0:
+      confidence = json.loads(content)
+      confidences[language] = confidence
 
   return confidences
 

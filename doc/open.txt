@@ -341,7 +341,7 @@ ASM-6502
 
 ASM-6800
 - registers A B X PC SP SR
-- < and > unary operators
+- directive should include all tokens on line
 
 ASM-8080
 
@@ -458,12 +458,14 @@ CBASIC
 + colon as part of GRAPHIC PRINT statement
 
 COBOL fixed-format
+- empty file has too high confidence
 + tokenize EXEC block
 + unclosed quoted strings on continuation extend to column 72
 + extensions: https://www.ibm.com/support/knowledgecenter/SS6SGM_5.1.0/com.ibm.cobol51.aix.doc/PGandLR/ref/rlext.html
 + 'ON' is a value, a keyword after 'OCCURS DEPENDING', 'SORT file', 'IS id'
 - expected keyword confidence assigns value
 - paragraph name is a single identifier followed by period
+
 
 COBOL free-format
 - P010-wide fails detect
@@ -520,6 +522,7 @@ Delphi
 Eiffel
 
 Fortran
+- empty file has too high confidence
 + embedded SQL (EXEC newline)
 + tokenize EXEC block
 - -66 HELLO detects as SQL (SQL keywords in FTN comment)
@@ -582,6 +585,7 @@ Perl 5
 - qr// regex
 
 PL/I
+- empty file has too high confidence
 + Embedded SQL (EXEC ;)
 + tokenize EXEC block
 ? 'example' has issues (plain text in source)
@@ -654,6 +658,7 @@ PL/M
 [BYTESWAP TESTREGISTER INVALIDATEDATACACHE WBINVALIDATEDATACACHE INVALIDATETLBENTRY]
 
 Prolog
+- empty file has too high confidence
 
 Python
 + detab code

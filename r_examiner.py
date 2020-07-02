@@ -141,8 +141,9 @@ class RExaminer(Examiner):
     tokens = tokenizer.tokenize(code)
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
-
     self.convert_keywords_to_identifiers(['<-', '.', '='])
+
+    self.calc_statistics()
 
     tokens = self.source_tokens()
     tokens = Examiner.join_parens_continued_lines(tokens)
@@ -150,16 +151,19 @@ class RExaminer(Examiner):
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()
-    self.calc_operator_confidence()
 
-    allow_pairs = []
+    num_operators = self.count_my_tokens(['operator'])
+    if num_operators > 0:
+      self.calc_operator_confidence()
+      allow_pairs = []
+      self.calc_operator_2_confidence(tokens, allow_pairs)
+      self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+      self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
 
-    self.calc_operator_2_confidence(tokens, allow_pairs)
-    self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
-    self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
     self.calc_group_confidence(tokens, group_mids)
+
     operand_types_2 = ['number', 'string', 'identifier', 'variable', 'symbol']
     self.calc_operand_n_confidence(tokens, operand_types_2, 2)
     self.calc_operand_n_confidence(tokens, operand_types, 4)
+
     self.calc_keyword_confidence()
-    self.calc_statistics()

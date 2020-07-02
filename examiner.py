@@ -251,7 +251,7 @@ class Examiner:
         })
 
 
-    line_length_confidence = 1.0
+    line_length_confidence = 0.0
     if len(lines) > 0:
       line_length_confidence = num_ok_lines / len(lines)
 
@@ -273,7 +273,7 @@ class Examiner:
           'SECOND': ''
         })
 
-    token_confidence = 1.0
+    token_confidence = 0.0
 
     if len(self.tokens) > 0:
       num_known_tokens = len(self.tokens) - num_invalid_tokens
@@ -326,7 +326,7 @@ class Examiner:
         'SECOND': ''
       })
 
-    operator_confidence = 1.0
+    operator_confidence = 0.0
 
     if num_operators > 0:
       operator_confidence = num_known_operators / num_operators
@@ -340,7 +340,7 @@ class Examiner:
     num_known_operators = Examiner.count_tokens(tokens, ['operator'])
     num_operators = num_known_operators + num_invalid_operators
 
-    operator_confidence_2 = 1.0
+    operator_confidence_2 = 0.0
 
     if num_operators > 0:
       errors = 0
@@ -377,7 +377,7 @@ class Examiner:
     num_known_operators = Examiner.count_tokens(tokens, ['operator'])
     num_operators = num_known_operators + num_invalid_operators
 
-    operator_confidence_3 = 1.0
+    operator_confidence_3 = 0.0
 
     if num_operators > 0:
       errors = 0
@@ -419,7 +419,7 @@ class Examiner:
     num_known_operators = Examiner.count_tokens(tokens, ['operator'])
     num_operators = num_known_operators + num_invalid_operators
 
-    operator_confidence_4 = 1.0
+    operator_confidence_4 = 0.0
 
     if num_operators > 0:
       errors = 0
@@ -585,6 +585,7 @@ class Examiner:
       prev_token = token
 
     operand_confidence = 1.0
+
     if len(tokens) > 0:
       operand_confidence = 1.0 - (n_operand_count / len(tokens))
 
@@ -615,6 +616,7 @@ class Examiner:
       prev_token = token
 
     value_value_confidence = 1.0
+
     if len(tokens) > 0:
       value_value_confidence = 1.0 - (two_value_count / len(tokens))
 
