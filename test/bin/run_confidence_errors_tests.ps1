@@ -49,6 +49,11 @@ test\bin\run_test.ps1 -json -name ET3400-S6-asm -action confidence -errors -lang
 test\bin\run_test.ps1 -json -name i8080core-asm -action confidence -errors -language asm-8080 -inputfile ".\test\data\ASM-8080\i8080core.asm" -expected ".\test\ref\confidence-errors\ASM-8080\i8080core.txt"
 test\bin\run_test.ps1 -json -name microcosm-asm -action confidence -errors -language asm-8080 -inputfile ".\test\data\ASM-8080\microcosm.asm" -expected ".\test\ref\confidence-errors\ASM-8080\microcosm.txt"
 
+# ASM Z-80
+test\bin\run_test.ps1 -json -name intro-asm -action confidence -errors -language asm-z-80 -inputfile ".\test\data\ASM-Z-80\intro.asm" -expected ".\test\ref\confidence-errors\ASM-Z-80\intro.txt"
+test\bin\run_test.ps1 -json -name hardmess-asm -action confidence -errors -language asm-z-80 -inputfile ".\test\data\ASM-Z-80\hardmess.asm" -expected ".\test\ref\confidence-errors\ASM-Z-80\hardmess.txt"
+test\bin\run_test.ps1 -json -name shftspr-asm -action confidence -errors -language asm-z-80 -inputfile ".\test\data\ASM-Z-80\shftspr.asm" -expected ".\test\ref\confidence-errors\ASM-Z-80\shftspr.txt"
+
 # Ada-83
 test\bin\run_test.ps1 -json -name adabkend-adb-83 -action confidence -errors -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\confidence-errors\Ada-83\adabkend-adb.txt"
 test\bin\run_test.ps1 -json -name adabkend-ads-83 -action confidence -errors -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.ads" -expected ".\test\ref\confidence-errors\Ada-83\adabkend-ads.txt"

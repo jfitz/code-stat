@@ -11,6 +11,7 @@ from assembly_generic_examiner import AssemblyGenericExaminer
 from assembly_6502_examiner import Assembly6502Examiner
 from assembly_6800_examiner import Assembly6800Examiner
 from assembly_8080_examiner import Assembly8080Examiner
+from assembly_z_80_examiner import AssemblyZ80Examiner
 from ada_examiner import AdaExaminer
 from awk_examiner import AwkExaminer
 from basic_examiner import BasicExaminer
@@ -220,6 +221,7 @@ codes_and_names = {
   'asm-6502': 'ASM-6502',
   'asm-6800': 'ASM-6800',
   'asm-8080': 'ASM-8080',
+  'asm-z-80': 'ASM-Z-80',
   'awk': 'Awk',
   'basic': 'BASIC',
   'basica': 'BASICA',
@@ -296,6 +298,7 @@ codes_and_groups = {
   'asm-6502': 'Assembly',
   'asm-6800': 'Assembly',
   'asm-8080': 'Assembly',
+  'asm-z-80': 'Assembly',
   'awk': 'Awk',
   'basic': 'BASIC',
   'basica': 'BASIC',
@@ -372,6 +375,7 @@ codes_and_years = {
   'asm-6502': 1977,
   'asm-6800': 1978,
   'asm-8080': 1975,
+  'asm-z-80': 1976,
   'awk': 1977,
   'basic': 1965,
   'basica': 1982,
@@ -447,6 +451,7 @@ simpler_languages = {
   'asm-6502': None,
   'asm-6800': None,
   'asm-8080': None,
+  'asm-z-80': None,
   'awk': None,
   'basic': None,
   'basica': 'basic-80',
@@ -845,6 +850,9 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
   if language in ['asm-8080']:
     examiner = Assembly8080Examiner(code, tab_size)
 
+  if language in ['asm-z-80']:
+    examiner = AssemblyZ80Examiner(code, tab_size)
+
   if language in ['awk']:
     examiner = AwkExaminer(code, '')
 
@@ -1072,6 +1080,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
 
   if 'asm-8080' in languages:
     examiners['asm-8080'] = Assembly8080Examiner(code, tab_size)
+
+  if 'asm-z-80' in languages:
+    examiners['asm-z-80'] = AssemblyZ80Examiner(code, tab_size)
 
   if 'awk' in languages:
     examiners['awk'] = AwkExaminer(code, '')

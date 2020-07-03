@@ -21,6 +21,11 @@ test\bin\run_detect_test.ps1 -json -name ET3400-S6-asm -inputfile ".\test\data\A
 test\bin\run_detect_test.ps1 -json -name i8080core-asm -inputfile ".\test\data\ASM-8080\i8080core.asm" -expected ".\test\ref\detect\ASM-8080\i8080core.txt"
 test\bin\run_detect_test.ps1 -json -name microcosm-asm -inputfile ".\test\data\ASM-8080\microcosm.asm" -expected ".\test\ref\detect\ASM-8080\microcosm.txt"
 
+# ASM Z-80
+test\bin\run_detect_test.ps1 -json -name intro-asm -inputfile ".\test\data\ASM-Z-80\intro.asm" -expected ".\test\ref\detect\ASM-Z-80\intro.txt"
+test\bin\run_detect_test.ps1 -json -name hardmess-asm -inputfile ".\test\data\ASM-Z-80\hardmess.asm" -expected ".\test\ref\detect\ASM-Z-80\hardmess.txt"
+test\bin\run_detect_test.ps1 -json -name shftspr-asm -inputfile ".\test\data\ASM-Z-80\shftspr.asm" -expected ".\test\ref\detect\ASM-Z-80\shftspr.txt"
+
 # Ada-83
 test\bin\run_detect_test.ps1 -json -name adabkend-adb -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\detect\Ada-83\adabkend-adb.txt"
 test\bin\run_detect_test.ps1 -json -name adabkend-ads -inputfile ".\test\data\Ada-83\adabkend.ads" -expected ".\test\ref\detect\Ada-83\adabkend-ads.txt"
@@ -50,8 +55,8 @@ test\bin\run_detect_test.ps1 -json -name planes-mbasic -inputfile ".\test\data\B
 
 # BASICA
 test\bin\run_detect_test.ps1 -json -name sea-creature-basica -inputfile ".\test\data\BASIC\sea_creature.bas" -expected ".\test\ref\detect\BASICA\sea_creature.txt"
-test\bin\run_detect_test.ps1 -json -name lanturn-basica -action confidence -inputfile ".\test\data\BASIC\lanturn.bas" -expected ".\test\ref\detect\BASICA\lanturn.txt"
-test\bin\run_detect_test.ps1 -json -name gw3d-basica -action confidence -inputfile ".\test\data\BASIC\GW3D.bas" -expected ".\test\ref\detect\BASICA\GW3D.txt"
+test\bin\run_detect_test.ps1 -json -name lanturn-basica -inputfile ".\test\data\BASIC\lanturn.bas" -expected ".\test\ref\detect\BASICA\lanturn.txt"
+test\bin\run_detect_test.ps1 -json -name gw3d-basica -inputfile ".\test\data\BASIC\GW3D.bas" -expected ".\test\ref\detect\BASICA\GW3D.txt"
 
 # C-78
 test\bin\run_detect_test.ps1 -json -name diamond-c-78 -inputfile ".\test\data\C-78\diamond.c" -expected ".\test\ref\detect\C-78\diamond.txt"

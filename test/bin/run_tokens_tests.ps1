@@ -49,6 +49,11 @@ test\bin\run_test.ps1 -json -name ET3400-S6-asm -action tokens -language asm-680
 test\bin\run_test.ps1 -json -name i8080core-asm -action tokens -language asm-8080 -inputfile ".\test\data\ASM-8080\i8080core.asm" -expected ".\test\ref\tokens\ASM-8080\i8080core.txt"
 test\bin\run_test.ps1 -json -name microcosm-asm -action tokens -language asm-8080 -inputfile ".\test\data\ASM-8080\microcosm.asm" -expected ".\test\ref\tokens\ASM-8080\microcosm.txt"
 
+# ASM Z-80
+test\bin\run_test.ps1 -json -name intro-asm -action tokens -language asm-z-80 -inputfile ".\test\data\ASM-Z-80\intro.asm" -expected ".\test\ref\tokens\ASM-Z-80\intro.txt"
+test\bin\run_test.ps1 -json -name hardmess-asm -action tokens -language asm-z-80 -inputfile ".\test\data\ASM-Z-80\hardmess.asm" -expected ".\test\ref\tokens\ASM-Z-80\hardmess.txt"
+test\bin\run_test.ps1 -json -name shftspr-asm -action tokens -language asm-z-80 -inputfile ".\test\data\ASM-Z-80\shftspr.asm" -expected ".\test\ref\tokens\ASM-Z-80\shftspr.txt"
+
 # Ada-83
 test\bin\run_test.ps1 -json -name adabkend-adb-83 -action tokens -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\tokens\Ada-83\adabkend-adb.txt"
 test\bin\run_test.ps1 -json -name adabkend-ads-83 -action tokens -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.ads" -expected ".\test\ref\tokens\Ada-83\adabkend-ads.txt"
