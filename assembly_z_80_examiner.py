@@ -145,6 +145,7 @@ class AssemblyZ80Examiner(Examiner):
       integer_exponent_tb,
       hex_integer_1_tb,
       hex_integer_2_tb,
+      hex_integer_3_tb,
       values_tb,
       groupers_tb,
       known_operator_tb,

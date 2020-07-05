@@ -16,7 +16,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"directive",
         "value":".RADIX"
     },
     {
@@ -52,7 +52,7 @@
         "value":"    "
     },
     {
-        "type":"opcode",
+        "type":"directive",
         "value":"SEGMENT"
     },
     {
@@ -60,7 +60,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"directive",
         "value":"PUBLIC"
     },
     {
@@ -68,8 +68,12 @@
         "value":" "
     },
     {
-        "type":"comment",
+        "type":"string",
         "value":"'CODESG'"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"newline",
@@ -80,7 +84,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"directive",
         "value":"ASSUME"
     },
     {
@@ -88,7 +92,7 @@
         "value":"  "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"CS"
     },
     {
@@ -108,16 +112,8 @@
         "value":"\r\n"
     },
     {
-        "type":"label",
-        "value":"INCLUDE"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"opcode",
-        "value":"OEM.H"
+        "type":"directive",
+        "value":"INCLUDE OEM.H"
     },
     {
         "type":"newline",
@@ -132,24 +128,8 @@
         "value":"        "
     },
     {
-        "type":"opcode",
-        "value":"TITLE"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"NEXT86"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"comment",
-        "value":"CODE"
+        "type":"directive",
+        "value":"TITLE NEXT86 CODE"
     },
     {
         "type":"newline",
@@ -160,7 +140,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"directive",
         "value":".SALL"
     },
     {
@@ -172,7 +152,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"directive",
         "value":".RADIX"
     },
     {
@@ -245,7 +225,7 @@
     },
     {
         "type":"comment",
-        "value":";       UNDER ANSI & LENGTH=2, TWO BYTES GIVING TEXT POINTER OF"
+        "value":";       UNDER ANSI & LENGTH=2, TWO BYTES GIVING TEXT POINTER OF  "
     },
     {
         "type":"newline",
@@ -269,7 +249,7 @@
     },
     {
         "type":"comment",
-        "value":";       UNDER LENGTH=2, A BYTE MINUS FOR INTEGER AND"
+        "value":";       UNDER LENGTH=2, A BYTE MINUS FOR INTEGER AND "
     },
     {
         "type":"newline",
@@ -364,7 +344,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"directive",
         "value":"EXTRN"
     },
     {
@@ -420,7 +400,7 @@
         "value":","
     },
     {
-        "type":"identifier",
+        "type":"keyword",
         "value":"FCOMP"
     },
     {
@@ -456,7 +436,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"directive",
         "value":"EXTRN"
     },
     {
@@ -484,7 +464,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"directive",
         "value":"EXTRN"
     },
     {
@@ -576,7 +556,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"directive",
         "value":"EXTRN"
     },
     {
@@ -636,7 +616,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"directive",
         "value":"EXTRN"
     },
     {
@@ -664,7 +644,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"directive",
         "value":"PUBLIC"
     },
     {
@@ -684,7 +664,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"directive",
         "value":"PUBLIC"
     },
     {
@@ -708,7 +688,7 @@
         "value":"    "
     },
     {
-        "type":"opcode",
+        "type":"directive",
         "value":"SEGMENT"
     },
     {
@@ -716,7 +696,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"directive",
         "value":"PUBLIC"
     },
     {
@@ -724,7 +704,7 @@
         "value":" "
     },
     {
-        "type":"comment",
+        "type":"string",
         "value":"'DATASG'"
     },
     {
@@ -736,7 +716,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"directive",
         "value":"ASSUME"
     },
     {
@@ -744,7 +724,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"DS"
     },
     {
@@ -764,7 +744,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"directive",
         "value":"EXTRN"
     },
     {
@@ -828,7 +808,7 @@
         "value":"    "
     },
     {
-        "type":"opcode",
+        "type":"directive",
         "value":"ENDS"
     },
     {
@@ -844,7 +824,7 @@
         "value":"    "
     },
     {
-        "type":"opcode",
+        "type":"directive",
         "value":"SEGMENT"
     },
     {
@@ -852,7 +832,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"directive",
         "value":"PUBLIC"
     },
     {
@@ -860,7 +840,7 @@
         "value":" "
     },
     {
-        "type":"comment",
+        "type":"string",
         "value":"'DATASG'"
     },
     {
@@ -872,7 +852,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"directive",
         "value":"EXTRN"
     },
     {
@@ -968,7 +948,7 @@
         "value":"    "
     },
     {
-        "type":"opcode",
+        "type":"directive",
         "value":"ENDS"
     },
     {
@@ -988,7 +968,7 @@
         "value":"    "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"JMP"
     },
     {
@@ -1016,7 +996,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"LAHF"
     },
     {
@@ -1036,7 +1016,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"XCHG"
     },
     {
@@ -1044,7 +1024,7 @@
         "value":"    "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"AH"
     },
     {
@@ -1052,7 +1032,7 @@
         "value":","
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"AL"
     },
     {
@@ -1064,7 +1044,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"PUSH"
     },
     {
@@ -1072,7 +1052,7 @@
         "value":"    "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"AX"
     },
     {
@@ -1084,7 +1064,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -1092,7 +1072,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"AL"
     },
     {
@@ -1108,7 +1088,7 @@
         "value":" "
     },
     {
-        "type":"comment",
+        "type":"number",
         "value":"1"
     },
     {
@@ -1120,7 +1100,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"JMP"
     },
     {
@@ -1136,7 +1116,7 @@
         "value":" "
     },
     {
-        "type":"comment",
+        "type":"identifier",
         "value":"NEXTS1"
     },
     {
@@ -1152,7 +1132,7 @@
         "value":"  "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"XOR"
     },
     {
@@ -1160,7 +1140,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"AL"
     },
     {
@@ -1168,7 +1148,7 @@
         "value":","
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"AL"
     },
     {
@@ -1192,7 +1172,7 @@
         "value":" "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -1208,8 +1188,24 @@
         "value":" "
     },
     {
-        "type":"comment",
-        "value":"PTR NXTFLG,AL"
+        "type":"identifier",
+        "value":"PTR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NXTFLG"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"register",
+        "value":"AL"
     },
     {
         "type":"newline",
@@ -1220,7 +1216,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"POP"
     },
     {
@@ -1228,7 +1224,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"AX"
     },
     {
@@ -1240,7 +1236,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"XCHG"
     },
     {
@@ -1248,7 +1244,7 @@
         "value":"    "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"AL"
     },
     {
@@ -1256,7 +1252,7 @@
         "value":","
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"AH"
     },
     {
@@ -1268,8 +1264,12 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"SAHF"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
     },
     {
         "type":"newline",
@@ -1280,7 +1280,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -1288,7 +1288,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"DX"
     },
     {
@@ -1316,7 +1316,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -1332,8 +1332,32 @@
         "value":" "
     },
     {
+        "type":"identifier",
+        "value":"PTR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NXTTXT"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"register",
+        "value":"BX"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
         "type":"comment",
-        "value":"PTR NXTTXT,BX      ;SAVE STARTING TEXT POINTER"
+        "value":";SAVE STARTING TEXT POINTER"
     },
     {
         "type":"newline",
@@ -1344,7 +1368,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"JZ"
     },
     {
@@ -1364,7 +1388,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"CALL"
     },
     {
@@ -1388,7 +1412,7 @@
         "value":" "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -1404,8 +1428,32 @@
         "value":" "
     },
     {
+        "type":"identifier",
+        "value":"PTR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TEMP"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"register",
+        "value":"BX"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
         "type":"comment",
-        "value":"PTR TEMP,BX        ;SAVE PTR TO LOOP VARIABLE"
+        "value":";SAVE PTR TO LOOP VARIABLE"
     },
     {
         "type":"newline",
@@ -1416,7 +1464,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"CALL"
     },
     {
@@ -1444,7 +1492,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"JNZ"
     },
     {
@@ -1472,7 +1520,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -1480,7 +1528,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"SP"
     },
     {
@@ -1488,7 +1536,7 @@
         "value":","
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"BX"
     },
     {
@@ -1508,7 +1556,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -1516,7 +1564,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"SI"
     },
     {
@@ -1532,8 +1580,16 @@
         "value":" "
     },
     {
-        "type":"comment",
-        "value":"PTR NXTTXT"
+        "type":"identifier",
+        "value":"PTR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NXTTXT"
     },
     {
         "type":"newline",
@@ -1544,7 +1600,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"CMP"
     },
     {
@@ -1560,8 +1616,44 @@
         "value":" "
     },
     {
+        "type":"identifier",
+        "value":"PTR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"register",
+        "value":"BX"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"register",
+        "value":"SI"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
         "type":"comment",
-        "value":"PTR 0[BX],SI       ;COMPARE TEXT POINTERS AT THE START"
+        "value":";COMPARE TEXT POINTERS AT THE START"
     },
     {
         "type":"newline",
@@ -1572,7 +1664,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"JNZ"
     },
     {
@@ -1600,7 +1692,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"PUSH"
     },
     {
@@ -1608,7 +1700,7 @@
         "value":"    "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"DX"
     },
     {
@@ -1628,7 +1720,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -1636,7 +1728,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"AH"
     },
     {
@@ -1652,8 +1744,36 @@
         "value":" "
     },
     {
+        "type":"identifier",
+        "value":"PTR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"register",
+        "value":"BX"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
         "type":"comment",
-        "value":"PTR 2[BX]       ;"
+        "value":";"
     },
     {
         "type":"newline",
@@ -1664,7 +1784,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"PUSH"
     },
     {
@@ -1672,7 +1792,7 @@
         "value":"    "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"AX"
     },
     {
@@ -1684,7 +1804,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"PUSH"
     },
     {
@@ -1692,7 +1812,7 @@
         "value":"    "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"DX"
     },
     {
@@ -1712,7 +1832,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"ADD"
     },
     {
@@ -1720,7 +1840,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"BX"
     },
     {
@@ -1740,7 +1860,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"TEST"
     },
     {
@@ -1756,8 +1876,60 @@
         "value":" "
     },
     {
+        "type":"identifier",
+        "value":"PTR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"register",
+        "value":"BX"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"LOW"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"200"
+    },
+    {
+        "type":"identifier",
+        "value":"O"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
         "type":"comment",
-        "value":"PTR -1[BX],LOW 200O        ;SEE IF INTEGER FOR"
+        "value":";SEE IF INTEGER FOR"
     },
     {
         "type":"newline",
@@ -1768,7 +1940,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"JS"
     },
     {
@@ -1796,7 +1968,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -1804,7 +1976,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"CX"
     },
     {
@@ -1832,7 +2004,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"CLD"
     },
     {
@@ -1852,7 +2024,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -1860,7 +2032,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"SI"
     },
     {
@@ -1868,7 +2040,7 @@
         "value":","
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"BX"
     },
     {
@@ -1880,7 +2052,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -1888,7 +2060,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"DI"
     },
     {
@@ -1904,7 +2076,7 @@
         "value":" "
     },
     {
-        "type":"comment",
+        "type":"identifier",
         "value":"FACLO"
     },
     {
@@ -1916,7 +2088,7 @@
         "value":" "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"REP"
     },
     {
@@ -1924,7 +2096,7 @@
         "value":"    "
     },
     {
-        "type":"identifier",
+        "type":"keyword",
         "value":"MOVSW"
     },
     {
@@ -1944,7 +2116,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"POP"
     },
     {
@@ -1952,7 +2124,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"BX"
     },
     {
@@ -1972,7 +2144,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"PUSH"
     },
     {
@@ -1980,7 +2152,7 @@
         "value":"    "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"SI"
     },
     {
@@ -2000,7 +2172,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"PUSH"
     },
     {
@@ -2008,7 +2180,7 @@
         "value":"    "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"BX"
     },
     {
@@ -2020,7 +2192,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"TEST"
     },
     {
@@ -2036,8 +2208,36 @@
         "value":" "
     },
     {
-        "type":"comment",
-        "value":"PTR NXTFLG,LOW 377O"
+        "type":"identifier",
+        "value":"PTR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NXTFLG"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"LOW"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"377"
+    },
+    {
+        "type":"identifier",
+        "value":"O"
     },
     {
         "type":"newline",
@@ -2048,7 +2248,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"JNZ"
     },
     {
@@ -2068,7 +2268,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -2076,7 +2276,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"SI"
     },
     {
@@ -2092,8 +2292,16 @@
         "value":" "
     },
     {
+        "type":"identifier",
+        "value":"FVALSV"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
         "type":"comment",
-        "value":"FVALSV        ;FETCH INITIAL VALUE"
+        "value":";FETCH INITIAL VALUE"
     },
     {
         "type":"newline",
@@ -2104,7 +2312,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"SUB"
     },
     {
@@ -2112,7 +2320,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"DI"
     },
     {
@@ -2140,7 +2348,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -2148,7 +2356,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"CX"
     },
     {
@@ -2176,7 +2384,7 @@
         "value":" "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"REP"
     },
     {
@@ -2184,7 +2392,7 @@
         "value":"    "
     },
     {
-        "type":"identifier",
+        "type":"keyword",
         "value":"MOVSW"
     },
     {
@@ -2196,7 +2404,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"XOR"
     },
     {
@@ -2204,7 +2412,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"AL"
     },
     {
@@ -2212,7 +2420,7 @@
         "value":","
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"AL"
     },
     {
@@ -2232,7 +2440,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"JZ"
     },
     {
@@ -2264,7 +2472,7 @@
         "value":"  "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"CALL"
     },
     {
@@ -2288,7 +2496,7 @@
         "value":" "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"POP"
     },
     {
@@ -2296,7 +2504,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"DI"
     },
     {
@@ -2316,7 +2524,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -2324,7 +2532,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"SI"
     },
     {
@@ -2340,8 +2548,16 @@
         "value":" "
     },
     {
+        "type":"identifier",
+        "value":"FACLO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
         "type":"comment",
-        "value":"FACLO ;WILL MOVE FAC TO THERE"
+        "value":";WILL MOVE FAC TO THERE"
     },
     {
         "type":"newline",
@@ -2352,7 +2568,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -2360,7 +2576,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"CX"
     },
     {
@@ -2380,8 +2596,12 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"CLD"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
     },
     {
         "type":"newline",
@@ -2392,7 +2612,7 @@
         "value":" "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"REP"
     },
     {
@@ -2400,7 +2620,7 @@
         "value":"    "
     },
     {
-        "type":"identifier",
+        "type":"keyword",
         "value":"MOVSW"
     },
     {
@@ -2412,7 +2632,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"POP"
     },
     {
@@ -2420,7 +2640,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"SI"
     },
     {
@@ -2440,7 +2660,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -2448,7 +2668,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"DX"
     },
     {
@@ -2464,8 +2684,28 @@
         "value":" "
     },
     {
-        "type":"comment",
-        "value":"PTR 0[SI]"
+        "type":"identifier",
+        "value":"PTR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"register",
+        "value":"SI"
+    },
+    {
+        "type":"group",
+        "value":"]"
     },
     {
         "type":"newline",
@@ -2476,7 +2716,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -2484,7 +2724,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"CX"
     },
     {
@@ -2500,8 +2740,28 @@
         "value":" "
     },
     {
-        "type":"comment",
-        "value":"PTR 2[SI]"
+        "type":"identifier",
+        "value":"PTR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"register",
+        "value":"SI"
+    },
+    {
+        "type":"group",
+        "value":"]"
     },
     {
         "type":"newline",
@@ -2512,7 +2772,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"ADD"
     },
     {
@@ -2520,7 +2780,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"SI"
     },
     {
@@ -2540,7 +2800,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"PUSH"
     },
     {
@@ -2548,7 +2808,7 @@
         "value":"    "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"SI"
     },
     {
@@ -2568,7 +2828,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"CALL"
     },
     {
@@ -2576,7 +2836,7 @@
         "value":"    "
     },
     {
-        "type":"identifier",
+        "type":"keyword",
         "value":"FCOMP"
     },
     {
@@ -2609,7 +2869,7 @@
     },
     {
         "type":"comment",
-        "value":";AND 1 IF GREATER"
+        "value":";AND 1 IF GREATER "
     },
     {
         "type":"newline",
@@ -2620,7 +2880,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"JMP"
     },
     {
@@ -2636,8 +2896,16 @@
         "value":" "
     },
     {
+        "type":"identifier",
+        "value":"FINNXT"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
         "type":"comment",
-        "value":"FINNXT    ;SKIP INTEGER CODE"
+        "value":";SKIP INTEGER CODE"
     },
     {
         "type":"newline",
@@ -2652,7 +2920,7 @@
         "value":" "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"ADD"
     },
     {
@@ -2660,7 +2928,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"BX"
     },
     {
@@ -2688,7 +2956,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -2696,7 +2964,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"CX"
     },
     {
@@ -2712,8 +2980,36 @@
         "value":" "
     },
     {
+        "type":"identifier",
+        "value":"PTR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"register",
+        "value":"BX"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
         "type":"comment",
-        "value":"PTR 0[BX]       ;FETCH STEP TO CX"
+        "value":";FETCH STEP TO CX"
     },
     {
         "type":"newline",
@@ -2724,7 +3020,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"INC"
     },
     {
@@ -2732,7 +3028,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"BX"
     },
     {
@@ -2744,7 +3040,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"INC"
     },
     {
@@ -2752,7 +3048,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"BX"
     },
     {
@@ -2764,7 +3060,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"POP"
     },
     {
@@ -2772,7 +3068,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"SI"
     },
     {
@@ -2792,7 +3088,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -2800,7 +3096,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"DX"
     },
     {
@@ -2816,8 +3112,28 @@
         "value":" "
     },
     {
-        "type":"comment",
-        "value":"PTR 0[SI]"
+        "type":"identifier",
+        "value":"PTR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"register",
+        "value":"SI"
+    },
+    {
+        "type":"group",
+        "value":"]"
     },
     {
         "type":"newline",
@@ -2828,7 +3144,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"TEST"
     },
     {
@@ -2844,8 +3160,44 @@
         "value":" "
     },
     {
+        "type":"identifier",
+        "value":"PTR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NXTFLG"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"LOW"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"377"
+    },
+    {
+        "type":"identifier",
+        "value":"O"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
         "type":"comment",
-        "value":"PTR NXTFLG,LOW 377O        ;SEE IF \"FOR IS USING \"NEXT CODE"
+        "value":";SEE IF \"FOR IS USING \"NEXT CODE"
     },
     {
         "type":"newline",
@@ -2856,7 +3208,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"JNZ"
     },
     {
@@ -2884,7 +3236,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -2892,7 +3244,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"DX"
     },
     {
@@ -2908,8 +3260,24 @@
         "value":" "
     },
     {
+        "type":"identifier",
+        "value":"PTR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"FVALSV"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
         "type":"comment",
-        "value":"PTR FVALSV      ;GET THE INITIAL VALUE"
+        "value":";GET THE INITIAL VALUE"
     },
     {
         "type":"newline",
@@ -2920,7 +3288,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"JMP"
     },
     {
@@ -2936,8 +3304,16 @@
         "value":" "
     },
     {
+        "type":"identifier",
+        "value":"IFORIN"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
         "type":"comment",
-        "value":"IFORIN    ;CONTINUE FIRST ITERATION CHECK"
+        "value":";CONTINUE FIRST ITERATION CHECK"
     },
     {
         "type":"newline",
@@ -2952,7 +3328,7 @@
         "value":" "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"ADD"
     },
     {
@@ -2960,7 +3336,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"DX"
     },
     {
@@ -2968,7 +3344,7 @@
         "value":","
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"CX"
     },
     {
@@ -2980,7 +3356,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"JO"
     },
     {
@@ -3008,7 +3384,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -3024,8 +3400,36 @@
         "value":" "
     },
     {
-        "type":"comment",
-        "value":"PTR 0[SI],DX"
+        "type":"identifier",
+        "value":"PTR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"register",
+        "value":"SI"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"register",
+        "value":"DX"
     },
     {
         "type":"newline",
@@ -3036,7 +3440,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"PUSH"
     },
     {
@@ -3044,7 +3448,7 @@
         "value":"    "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"DX"
     },
     {
@@ -3064,7 +3468,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -3072,7 +3476,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"DX"
     },
     {
@@ -3088,8 +3492,36 @@
         "value":" "
     },
     {
+        "type":"identifier",
+        "value":"PTR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"register",
+        "value":"BX"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
         "type":"comment",
-        "value":"PTR 0[BX]       ;"
+        "value":";"
     },
     {
         "type":"newline",
@@ -3100,7 +3532,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"INC"
     },
     {
@@ -3108,7 +3540,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"BX"
     },
     {
@@ -3120,7 +3552,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"INC"
     },
     {
@@ -3128,7 +3560,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"BX"
     },
     {
@@ -3140,7 +3572,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"POP"
     },
     {
@@ -3148,7 +3580,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"AX"
     },
     {
@@ -3160,7 +3592,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"PUSH"
     },
     {
@@ -3168,7 +3600,7 @@
         "value":"    "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"BX"
     },
     {
@@ -3180,7 +3612,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"CALL"
     },
     {
@@ -3216,7 +3648,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"POP"
     },
     {
@@ -3224,7 +3656,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"BX"
     },
     {
@@ -3244,7 +3676,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"POP"
     },
     {
@@ -3252,7 +3684,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"CX"
     },
     {
@@ -3272,7 +3704,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"SUB"
     },
     {
@@ -3280,7 +3712,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"AL"
     },
     {
@@ -3288,7 +3720,7 @@
         "value":","
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"CH"
     },
     {
@@ -3320,7 +3752,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"CALL"
     },
     {
@@ -3360,7 +3792,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"JZ"
     },
     {
@@ -3388,7 +3820,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -3404,8 +3836,32 @@
         "value":" "
     },
     {
+        "type":"identifier",
+        "value":"PTR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CURLIN"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"register",
+        "value":"DX"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
         "type":"comment",
-        "value":"PTR CURLIN,DX      ;STORE LINE NO."
+        "value":";STORE LINE NO."
     },
     {
         "type":"newline",
@@ -3416,7 +3872,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -3424,7 +3880,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"DX"
     },
     {
@@ -3432,7 +3888,7 @@
         "value":","
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"CX"
     },
     {
@@ -3452,7 +3908,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"XCHG"
     },
     {
@@ -3460,7 +3916,7 @@
         "value":"    "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"DX"
     },
     {
@@ -3468,7 +3924,7 @@
         "value":","
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"BX"
     },
     {
@@ -3480,7 +3936,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"JMP"
     },
     {
@@ -3504,7 +3960,7 @@
         "value":" "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -3512,7 +3968,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"SP"
     },
     {
@@ -3520,7 +3976,7 @@
         "value":","
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"BX"
     },
     {
@@ -3540,7 +3996,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -3556,8 +4012,32 @@
         "value":" "
     },
     {
+        "type":"identifier",
+        "value":"PTR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SAVSTK"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"register",
+        "value":"BX"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
         "type":"comment",
-        "value":"PTR SAVSTK,BX      ;STACK"
+        "value":";STACK"
     },
     {
         "type":"newline",
@@ -3568,7 +4048,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -3576,7 +4056,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"BX"
     },
     {
@@ -3592,8 +4072,24 @@
         "value":" "
     },
     {
+        "type":"identifier",
+        "value":"PTR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TEMP"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
         "type":"comment",
-        "value":"PTR TEMP        ;RESTORE TEXT PTR"
+        "value":";RESTORE TEXT PTR"
     },
     {
         "type":"newline",
@@ -3604,7 +4100,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"CMP"
     },
     {
@@ -3620,8 +4116,56 @@
         "value":" "
     },
     {
+        "type":"identifier",
+        "value":"PTR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"register",
+        "value":"BX"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"LOW"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"54"
+    },
+    {
+        "type":"identifier",
+        "value":"O"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
         "type":"comment",
-        "value":"PTR 0[BX],LOW 54O  ;COMMA?"
+        "value":";COMMA?"
     },
     {
         "type":"newline",
@@ -3632,7 +4176,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"JNZ"
     },
     {
@@ -3664,7 +4208,7 @@
         "value":" "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -3680,8 +4224,44 @@
         "value":" "
     },
     {
+        "type":"identifier",
+        "value":"PTR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NXTFLG"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"LOW"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"377"
+    },
+    {
+        "type":"identifier",
+        "value":"O"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
         "type":"comment",
-        "value":"PTR NXTFLG,LOW 377O        ;Set NXTFLG non-zero since NEXT couldn't"
+        "value":";Set NXTFLG non-zero since NEXT couldn't"
     },
     {
         "type":"newline",
@@ -3704,7 +4284,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"CALL"
     },
     {
@@ -3732,7 +4312,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"MOV"
     },
     {
@@ -3740,7 +4320,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"DX"
     },
     {
@@ -3748,7 +4328,7 @@
         "value":","
     },
     {
-        "type":"identifier",
+        "type":"register",
         "value":"SP"
     },
     {
@@ -3780,7 +4360,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"CALL"
     },
     {
@@ -3812,7 +4392,7 @@
         "value":"    "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"JMP"
     },
     {
@@ -3836,7 +4416,7 @@
         "value":"    "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"JMP"
     },
     {
@@ -3860,7 +4440,7 @@
         "value":"    "
     },
     {
-        "type":"opcode",
+        "type":"directive",
         "value":"ENDS"
     },
     {
@@ -3872,19 +4452,11 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"directive",
         "value":"END"
     },
     {
         "type":"newline",
         "value":"\r\n"
-    },
-    {
-        "type":"invalid",
-        "value":"\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
     }
 ]

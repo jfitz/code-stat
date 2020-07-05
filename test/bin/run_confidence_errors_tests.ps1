@@ -33,11 +33,6 @@ test\bin\run_test.ps1 -json -name subroutine1-asm -action confidence -errors -la
 test\bin\run_test.ps1 -json -name subroutine2-asm -action confidence -errors -language assembly -inputfile ".\test\data\ASM-360\subroutine2.asm" -expected ".\test\ref\confidence-errors\Assembly\subroutine2.txt"
 test\bin\run_test.ps1 -json -name osint-asm -action confidence -errors -language assembly -inputfile ".\test\data\ASM-360\osint.asm" -expected ".\test\ref\confidence-errors\Assembly\osint.txt"
 test\bin\run_test.ps1 -json -name spitbol-asm -action confidence -errors -language assembly -inputfile ".\test\data\ASM-360\spitbol.asm" -expected ".\test\ref\confidence-errors\Assembly\spitbol.txt"
-test\bin\run_test.ps1 -json -name BISTRS-asm -action confidence -errors -language assembly -inputfile ".\test\data\ASM-8086\BISTRS.asm" -expected ".\test\ref\confidence-errors\Assembly\BISTRS.txt"
-test\bin\run_test.ps1 -json -name DSKCOM-asm -action confidence -errors -language assembly -inputfile ".\test\data\ASM-8086\DSKCOM.asm" -expected ".\test\ref\confidence-errors\Assembly\DSKCOM.txt"
-test\bin\run_test.ps1 -json -name FIVEO-asm -action confidence -errors -language assembly -inputfile ".\test\data\ASM-8086\FIVEO.asm" -expected ".\test\ref\confidence-errors\Assembly\FIVEO.txt"
-test\bin\run_test.ps1 -json -name GWEVAL-asm -action confidence -errors -language assembly -inputfile ".\test\data\ASM-8086\GWEVAL.asm" -expected ".\test\ref\confidence-errors\Assembly\GWEVAL.txt"
-test\bin\run_test.ps1 -json -name NEXT86-asm -action confidence -errors -language assembly -inputfile ".\test\data\ASM-8086\NEXT86.asm" -expected ".\test\ref\confidence-errors\Assembly\NEXT86.txt"
 
 # ASM 6502
 test\bin\run_test.ps1 -json -name sweet16-asm -action confidence -errors -language asm-6502 -inputfile ".\test\data\ASM-6502\sweet16.asm" -expected ".\test\ref\confidence-errors\ASM-6502\sweet16.txt"
@@ -53,6 +48,13 @@ test\bin\run_test.ps1 -json -name microcosm-asm -action confidence -errors -lang
 test\bin\run_test.ps1 -json -name intro-asm -action confidence -errors -language asm-z-80 -inputfile ".\test\data\ASM-Z-80\intro.asm" -expected ".\test\ref\confidence-errors\ASM-Z-80\intro.txt"
 test\bin\run_test.ps1 -json -name hardmess-asm -action confidence -errors -language asm-z-80 -inputfile ".\test\data\ASM-Z-80\hardmess.asm" -expected ".\test\ref\confidence-errors\ASM-Z-80\hardmess.txt"
 test\bin\run_test.ps1 -json -name shftspr-asm -action confidence -errors -language asm-z-80 -inputfile ".\test\data\ASM-Z-80\shftspr.asm" -expected ".\test\ref\confidence-errors\ASM-Z-80\shftspr.txt"
+
+# ASM 8086
+test\bin\run_test.ps1 -json -name BISTRS-asm -action confidence -errors -language asm-8086 -inputfile ".\test\data\ASM-8086\BISTRS.asm" -expected ".\test\ref\confidence-errors\ASM-8086\BISTRS.txt"
+test\bin\run_test.ps1 -json -name DSKCOM-asm -action confidence -errors -language asm-8086 -inputfile ".\test\data\ASM-8086\DSKCOM.asm" -expected ".\test\ref\confidence-errors\ASM-8086\DSKCOM.txt"
+test\bin\run_test.ps1 -json -name FIVEO-asm -action confidence -errors -language asm-8086 -inputfile ".\test\data\ASM-8086\FIVEO.asm" -expected ".\test\ref\confidence-errors\ASM-8086\FIVEO.txt"
+test\bin\run_test.ps1 -json -name GWEVAL-asm -action confidence -errors -language asm-8086 -inputfile ".\test\data\ASM-8086\GWEVAL.asm" -expected ".\test\ref\confidence-errors\ASM-8086\GWEVAL.txt"
+test\bin\run_test.ps1 -json -name NEXT86-asm -action confidence -errors -language asm-8086 -inputfile ".\test\data\ASM-8086\NEXT86.asm" -expected ".\test\ref\confidence-errors\ASM-8086\NEXT86.txt"
 
 # Ada-83
 test\bin\run_test.ps1 -json -name adabkend-adb-83 -action confidence -errors -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\confidence-errors\Ada-83\adabkend-adb.txt"

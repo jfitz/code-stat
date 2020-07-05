@@ -12,6 +12,7 @@ from assembly_6502_examiner import Assembly6502Examiner
 from assembly_6800_examiner import Assembly6800Examiner
 from assembly_8080_examiner import Assembly8080Examiner
 from assembly_z_80_examiner import AssemblyZ80Examiner
+from assembly_x_86_examiner import AssemblyX86Examiner
 from ada_examiner import AdaExaminer
 from awk_examiner import AwkExaminer
 from basic_examiner import BasicExaminer
@@ -58,11 +59,13 @@ from visualbasic6_examiner import VisualBasic6Examiner
 from visualbasicnet_examiner import VisualBasicNETExaminer
 
 GenericCodeExaminer.__escape_z__()
+AdaExaminer.__escape_z__()
 AssemblyGenericExaminer.__escape_z__()
 Assembly6502Examiner.__escape_z__()
 Assembly6800Examiner.__escape_z__()
 Assembly8080Examiner.__escape_z__()
-AdaExaminer.__escape_z__()
+AssemblyZ80Examiner.__escape_z__()
+AssemblyX86Examiner.__escape_z__()
 AwkExaminer.__escape_z__()
 BasicExaminer.__escape_z__()
 CBasicExaminer.__escape_z__()
@@ -110,16 +113,27 @@ VisualBasicNETExaminer.__escape_z__()
 
 def decode_bytes(in_bytes):
   text = ''
-  try:
-    text = in_bytes.decode('ascii')
-  except UnicodeDecodeError:
+  i = len(in_bytes)
+
+  if i > 0:
+    if in_bytes[0] not in [0xff, 0xfe]:
+      # remove trailing NUL bytes
+      while i > 0 and in_bytes[i - 1] == 0:
+        i -= 1
+
+      in_bytes = in_bytes[0:i]
+
+    # convert to text
     try:
-      text = in_bytes.decode('utf-8')
+      text = in_bytes.decode('ascii')
     except UnicodeDecodeError:
       try:
-        text = in_bytes.decode('utf-16')
+        text = in_bytes.decode('utf-8')
       except UnicodeDecodeError:
-        raise CodeStatException('Code cannot be decoded as ASCII or UNICODE')
+        try:
+          text = in_bytes.decode('utf-16')
+        except UnicodeDecodeError:
+          raise CodeStatException('Code cannot be decoded as ASCII or UNICODE')
 
   return text
 
@@ -222,6 +236,7 @@ codes_and_names = {
   'asm-6800': 'ASM-6800',
   'asm-8080': 'ASM-8080',
   'asm-z-80': 'ASM-Z-80',
+  'asm-8086': 'ASM-8086',
   'awk': 'Awk',
   'basic': 'BASIC',
   'basica': 'BASICA',
@@ -299,6 +314,7 @@ codes_and_groups = {
   'asm-6800': 'Assembly',
   'asm-8080': 'Assembly',
   'asm-z-80': 'Assembly',
+  'asm-8086': 'Assembly',
   'awk': 'Awk',
   'basic': 'BASIC',
   'basica': 'BASIC',
@@ -376,6 +392,7 @@ codes_and_years = {
   'asm-6800': 1978,
   'asm-8080': 1975,
   'asm-z-80': 1976,
+  'asm-8086': 1979,
   'awk': 1977,
   'basic': 1965,
   'basica': 1982,
@@ -452,6 +469,7 @@ simpler_languages = {
   'asm-6800': None,
   'asm-8080': None,
   'asm-z-80': None,
+  'asm-8086': None,
   'awk': None,
   'basic': None,
   'basica': 'basic-80',
@@ -528,6 +546,7 @@ override_language = {
   'asm-80386': 'assembly',
   'asm-80486': 'assembly',
   'asm-z-80': 'assembly',
+  'asm-8086': 'assembly',
   'asm-ibm-360': 'assembly',
   'asm-ibm-370': 'assembly',
   'asm-ibm-390': 'assembly',
@@ -853,6 +872,9 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
   if language in ['asm-z-80']:
     examiner = AssemblyZ80Examiner(code, tab_size)
 
+  if language in ['asm-8086']:
+    examiner = AssemblyX86Examiner(code, tab_size)
+
   if language in ['awk']:
     examiner = AwkExaminer(code, '')
 
@@ -1083,6 +1105,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
 
   if 'asm-z-80' in languages:
     examiners['asm-z-80'] = AssemblyZ80Examiner(code, tab_size)
+
+  if 'asm-8086' in languages:
+    examiners['asm-8086'] = AssemblyX86Examiner(code, tab_size)
 
   if 'awk' in languages:
     examiners['awk'] = AwkExaminer(code, '')
