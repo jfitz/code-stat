@@ -84,7 +84,7 @@ def identify_language(code, params, tiebreak_keywords, tiebreak_tokens, tiebreak
         statistic = json.loads(content)
         statistics[language] = statistic
 
-        groups = ['keyword', 'type', 'function']
+        groups = ['keyword', 'type', 'function', 'register']
         keyword_count = count_tokens(statistic, groups)
         if keyword_count > highest_keyword_count:
           highest_keyword_count = keyword_count

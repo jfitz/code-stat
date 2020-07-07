@@ -47,7 +47,7 @@ class AssemblyX86Examiner(Examiner):
     return 'Escape ?Z'
 
 
-  def __init__(self, code, tab_size):
+  def __init__(self, code, tab_size, processor):
     super().__init__()
 
     operand_types = []
@@ -62,8 +62,8 @@ class AssemblyX86Examiner(Examiner):
     hex_integer_3_tb = PrefixedIntegerTokenBuilder('$', False, '0123456789abcdefABCDEF')
     operand_types.append('number')
 
-    leads = '_.$'
-    extras = '_.$'
+    leads = '_.$@'
+    extras = '_.$@'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
     operand_types.append('identifier')
 
@@ -101,8 +101,9 @@ class AssemblyX86Examiner(Examiner):
     directives = [
       'ASEG', 'CSEG', 'DB', 'DW', 'DS', 'DSEG',
       'END', 'ENDS', 'EQU', 'ORG', 'PAGE', 'SSEG',
-      '.RADIX', '.SALL', '.XLIST',
+      '.RADIX', '.SALL', '.XLIST', '.MODEL', '.code', 'PROC',
       'EXTRN', 'SEGMENT', 'PUBLIC', 'ASSUME', 'INS86',
+      'RESB', 'RESD', '%INCLUDE', 'BITS', 'GLOBAL', 'SECTION', 'ALIGN'
     ]
 
     directive_tb = CaseInsensitiveListTokenBuilder(directives, 'directive', False)
@@ -144,15 +145,73 @@ class AssemblyX86Examiner(Examiner):
       'XCHG', 'XLAT', 'XLATB', 'XOR',
     ]
 
+    opcodes_80186 = [
+      'BOUND',
+      'ENTER',
+      'INS',
+      'LEAVE',
+      'OUTS',
+      'POPA', 'POPAD', 'PUSHA', 'PUSHAD'
+    ]
+
+    if processor in ['80186', '80286', '80386', '80486']:
+      opcodes += opcodes_80186
+
+    opcodes_80286 = [
+      'ARPL',
+      'CLTS',
+      'LGDT', 'LIDT', 'LLDT', 'LMSW', 'LSL', 'LSS',
+      'SGDT', 'SIDT', 'SLDT', 'SMSW', 'STR',
+      'VERR', 'VERW'
+    ]
+
+    if processor in ['80286', '80386', '80486']:
+      opcodes += opcodes_80286
+
+    opcodes_80386 = [
+      'BSF', 'BSR', 'BT', 'BTC', 'BTR', 'BTS',
+      'CDQ', 'CWDE',
+      'LFS', 'LGS', 'LSS',
+      'MOVSX', 'MOVZX',
+      'SETAE', 'SETB', 'SETC', 'SETNAE', 'SETNB', 'SETNE', 'SETNZ', 'SETG', 'SETGE', 'SETL', 'SETLE', 'SETNC', 'SETNG', 'SETNGE', 'SETNL', 'SETNLE', 'SETNO', 'SETNP', 'SETNS', 'SETE', 'SETO', 'SETP', 'SETPE', 'SETPO', 'SETS', 'SETZ',
+      'SHLD', 'SHRD'
+    ]
+
+    if processor in ['80386', '80486']:
+      opcodes += opcodes_80386
+
+    opcodes_80486 = [
+      'BSWAP',
+      'INVPLG'
+    ]
+
+    if processor in ['80486']:
+      opcodes += opcodes_80486
+
     opcode_tb = CaseInsensitiveListTokenBuilder(opcodes, 'keyword', False)
 
     registers = [
       'AL', 'AH', 'BL', 'BH', 'CL', 'CH', 'DL', 'DH',
       'AX', 'BX', 'CX', 'DX', 'CS', 'DS', 'SS', 'ES',
-      'IP', 'SI', 'DI', 'BP', 'SP'
+      'IP', 'SI', 'DI', 'BP', 'SP', 'FLAGS'
       ]
 
-    register_tb = CaseSensitiveListTokenBuilder(registers, 'register', True)
+    registers_80286 = [
+      'TR'
+    ]
+
+    if processor in ['80286', '80386', '80486']:
+      registers += registers_80286
+
+    registers_80386 = [
+      'EAX', 'EBX', 'ECX', 'EDX', 'ESI', 'EDI', 'EBP', 'ESP',
+      'FS', 'GS', 'EFLAGS'
+    ]
+
+    if processor in ['80386', '80486']:
+      registers += registers_80386
+
+    register_tb = CaseInsensitiveListTokenBuilder(registers, 'register', True)
 
     values = ['*', '$']
 

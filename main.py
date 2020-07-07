@@ -237,6 +237,9 @@ codes_and_names = {
   'asm-8080': 'ASM-8080',
   'asm-z-80': 'ASM-Z-80',
   'asm-8086': 'ASM-8086',
+  'asm-80286': 'ASM-80286',
+  'asm-80386': 'ASM-80386',
+  'asm-80486': 'ASM-80486',
   'awk': 'Awk',
   'basic': 'BASIC',
   'basica': 'BASICA',
@@ -315,6 +318,9 @@ codes_and_groups = {
   'asm-8080': 'Assembly',
   'asm-z-80': 'Assembly',
   'asm-8086': 'Assembly',
+  'asm-80286': 'Assembly',
+  'asm-80386': 'Assembly',
+  'asm-80486': 'Assembly',
   'awk': 'Awk',
   'basic': 'BASIC',
   'basica': 'BASIC',
@@ -393,6 +399,9 @@ codes_and_years = {
   'asm-8080': 1975,
   'asm-z-80': 1976,
   'asm-8086': 1979,
+  'asm-80286': 1982,
+  'asm-80386': 1986,
+  'asm-80486': 1990,
   'awk': 1977,
   'basic': 1965,
   'basica': 1982,
@@ -470,6 +479,9 @@ simpler_languages = {
   'asm-8080': None,
   'asm-z-80': None,
   'asm-8086': None,
+  'asm-80286': 'asm-8086',
+  'asm-80386': 'asm-80286',
+  'asm-80486': 'asm-80386',
   'awk': None,
   'basic': None,
   'basica': 'basic-80',
@@ -541,7 +553,6 @@ override_language = {
   'asm-6800': 'assembly',
   'asm-8080': 'assembly',
   'asm-8086': 'assembly',
-  'asm-80186': 'assembly',
   'asm-80286': 'assembly',
   'asm-80386': 'assembly',
   'asm-80486': 'assembly',
@@ -872,8 +883,17 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
   if language in ['asm-z-80']:
     examiner = AssemblyZ80Examiner(code, tab_size)
 
-  if language in ['asm-8086']:
-    examiner = AssemblyX86Examiner(code, tab_size)
+  if language in ['asm-8086', 'asm-8088']:
+    examiner = AssemblyX86Examiner(code, tab_size, '8086')
+
+  if language in ['asm-80286']:
+    examiner = AssemblyX86Examiner(code, tab_size, '80286')
+
+  if language in ['asm-80386', '80388']:
+    examiner = AssemblyX86Examiner(code, tab_size, '80386')
+
+  if language in ['asm-80486', 'asm-80488']:
+    examiner = AssemblyX86Examiner(code, tab_size, '80486')
 
   if language in ['awk']:
     examiner = AwkExaminer(code, '')
@@ -1106,8 +1126,17 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
   if 'asm-z-80' in languages:
     examiners['asm-z-80'] = AssemblyZ80Examiner(code, tab_size)
 
-  if 'asm-8086' in languages:
-    examiners['asm-8086'] = AssemblyX86Examiner(code, tab_size)
+  if 'asm-8086' in languages or 'asm-8088' in languages:
+    examiners['asm-8086'] = AssemblyX86Examiner(code, tab_size, '8086')
+
+  if 'asm-80286' in languages:
+    examiners['asm-80286'] = AssemblyX86Examiner(code, tab_size, '80286')
+
+  if 'asm-80386' in languages or 'asm-80388' in languages:
+    examiners['asm-80386'] = AssemblyX86Examiner(code, tab_size, '80386')
+
+  if 'asm-80486' in languages or 'asm-80488' in languages:
+    examiners['asm-80486'] = AssemblyX86Examiner(code, tab_size, '80486')
 
   if 'awk' in languages:
     examiners['awk'] = AwkExaminer(code, '')
@@ -1350,7 +1379,7 @@ def identify_language(code, tab_size, wide, comment, block_comment_limit, tiebre
     if len(high_names) > 1:
       highest_keyword_count = 0
       for name in high_names:
-        group = ['keyword', 'type', 'function']
+        group = ['keyword', 'type', 'function', 'register']
         keyword_count = examiners[name].count_my_tokens(group)
         if keyword_count > highest_keyword_count:
           highest_keyword_count = keyword_count

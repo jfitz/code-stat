@@ -56,6 +56,11 @@ test\bin\run_test.ps1 -json -name FIVEO-asm -action confidence -errors -language
 test\bin\run_test.ps1 -json -name GWEVAL-asm -action confidence -errors -language asm-8086 -inputfile ".\test\data\ASM-8086\GWEVAL.asm" -expected ".\test\ref\confidence-errors\ASM-8086\GWEVAL.txt"
 test\bin\run_test.ps1 -json -name NEXT86-asm -action confidence -errors -language asm-8086 -inputfile ".\test\data\ASM-8086\NEXT86.asm" -expected ".\test\ref\confidence-errors\ASM-8086\NEXT86.txt"
 
+# ADM-80386
+test\bin\run_test.ps1 -json -name reverser-asm -action confidence -errors -language asm-80386 -inputfile ".\test\data\ASM-80386\reverser.asm" -expected ".\test\ref\confidence-errors\ASM-80386\reverser.txt"
+test\bin\run_test.ps1 -json -name crc16-asm -action confidence -errors -language asm-80386 -inputfile ".\test\data\ASM-80386\crc16.asm" -expected ".\test\ref\confidence-errors\ASM-80386\crc16.txt"
+test\bin\run_test.ps1 -json -name mat_get_element-asm -action confidence -errors -language asm-80386 -inputfile ".\test\data\ASM-80386\mat_get_element.asm" -expected ".\test\ref\confidence-errors\ASM-80386\mat_get_element.txt"
+
 # Ada-83
 test\bin\run_test.ps1 -json -name adabkend-adb-83 -action confidence -errors -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\confidence-errors\Ada-83\adabkend-adb.txt"
 test\bin\run_test.ps1 -json -name adabkend-ads-83 -action confidence -errors -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.ads" -expected ".\test\ref\confidence-errors\Ada-83\adabkend-ads.txt"

@@ -349,34 +349,44 @@ ASM-Z-80
 
 ASM-8086 (16-bit, not x86)
 - registers
-- 8086 opcodes
+- Pentium
+- IA-64
+- x86-64
+- MASM COMMENT identifier can be more than one char, use fast search
+- MASM directives
+'.ALLOCSTACK', '.ENDPROLOG', 'PROC', '.PUSHFRAME', '.PUSHREG', '.SAVEREG',
+'.SAVEXMM128', '.SETFRAME', 'ALIGN', 'EVEN', 'LABEL', 'ORG',
+'ELSE', 'ELSEIF', 'ELSEIF2', 'IF', 'IF2', 'IFB', 'IFNB', 'IFDEF',
+'IFNDEF', 'IFDIF', 'IFDIF[[I]]', 'IFE', 'IFIDN', 'IFIDN[[I]]',
+'.BREAK', '.CONTINUE', '.ELSE', '.ELSEIF', '.ENDIF', '.ENDW', '.IF',
+'.REPEAT', '.UNTIL', '.UNTILCXZ', '.WHILE', '.ERR', '.ERR2', '.ERRB',
+'.ERRDEF', '.ERRDIF', '.ERRDIF[[I]]]', '.ERRE', '.ERRIDN', '.ERRIDN[[I]]',
+'.ERRNB', '.ERRNDEF', '.ERRNZ', 'ALIGN', 'BYTE', 'SBYTE', 'DWORD', 'SDWORD',
+'EVEN', 'FWORD', 'LABEL', 'ORG', 'QWORD', 'REAL4', 'REAL8', 'REAL10', 'TBYTE',
+'WORD', 'SWORD',
+'=' 'EQU', 'TEXTEQU', '.CREF', '.LIST', '.LISTALL', '.LISTIF', '.LISTMACRO',
+'.LISTMACROALL', '.NOCREF', '.NOLIST', '.NOLISTIF', '.NOLISTMACRO', 'PAGE',
+'SUBTITLE', '.TFCOND', 'TITLE', 'ENDM', 'EXITM', 'GOTO', 'LOCAL', 'MACRO',
+'PURGE', 'ALIAS', 'ASSUME', 'COMMENT', 'ECHO', 'END', '.FPO', 'INCLUDE',
+'INCLUDELIB', 'MMWORD', 'OPTION', 'POPCONTEXT', 'PUSHCONTEXT',
+'.RADIX', '.SAFESEH', 'XMMWORD', 'YMMWORD', 'ENDP', 'INVOKE', 'PROC',
+'PROTO', '.386', '.386P', '.387', '.486', '.486P', '.586', '.586P',
+'.686', '.686P', '.K3D', '.MMX', '.XMM', 'ENDM', 'FOR', 'FORC',
+'GOTO', 'REPEAT', 'WHILE', 'COMM', 'EXTERN', 'EXTERNDEF',
+'INCLUDELIB', 'PUBLIC', '.ALPHA', 'ASSUME', '.DOSSEG', 'END', 'ENDS',
+'GROUP', 'SEGMENT', '.SEQ', '.CODE', '.CONST', '.DATA', '.DATA?', '.DOSSEG',
+'.EXIT', '.FARDATA', '.FARDATA?', '.MODEL', '.STACK', '.STARTUP',
+'CATSTR', 'INSTR', 'SIZESTR', 'SUBSTR', 'ENDS', 'RECORD', 'STRUCT',
+'TYPEDEF', 'UNION'
+NASM directives
+'BITS', 'USE16', 'USE32', 'USE64', 'DEFAULT', 'SECTION', 'SEGMENT', 'SECT',
+'ABSOLUTE', 'EXTERN', 'GLOBAL', 'COMMON', 'CPU'
+FASM directives
+'=', 'if', 'else', 'end', 'repeat', 'load', 'store', 'virtual', 'at', 'as',
+'align', 'db' 'dup', 'include', 'equ', 'macro', 'struc', 'rept', 'match',
+'format', 'section', 'extern', 'public', 'static'
+TASM directives
 
-- 80186 opcodes
-  'BOUND',
-  'ENTER',
-  'INS',
-  'LEAVE',
-  'OUTS',
-  'POPA', 'POPAD', 'PUSHA', 'PUSHAD',
-
-- 80286 opcodes
-  'ARPL',
-  'CLTS',
-  'LGDT', 'LIDT', 'LLDT', 'LMSW', 'LSL', 'LSS',
-  'SGDT', 'SIDT', 'SLDT', 'SMSW', 'STR',
-  'VERR', 'VERW',
-
-- 80386 opcodes
-  'BSF', 'BSR', 'BT', 'BTC', 'BTR', 'BTS',
-  'CDQ', 'CWDE',
-  'LFS', 'LGS', 'LSS',
-  'MOVSX', 'MOVZX',
-  'SETAE', 'SETB', 'SETC', 'SETNAE', 'SETNB', 'SETNE', 'SETNZ', 'SETG', 'SETGE', 'SETL', 'SETLE', 'SETNC', 'SETNG', 'SETNGE', 'SETNL', 'SETNLE', 'SETNO', 'SETNP', 'SETNS', 'SETE', 'SETO', 'SETP', 'SETPE', 'SETPO', 'SETS', 'SETZ',
-  'SHLD', 'SHRD',
-
-- 80486 opcodes
-  'BSWAP',
-  'INVPLG',
 
 ADA
 + Embedded SQL (EXEC ;)
