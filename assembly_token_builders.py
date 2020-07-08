@@ -105,6 +105,49 @@ class MultilineCommentTokenBuilder(TokenBuilder):
     self.text = ''
 
 
+  def attempt(self, text):
+    self.text = None
+
+    if not text.startswith(self.prefix):
+      return
+
+    # end of prefix
+    index = len(self.prefix)
+    
+    # at least one space
+    n_spaces = 0
+    while text[index] in [' ', '\t']:
+      index += 1
+      n_spaces += 1
+
+    # if no spaces, return
+    if n_spaces == 0:
+      return
+
+    # at least one nonspace
+    delimiter = ''
+    while not text[index].isspace():
+      delimiter += text[index]
+      index += 1
+
+    # if newline no nonspace, return
+    if len(delimiter) == 0:
+      return
+
+    # find delimiter text after index
+    e = text.find(delimiter, index)
+
+    # if not found, return
+    if e == -1:
+      print('end delimiter not found')
+      return
+
+    # extract all text as comment token
+    end = e + len(delimiter)
+
+    self.text = text[:end]
+
+
   def get_tokens(self):
     if self.text is None:
       return None
@@ -112,31 +155,8 @@ class MultilineCommentTokenBuilder(TokenBuilder):
     return [Token(self.text, 'comment', True)]
 
 
-  def accept(self, candidate, c):
-    if len(candidate) < len(self.prefix):
-      return c == self.prefix[len(candidate)]
-    
-    if len(candidate) == len(self.prefix):
-      return c.isspace()
-
-    rest = candidate[len(self.prefix):].strip()
-
-    if len(rest) < 3:
-      return True
-
-    return rest[-1] != rest[0] or rest[-2] not in ['\n', '\r']
-
-
   def get_score(self, line_printable_tokens):
     if self.text is None:
-      return 0
-
-    if len(self.text) < len(self.prefix) + 3:
-      return 0
-
-    rest = self.text[len(self.prefix):].strip()
-
-    if rest[-1] != rest[0] or rest[-2] not in ['\n', '\r']:
       return 0
 
     return len(self.text)
