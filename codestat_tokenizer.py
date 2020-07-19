@@ -122,7 +122,7 @@ class Tokenizer():
       return False
 
     llast = label[-1]
-    if not (llast.isalnum() or llast in label_ends):
+    if not (llast.isalnum() or llast in label_mids or llast in label_ends):
       return False
 
     lmid = label[1:-1]

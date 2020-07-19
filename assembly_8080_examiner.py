@@ -93,10 +93,18 @@ class Assembly8080Examiner(Examiner):
     preprocessor_tb = CaseInsensitiveListTokenBuilder(preprocessors, 'preprocessor', False)
 
     directives = [
-      '.8080', 'ASEG', 'DB', 'DW', 'DS', 'END', 'EQU', 'ORG', 'TITLE', 'PAGE'
+      '.8080', 'ASEG', 'DB', 'DW', 'DS', 'END', 'EQU', 'ORG', 'PAGE'
     ]
 
+    title_directive_tb = LeadToEndOfLineTokenBuilder('TITLE', False, 'directive')
+    subtitle_directive_tb = LeadToEndOfLineTokenBuilder('SUBTTL', False, 'directive')
+    include_directive_tb = LeadToEndOfLineTokenBuilder('INCLUDE', False, 'directive')
+
     directive_tb = CaseInsensitiveListTokenBuilder(directives, 'directive', False)
+
+    title_directive_tb = LeadToEndOfLineTokenBuilder('TITLE', False, 'directive')
+    subtitle_directive_tb = LeadToEndOfLineTokenBuilder('SUBTTL', False, 'directive')
+    include_directive_tb = LeadToEndOfLineTokenBuilder('INCLUDE', False, 'directive')
 
     opcodes = [
       'ACI', 'ADC', 'ADD', 'ADI', 'ANA', 'ANI',
@@ -145,6 +153,9 @@ class Assembly8080Examiner(Examiner):
       register_tb,
       opcode_tb,
       directive_tb,
+      title_directive_tb,
+      subtitle_directive_tb,
+      include_directive_tb,
       preprocessor_tb,
       identifier_tb,
       label_tb,

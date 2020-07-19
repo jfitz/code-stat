@@ -1015,7 +1015,9 @@ class Examiner:
     tokens = []
 
     if len(label) > 0:
-      if Tokenizer.check_label_format(label, label_leads, label_mids, label_ends):
+      if label.isdigit():
+        tokens.append(Token(label, 'number', True))
+      elif Tokenizer.check_label_format(label, label_leads, label_mids, label_ends):
         tokens.append(Token(label, 'label', False))
       else:
         tokens.append(Token(label, 'invalid', False))

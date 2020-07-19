@@ -95,6 +95,10 @@ class Assembly6800Examiner(Examiner):
 
     directive_tb = CaseInsensitiveListTokenBuilder(directives, 'directive', False)
 
+    title_directive_tb = LeadToEndOfLineTokenBuilder('TITLE', False, 'directive')
+    subtitle_directive_tb = LeadToEndOfLineTokenBuilder('SUBTTL', False, 'directive')
+    include_directive_tb = LeadToEndOfLineTokenBuilder('INCLUDE', False, 'directive')
+
     opcodes = [
       'ABA', 'ADC', 'ADCA', 'ADCB', 'ADD', 'AND', 'ASL', 'ASR',
       'BCC', 'BCS', 'BEQ', 'BGE', 'BGT', 'BHI', 'BIT', 'BLE', 'BLS', 'BLT', 'BMI', 'BNE', 'BPL', 'BRA', 'BSR', 'BVC', 'BVS',
@@ -136,6 +140,9 @@ class Assembly6800Examiner(Examiner):
       known_operator_tb,
       opcode_tb,
       directive_tb,
+      title_directive_tb,
+      subtitle_directive_tb,
+      include_directive_tb,
       preprocessor_tb,
       identifier_tb,
       string_tb,

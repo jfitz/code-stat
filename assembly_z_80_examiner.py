@@ -96,10 +96,14 @@ class AssemblyZ80Examiner(Examiner):
 
     directives = [
       'ASEG', 'DB', 'DEFB', 'DEFS', 'DEFW', 'DW', 'DS',
-      'END', 'EQU', 'ORG', 'TITLE', 'PAGE'
+      'END', 'EQU', 'ORG', 'PAGE'
     ]
 
     directive_tb = CaseInsensitiveListTokenBuilder(directives, 'directive', False)
+
+    title_directive_tb = LeadToEndOfLineTokenBuilder('TITLE', False, 'directive')
+    subtitle_directive_tb = LeadToEndOfLineTokenBuilder('SUBTTL', False, 'directive')
+    include_directive_tb = LeadToEndOfLineTokenBuilder('INCLUDE', False, 'directive')
 
     opcodes = [
       'ADC', 'ADD', 'AND',
@@ -152,6 +156,9 @@ class AssemblyZ80Examiner(Examiner):
       register_tb,
       opcode_tb,
       directive_tb,
+      title_directive_tb,
+      subtitle_directive_tb,
+      include_directive_tb,
       preprocessor_tb,
       identifier_tb,
       label_tb,

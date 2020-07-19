@@ -29,10 +29,18 @@ test\bin\run_test.ps1 -json -name microsoft -action tokens -language generic -co
 test\bin\run_test.ps1 -json -name spider -action tokens -language generic -comment basic -inputfile ".\test\data\VisualBasic-6\spider.bas" -expected ".\test\ref\tokens\generic-comments\spider.txt"
 
 # generic assembly
-test\bin\run_test.ps1 -json -name subroutine1-asm -action tokens -language assembly -inputfile ".\test\data\ASM-360\subroutine1.asm" -expected ".\test\ref\tokens\Assembly\subroutine1.txt"
-test\bin\run_test.ps1 -json -name subroutine2-asm -action tokens -language assembly -inputfile ".\test\data\ASM-360\subroutine2.asm" -expected ".\test\ref\tokens\Assembly\subroutine2.txt"
-test\bin\run_test.ps1 -json -name osint-asm -action tokens -language assembly -inputfile ".\test\data\ASM-360\osint.asm" -expected ".\test\ref\tokens\Assembly\osint.txt"
-test\bin\run_test.ps1 -json -name spitbol-asm -action tokens -language assembly -inputfile ".\test\data\ASM-360\spitbol.asm" -expected ".\test\ref\tokens\Assembly\spitbol.txt"
+
+# ASM IBM-360
+test\bin\run_test.ps1 -json -name subroutine1-asm -action tokens -language ASM-360 -inputfile ".\test\data\ASM-360\subroutine1.asm" -expected ".\test\ref\tokens\ASM-360\subroutine1.txt"
+test\bin\run_test.ps1 -json -name subroutine2-asm -action tokens -language ASM-360 -inputfile ".\test\data\ASM-360\subroutine2.asm" -expected ".\test\ref\tokens\ASM-360\subroutine2.txt"
+test\bin\run_test.ps1 -json -name osint-asm -action tokens -language ASM-360 -inputfile ".\test\data\ASM-360\osint.asm" -expected ".\test\ref\tokens\ASM-360\osint.txt"
+test\bin\run_test.ps1 -json -name spitbol-asm -action tokens -language ASM-360 -inputfile ".\test\data\ASM-360\spitbol.asm" -expected ".\test\ref\tokens\ASM-360\spitbol.txt"
+
+# ASM IBM-370
+
+# ASM IBM-390
+
+# ASM IBM-system-z
 
 # ASM 6502
 test\bin\run_test.ps1 -json -name sweet16-asm -action tokens -language asm-6502 -inputfile ".\test\data\ASM-6502\sweet16.asm" -expected ".\test\ref\tokens\ASM-6502\sweet16.txt"
@@ -56,10 +64,12 @@ test\bin\run_test.ps1 -json -name FIVEO-asm -action tokens -language asm-8086 -i
 test\bin\run_test.ps1 -json -name GWEVAL-asm -action tokens -language asm-8086 -inputfile ".\test\data\ASM-8086\GWEVAL.asm" -expected ".\test\ref\tokens\ASM-8086\GWEVAL.txt"
 test\bin\run_test.ps1 -json -name NEXT86-asm -action tokens -language asm-8086 -inputfile ".\test\data\ASM-8086\NEXT86.asm" -expected ".\test\ref\tokens\ASM-8086\NEXT86.txt"
 
-# ADM-80386
+# ASM-80386
 test\bin\run_test.ps1 -json -name reverser-asm -action tokens -language asm-80386 -inputfile ".\test\data\ASM-80386\reverser.asm" -expected ".\test\ref\tokens\ASM-80386\reverser.txt"
 test\bin\run_test.ps1 -json -name crc16-asm -action tokens -language asm-80386 -inputfile ".\test\data\ASM-80386\crc16.asm" -expected ".\test\ref\tokens\ASM-80386\crc16.txt"
 test\bin\run_test.ps1 -json -name mat_get_element-asm -action tokens -language asm-80386 -inputfile ".\test\data\ASM-80386\mat_get_element.asm" -expected ".\test\ref\tokens\ASM-80386\mat_get_element.txt"
+
+# ASM-80486
 
 # Ada-83
 test\bin\run_test.ps1 -json -name adabkend-adb-83 -action tokens -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\tokens\Ada-83\adabkend-adb.txt"

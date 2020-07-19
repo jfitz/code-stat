@@ -83,6 +83,16 @@ class Assembly6502Examiner(Examiner):
 
     known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
+    directives = [
+      'CPU', 'DB', 'DW', 'DS', 'EQU', 'NAM', 'PAGE'
+    ]
+
+    directive_tb = CaseInsensitiveListTokenBuilder(directives, 'directive', False)
+
+    title_directive_tb = LeadToEndOfLineTokenBuilder('TITLE', False, 'directive')
+    subtitle_directive_tb = LeadToEndOfLineTokenBuilder('SUBTTL', False, 'directive')
+    include_directive_tb = LeadToEndOfLineTokenBuilder('INCLUDE', False, 'directive')
+
     opcodes = [
       'DFB', 'DFW', 'EQU', 'ORG',
       'ADC', 'AND', 'ASL', 'AST',
@@ -126,6 +136,10 @@ class Assembly6502Examiner(Examiner):
       values_tb,
       groupers_tb,
       known_operator_tb,
+      directive_tb,
+      title_directive_tb,
+      subtitle_directive_tb,
+      include_directive_tb,
       identifier_tb,
       string_tb,
       comment_tb,

@@ -105,6 +105,10 @@ class AssemblyGenericExaminer(Examiner):
 
     comment_tb = AssemblyCommentTokenBuilder(';*')
 
+    title_directive_tb = LeadToEndOfLineTokenBuilder('TITLE', False, 'directive')
+    subtitle_directive_tb = LeadToEndOfLineTokenBuilder('SUBTTL', False, 'directive')
+    include_directive_tb = LeadToEndOfLineTokenBuilder('INCLUDE', False, 'directive')
+
     invalid_token_builder = InvalidTokenBuilder()
 
     tokenbuilders = [
@@ -122,6 +126,9 @@ class AssemblyGenericExaminer(Examiner):
       values_tb,
       groupers_tb,
       known_operator_tb,
+      title_directive_tb,
+      subtitle_directive_tb,
+      include_directive_tb,
       identifier_tb,
       string_tb,
       hex_string_tb,

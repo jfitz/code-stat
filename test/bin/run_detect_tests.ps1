@@ -1,10 +1,18 @@
 Set-StrictMode -Version Latest
 
 # generic assembly
-test\bin\run_detect_test.ps1 -json -name subroutine1-asm -inputfile ".\test\data\ASM-360\subroutine1.asm" -expected ".\test\ref\detect\Assembly\subroutine1.txt"
-test\bin\run_detect_test.ps1 -json -name subroutine2-asm -inputfile ".\test\data\ASM-360\subroutine2.asm" -expected ".\test\ref\detect\Assembly\subroutine2.txt"
-test\bin\run_detect_test.ps1 -json -name osint-asm -inputfile ".\test\data\ASM-360\osint.asm" -expected ".\test\ref\detect\Assembly\osint.txt"
-test\bin\run_detect_test.ps1 -json -name spitbol-asm -inputfile ".\test\data\ASM-360\spitbol.asm" -expected ".\test\ref\detect\Assembly\spitbol.txt"
+
+# ASM iBM-360
+test\bin\run_detect_test.ps1 -json -name subroutine1-asm -inputfile ".\test\data\ASM-360\subroutine1.asm" -expected ".\test\ref\detect\ASM-360\subroutine1.txt"
+test\bin\run_detect_test.ps1 -json -name subroutine2-asm -inputfile ".\test\data\ASM-360\subroutine2.asm" -expected ".\test\ref\detect\ASM-360\subroutine2.txt"
+test\bin\run_detect_test.ps1 -json -name osint-asm -inputfile ".\test\data\ASM-360\osint.asm" -expected ".\test\ref\detect\ASM-360\osint.txt"
+test\bin\run_detect_test.ps1 -json -name spitbol-asm -inputfile ".\test\data\ASM-360\spitbol.asm" -expected ".\test\ref\detect\ASM-360\spitbol.txt"
+
+# ASM IBM-370
+
+# ASM IBM-390
+
+# ASM IBM-system-z
 
 # ASM 6502
 test\bin\run_detect_test.ps1 -json -name sweet16-asm -inputfile ".\test\data\ASM-6502\sweet16.asm" -expected ".\test\ref\detect\ASM-6502\sweet16.txt"
@@ -28,10 +36,12 @@ test\bin\run_detect_test.ps1 -json -name FIVEO-asm -inputfile ".\test\data\ASM-8
 test\bin\run_detect_test.ps1 -json -name GWEVAL-asm -inputfile ".\test\data\ASM-8086\GWEVAL.asm" -expected ".\test\ref\detect\ASM-8086\GWEVAL.txt"
 test\bin\run_detect_test.ps1 -json -name NEXT86-asm -inputfile ".\test\data\ASM-8086\NEXT86.asm" -expected ".\test\ref\detect\ASM-8086\NEXT86.txt"
 
-# ADM-80386
+# ASM-80386
 test\bin\run_detect_test.ps1 -json -name reverser-asm -inputfile ".\test\data\ASM-80386\reverser.asm" -expected ".\test\ref\detect\ASM-80386\reverser.txt"
 test\bin\run_detect_test.ps1 -json -name crc16-asm -inputfile ".\test\data\ASM-80386\crc16.asm" -expected ".\test\ref\detect\ASM-80386\crc16.txt"
 test\bin\run_detect_test.ps1 -json -name mat_get_element-asm -inputfile ".\test\data\ASM-80386\mat_get_element.asm" -expected ".\test\ref\detect\ASM-80386\mat_get_element.txt"
+
+# ASM-80486
 
 # Ada-83
 test\bin\run_detect_test.ps1 -json -name adabkend-adb -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\detect\Ada-83\adabkend-adb.txt"

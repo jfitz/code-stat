@@ -8,6 +8,7 @@ from flask import Flask, request, render_template, Response
 from codestat_exception import CodeStatException
 from generic_code_examiner import GenericCodeExaminer
 from assembly_generic_examiner import AssemblyGenericExaminer
+from assembly_ibm_examiner import AssemblyIBMExaminer
 from assembly_6502_examiner import Assembly6502Examiner
 from assembly_6800_examiner import Assembly6800Examiner
 from assembly_8080_examiner import Assembly8080Examiner
@@ -61,6 +62,7 @@ from visualbasicnet_examiner import VisualBasicNETExaminer
 GenericCodeExaminer.__escape_z__()
 AdaExaminer.__escape_z__()
 AssemblyGenericExaminer.__escape_z__()
+AssemblyIBMExaminer.__escape_z__()
 Assembly6502Examiner.__escape_z__()
 Assembly6800Examiner.__escape_z__()
 Assembly8080Examiner.__escape_z__()
@@ -232,6 +234,7 @@ codes_and_names = {
   'ada-2005': 'Ada-2005',
   'ada-2012': 'Ada-2012',
   'assembly': 'Assembly',
+  'asm-360': 'ASM-360',
   'asm-6502': 'ASM-6502',
   'asm-6800': 'ASM-6800',
   'asm-8080': 'ASM-8080',
@@ -313,6 +316,7 @@ codes_and_groups = {
   'ada-2005': 'Ada',
   'ada-2012': 'Ada',
   'assembly': 'Assembly',
+  'asm-360': 'Assembly',
   'asm-6502': 'Assembly',
   'asm-6800': 'Assembly',
   'asm-8080': 'Assembly',
@@ -394,6 +398,7 @@ codes_and_years = {
   'ada-2005': 2005,
   'ada-2012': 2012,
   'assembly': 1952,
+  'asm-360': 1964,
   'asm-6502': 1977,
   'asm-6800': 1978,
   'asm-8080': 1975,
@@ -474,6 +479,10 @@ simpler_languages = {
   'ada-2005': 'ada-95',
   'ada-2012': 'ada-2005',
   'assembly': None,
+  'asm-360': None,
+  'asm-370': 'asm-360',
+  'asm-390': 'asm-370',
+  'asm-system-z': 'asm-390',
   'asm-6502': None,
   'asm-6800': None,
   'asm-8080': None,
@@ -549,6 +558,10 @@ simpler_languages = {
 }
 
 override_language = {
+  'asm-360': 'assembly',
+  'asm-370': 'assembly',
+  'asm-390': 'assembly',
+  'asm-system-z': 'assembly',
   'asm-6502': 'assembly',
   'asm-6800': 'assembly',
   'asm-8080': 'assembly',
@@ -871,6 +884,9 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
   if language in ['assembly']:
     examiner = AssemblyGenericExaminer(code, tab_size)
 
+  if language in ['asm-360']:
+    examiner = AssemblyIBMExaminer(code, tab_size)
+
   if language in ['asm-6502']:
     examiner = Assembly6502Examiner(code, tab_size)
 
@@ -1113,6 +1129,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
 
   if 'assembly' in languages:
     examiners['assembly'] = AssemblyGenericExaminer(code, tab_size)
+
+  if 'asm-360' in languages:
+    examiners['asm-360'] = AssemblyIBMExaminer(code, tab_size)
 
   if 'asm-6502' in languages:
     examiners['asm-6502'] = Assembly6502Examiner(code, tab_size)
