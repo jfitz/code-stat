@@ -183,7 +183,7 @@ class AssemblyIBMExaminer(Examiner):
     label_mids = '.&$#@'
     label_ends = ':,'
     comment_leads = '*;!'
-    tokens, indents = self.tokenize_asm_code(code, tab_size, tokenizer, opcode_extras, label_leads, label_mids, label_ends, comment_leads)
+    tokens, indents = Tokenizer.tokenize_asm_code(code, tab_size, tokenizer, opcode_extras, label_leads, label_mids, label_ends, comment_leads)
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     tokens = Examiner.combine_identifier_colon(tokens, ['newline'], [], [])
