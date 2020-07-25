@@ -156,6 +156,7 @@ class Assembly6800Examiner(Examiner):
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     self.tokens = tokens
+    self.convert_asm_identifiers_to_labels()
 
     self.calc_statistics()
 

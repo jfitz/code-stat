@@ -253,8 +253,8 @@ class AssemblyX86Examiner(Examiner):
     tokens = tokenizer.tokenize(code)
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
-    tokens = AssemblyX86Examiner.convert_identifiers_to_labels(tokens)
     self.tokens = tokens
+    self.convert_asm_identifiers_to_labels()
 
     self.calc_statistics()
 
@@ -281,20 +281,6 @@ class AssemblyX86Examiner(Examiner):
     self.calc_keyword_confidence()
 
     # self.calc_paired_blockers_confidence(['{'], ['}'])
-
-
-  # convert leading identifiers to labels
-  @staticmethod
-  def convert_identifiers_to_labels(tokens):
-    prev_token = Token('\n', 'newline', False)
-
-    for token in tokens:
-      if token.group == 'identifier' and prev_token.group == 'newline':
-        token.group = 'label'
-
-      prev_token = token
-    
-    return tokens
 
 
   # combine numbers followed by identfiers to identifiers

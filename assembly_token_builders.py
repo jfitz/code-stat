@@ -28,10 +28,7 @@ class AssemblyCommentTokenBuilder(TokenBuilder):
     if candidate == '':
       return c in self.legals
 
-    if candidate[0] in self.legals:
-      return True
-
-    return False
+    return True
 
 
   def get_score(self, line_printable_tokens):

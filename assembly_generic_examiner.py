@@ -151,7 +151,7 @@ class AssemblyGenericExaminer(Examiner):
     tokens = Examiner.combine_identifier_colon(tokens, ['newline'], [], [])
     tokens = Tokenizer.combine_number_and_adjacent_identifier(tokens)
     self.tokens = tokens
-    self.convert_identifiers_to_labels()
+    self.convert_asm_identifiers_to_labels()
 
     self.calc_statistics()
 

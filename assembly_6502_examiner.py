@@ -37,6 +37,7 @@ class Assembly6502Examiner(Examiner):
     PrefixedIntegerTokenBuilder.__escape_z__()
     SuffixedIntegerTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
+    LeadToEndOfLineTokenBuilder.__escape_z__()
     AssemblyCommentTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
@@ -111,7 +112,7 @@ class Assembly6502Examiner(Examiner):
       'TAX', 'TAY', 'TSX', 'TXA', 'TXS', 'TYA'
     ]
 
-    # keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
+    opcode_tb = CaseSensitiveListTokenBuilder(opcodes, 'keyword', False)
 
     # types = []
 
@@ -122,7 +123,8 @@ class Assembly6502Examiner(Examiner):
     values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
     operand_types.append('value')
 
-    comment_tb = AssemblyCommentTokenBuilder(';*')
+    comment_tb = LeadToEndOfLineTokenBuilder(';', False, 'comment')
+    comment_2_tb = AssemblyCommentTokenBuilder('*')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -136,6 +138,7 @@ class Assembly6502Examiner(Examiner):
       values_tb,
       groupers_tb,
       known_operator_tb,
+      opcode_tb,
       directive_tb,
       title_directive_tb,
       subtitle_directive_tb,
@@ -143,22 +146,17 @@ class Assembly6502Examiner(Examiner):
       identifier_tb,
       string_tb,
       comment_tb,
+      comment_2_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]
 
     tokenizer = Tokenizer(tokenbuilders)
-    # get tokens and indents
-    opcode_extras = '.'
-    label_leads = '.&'
-    label_mids = '.&'
-    label_ends = ':,'
-    comment_leads = '*;!'
-    tokens, indents = self.tokenize_asm_code(code, tab_size, tokenizer, opcode_extras, label_leads, label_mids, label_ends, comment_leads)
+    tokens = tokenizer.tokenize(code)
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     self.tokens = tokens
-    self.convert_identifiers_to_labels()
+    self.convert_asm_identifiers_to_labels()
 
     self.calc_statistics()
 
@@ -181,10 +179,10 @@ class Assembly6502Examiner(Examiner):
     operand_types_2 = ['number']
     self.calc_operand_n_confidence(tokens, operand_types_2, 2)
     self.calc_operand_n_confidence(tokens, operand_types, 4)
-    self.calc_opcode_confidence(opcodes)
+
+    self.calc_keyword_confidence()
 
     # self.calc_paired_blockers_confidence(['{'], ['}'])
-    self.calc_indent_confidence(indents)
 
 
   # combine numbers followed by identfiers to identifiers

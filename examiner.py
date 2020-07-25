@@ -235,6 +235,18 @@ class Examiner:
         prev_token = token
 
 
+  # convert identifiers at start of line to labels
+  def convert_asm_identifiers_to_labels(self):
+    prev_token = Token('\n', 'newline', False)
+
+    for token in self.tokens:
+      if token.group == 'identifier' and prev_token.group == 'newline':
+        token.group = 'label'
+        token.is_operand = False
+
+      prev_token = token
+
+
   def calc_line_length_confidence(self, code, width):
     num_ok_lines = 0
     lines = code.split('\n')
@@ -875,6 +887,7 @@ class Examiner:
     parens_level = 0
     state = START_LABEL_OR_WHITESPACE
     column = 0
+    prev_c = ' '
     for c in line:
       # start (label or label-opcode whitespace)
       if state == START_LABEL_OR_WHITESPACE:
@@ -977,7 +990,7 @@ class Examiner:
               in_quote = False
               quote_char = None
           else:
-            if c in quotes:
+            if c in quotes and prev_c not in 'LN':
               in_quote = True
               quote_char = c
             if c == '(':
@@ -1002,6 +1015,7 @@ class Examiner:
         comment += c
 
       column += 1
+      prev_c = c
 
     indents = {
       'label': label_indent,

@@ -44,6 +44,8 @@ class AssemblyIBMExaminer(Examiner):
   def __init__(self, code, tab_size):
     super().__init__()
 
+    self.newlines_important = 'always'
+
     operand_types = []
 
     whitespace_tb = WhitespaceTokenBuilder()
