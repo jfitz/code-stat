@@ -132,9 +132,13 @@ class AssemblyIBMExaminer(Examiner):
 
     # keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
-    # types = []
+    registers = [
+      'R0', 'R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'R7', 'R8', 'R9', 'R10',
+      'R11', 'R12', 'R13', 'R14', 'R15',
+      'FP0', 'FP2', 'FP4', 'FP6'
+    ]
 
-    # types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
+    register_tb = CaseInsensitiveListTokenBuilder(registers, 'register', True)
 
     values = ['*']
 
@@ -164,6 +168,7 @@ class AssemblyIBMExaminer(Examiner):
       values_tb,
       groupers_tb,
       known_operator_tb,
+      register_tb,
       identifier_tb,
       string_tb,
       hex_string_tb,

@@ -119,6 +119,10 @@ class Assembly6800Examiner(Examiner):
 
     opcode_tb = CaseInsensitiveListTokenBuilder(opcodes, 'keyword', False)
 
+    registers = ['A', 'B', 'IX', 'PC', 'SP']
+
+    register_tb = CaseSensitiveListTokenBuilder(registers, 'register', True)
+
     values = ['*']
 
     values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
@@ -138,6 +142,7 @@ class Assembly6800Examiner(Examiner):
       values_tb,
       groupers_tb,
       known_operator_tb,
+      register_tb,
       opcode_tb,
       directive_tb,
       title_directive_tb,

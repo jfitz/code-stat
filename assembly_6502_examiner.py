@@ -114,9 +114,9 @@ class Assembly6502Examiner(Examiner):
 
     opcode_tb = CaseSensitiveListTokenBuilder(opcodes, 'keyword', False)
 
-    # types = []
+    registers = ['A', 'X', 'Y', 'P', 'S']
 
-    # types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
+    register_tb = CaseSensitiveListTokenBuilder(registers, 'register', True)
 
     values = ['*']
 
@@ -138,6 +138,7 @@ class Assembly6502Examiner(Examiner):
       values_tb,
       groupers_tb,
       known_operator_tb,
+      register_tb,
       opcode_tb,
       directive_tb,
       title_directive_tb,

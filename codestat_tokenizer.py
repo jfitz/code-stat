@@ -87,10 +87,14 @@ class Tokenizer():
 
     return winner
 
-
+  # tokenize according to space layout
+  # label at left
+  # opcode
+  # arguments (no spaces within, or only in quoted strings)
+  # comment
   @staticmethod
-  def tokenize_asm_code(code, tab_size, tokenizer, opcode_extras, label_leads, label_mids, label_ends, comment_leads):
-    lines = code.split('\n')
+  def tokenize_asm_code(text, tab_size, tokenizer, opcode_extras, label_leads, label_mids, label_ends, comment_leads):
+    lines = text.split('\n')
 
     tokens = []
     indents = []
