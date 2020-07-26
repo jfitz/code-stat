@@ -129,6 +129,9 @@ generic ASM
 - operator =
 - newlines always important
 
+spaced-format ASM
+- comment when position is close to previous comment; set new position
+
 ASM-PDP-8
 - label terminate ,
 - line comment /
@@ -146,7 +149,6 @@ ASM-PDP-8
 'RCSF', 'RCRA', 'RCRB', 'RCNO', 'RCRC', 'RCNI', 'RCSD', 'RCSE', 'RCRD', 'RCSI', 'RCTF',
 'RPE', RSF', 'RRB', 'RFC', 'PCE', 'PSF', 'PCF', 'PPC', 'PLS',
 'KCF', 'KSF', 'KCC', 'KRS', 'KIE', 'KRB', 'TFL', 'TSF', 'TCF', 'TPC', 'TSK', 'TLS'
-
 
 ASM-PDP-11
 - label terminate :
@@ -175,9 +177,6 @@ ASM-PDP-11
 - group < > ( )
 - numbers 10d 10. 1010b 10^O 10^D 10^B
 - value .
-
-ASM-360
-- registers r0 through r15
 
 ASM-370
 - opcodes
@@ -299,17 +298,6 @@ ASM-series-z
   'NIHH', 'NIHL', 'NILH', 'NILL',
   'OIHH', 'OIHL', 'OILH', 'OILL',
   'SAM64',
-
-ASM-6502
-- registers A X Y P S PC
-
-ASM-6800
-- registers A B IX PC SP
-- directive should include all tokens on line
-
-ASM-8080
-
-ASM-Z-80
 
 ASM-8086 (16-bit, not x86)
 - registers

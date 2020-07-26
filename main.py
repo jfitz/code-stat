@@ -570,7 +570,6 @@ override_language = {
   'asm-80386': 'assembly',
   'asm-80486': 'assembly',
   'asm-z-80': 'assembly',
-  'asm-8086': 'assembly',
   'asm-ibm-360': 'assembly',
   'asm-ibm-370': 'assembly',
   'asm-ibm-390': 'assembly',
