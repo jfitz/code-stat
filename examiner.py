@@ -242,9 +242,23 @@ class Examiner:
     for token in self.tokens:
       if token.group == 'identifier' and prev_token.group == 'newline':
         token.group = 'label'
-        token.is_operand = False
 
       prev_token = token
+
+
+  # convert asterisks in expressions to operators
+  @staticmethod
+  def convert_asterisks_to_operators(tokens):
+    prev_token = Token('\n', 'newline', False)
+
+    for token in tokens:
+      if token.group == 'value' and prev_token.group in ['number', 'identifier', 'value']:
+        token.group = 'operator'
+
+      if token.group not in ['whitespace']:
+        prev_token = token
+
+    return tokens
 
 
   def calc_line_length_confidence(self, code, width):
@@ -510,6 +524,35 @@ class Examiner:
     self.confidences['line format'] = 1.0
 
 
+  def calc_confidences(self, operand_types, group_starts, group_mids, group_ends, indents):
+    tokens = self.source_tokens()
+    tokens = Examiner.join_all_lines(tokens)
+
+    self.calc_token_confidence()
+    self.calc_token_2_confidence()
+
+    num_operators = self.count_my_tokens(['operator'])
+    if num_operators > 0:
+      self.calc_operator_confidence()
+      allow_pairs = []
+      self.calc_operator_2_confidence(tokens, allow_pairs)
+      self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
+      self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
+
+    self.calc_group_confidence(tokens, group_mids)
+
+    operand_types_2 = ['number']
+    self.calc_operand_n_confidence(tokens, operand_types_2, 2)
+    self.calc_operand_n_confidence(tokens, operand_types, 4)
+
+    self.calc_keyword_confidence()
+
+    # self.calc_paired_blockers_confidence(['{'], ['}'])
+
+    if indents is not None:
+      self.calc_indent_confidence(indents)
+
+
   # unwrap lines (drop line continuation tokens and tokens including newline)
   @staticmethod
   def unwrap_code_lines(tokens):
@@ -667,6 +710,33 @@ class Examiner:
       else:
         # more than 1000 tokens and no keyword? assume it is not
         self.confidences['keyword'] = 0.0
+
+
+  def calc_indent_confidence(self, indents):
+    opcode_indents = {}
+    for indent_dict in indents:
+      opcode = indent_dict['opcode']
+      if opcode is not None:
+        if opcode in opcode_indents:
+          opcode_indents[opcode] += 1
+        else:
+          opcode_indents[opcode] = 1
+
+    total = 0
+    highest = 0
+
+    for key in opcode_indents:
+      indent = opcode_indents[key]
+      total += indent
+      if indent > highest:
+        highest = indent
+
+    if total > 0:
+      confidence = highest / total
+    else:
+      confidence = 0.0
+    
+    self.confidences['opcode_indent'] = confidence
 
 
   def count_source_lines(self):

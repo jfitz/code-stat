@@ -51,6 +51,8 @@ test\bin\run_test.ps1 -json -name ET3400-S6-asm -action statistics -language asm
 # ASM 8080
 test\bin\run_test.ps1 -json -name i8080core-asm -action statistics -language asm-8080 -inputfile ".\test\data\ASM-8080\i8080core.asm" -expected ".\test\ref\statistics\ASM-8080\i8080core.txt"
 test\bin\run_test.ps1 -json -name microcosm-asm -action statistics -language asm-8080 -inputfile ".\test\data\ASM-8080\microcosm.asm" -expected ".\test\ref\statistics\ASM-8080\microcosm.txt"
+test\bin\run_test.ps1 -json -name hello_free-asm -action statistics -language asm-8080 -inputfile ".\test\data\ASM-8080\hello_free.asm" -expected ".\test\ref\statistics\ASM-8080\hello_free.txt"
+test\bin\run_test.ps1 -json -name hello_spaced-asm -action statistics -language asm-8080 -inputfile ".\test\data\ASM-8080\hello_spaced.asm" -expected ".\test\ref\statistics\ASM-8080\hello_spaced.txt"
 
 # ASM Z-80
 test\bin\run_test.ps1 -json -name intro-asm -action statistics -language asm-z-80 -inputfile ".\test\data\ASM-Z-80\intro.asm" -expected ".\test\ref\statistics\ASM-Z-80\intro.txt"

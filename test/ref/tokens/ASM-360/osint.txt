@@ -1264,7 +1264,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00108000"
     },
     {
@@ -1516,7 +1516,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00138000"
     },
     {
@@ -2052,7 +2052,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00201000"
     },
     {
@@ -2496,7 +2496,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00255000"
     },
     {
@@ -2924,7 +2924,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00307000"
     },
     {
@@ -3336,7 +3336,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00357000"
     },
     {
@@ -4092,7 +4092,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00445000"
     },
     {
@@ -4252,7 +4252,7 @@
         "value":"                                                           "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00449000"
     },
     {
@@ -4296,7 +4296,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00453000"
     },
     {
@@ -4320,7 +4320,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00454000"
     },
     {
@@ -4688,7 +4688,7 @@
         "value":"                                                           "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00464000"
     },
     {
@@ -4732,7 +4732,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00468000"
     },
     {
@@ -4756,7 +4756,7 @@
         "value":"                                                           "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00469000"
     },
     {
@@ -4884,7 +4884,7 @@
         "value":"                                                           "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00473000"
     },
     {
@@ -4904,7 +4904,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00474000"
     },
     {
@@ -4948,7 +4948,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00478000"
     },
     {
@@ -5192,7 +5192,7 @@
         "value":"                                                           "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00485000"
     },
     {
@@ -5236,7 +5236,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00489000"
     },
     {
@@ -5384,7 +5384,7 @@
         "value":"                                                           "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00493000"
     },
     {
@@ -7896,7 +7896,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00571000"
     },
     {
@@ -9121,23 +9121,55 @@
     },
     {
         "type":"opcode",
-        "value":"HIARCHY=1,MF=(E,MLIST)"
+        "value":"HIARCHY"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"opcode",
+        "value":"MF"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"opcode",
+        "value":"E"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"opcode",
+        "value":"MLIST"
+    },
+    {
+        "type":"group",
+        "value":")"
     },
     {
         "type":"whitespace",
         "value":"       "
     },
     {
-        "type":"identifier",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
         "type":"comment",
-        "value":". . .                     00617000"
+        "value":". . . .                     00617000"
     },
     {
         "type":"newline",
@@ -9288,7 +9320,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00621000"
     },
     {
@@ -10828,7 +10860,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00670000"
     },
     {
@@ -12092,7 +12124,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00711000"
     },
     {
@@ -13480,7 +13512,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00758000"
     },
     {
@@ -14320,7 +14352,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00796000"
     },
     {
@@ -14888,7 +14920,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00818000"
     },
     {
@@ -15772,7 +15804,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00848000"
     },
     {
@@ -17136,7 +17168,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"00896000"
     },
     {
@@ -24516,7 +24548,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"01247000"
     },
     {
@@ -26892,7 +26924,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"01341000"
     },
     {
@@ -27992,7 +28024,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"01382000"
     },
     {
@@ -29368,7 +29400,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"01433000"
     },
     {
@@ -30432,7 +30464,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"01478000"
     },
     {
@@ -32080,7 +32112,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"01546000"
     },
     {
@@ -33028,7 +33060,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"01582000"
     },
     {
@@ -34216,7 +34248,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"01630000"
     },
     {
@@ -35700,7 +35732,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"01679000"
     },
     {
@@ -36988,7 +37020,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"01726000"
     },
     {
@@ -37640,7 +37672,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"01749000"
     },
     {
@@ -38556,7 +38588,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"01790000"
     },
     {
@@ -43360,7 +43392,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"02005000"
     },
     {
@@ -45888,7 +45920,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"02123000"
     },
     {
@@ -48488,7 +48520,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"02227000"
     },
     {
@@ -53744,7 +53776,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"02419000"
     },
     {
@@ -54988,7 +55020,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"02462000"
     },
     {
@@ -56589,14 +56621,54 @@
     },
     {
         "type":"opcode",
-        "value":"EODAD=EOF,SYNAD=SYNAD,EXLST=EXLALL"
+        "value":"EODAD"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"opcode",
+        "value":"EOF"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"opcode",
+        "value":"SYNAD"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"opcode",
+        "value":"SYNAD"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"opcode",
+        "value":"EXLST"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"opcode",
+        "value":"EXLALL"
     },
     {
         "type":"whitespace",
         "value":"                       "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"02519000"
     },
     {
@@ -57772,7 +57844,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"02574000"
     },
     {
@@ -60452,7 +60524,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"02704000"
     },
     {
@@ -61548,7 +61620,7 @@
         "value":"                                                          "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"02743000"
     },
     {

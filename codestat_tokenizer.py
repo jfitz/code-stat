@@ -133,7 +133,7 @@ class Tokenizer():
     IN_LABEL = 4
     LABEL_OPCODE_WHITESPACE = 5
     IN_OPCODE = 6
-    OPCDE_ARGS_WHITESPACE = 7
+    OPCODE_ARGS_WHITESPACE = 7
     IN_ARGS = 8
     ARGS_COMMENT_WHITESPACE = 9
     IN_COMMENT = 10
@@ -157,6 +157,8 @@ class Tokenizer():
     parens_level = 0
     state = START_LABEL_OR_WHITESPACE
     column = 0
+    prev_args_indent = 16
+    prev_comment_indent = 24
     prev_c = ' '
     for c in line:
       # start (label or label-opcode whitespace)
@@ -222,11 +224,11 @@ class Tokenizer():
         elif c.isspace():
           # state change to in op-args whitespace
           oa_space = c
-          state = OPCDE_ARGS_WHITESPACE
+          state = OPCODE_ARGS_WHITESPACE
         else:
           opcode += c
       # in op-args whitespace
-      elif state == OPCDE_ARGS_WHITESPACE:
+      elif state == OPCODE_ARGS_WHITESPACE:
         if c in comment_leads:
           line_comment = c
           line_comment_indent = column
@@ -234,10 +236,17 @@ class Tokenizer():
         elif c.isspace():
           oa_space += c
         else:
-          # state change to in args
-          args = c
-          args_indent = column
-          state = IN_ARGS
+          # state change to in args or in comment, depending on position
+          if abs(column - prev_args_indent) < abs(column - prev_comment_indent):
+            args = c
+            args_indent = column
+            state = IN_ARGS
+            prev_args_indent = column
+          else:
+            comment = c
+            comment_indent = column
+            state = IN_COMMENT
+            prev_comment_indent = column
           if c in quotes:
             in_quote = True
             quote_char = c
@@ -310,10 +319,11 @@ class Tokenizer():
       tokens.append(Token(lo_space, 'whitespace', False))
 
     if len(opcode) > 0:
-      if Tokenizer.check_opcode_format(opcode, opcode_extras):
-        tokens.append(Token(opcode, 'opcode', False))
-      else:
-        tokens.append(Token(opcode, 'invalid', False))
+      opcode_tokens = tokenizer.tokenize(opcode)
+      for token in opcode_tokens:
+        if token.group == 'identifier':
+          token.group = 'opcode'
+      tokens += opcode_tokens
 
     if len(oa_space) > 0:
       tokens.append(Token(oa_space, 'whitespace', False))

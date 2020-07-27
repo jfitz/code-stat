@@ -86,7 +86,7 @@ class AssemblyIBMExaminer(Examiner):
     groupers = ['(', ')', ',', '[', ']', '{', '}', ':', '<', '>']
     group_starts = ['(', '[', ',', '{', '<']
     group_ends = [')', ']', '}', '>']
-    # group_mids = [',']
+    group_mids = [',']
 
     groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
@@ -190,7 +190,10 @@ class AssemblyIBMExaminer(Examiner):
     self.convert_asm_identifiers_to_labels()
 
     self.calc_statistics()
-    self.calc_confidences(operand_types, group_starts, group_ends, None)
+    statistics1 = self.statistics
+    self.statistics = {}
+
+    self.calc_confidences(operand_types, group_starts, group_mids, group_ends, None)
 
     confidences1 = self.confidences
     self.confidences = {}
@@ -209,18 +212,21 @@ class AssemblyIBMExaminer(Examiner):
     tokens2 = Examiner.combine_identifier_colon(tokens2, ['newline'], [], [])
     tokens2 = Tokenizer.combine_number_and_adjacent_identifier(tokens2)
     tokens2 = AssemblyIBMExaminer.convert_opcodes_to_keywords(tokens2, keywords)
-    tokens2 = AssemblyIBMExaminer.convert_asterisks_to_operators(tokens2)
+    tokens2 = Examiner.convert_asterisks_to_operators(tokens2)
     self.tokens = tokens2
     self.convert_asm_identifiers_to_labels()
 
     self.calc_statistics()
-    self.calc_confidences(operand_types, group_starts, group_ends, indents)
+    statistics2 = self.statistics
+    self.statistics = {}
 
+    self.calc_confidences(operand_types, group_starts, group_mids, group_ends, indents)
     confidences2 = self.confidences
     self.confidences = {}
     errors2 = self.errors
     self.errors = []
 
+    # select the better of free-format and spaced-format
     confidence1 = 1.0
     for key in confidences1:
       factor = confidences1[key]
@@ -231,14 +237,17 @@ class AssemblyIBMExaminer(Examiner):
       factor = confidences2[key]
       confidence2 *= factor
 
-    if confidence1 > confidence2:
-      self.tokens = tokens1
-      self.confidences = confidences1
-      self.errors = errors1
-    else:
+    if confidence2 > confidence1:
       self.tokens = tokens2
+      self.statistics = statistics2
       self.confidences = confidences2
       self.errors = errors2
+    else:
+      self.tokens = tokens1
+      self.statistics = statistics1
+      self.confidences = confidences1
+      self.errors = errors1
+
 
   # convert leading identifiers to labels
   @staticmethod
@@ -250,49 +259,7 @@ class AssemblyIBMExaminer(Examiner):
     return tokens
 
 
-  # convert leading identifiers to labels
-  @staticmethod
-  def convert_asterisks_to_operators(tokens):
-    prev_token = Token('\n', 'newline', False)
-
-    for token in tokens:
-      if token.group == 'value' and prev_token.group in ['number', 'identifier', 'value']:
-        token.group = 'operator'
-
-      if token.group not in ['whitespace']:
-        prev_token = token
-
-    return tokens
-
-
-  def calc_indent_confidence(self, indents):
-    opcode_indents = {}
-    for indent_dict in indents:
-      opcode = indent_dict['opcode']
-      if opcode is not None:
-        if opcode in opcode_indents:
-          opcode_indents[opcode] += 1
-        else:
-          opcode_indents[opcode] = 1
-
-    total = 0
-    highest = 0
-
-    for key in opcode_indents:
-      indent = opcode_indents[key]
-      total += indent
-      if indent > highest:
-        highest = indent
-
-    if total > 0:
-      confidence = highest / total
-    else:
-      confidence = 0.0
-    
-    self.confidences['opcode_indent'] = confidence
-
-
-  def calc_confidences(self, operand_types, group_starts, group_ends, indents):
+  def calc_confidences(self, operand_types, group_starts, group_mids, group_ends, indents):
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
 

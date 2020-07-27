@@ -23,6 +23,8 @@ test\bin\run_detect_test.ps1 -json -name ET3400-S6-asm -inputfile ".\test\data\A
 # ASM 8080
 test\bin\run_detect_test.ps1 -json -name i8080core-asm -inputfile ".\test\data\ASM-8080\i8080core.asm" -expected ".\test\ref\detect\ASM-8080\i8080core.txt"
 test\bin\run_detect_test.ps1 -json -name microcosm-asm -inputfile ".\test\data\ASM-8080\microcosm.asm" -expected ".\test\ref\detect\ASM-8080\microcosm.txt"
+test\bin\run_detect_test.ps1 -json -name hello_free-asm -inputfile ".\test\data\ASM-8080\hello_free.asm" -expected ".\test\ref\detect\ASM-8080\hello_free.txt"
+test\bin\run_detect_test.ps1 -json -name hello_spaced-asm -inputfile ".\test\data\ASM-8080\hello_spaced.asm" -expected ".\test\ref\detect\ASM-8080\hello_spaced.txt"
 
 # ASM Z-80
 test\bin\run_detect_test.ps1 -json -name intro-asm -inputfile ".\test\data\ASM-Z-80\intro.asm" -expected ".\test\ref\detect\ASM-Z-80\intro.txt"
