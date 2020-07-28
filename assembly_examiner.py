@@ -21,6 +21,7 @@ from token_builders import (
 )
 from assembly_token_builders import (
   LabelTokenBuilder,
+  AssemblyCommentTokenBuilder,
   MultilineCommentTokenBuilder
 )
 from examiner import Examiner
@@ -43,6 +44,7 @@ class AssemblyExaminer(Examiner):
     CaseSensitiveListTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
     LabelTokenBuilder.__escape_z__()
+    AssemblyCommentTokenBuilder.__escape_z__()
     MultilineCommentTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
@@ -60,10 +62,11 @@ class AssemblyExaminer(Examiner):
     hex_integer_1_tb = PrefixedIntegerTokenBuilder('&', False, '0123456789abcdefABCDEF')
     hex_integer_2_tb = SuffixedIntegerTokenBuilder('h', False, '0123456789abcdefABCDEF')
     hex_integer_3_tb = PrefixedIntegerTokenBuilder('$', False, '0123456789abcdefABCDEF')
+    hex_integer_4_tb = PrefixedIntegerTokenBuilder('#$', False, '0123456789abcdefABCDEF')
     operand_types.append('number')
 
-    leads = '_.$@'
-    extras = '_.$@'
+    leads = '_.$@#'
+    extras = '_.$@#'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
     operand_types.append('identifier')
 
@@ -93,17 +96,27 @@ class AssemblyExaminer(Examiner):
     known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     preprocessors = [
-      'if', 'else', 'endif', 'macro', 'endm', 'error'
+      'if', 'else', 'endif', 'endc', 'macro', 'endm', 'error'
     ]
 
     preprocessor_tb = CaseInsensitiveListTokenBuilder(preprocessors, 'preprocessor', False)
 
     directives = [
-      'ASEG', 'CSEG', 'DB', 'DW', 'DS', 'DSEG',
-      'END', 'ENDS', 'EQU', 'ORG', 'PAGE', 'SSEG',
-      '.RADIX', '.SALL', '.XLIST', '.MODEL', '.code', 'PROC',
-      'EXTRN', 'SEGMENT', 'PUBLIC', 'ASSUME', 'INS86',
-      'RESB', 'RESD', '%INCLUDE', 'BITS', 'GLOBAL', 'SECTION', 'ALIGN'
+      '.8080', '.8086', '.6800', '.6502',
+      'ALIGN', 'ASEG', 'ASSUME',
+      'BITS',
+      '.CODE', 'CPU', 'CSEG',
+      'DB', 'DEFB', 'DEFS', 'DEFW', 'DFB', 'DFW', 'DW', 'DS', 'DSEG',
+      'EJECT', 'END', 'ENDS', 'EQU', 'EXTRN',
+      'GLOBAL',
+      'INS86', '%INCLUDE',
+      '.MODEL',
+      'NAM', 'NAME',
+      'ORG',
+      'PAGE', 'PROC', 'PUBLIC',
+      '.RADIX', 'RESB', 'RESD',
+      '.SALL', 'SECTION', 'SEGMENT', 'SSEG', 'START',
+      '.XLIST'
     ]
 
     directive_tb = CaseInsensitiveListTokenBuilder(directives, 'directive', False)
@@ -114,7 +127,95 @@ class AssemblyExaminer(Examiner):
 
     comment_directive_tb = MultilineCommentTokenBuilder()
 
-    opcodes = [
+    opcodes = []
+
+    opcodes_6502 = [
+      'ADC', 'AND', 'ASL', 'AST',
+      'BCC', 'BCS', 'BEQ', 'BIT', 'BMI', 'BNE',	'BPL', 'BRK', 'BVC', 'BVS',
+      'CLC', 'CLD', 'CLI', 'CLV', 'CMP', 'CPR', 'CPX', 'CPY',
+      'DEC', 'DEX', 'DEY',
+      'EOR',
+      'INC', 'INX', 'INY',
+      'JMP', 'JSR',
+      'LDA', 'LDX', 'LDY', 'LSR',
+      'NOP',
+      'ORA',
+      'PHA', 'PHP', 'PLA', 'PLP',
+      'ROL', 'ROR', 'RTI', 'RTS',
+      'SBC', 'SEC', 'SED', 'SEI', 'STA', 'STX', 'STY',
+      'TAX', 'TAY', 'TSX', 'TXA', 'TXS', 'TYA'
+    ]
+
+    if processor in ['6502']:
+      opcodes += opcodes_6502
+
+    opcodes_6800 = [
+      'ABA', 'ADC', 'ADCA', 'ADCB', 'ADD', 'AND', 'ASL', 'ASR',
+      'BCC', 'BCS', 'BEQ', 'BGE', 'BGT', 'BHI', 'BIT', 'BLE', 'BLS', 'BLT', 'BMI', 'BNE', 'BPL', 'BRA', 'BSR', 'BVC', 'BVS',
+      'CBA', 'CLC', 'CLI', 'CLR', 'CLRA', 'CLRB', 'CLV', 'CMP', 'COM', 'CPX',
+      'DAA', 'DEC', 'DES', 'DEX',
+      'EOR', 'EORA', 'EROB',
+      'INC', 'INS', 'INX',
+      'JMP', 'JSR',
+      'LDA', 'LDAA', 'LDAB', 'LDS', 'LDX', 'LSR',
+      'NEG', 'NOP',
+      'ORA',
+      'PSH', 'PUL',
+      'ROL', 'ROR', 'RTI', 'RTS',
+      'SBA', 'SBC', 'SEC', 'SEI', 'SEV', 'STA', 'STAA', 'STAB', 'STS', 'STX', 'SUB', 'SWI',
+      'TAB', 'TAP', 'TBA', 'TPA', 'TST', 'TSX', 'TXS',
+      'WAI'
+    ]
+
+    if processor in ['6800']:
+      opcodes += opcodes_6800
+
+    opcodes_8080 = [
+      'ACI', 'ADC', 'ADD', 'ADI', 'ANA', 'ANI',
+      'CALL', 'CC', 'CM', 'CMA', 'CMC', 'CMP', 'CNC', 'CNZ', 'CP', 'CPE', 'CPI',
+      'CPO', 'CZ',
+      'DAA', 'DAD', 'DCR', 'DCX', 'DI',
+      'EI',
+      'HLT',
+      'IN', 'INR', 'INX',
+      'JC', 'JM', 'JMP', 'JNC', 'JNZ', 'JP', 'JPE', 'JPO', 'JZ',
+      'LDAX', 'LHLD', 'LXI',
+      'MOV', 'MVI',
+      'NOP',
+      'ORA', 'ORI', 'OUT',
+      'PCHL', 'POP', 'PUSH',
+      'RAL', 'RAR', 'RC', 'RIM', 'RLC', 'RET', 'RM', 'RNC', 'RNZ', 'RP', 'RPE',
+      'RPO', 'RRC', 'RST', 'RZ	',
+      'SBB', 'SBI', 'SHLD', 'SIM', 'SPHL', 'STA', 'STC', 'STAX', 'SUB', 'SUI',
+      'XCHG', 'XRA', 'XRI', 'XTHL',
+    ]
+
+    if processor in ['8080']:
+      opcodes += opcodes_8080
+
+    opcodes_z80 = [
+      'ADC', 'ADD', 'AND',
+      'BIT',
+      'CALL', 'CCF', 'CP', 'CPD', 'CPDR', 'CPI', 'CPIR', 'CPL',
+      'DAA', 'DEC', 'DI', 'DJNZ',
+      'EI', 'EX', 'EXX',
+      'HALT',
+      'IM', 'IN', 'INC', 'IND', 'INDR', 'INI', 'INIR',
+      'JP', 'JR',
+      'LD', 'LDD', 'LDDR', 'LDI', 'LDIR',
+      'NEG', 'NOP',
+      'OR', 'OTDR', 'OTIR', 'OUT', 'OUTD', 'OUTI',
+      'POP', 'PUSH',
+      'RES', 'RET', 'RETI', 'RETN', 'RL', 'RLA', 'RLC', 'RLCA', 'RLD',
+      'RR', 'RRA', 'RRC', 'RRCA', 'RRD', 'RST',
+      'SBC', 'SCF', 'SET', 'SLA', 'SRA', 'SRL', 'SUB',
+      'XOR'
+    ]
+
+    if processor in ['z80']:
+      opcodes += opcodes_z80
+
+    opcodes_8086 = [
       'AAA', 'AAD', 'AAM', 'AAS', 'ADC', 'ADD', 'AND',
       'CALL', 'CBW', 'CLC', 'CLD', 'CLI', 'CMC', 'CMP', 'CMPS', 'CMPSB', 'CMPW', 'CMPXCHG', 'CWD',
       'DAA', 'DAS', 'DEC', 'DIV',
@@ -144,6 +245,9 @@ class AssemblyExaminer(Examiner):
       'WAIT', 'WBINVD',
       'XCHG', 'XLAT', 'XLATB', 'XOR',
     ]
+
+    if processor in ['8086', '80186', '80286', '80386', '80486']:
+      opcodes += opcodes_8086
 
     opcodes_80186 = [
       'BOUND',
@@ -190,11 +294,41 @@ class AssemblyExaminer(Examiner):
 
     opcode_tb = CaseInsensitiveListTokenBuilder(opcodes, 'keyword', False)
 
-    registers = [
+    registers = []
+
+    registers_6502 = ['A', 'X', 'Y', 'P', 'S']
+
+    if processor in ['6502']:
+      registers += registers_6502
+
+    registers_6800 = ['A', 'B', 'IX', 'PC', 'SP']
+
+    if processor in ['6800']:
+      registers += registers_6800
+
+    registers_8080 = [
+      'A', 'B', 'C', 'D', 'E', 'H', 'L', 'M', 'PSW', 'F'
+      ]
+
+    if processor in ['8080']:
+      registers += registers_8080
+
+    registers_z80 = [
+      'A', 'B', 'C', 'D', 'E', 'H', 'L', 'M', 'PSW', 'F',
+      'BC', 'DE', 'HL', 'IX', 'IY'
+      ]
+
+    if processor in ['z80']:
+      registers += registers_z80
+
+    registers_8086 = [
       'AL', 'AH', 'BL', 'BH', 'CL', 'CH', 'DL', 'DH',
       'AX', 'BX', 'CX', 'DX', 'CS', 'DS', 'SS', 'ES',
       'IP', 'SI', 'DI', 'BP', 'SP', 'FLAGS'
       ]
+
+    if processor in ['8086', '80186', '80286', '80386', '80486']:
+      registers += registers_8086
 
     registers_80286 = [
       'TR'
@@ -219,6 +353,7 @@ class AssemblyExaminer(Examiner):
     operand_types.append('value')
 
     comment_tb = LeadToEndOfLineTokenBuilder(';', False, 'comment')
+    comment_2_tb = AssemblyCommentTokenBuilder('*')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -230,6 +365,7 @@ class AssemblyExaminer(Examiner):
       hex_integer_1_tb,
       hex_integer_2_tb,
       hex_integer_3_tb,
+      hex_integer_4_tb,
       values_tb,
       groupers_tb,
       known_operator_tb,
@@ -245,6 +381,7 @@ class AssemblyExaminer(Examiner):
       label_tb,
       string_tb,
       comment_tb,
+      comment_2_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]
@@ -270,10 +407,10 @@ class AssemblyExaminer(Examiner):
 
     # tokenize as space-format
     opcode_extras = '.&=,()+-*/'
-    label_leads = '.&$@'
+    label_leads = '.&$@#'
     label_mids = '.&$#@'
     label_ends = ':,'
-    comment_leads = '*;!'
+    comment_leads = '*;'
     tokens2, indents = Tokenizer.tokenize_asm_code(code, tab_size, tokenizer, opcode_extras, label_leads, label_mids, label_ends, comment_leads)
     tokens2 = Examiner.combine_adjacent_identical_tokens(tokens2, 'invalid operator')
     tokens2 = Examiner.combine_adjacent_identical_tokens(tokens2, 'invalid')

@@ -319,6 +319,7 @@ class Tokenizer():
       tokens.append(Token(lo_space, 'whitespace', False))
 
     if len(opcode) > 0:
+      # TODO: more than one token reduces confidence
       opcode_tokens = tokenizer.tokenize(opcode)
       for token in opcode_tokens:
         if token.group == 'identifier':

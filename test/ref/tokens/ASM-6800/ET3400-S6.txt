@@ -380,24 +380,8 @@
         "value":"        "
     },
     {
-        "type":"value",
-        "value":"*"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"="
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"$0001"
+        "type":"comment",
+        "value":"* = $0001"
     },
     {
         "type":"newline",
@@ -504,7 +488,7 @@
         "value":"\r\n"
     },
     {
-        "type":"label",
+        "type":"directive",
         "value":"START"
     },
     {
@@ -572,7 +556,7 @@
         "value":"\r\n"
     },
     {
-        "type":"label",
+        "type":"directive",
         "value":"START"
     },
     {
@@ -1024,7 +1008,7 @@
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"directive",
         "value":"START"
     },
     {

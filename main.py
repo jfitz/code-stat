@@ -9,10 +9,6 @@ from codestat_exception import CodeStatException
 from generic_code_examiner import GenericCodeExaminer
 from assembly_generic_examiner import AssemblyGenericExaminer
 from assembly_ibm_examiner import AssemblyIBMExaminer
-from assembly_6502_examiner import Assembly6502Examiner
-from assembly_6800_examiner import Assembly6800Examiner
-from assembly_8080_examiner import Assembly8080Examiner
-from assembly_z_80_examiner import AssemblyZ80Examiner
 from assembly_examiner import AssemblyExaminer
 from ada_examiner import AdaExaminer
 from awk_examiner import AwkExaminer
@@ -63,10 +59,6 @@ GenericCodeExaminer.__escape_z__()
 AdaExaminer.__escape_z__()
 AssemblyGenericExaminer.__escape_z__()
 AssemblyIBMExaminer.__escape_z__()
-Assembly6502Examiner.__escape_z__()
-Assembly6800Examiner.__escape_z__()
-Assembly8080Examiner.__escape_z__()
-AssemblyZ80Examiner.__escape_z__()
 AssemblyExaminer.__escape_z__()
 AwkExaminer.__escape_z__()
 BasicExaminer.__escape_z__()
@@ -887,16 +879,16 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
     examiner = AssemblyIBMExaminer(code, tab_size)
 
   if language in ['asm-6502']:
-    examiner = Assembly6502Examiner(code, tab_size)
+    examiner = AssemblyExaminer(code, tab_size, '6502')
 
   if language in ['asm-6800']:
-    examiner = Assembly6800Examiner(code, tab_size)
+    examiner = AssemblyExaminer(code, tab_size, '6800')
 
   if language in ['asm-8080']:
-    examiner = Assembly8080Examiner(code, tab_size)
+    examiner = AssemblyExaminer(code, tab_size, '8080')
 
   if language in ['asm-z-80']:
-    examiner = AssemblyZ80Examiner(code, tab_size)
+    examiner = AssemblyExaminer(code, tab_size, 'z80')
 
   if language in ['asm-8086', 'asm-8088']:
     examiner = AssemblyExaminer(code, tab_size, '8086')
@@ -1133,16 +1125,16 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
     examiners['asm-360'] = AssemblyIBMExaminer(code, tab_size)
 
   if 'asm-6502' in languages:
-    examiners['asm-6502'] = Assembly6502Examiner(code, tab_size)
+    examiners['asm-6502'] = AssemblyExaminer(code, tab_size, '6502')
 
   if 'asm-6800' in languages:
-    examiners['asm-6800'] = Assembly6800Examiner(code, tab_size)
+    examiners['asm-6800'] = AssemblyExaminer(code, tab_size, '6800')
 
   if 'asm-8080' in languages:
-    examiners['asm-8080'] = Assembly8080Examiner(code, tab_size)
+    examiners['asm-8080'] = AssemblyExaminer(code, tab_size, '8080')
 
   if 'asm-z-80' in languages:
-    examiners['asm-z-80'] = AssemblyZ80Examiner(code, tab_size)
+    examiners['asm-z-80'] = AssemblyExaminer(code, tab_size, 'z80')
 
   if 'asm-8086' in languages or 'asm-8088' in languages:
     examiners['asm-8086'] = AssemblyExaminer(code, tab_size, '8086')
