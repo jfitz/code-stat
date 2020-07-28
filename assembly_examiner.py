@@ -25,7 +25,7 @@ from assembly_token_builders import (
 )
 from examiner import Examiner
 
-class AssemblyX86Examiner(Examiner):
+class AssemblyExaminer(Examiner):
   @staticmethod
   def __escape_z__():
     InvalidTokenBuilder.__escape_z__()

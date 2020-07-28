@@ -13,7 +13,7 @@ from assembly_6502_examiner import Assembly6502Examiner
 from assembly_6800_examiner import Assembly6800Examiner
 from assembly_8080_examiner import Assembly8080Examiner
 from assembly_z_80_examiner import AssemblyZ80Examiner
-from assembly_x_86_examiner import AssemblyX86Examiner
+from assembly_examiner import AssemblyExaminer
 from ada_examiner import AdaExaminer
 from awk_examiner import AwkExaminer
 from basic_examiner import BasicExaminer
@@ -67,7 +67,7 @@ Assembly6502Examiner.__escape_z__()
 Assembly6800Examiner.__escape_z__()
 Assembly8080Examiner.__escape_z__()
 AssemblyZ80Examiner.__escape_z__()
-AssemblyX86Examiner.__escape_z__()
+AssemblyExaminer.__escape_z__()
 AwkExaminer.__escape_z__()
 BasicExaminer.__escape_z__()
 CBasicExaminer.__escape_z__()
@@ -899,16 +899,16 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
     examiner = AssemblyZ80Examiner(code, tab_size)
 
   if language in ['asm-8086', 'asm-8088']:
-    examiner = AssemblyX86Examiner(code, tab_size, '8086')
+    examiner = AssemblyExaminer(code, tab_size, '8086')
 
   if language in ['asm-80286']:
-    examiner = AssemblyX86Examiner(code, tab_size, '80286')
+    examiner = AssemblyExaminer(code, tab_size, '80286')
 
   if language in ['asm-80386', '80388']:
-    examiner = AssemblyX86Examiner(code, tab_size, '80386')
+    examiner = AssemblyExaminer(code, tab_size, '80386')
 
   if language in ['asm-80486', 'asm-80488']:
-    examiner = AssemblyX86Examiner(code, tab_size, '80486')
+    examiner = AssemblyExaminer(code, tab_size, '80486')
 
   if language in ['awk']:
     examiner = AwkExaminer(code, '')
@@ -1145,16 +1145,16 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
     examiners['asm-z-80'] = AssemblyZ80Examiner(code, tab_size)
 
   if 'asm-8086' in languages or 'asm-8088' in languages:
-    examiners['asm-8086'] = AssemblyX86Examiner(code, tab_size, '8086')
+    examiners['asm-8086'] = AssemblyExaminer(code, tab_size, '8086')
 
   if 'asm-80286' in languages:
-    examiners['asm-80286'] = AssemblyX86Examiner(code, tab_size, '80286')
+    examiners['asm-80286'] = AssemblyExaminer(code, tab_size, '80286')
 
   if 'asm-80386' in languages or 'asm-80388' in languages:
-    examiners['asm-80386'] = AssemblyX86Examiner(code, tab_size, '80386')
+    examiners['asm-80386'] = AssemblyExaminer(code, tab_size, '80386')
 
   if 'asm-80486' in languages or 'asm-80488' in languages:
-    examiners['asm-80486'] = AssemblyX86Examiner(code, tab_size, '80486')
+    examiners['asm-80486'] = AssemblyExaminer(code, tab_size, '80486')
 
   if 'awk' in languages:
     examiners['awk'] = AwkExaminer(code, '')
