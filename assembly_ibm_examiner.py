@@ -14,12 +14,12 @@ from token_builders import (
   PrefixedIntegerTokenBuilder,
   SuffixedIntegerTokenBuilder,
   RealTokenBuilder,
-  IdentifierTokenBuilder,
   CaseInsensitiveListTokenBuilder,
   CaseSensitiveListTokenBuilder,
   LeadToEndOfLineTokenBuilder
 )
 from assembly_token_builders import (
+  IbmAsmIdentifierTokenBuilder,
   AssemblyCommentTokenBuilder
 )
 from examiner import Examiner
@@ -62,9 +62,9 @@ class AssemblyIBMExaminer(Examiner):
     suffixed_integer_tb = SuffixedIntegerTokenBuilder(['Q', 'A', 'O', 'D', 'B'], False, None)
     operand_types.append('number')
 
-    leads = '_$#.@'
-    extras = '_$#.@'
-    identifier_tb = IdentifierTokenBuilder(leads, extras)
+    leads = '$#.@&'
+    extras = '$#.@&'
+    identifier_tb = IbmAsmIdentifierTokenBuilder(leads, extras)
     operand_types.append('identifier')
 
     quotes = ['"', "'", "’"]
@@ -91,6 +91,25 @@ class AssemblyIBMExaminer(Examiner):
     groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
     known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
+
+    directives = [
+      'ABEND',
+      'CSECT',
+      'DC', 'DROP', 'DS', 
+      'EJECT', 'END', 'ENTRY', 'EQU', 'EXTRN',
+      'FREEMAIN',
+      'GETMAIN', 'GLOBAL',
+      'MACRO', 'MEND',
+      'NAM', 'NAME',
+      'ORG',
+      'PAGE', 'PARAM', 'PROC', 'PUBLIC',
+      'RETURN',
+      'STIMER',
+      'TITLE', 'SUBTTL',
+      'USING'
+    ]
+
+    directive_tb = CaseInsensitiveListTokenBuilder(directives, 'directive', False)
 
     keywords = [
       'A', 'AD', 'ADR', 'AE', 'AER', 'AH', 'AL', 'ALR', 'AP', 'AR',
@@ -121,8 +140,8 @@ class AssemblyIBMExaminer(Examiner):
       'SP', 'SPM',
       'SR', 'SRA', 'SRDL', 'SRP',
       'SSK', 'SSM', 'SRDA', 'SRL',
-      'STC', 'STD', 'STE', 'STH', 'STM', 'SU', 'SUR', 'SVC', 'SW', 'SWR',
-      'SXR',
+      'ST', 'STC', 'STD', 'STE', 'STH', 'STM', 'SU', 'SUR', 'SVC',
+      'SW', 'SWR', 'SXR',
       'TCH', 'TIO', 'TM', 'TR', 'TRT', 'TS',
       'UNPK', 'UNPKU',
       'WRD',
@@ -130,7 +149,7 @@ class AssemblyIBMExaminer(Examiner):
       'ZAP'
     ]
 
-    # keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
+    opcode_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
 
     registers = [
       'R0', 'R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'R7', 'R8', 'R9', 'R10',
@@ -145,10 +164,9 @@ class AssemblyIBMExaminer(Examiner):
     values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
     operand_types.append('value')
 
-    comment_tb = AssemblyCommentTokenBuilder(';*')
+    comment_tb = LeadToEndOfLineTokenBuilder('!', False, 'comment')
+    line_comment_tb = AssemblyCommentTokenBuilder('*')
 
-    title_directive_tb = LeadToEndOfLineTokenBuilder('TITLE', False, 'directive')
-    subtitle_directive_tb = LeadToEndOfLineTokenBuilder('SUBTTL', False, 'directive')
     include_directive_tb = LeadToEndOfLineTokenBuilder('INCLUDE', False, 'directive')
 
     invalid_token_builder = InvalidTokenBuilder()
@@ -169,23 +187,63 @@ class AssemblyIBMExaminer(Examiner):
       groupers_tb,
       known_operator_tb,
       register_tb,
+      opcode_tb,
+      directive_tb,
+      include_directive_tb,
       identifier_tb,
       string_tb,
       hex_string_tb,
       char_string_tb,
-      title_directive_tb,
-      subtitle_directive_tb,
-      include_directive_tb,
       comment_tb,
+      line_comment_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]
 
-    # tokenize as free-format
+    opcode_tokenbuilders = [
+      whitespace_tb,
+      opcode_tb,
+      directive_tb,
+      include_directive_tb,
+      identifier_tb,
+      self.unknown_operator_tb,
+      invalid_token_builder
+    ]
+
+    args_tokenbuilders = [
+      whitespace_tb,
+      integer_tb,
+      integer_exponent_tb,
+      hex_integer_1_tb,
+      hex_integer_2_tb,
+      hex_integer_3_tb,
+      hex_integer_h_tb,
+      binary_integer_tb,
+      suffixed_integer_tb,
+      real_tb,
+      values_tb,
+      groupers_tb,
+      known_operator_tb,
+      register_tb,
+      identifier_tb,
+      string_tb,
+      hex_string_tb,
+      char_string_tb,
+      comment_tb,
+      line_comment_tb,
+      self.unknown_operator_tb,
+      invalid_token_builder
+    ]
+
     tokenizer = Tokenizer(tokenbuilders)
+    opcode_tokenizer = Tokenizer(opcode_tokenbuilders)
+    args_tokenizer = Tokenizer(args_tokenbuilders)
+
+    # tokenize as free-format
     tokens1 = tokenizer.tokenize(code)
     tokens1 = Examiner.combine_adjacent_identical_tokens(tokens1, 'invalid operator')
     tokens1 = Examiner.combine_adjacent_identical_tokens(tokens1, 'invalid')
+    tokens1 = AssemblyIBMExaminer.convert_keywords_to_identifiers(tokens1)
     self.tokens = tokens1
     self.convert_asm_identifiers_to_labels()
 
@@ -194,7 +252,6 @@ class AssemblyIBMExaminer(Examiner):
     self.statistics = {}
 
     self.calc_confidences(operand_types, group_starts, group_mids, group_ends, None)
-
     confidences1 = self.confidences
     self.confidences = {}
     errors1 = self.errors
@@ -205,13 +262,16 @@ class AssemblyIBMExaminer(Examiner):
     label_leads = '.&$@'
     label_mids = '.&$#@'
     label_ends = ':,'
-    comment_leads = '*;!'
-    tokens2, indents = Tokenizer.tokenize_asm_code(code, tab_size, tokenizer, opcode_extras, label_leads, label_mids, label_ends, comment_leads)
+    comment_leads = '!'
+    line_comment_leads = '*'
+    use_line_id = True
+    tokens2, indents = Tokenizer.tokenize_asm_code(code, tab_size, opcode_tokenizer, opcode_extras, args_tokenizer, label_leads, label_mids, label_ends, comment_leads, line_comment_leads, use_line_id)
     tokens2 = Examiner.combine_adjacent_identical_tokens(tokens2, 'invalid operator')
     tokens2 = Examiner.combine_adjacent_identical_tokens(tokens2, 'invalid')
     tokens2 = Examiner.combine_identifier_colon(tokens2, ['newline'], [], [])
     tokens2 = Tokenizer.combine_number_and_adjacent_identifier(tokens2)
     tokens2 = AssemblyIBMExaminer.convert_opcodes_to_keywords(tokens2, keywords)
+    tokens2 = AssemblyIBMExaminer.convert_keywords_to_identifiers(tokens2)
     tokens2 = Examiner.convert_asterisks_to_operators(tokens2)
     self.tokens = tokens2
     self.convert_asm_identifiers_to_labels()
@@ -227,6 +287,7 @@ class AssemblyIBMExaminer(Examiner):
     self.errors = []
 
     # select the better of free-format and spaced-format
+
     confidence1 = 1.0
     for key in confidences1:
       factor = confidences1[key]
@@ -249,7 +310,24 @@ class AssemblyIBMExaminer(Examiner):
       self.errors = errors1
 
 
-  # convert leading identifiers to labels
+  # convert keywords in expressions to identifiers
+  @staticmethod
+  def convert_keywords_to_identifiers(tokens):
+    prev_token = Token('\n', 'newline', False)
+
+    groups = ['whitespace', 'newline']
+
+    for token in tokens:
+      if token.group == 'keyword' and prev_token.group not in groups:
+        token.group = 'identifier'
+        token.is_operand = True
+
+      prev_token = token
+
+    return tokens
+
+
+  # convert opcodes to keywords
   @staticmethod
   def convert_opcodes_to_keywords(tokens, keywords):
     for token in tokens:
@@ -286,3 +364,5 @@ class AssemblyIBMExaminer(Examiner):
 
     if indents is not None:
       self.calc_indent_confidence(indents)
+
+    self.calc_line_ident_confidence()

@@ -22,7 +22,7 @@ class Tokenizer():
         raise Exception("Cannot tokenize '" + text + "'")
 
       for token in new_tokens:
-        if token.group not in ['whitespace', 'comment']:
+        if token.group not in ['whitespace', 'comment', 'line description']:
           line_printable_tokens.append(token)
 
         if token.group == 'newline':
@@ -53,7 +53,7 @@ class Tokenizer():
         raise Exception("Cannot tokenize '" + text + "'")
 
       for token in new_tokens:
-        if token.group not in ['whitespace', 'comment']:
+        if token.group not in ['whitespace', 'comment', 'line description']:
           line_printable_tokens.append(token)
 
         if token.group == 'newline':
@@ -93,11 +93,12 @@ class Tokenizer():
   # arguments (no spaces within, or only in quoted strings)
   # comment
   @staticmethod
-  def tokenize_asm_code(text, tab_size, tokenizer, opcode_extras, label_leads, label_mids, label_ends, comment_leads):
+  def tokenize_asm_code(text, tab_size, opcode_tokenizer, opcode_extras, args_tokenizer, label_leads, label_mids, label_ends, comment_leads, line_comment_leads, use_line_id):
     lines = text.split('\n')
 
     tokens = []
     indents = []
+    previous_was_continued = False
 
     for line in lines:
       newline = '\n'
@@ -108,24 +109,31 @@ class Tokenizer():
       line = Tokenizer.tabs_to_spaces(line, tab_size)
 
       # get tokens and indents
-      line_tokens, line_indents = Tokenizer.tokenize_asm_line(line, tokenizer, opcode_extras, label_leads, label_mids, label_ends, comment_leads)
+      line_tokens, line_indents, was_continued = Tokenizer.tokenize_asm_line(line, previous_was_continued, opcode_tokenizer, opcode_extras, args_tokenizer, label_leads, label_mids, label_ends, comment_leads, line_comment_leads, use_line_id)
       tokens += line_tokens
       indents.append(line_indents)
 
       tokens.append(Token(newline, 'newline', False))
+      previous_was_continued = was_continued
 
     # return tokens and indents
     return tokens, indents
 
 
   @staticmethod
-  def tokenize_asm_line(line, tokenizer, opcode_extras, label_leads, label_mids, label_ends, comment_leads):
+  def tokenize_asm_line(line, previous_was_continued, opcode_tokenizer, opcode_extras, args_tokenizer, label_leads, label_mids, label_ends, comment_leads, line_comment_leads, use_line_id):
     # break apart the line based on format
     # The line format is:
     # label
     # opcode
     # arguments
     # comment
+
+    if use_line_id and len(line) > 72:
+      line_identification = line[72:]
+      line = line[:72]
+    else:
+      line_identification = None
 
     START_LABEL_OR_WHITESPACE = 1
     AFTER_LABEL = 2
@@ -155,7 +163,10 @@ class Tokenizer():
     in_quote = False
     quote_char = None
     parens_level = 0
-    state = START_LABEL_OR_WHITESPACE
+    if previous_was_continued:
+      state = OPCODE_ARGS_WHITESPACE
+    else:
+      state = START_LABEL_OR_WHITESPACE
     column = 0
     prev_args_indent = 16
     prev_comment_indent = 24
@@ -163,7 +174,7 @@ class Tokenizer():
     for c in line:
       # start (label or label-opcode whitespace)
       if state == START_LABEL_OR_WHITESPACE:
-        if c in comment_leads:
+        if c in comment_leads or c in line_comment_leads:
           line_comment = c
           line_comment_indent = column
           state = IN_LINE_COMMENT
@@ -320,17 +331,19 @@ class Tokenizer():
 
     if len(opcode) > 0:
       # TODO: more than one token reduces confidence
-      opcode_tokens = tokenizer.tokenize(opcode)
-      for token in opcode_tokens:
-        if token.group == 'identifier':
-          token.group = 'opcode'
+      opcode_tokens = opcode_tokenizer.tokenize(opcode)
       tokens += opcode_tokens
 
     if len(oa_space) > 0:
       tokens.append(Token(oa_space, 'whitespace', False))
 
+    continued = False
+
     if len(args) > 0:
-      tokens += tokenizer.tokenize(args)
+      tokens += args_tokenizer.tokenize(args)
+      if args[-1] == ',':
+        # IBM assembler uses trailing comma to indicate continued line
+        continued = True
 
     if len(ac_space) > 0:
       tokens.append(Token(ac_space, 'whitespace', False))
@@ -341,7 +354,10 @@ class Tokenizer():
     if len(line_comment) > 0:
       tokens.append(Token(line_comment, 'comment', False))
 
-    return tokens, indents
+    if line_identification is not None:
+      tokens.append(Token(line_identification, 'line identification', False))
+
+    return tokens, indents, continued
 
 
   @staticmethod

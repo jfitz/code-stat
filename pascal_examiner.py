@@ -168,7 +168,7 @@ class PascalExaminer(Examiner):
     tokens = tokenizer.tokenize(code)
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
-    tokens = self.combine_identifier_colon(tokens, ['statement separator'], ['begin'], ['whitespace', 'comment', 'newline'])
+    tokens = self.combine_identifier_colon(tokens, ['statement separator'], ['begin'], ['whitespace', 'comment', 'newline', 'line description'])
     self.tokens = tokens
     self.convert_identifiers_to_labels()
     self.convert_identifiers_to_labels_2()

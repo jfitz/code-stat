@@ -138,9 +138,38 @@ class AssemblyGenericExaminer(Examiner):
       invalid_token_builder
     ]
 
-    # tokenize as free-format
-    tokenizer = Tokenizer(tokenbuilders)
+    opcode_tokenbuilders = [
+      identifier_tb,
+      invalid_token_builder
+    ]
 
+    args_tokenbuilders = [
+      integer_tb,
+      integer_exponent_tb,
+      hex_integer_1_tb,
+      hex_integer_2_tb,
+      hex_integer_3_tb,
+      hex_integer_h_tb,
+      binary_integer_tb,
+      suffixed_integer_tb,
+      real_tb,
+      values_tb,
+      groupers_tb,
+      known_operator_tb,
+      identifier_tb,
+      string_tb,
+      hex_string_tb,
+      char_string_tb,
+      comment_tb,
+      self.unknown_operator_tb,
+      invalid_token_builder
+    ]
+
+    tokenizer = Tokenizer(tokenbuilders)
+    opcode_tokenizer = Tokenizer(opcode_tokenbuilders)
+    args_tokenizer = Tokenizer(args_tokenbuilders)
+
+    # tokenize as free-format
     tokens1 = tokenizer.tokenize(code)
     tokens1 = Examiner.combine_adjacent_identical_tokens(tokens1, 'invalid operator')
     tokens1 = Examiner.combine_adjacent_identical_tokens(tokens1, 'invalid')
@@ -164,7 +193,9 @@ class AssemblyGenericExaminer(Examiner):
     label_mids = '.&$#@'
     label_ends = ':,'
     comment_leads = '*;!'
-    tokens2, indents = Tokenizer.tokenize_asm_code(code, tab_size, tokenizer, opcode_extras, label_leads, label_mids, label_ends, comment_leads)
+    line_comment_leads = ''
+    use_line_id = False
+    tokens2, indents = Tokenizer.tokenize_asm_code(code, tab_size, opcode_tokenizer, opcode_extras, args_tokenizer, label_leads, label_mids, label_ends, comment_leads, line_comment_leads, use_line_id)
     tokens2 = Examiner.combine_adjacent_identical_tokens(tokens2, 'invalid operator')
     tokens2 = Examiner.combine_adjacent_identical_tokens(tokens2, 'invalid')
     tokens2 = Examiner.combine_identifier_colon(tokens2, ['newline'], [], [])

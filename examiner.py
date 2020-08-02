@@ -100,7 +100,7 @@ class Examiner:
         prev_token.group == 'group' and prev_token.text == '(':
         token.group = 'function'
 
-      if token.group not in ['whitespace', 'comment', 'newline']:
+      if token.group not in ['whitespace', 'comment', 'newline', 'line description']:
         prev_token = token
 
 
@@ -217,7 +217,7 @@ class Examiner:
         token.group = 'identifier'
         token.is_operand = True
 
-      if token.group not in ['whitespace', 'comment', 'newline']:
+      if token.group not in ['whitespace', 'comment', 'newline', 'line description']:
         prev_token = token
 
 
@@ -231,7 +231,7 @@ class Examiner:
         token.group = 'label'
         token.is_operand = False
 
-      if token.group not in ['whitespace', 'comment', 'newline']:
+      if token.group not in ['whitespace', 'comment', 'newline', 'line description']:
         prev_token = token
 
 
@@ -313,7 +313,7 @@ class Examiner:
     num_repeated_tokens = 0
     prev_token = Token('\n', 'newline', False)
 
-    allowed_groups = ['invalid', 'whitespace', 'newline', 'comment', 'group']
+    allowed_groups = ['invalid', 'whitespace', 'newline', 'comment', 'line description', 'group']
     for token in self.tokens:
       if token.group not in allowed_groups and token.text not in allowed_tokens:
         if token.group == prev_token.group and token.text == prev_token.text:
@@ -591,7 +591,7 @@ class Examiner:
 
   def source_tokens(self):
     # remove tokens we don't care about
-    drop_types = ['whitespace', 'comment']
+    drop_types = ['whitespace', 'comment', 'line description']
     tokens = self.drop_tokens(self.tokens, drop_types)
 
     tokens = Examiner.join_continued_lines(tokens)
@@ -650,7 +650,7 @@ class Examiner:
   # two values in a row decreases confidence
   def calc_value_value_different_confidence(self, tokens):
     # remove tokens we don't care about
-    drop_types = ['whitespace', 'comment', 'line continuation']
+    drop_types = ['whitespace', 'comment', 'line description', 'line continuation']
     tokens = Examiner.drop_tokens(self.tokens, drop_types)
 
     value_types = ['number', 'string', 'symbol']
@@ -737,6 +737,20 @@ class Examiner:
       confidence = 0.0
     
     self.confidences['opcode_indent'] = confidence
+
+
+  def calc_line_ident_confidence(self):
+    groups = ['line identification']
+    num_line_idents = self.count_my_tokens(groups)
+
+    groups = ['newline']
+    num_lines = self.count_my_tokens(groups)
+
+    if num_lines > 0:
+      if num_line_idents > 0:
+        self.confidences['line_idents'] = num_line_idents / num_lines
+    else:
+      self.confidences['line_idents'] = 0.0
 
 
   def count_source_lines(self):

@@ -260,7 +260,7 @@ class JuliaExaminer(Examiner):
 
       new_tokens.append(token)
 
-      if token.group not in ['whitespace', 'comment', 'newline']:
+      if token.group not in ['whitespace', 'comment', 'newline', 'line description']:
         prev_token = token
 
     return new_tokens
@@ -274,7 +274,7 @@ class JuliaExaminer(Examiner):
         (prev_token.group != 'keyword' or prev_token.text not in ['primitive', 'abstract']):
         token.group = 'identifier'
 
-      if token.group not in ['whitespace', 'comment', 'newline']:
+      if token.group not in ['whitespace', 'comment', 'newline', 'line description']:
         prev_token = token
 
 

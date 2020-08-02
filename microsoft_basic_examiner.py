@@ -246,7 +246,7 @@ class MicrosoftBasicExaminer(Examiner):
       if token.group == 'number' and prev_token.group == 'newline':
         token.group = 'line number'
 
-      if token.group not in ['whitespace', 'comment']:
+      if token.group not in ['whitespace', 'comment', 'line description']:
         prev_token = token
 
     return tokens
@@ -278,7 +278,7 @@ class MicrosoftBasicExaminer(Examiner):
         prev_token.group == 'keyword' and prev_token.text.lower() == 'option':
         token.group = 'keyword'
 
-      if token.group not in ['whitespace', 'comment']:
+      if token.group not in ['whitespace', 'comment', 'line description']:
         prev_token = token
 
     return tokens
@@ -303,7 +303,7 @@ class MicrosoftBasicExaminer(Examiner):
         prev_token.text == ',':
         token.group = 'value'
 
-      if token.group not in ['whitespace', 'comment']:
+      if token.group not in ['whitespace', 'comment', 'line description']:
         prev_token = token
 
     return tokens
@@ -318,7 +318,7 @@ class MicrosoftBasicExaminer(Examiner):
         prev_token.group == 'value' and prev_token.text in values:
         prev_token.group = 'function'
 
-      if token.group not in ['whitespace', 'comment']:
+      if token.group not in ['whitespace', 'comment', 'line description']:
         prev_token = token
 
     return tokens

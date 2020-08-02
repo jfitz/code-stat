@@ -353,7 +353,7 @@ class AssemblyExaminer(Examiner):
     operand_types.append('value')
 
     comment_tb = LeadToEndOfLineTokenBuilder(';', False, 'comment')
-    comment_2_tb = AssemblyCommentTokenBuilder('*')
+    line_comment_tb = AssemblyCommentTokenBuilder('*')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -381,14 +381,47 @@ class AssemblyExaminer(Examiner):
       label_tb,
       string_tb,
       comment_tb,
-      comment_2_tb,
+      line_comment_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]
 
-    # tokenize as free-format
-    tokenizer = Tokenizer(tokenbuilders)
+    opcode_tokenbuilders = [
+      opcode_tb,
+      directive_tb,
+      title_directive_tb,
+      subtitle_directive_tb,
+      include_directive_tb,
+      comment_directive_tb,
+      preprocessor_tb,
+      invalid_token_builder
+    ]
 
+    args_tokenbuilders = [
+      integer_tb,
+      integer_exponent_tb,
+      hex_integer_1_tb,
+      hex_integer_2_tb,
+      hex_integer_3_tb,
+      hex_integer_4_tb,
+      values_tb,
+      groupers_tb,
+      known_operator_tb,
+      register_tb,
+      identifier_tb,
+      label_tb,
+      string_tb,
+      comment_tb,
+      line_comment_tb,
+      self.unknown_operator_tb,
+      invalid_token_builder
+    ]
+
+    tokenizer = Tokenizer(tokenbuilders)
+    opcode_tokenizer = Tokenizer(opcode_tokenbuilders)
+    args_tokenizer = Tokenizer(args_tokenbuilders)
+
+    # tokenize as free-format
     tokens1 = tokenizer.tokenize(code)
     tokens1 = Examiner.combine_adjacent_identical_tokens(tokens1, 'invalid operator')
     tokens1 = Examiner.combine_adjacent_identical_tokens(tokens1, 'invalid')
@@ -411,7 +444,9 @@ class AssemblyExaminer(Examiner):
     label_mids = '.&$#@'
     label_ends = ':,'
     comment_leads = '*;'
-    tokens2, indents = Tokenizer.tokenize_asm_code(code, tab_size, tokenizer, opcode_extras, label_leads, label_mids, label_ends, comment_leads)
+    line_comment_leads = ''
+    use_line_id = False
+    tokens2, indents = Tokenizer.tokenize_asm_code(code, tab_size, opcode_tokenizer, opcode_extras, args_tokenizer, label_leads, label_mids, label_ends, comment_leads, line_comment_leads, use_line_id)
     tokens2 = Examiner.combine_adjacent_identical_tokens(tokens2, 'invalid operator')
     tokens2 = Examiner.combine_adjacent_identical_tokens(tokens2, 'invalid')
     tokens2 = Examiner.combine_identifier_colon(tokens2, ['newline'], [], [])

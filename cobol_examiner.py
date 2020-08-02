@@ -23,7 +23,7 @@ class CobolExaminer(Examiner):
         prev_token.group == 'keyword' and prev_token.text in ['PIC', 'PICTURE']:
         token.group = 'picture'
 
-      if token.group not in ['whitespace', 'comment', 'newline']:
+      if token.group not in ['whitespace', 'comment', 'newline', 'line description']:
         prev_token = token
 
 
@@ -35,7 +35,7 @@ class CobolExaminer(Examiner):
         prev_token.group == 'newline':
         token.group = 'level'
 
-      if token.group not in ['whitespace', 'line number']:
+      if token.group not in ['whitespace', 'line number', 'line description']:
         prev_token = token
 
 
@@ -101,7 +101,7 @@ class CobolExaminer(Examiner):
   def calc_line_format_confidence(self):
     # check PICTURE keywords are followed by a picture element
     # and picture elements are preceded by a PICTURE keyword
-    drop_types = ['newline', 'whitespace', 'comment', 'line continuation']
+    drop_types = ['newline', 'whitespace', 'comment', 'line description', 'line continuation']
 
     tokens = Examiner.drop_tokens(self.tokens, drop_types)
 

@@ -218,7 +218,7 @@ class BasicExaminer(Examiner):
       if token.group == 'number' and prev_token.group == 'newline':
         token.group = 'line number'
 
-      if token.group not in ['whitespace', 'comment']:
+      if token.group not in ['whitespace', 'comment', 'line description']:
         prev_token = token
 
     return tokens

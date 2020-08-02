@@ -218,7 +218,7 @@ class CBasicExaminer(Examiner):
       if token.group == 'line continuation':
         line_continuation = True
 
-      if token.group not in ['whitespace', 'comment']:
+      if token.group not in ['whitespace', 'comment', 'line description']:
         prev_token = token
 
       if token.group == 'newline':

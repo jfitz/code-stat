@@ -126,10 +126,8 @@ generic ASM
 - values on the left (listing) (xxxx xx xx xx or ooo.ooo ooo ooo ooo)
 - number: $xxxx nnnQ nnnnnnA #xxxx &xxxx $
 - operator =
-- newlines always important
 
 spaced-format ASM
-- comment when position is close to previous comment; set new position
 
 ASM-PDP-8
 - label terminate ,
@@ -338,6 +336,8 @@ FASM directives
 'format', 'section', 'extern', 'public', 'static'
 TASM directives
 
+ASM
+- 'end delimiter not found' for spitbol
 
 ADA
 + Embedded SQL (EXEC ;)

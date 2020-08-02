@@ -167,7 +167,7 @@ class FortranFreeFormatExaminer(FortranExaminer):
     tokens = tokenizer.tokenize(code)
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
-    tokens = Examiner.combine_identifier_colon(tokens, ['newline'], [], ['whitespace', 'comment'])
+    tokens = Examiner.combine_identifier_colon(tokens, ['newline'], [], ['whitespace', 'comment', 'line description'])
     self.tokens = tokens
     self.convert_identifiers_to_labels()
 

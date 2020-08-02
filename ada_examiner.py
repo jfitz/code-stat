@@ -231,7 +231,7 @@ class AdaExaminer(Examiner):
         token.group = 'identifier'
         token.is_operand = True
 
-      if token.group not in ['whitespace', 'comment', 'newline']:
+      if token.group not in ['whitespace', 'comment', 'newline', 'line description']:
         prev_token = token
 
 
@@ -243,7 +243,7 @@ class AdaExaminer(Examiner):
       if token.text == 'then' and prev_token.text == 'and':
         token.group = 'operator'
 
-      if token.group not in ['whitespace', 'comment', 'newline']:
+      if token.group not in ['whitespace', 'comment', 'newline', 'line description']:
         prev_token = token
 
 
@@ -255,5 +255,5 @@ class AdaExaminer(Examiner):
       if token.text == 'else' and prev_token.text == 'or':
         token.group = 'operator'
 
-      if token.group not in ['whitespace', 'comment', 'newline']:
+      if token.group not in ['whitespace', 'comment', 'newline', 'line description']:
         prev_token = token

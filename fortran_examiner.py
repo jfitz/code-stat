@@ -57,7 +57,7 @@ class FortranExaminer(Examiner):
         prev_token.group == 'newline':
         token.group = 'line number'
 
-      if token.group not in ['whitespace', 'comment']:
+      if token.group not in ['whitespace', 'comment', 'line description']:
         prev_token = token
 
 
@@ -92,6 +92,6 @@ class FortranExaminer(Examiner):
         prev_tokens[-4].text.lower() in ['read', 'write', 'print']:
         token.group = 'number'
 
-      if token.group not in ['whitespace', 'comment']:
+      if token.group not in ['whitespace', 'comment', 'line description']:
         prev_tokens.append(token)
         prev_tokens.pop(0)

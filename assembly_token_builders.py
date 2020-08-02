@@ -157,3 +157,43 @@ class MultilineCommentTokenBuilder(TokenBuilder):
       return 0
 
     return len(self.text)
+
+
+# token reader for identifier
+class IbmAsmIdentifierTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self, lead_extras, extras):
+    self.lead_extras = lead_extras
+    self.extras = extras
+    self.text = None
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'identifier', True)]
+
+
+  def accept(self, candidate, c):
+    if len(candidate) == 0:
+      return c.isalpha() or c in self.lead_extras
+
+    return c.isalpha() or c.isdigit() or c in self.extras
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    # if at least one alpha character
+    for i in self.text:
+        if i.isalpha():
+            return len(self.text)
+
+    return 0

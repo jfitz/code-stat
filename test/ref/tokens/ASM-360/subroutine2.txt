@@ -4,7 +4,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"identifier",
         "value":"subr"
     },
     {
@@ -120,7 +120,7 @@
         "value":"           "
     },
     {
-        "type":"opcode",
+        "type":"directive",
         "value":"using"
     },
     {
@@ -128,8 +128,24 @@
         "value":" "
     },
     {
+        "type":"value",
+        "value":"*"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"register",
+        "value":"r12"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
         "type":"comment",
-        "value":"*,r12                 ! pseudo-op to tell assembler to use r12"
+        "value":"! pseudo-op to tell assembler to use r12"
     },
     {
         "type":"newline",
@@ -176,7 +192,7 @@
         "value":"           "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"st"
     },
     {
@@ -220,7 +236,7 @@
         "value":"           "
     },
     {
-        "type":"opcode",
+        "type":"keyword",
         "value":"st"
     },
     {
@@ -284,7 +300,7 @@
         "value":"           "
     },
     {
-        "type":"opcode",
+        "type":"invalid operator",
         "value":"..."
     },
     {
@@ -300,8 +316,24 @@
         "value":" "
     },
     {
-        "type":"comment",
-        "value":"of subroutine ..."
+        "type":"identifier",
+        "value":"of"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"subroutine"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"..."
     },
     {
         "type":"newline",
@@ -316,7 +348,7 @@
         "value":"           "
     },
     {
-        "type":"opcode",
+        "type":"invalid operator",
         "value":"..."
     },
     {
@@ -332,8 +364,68 @@
         "value":" "
     },
     {
-        "type":"comment",
-        "value":"is used for return code, if present ..."
+        "type":"identifier",
+        "value":"is"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"used"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"for"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"return"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"code"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"if"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"present"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"..."
     },
     {
         "type":"newline",
@@ -492,7 +584,7 @@
         "value":"        "
     },
     {
-        "type":"opcode",
+        "type":"identifier",
         "value":"savearea"
     },
     {
@@ -504,7 +596,7 @@
         "value":"           "
     },
     {
-        "type":"opcode",
+        "type":"directive",
         "value":"ds"
     },
     {
@@ -512,8 +604,12 @@
         "value":"   "
     },
     {
+        "type":"number",
+        "value":"18"
+    },
+    {
         "type":"identifier",
-        "value":"18f"
+        "value":"f"
     },
     {
         "type":"whitespace",
@@ -634,9 +730,5 @@
     {
         "type":"newline",
         "value":"\r\n"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
     }
 ]
