@@ -23,6 +23,27 @@ def make_confidences(code, params, languages):
   return confidences
 
 
+# build set of confidence errors, one group for each language
+def make_confidence_errors(code, params, languages):
+  confidence_errors = {}
+  target = 'localhost:5000'
+
+  for language in languages:
+    # send request, get response
+    params2 = params.copy()
+    params2.append('errors')
+    params2.append('language=' + language)
+    paramstext = '&'.join(params2)
+    url = "http://" + target + "/" + "confidence" + "?" + paramstext
+    resp = requests.post(url, data=code)
+    content = resp.content
+    if len(content) > 0:
+      confidence = json.loads(content)
+      confidence_errors[language] = confidence
+
+  return confidence_errors
+
+
 # compute confidence (product of all elements)
 def calc_confidence(confidence):
   value = 1.0
@@ -49,24 +70,32 @@ def count_tokens(statistic, groups):
 def identify_language(code, params, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages):
   tiebreak_override = True
   confidences = make_confidences(code, params, languages)
+  # errors = make_confidence_errors(code, params, languages)
 
   # get confidence values
   retval = {}
   highest_confidence = 0
   for language in confidences:
     confidence = calc_confidence(confidences[language])
+    # sys.stderr.write('CONF: ' + language + ' ' + str(confidence) + '\n')
+    # sys.stderr.write('CONF: ' + language + ' ' + str(confidences[language]) + '\n')
+    # sys.stderr.write('CONF: ' + language + ' ' + str(errors[language]) + '\n')
     retval[language] = confidence
     # find the highest value
     if confidence > highest_confidence:
       highest_confidence = confidence
+  
+  # sys.stderr.write('HIGH CONF: ' + str(highest_confidence) + '\n')
 
   if tiebreak_keywords:
+    # sys.stderr.write('TIEBREAK KEYWORDS\n')
     # count how many have the greatest confidence
     high_languages = []
     for language in confidences:
       confidence = calc_confidence(confidences[language])
       if confidence == highest_confidence:
         high_languages.append(language)
+        # sys.stderr.write('  ' + language + '\n')
 
     # if a tie among multiple examiners
     if len(high_languages) > 1:
@@ -95,19 +124,24 @@ def identify_language(code, params, tiebreak_keywords, tiebreak_tokens, tiebreak
           count = count_tokens(statistics[language], groups)
           keyword_count_confidence = count / highest_keyword_count
           confidences[language]['keyword_count'] = keyword_count_confidence
+          # sys.stderr.write(' ADJ: ' + language + ' ' + str(keyword_count_confidence + '\n'))
 
         # recalculate confidence with new factor
         for language in high_languages:
           confidence = calc_confidence(confidences[language])
           retval[language] = confidence
 
+  # sys.stderr.write('HIGH CONF: ' + str(highest_confidence) + '\n')
+
   if tiebreak_simple:
+    # sys.stderr.write('TIEBREAK SIMPLE\n')
     # count how many have the greatest confidence
     high_languages = []
     for language in confidences:
       confidence = calc_confidence(confidences[language])
       if confidence == highest_confidence:
         high_languages.append(language)
+        # sys.stderr.write('  ' + language + '\n')
 
     # if a tie among multiple examiners
     if len(high_languages) > 1:
@@ -125,6 +159,7 @@ def identify_language(code, params, tiebreak_keywords, tiebreak_tokens, tiebreak
             # when there is a simpler language in the high names list
             # decrease confidence for this language
             confidences[b]['simplest'] = 0.99
+            # sys.stderr.write(' ADJ: ' + b + ' ' + str(keyword_count_confidence + '\n'))
             b = a
           a = simpler_languages[a]
 
@@ -156,6 +191,7 @@ def identify_language(code, params, tiebreak_keywords, tiebreak_tokens, tiebreak
             print('in high languages\n')
             # decrease confidence for loser language
             confidences[loser]['overridden'] = 0.99
+            sys.stderr.write(' ADJ OVER: ' + loser + ' ' + str(keyword_count_confidence + '\n'))
 
       # recalculate confidence with new factor
       for language in high_languages:
