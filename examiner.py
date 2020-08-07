@@ -289,7 +289,7 @@ class Examiner:
     num_invalid_tokens = 0
 
     for token in self.tokens:
-      if token.group.startswith('invalid'):
+      if token.group == 'invalid':
         num_invalid_tokens += 1
 
         self.errors.append({
