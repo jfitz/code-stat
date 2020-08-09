@@ -338,11 +338,9 @@ class Examiner:
 
 
   #  unknown operators reduce confidence
-  def calc_operator_confidence(self):
+  def calc_operator_confidence(self, num_operators):
     invalid_operators = Examiner.find_tokens(self.tokens, ['invalid operator'])
-    num_invalid_operators = Examiner.count_tokens(self.tokens, ['invalid operator'])
-    num_known_operators = Examiner.count_tokens(self.tokens, ['operator'])
-    num_operators = num_known_operators + num_invalid_operators
+    num_known_operators = num_operators - len(invalid_operators)
 
     for operator in invalid_operators:
       self.errors.append({
@@ -361,119 +359,98 @@ class Examiner:
 
 
   # binary operators that follow operators reduce confidence
-  def calc_operator_2_confidence(self, tokens, allow_pairs):
-    num_invalid_operators = Examiner.count_tokens(tokens, ['invalid operator'])
-    num_known_operators = Examiner.count_tokens(tokens, ['operator'])
-    num_operators = num_known_operators + num_invalid_operators
+  def calc_operator_2_confidence(self, tokens, num_operators, allow_pairs):
+    errors = 0
+    prev_token = Token('\n', 'newline', False)
 
-    operator_confidence_2 = 0.0
+    lower_unary_operators = []
+    for op in self.unary_operators:
+      lower_unary_operators.append(op.lower())
 
-    if num_operators > 0:
-      errors = 0
-      prev_token = Token('\n', 'newline', False)
+    for token in tokens:
+      if token.group == 'operator' and \
+        prev_token.group == 'operator' and \
+        prev_token.text not in self.adjective_operators and \
+        prev_token.text not in self.postfix_operators and \
+        token.text.lower() not in lower_unary_operators and \
+        [prev_token.text, token.text] not in allow_pairs:
+        errors += 1
+        self.errors.append({
+          'TYPE': 'OPERATOR2',
+          'FIRST': prev_token.text,
+          'SECOND': token.text
+          })
 
-      lower_unary_operators = []
-      for op in self.unary_operators:
-        lower_unary_operators.append(op.lower())
+      prev_token = token
 
-      for token in tokens:
-        if token.group == 'operator' and \
-          prev_token.group == 'operator' and \
-          prev_token.text not in self.adjective_operators and \
-          prev_token.text not in self.postfix_operators and \
-          token.text.lower() not in lower_unary_operators and \
-          [prev_token.text, token.text] not in allow_pairs:
-          errors += 1
-          self.errors.append({
-            'TYPE': 'OPERATOR2',
-            'FIRST': prev_token.text,
-            'SECOND': token.text
-            })
-
-        prev_token = token
-
-      operator_confidence_2 = 1.0 - errors / num_operators
+    operator_confidence_2 = 1.0 - errors / num_operators
 
     self.confidences['operator_2'] = operator_confidence_2
 
 
   # binary operators that follow non-operands reduce confidence
-  def calc_operator_3_confidence(self, tokens, group_ends, allow_pairs):
-    num_invalid_operators = Examiner.count_tokens(tokens, ['invalid operator'])
-    num_known_operators = Examiner.count_tokens(tokens, ['operator'])
-    num_operators = num_known_operators + num_invalid_operators
+  def calc_operator_3_confidence(self, tokens, num_operators, group_ends, allow_pairs):
+    errors = 0
+    prev_token = Token('\n', 'newline', False)
 
-    operator_confidence_3 = 0.0
+    lower_unary_operators = []
+    for op in self.unary_operators:
+      lower_unary_operators.append(op.lower())
 
-    if num_operators > 0:
-      errors = 0
-      prev_token = Token('\n', 'newline', False)
+    for token in tokens:
+      prev_token_operand = prev_token.is_operand or \
+        prev_token.text in group_ends or \
+        prev_token.text.lower() == 'end'
 
-      lower_unary_operators = []
-      for op in self.unary_operators:
-        lower_unary_operators.append(op.lower())
+      if token.group == 'operator' and \
+        not prev_token_operand and \
+        prev_token.text not in self.adjective_operators and \
+        prev_token.text not in self.postfix_operators and \
+        token.text not in self.keyword_postfix and \
+        token.text.lower() not in lower_unary_operators and \
+        [prev_token.text, token.text] not in allow_pairs:
+        errors += 1
+        self.errors.append({
+          'TYPE': 'OPERATOR3',
+          'FIRST': prev_token.text,
+          'SECOND': token.text
+          })
 
-      for token in tokens:
-        prev_token_operand = prev_token.is_operand or \
-          prev_token.text in group_ends or \
-          prev_token.text.lower() == 'end'
-  
-        if token.group == 'operator' and \
-          not prev_token_operand and \
-          prev_token.text not in self.adjective_operators and \
-          prev_token.text not in self.postfix_operators and \
-          token.text not in self.keyword_postfix and \
-          token.text.lower() not in lower_unary_operators and \
-          [prev_token.text, token.text] not in allow_pairs:
-          errors += 1
-          self.errors.append({
-            'TYPE': 'OPERATOR3',
-            'FIRST': prev_token.text,
-            'SECOND': token.text
-            })
+      prev_token = token
 
-        prev_token = token
-
-      operator_confidence_3 = 1.0 - errors / num_operators
+    operator_confidence_3 = 1.0 - errors / num_operators
 
     self.confidences['operator_3'] = operator_confidence_3
 
 
   # binary operators that precede non-operands reduce confidence
-  def calc_operator_4_confidence(self, tokens, group_starts, allow_pairs):
-    num_invalid_operators = Examiner.count_tokens(tokens, ['invalid operator'])
-    num_known_operators = Examiner.count_tokens(tokens, ['operator'])
-    num_operators = num_known_operators + num_invalid_operators
+  def calc_operator_4_confidence(self, tokens, num_operators, group_starts, allow_pairs):
+    errors = 0
+    prev_token = Token('\n', 'newline', False)
 
-    operator_confidence_4 = 0.0
+    lower_unary_operators = []
+    for op in self.unary_operators:
+      lower_unary_operators.append(op.lower())
 
-    if num_operators > 0:
-      errors = 0
-      prev_token = Token('\n', 'newline', False)
+    for token in tokens:
+      prev_token_postfix_operator = prev_token.text.lower() in (op.lower() for op in self.postfix_operators)
 
-      lower_unary_operators = []
-      for op in self.unary_operators:
-        lower_unary_operators.append(op.lower())
+      if prev_token.group == 'operator' and \
+        not prev_token_postfix_operator and \
+        not token.is_operand and \
+        token.text.lower() not in lower_unary_operators and \
+        token.text not in group_starts and \
+        [prev_token.text, token.text] not in allow_pairs:
+        errors += 1
+        self.errors.append({
+          'TYPE': 'OPERATOR4',
+          'FIRST': prev_token.text,
+          'SECOND': token.text
+          })
 
-      for token in tokens:
-        prev_token_postfix_operator = prev_token.text.lower() in (op.lower() for op in self.postfix_operators)
-  
-        if prev_token.group == 'operator' and \
-          not prev_token_postfix_operator and \
-          not token.is_operand and \
-          token.text.lower() not in lower_unary_operators and \
-          token.text not in group_starts and \
-          [prev_token.text, token.text] not in allow_pairs:
-          errors += 1
-          self.errors.append({
-            'TYPE': 'OPERATOR4',
-            'FIRST': prev_token.text,
-            'SECOND': token.text
-            })
+      prev_token = token
 
-        prev_token = token
-
-      operator_confidence_4 = 1.0 - errors / num_operators
+    operator_confidence_4 = 1.0 - errors / num_operators
 
     self.confidences['operator_4'] = operator_confidence_4
 
@@ -531,13 +508,13 @@ class Examiner:
     self.calc_token_confidence()
     self.calc_token_2_confidence()
 
-    num_operators = self.count_my_tokens(['operator'])
+    num_operators = self.count_my_tokens(['operator', 'invalid operator'])
     if num_operators > 0:
-      self.calc_operator_confidence()
+      self.calc_operator_confidence(num_operators)
       allow_pairs = []
-      self.calc_operator_2_confidence(tokens, allow_pairs)
-      self.calc_operator_3_confidence(tokens, group_ends, allow_pairs)
-      self.calc_operator_4_confidence(tokens, group_starts, allow_pairs)
+      self.calc_operator_2_confidence(tokens, num_operators, allow_pairs)
+      self.calc_operator_3_confidence(tokens, num_operators, group_ends, allow_pairs)
+      self.calc_operator_4_confidence(tokens, num_operators, group_starts, allow_pairs)
 
     self.calc_group_confidence(tokens, group_mids)
 

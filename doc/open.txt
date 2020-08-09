@@ -59,7 +59,7 @@ examiners for:
  DataFlex (1982), SAS,
  JCL, RPG, Lindo, SPSS, Forth, GPSS, CSMP,
   Rbase, Clarion, Rebol, Condor,
- 68000 ASM, PDP-11 ASM, PDP-8 ASM,
+ 68000 ASM, PDP-11 ASM, PDP-8 ASM, 1801 ASM,
  IBM 370 ASM, IBM 390 ASM, IBM series Z ASM,
  LISP, Clojure, algol,
  Pascal-S, BASIC-E,
@@ -129,6 +129,18 @@ generic ASM
 - operator =
 
 spaced-format ASM
+
+ASM-1802
+- opcodes
+'IDL', 'LDN', 'INC', 'DEC', 'BR', 'BO', 'BZ', 'BDF', 'BPZ', 'BGE',
+'B1', 'B2', 'B3', 'B4', 'SKP', 'NBR', 'BNO', 'BNZ', 'BNF', 'BM', 'BL',
+'BN1', 'BN2', 'BN3', 'BN4', 'LDA', 'STR', 'IRX', 'OUT', 'INP',
+'RET', 'DIS', 'LDXA', 'STXD', 'ADC', 'SDB', 'SHRC', 'RSHR', 'SMB',
+'SAV', 'MARK', 'REQ', 'SEQ', 'ADCI', 'SDBI', 'SHLC', 'RSHL', 'SMBI',
+'GLO', 'GHI', 'PLO', 'PHI', 'LBO', 'LBZ', 'LBDF', 'NOP', 'LSNO',
+'LSNZ', 'LSNF', 'LSKP', 'NLBR', 'LBNQ', 'LBNZ', 'LBNF', 'LSIE', 'LSQ',
+'LSZ', 'LSDF', 'SEP', 'SEX', 'LDX', 'OR', 'AND', 'XOR', 'ADD', 'SD',
+'SHR', 'SM', 'LDI', 'ORI', 'ANI', 'XRI', 'ADI', 'SDI', 'SHL', 'SMI'
 
 ASM-PDP-8
 - label terminate ,
