@@ -5,6 +5,7 @@ from codestat_token import Token
 from codestat_tokenizer import Tokenizer
 from token_builders import (
   InvalidTokenBuilder,
+  NullTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
   StringTokenBuilder,
@@ -127,7 +128,19 @@ class AssemblyExaminer(Examiner):
 
     comment_directive_tb = MultilineCommentTokenBuilder()
 
-    opcodes = []
+    opcodes_1802 = [
+      'IDL', 'LDN', 'INC', 'DEC', 'BR', 'BO', 'BZ', 'BDF', 'BPZ', 'BGE',
+      'B1', 'B2', 'B3', 'B4', 'SKP', 'NBR', 'BNO', 'BNZ', 'BNF', 'BM', 'BL',
+      'BN1', 'BN2', 'BN3', 'BN4', 'LDA', 'STR', 'IRX', 'OUT', 'INP',
+      'RET', 'DIS', 'LDXA', 'STXD', 'ADC', 'SDB', 'SHRC', 'RSHR', 'SMB',
+      'SAV', 'MARK', 'REQ', 'SEQ', 'ADCI', 'SDBI', 'SHLC', 'RSHL', 'SMBI',
+      'GLO', 'GHI', 'PLO', 'PHI', 'LBO', 'LBZ', 'LBDF', 'NOP', 'LSNO',
+      'LSNZ', 'LSNF', 'LSKP', 'NLBR', 'LBNQ', 'LBNZ', 'LBNF', 'LSIE', 'LSQ',
+      'LSZ', 'LSDF', 'SEP', 'SEX', 'LDX', 'OR', 'AND', 'XOR', 'ADD', 'SD',
+      'SHR', 'SM', 'LDI', 'ORI', 'ANI', 'XRI', 'ADI', 'SDI', 'SHL', 'SMI'
+    ]
+
+    registers_1802 = []
 
     opcodes_6502 = [
       'ADC', 'AND', 'ASL', 'AST',
@@ -146,8 +159,7 @@ class AssemblyExaminer(Examiner):
       'TAX', 'TAY', 'TSX', 'TXA', 'TXS', 'TYA'
     ]
 
-    if processor in ['6502']:
-      opcodes += opcodes_6502
+    registers_6502 = ['A', 'X', 'Y', 'P', 'S']
 
     opcodes_6800 = [
       'ABA', 'ADC', 'ADCA', 'ADCB', 'ADD', 'AND', 'ASL', 'ASR',
@@ -167,8 +179,7 @@ class AssemblyExaminer(Examiner):
       'WAI'
     ]
 
-    if processor in ['6800']:
-      opcodes += opcodes_6800
+    registers_6800 = ['A', 'B', 'IX', 'PC', 'SP']
 
     opcodes_8080 = [
       'ACI', 'ADC', 'ADD', 'ADI', 'ANA', 'ANI',
@@ -190,8 +201,9 @@ class AssemblyExaminer(Examiner):
       'XCHG', 'XRA', 'XRI', 'XTHL',
     ]
 
-    if processor in ['8080']:
-      opcodes += opcodes_8080
+    registers_8080 = [
+      'A', 'B', 'C', 'D', 'E', 'H', 'L', 'M', 'PSW', 'F'
+      ]
 
     opcodes_z80 = [
       'ADC', 'ADD', 'AND',
@@ -212,8 +224,10 @@ class AssemblyExaminer(Examiner):
       'XOR'
     ]
 
-    if processor in ['z80']:
-      opcodes += opcodes_z80
+    registers_z80 = [
+      'A', 'B', 'C', 'D', 'E', 'H', 'L', 'M', 'PSW', 'F',
+      'BC', 'DE', 'HL', 'IX', 'IY'
+      ]
 
     opcodes_8086 = [
       'AAA', 'AAD', 'AAM', 'AAS', 'ADC', 'ADD', 'AND',
@@ -246,8 +260,11 @@ class AssemblyExaminer(Examiner):
       'XCHG', 'XLAT', 'XLATB', 'XOR',
     ]
 
-    if processor in ['8086', '80186', '80286', '80386', '80486']:
-      opcodes += opcodes_8086
+    registers_8086 = [
+      'AL', 'AH', 'BL', 'BH', 'CL', 'CH', 'DL', 'DH',
+      'AX', 'BX', 'CX', 'DX', 'CS', 'DS', 'SS', 'ES',
+      'IP', 'SI', 'DI', 'BP', 'SP', 'FLAGS'
+      ]
 
     opcodes_80186 = [
       'BOUND',
@@ -258,9 +275,6 @@ class AssemblyExaminer(Examiner):
       'POPA', 'POPAD', 'PUSHA', 'PUSHAD'
     ]
 
-    if processor in ['80186', '80286', '80386', '80486']:
-      opcodes += opcodes_80186
-
     opcodes_80286 = [
       'ARPL',
       'CLTS',
@@ -269,8 +283,9 @@ class AssemblyExaminer(Examiner):
       'VERR', 'VERW'
     ]
 
-    if processor in ['80286', '80386', '80486']:
-      opcodes += opcodes_80286
+    registers_80286 = [
+      'TR'
+    ]
 
     opcodes_80386 = [
       'BSF', 'BSR', 'BT', 'BTC', 'BTR', 'BTS',
@@ -281,70 +296,56 @@ class AssemblyExaminer(Examiner):
       'SHLD', 'SHRD'
     ]
 
-    if processor in ['80386', '80486']:
-      opcodes += opcodes_80386
+    registers_80386 = [
+      'EAX', 'EBX', 'ECX', 'EDX', 'ESI', 'EDI', 'EBP', 'ESP',
+      'FS', 'GS', 'EFLAGS'
+    ]
 
     opcodes_80486 = [
       'BSWAP',
       'INVPLG'
     ]
 
+    opcodes = []
+    registers = []
+
+    if processor in ['1802']:
+      opcodes += opcodes_1802
+      registers += registers_1802
+
+    if processor in ['6502']:
+      opcodes += opcodes_6502
+      registers += registers_6502
+
+    if processor in ['6800']:
+      opcodes += opcodes_6800
+      registers += registers_6800
+
+    if processor in ['8080']:
+      opcodes += opcodes_8080
+      registers += registers_8080
+
+    if processor in ['z80']:
+      opcodes += opcodes_z80
+      registers += registers_z80
+
+    if processor in ['8086', '80186', '80286', '80386', '80486']:
+      opcodes += opcodes_8086
+      registers += registers_8086
+
+    if processor in ['80286', '80386', '80486']:
+      opcodes += opcodes_80186
+      opcodes += opcodes_80286
+      registers += registers_80286
+
+    if processor in ['80386', '80486']:
+      opcodes += opcodes_80386
+      registers += registers_80386
+
     if processor in ['80486']:
       opcodes += opcodes_80486
 
     opcode_tb = CaseInsensitiveListTokenBuilder(opcodes, 'keyword', False)
-
-    registers = []
-
-    registers_6502 = ['A', 'X', 'Y', 'P', 'S']
-
-    if processor in ['6502']:
-      registers += registers_6502
-
-    registers_6800 = ['A', 'B', 'IX', 'PC', 'SP']
-
-    if processor in ['6800']:
-      registers += registers_6800
-
-    registers_8080 = [
-      'A', 'B', 'C', 'D', 'E', 'H', 'L', 'M', 'PSW', 'F'
-      ]
-
-    if processor in ['8080']:
-      registers += registers_8080
-
-    registers_z80 = [
-      'A', 'B', 'C', 'D', 'E', 'H', 'L', 'M', 'PSW', 'F',
-      'BC', 'DE', 'HL', 'IX', 'IY'
-      ]
-
-    if processor in ['z80']:
-      registers += registers_z80
-
-    registers_8086 = [
-      'AL', 'AH', 'BL', 'BH', 'CL', 'CH', 'DL', 'DH',
-      'AX', 'BX', 'CX', 'DX', 'CS', 'DS', 'SS', 'ES',
-      'IP', 'SI', 'DI', 'BP', 'SP', 'FLAGS'
-      ]
-
-    if processor in ['8086', '80186', '80286', '80386', '80486']:
-      registers += registers_8086
-
-    registers_80286 = [
-      'TR'
-    ]
-
-    if processor in ['80286', '80386', '80486']:
-      registers += registers_80286
-
-    registers_80386 = [
-      'EAX', 'EBX', 'ECX', 'EDX', 'ESI', 'EDI', 'EBP', 'ESP',
-      'FS', 'GS', 'EFLAGS'
-    ]
-
-    if processor in ['80386', '80486']:
-      registers += registers_80386
-
     register_tb = CaseInsensitiveListTokenBuilder(registers, 'register', True)
 
     values = ['*', '$']
@@ -353,6 +354,12 @@ class AssemblyExaminer(Examiner):
     operand_types.append('value')
 
     comment_tb = LeadToEndOfLineTokenBuilder(';', False, 'comment')
+
+    if processor in ['1802']:
+      comment_2_tb = LeadToEndOfLineTokenBuilder('..', False, 'comment')
+    else:
+      comment_2_tb = NullTokenBuilder()
+
     line_comment_tb = AssemblyCommentTokenBuilder('*')
 
     invalid_token_builder = InvalidTokenBuilder()
@@ -381,6 +388,7 @@ class AssemblyExaminer(Examiner):
       label_tb,
       string_tb,
       comment_tb,
+      comment_2_tb,
       line_comment_tb,
       self.unknown_operator_tb,
       invalid_token_builder

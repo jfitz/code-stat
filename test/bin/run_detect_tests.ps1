@@ -14,6 +14,9 @@ test\bin\run_detect_test.ps1 -json -name spitbol-asm -inputfile ".\test\data\ASM
 
 # ASM IBM-system-z
 
+# ASM 1802
+test\bin\run_detect_test.ps1 -json -name test_alu-asm -inputfile ".\test\data\ASM-1802\test_alu.asm" -expected ".\test\ref\detect\ASM-1802\test_alu.txt"
+
 # ASM 6502
 test\bin\run_detect_test.ps1 -json -name sweet16-asm -inputfile ".\test\data\ASM-6502\sweet16.asm" -expected ".\test\ref\detect\ASM-6502\sweet16.txt"
 

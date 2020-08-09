@@ -62,6 +62,26 @@ class TokenBuilder:
     return len(self.text)
 
 
+# refuse all characters
+class NullTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self):
+    self.text = None
+
+
+  def attempt(self, text):
+    return False
+
+
+  def get_tokens(self):
+    return None
+
+
 # accept any character (but only one)
 class InvalidTokenBuilder(TokenBuilder):
   @staticmethod
@@ -78,6 +98,9 @@ class InvalidTokenBuilder(TokenBuilder):
     self.text = None
     if len(text) > 0:
       self.text = text[0]
+      return True
+
+    return False
 
 
   def get_tokens(self):

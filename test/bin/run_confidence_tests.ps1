@@ -42,6 +42,9 @@ test\bin\run_test.ps1 -json -name spitbol-asm -action confidence -language ASM-3
 
 # ASM IBM-system-z
 
+# ASM 1802
+test\bin\run_test.ps1 -json -name test_alu-asm -action confidence -language asm-1802 -inputfile ".\test\data\ASM-1802\test_alu.asm" -expected ".\test\ref\confidence\ASM-1802\test_alu.txt"
+
 # ASM 6502
 test\bin\run_test.ps1 -json -name sweet16-asm -action confidence -language asm-6502 -inputfile ".\test\data\ASM-6502\sweet16.asm" -expected ".\test\ref\confidence\ASM-6502\sweet16.txt"
 
