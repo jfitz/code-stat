@@ -225,8 +225,9 @@ class AssemblyExaminer(Examiner):
     ]
 
     registers_z80 = [
-      'A', 'B', 'C', 'D', 'E', 'H', 'L', 'M', 'PSW', 'F',
-      'BC', 'DE', 'HL', 'IX', 'IY'
+      'A', 'B', 'C', 'D', 'E', 'H', 'L', 'F', 'AF', 'BC', 'DE', 'HL',
+      "A'", "B'", "C'", "D'", "E'", "H'", "L'", "AF'", "F'", "BC'", "DE'", "HL'",
+      'IX', 'IY', 'PSW', 'M'
       ]
 
     opcodes_8086 = [

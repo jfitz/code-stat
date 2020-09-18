@@ -61,6 +61,7 @@ test\bin\run_test.ps1 -json -name hello_spaced-asm -action confidence -errors -l
 test\bin\run_test.ps1 -json -name intro-asm -action confidence -errors -language asm-z-80 -inputfile ".\test\data\ASM-Z-80\intro.asm" -expected ".\test\ref\confidence-errors\ASM-Z-80\intro.txt"
 test\bin\run_test.ps1 -json -name hardmess-asm -action confidence -errors -language asm-z-80 -inputfile ".\test\data\ASM-Z-80\hardmess.asm" -expected ".\test\ref\confidence-errors\ASM-Z-80\hardmess.txt"
 test\bin\run_test.ps1 -json -name shftspr-asm -action confidence -errors -language asm-z-80 -inputfile ".\test\data\ASM-Z-80\shftspr.asm" -expected ".\test\ref\confidence-errors\ASM-Z-80\shftspr.txt"
+test\bin\run_test.ps1 -json -name sincos-asm -action confidence -errors -language asm-z-80 -inputfile ".\test\data\ASM-Z-80\sincos.asm" -expected ".\test\ref\confidence-errors\ASM-Z-80\sincos.txt"
 
 # ASM 8086
 test\bin\run_test.ps1 -json -name BISTRS-asm -action confidence -errors -language asm-8086 -inputfile ".\test\data\ASM-8086\BISTRS.asm" -expected ".\test\ref\confidence-errors\ASM-8086\BISTRS.txt"
