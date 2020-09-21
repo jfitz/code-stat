@@ -77,6 +77,17 @@ test\bin\run_test.ps1 -json -name mat_get_element-asm -action confidence -errors
 
 # ASM-80486
 
+# ASM-PDP-8
+test\bin\run_test.ps1 -json -name io-asm -action confidence -errors -language asm-pdp-8 -inputfile ".\test\data\ASM-PDP-8\io.asm" -expected ".\test\ref\confidence-errors\ASM-PDP-8\io.txt"
+test\bin\run_test.ps1 -json -name life-asm -action confidence -errors -language asm-pdp-8 -inputfile ".\test\data\ASM-PDP-8\life.asm" -expected ".\test\ref\confidence-errors\ASM-PDP-8\life.txt"
+test\bin\run_test.ps1 -json -name sum-asm -action confidence -errors -language asm-pdp-8 -inputfile ".\test\data\ASM-PDP-8\sum.asm" -expected ".\test\ref\confidence-errors\ASM-PDP-8\sum.txt"
+
+# ASM-PDP-11
+test\bin\run_test.ps1 -json -name print-asm -action confidence -errors -language asm-pdp-11 -inputfile ".\test\data\ASM-PDP-11\print.asm" -expected ".\test\ref\confidence-errors\ASM-PDP-11\print.txt"
+test\bin\run_test.ps1 -json -name k11tsx-asm -action confidence -errors -language asm-pdp-11 -inputfile ".\test\data\ASM-PDP-11\k11tsx.mac" -expected ".\test\ref\confidence-errors\ASM-PDP-11\k11tsx.txt"
+test\bin\run_test.ps1 -json -name krtser-asm -action confidence -errors -language asm-pdp-11 -inputfile ".\test\data\ASM-PDP-11\krtser.mac" -expected ".\test\ref\confidence-errors\ASM-PDP-11\krtser.txt"
+test\bin\run_test.ps1 -json -name krtsub-asm -action confidence -errors -language asm-pdp-11 -inputfile ".\test\data\ASM-PDP-11\krtsub.mac" -expected ".\test\ref\confidence-errors\ASM-PDP-11\krtsub.txt"
+
 # Ada-83
 test\bin\run_test.ps1 -json -name adabkend-adb-83 -action confidence -errors -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\confidence-errors\Ada-83\adabkend-adb.txt"
 test\bin\run_test.ps1 -json -name adabkend-ads-83 -action confidence -errors -language Ada-83 -inputfile ".\test\data\Ada-83\adabkend.ads" -expected ".\test\ref\confidence-errors\Ada-83\adabkend-ads.txt"

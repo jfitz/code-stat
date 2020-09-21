@@ -18,12 +18,14 @@ from token_builders import (
   IdentifierTokenBuilder,
   CaseInsensitiveListTokenBuilder,
   CaseSensitiveListTokenBuilder,
-  LeadToEndOfLineTokenBuilder
+  LeadToEndOfLineTokenBuilder,
+  SingleCharacterTokenBuilder
 )
 from assembly_token_builders import (
   LabelTokenBuilder,
   AssemblyCommentTokenBuilder,
-  MultilineCommentTokenBuilder
+  MultilineCommentTokenBuilder,
+  HashQuoteCharTokenBuilder
 )
 from examiner import Examiner
 
@@ -44,26 +46,57 @@ class AssemblyExaminer(Examiner):
     CaseInsensitiveListTokenBuilder.__escape_z__()
     CaseSensitiveListTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
+    SingleCharacterTokenBuilder.__escape_z__()
     LabelTokenBuilder.__escape_z__()
     AssemblyCommentTokenBuilder.__escape_z__()
     MultilineCommentTokenBuilder.__escape_z__()
+    HashQuoteCharTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
   def __init__(self, code, tab_size, processor):
     super().__init__()
 
+    self.newlines_important = 'always'
+
     operand_types = []
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
+    comment_tb = LeadToEndOfLineTokenBuilder(';', True, 'comment')
+
+    if processor in ['pdp-8']:
+      comment_tb = LeadToEndOfLineTokenBuilder('/', True, 'comment')
+
+    comment_2_tb = NullTokenBuilder()
+
+    if processor in ['1802']:
+      comment_2_tb = LeadToEndOfLineTokenBuilder('..', True, 'comment')
+
+    line_comment_tb = AssemblyCommentTokenBuilder('*')
+
+    stmt_separator_tb = NullTokenBuilder()
+
+    if processor in ['pdp-8']:
+      stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator', False)
+
     integer_tb = IntegerTokenBuilder("'")
     integer_exponent_tb = IntegerExponentTokenBuilder("'")
-    hex_integer_1_tb = PrefixedIntegerTokenBuilder('&', False, '0123456789abcdefABCDEF')
+    integer_1_tb = NullTokenBuilder()
+    if processor in ['pdp-11']:
+      integer_1_tb = SuffixedIntegerTokenBuilder('$', True, '0123456789')
+
+    hex_integer_1_tb = PrefixedIntegerTokenBuilder('&', True, '0123456789abcdefABCDEF')
     hex_integer_2_tb = SuffixedIntegerTokenBuilder('h', False, '0123456789abcdefABCDEF')
-    hex_integer_3_tb = PrefixedIntegerTokenBuilder('$', False, '0123456789abcdefABCDEF')
-    hex_integer_4_tb = PrefixedIntegerTokenBuilder('#$', False, '0123456789abcdefABCDEF')
+    hex_integer_3_tb = PrefixedIntegerTokenBuilder('$', True, '0123456789abcdefABCDEF')
+    hex_integer_4_tb = PrefixedIntegerTokenBuilder('#$', True, '0123456789abcdefABCDEF')
+
+    hash_quote_value_tb = NullTokenBuilder()
+
+    if processor in ['pdp-11']:
+      hash_quote_value_tb = HashQuoteCharTokenBuilder()
+
     operand_types.append('number')
 
     leads = '_.$@#'
@@ -78,14 +111,14 @@ class AssemblyExaminer(Examiner):
     operand_types.append('string')
 
     known_operators = [
-      '+', '-', '*', '/', '&', '|', '=', '??'
+      '+', '-', '*', '/', '&', '|', '=', '??', '#', '@', "'", '!'
     ]
 
     self.unary_operators = [
-      '+', '-', '??'
+      '+', '-', '??', '#', '@', "'"
     ]
 
-    self.postfix_operators = []
+    self.postfix_operators = ['+']
 
     groupers = ['(', ')', ',', '[', ']', '<', '>', ':']
     group_starts = ['(', '[', ',', '<']
@@ -115,16 +148,34 @@ class AssemblyExaminer(Examiner):
       'NAM', 'NAME',
       'ORG',
       'PAGE', 'PROC', 'PUBLIC',
-      '.RADIX', 'RESB', 'RESD',
-      '.SALL', 'SECTION', 'SEGMENT', 'SSEG', 'START',
+      'RESB', 'RESD',
+      'SECTION', 'SEGMENT', 'SSEG', 'START',
+      '.ASCII', '.ASCIZ', '.ASECT',
+      '.BLKB;', '.BLKW', '.BYTE',
+      '.CSECT',
+      '.ENABLE', 'DSABLE', '.EVEN', '.ODD', '.END', '.EOT', '.ERROR',
+      '.FLT2', '.FLT4',
+      '.GLOBL',
+      '.IDENT', '.IF', '.ENDC', '.IFF', '.IFT', '.IFTF', '.IRP', '.IRPC',
+      '.LIMIT', '.LIST', '.NLST', '.NLIST',
+      '.MACRO', '.ENDM', '.MEXIT', '.MCALL',
+      '.NARG', '.NCHR', '.NTYPE', 
+      '.PAGE', '.PRINT', '.PSECT',
+      '.RAD50', '.RADIX', '.REPT', '.ENDR', '.RESTORE',
+      '.SALL',
+      '.WORD',
       '.XLIST'
     ]
 
     directive_tb = CaseInsensitiveListTokenBuilder(directives, 'directive', False)
 
     title_directive_tb = LeadToEndOfLineTokenBuilder('TITLE', False, 'directive')
+    title_directive_2_tb = LeadToEndOfLineTokenBuilder('.TITLE', False, 'directive')
     subtitle_directive_tb = LeadToEndOfLineTokenBuilder('SUBTTL', False, 'directive')
+    subtitle_directive_2_tb = LeadToEndOfLineTokenBuilder('.SUBTTL', False, 'directive')
+    subtitle_directive_3_tb = LeadToEndOfLineTokenBuilder('.SBTTL', False, 'directive')
     include_directive_tb = LeadToEndOfLineTokenBuilder('INCLUDE', False, 'directive')
+    include_directive_2_tb = LeadToEndOfLineTokenBuilder('.INCLUDE', False, 'directive')
 
     comment_directive_tb = MultilineCommentTokenBuilder()
 
@@ -307,6 +358,41 @@ class AssemblyExaminer(Examiner):
       'INVPLG'
     ]
 
+    opcodes_pdp8 = [
+      'AND', 'TAD', 'ISZ', 'DCA', 'JMS', 'JMP',
+      'CDF', 'CIF', 'RDF', 'RIF', 'RIB', 'RMF',
+      'CLA', 'CLL', 'CMA', 'CML', 'IAC', 'RAR', 'RAL', 'RTR', 'RTL', 'BSW',
+      'SMA', 'SZA', 'SNL', 'SPA', 'SNA', 'SZL', 'OSR', 'HLT', 'MQA', 'MQL',
+      'SEL', 'LCD', 'XDR', 'STR', 'SER', 'SDN', 'INTR', 'INIT',
+      'DILC', 'DICD', 'DISD', 'DILX', 'DILY', 'DIXY', 'DILE', 'DIRE',
+      'RCSF', 'RCRA', 'RCRB', 'RCNO', 'RCRC', 'RCNI', 'RCSD', 'RCSE',
+      'RCRD', 'RCSI', 'RCTF',
+      'RPE', 'RSF', 'RRB', 'RFC', 'PCE', 'PSF', 'PCF', 'PPC', 'PLS',
+      'KCF', 'KSF', 'KCC', 'KRS', 'KIE', 'KRB', 'TFL', 'TSF', 'TCF',
+      'TPC', 'TSK', 'TLS'
+    ]
+
+    opcodes_pdp11 = [
+      'CLR', 'CLRB', 'COM', 'COMB', 'INC', 'INCB', 'DEC', 'DECB', 'NEG', 'NEGB',
+      'NOP', 'TST', 'TSTB', 'TSTSET', 'WRTLCK', 'ASR', 'ASRB', 'ASL', 'ASLB',
+      'ROR', 'RORB', 'ROL', 'ROLB', 'SWAB', 'ADC', 'ADCB', 'SBC', 'SBCB', 'SXT',
+      'MOV', 'MOVB', 'ADD', 'SUB', 'CMP', 'CMPB', 'ASH', 'ASHC',
+      'MUL', 'DIV', 'BIT', 'BITB', 'BIC', 'BICB', 'BIS', 'BISB',
+      'XOR', 'CLR', 'CLRB', 'BR', 'BNE', 'BPL', 'BEQ', 'BMI', 'BVC',
+      'BVS', 'BCC', 'BCS', 'BGE', 'BLT', 'BGT', 'BLE', 'SOB', 'BHI',
+      'BLOS', 'BHIS', 'BLO',
+      'JMP', 'JSR', 'RTS', 'MARK', 'EMT', 'TRAP', 'BPT', 'IOT', 'CSM',
+      'RTI', 'RTT', 'HALT', 'WAIT', 'RESET',
+      'MTPD', 'MTPI', 'MFPD', 'MTPS', 'MFPS', 'MFPT',
+      'CLC', 'CLV', 'CLZ', 'CLN', 'CCC', 'SEC', 'SEV', 'SEZ', 'SEN', 'SCC',
+      'FADD', 'FSUB', 'FMUL', 'FDIV',
+      'DIV', 'MUL'
+    ]
+
+    registers_pdp11 = [
+      'r0', 'r1', 'r2', 'r3', 'r4', 'r5', 'r6', 'r7'
+    ]
+
     opcodes = []
     registers = []
 
@@ -346,43 +432,48 @@ class AssemblyExaminer(Examiner):
     if processor in ['80486']:
       opcodes += opcodes_80486
 
+    if processor in ['pdp-8']:
+      opcodes += opcodes_pdp8
+      # registers += registers_pdp8
+
+    if processor in ['pdp-11']:
+      opcodes += opcodes_pdp11
+      registers += registers_pdp11
+
     opcode_tb = CaseInsensitiveListTokenBuilder(opcodes, 'keyword', False)
     register_tb = CaseInsensitiveListTokenBuilder(registers, 'register', True)
 
-    values = ['*', '$']
+    values = ['*', '$', '.']
 
     values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
     operand_types.append('value')
-
-    comment_tb = LeadToEndOfLineTokenBuilder(';', False, 'comment')
-
-    if processor in ['1802']:
-      comment_2_tb = LeadToEndOfLineTokenBuilder('..', False, 'comment')
-    else:
-      comment_2_tb = NullTokenBuilder()
-
-    line_comment_tb = AssemblyCommentTokenBuilder('*')
 
     invalid_token_builder = InvalidTokenBuilder()
 
     tokenbuilders = [
       newline_tb,
       whitespace_tb,
+      stmt_separator_tb,
       integer_tb,
       integer_exponent_tb,
+      integer_1_tb,
       hex_integer_1_tb,
       hex_integer_2_tb,
       hex_integer_3_tb,
       hex_integer_4_tb,
+      hash_quote_value_tb,
       values_tb,
       groupers_tb,
-      known_operator_tb,
       register_tb,
       opcode_tb,
       directive_tb,
       title_directive_tb,
+      title_directive_2_tb,
       subtitle_directive_tb,
+      subtitle_directive_2_tb,
+      subtitle_directive_3_tb,
       include_directive_tb,
+      include_directive_2_tb,
       comment_directive_tb,
       preprocessor_tb,
       identifier_tb,
@@ -391,6 +482,7 @@ class AssemblyExaminer(Examiner):
       comment_tb,
       comment_2_tb,
       line_comment_tb,
+      known_operator_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]
@@ -431,70 +523,84 @@ class AssemblyExaminer(Examiner):
     args_tokenizer = Tokenizer(args_tokenbuilders)
 
     # tokenize as free-format
-    tokens1 = tokenizer.tokenize(code)
-    tokens1 = Examiner.combine_adjacent_identical_tokens(tokens1, 'invalid operator')
-    tokens1 = Examiner.combine_adjacent_identical_tokens(tokens1, 'invalid')
-    self.tokens = tokens1
+    tokens_free = tokenizer.tokenize(code)
+    tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid operator')
+    tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid')
+    self.tokens = tokens_free
     self.convert_asm_identifiers_to_labels()
 
     self.calc_statistics()
-    statistics1 = self.statistics
+    statistics_free = self.statistics
     self.statistics = {}
 
     self.calc_confidences(operand_types, group_starts, group_mids, group_ends, None)
-    confidences1 = self.confidences
+    confidences_free = self.confidences
     self.confidences = {}
-    errors1 = self.errors
+    errors_free = self.errors
     self.errors = []
 
-    # tokenize as space-format
-    opcode_extras = '.&=,()+-*/'
-    label_leads = '.&$@#'
-    label_mids = '.&$#@'
-    label_ends = ':,'
-    comment_leads = '*;'
-    line_comment_leads = ''
-    use_line_id = False
-    tokens2, indents = Tokenizer.tokenize_asm_code(code, tab_size, opcode_tokenizer, opcode_extras, args_tokenizer, label_leads, label_mids, label_ends, comment_leads, line_comment_leads, use_line_id)
-    tokens2 = Examiner.combine_adjacent_identical_tokens(tokens2, 'invalid operator')
-    tokens2 = Examiner.combine_adjacent_identical_tokens(tokens2, 'invalid')
-    tokens2 = Examiner.combine_identifier_colon(tokens2, ['newline'], [], [])
-    tokens2 = Tokenizer.combine_number_and_adjacent_identifier(tokens2)
-    tokens2 = Examiner.convert_asterisks_to_operators(tokens2)
-    self.tokens = tokens2
-    self.convert_asm_identifiers_to_labels()
+    if processor in ['pdp-8', 'pdpd-11']:
+      # do not try space-format, it never exists for these processors
+      tokens_space = []
+      statistics_space = {}
+      confidences_space = {}
+      errors_space = []
+    else:
+      # tokenize as space-format
+      opcode_extras = '.&=,()+-*/'
+      label_leads = '.&$@#'
+      label_mids = '.&$#@'
+      label_ends = ':'
+      comment_leads = '*;'
+      line_comment_leads = ''
+      use_line_id = False
+      tokens_space, indents = Tokenizer.tokenize_asm_code(code, tab_size, opcode_tokenizer, opcode_extras, args_tokenizer, label_leads, label_mids, label_ends, comment_leads, line_comment_leads, use_line_id)
+      tokens_space = Examiner.combine_adjacent_identical_tokens(tokens_space, 'invalid operator')
+      tokens_space = Examiner.combine_adjacent_identical_tokens(tokens_space, 'invalid')
+      tokens_space = Examiner.combine_identifier_colon(tokens_space, ['newline'], [], [])
+      tokens_space = Tokenizer.combine_number_and_adjacent_identifier(tokens_space)
+      tokens_space = Examiner.convert_asterisks_to_operators(tokens_space)
+      self.tokens = tokens_space
+      self.convert_asm_identifiers_to_labels()
 
-    self.calc_statistics()
-    statistics2 = self.statistics
-    self.statistics = {}
+      self.calc_statistics()
+      statistics_space = self.statistics
+      self.statistics = {}
 
-    self.calc_confidences(operand_types, group_starts, group_mids, group_ends, indents)
-    confidences2 = self.confidences
-    self.confidences = {}
-    errors2 = self.errors
-    self.errors = []
+      self.calc_confidences(operand_types, group_starts, group_mids, group_ends, indents)
+      confidences_space = self.confidences
+      self.confidences = {}
+      errors_space = self.errors
+      self.errors = []
+
+    # compute confidence for free-format and spaced-format
+    confidence_free = 1.0
+    if len(confidences_free) == 0:
+      confidence_free = 0.0
+    else:
+      for key in confidences_free:
+        factor = confidences_free[key]
+        confidence_free *= factor
+
+    confidence_space = 1.0
+    if len(confidences_space) == 0:
+      confidence_space = 0.0
+    else:
+      for key in confidences_space:
+        factor = confidences_space[key]
+        confidence_space *= factor
 
     # select the better of free-format and spaced-format
-    confidence1 = 1.0
-    for key in confidences1:
-      factor = confidences1[key]
-      confidence1 *= factor
-
-    confidence2 = 1.0
-    for key in confidences2:
-      factor = confidences2[key]
-      confidence2 *= factor
-
-    if confidence2 > confidence1:
-      self.tokens = tokens2
-      self.statistics = statistics2
-      self.confidences = confidences2
-      self.errors = errors2
+    if confidence_space > confidence_free:
+      self.tokens = tokens_space
+      self.statistics = statistics_space
+      self.confidences = confidences_space
+      self.errors = errors_space
     else:
-      self.tokens = tokens1
-      self.statistics = statistics1
-      self.confidences = confidences1
-      self.errors = errors1
+      self.tokens = tokens_free
+      self.statistics = statistics_free
+      self.confidences = confidences_free
+      self.errors = errors_free
 
 
   # combine numbers followed by identfiers to identifiers

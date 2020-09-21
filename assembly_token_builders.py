@@ -1,3 +1,4 @@
+from string import punctuation
 from codestat_token import Token
 from token_builders import TokenBuilder
 
@@ -197,3 +198,42 @@ class IbmAsmIdentifierTokenBuilder(TokenBuilder):
             return len(self.text)
 
     return 0
+
+
+# token reader for comment
+class HashQuoteCharTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self):
+    self.text = ''
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'value', True)]
+
+
+  def accept(self, candidate, c):
+    if candidate == '':
+      return c == '#'
+
+    if candidate == '#':
+      return c in punctuation
+
+    return len(candidate) == 2
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(self.text) != 3:
+      return 0
+      
+    return len(self.text)

@@ -173,7 +173,7 @@ class StringTokenBuilder(TokenBuilder):
     return 'Escape ?Z'
 
 
-  def __init__(self, quotes, newline_limit):
+  def __init__(self, quotes, newline_limit=0):
     self.quotes = quotes
     self.newline_limit = newline_limit
     self.text = ''

@@ -518,7 +518,7 @@ class Examiner:
 
     self.calc_group_confidence(tokens, group_mids)
 
-    operand_types_2 = ['number']
+    operand_types_2 = ['number', 'value']
     self.calc_operand_n_confidence(tokens, operand_types_2, 2)
     self.calc_operand_n_confidence(tokens, operand_types, 4)
 

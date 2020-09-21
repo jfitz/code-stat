@@ -137,42 +137,11 @@ ASM-PDP-8
 - line terminator ; (allow multiple instructions per line)
 - end of code $
 - second field may be an octal number or an identifier (with or without label)
-- opcodes
-'AND', 'TAD', 'ISZ', 'DCA', 'JMS', 'JMP',
-'CDF', 'CIF', 'RDF', 'RIF', 'RIB', 'RMF',
-'CLA', 'CLL', 'CMA', 'CML', 'IAC', 'RAR', 'RAL', 'RTR', 'RTL', 'BSW',
-'SMA', 'SZA', 'SNL', 'SPA', 'SNA', 'SZL', 'OSR', 'HLT', 'MQA', 'MQL',
-'SEL', 'LCD', 'XDR', 'STR', 'SER', 'SDN', 'INTR', 'INIT',
-'DILC', 'DICD', 'DISD', 'DILX', 'DILY', DIXY', 'DILE', 'DIRE',
-'RCSF', 'RCRA', 'RCRB', 'RCNO', 'RCRC', 'RCNI', 'RCSD', 'RCSE', 'RCRD', 'RCSI', 'RCTF',
-'RPE', RSF', 'RRB', 'RFC', 'PCE', 'PSF', 'PCF', 'PPC', 'PLS',
-'KCF', 'KSF', 'KCC', 'KRS', 'KIE', 'KRB', 'TFL', 'TSF', 'TCF', 'TPC', 'TSK', 'TLS'
 
 ASM-PDP-11
-- label terminate :
-- space in args
-- opcodes
-'CLR', 'CLRB', 'COM', 'COMB', 'INC', 'INCB', 'DEC', 'DECB', 'NEG', 'NEGB',
-'NOP', 'TST', 'TSTB', 'TSTSET', 'WRTLCK', 'ASR', 'ASRB', 'ASL', 'ASLB',
-'ROR', 'RORB', 'ROL', 'ROLB', 'SWAB', 'ADC', 'ADCB', 'SBC', 'SBCB', 'SXT',
-'MOV', 'MOVB', 'ADD', 'SUB', 'CMP', 'CMPB', 'ASH', 'ASHC',
-'MUL', 'DIV', 'BIT', 'BITB', 'BIC', 'BICB', 'BIS', 'BISB',
-'XOR', 'CLR', 'CLRB', 'BR', 'BNE', 'BPL', 'BEQ', 'BMI', 'BVC',
-'BVS', 'BCC', 'BCS', 'BGE', 'BLT', 'BGT', 'BLE', 'SOB', 'BHI',
-'BLOS', 'BHIS', 'BLO',
-'JMP', 'JSR', 'RTS', 'MARK', 'EMT', 'TRAP', 'BPT', 'IOT', 'CSM',
-'RTI', 'RTT', 'HALT', 'WAIT', 'RESET',
-'MTPD', 'MTPI', 'MFPD', 'MTPS', 'MFPS', 'MFPT',
-'CLC', 'CLV', 'CLZ', 'CLN', 'CCC', 'SEC', 'SEV', 'SEZ', 'SEN', 'SCC',
-'FADD', 'FSUB', 'FMUL', 'FDIV',
-'DIV', 'MUL'
 - directives
 '.odd', '.even', '.blkb', '.blkw', '.byte', '.word', '.ascii', '.end', '.hex'
 '.radix'
-- operators + - * / & | # @
-- unary @ # + -
-- postfix +
-- group < > ( )
 - numbers 10d 10. 1010b 10^O 10^D 10^B
 - value .
 

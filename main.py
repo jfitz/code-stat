@@ -236,6 +236,8 @@ codes_and_names = {
   'asm-80286': 'ASM-80286',
   'asm-80386': 'ASM-80386',
   'asm-80486': 'ASM-80486',
+  'asm-pdp-8': 'ASM-PDP-8',
+  'asm-pdp-11': 'ASM-PDP-11',
   'awk': 'Awk',
   'basic': 'BASIC',
   'basica': 'BASICA',
@@ -319,6 +321,8 @@ codes_and_groups = {
   'asm-80286': 'Assembly',
   'asm-80386': 'Assembly',
   'asm-80486': 'Assembly',
+  'asm-pdp-8': 'Assembly',
+  'asm-pdp-11': 'Assembly',
   'awk': 'Awk',
   'basic': 'BASIC',
   'basica': 'BASIC',
@@ -396,12 +400,14 @@ codes_and_years = {
   'asm-1802': 1973,
   'asm-6502': 1977,
   'asm-6800': 1978,
-  'asm-8080': 1975,
+  'asm-8080': 1974,
   'asm-z-80': 1976,
   'asm-8086': 1979,
   'asm-80286': 1982,
   'asm-80386': 1986,
   'asm-80486': 1990,
+  'asm-pdp-8': 1968,
+  'asm-pdp-11': 1970,
   'awk': 1977,
   'basic': 1965,
   'basica': 1982,
@@ -487,6 +493,8 @@ simpler_languages = {
   'asm-80286': 'asm-8086',
   'asm-80386': 'asm-80286',
   'asm-80486': 'asm-80386',
+  'asm-pdp-8': None,
+  'asm-pdp-11': None,
   'awk': None,
   'basic': None,
   'basica': 'basic-80',
@@ -567,6 +575,8 @@ override_language = {
   'asm-80386': 'assembly',
   'asm-80486': 'assembly',
   'asm-z-80': 'assembly',
+  'asm-pdp-8': 'assembly',
+  'asm-pdp-11': 'assembly',
   'asm-ibm-360': 'assembly',
   'asm-ibm-370': 'assembly',
   'asm-ibm-390': 'assembly',
@@ -910,6 +920,12 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
   if language in ['asm-80486', 'asm-80488']:
     examiner = AssemblyExaminer(code, tab_size, '80486')
 
+  if language in ['asm-pdp-8']:
+    examiner = AssemblyExaminer(code, tab_size, 'pdp-8')
+
+  if language in ['asm-pdp-11']:
+    examiner = AssemblyExaminer(code, tab_size, 'pdp-11')
+
   if language in ['awk']:
     examiner = AwkExaminer(code, '')
 
@@ -1158,6 +1174,12 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
 
   if 'asm-80486' in languages or 'asm-80488' in languages:
     examiners['asm-80486'] = AssemblyExaminer(code, tab_size, '80486')
+
+  if 'asm-pdp-8' in languages:
+    examiners['asm-pdp-8'] = AssemblyExaminer(code, tab_size, 'pdp-8')
+
+  if 'asm-pdp-11' in languages:
+    examiners['asm-pdp-11'] = AssemblyExaminer(code, tab_size, 'pdp-11')
 
   if 'awk' in languages:
     examiners['awk'] = AwkExaminer(code, '')
