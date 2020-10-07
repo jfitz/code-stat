@@ -59,7 +59,7 @@ examiners for:
  DataFlex (1982), SAS,
  JCL, RPG, Lindo, SPSS, Forth, GPSS, CSMP,
  Rbase, Clarion, Rebol, Condor,
- 68000 ASM, PDP-11 ASM, PDP-8 ASM, 1801 ASM,
+ 68000 ASM, 1801 ASM,
  IBM 370 ASM, IBM 390 ASM, IBM series Z ASM,
  LISP, Clojure, algol,
  Pascal-S, BASIC-E,
@@ -144,57 +144,6 @@ ASM-PDP-11
 '.radix'
 - numbers 10d 10. 1010b 10^O 10^D 10^B
 - value .
-
-ASM-370
-- opcodes
-  'BRXH', 'BRXLE',
-  'CLCL',
-  'HDV',
-  'LAM', 'LEDR',
-  'MS', 'MVCL',
-  'RIO',
-  'SIOF', 'STAM',
-  'VA', 'VACD', 'VACDR', 'VACE', 'VACER',
-  'VAD', 'VADQ', 'VADR', 'VADS',
-  'VAE', 'VAEQ', 'VAER', 'VAES',
-  'VAQ', 'VAR', 'VAS',
-  'VC', 'VCD', 'VCDQ', 'VCDR', 'VCDS',
-  'VCE', 'VCEQ', 'VCER', 'VCES',
-  'VCQ', 'VCR', 'VCS',
-  'VDD', 'VDDQ', 'VDDR', 'VDDS',
-  'VDE', 'VDEQ', 'VDER', 'VDES',
-  'VL', 'VLCDR', 'VLCER', 'VLCR',
-  'VLD', 'VLDQ', 'VLDR', 'VLEQ', 'VLH', 'VLINT',
-  'VLM', 'VLMD', 'VLMDQ', 'VLMDR', 'VLMEQ', 'VLMQ', 'VLMR',
-  'VLNDR', 'VLNER', 'VLNR', 'VLPDR', 'VLPER', 'VLPR',
-  'VLQ', 'VLR', 'VLY', 'VLYD', 'VLZDR', 'VLZR',
-  'VM', 'VMAD', 'VMADQ', 'VMADS', 'VMAE', 'VMAEQ', 'VMAES',
-  'VMCD', 'VMCE', 'VMCER',
-  'VMD', 'VMDQ', 'VMDR', 'VMDS',
-  'VME', 'VMEQ', 'VMER', 'VMES',
-  'VMQ', 'VMR', 'VMS', 'VMSD', 'VMSDQ', 'VMSDS', 'VMSE', 'VMSEQ', 'VMSES',
-  'VN', 'VNQ', 'VNR', 'VNS',
-  'VO', 'VOQ', 'VOR', 'VOS',
-  'VS', 'VSD', 'VSDQ', 'VSDR', 'VSDS',
-  'VSE', 'VSEQ', 'VSER', 'VSES',
-  'VSQD', 'VSQDR', 'VSQE', 'VSQER',
-  'VSQ', 'VSR', 'VSS', 'VST', 'VSTD', 'VSTE', 'VSTH', 'VSTKD', 'VSTMD',
-  'VTAD', 'VTAE', 'VTSD', 'VTSE',
-  'VX', 'VXQ', 'VXR', 'VXS',
-  'VMXSE', 'VMNSE', 'VMXAE', 'VLELE', 'VSELE', 'VMXDS', 'VMNSD', 'VMXAD',
-  'VLELD', 'VXELD', 'VSPSD', 'VAPSD', 'VTVM', 'VCVM', 'VCZVM', 'VCOVM',
-  'VXVC', 'VXVMM', 'VRRS', 'VRSVC', 'VRSV', 'VLVM', 'VLCVM', 'VSTVM', 'VNVM',
-  'VOVM', 'VXVM', ' VSRSV', 'VMRSV', 'VSRRS', 'VLVCA', 'VRCL', 'VSVMM',
-  'VLVXA', 'VSVTP', 'VACSV', 'VACRS',
-  'STNSM', 'SOTSM', 'SIOP', 'MC', 'LRA', 'CONCS', 'DISCS', 'STIDP', 'SCK',
-  'SPT', 'STPT', 'SPKA', 'IPK', 'PTLB', 'SPX', STPX', 'STAP', 'RRB',
-  'PC', 'SAC', 'IPTE',
-  'IVSK', 'IAC', 'SSAR', 'EPAR', 'ESAR', 'PT', 'ISKE', 'RRBE', 'SSKE', 'TB',
-  'STCTL', 'LCTL', 'CS', 'CDS', 'CLM', 'STCM', 'ICM',
-  'MVCK', 'MVCP', 'MVCS', 'VLI', 'VSTI', 'VLID', 'VSTID', 'VSRL',
-  'VSLL', 'VLBIX', 'LASP', 'TPROT', 'STRAG',
-  'MVCSK', 'MVCDK', 'DPFET', 'MVHHI', 'MVGHI', 'MVHI', 'CHHSI', 'CLHHSI',
-  'CGHSI', 'CLGHSI', 'CHSI', 'CLFHSI', 'TBEGIN', 'TBEGINC', 'MVCIN', 'UNPKA',
 
 ASM-390
 - opcodes
@@ -594,6 +543,13 @@ SQL
 + Microsoft: SYSTEM_VERSIONING(2016) HISTORY_TABLE(2016) PAD_INDEX(2008) STATISTICS_NORECOMPUTE(2003) FILLFACTOR(2003) IGNORE_DUP_KEY ALLOW_ROW_LOCKS ALLOW_PAGE_LOCKS TEXTIMAGE_ON
 + Microsoft: CLUSTERED GENERATED ALWAYS SYSTEM_TIME
 + Microsoft: DECLARE SET BEGIN END BREAK CONTINUE GOTO ELSE RETURN WAITFOR BULK TRY(2005) CATCH(2005)
+
+SQL Microsoft T-SQL
+ 'INSTEAD', 'CASE', 'UPDLOCK', 'DATEADD', 'GETDATE', 'SUSER_SNAME'
+
+SQL Oracle PL.SQL
+ '%TYPE', 'BEFORE', 'DECODE', 'DESCRIBE', 'DUAL', 'INTERSECT', 'MINUS',
+ 'SYSDATE', 'USER'
 
 Swift
 

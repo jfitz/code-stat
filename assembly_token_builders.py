@@ -137,7 +137,6 @@ class MultilineCommentTokenBuilder(TokenBuilder):
 
     # if not found, return
     if e == -1:
-      print('end delimiter not found')
       return
 
     # extract all text as comment token

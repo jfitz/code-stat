@@ -41,7 +41,7 @@ class AssemblyIBMExaminer(Examiner):
     return 'Escape ?Z'
 
 
-  def __init__(self, code, tab_size):
+  def __init__(self, code, tab_size, processor):
     super().__init__()
 
     self.newlines_important = 'always'
@@ -111,7 +111,9 @@ class AssemblyIBMExaminer(Examiner):
 
     directive_tb = CaseInsensitiveListTokenBuilder(directives, 'directive', False)
 
-    keywords = [
+    keywords = []
+
+    keywords_360 = [
       'A', 'AD', 'ADR', 'AE', 'AER', 'AH', 'AL', 'ALR', 'AP', 'AR',
       'AU', 'AUR', 'AW', 'AWR', 'AXR',
       'B', 'BAL', 'BALR', 'BAS', 'BASR', 'BC', 'BCR', 'BCT', 'BCTR',
@@ -148,6 +150,63 @@ class AssemblyIBMExaminer(Examiner):
       'X', 'XC', 'XI', 'XR',
       'ZAP'
     ]
+
+    keywords_370 = [
+      'BRXH', 'BRXLE',
+      'CLCL',
+      'HDV',
+      'LAM', 'LEDR',
+      'MS', 'MVCL',
+      'RIO',
+      'SIOF', 'STAM',
+      'VA', 'VACD', 'VACDR', 'VACE', 'VACER',
+      'VAD', 'VADQ', 'VADR', 'VADS',
+      'VAE', 'VAEQ', 'VAER', 'VAES',
+      'VAQ', 'VAR', 'VAS',
+      'VC', 'VCD', 'VCDQ', 'VCDR', 'VCDS',
+      'VCE', 'VCEQ', 'VCER', 'VCES',
+      'VCQ', 'VCR', 'VCS',
+      'VDD', 'VDDQ', 'VDDR', 'VDDS',
+      'VDE', 'VDEQ', 'VDER', 'VDES',
+      'VL', 'VLCDR', 'VLCER', 'VLCR',
+      'VLD', 'VLDQ', 'VLDR', 'VLEQ', 'VLH', 'VLINT',
+      'VLM', 'VLMD', 'VLMDQ', 'VLMDR', 'VLMEQ', 'VLMQ', 'VLMR',
+      'VLNDR', 'VLNER', 'VLNR', 'VLPDR', 'VLPER', 'VLPR',
+      'VLQ', 'VLR', 'VLY', 'VLYD', 'VLZDR', 'VLZR',
+      'VM', 'VMAD', 'VMADQ', 'VMADS', 'VMAE', 'VMAEQ', 'VMAES',
+      'VMCD', 'VMCE', 'VMCER',
+      'VMD', 'VMDQ', 'VMDR', 'VMDS',
+      'VME', 'VMEQ', 'VMER', 'VMES',
+      'VMQ', 'VMR', 'VMS', 'VMSD', 'VMSDQ', 'VMSDS', 'VMSE', 'VMSEQ', 'VMSES',
+      'VN', 'VNQ', 'VNR', 'VNS',
+      'VO', 'VOQ', 'VOR', 'VOS',
+      'VS', 'VSD', 'VSDQ', 'VSDR', 'VSDS',
+      'VSE', 'VSEQ', 'VSER', 'VSES',
+      'VSQD', 'VSQDR', 'VSQE', 'VSQER',
+      'VSQ', 'VSR', 'VSS', 'VST', 'VSTD', 'VSTE', 'VSTH', 'VSTKD', 'VSTMD',
+      'VTAD', 'VTAE', 'VTSD', 'VTSE',
+      'VX', 'VXQ', 'VXR', 'VXS',
+      'VMXSE', 'VMNSE', 'VMXAE', 'VLELE', 'VSELE', 'VMXDS', 'VMNSD', 'VMXAD',
+      'VLELD', 'VXELD', 'VSPSD', 'VAPSD', 'VTVM', 'VCVM', 'VCZVM', 'VCOVM',
+      'VXVC', 'VXVMM', 'VRRS', 'VRSVC', 'VRSV', 'VLVM', 'VLCVM', 'VSTVM', 'VNVM',
+      'VOVM', 'VXVM', ' VSRSV', 'VMRSV', 'VSRRS', 'VLVCA', 'VRCL', 'VSVMM',
+      'VLVXA', 'VSVTP', 'VACSV', 'VACRS',
+      'STNSM', 'SOTSM', 'SIOP', 'MC', 'LRA', 'CONCS', 'DISCS', 'STIDP', 'SCK',
+      'SPT', 'STPT', 'SPKA', 'IPK', 'PTLB', 'SPX', 'STPX', 'STAP', 'RRB',
+      'PC', 'SAC', 'IPTE',
+      'IVSK', 'IAC', 'SSAR', 'EPAR', 'ESAR', 'PT', 'ISKE', 'RRBE', 'SSKE', 'TB',
+      'STCTL', 'LCTL', 'CS', 'CDS', 'CLM', 'STCM', 'ICM',
+      'MVCK', 'MVCP', 'MVCS', 'VLI', 'VSTI', 'VLID', 'VSTID', 'VSRL',
+      'VSLL', 'VLBIX', 'LASP', 'TPROT', 'STRAG',
+      'MVCSK', 'MVCDK', 'DPFET', 'MVHHI', 'MVGHI', 'MVHI', 'CHHSI', 'CLHHSI',
+      'CGHSI', 'CLGHSI', 'CHSI', 'CLFHSI', 'TBEGIN', 'TBEGINC', 'MVCIN', 'UNPKA'
+    ]
+
+    if processor in ['360', '370']:
+      keywords += keywords_360
+
+    if processor in ['370']:
+      keywords += keywords_370
 
     opcode_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
 

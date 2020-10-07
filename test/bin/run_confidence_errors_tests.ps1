@@ -37,6 +37,7 @@ test\bin\run_test.ps1 -json -name osint-asm -action confidence -errors -language
 test\bin\run_test.ps1 -json -name spitbol-asm -action confidence -errors -language ASM-360 -inputfile ".\test\data\ASM-360\spitbol.asm" -expected ".\test\ref\confidence-errors\ASM-360\spitbol.txt"
 
 # ASM IBM-370
+test\bin\run_test.ps1 -json -name asm370a1-asm -action confidence -errors -language ASM-370 -inputfile ".\test\data\ASM-370\asm370a1.asm" -expected ".\test\ref\confidence-errors\ASM-370\asm370a1.txt"
 
 # ASM IBM-390
 

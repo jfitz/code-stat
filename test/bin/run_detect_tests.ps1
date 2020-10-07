@@ -9,6 +9,7 @@ test\bin\run_detect_test.ps1 -json -name osint-asm -inputfile ".\test\data\ASM-3
 test\bin\run_detect_test.ps1 -json -name spitbol-asm -inputfile ".\test\data\ASM-360\spitbol.asm" -expected ".\test\ref\detect\ASM-360\spitbol.txt"
 
 # ASM IBM-370
+test\bin\run_detect_test.ps1 -json -name asm370a1-asm -inputfile ".\test\data\ASM-370\asm370a1.asm" -expected ".\test\ref\detect\ASM-370\asm370a1.txt"
 
 # ASM IBM-390
 
