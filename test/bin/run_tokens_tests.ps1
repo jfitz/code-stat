@@ -425,20 +425,12 @@ test\bin\run_test.ps1 -json -name larger-scala -action tokens -language Scala -i
 test\bin\run_test.ps1 -json -name random-scala -action tokens -language Scala -inputfile ".\test\data\Scala\random.scala" -expected ".\test\ref\tokens\Scala\random.txt"
 test\bin\run_test.ps1 -json -name variables-scala -action tokens -language Scala -inputfile ".\test\data\Scala\variables.scala" -expected ".\test\ref\tokens\Scala\variables.txt"
 
-# SQL-92
-test\bin\run_test.ps1 -json -name microsoft-sql-92 -action tokens -language SQL-92 -inputfile ".\test\data\SQL-92\microsoft.sql" -expected ".\test\ref\tokens\SQL-92\microsoft.txt"
-test\bin\run_test.ps1 -json -name table-sql-92 -action tokens -language SQL-92 -inputfile ".\test\data\SQL-92\table.sql" -expected ".\test\ref\tokens\SQL-92\table.txt"
+# SQL
+test\bin\run_test.ps1 -json -name microsoft-sql -action tokens -language SQL -inputfile ".\test\data\SQL\microsoft.sql" -expected ".\test\ref\tokens\SQL\microsoft.txt"
+test\bin\run_test.ps1 -json -name table-sql -action tokens -language SQL -inputfile ".\test\data\SQL\table.sql" -expected ".\test\ref\tokens\SQL\table.txt"
 
-# SQL-99
-
-# SQL-2003
-
-# SQL-2008
-
-# SQL-2011
-test\bin\run_test.ps1 -json -name brackets-sql-2011 -action tokens -language SQL-2011 -inputfile ".\test\data\SQL-2011\brackets.sql" -expected ".\test\ref\tokens\SQL-2011\brackets.txt"
-
-# SQL-2016
+# T-SQL
+test\bin\run_test.ps1 -json -name brackets-tsql -action tokens -language T-SQL -inputfile ".\test\data\T-SQL\brackets.sql" -expected ".\test\ref\tokens\T-SQL\brackets.txt"
 
 # Swift
 test\bin\run_test.ps1 -json -name AppDelegate -action tokens -language Swift -inputfile ".\test\data\Swift\AppDelegate.swift" -expected ".\test\ref\tokens\Swift\AppDelegate.txt"

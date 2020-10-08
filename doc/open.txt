@@ -536,20 +536,6 @@ Scala
 + XML literals
 
 SQL
-+ Drop year distinction and use only plain, Microsoft (T-SQL), Oracle (PL/SQL)
-+ quoted strings with square brackets are identifiers (T-SQL only)
-* Additional source files (square brackets, stored procedures, T-SQL, PL/SQL)
-+ Microsoft: nvarchar bigint datetime datetime2 geography
-+ Microsoft: SYSTEM_VERSIONING(2016) HISTORY_TABLE(2016) PAD_INDEX(2008) STATISTICS_NORECOMPUTE(2003) FILLFACTOR(2003) IGNORE_DUP_KEY ALLOW_ROW_LOCKS ALLOW_PAGE_LOCKS TEXTIMAGE_ON
-+ Microsoft: CLUSTERED GENERATED ALWAYS SYSTEM_TIME
-+ Microsoft: DECLARE SET BEGIN END BREAK CONTINUE GOTO ELSE RETURN WAITFOR BULK TRY(2005) CATCH(2005)
-
-SQL Microsoft T-SQL
- 'INSTEAD', 'CASE', 'UPDLOCK', 'DATEADD', 'GETDATE', 'SUSER_SNAME'
-
-SQL Oracle PL.SQL
- '%TYPE', 'BEFORE', 'DECODE', 'DESCRIBE', 'DUAL', 'INTERSECT', 'MINUS',
- 'SYSDATE', 'USER'
 
 Swift
 

@@ -16,7 +16,8 @@ from token_builders import (
   CaseSensitiveListTokenBuilder,
   SingleCharacterTokenBuilder,
   PrefixedIntegerTokenBuilder,
-  LeadToEndOfLineTokenBuilder
+  LeadToEndOfLineTokenBuilder,
+  NullTokenBuilder
 )
 from sql_token_builders import SqlBracketedIdentifierTokenBuilder
 from examiner import Examiner
@@ -38,15 +39,13 @@ class SqlExaminer(Examiner):
     SingleCharacterTokenBuilder.__escape_z__()
     PrefixedIntegerTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
+    NullTokenBuilder.__escape_z__()
     SqlBracketedIdentifierTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
-  def __init__(self, code, year, extension):
+  def __init__(self, code, extension):
     super().__init__()
-
-    if year is not None and year not in ['92', '1992', '99', '1999', '2003', '2008', '2011', '2016']:
-      raise CodeStatException('Unknown year for language')
 
     operand_types = []
 
@@ -66,7 +65,11 @@ class SqlExaminer(Examiner):
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
-    bracketed_identifier_tb = SqlBracketedIdentifierTokenBuilder()
+    bracketed_identifier_tb = NullTokenBuilder()
+
+    if extension in ['microsoft', 't-sql']:
+      bracketed_identifier_tb = SqlBracketedIdentifierTokenBuilder()
+
     operand_types.append('identifier')
 
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)
@@ -94,10 +97,17 @@ class SqlExaminer(Examiner):
     groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
     keywords = [
+      'ACOS', 'ASIN', 'ATAN',
       'ABSOLUTE', 'ACTION', 'ADD', 'ALL', 'ALLOCATE', 'ALTER', 'ARE',
+      'ABS', 'ARRAY_AGG', 'AVG',
       'AS', 'ASC', 'ASSERTION', 'AT', 'AUTHORIZATION',
+      'AFTER', 'ARRAY', 'ASENSITIVE', 'ASYMMETRIC', 'ATOMIC',
+      'ARRAY_MAX_CARDINALITY',
       'BEFORE', 'BEGIN', 'BETWEEN', 'BIT_LENGTH', 'BOTH', 'BY',
+      'BEGIN_FRAME', 'BEGIN_PARTITION',
+      'BINARY', 'BOOLEAN', 'BREADTH',
       'CALL', 'CASCADE', 'CASCADED', 'CASE', 'CAST', 'CATALOG',
+      'CALLED',
       'CHAR_LENGTH', 'CHARACTER_LENGTH',
       'CHECK', 'COALESCE', 'COLLATE', 'COLLATION',
       'COLUMN', 'COMMIT', 'CONDITION', 'CONNECT',
@@ -105,158 +115,149 @@ class SqlExaminer(Examiner):
       'CONVERT', 'CORRESPONDING', 'COUNT', 'CREATE', 'CROSS',
       'CURRENT', 'CURRENT_DATE', 'CURRENT_PATH', 'CURRENT_TIME', 'CURRENT_TIMESTAMP',
       'CURRENT_USER', 'CURSOR',
+      'CLOSE', 'CONSTRUCTOR', 'CUBE',
+      'CURRENT_DEFAULT_TRANSFORM_GROUP', 'CURRENT_ROLE',
+      'CURRENT_TRANSFORM_GROUP_FOR_TYPE', 'CYCLE',
+      'CARDINALITY', 'CEIL', 'CEILING', 'CONVERT', 'CORR', 'COVAR_POP', 'COVAR_SAMPLE',
+      'CUME_DIST', 'CURRENT_CATALOG', 'CURRENT_SCHEMA',
+      'CLASSIFIER', 'COS', 'COSH',
       'DAY', 'DEALLOCATE', 'DEC', 'DECLARE', 'DEFAULT',
+      'DECFLOAT', 'DEFINE',
       'DEFERRABLE', 'DEFERRED', 'DELETE', 'DEPTH', 'DESC', 'DESCRIBE',
+      'DENSE_RANK',
       'DESCRIPTOR', 'DETERMINISTIC', 'DIAGNOSTICS', 'DISCONNECT', 'DISTINCT',
       'DO', 'DOMAIN', 'DROP',
+      'DYNAMIC',
       'ELSE', 'END', 'ESCAPE', 'EXCEPT', 'EXCEPTION',
+      'ELEMENT',
       'EXEC', 'EXECUTE', 'EXISTS', 'EXIT', 'EXTERNAL', 'EXTRACT',
+      'EACH', 'ELSEIF', 'EQUALS',
+      'END_EXEC', 'EVERY',
+      'EXP',
+      'EMPTY', 'EQUALS',
       'FETCH', 'FIRST', 'FOR', 'FOREIGN', 'FOUND',
       'FROM', 'FULL', 'FUNCTION', 'FUSION',
+      'FILTER', 'FREE',
+      'FIRST_VALUE', 'FRAME_ROW',
       'GENERAL', 'GET', 'GLOBAL', 'GO', 'GOTO', 'GRANT', 'GROUP',
+      'GROUPING',
+      'GROUPS',
       'HANDLER', 'HAVING', 'HOUR',
+      'HOLD',
       'IDENTITY', 'IF', 'IMMEDIATE', 'IN', 'INDICATOR', 'INITIALLY', 'INNER',
       'INOUT', 'INPUT', 'INSENSITIVE', 'INSERT', 'INT', 'INTERSECT',
+      'INITIAL',
       'INTERVAL', 'INTO', 'IS', 'ISOLATION',
+      'INTERSECTION',
+      'ITERATE',
       'JOIN',
+      'JSON_ARRY', 'JSON_ARRAYAGG', 'JSON_EXISTS', 'JSON_OBJECT',
+      'JSON_OBJECTAGG', 'JSON_QUERY', 'JSON_TABLE', 'JSON_TABLE_PRIMITIVE',
+      'JSON_VALUE',
       'KEY',
       'LANGUAGE', 'LAST', 'LEADING', 'LEFT', 'LEVEL', 'LIKE', 'LOCAL',
+      'LARGE', 'LATERAL', 'LEAVE', 'LOCALTIME', 'LOCALTIMESTAMP', 'LOCATOR', 'LOOP',
+      'LAG', 'LISTAGG', 'LOG', 'LOG10',
+      'LIKE_REGEX', 'LN',
+      'LOWER',
+      'LAST_VALUE', 'LEAD',
       'MATCH', 'MAX', 'MIN', 'MINUTE', 'MODULE', 'MONTH',
+      'MAP', 'METHOD', 'MODIFIES',
+      'MATCH_NUMBER', 'MATCH_RECOGNIZE', 'MATCHES',
+      'MEMBER', 'MERGE', 'MULTISET',
+      'MOD',
       'NAMES', 'NATIONAL', 'NATURAL', 'NEXT', 'NO', 'NOT',
       'NULLIF', 'NUMERIC',
+      'NTH_VALUE', 'NTILE',
+      'NEW',
+      'NORMALIZE',
       'OCTET_LENGTH', 'OF', 'ONLY', 'OPEN', 'OPTION', 'ORDER',
       'OUTPUT', 'OVERLAPS',
+      'OBJECT', 'OLD', 'ORDINALITY', 'OUT', 'OUTER',
+      'OCTET_LENGTH', 'OFFSET',
+      'OMIT',
+      'OCCURRENCES_REGEX', 'ONE', 'OVER',
+      'OVERLAY',
       'PAD', 'PARAMETER', 'PARTIAL', 'PRECISION', 'PREPARE', 'PRESERVE',
       'PRIMARY', 'PRIOR', 'PRIVILEGES', 'PROCEDURE', 'PUBLIC',
+      'PATTERN', 'PER', 'PTF',
+      'PARTITION',
+      'PERCENT_RANK', 'PERCENTILE_CONT', 'PERCENTILE_DISC', 'POSITION',
+      'PERCENT', 'PERIOD', 'PORTION', 'PRECEDES',
+      'POSITION_REGEX', 'POWER',
+      'RANGE',
       'READ', 'REFERENCES', 'RELATIVE', 'RESTRICT',
       'RETURN', 'RETURNS', 'REVOKE', 'RIGHT', 'ROLLBACK', 'ROLLUP',
       'READS', 'ROWS',
+      'RECURSIVE', 'REF', 'REFERENCING', 'RELEASE', 'REPEAT', 'REGIONAL',
+      'RESULT', 'ROW',
+      'RANK', 'REGR_AVGX', 'REGR_AVGY', 'REGR_COUNT', 'REGR_INTERCEPT', 'REGR_R2',
+      'REGR_SLOPE', 'REGR_SXX', 'REGR_SXY', 'REGR_SYY', 'ROW_NUMBER',
+      'RUNNING',
       'SCHEMA', 'SCROLL', 'SECOND', 'SECTION', 'SELECT', 'SESSION',
       'SESSION_USER', 'SET', 'SIZE', 'SOME', 'SPACE',
       'SPECIFIC', 'SQL', 'SQLCODE', 'SQLERROR',
       'SQLEXCEPTION', 'SQLSTATE', 'SQLWARNING', 'SUBSTRING', 'SUM',
+      'SQRT', 'STDDEV_POP', 'STDDEV_SAMP', 'SUBSTRING_REGEX', 'SUM',
+      'SEEK', 'SHOW', 'SIN', 'SINH', 'SUBSET',
+      'SUBMULTISET',
       'SYSTEM_USER',
+      'SAVEPOINT', 'SCOPE', 'SEARCH', 'SENSITIVE', 'SETS', 'SIGNAL', 'SIMILAR',
+      'SPECIFICTYPE', 'START', 'STATE', 'STATIC', 'SYMMETRIC', 'SYSTEM',
       'TABLE', 'TEMPORARY', 'THEN', 'TIME', 'TIMESTAMP', 'TIMEZONE_HOUR',
+      'TABLESAMPLE'
+      'TAN', 'TANH'
       'TIMEZONE_MINUTE', 'TO', 'TRAILING', 'TRANSACTION', 'TRANSLATE',
       'TRANSLATION', 'TRIM',
+      'TRANSLATE', 'TRANSLATE_REGEX', 'TRUNCATE',
+      'TREAT', 'TRIGGER',
+      'TRIM_ARRAY',
       'UNDO', 'UNION', 'UNIQUE', 'UNKNOWN', 'UPDATE', 'UPPER', 'USAGE',
       'USER', 'USING',
+      'UNDER', 'UNNEST', 'UNTIL',
+      'UESCAPE', 'UPPER',
       'VALUE', 'VALUES', 'VARYING', 'VIEW',
+      'VAR_POP', 'VAR_SAMP',
+      'VALUE_OF', 'VERSIONING'
       'WHEN', 'WHENEVER', 'WHERE', 'WITH', 'WORK', 'WRITE',
+      'WHILE', 'WINDOW', 'WITHIN', 'WITHOUT'
+      'WIDTH_BUCKET'
       'YEAR',
       'ZONE'
     ]
 
-    keywords_99 = [
-      'AFTER', 'ARRAY', 'ASENSITIVE', 'ASYMMETRIC', 'ATOMIC',
-      'BINARY', 'BOOLEAN', 'BREADTH',
-      'CLOSE', 'CONSTRUCTOR', 'CUBE',
-      'CURRENT_DEFAULT_TRANSFORM_GROUP', 'CURRENT_ROLE',
-      'CURRENT_TRANSFORM_GROUP_FOR_TYPE', 'CYCLE',
-      'DYNAMIC',
-      'EACH', 'ELSEIF', 'EQUALS',
-      'FILTER', 'FREE',
-      'GROUPING',
-      'HOLD',
-      'ITERATE',
-      'LARGE', 'LATERAL', 'LEAVE', 'LOCALTIME', 'LOCALTIMESTAMP', 'LOCATOR', 'LOOP',
-      'MAP', 'METHOD', 'MODIFIES',
-      'NEW',
-      'OBJECT', 'OLD', 'ORDINALITY', 'OUT', 'OUTER',
-      'PARTITION',
-      'RECURSIVE', 'REF', 'REFERENCING', 'RELEASE', 'REPEAT', 'REGIONAL',
-      'RESULT', 'ROW',
-      'SAVEPOINT', 'SCOPE', 'SEARCH', 'SENSITIVE', 'SETS', 'SIGNAL', 'SIMILAR',
-      'SPECIFICTYPE', 'START', 'STATE', 'STATIC', 'SYMMETRIC', 'SYSTEM',
-      'TREAT', 'TRIGGER',
-      'UNDER', 'UNNEST', 'UNTIL',
-      'WHILE', 'WINDOW', 'WITHIN', 'WITHOUT'
+    keywords_tsql = [
+      'INSTEAD', 'CASE', 'UPDLOCK', 'DATEADD', 'GETDATE',
+      'TEXTIMAGE_ON', 'CLUSTERED',
+      'GENERATED', 'DECLARE', 'SET',
+      'BEGIN', 'END', 'BREAK', 'CONTINUE', 'GOTO', 'ELSE', 'RETURN',
+      'WAITFOR', 'BULK', 'TRY', 'CATCH'
     ]
 
-    keywords_2003 = [
-      'CALLED',
-      'ELEMENT',
-      'LOWER',
-      'MEMBER', 'MERGE', 'MULTISET',
-      'OVERLAY',
-      'RANGE',
-      'SUBMULTISET',
-      'TABLESAMPLE'
+    keywords_plsql = [
+      '%TYPE', 'BEFORE', 'DECODE', 'DESCRIBE', 'DUAL', 'INTERSECT', 'MINUS',
+      'SYSDATE', 'USER'
     ]
 
-    keywords_2008 = [
-      'ABS', 'ARRAY_AGG', 'AVG',
-      'BEGIN_FRAME', 'BEGIN_PARTITION',
-      'CARDINALITY', 'CEIL', 'CEILING', 'CONVERT', 'CORR', 'COVAR_POP', 'COVAR_SAMPLE',
-      'CUME_DIST', 'CURRENT_CATALOG', 'CURRENT_SCHEMA',
-      'DENSE_RANK',
-      'END_EXEC', 'EVERY',
-      'INTERSECTION',
-      'LIKE_REGEX', 'LN',
-      'MOD',
-      'NORMALIZE',
-      'OCTET_LENGTH', 'OFFSET',
-      'PERCENT_RANK', 'PERCENTILE_CONT', 'PERCENTILE_DISC', 'POSITION',
-      'POSITION_REGEX', 'POWER',
-      'RANK', 'REGR_AVGX', 'REGR_AVGY', 'REGR_COUNT', 'REGR_INTERCEPT', 'REGR_R2',
-      'REGR_SLOPE', 'REGR_SXX', 'REGR_SXY', 'REGR_SYY', 'ROW_NUMBER',
-      'SQRT', 'STDDEV_POP', 'STDDEV_SAMP', 'SUBSTRING_REGEX', 'SUM',
-      'TRANSLATE', 'TRANSLATE_REGEX', 'TRUNCATE',
-      'UESCAPE', 'UPPER',
-      'VAR_POP', 'VAR_SAMP',
-      'WIDTH_BUCKET'
-    ]
+    if extension in ['microsoft', 't-sql']:
+      keywords += keywords_tsql
 
-    keywords_2011 = [
-      'ARRAY_MAX_CARDINALITY',
-      'EXP',
-      'FIRST_VALUE', 'FRAME_ROW',
-      'GROUPS',
-      'INITIAL',
-      'LAST_VALUE', 'LEAD',
-      'MATCH_NUMBER', 'MATCH_RECOGNIZE', 'MATCHES',
-      'OMIT',
-      'PERCENT', 'PERIOD', 'PORTION', 'PRECEDES',
-      'TRIM_ARRAY',
-      'VALUE_OF',
-      'VERSIONING'
-    ]
-
-    keywords_2016 = [
-      'ACOS', 'ASIN', 'ATAN',
-      'CLASSIFIER', 'COS', 'COSH',
-      'DECFLOAT', 'DEFINE',
-      'EMPTY', 'EQUALS',
-      'JSON_ARRY', 'JSON_ARRAYAGG', 'JSON_EXISTS', 'JSON_OBJECT',
-      'JSON_OBJECTAGG', 'JSON_QUERY', 'JSON_TABLE', 'JSON_TABLE_PRIMITIVE',
-      'JSON_VALUE',
-      'LAG', 'LISTAGG', 'LOG', 'LOG10',
-      'NTH_VALUE', 'NTILE',
-      'OCCURRENCES_REGEX', 'ONE', 'OVER',
-      'PATTERN', 'PER', 'PTF',
-      'RUNNING',
-      'SEEK', 'SHOW', 'SIN', 'SINH', 'SUBSET',
-      'TAN', 'TANH'
-    ]
-
-    if year in ['99', '1999', '2003', '2008', '2011', '2016']:
-      keywords += keywords_99
-
-    if year in ['2003', '2008', '2011', '2016']:
-      keywords += keywords_2003
-
-    if year in ['2008', '2011', '2016']:
-      keywords += keywords_2008
-
-    if year in ['2011', '2016']:
-      keywords += keywords_2011
-
-    if year in ['2016']:
-      keywords += keywords_2016
+    if extension in ['oracle', 'pl-sql']:
+      keywords += keywords_plsql
 
     keyword_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
 
     values = ['TRUE', 'FALSE', 'NULL', 'OFF', 'ON', 'NONE']
+
+    values_tsql = [
+      'ALLOW_ROW_LOCKS', 'ALLOW_PAGE_LOCKS', 'ALWAYS', 'IGNORE_DUP_KEY',
+      'FILLFACTOR', 'HISTORY_TABLE', 'PAD_INDEX',
+      'STATISTICS_NORECOMPUTE', 'SUSER_SNAME', 'SYSTEM_VERSIONING',
+      'SYSTEM_TIME'
+    ]
+
+    if extension in ['microsoft', 't-sql']:
+      values += values_tsql
 
     values_tb = CaseInsensitiveListTokenBuilder(values, 'value', True)
     operand_types.append('value')
@@ -272,6 +273,13 @@ class SqlExaminer(Examiner):
       'SMALLINT',
       'VARCHAR'
     ]
+
+    types_tsql = [
+      'nvarchar', 'bigint', 'datetime', 'datetime2', 'geography'
+    ]
+
+    if extension in ['microsoft', 't-sql']:
+      types += types_tsql
 
     type_tb = CaseInsensitiveListTokenBuilder(types, 'type', True)
     operand_types.append('value')

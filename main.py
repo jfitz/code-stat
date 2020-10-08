@@ -293,12 +293,9 @@ codes_and_names = {
   'ruby': 'Ruby',
   'rust': 'Rust',
   'scala': 'Scala',
-  'sql-92': 'SQL-92',
-  'sql-99': 'SQL-99',
-  'sql-2003': 'SQL-2003',
-  'sql-2008': 'SQL-2008',
-  'sql-2011': 'SQL-2011',
-  'sql-2016': 'SQL-2016',
+  'sql': 'SQL',
+  't-sql': 'T-SQL',
+  'pl-sql': 'PL/SQL',
   'swift': 'Swift',
   'typescript': 'TypeScript',
   'visualbasic-6': 'VisualBasic-6',
@@ -379,12 +376,9 @@ codes_and_groups = {
   'ruby': 'Ruby',
   'rust': 'Rust',
   'scala': 'Scala',
-  'sql-92': 'SQL',
-  'sql-99': 'SQL',
-  'sql-2003': 'SQL',
-  'sql-2008': 'SQL',
-  'sql-2011': 'SQL',
-  'sql-2016': 'SQL',
+  'sql': 'SQL',
+  't-sql': 'SQL',
+  'pl-sql': 'SQL',
   'swift': 'Swift',
   'typescript': 'JavaScript',
   'visualbasic-6': 'VisualBasic',
@@ -465,12 +459,9 @@ codes_and_years = {
   'ruby': 1995,
   'rust': 2010,
   'scala': 2001,
-  'sql-92': 1992,
-  'sql-99': 1999,
-  'sql-2003': 2003,
-  'sql-2008': 2008,
-  'sql-2011': 2011,
-  'sql-2016': 2016,
+  'sql': 1972,
+  't-sql': 1989,
+  'pl-sql': 1979,
   'swift': 2014,
   'typescript': 2012,
   'visualbasic-6': 1998,
@@ -552,12 +543,9 @@ simpler_languages = {
   'ruby': None,
   'rust': None,
   'scala': None,
-  'sql-92': None,
-  'sql-99': 'sql-92',
-  'sql-2003': 'sql-99',
-  'sql-2008': 'sql-2003',
-  'sql-2011': 'sql-2008',
-  'sql-2016': 'sql-2011',
+  'sql': None,
+  't-sql': 'sql',
+  'pl-sql': 'sql',
   'swift': None,
   'typescript': 'javascript',
   'visualbasic-6': None,
@@ -1094,23 +1082,14 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
   if language in ['scala']:
     examiner = ScalaExaminer(code)
 
-  if language in ['sql-92']:
-    examiner = SqlExaminer(code, '92', '')
+  if language in ['sql']:
+    examiner = SqlExaminer(code, 'sql')
 
-  if language in ['sql-99']:
-    examiner = SqlExaminer(code, '99', '')
+  if language in ['t-sql']:
+    examiner = SqlExaminer(code, 't-sql')
 
-  if language in ['sql-2003']:
-    examiner = SqlExaminer(code, '2003', '')
-
-  if language in ['sql-2008']:
-    examiner = SqlExaminer(code, '2008', '')
-
-  if language in ['sql-2011']:
-    examiner = SqlExaminer(code, '2011', '')
-
-  if language in ['sql-2016', 'sql']:
-    examiner = SqlExaminer(code, '2016', '')
+  if language in ['pl-sql']:
+    examiner = SqlExaminer(code, 'pl-sql')
 
   if language in ['swift']:
     examiner = SwiftExaminer(code)
@@ -1372,23 +1351,14 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
   if 'scala' in languages:
     examiners['scala'] = ScalaExaminer(code)
 
-  if 'sql-92' in languages or 'sql' in languages:
-    examiners['sql-92'] = SqlExaminer(code, '92', '')
+  if 'sql' in languages:
+    examiners['sql'] = SqlExaminer(code, 'sql')
 
-  if 'sql-99' in languages or 'sql' in languages:
-    examiners['sql-99'] = SqlExaminer(code, '99', '')
+  if 't-sql' in languages:
+    examiners['t-sql'] = SqlExaminer(code, 't-sql')
 
-  if 'sql-2003' in languages or 'sql' in languages:
-    examiners['sql-2003'] = SqlExaminer(code, '2003', '')
-
-  if 'sql-2008' in languages or 'sql' in languages:
-    examiners['sql-2008'] = SqlExaminer(code, '2008', '')
-
-  if 'sql-2011' in languages or 'sql' in languages:
-    examiners['sql-2011'] = SqlExaminer(code, '2011', '')
-
-  if 'sql-2016' in languages or 'sql' in languages:
-    examiners['sql-2016'] = SqlExaminer(code, '2016', '')
+  if 'pl-sql' in languages:
+    examiners['pl-sql'] = SqlExaminer(code, 'pl-sql')
 
   if 'swift' in languages:
     examiners['swift'] = SwiftExaminer(code)

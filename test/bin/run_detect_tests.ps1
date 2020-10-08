@@ -393,20 +393,12 @@ test\bin\run_detect_test.ps1 -json -name larger-scala -inputfile ".\test\data\Sc
 test\bin\run_detect_test.ps1 -json -name random-scala -inputfile ".\test\data\Scala\random.scala" -expected ".\test\ref\detect\Scala\random.txt"
 test\bin\run_detect_test.ps1 -json -name variables-scala -inputfile ".\test\data\Scala\variables.scala" -expected ".\test\ref\detect\Scala\variables.txt"
 
-# SQL-92
-test\bin\run_detect_test.ps1 -json -name microsoft-sql-92 -inputfile ".\test\data\SQL-92\microsoft.sql" -expected ".\test\ref\detect\SQL-92\microsoft.txt"
-test\bin\run_detect_test.ps1 -json -name table-sql-92 -inputfile ".\test\data\SQL-92\table.sql" -expected ".\test\ref\detect\SQL-92\table.txt"
+# SQL
+test\bin\run_detect_test.ps1 -json -name microsoft-sql -inputfile ".\test\data\SQL\microsoft.sql" -expected ".\test\ref\detect\SQL\microsoft.txt"
+test\bin\run_detect_test.ps1 -json -name table-sql -inputfile ".\test\data\SQL\table.sql" -expected ".\test\ref\detect\SQL\table.txt"
 
-# SQL-99
-
-# SQL-2003
-
-# SQL-2008
-
-# SQL-2011
-test\bin\run_detect_test.ps1 -json -name brackets-sql-2011 -inputfile ".\test\data\SQL-2011\brackets.sql" -expected ".\test\ref\detect\SQL-2011\brackets.txt"
-
-# SQL-2016
+# T-SQL
+test\bin\run_detect_test.ps1 -json -name brackets-tsql -inputfile ".\test\data\T-SQL\brackets.sql" -expected ".\test\ref\detect\T-SQL\brackets.txt"
 
 # Swift
 test\bin\run_detect_test.ps1 -json -name AppDelegate -inputfile ".\test\data\Swift\AppDelegate.swift" -expected ".\test\ref\detect\Swift\AppDelegate.txt"
