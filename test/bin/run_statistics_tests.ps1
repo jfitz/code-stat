@@ -281,6 +281,10 @@ test\bin\run_test.ps1 -json -name samples-fs -action statistics -language Fsharp
 # Go
 test\bin\run_test.ps1 -json -name find-cli-go -action statistics -language Go -inputfile ".\test\data\Go\find-cli.go" -expected ".\test\ref\statistics\Go\find-cli.txt"
 
+# Groovy
+test\bin\run_test.ps1 -json -name koan05-groovy -action statistics -language Groovy -inputfile ".\test\data\Groovy\koan05.groovy" -expected ".\test\ref\statistics\Groovy\koan05.txt"
+test\bin\run_test.ps1 -json -name koan13-groovy -action statistics -language Groovy -inputfile ".\test\data\Groovy\koan13.groovy" -expected ".\test\ref\statistics\Groovy\koan13.txt"
+
 # Haskell
 test\bin\run_test.ps1 -json -name calendar-hs -action statistics -language Haskell -inputfile ".\test\data\Haskell\calendar.hs" -expected ".\test\ref\statistics\Haskell\calendar.txt"
 test\bin\run_test.ps1 -json -name todo-hs -action statistics -language Haskell -inputfile ".\test\data\Haskell\todo.hs" -expected ".\test\ref\statistics\Haskell\todo.txt"

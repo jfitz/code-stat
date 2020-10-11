@@ -281,6 +281,10 @@ test\bin\run_test.ps1 -json -name samples-fs -action confidence -errors -languag
 # Go
 test\bin\run_test.ps1 -json -name find-cli-go -action confidence -errors -language Go -inputfile ".\test\data\Go\find-cli.go" -expected ".\test\ref\confidence-errors\Go\find-cli.txt"
 
+# Groovy
+test\bin\run_test.ps1 -json -name koan05-groovy -action confidence -errors -language Groovy -inputfile ".\test\data\Groovy\koan05.groovy" -expected ".\test\ref\confidence-errors\Groovy\koan05.txt"
+test\bin\run_test.ps1 -json -name koan13-groovy -action confidence -errors -language Groovy -inputfile ".\test\data\Groovy\koan13.groovy" -expected ".\test\ref\confidence-errors\Groovy\koan13.txt"
+
 # Haskell
 test\bin\run_test.ps1 -json -name calendar-hs -action confidence -errors -language Haskell -inputfile ".\test\data\Haskell\calendar.hs" -expected ".\test\ref\confidence-errors\Haskell\calendar.txt"
 test\bin\run_test.ps1 -json -name todo-hs -action confidence -errors -language Haskell -inputfile ".\test\data\Haskell\todo.hs" -expected ".\test\ref\confidence-errors\Haskell\todo.txt"

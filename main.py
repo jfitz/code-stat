@@ -29,6 +29,7 @@ from fortran_fixedformat_examiner import FortranFixedFormatExaminer
 from fortran_freeformat_examiner import FortranFreeFormatExaminer
 from fsharp_examiner import FsharpExaminer
 from go_examiner import GoExaminer
+from groovy_examiner import GroovyExaminer
 from haskell_examiner import HaskellExaminer
 from html_examiner import HTMLExaminer
 from java_examiner import JavaExaminer
@@ -78,6 +79,7 @@ FortranFixedFormatExaminer.__escape_z__()
 FortranFreeFormatExaminer.__escape_z__()
 FsharpExaminer.__escape_z__()
 GoExaminer.__escape_z__()
+GroovyExaminer.__escape_z__()
 HaskellExaminer.__escape_z__()
 HTMLExaminer.__escape_z__()
 JavaExaminer.__escape_z__()
@@ -273,6 +275,7 @@ codes_and_names = {
   'fsharp': 'F#',
   'gawk': 'GNU-Awk',
   'go': 'Go',
+  'groovy': 'Groovy',
   'haskell': 'Haskell',
   'html': 'HTML',
   'java': 'Java',
@@ -356,6 +359,7 @@ codes_and_groups = {
   'fsharp': 'F#',
   'gawk': 'Awk',
   'go': 'Go',
+  'groovy': 'Groovy',
   'haskell': 'Haskell',
   'html': 'HTML',
   'java': 'Java',
@@ -439,6 +443,7 @@ codes_and_years = {
   'fsharp': 2010,
   'gawk': 1986,
   'go': 2010,
+  'groovy': 2007,
   'haskell': 1998,
   'html': 1990,
   'java': 1995,
@@ -523,6 +528,7 @@ simpler_languages = {
   'fsharp': None,
   'gawk': 'awk',
   'go': 'pascal',
+  'groovy': None,
   'haskell': None,
   'html': None,
   'java': None,
@@ -1022,6 +1028,9 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
   if language in ['go', 'golang']:
     examiner = GoExaminer(code)
 
+  if language in ['groovy']:
+    examiner = GroovyExaminer(code)
+
   if language in ['haskell']:
     examiner = HaskellExaminer(code)
 
@@ -1290,6 +1299,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
 
   if 'go' in languages or 'golang' in languages:
     examiners['go'] = GoExaminer(code)
+
+  if 'groovy' in languages:
+    examiners['go'] = GroovyExaminer(code)
 
   if 'haskell' in languages:
     examiners['haskell'] = HaskellExaminer(code)

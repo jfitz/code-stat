@@ -249,6 +249,10 @@ test\bin\run_detect_test.ps1 -json -name samples-fs -inputfile ".\test\data\Fsha
 # Go
 test\bin\run_detect_test.ps1 -json -name find-cli-go -inputfile ".\test\data\Go\find-cli.go" -expected ".\test\ref\detect\Go\find-cli.txt"
 
+# Groovy
+test\bin\run_detect_test.ps1 -json -name koan05-groovy -inputfile ".\test\data\Groovy\koan05.groovy" -expected ".\test\ref\detect\Groovy\koan05.txt"
+test\bin\run_detect_test.ps1 -json -name koan13-groovy -inputfile ".\test\data\Groovy\koan13.groovy" -expected ".\test\ref\detect\Groovy\koan13.txt"
+
 # Haskell
 test\bin\run_detect_test.ps1 -json -name calendar-hs -inputfile ".\test\data\Haskell\calendar.hs" -expected ".\test\ref\detect\Haskell\calendar.txt"
 test\bin\run_detect_test.ps1 -json -name todo-hs -inputfile ".\test\data\Haskell\todo.hs" -expected ".\test\ref\detect\Haskell\todo.txt"

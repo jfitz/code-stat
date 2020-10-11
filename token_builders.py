@@ -1268,6 +1268,51 @@ class LeadToEndOfLineTokenBuilder(TokenBuilder):
     return len(self.text)
 
 
+# token reader for #! comment
+class SheBangTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self):
+    self.text = ''
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    if self.text == '':
+      return None
+
+    return [Token(self.text, 'comment', False)]
+
+
+  def accept(self, candidate, c):
+    if c in ['\n', '\r']:
+      return False
+
+    if candidate == '':
+      return c == '#'
+
+    if candidate == '#':
+      return c == '!'
+
+    return True
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(self.text) < 2:
+      return 0
+
+    return len(self.text)
+
+
 # token reader for triple quote string
 class TripleQuoteStringTokenBuilder(TokenBuilder):
   @staticmethod

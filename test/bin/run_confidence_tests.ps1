@@ -281,6 +281,10 @@ test\bin\run_test.ps1 -json -name samples-fs -action confidence -language Fsharp
 # Go
 test\bin\run_test.ps1 -json -name find-cli-go -action confidence -language Go -inputfile ".\test\data\Go\find-cli.go" -expected ".\test\ref\confidence\Go\find-cli.txt"
 
+# Groovy
+test\bin\run_test.ps1 -json -name koan05-groovy -action confidence -language Groovy -inputfile ".\test\data\Groovy\koan05.groovy" -expected ".\test\ref\confidence\Groovy\koan05.txt"
+test\bin\run_test.ps1 -json -name koan13-groovy -action confidence -language Groovy -inputfile ".\test\data\Groovy\koan13.groovy" -expected ".\test\ref\confidence\Groovy\koan13.txt"
+
 # Haskell
 test\bin\run_test.ps1 -json -name calendar-hs -action confidence -language Haskell -inputfile ".\test\data\Haskell\calendar.hs" -expected ".\test\ref\confidence\Haskell\calendar.txt"
 test\bin\run_test.ps1 -json -name todo-hs -action confidence -language Haskell -inputfile ".\test\data\Haskell\todo.hs" -expected ".\test\ref\confidence\Haskell\todo.txt"
