@@ -11,7 +11,7 @@ test\bin\run_test.ps1 -json -name bing -action confidence -errors -language gene
 test\bin\run_test.ps1 -json -name family-main -action confidence -errors -language generic -inputfile ".\test\data\Prolog\family-main.pl" -expected ".\test\ref\confidence-errors\generic\family-main.txt"
 test\bin\run_test.ps1 -json -name ETM-540-05 -action confidence -errors -language generic -inputfile ".\test\data\R\ETM-540-05.R" -expected ".\test\ref\confidence-errors\generic\etm-540-05.txt"
 test\bin\run_test.ps1 -json -name basic -action confidence -errors -language generic -inputfile ".\test\data\Ruby\basic.rb" -expected ".\test\ref\confidence-errors\generic\basic.txt"
-test\bin\run_test.ps1 -json -name microsoft -action confidence -errors -language generic -inputfile ".\test\data\SQL-92\microsoft.sql" -expected ".\test\ref\confidence-errors\generic\microsoft.txt"
+test\bin\run_test.ps1 -json -name microsoft -action confidence -errors -language generic -inputfile ".\test\data\SQL\microsoft.sql" -expected ".\test\ref\confidence-errors\generic\microsoft.txt"
 test\bin\run_test.ps1 -json -name spider -action confidence -errors -language generic -inputfile ".\test\data\VisualBasic-6\spider.bas" -expected ".\test\ref\confidence-errors\generic\spider.txt"
 
 # generic with comments
@@ -25,7 +25,7 @@ test\bin\run_test.ps1 -json -name bing -action confidence -errors -language gene
 test\bin\run_test.ps1 -json -name family-main -action confidence -errors -language generic -comment percent -inputfile ".\test\data\Prolog\family-main.pl" -expected ".\test\ref\confidence-errors\generic-comments\family-main.txt"
 test\bin\run_test.ps1 -json -name ETM-540-05 -action confidence -errors -language generic -comment hash -inputfile ".\test\data\R\ETM-540-05.R" -expected ".\test\ref\confidence-errors\generic-comments\etm-540-05.txt"
 test\bin\run_test.ps1 -json -name basic -action confidence -errors -language generic -comment hash -inputfile ".\test\data\Ruby\basic.rb" -expected ".\test\ref\confidence-errors\generic-comments\basic.txt"
-test\bin\run_test.ps1 -json -name microsoft -action confidence -errors -language generic -comment ada -inputfile ".\test\data\SQL-92\microsoft.sql" -expected ".\test\ref\confidence-errors\generic-comments\microsoft.txt"
+test\bin\run_test.ps1 -json -name microsoft -action confidence -errors -language generic -comment ada -inputfile ".\test\data\SQL\microsoft.sql" -expected ".\test\ref\confidence-errors\generic-comments\microsoft.txt"
 test\bin\run_test.ps1 -json -name spider -action confidence -errors -language generic -comment basic -inputfile ".\test\data\VisualBasic-6\spider.bas" -expected ".\test\ref\confidence-errors\generic-comments\spider.txt"
 
 # generic assembly

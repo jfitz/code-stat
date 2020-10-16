@@ -219,4 +219,6 @@ class CsharpExaminer(Examiner):
 
     self.calc_keyword_confidence()
 
+    self.calc_preprocessor_confidence()
+
     self.calc_paired_blockers_confidence(['{'], ['}'])

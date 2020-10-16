@@ -11,7 +11,7 @@ test\bin\run_test.ps1 -json -name bing -action statistics -language generic -inp
 test\bin\run_test.ps1 -json -name family-main -action statistics -language generic -inputfile ".\test\data\Prolog\family-main.pl" -expected ".\test\ref\statistics\generic\family-main.txt"
 test\bin\run_test.ps1 -json -name ETM-540-05 -action statistics -language generic -inputfile ".\test\data\R\ETM-540-05.R" -expected ".\test\ref\statistics\generic\etm-540-05.txt"
 test\bin\run_test.ps1 -json -name basic -action statistics -language generic -inputfile ".\test\data\Ruby\basic.rb" -expected ".\test\ref\statistics\generic\basic.txt"
-test\bin\run_test.ps1 -json -name microsoft -action statistics -language generic -inputfile ".\test\data\SQL-92\microsoft.sql" -expected ".\test\ref\statistics\generic\microsoft.txt"
+test\bin\run_test.ps1 -json -name microsoft -action statistics -language generic -inputfile ".\test\data\SQL\microsoft.sql" -expected ".\test\ref\statistics\generic\microsoft.txt"
 test\bin\run_test.ps1 -json -name spider -action statistics -language generic -inputfile ".\test\data\VisualBasic-6\spider.bas" -expected ".\test\ref\statistics\generic\spider.txt"
 
 # generic with comments
@@ -25,7 +25,7 @@ test\bin\run_test.ps1 -json -name bing -action statistics -language generic -com
 test\bin\run_test.ps1 -json -name family-main -action statistics -language generic -comment percent -inputfile ".\test\data\Prolog\family-main.pl" -expected ".\test\ref\statistics\generic-comments\family-main.txt"
 test\bin\run_test.ps1 -json -name ETM-540-05 -action statistics -language generic -comment hash -inputfile ".\test\data\R\ETM-540-05.R" -expected ".\test\ref\statistics\generic-comments\etm-540-05.txt"
 test\bin\run_test.ps1 -json -name basic -action statistics -language generic -comment hash -inputfile ".\test\data\Ruby\basic.rb" -expected ".\test\ref\statistics\generic-comments\basic.txt"
-test\bin\run_test.ps1 -json -name microsoft -action statistics -language generic -comment ada -inputfile ".\test\data\SQL-92\microsoft.sql" -expected ".\test\ref\statistics\generic-comments\microsoft.txt"
+test\bin\run_test.ps1 -json -name microsoft -action statistics -language generic -comment ada -inputfile ".\test\data\SQL\microsoft.sql" -expected ".\test\ref\statistics\generic-comments\microsoft.txt"
 test\bin\run_test.ps1 -json -name spider -action statistics -language generic -comment basic -inputfile ".\test\data\VisualBasic-6\spider.bas" -expected ".\test\ref\statistics\generic-comments\spider.txt"
 
 # generic assembly

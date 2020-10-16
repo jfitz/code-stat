@@ -84,8 +84,13 @@ class AssemblyExaminer(Examiner):
     integer_tb = IntegerTokenBuilder("'")
     integer_exponent_tb = IntegerExponentTokenBuilder("'")
     integer_1_tb = NullTokenBuilder()
+    integer_2_tb = NullTokenBuilder()
+    prefixed_integer_tb = PrefixedIntegerTokenBuilder('#', True, '0123456789')
     if processor in ['pdp-11']:
       integer_1_tb = SuffixedIntegerTokenBuilder('$', True, '0123456789')
+    if processor in ['z80']:
+      integer_1_tb = SuffixedIntegerTokenBuilder('O', True, '0123456789')
+      integer_2_tb = SuffixedIntegerTokenBuilder('D', True, '0123456789')
 
     hex_integer_1_tb = PrefixedIntegerTokenBuilder('&', True, '0123456789abcdefABCDEF')
     hex_integer_2_tb = SuffixedIntegerTokenBuilder('h', False, '0123456789abcdefABCDEF')
@@ -136,7 +141,7 @@ class AssemblyExaminer(Examiner):
     preprocessor_tb = CaseInsensitiveListTokenBuilder(preprocessors, 'preprocessor', False)
 
     directives = [
-      '.8080', '.8086', '.6800', '.6502',
+      '.8080', '.8086', '.6800', '.6502', ".386",
       'ALIGN', 'ASEG', 'ASSUME',
       'BITS',
       '.CODE', 'CPU', 'CSEG',
@@ -457,6 +462,8 @@ class AssemblyExaminer(Examiner):
       integer_tb,
       integer_exponent_tb,
       integer_1_tb,
+      integer_2_tb,
+      prefixed_integer_tb,
       hex_integer_1_tb,
       hex_integer_2_tb,
       hex_integer_3_tb,
@@ -526,6 +533,9 @@ class AssemblyExaminer(Examiner):
     tokens_free = tokenizer.tokenize(code)
     tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid operator')
     tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid')
+    tokens_free = Examiner.combine_identifier_colon(tokens_free, ['newline'], [], [])
+    tokens_free = Tokenizer.combine_number_and_adjacent_identifier(tokens_free)
+    tokens_free = Examiner.convert_values_to_operators(tokens_free, known_operators)
     self.tokens = tokens_free
     self.convert_asm_identifiers_to_labels()
 
@@ -559,7 +569,7 @@ class AssemblyExaminer(Examiner):
       tokens_space = Examiner.combine_adjacent_identical_tokens(tokens_space, 'invalid')
       tokens_space = Examiner.combine_identifier_colon(tokens_space, ['newline'], [], [])
       tokens_space = Tokenizer.combine_number_and_adjacent_identifier(tokens_space)
-      tokens_space = Examiner.convert_asterisks_to_operators(tokens_space)
+      tokens_space = Examiner.convert_values_to_operators(tokens_space, known_operators)
       self.tokens = tokens_space
       self.convert_asm_identifiers_to_labels()
 

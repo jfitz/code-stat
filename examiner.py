@@ -248,11 +248,13 @@ class Examiner:
 
   # convert asterisks in expressions to operators
   @staticmethod
-  def convert_asterisks_to_operators(tokens):
+  def convert_values_to_operators(tokens, operators):
     prev_token = Token('\n', 'newline', False)
 
     for token in tokens:
-      if token.group == 'value' and prev_token.group in ['number', 'identifier', 'value']:
+      if token.group == 'value' and \
+        prev_token.group in ['number', 'identifier', 'value'] and \
+        token.text in operators:
         token.group = 'operator'
 
       if token.group not in ['whitespace']:
@@ -687,6 +689,25 @@ class Examiner:
       else:
         # more than 1000 tokens and no keyword? assume it is not
         self.confidences['keyword'] = 0.0
+
+
+  # preprocessor tokens followed by non-whitespace reduce confidence
+  def calc_preprocessor_confidence(self):
+    confidence = 1.0
+
+    prev_token = Token('\n', 'newline', False)
+
+    for token in self.tokens:
+      if prev_token.group == 'preprocessor' and \
+        token.group not in ['whitespace', 'newline']:
+        confidence -= 0.01
+
+      prev_token = token
+
+    if confidence < 0.50:
+      confidence = 0.50
+
+    self.confidences['preprocessor'] = confidence
 
 
   def calc_indent_confidence(self, indents):

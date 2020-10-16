@@ -11,7 +11,7 @@ test\bin\run_test.ps1 -json -name bing -action tokens -language generic -inputfi
 test\bin\run_test.ps1 -json -name family-main -action tokens -language generic -inputfile ".\test\data\Prolog\family-main.pl" -expected ".\test\ref\tokens\generic\family-main.txt"
 test\bin\run_test.ps1 -json -name ETM-540-05 -action tokens -language generic -inputfile ".\test\data\R\ETM-540-05.R" -expected ".\test\ref\tokens\generic\etm-540-05.txt"
 test\bin\run_test.ps1 -json -name basic -action tokens -language generic -inputfile ".\test\data\Ruby\basic.rb" -expected ".\test\ref\tokens\generic\basic.txt"
-test\bin\run_test.ps1 -json -name microsoft -action tokens -language generic -inputfile ".\test\data\SQL-92\microsoft.sql" -expected ".\test\ref\tokens\generic\microsoft.txt"
+test\bin\run_test.ps1 -json -name microsoft -action tokens -language generic -inputfile ".\test\data\SQL\microsoft.sql" -expected ".\test\ref\tokens\generic\microsoft.txt"
 test\bin\run_test.ps1 -json -name spider -action tokens -language generic -inputfile ".\test\data\VisualBasic-6\spider.bas" -expected ".\test\ref\tokens\generic\spider.txt"
 
 # generic with comments
@@ -25,7 +25,7 @@ test\bin\run_test.ps1 -json -name bing -action tokens -language generic -comment
 test\bin\run_test.ps1 -json -name family-main -action tokens -language generic -comment percent -inputfile ".\test\data\Prolog\family-main.pl" -expected ".\test\ref\tokens\generic-comments\family-main.txt"
 test\bin\run_test.ps1 -json -name ETM-540-05 -action tokens -language generic -comment hash -inputfile ".\test\data\R\ETM-540-05.R" -expected ".\test\ref\tokens\generic-comments\etm-540-05.txt"
 test\bin\run_test.ps1 -json -name basic -action tokens -language generic -comment hash -inputfile ".\test\data\Ruby\basic.rb" -expected ".\test\ref\tokens\generic-comments\basic.txt"
-test\bin\run_test.ps1 -json -name microsoft -action tokens -language generic -comment ada -inputfile ".\test\data\SQL-92\microsoft.sql" -expected ".\test\ref\tokens\generic-comments\microsoft.txt"
+test\bin\run_test.ps1 -json -name microsoft -action tokens -language generic -comment ada -inputfile ".\test\data\SQL\microsoft.sql" -expected ".\test\ref\tokens\generic-comments\microsoft.txt"
 test\bin\run_test.ps1 -json -name spider -action tokens -language generic -comment basic -inputfile ".\test\data\VisualBasic-6\spider.bas" -expected ".\test\ref\tokens\generic-comments\spider.txt"
 
 # generic assembly

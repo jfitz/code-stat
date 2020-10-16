@@ -913,6 +913,34 @@ class IdentifierTokenBuilder(TokenBuilder):
     return c.isalpha() or c.isdigit() or c in self.extras
 
 
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    # find positions of first alpha and first digit
+    pos_a = -1
+    pos_n = -1
+    i = 0
+    for c in self.text:
+      if pos_a == -1 and (c.isalpha() or c == '_'):
+        pos_a = i
+
+      if pos_n == -1 and c.isdigit():
+        pos_n = i
+
+      i += 1
+
+    # must have at least one alpha
+    if pos_a == -1:
+      return 0
+
+    # first alphanum must be alpha
+    if pos_n > -1 and pos_n < pos_a:
+      return 0
+
+    return len(self.text)
+
+
 # token reader for identifier
 class PrefixedIdentifierTokenBuilder(TokenBuilder):
   @staticmethod

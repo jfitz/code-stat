@@ -171,10 +171,11 @@ class AssemblyGenericExaminer(Examiner):
     args_tokenizer = Tokenizer(args_tokenbuilders)
 
     # tokenize as free-format
-    tokens1 = tokenizer.tokenize(code)
-    tokens1 = Examiner.combine_adjacent_identical_tokens(tokens1, 'invalid operator')
-    tokens1 = Examiner.combine_adjacent_identical_tokens(tokens1, 'invalid')
-    self.tokens = tokens1
+    tokens_free = tokenizer.tokenize(code)
+    tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid operator')
+    tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid')
+    tokens_free = Examiner.convert_values_to_operators(tokens_free, known_operators)
+    self.tokens = tokens_free
     self.convert_asm_identifiers_to_labels()
 
     self.calc_statistics()
@@ -196,13 +197,13 @@ class AssemblyGenericExaminer(Examiner):
     comment_leads = '*;!'
     line_comment_leads = ''
     use_line_id = False
-    tokens2, indents = Tokenizer.tokenize_asm_code(code, tab_size, opcode_tokenizer, opcode_extras, args_tokenizer, label_leads, label_mids, label_ends, comment_leads, line_comment_leads, use_line_id)
-    tokens2 = Examiner.combine_adjacent_identical_tokens(tokens2, 'invalid operator')
-    tokens2 = Examiner.combine_adjacent_identical_tokens(tokens2, 'invalid')
-    tokens2 = Examiner.combine_identifier_colon(tokens2, ['newline'], [], [])
-    tokens2 = Tokenizer.combine_number_and_adjacent_identifier(tokens2)
-    tokens2 = Examiner.convert_asterisks_to_operators(tokens2)
-    self.tokens = tokens2
+    tokens_space, indents = Tokenizer.tokenize_asm_code(code, tab_size, opcode_tokenizer, opcode_extras, args_tokenizer, label_leads, label_mids, label_ends, comment_leads, line_comment_leads, use_line_id)
+    tokens_space = Examiner.combine_adjacent_identical_tokens(tokens_space, 'invalid operator')
+    tokens_space = Examiner.combine_adjacent_identical_tokens(tokens_space, 'invalid')
+    tokens_space = Examiner.combine_identifier_colon(tokens_space, ['newline'], [], [])
+    tokens_space = Tokenizer.combine_number_and_adjacent_identifier(tokens_space)
+    tokens_space = Examiner.convert_values_to_operators(tokens_space, known_operators)
+    self.tokens = tokens_space
     self.convert_asm_identifiers_to_labels()
 
     self.calc_statistics()
@@ -227,12 +228,12 @@ class AssemblyGenericExaminer(Examiner):
       confidence2 *= factor
 
     if confidence2 > confidence1:
-      self.tokens = tokens2
+      self.tokens = tokens_space
       self.statistics = statistics2
       self.confidences = confidences2
       self.errors = errors2
     else:
-      self.tokens = tokens1
+      self.tokens = tokens_free
       self.statistics = statistics1
       self.confidences = confidences1
       self.errors = errors1
