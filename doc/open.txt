@@ -131,19 +131,12 @@ generic ASM
 spaced-format ASM
 
 ASM-PDP-8
-- label terminate ,
-- line comment /
-- space in args
-- line terminator ; (allow multiple instructions per line)
-- end of code $
-- second field may be an octal number or an identifier (with or without label)
 
 ASM-PDP-11
 - directives
 '.odd', '.even', '.blkb', '.blkw', '.byte', '.word', '.ascii', '.end', '.hex'
 '.radix'
 - numbers 10d 10. 1010b 10^O 10^D 10^B
-- value .
 
 ASM-390
 - opcodes
@@ -272,7 +265,6 @@ BASIC
 - identify line numbers after THEN, GOTO, GOSUB (incuding ON GOTO, ON GOSUB) ON ERROR
 
 BASIC-80 / BASICA / GW-BASIC
-- AND, OR, XOR when seen PUT and previous comma is a value, not an operator
 
 C
 * C89 source (has void but not bool, // comment)
@@ -548,7 +540,7 @@ VB6
   (begintrans call circle clear close cls committrans compare data declare data defXXX dim else elseif end endif exit for if input input$ let open close pset put read redim rem restore set while wend write)
 
 VB.NET
-- 'Then' must be preceded by 'If' or 'ElseIf'
+- 'Then' must be preceded on line by 'If' or 'ElseIf'
 
 Stats and analysis
 + cyclomatic complexity

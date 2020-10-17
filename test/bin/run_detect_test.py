@@ -4,7 +4,7 @@ import json
 import sys
 
 # build set of confidence factors, one group for each language
-def make_confidences(code, params, languages):
+def make_confidences(contents, params, languages):
   confidences = {}
   target = 'localhost:5000'
 
@@ -14,7 +14,7 @@ def make_confidences(code, params, languages):
     params2.append('language=' + language)
     paramstext = '&'.join(params2)
     url = "http://" + target + "/" + "confidence" + "?" + paramstext
-    resp = requests.post(url, data=code)
+    resp = requests.post(url, data=contents)
     content = resp.content
     if len(content) > 0:
       confidence = json.loads(content)
@@ -24,7 +24,7 @@ def make_confidences(code, params, languages):
 
 
 # build set of confidence errors, one group for each language
-def make_confidence_errors(code, params, languages):
+def make_confidence_errors(contents, params, languages):
   confidence_errors = {}
   target = 'localhost:5000'
 
@@ -35,7 +35,7 @@ def make_confidence_errors(code, params, languages):
     params2.append('language=' + language)
     paramstext = '&'.join(params2)
     url = "http://" + target + "/" + "confidence" + "?" + paramstext
-    resp = requests.post(url, data=code)
+    resp = requests.post(url, data=contents)
     content = resp.content
     if len(content) > 0:
       confidence = json.loads(content)
@@ -67,16 +67,18 @@ def count_tokens(statistic, groups):
 
 # identify language with highest confidence
 # break ties
-def identify_language(code, params, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages):
+def identify_language(contents, params, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages):
   tiebreak_override = True
-  confidences = make_confidences(code, params, languages)
-  # errors = make_confidence_errors(code, params, languages)
+  confidences = make_confidences(contents, params, languages)
+  # debug
+  # errors = make_confidence_errors(contents, params, languages)
 
   # get confidence values
   retval = {}
   highest_confidence = 0
   for language in confidences:
     confidence = calc_confidence(confidences[language])
+    # debug 3
     # sys.stderr.write('CONF: ' + language + ' ' + str(confidence) + '\n')
     # sys.stderr.write('CONF: ' + language + ' ' + str(confidences[language]) + '\n')
     # sys.stderr.write('CONF: ' + language + ' ' + str(errors[language]) + '\n')
@@ -95,6 +97,7 @@ def identify_language(code, params, tiebreak_keywords, tiebreak_tokens, tiebreak
       confidence = calc_confidence(confidences[language])
       if confidence == highest_confidence:
         high_languages.append(language)
+        # debug
         # sys.stderr.write('  ' + language + '\n')
 
     # if a tie among multiple examiners
@@ -108,7 +111,7 @@ def identify_language(code, params, tiebreak_keywords, tiebreak_tokens, tiebreak
         params2.append('language=' + language)
         paramstext = '&'.join(params2)
         url = "http://" + target + "/" + "statistics" + "?" + paramstext
-        resp = requests.post(url, data=code)
+        resp = requests.post(url, data=contents)
         content = resp.content
         statistic = json.loads(content)
         statistics[language] = statistic
@@ -124,13 +127,15 @@ def identify_language(code, params, tiebreak_keywords, tiebreak_tokens, tiebreak
           count = count_tokens(statistics[language], groups)
           keyword_count_confidence = count / highest_keyword_count
           confidences[language]['keyword_count'] = keyword_count_confidence
-          # sys.stderr.write(' ADJ: ' + language + ' ' + str(keyword_count_confidence + '\n'))
+          # debug
+          # sys.stderr.write(' ADJ: ' + language + ' ' + str(keyword_count_confidence) + '\n')
 
         # recalculate confidence with new factor
         for language in high_languages:
           confidence = calc_confidence(confidences[language])
           retval[language] = confidence
 
+  # debug
   # sys.stderr.write('HIGH CONF: ' + str(highest_confidence) + '\n')
 
   if tiebreak_simple:
@@ -212,24 +217,8 @@ args = parser.parse_args()
 
 # read code (input)
 filename = args.input.strip()
-try:
-  with open(filename) as f:
-    contents = f.read()
-except UnicodeDecodeError:
-  print('"Cannot decode text as ASCII, UTF-8, or UTF-16"')
-  sys.exit()
-
-try:
-  code = contents.encode('ASCII')
-except UnicodeEncodeError:
-  try:
-    code = contents.encode('UTF-8')
-  except UnicodeEncodeError:
-    try:
-      code = contents.encode('UTF-16')
-    except UnicodeEncodeError:
-      print('"Cannot encode text as ASCII, UTF-8, or UTF-16"')
-      sys.exit()
+with open(filename, 'rb') as f:
+  contents = f.read()
 
 params = []
 
@@ -272,7 +261,7 @@ else:
   languages = codes_and_names.keys()
 
 # get set of confidence factors
-detected_languages, __ = identify_language(code, params, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages)
+detected_languages, __ = identify_language(contents, params, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages)
 
 # print result
 mydict = {}
