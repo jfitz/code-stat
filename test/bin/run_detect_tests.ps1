@@ -211,6 +211,11 @@ test\bin\run_detect_test.ps1 -json -name bakery-eiffel -inputfile ".\test\data\E
 test\bin\run_detect_test.ps1 -json -name reverse-eiffel -inputfile ".\test\data\Eiffel\reverse.e" -expected ".\test\ref\detect\Eiffel\reverse.txt"
 test\bin\run_detect_test.ps1 -json -name bottles-eiffel -inputfile ".\test\data\Eiffel\bottles_of_beer.e" -expected ".\test\ref\detect\Eiffel\bottles_of_beer.txt"
 
+# Erlang
+test\bin\run_detect_test.ps1 -json -name armstrong-erlang -inputfile ".\test\data\Erlang\armstrong.erl" -expected ".\test\ref\detect\Erlang\armstrong.txt"
+test\bin\run_detect_test.ps1 -json -name list_comprehension-erlang -inputfile ".\test\data\Erlang\list_comprehension.erl" -expected ".\test\ref\detect\Erlang\list_comprehension.txt"
+test\bin\run_detect_test.ps1 -json -name send_receive-erlang Erlang -inputfile ".\test\data\Erlang\send_receive.erl" -expected ".\test\ref\detect\Erlang\send_receive.txt"
+
 # FORTRAN-66
 test\bin\run_detect_test.ps1 -json -name hello-ftn66 -inputfile ".\test\data\FORTRAN-66\HELLO.FOR" -expected ".\test\ref\detect\FORTRAN-66\HELLO.txt"
 test\bin\run_detect_test.ps1 -json -name heron-ftn66 -inputfile ".\test\data\FORTRAN-66\HERON.FOR" -expected ".\test\ref\detect\FORTRAN-66\HERON.txt"

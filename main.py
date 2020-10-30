@@ -25,6 +25,7 @@ from dart_examiner import DartExaminer
 from dbase_examiner import DbaseExaminer
 from delphi_examiner import DelphiExaminer
 from eiffel_examiner import EiffelExaminer
+from erlang_examiner import ErlangExaminer
 from fortran_fixedformat_examiner import FortranFixedFormatExaminer
 from fortran_freeformat_examiner import FortranFreeFormatExaminer
 from fsharp_examiner import FsharpExaminer
@@ -75,6 +76,7 @@ DartExaminer.__escape_z__()
 DbaseExaminer.__escape_z__()
 DelphiExaminer.__escape_z__()
 EiffelExaminer.__escape_z__()
+ErlangExaminer.__escape_z__()
 FortranFixedFormatExaminer.__escape_z__()
 FortranFreeFormatExaminer.__escape_z__()
 FsharpExaminer.__escape_z__()
@@ -266,6 +268,7 @@ codes_and_names = {
   'dbase-iii': 'dBase-III',
   'delphi': 'Delphi',
   'eiffel': 'Eiffel',
+  'erlang': 'Erlang',
   'fortran-66': 'FORTRAN-66',
   'fortran-77': 'FORTRAN-77',
   'fortran-90': 'Fortran-90',
@@ -350,6 +353,7 @@ codes_and_groups = {
   'dbase-iii': 'dBase',
   'delphi': 'Pascal',
   'eiffel': 'Eiffel',
+  'erlang': 'Erlang',
   'fortran-66': 'Fortran',
   'fortran-77': 'Fortran',
   'fortran-90': 'Fortran',
@@ -434,6 +438,7 @@ codes_and_years = {
   'dbase-iii': 1985,
   'delphi': 1995,
   'eiffel': 1985,
+  'erlang': 1985,
   'fortran-66': 1966,
   'fortran-77': 1977,
   'fortran-90': 1990,
@@ -519,6 +524,7 @@ simpler_languages = {
   'dbase-iii': 'dbase-ii',
   'delphi': 'pascal',
   'eiffel': None,
+  'erlang': None,
   'fortran-66': None,
   'fortran-77': 'fortran-66',
   'fortran-90': 'fortran-77',
@@ -1004,6 +1010,9 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
   if language in ['eiffel']:
     examiner = EiffelExaminer(code)
 
+  if language in ['erlang']:
+    examiner = ErlangExaminer(code)
+
   if language in ['fortran-66', 'fortran-fixed', 'fortran-fixed-format', 'fortran']:
     examiner = FortranFixedFormatExaminer(code, '66', tab_size, wide)
 
@@ -1264,6 +1273,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
 
   if 'eiffel' in languages:
     examiners['eiffel'] = EiffelExaminer(code)
+
+  if 'erlang' in languages:
+    examiners['erlang'] = ErlangExaminer(code)
 
   if 'fortran-66' in languages or 'fortran' in languages or \
     'fortran-fixed' in languages or 'fortran-fixed-format' in languages or \

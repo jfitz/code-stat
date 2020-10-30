@@ -16,9 +16,12 @@ def make_confidences(contents, params, languages):
     url = "http://" + target + "/" + "confidence" + "?" + paramstext
     resp = requests.post(url, data=contents)
     content = resp.content
-    if len(content) > 0:
-      confidence = json.loads(content)
-      confidences[language] = confidence
+    if content is not None and len(content) > 0:
+      try:
+        confidence = json.loads(content)
+        confidences[language] = confidence
+      except json.decoder.JSONDecodeError as e:
+        pass
 
   return confidences
 
@@ -116,7 +119,10 @@ def identify_language(contents, params, tiebreak_keywords, tiebreak_tokens, tieb
         statistic = json.loads(content)
         statistics[language] = statistic
 
-        groups = ['keyword', 'type', 'function', 'register']
+        groups = [
+          'keyword', 'type', 'function', 'register', 'directive', 'preprocessor'
+        ]
+        
         keyword_count = count_tokens(statistic, groups)
         if keyword_count > highest_keyword_count:
           highest_keyword_count = keyword_count

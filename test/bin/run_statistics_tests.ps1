@@ -243,6 +243,11 @@ test\bin\run_test.ps1 -json -name bakery-eiffel -action statistics -language Eif
 test\bin\run_test.ps1 -json -name reverse-eiffel -action statistics -language Eiffel -inputfile ".\test\data\Eiffel\reverse.e" -expected ".\test\ref\statistics\Eiffel\reverse.txt"
 test\bin\run_test.ps1 -json -name bottles-eiffel -action statistics -language Eiffel -inputfile ".\test\data\Eiffel\bottles_of_beer.e" -expected ".\test\ref\statistics\Eiffel\bottles_of_beer.txt"
 
+# Erlang
+test\bin\run_test.ps1 -json -name armstrong-erlang -action statistics -language Erlang -inputfile ".\test\data\Erlang\armstrong.erl" -expected ".\test\ref\statistics\Erlang\armstrong.txt"
+test\bin\run_test.ps1 -json -name list_comprehension-erlang -action statistics -language Erlang -inputfile ".\test\data\Erlang\list_comprehension.erl" -expected ".\test\ref\statistics\Erlang\list_comprehension.txt"
+test\bin\run_test.ps1 -json -name send_receive-erlang -action statistics -language Erlang -inputfile ".\test\data\Erlang\send_receive.erl" -expected ".\test\ref\statistics\Erlang\send_receive.txt"
+
 # FORTRAN-66
 test\bin\run_test.ps1 -json -name hello-ftn66 -action statistics -language FORTRAN-66 -inputfile ".\test\data\FORTRAN-66\HELLO.FOR" -expected ".\test\ref\statistics\FORTRAN-66\HELLO.txt"
 test\bin\run_test.ps1 -json -name heron-ftn66 -action statistics -language FORTRAN-66 -inputfile ".\test\data\FORTRAN-66\HERON.FOR" -expected ".\test\ref\statistics\FORTRAN-66\HERON.txt"
