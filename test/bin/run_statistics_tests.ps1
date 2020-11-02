@@ -237,6 +237,9 @@ test\bin\run_test.ps1 -json -name UCalc-delphi -action statistics -language Delp
 test\bin\run_test.ps1 -json -name UChessBoardCmp-delphi -action statistics -language Delphi -inputfile ".\test\data\delphi\UChessBoardCmp.pas" -expected ".\test\ref\statistics\Delphi\UChessBoardCmp.txt"
 test\bin\run_test.ps1 -json -name UPlatform-delphi -action statistics -language Delphi -inputfile ".\test\data\delphi\UPlatform.pas" -expected ".\test\ref\statistics\Delphi\UPlatform.txt"
 
+# Dibol
+test\bin\run_test.ps1 -json -name bottles-dibol -action statistics -language Dibol -inputfile ".\test\data\Dibol\bottles.dbl" -expected ".\test\ref\statistics\Dibol\bottles.txt"
+
 # Eiffel
 test\bin\run_test.ps1 -json -name hello-eiffel -action statistics -language Eiffel -inputfile ".\test\data\Eiffel\hello.e" -expected ".\test\ref\statistics\Eiffel\hello.txt"
 test\bin\run_test.ps1 -json -name bakery-eiffel -action statistics -language Eiffel -inputfile ".\test\data\Eiffel\bakery.e" -expected ".\test\ref\statistics\Eiffel\bakery.txt"

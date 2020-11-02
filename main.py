@@ -24,6 +24,7 @@ from d_examiner import DExaminer
 from dart_examiner import DartExaminer
 from dbase_examiner import DbaseExaminer
 from delphi_examiner import DelphiExaminer
+from dibol_examiner import DibolExaminer
 from eiffel_examiner import EiffelExaminer
 from erlang_examiner import ErlangExaminer
 from fortran_fixedformat_examiner import FortranFixedFormatExaminer
@@ -75,6 +76,7 @@ DExaminer.__escape_z__()
 DartExaminer.__escape_z__()
 DbaseExaminer.__escape_z__()
 DelphiExaminer.__escape_z__()
+DibolExaminer.__escape_z__()
 EiffelExaminer.__escape_z__()
 ErlangExaminer.__escape_z__()
 FortranFixedFormatExaminer.__escape_z__()
@@ -267,6 +269,7 @@ codes_and_names = {
   'dbase-ii': 'dBase-II',
   'dbase-iii': 'dBase-III',
   'delphi': 'Delphi',
+  'dibol': 'Dibol',
   'eiffel': 'Eiffel',
   'erlang': 'Erlang',
   'fortran-66': 'FORTRAN-66',
@@ -352,6 +355,7 @@ codes_and_groups = {
   'dbase-ii': 'dBase',
   'dbase-iii': 'dBase',
   'delphi': 'Pascal',
+  'dibol': 'Dibol',
   'eiffel': 'Eiffel',
   'erlang': 'Erlang',
   'fortran-66': 'Fortran',
@@ -437,6 +441,7 @@ codes_and_years = {
   'dbase-ii': 1982,
   'dbase-iii': 1985,
   'delphi': 1995,
+  'dibol': 1970,
   'eiffel': 1985,
   'erlang': 1985,
   'fortran-66': 1966,
@@ -523,6 +528,7 @@ simpler_languages = {
   'dbase-ii': None,
   'dbase-iii': 'dbase-ii',
   'delphi': 'pascal',
+  'dibol': None,
   'eiffel': None,
   'erlang': None,
   'fortran-66': None,
@@ -1007,6 +1013,9 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
   if language in ['delphi']:
     examiner = DelphiExaminer(code)
 
+  if language in ['dibol']:
+    examiner = DibolExaminer(code)
+
   if language in ['eiffel']:
     examiner = EiffelExaminer(code)
 
@@ -1270,6 +1279,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
 
   if 'delphi' in languages:
     examiners['delphi'] = DelphiExaminer(code)
+
+  if 'dibol' in languages:
+    examiners['dibol'] = DibolExaminer(code)
 
   if 'eiffel' in languages:
     examiners['eiffel'] = EiffelExaminer(code)

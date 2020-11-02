@@ -205,6 +205,9 @@ test\bin\run_detect_test.ps1 -json -name UCalc-delphi -inputfile ".\test\data\de
 test\bin\run_detect_test.ps1 -json -name UChessBoardCmp-delphi -inputfile ".\test\data\delphi\UChessBoardCmp.pas" -expected ".\test\ref\detect\Delphi\UChessBoardCmp.txt"
 test\bin\run_detect_test.ps1 -json -name UPlatform-delphi -inputfile ".\test\data\delphi\UPlatform.pas" -expected ".\test\ref\detect\Delphi\UPlatform.txt"
 
+# Dibol
+test\bin\run_detect_test.ps1 -json -name bottles-dibol -inputfile ".\test\data\Dibol\bottles.dbl" -expected ".\test\ref\detect`\Dibol\bottles.txt"
+
 # Eiffel
 test\bin\run_detect_test.ps1 -json -name hello-eiffel -inputfile ".\test\data\Eiffel\hello.e" -expected ".\test\ref\detect\Eiffel\hello.txt"
 test\bin\run_detect_test.ps1 -json -name bakery-eiffel -inputfile ".\test\data\Eiffel\bakery.e" -expected ".\test\ref\detect\Eiffel\bakery.txt"
