@@ -42,6 +42,7 @@ from lua_examiner import LuaExaminer
 from matlab_examiner import MatlabExaminer
 from microsoft_basic_examiner import MicrosoftBasicExaminer
 from objectivec_examiner import ObjectiveCExaminer
+from ocaml_examiner import OcamlExaminer
 from pascal_examiner import PascalExaminer
 from perl_examiner import PerlExaminer
 from pl1_fixedformat_examiner import PL1FixedFormatExaminer
@@ -94,6 +95,7 @@ LuaExaminer.__escape_z__()
 MatlabExaminer.__escape_z__()
 MicrosoftBasicExaminer.__escape_z__()
 ObjectiveCExaminer.__escape_z__()
+OcamlExaminer.__escape_z__()
 PascalExaminer.__escape_z__()
 PerlExaminer.__escape_z__()
 PL1FixedFormatExaminer.__escape_z__()
@@ -291,6 +293,7 @@ codes_and_names = {
   'lua': 'Lua',
   'matlab': 'Matlab',
   'objective-c': 'Objective-C',
+  'ocaml': 'OCaml',
   'octave': 'Octave',
   'pascal': 'Pascal',
   'perl': 'Perl',
@@ -364,7 +367,7 @@ codes_and_groups = {
   'fortran-95': 'Fortran',
   'fortran-2003': 'Fortran',
   'fortran-2008': 'Fortran',
-  'fsharp': 'F#',
+  'fsharp': 'ML',
   'gawk': 'Awk',
   'go': 'Go',
   'groovy': 'Groovy',
@@ -377,6 +380,7 @@ codes_and_groups = {
   'lua': 'Lua',
   'matlab': 'Matlab',
   'objective-c': 'Objective-C',
+  'ocaml': 'ML',
   'octave': 'matlab',
   'pascal': 'Pascal',
   'perl': 'Perl',
@@ -424,6 +428,7 @@ codes_and_years = {
   'c-78': 1978,
   'c-89': 1989,
   'c-99': 1999,
+  'caml': 1987,
   'cplusplus': 1990,
   'csharp': 2000,
   'cbasic': 1980,
@@ -463,6 +468,7 @@ codes_and_years = {
   'lua': 1993,
   'matlab': 1984,
   'objective-c': 1984,
+  'ocaml': 2011,
   'octave': 1993,
   'pascal': 1970,
   'perl': 1980,
@@ -537,7 +543,7 @@ simpler_languages = {
   'fortran-95': 'fortran-90',
   'fortran-2003': 'fortran-95',
   'fortran-2008': 'fortran-2003',
-  'fsharp': None,
+  'fsharp': 'ocaml',
   'gawk': 'awk',
   'go': 'pascal',
   'groovy': None,
@@ -551,6 +557,7 @@ simpler_languages = {
   'matlab': None,
   'objective-c': 'cplusplus',
   'octave': 'matlab',
+  'ocaml': None,
   'pascal': None,
   'perl': 'awk',
   'pl1-fixed': None,
@@ -1076,6 +1083,9 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
   if language in ['objective-c', 'objc']:
     examiner = ObjectiveCExaminer(code)
 
+  if language in ['ocaml']:
+    examiner = OcamlExaminer(code)
+
   if language in ['octave']:
     examiner = MatlabExaminer(code, 'octave')
 
@@ -1353,6 +1363,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
 
   if 'objective-c' in languages:
     examiners['objective-c'] = ObjectiveCExaminer(code)
+
+  if 'ocaml' in languages:
+    examiners['ocaml'] = OcamlExaminer(code)
 
   if 'octave' in languages:
     examiners['octave'] = MatlabExaminer(code, 'octave')

@@ -253,6 +253,7 @@ test\bin\run_detect_test.ps1 -json -name Wikibooks-ex4-ftn2003 -inputfile ".\tes
 
 # F#
 test\bin\run_detect_test.ps1 -json -name samples-fs -inputfile ".\test\data\Fsharp\samples.fs" -expected ".\test\ref\detect\Fsharp\samples.txt"
+test\bin\run_detect_test.ps1 -json -name antwalk-fs -inputfile ".\test\data\Fsharp\ant_walk.fs" -expected ".\test\ref\detect\Fsharp\ant_walk.txt"
 
 # Go
 test\bin\run_detect_test.ps1 -json -name find-cli-go -inputfile ".\test\data\Go\find-cli.go" -expected ".\test\ref\detect\Go\find-cli.txt"
@@ -313,6 +314,9 @@ test\bin\run_detect_test.ps1 -json -name qrmath-objc -inputfile ".\test\data\Obj
 test\bin\run_detect_test.ps1 -json -name qrencoder-objc -inputfile ".\test\data\Objective-C\QREncoder.m" -expected ".\test\ref\detect\Objective-C\QREncoder.txt"
 test\bin\run_detect_test.ps1 -json -name jsonkit_h-objc -inputfile ".\test\data\Objective-C\JSONKit.h" -expected ".\test\ref\detect\Objective-C\JSONKit_h.txt"
 test\bin\run_detect_test.ps1 -json -name jsonkit_m-objc -inputfile ".\test\data\Objective-C\JSONKit.m" -expected ".\test\ref\detect\Objective-C\JSONKit_m.txt"
+
+# OCaml
+test\bin\run_detect_test.ps1 -json -name antwalk-ocaml -inputfile ".\test\data\OCaml\ant_walk.ml" -expected ".\test\ref\detect\OCaml\ant_walk.txt"
 
 # Octave
 test\bin\run_detect_test.ps1 -json -name transpose-octave -inputfile ".\test\data\Octave\transpose.m" -expected ".\test\ref\detect\Octave\transpose.txt"

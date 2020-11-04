@@ -285,6 +285,7 @@ test\bin\run_test.ps1 -json -name Wikibooks-ex4-ftn2003 -action confidence -lang
 
 # F#
 test\bin\run_test.ps1 -json -name samples-fs -action confidence -language Fsharp -inputfile ".\test\data\Fsharp\samples.fs" -expected ".\test\ref\confidence\Fsharp\samples.txt"
+test\bin\run_test.ps1 -json -name antwalk-fs -action confidence -language Fsharp -inputfile ".\test\data\Fsharp\ant_walk.fs" -expected ".\test\ref\confidence\Fsharp\ant_walk.txt"
 
 # Go
 test\bin\run_test.ps1 -json -name find-cli-go -action confidence -language Go -inputfile ".\test\data\Go\find-cli.go" -expected ".\test\ref\confidence\Go\find-cli.txt"
@@ -345,6 +346,9 @@ test\bin\run_test.ps1 -json -name qrmath-objc -action confidence -language Objec
 test\bin\run_test.ps1 -json -name qrencoder-objc -action confidence -language Objective-C -inputfile ".\test\data\Objective-C\QREncoder.m" -expected ".\test\ref\confidence\Objective-C\QREncoder.txt"
 test\bin\run_test.ps1 -json -name jsonkit_h-objc -action confidence -language Objective-C -inputfile ".\test\data\Objective-C\JSONKit.h" -expected ".\test\ref\confidence\Objective-C\JSONKit_h.txt"
 test\bin\run_test.ps1 -json -name jsonkit_m-objc -action confidence -language Objective-C -inputfile ".\test\data\Objective-C\JSONKit.m" -expected ".\test\ref\confidence\Objective-C\JSONKit_m.txt"
+
+# OCaml
+test\bin\run_test.ps1 -json -name antwalk-ocaml -action confidence -language OCaml -inputfile ".\test\data\OCaml\ant_walk.ml" -expected ".\test\ref\confidence\OCaml\ant_walk.txt"
 
 # Octave
 test\bin\run_test.ps1 -json -name transpose-octave -action confidence -language Octave -inputfile ".\test\data\Octave\transpose.m" -expected ".\test\ref\confidence\Octave\transpose.txt"
