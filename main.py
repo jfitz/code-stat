@@ -29,7 +29,6 @@ from eiffel_examiner import EiffelExaminer
 from erlang_examiner import ErlangExaminer
 from fortran_fixedformat_examiner import FortranFixedFormatExaminer
 from fortran_freeformat_examiner import FortranFreeFormatExaminer
-from fsharp_examiner import FsharpExaminer
 from go_examiner import GoExaminer
 from groovy_examiner import GroovyExaminer
 from haskell_examiner import HaskellExaminer
@@ -41,8 +40,8 @@ from kotlin_examiner import KotlinExaminer
 from lua_examiner import LuaExaminer
 from matlab_examiner import MatlabExaminer
 from microsoft_basic_examiner import MicrosoftBasicExaminer
+from ml_examiner import MlExaminer
 from objectivec_examiner import ObjectiveCExaminer
-from ocaml_examiner import OcamlExaminer
 from pascal_examiner import PascalExaminer
 from perl_examiner import PerlExaminer
 from pl1_fixedformat_examiner import PL1FixedFormatExaminer
@@ -82,7 +81,6 @@ EiffelExaminer.__escape_z__()
 ErlangExaminer.__escape_z__()
 FortranFixedFormatExaminer.__escape_z__()
 FortranFreeFormatExaminer.__escape_z__()
-FsharpExaminer.__escape_z__()
 GoExaminer.__escape_z__()
 GroovyExaminer.__escape_z__()
 HaskellExaminer.__escape_z__()
@@ -94,8 +92,8 @@ KotlinExaminer.__escape_z__()
 LuaExaminer.__escape_z__()
 MatlabExaminer.__escape_z__()
 MicrosoftBasicExaminer.__escape_z__()
+MlExaminer.__escape_z__()
 ObjectiveCExaminer.__escape_z__()
-OcamlExaminer.__escape_z__()
 PascalExaminer.__escape_z__()
 PerlExaminer.__escape_z__()
 PL1FixedFormatExaminer.__escape_z__()
@@ -1048,7 +1046,7 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
     examiner = FortranFreeFormatExaminer(code, '2008')
 
   if language in ['fsharp', 'fs']:
-    examiner = FsharpExaminer(code)
+    examiner = MlExaminer(code, 'fsharp')
 
   if language in ['go', 'golang']:
     examiner = GoExaminer(code)
@@ -1084,7 +1082,7 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
     examiner = ObjectiveCExaminer(code)
 
   if language in ['ocaml']:
-    examiner = OcamlExaminer(code)
+    examiner = MlExaminer(code, 'ocaml')
 
   if language in ['octave']:
     examiner = MatlabExaminer(code, 'octave')
@@ -1329,7 +1327,7 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
     examiners['fortran-2008'] = FortranFreeFormatExaminer(code, '2008')
 
   if 'fsharp' in languages or 'fs' in languages or 'f#' in languages:
-    examiners['fsharp'] = FsharpExaminer(code)
+    examiners['fsharp'] = MlExaminer(code, 'fsharp')
 
   if 'go' in languages or 'golang' in languages:
     examiners['go'] = GoExaminer(code)
@@ -1365,7 +1363,7 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
     examiners['objective-c'] = ObjectiveCExaminer(code)
 
   if 'ocaml' in languages:
-    examiners['ocaml'] = OcamlExaminer(code)
+    examiners['ocaml'] = MlExaminer(code, 'ocaml')
 
   if 'octave' in languages:
     examiners['octave'] = MatlabExaminer(code, 'octave')

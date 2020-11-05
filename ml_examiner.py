@@ -17,7 +17,8 @@ from token_builders import (
   CaseSensitiveListTokenBuilder,
   BlockTokenBuilder,
   TripleQuoteStringTokenBuilder,
-  LeadToEndOfLineTokenBuilder
+  LeadToEndOfLineTokenBuilder,
+  NullTokenBuilder
 )
 from cx_token_builders import (
   SlashSlashCommentTokenBuilder,
@@ -29,7 +30,7 @@ from fsharp_token_builders import (
 )
 from examiner import Examiner
 
-class FsharpExaminer(Examiner):
+class MlExaminer(Examiner):
   @staticmethod
   def __escape_z__():
     InvalidTokenBuilder.__escape_z__()
@@ -49,11 +50,12 @@ class FsharpExaminer(Examiner):
     SlashSlashCommentTokenBuilder.__escape_z__()
     TripleSlashCommentTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
+    NullTokenBuilder.__escape_z__()
     ClassTypeTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
-  def __init__(self, code):
+  def __init__(self, code, variant):
     super().__init__()
 
     operand_types = []
@@ -82,9 +84,12 @@ class FsharpExaminer(Examiner):
     char_tb = FsharpCharTokenBuilder(["'", "’"])
     operand_types.append('string')
 
-    slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
+    slash_slash_comment_tb = NullTokenBuilder()
     parens_star_comment_tb = BlockTokenBuilder('(*', '*)', 'comment')
-    triple_slash_comment_tb = TripleSlashCommentTokenBuilder()
+    triple_slash_comment_tb = NullTokenBuilder()
+    if variant in ['fsharp']:
+      slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
+      triple_slash_comment_tb = TripleSlashCommentTokenBuilder()
 
     directives = [
       '#if', '#else', '#elif', '#endif',
@@ -97,16 +102,22 @@ class FsharpExaminer(Examiner):
     c_error_tb = LeadToEndOfLineTokenBuilder('#error', True, 'preprocessor')
 
     known_operators = [
-      'and', 'as', 'in', 'new', 'not', 'of', 'or', 'when', 
+      'and', 'as', 'in', 'mod', 'not', 'or',
+      '::', '+', '-', '*', '/', '=', "'", '->', '>', '<', '>=', '<=', '==',
+      '^', '||', '.', '#'
+    ]
+
+    known_operators_fsharp = [
+      'new', 'of', 'when',
       '!', '!=', '%', '%%', '%?', '&', '&&', '&&&',
-      '(|', '|)', '*', '*?', '**', '+', '+?', '-', '-?',
-      '->', '..', '.', '.. ..',
-      '/', '/?', ':', '::', ':=', ':/',
-      '<', '<<', '<<<', '<-', '<>', '<>?', '<=', '<=?',
+      '(|', '|)', '*?', '**', '+?', '-?',
+      '->', '..', '.. ..',
+      '/?', ':', ':=', ':/',
+      '<<', '<<<', '<-', '<>', '<>?', '<=?',
       '<|', '<||', '<|||',
       '<@', '@>', '<@@', '@@>',
-      '=', '=?', '==', '>', '>?', '>>', '>>>', '>=', '>=?',
-      '?', '||', '|||', '^^^',
+      '=?', '==', '>?', '>>', '>>>', '>=?',
+      '?', '|||', '^^^',
       '?>=', '?>', '?<=', '?<', '?=', '?<>', '?+', '?-', '?*', '?/',
       '>=?', '>?', '<=?', '<?', '=?', '<>?', '+?', '-?', '*?', '/?',
       '?>=?', '?>?', '?<=?', '?<?', '?=?', '?<>?', '?+?', '?-?', '?*?', '?/?',
@@ -114,7 +125,10 @@ class FsharpExaminer(Examiner):
       '~~', '~~~', '~-', '~+',
       ':>', ':?>', "'"
     ]
-    
+
+    if variant in ['fsharp']:
+      known_operators += known_operators_fsharp
+
     self.unary_operators = [
       'new', 'not', "'", '-'
     ]
@@ -127,11 +141,16 @@ class FsharpExaminer(Examiner):
 
     groupers = [
       '(', ')', ',', '[', ']', '{', '}',
-      'begin', 'end', ';',
-      '[|', '|]', '[<', '>]',
-      '^',
-      '|'
+      'begin', 'end', ';', '|'
     ]
+
+    groupers_fsharp = [
+      '[|', '|]', '[<', '>]',
+      '^'
+    ]
+
+    if variant in ['fsharp']:
+      groupers += groupers_fsharp
 
     # group_starts = ['(', '[', ',', '{', '[|', '[<']
     group_mids = [',', ';', '^', '|']
@@ -140,23 +159,70 @@ class FsharpExaminer(Examiner):
     groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
     keywords = [
-      'abstract', 'assert', 'break', 'class', 'default', 'delegate',
-      'do', 'done', 'downcast', 'downto', 'elif', 'else', 'exception',
-      'extern', 'finally', 'fixed', 'for', 'fun', 'function',
-      'global', 'if', 'inherit', 'inline', 'interface', 'internal',
-      'lazy', 'let', 'let!', 'match', 'match!', 'member', 'module',
-      'mutable', 'namespace', 'open', 'override',
-      'private', 'public', 'rec', 'return', 'return!', 'struct',
-      'then', 'to', 'try', 'type', 'upcast', 'use', 'use!',
-      'val', 'while', 'with', 'yield', 'yield!'
+      'assert',
+      'class',
+      'def', 'do', 'done', 'downto',
+      'else',
+      'failwith', 'for',
+      'if', 'inherit',
+      'let',
+      'match', 'method', 'module',
+      'object', 'of', 'open',
+      'raise', 'rec',
+      'sig',
+      'then', 'to', 'try', 'type',
+      'val', 'virtual',
+      'when', 'with'
     ]
+
+    keywords_fsharp = [
+      'abstract',
+      'break',
+      'default', 'delegate', 'downcast',
+      'elif', 'exception', 'extern',
+      'finally', 'fixed', 'fun', 'function',
+      'global',
+      'inline', 'interface', 'internal',
+      'lazy', 'let!',
+      'match!', 'member', 'mutable',
+      'namespace',
+      'override',
+      'private', 'public',
+      'return', 'return!',
+      'upcast', 'use', 'use!',
+      'while',
+      'yield', 'yield!'
+    ]
+
+    if variant in ['fsharp']:
+      keywords += keywords_fsharp
 
     keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
     types = [
-      'bool', 'byte', 'char', 'decimal', 'double', 'float', 'int', 'long', 'object',
-      'sbyte', 'short', 'string', 'uint', 'ulong', 'ushort', 'void'
+      'bool', 'byte',
+      'char',
+      'double',
+      'float',
+      'int',
+      'long',
+      'number',
+      'object',
+      'range',
+      'string',
+      'unit',
+      'void'
     ]
+
+    types_fsharp = [
+      'decimal',
+      'sbyte', 'short',
+      'uint', 'ulong', 'ushort',
+      'void'
+    ]
+
+    if variant in ['fsharp']:
+      types += types_fsharp
 
     types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
     operand_types.append('type')
