@@ -102,13 +102,13 @@ class MlExaminer(Examiner):
     c_error_tb = LeadToEndOfLineTokenBuilder('#error', True, 'preprocessor')
 
     known_operators = [
-      'and', 'as', 'in', 'mod', 'not', 'or',
+      'and', 'as', 'in', 'mod', 'not', 'of', 'or', 'when',
       '::', '+', '-', '*', '/', '=', "'", '->', '>', '<', '>=', '<=', '==',
       '^', '||', '.', '#'
     ]
 
     known_operators_fsharp = [
-      'new', 'of', 'when',
+      'new',
       '!', '!=', '%', '%%', '%?', '&', '&&', '&&&',
       '(|', '|)', '*?', '**', '+?', '-?',
       '->', '..', '.. ..',
@@ -167,12 +167,12 @@ class MlExaminer(Examiner):
       'if', 'inherit',
       'let',
       'match', 'method', 'module',
-      'object', 'of', 'open',
+      'object', 'open',
       'raise', 'rec',
       'sig',
       'then', 'to', 'try', 'type',
       'val', 'virtual',
-      'when', 'with'
+      'with'
     ]
 
     keywords_fsharp = [
@@ -205,12 +205,12 @@ class MlExaminer(Examiner):
       'double',
       'float',
       'int',
-      'long',
+      'list', 'long',
       'number',
       'object',
       'range',
-      'string',
-      'unit',
+      'string', 'struct',
+      'union', 'unit',
       'void'
     ]
 
