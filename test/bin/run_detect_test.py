@@ -20,7 +20,7 @@ def make_confidences(contents, params, languages):
       try:
         confidence = json.loads(content)
         confidences[language] = confidence
-      except json.decoder.JSONDecodeError as e:
+      except json.decoder.JSONDecodeError:
         pass
 
   return confidences

@@ -103,7 +103,10 @@ class MlExaminer(Examiner):
 
     known_operators = [
       'and', 'as', 'in', 'mod', 'not', 'of', 'or', 'when',
-      '::', '+', '-', '*', '/', '=', "'", '->', '>', '<', '>=', '<=', '==',
+      '::',
+      '+', '-', '*', '/',
+      '+.', '-.', '*.', '/.',
+      '=', "'", '->', '>', '<', '>=', '<=', '==',
       '^', '||', '.', '#'
     ]
 
@@ -162,35 +165,34 @@ class MlExaminer(Examiner):
       'assert',
       'class',
       'def', 'do', 'done', 'downto',
-      'else',
-      'failwith', 'for',
+      'else', 'exception',
+      'failwith', 'for', 'fun', 'function',
       'if', 'inherit',
-      'let',
+      'lazy', 'let',
       'match', 'method', 'module',
       'object', 'open',
       'raise', 'rec',
       'sig',
       'then', 'to', 'try', 'type',
       'val', 'virtual',
-      'with'
+      'while', 'with'
     ]
 
     keywords_fsharp = [
       'abstract',
       'break',
       'default', 'delegate', 'downcast',
-      'elif', 'exception', 'extern',
-      'finally', 'fixed', 'fun', 'function',
+      'elif', 'extern',
+      'finally', 'fixed',
       'global',
       'inline', 'interface', 'internal',
-      'lazy', 'let!',
+      'let!',
       'match!', 'member', 'mutable',
       'namespace',
       'override',
       'private', 'public',
       'return', 'return!',
       'upcast', 'use', 'use!',
-      'while',
       'yield', 'yield!'
     ]
 
