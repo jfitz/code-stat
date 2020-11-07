@@ -47,6 +47,9 @@ TokenBuilders
 - BlockTokenBuilder: attempt() checks for start string match
 - SlashStarCommentTokenBuilder: replace with BlockTokenBuilder
 
+- directive1 - keyword at start of line (no tokens before)
+- directive2 - keyword at start of line (no tokens before) to end of line
+
 examiners for:
  ZZ, Elm, Mint, Futhark, Haxe, Pharo, Nim, Racket,
  Erlang, SmallTalk, Chaos, Occam, V (vlang.io), Caml, Ml,
@@ -70,8 +73,8 @@ examiners for:
  Hypercard, ISWIM, JOVIAL, MacSyma, Mesa, Miranda, Multics Shell,
  PLANNER, SMP, Sketchpad,
  BASIC-PLUS, BASIC-PLUS-2, Amiga BASIC, QuickBasic, QBASIC,
- Turbo BASIC, FreeBasic, MSX BASIC, Pure Basic,
- VBA, MDL (Zork on GitHub)
+ Turbo BASIC, FreeBasic, MSX BASIC, Pure Basic, SpiderBasic,
+ VBA, MDL (Zork on GitHub), FlashBasic
 
 Examiner
 - qualifiers group for private/public/protected (unsigned/signed and const/static)
@@ -459,6 +462,18 @@ Perl 5
 - __END__, __LINE__, __FILE__, __SUB__, __DATA__, __PACKAGE__
 - heredoc (details?)
 - qr// regex
+
+Pick Basic
+- may have editor line numbers or not (which are not BASIC line numbers)
+- BASIC line numbers are optional
+- statement separator ;
+- variables alpha [alpha num .]*
+- strings '' "" \\
+- operator = : + - * / ^ > >= < <= # <> >< MATCHES
+- comment * at start of line or after line number
+- groupers ( ) , no [] no {}
+- integer at start of line is line number
+- constants in form PB_xxx
 
 PL/I
 - empty file has too high confidence

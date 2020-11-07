@@ -1448,8 +1448,48 @@
         "value":","
     },
     {
-        "type":"string",
-        "value":"'S\t\t; single character\n\t.byte\tctrl.m,'"
+        "type":"operator",
+        "value":"'"
+    },
+    {
+        "type":"identifier",
+        "value":"S"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"comment",
+        "value":"; single character"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t"
+    },
+    {
+        "type":"directive",
+        "value":".byte"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t"
+    },
+    {
+        "type":"identifier",
+        "value":"ctrl.m"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"operator",
+        "value":"'"
     },
     {
         "type":"identifier",
@@ -1488,32 +1528,12 @@
         "value":","
     },
     {
-        "type":"string",
-        "value":"'U\t\t; No wait\n;\t.byte\tctrl.m,'"
+        "type":"operator",
+        "value":"'"
     },
     {
         "type":"identifier",
-        "value":"D"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"string",
-        "value":"'W-100\t; Make ^W an activation char ; jam\n;\t.byte\tctrl.m,'"
-    },
-    {
-        "type":"identifier",
-        "value":"D"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"identifier",
-        "value":"lf"
+        "value":"U"
     },
     {
         "type":"whitespace",
@@ -1521,7 +1541,23 @@
     },
     {
         "type":"comment",
-        "value":"; Do it for linefeed, too"
+        "value":"; No wait"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":";\t.byte\tctrl.m,'D,'W-100\t; Make ^W an activation char ; jam"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":";\t.byte\tctrl.m,'D,lf\t\t; Do it for linefeed, too"
     },
     {
         "type":"newline",
@@ -1548,8 +1584,48 @@
         "value":","
     },
     {
-        "type":"string",
-        "value":"'Y\t\t; No linefeed echo\n\t.byte\tctrl.m,'"
+        "type":"operator",
+        "value":"'"
+    },
+    {
+        "type":"identifier",
+        "value":"Y"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"comment",
+        "value":"; No linefeed echo"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t"
+    },
+    {
+        "type":"directive",
+        "value":".byte"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t"
+    },
+    {
+        "type":"identifier",
+        "value":"ctrl.m"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"operator",
+        "value":"'"
     },
     {
         "type":"identifier",
@@ -1624,8 +1700,48 @@
         "value":","
     },
     {
-        "type":"string",
-        "value":"'T\t\t; single-character off\n\t.byte\tctrl.m,'"
+        "type":"operator",
+        "value":"'"
+    },
+    {
+        "type":"identifier",
+        "value":"T"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"comment",
+        "value":"; single-character off"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t"
+    },
+    {
+        "type":"directive",
+        "value":".byte"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t"
+    },
+    {
+        "type":"identifier",
+        "value":"ctrl.m"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"operator",
+        "value":"'"
     },
     {
         "type":"identifier",

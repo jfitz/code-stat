@@ -190,7 +190,7 @@ class StringTokenBuilder(TokenBuilder):
     # newline breaks a string
     if c in ['\n', '\r']:
       count = candidate.count('\n') + candidate.count('\r')
-      if count > self.newline_limit:
+      if count >= self.newline_limit:
         return False
 
     if len(candidate) == 0:
