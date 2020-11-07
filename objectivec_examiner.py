@@ -216,6 +216,7 @@ class ObjectiveCExaminer(Examiner):
     # tokens = Examiner.combine_identifier_colon(tokens, ['statement terminator', 'newline'], ['{'], ['whitespace', 'comment', 'line description'])
     self.tokens = tokens
     self.convert_identifiers_to_labels()
+    self.convert_values_to_operators()
 
     self.calc_statistics()
 
@@ -242,3 +243,17 @@ class ObjectiveCExaminer(Examiner):
     self.calc_keyword_confidence()
 
     self.calc_paired_blockers_confidence(['{'], ['}'])
+
+
+  # convert identifiers after 'goto' to labels
+  def convert_values_to_operators(self):
+    prev_token = Token('\n', 'newline', False)
+
+    for token in self.tokens:
+      if token.group == 'value' and token.text == '...' and \
+        prev_token.is_operand:
+        token.group = 'operator'
+        token.is_operand = False
+
+      if token.group not in ['whitespace', 'comment', 'newline', 'line description']:
+        prev_token = token
