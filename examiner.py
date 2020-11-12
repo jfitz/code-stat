@@ -246,6 +246,38 @@ class Examiner:
       prev_token = token
 
 
+  # convert keywords after 'EQU' or '=' to operators
+  def convert_asm_keywords_to_operators(self):
+    seen_equ = False
+
+    for token in self.tokens:
+      if token.group == 'newline':
+        seen_equ = False
+
+      if token.group == 'keyword' and seen_equ:
+        token.group = 'operator'
+        token.is_operand = False
+
+      if token.text in ['EQU', '=']:
+        seen_equ = True
+
+
+  # convert keywords after other tkeywords on line to identifiers
+  def convert_asm_keywords_to_identifiers(self):
+    seen_identifier = False
+
+    for token in self.tokens:
+      if token.group == 'newline':
+        seen_identifier = False
+
+      if token.group == 'keyword' and seen_identifier:
+        token.group = 'identifier'
+        token.is_operand = True
+
+      if token.group in ['keyword', 'identifier']:
+        seen_identifier = True
+
+
   # convert asterisks in expressions to operators
   @staticmethod
   def convert_values_to_operators(tokens, operators):

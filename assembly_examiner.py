@@ -538,6 +538,8 @@ class AssemblyExaminer(Examiner):
     tokens_free = Examiner.convert_values_to_operators(tokens_free, known_operators)
     self.tokens = tokens_free
     self.convert_asm_identifiers_to_labels()
+    self.convert_asm_keywords_to_operators()
+    self.convert_asm_keywords_to_identifiers()
 
     self.calc_statistics()
     statistics_free = self.statistics

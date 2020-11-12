@@ -4,7 +4,9 @@ Set-StrictMode -Version Latest
 
 # ASM iBM-360
 test\bin\run_detect_test.ps1 -json -name subroutine1-asm -inputfile ".\test\data\ASM-360\subroutine1.asm" -expected ".\test\ref\detect\ASM-360\subroutine1.txt"
+test\bin\run_detect_test.ps1 -json -name subroutine1_a-asm -inputfile ".\test\data\ASM-360\subroutine1_a.asm" -expected ".\test\ref\detect\ASM-360\subroutine1_a.txt"
 test\bin\run_detect_test.ps1 -json -name subroutine2-asm -inputfile ".\test\data\ASM-360\subroutine2.asm" -expected ".\test\ref\detect\ASM-360\subroutine2.txt"
+test\bin\run_detect_test.ps1 -json -name subroutine2_a-asm -inputfile ".\test\data\ASM-360\subroutine2_a.asm" -expected ".\test\ref\detect\ASM-360\subroutine2_a.txt"
 test\bin\run_detect_test.ps1 -json -name osint-asm -inputfile ".\test\data\ASM-360\osint.asm" -expected ".\test\ref\detect\ASM-360\osint.txt"
 test\bin\run_detect_test.ps1 -json -name spitbol-asm -inputfile ".\test\data\ASM-360\spitbol.asm" -expected ".\test\ref\detect\ASM-360\spitbol.txt"
 

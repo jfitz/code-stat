@@ -32,7 +32,9 @@ test\bin\run_test.ps1 -json -name spider -action tokens -language generic -comme
 
 # ASM IBM-360
 test\bin\run_test.ps1 -json -name subroutine1-asm -action tokens -language ASM-360 -inputfile ".\test\data\ASM-360\subroutine1.asm" -expected ".\test\ref\tokens\ASM-360\subroutine1.txt"
+test\bin\run_test.ps1 -json -name subroutine1_a-asm -action tokens -language ASM-360 -inputfile ".\test\data\ASM-360\subroutine1_a.asm" -expected ".\test\ref\tokens\ASM-360\subroutine1_a.txt"
 test\bin\run_test.ps1 -json -name subroutine2-asm -action tokens -language ASM-360 -inputfile ".\test\data\ASM-360\subroutine2.asm" -expected ".\test\ref\tokens\ASM-360\subroutine2.txt"
+test\bin\run_test.ps1 -json -name subroutine2_a-asm -action tokens -language ASM-360 -inputfile ".\test\data\ASM-360\subroutine2_a.asm" -expected ".\test\ref\tokens\ASM-360\subroutine2_a.txt"
 test\bin\run_test.ps1 -json -name osint-asm -action tokens -language ASM-360 -inputfile ".\test\data\ASM-360\osint.asm" -expected ".\test\ref\tokens\ASM-360\osint.txt"
 test\bin\run_test.ps1 -json -name spitbol-asm -action tokens -language ASM-360 -inputfile ".\test\data\ASM-360\spitbol.asm" -expected ".\test\ref\tokens\ASM-360\spitbol.txt"
 

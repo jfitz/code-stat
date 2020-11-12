@@ -202,11 +202,88 @@ class AssemblyIBMExaminer(Examiner):
       'CGHSI', 'CLGHSI', 'CHSI', 'CLFHSI', 'TBEGIN', 'TBEGINC', 'MVCIN', 'UNPKA'
     ]
 
-    if processor in ['360', '370']:
+    keywords_390 = [
+      'BASSM', 'BSG', 'BSM',
+      'CLRCH', 'CMPS', 'CLRIO', 'CMSG',
+      'LAE', 'LXDR',
+      'MDE',
+      'PFPO', 'PR', 'PTFF',
+      'SAM24', 'SAM31', 'SCKPF',
+      'TAM', 'TMPS', 'TMSG', 'TRACE', 'TRAP2',
+      'TMH',' TMLH', 'TML', 'TMLL', 'TMHH', 'TMHL',
+      'BRC', 'BRAS', 'BRCT', 'BRCTG',
+      'LHI', 'LGHI',
+      'AHI', 'AGHI',
+      'MHI', 'MGHI',
+      'CHI', 'CGHI',
+      'MVCLE', 'CLCLE',
+      'UPT',
+      'SIE', 'PCF', 'CFC', 'DEP', 'DCTP', 'MAD', 'MUN', 'STCAP', 'SERVC',
+      'IPM', 'DXR', 'PGIN', 'PGOUT', 'CSCH', 'HSCH', 'MSCH', 'SSCH', 'STSCH', 'TSCH',
+      'TPI', 'SAL', 'RSCH', 'STCRW', 'STCPS', 'RCHP', 'SCHM', 'STZP', 'SZP',
+      'TPZI', 'BAKR', 'CKSM', 'MADS', 'SQDR', 'STURA', 'MSTA', 'PALB', 'EREG',
+      'ESTA', 'LURA', 'TAR', 'SQDR', 'SAR', 'EAR', 'CSP', 'MSR', 'MVPG', 'MVST',
+      'CUSE', 'BSG', 'CLST', 'SRST', 'XSCH', 'RP', 'STCKE', 'SACF', 'STSI',
+      'SRNM', 'STFPC', 'LFPC', 'TRE', 'CUUTF', 'CUTFU', 'STFL', 'LPSWE',
+      'TRAP4', 'LPEBR', 'LNEBR', 'LTEBR', 'LCEBR', 'LDEBR', 'LXDBR', 'LDEBR',
+      'MXDBR', 'KEBR', 'CEBR', 'AEBR', 'SEBR', 'MDEBR', 'DEBR', 'MAEBR',
+      'MSEBR', 'LPDBR', 'LCDBR', 'SQEBR', 'MEEBR', 'KDBR', 'CDBR', 'ADBR',
+      'MDBR', 'DDBR', 'SDBR', 'LDER', 'LXDR', 'MAER', 'MSER', 'SQXR', 'MEER',
+      'MADR', 'MSDR', 'LPXBR', 'LNXBR', 'LTXBR', 'LCXBR', 'LCXBR', 'LEDBR',
+      'LDXBR', 'LEXBR', 'FIXBR', 'KXBR', 'CXBR', 'AXBR', 'SXBR', 'MXBR', 'DXBR',
+      'TBEDR', 'TBDR', 'DIEBR', 'FIEBR', 'THDER', 'DIDBR', 'FIDBR', 'LPXR',
+      'LNXR', 'LTXR', 'LCXR', 'LXR', 'LEXR', 'FIXR', 'CXR', 'LZER', 'LZDR',
+      'LZXR', 'FIER', 'FIDR', 'SFPC', 'EFPC', 'CEFBR', 'CDFBR', 'CXFBR', 'CEGBR',
+      'CEFR', 'CDFR', 'CXFR', 'CFDR', 'CFXR', 'CEGR', 'CDGR', 'CXGR', 'CGER', 'CGDR', 'CGXR',
+      'CDGBR', 'CXGBR', 'CGDBR', 'CGEBR', 'CGXBR',
+      'LMC', 'LPGR', 'LNGR', 'LTGR', 'LCGR', 'LGC', 'LURAG', 'AGR', 'SGR',
+      'ALGR', 'SLGR', 'MSGR', 'DSGR', 'EREGG', 'LRVGR', 'LPGFR', 'LNGFR',
+      'LTGFR', 'LCGFR', 'LGFR', 'LLGFR', 'LLGTR', 'AGFR', 'SGFR', 'ALGFR',
+      'SLGFR', 'MSGFR', 'DSGFR', 'LRVR', 'CGR', 'CLGR', 'STURG', 'CGFR',
+      'CLGFR', 'BCTGR', 'NGR', 'OGR', 'XGR', 'MLGR', 'DLGR', 'ALCGR', 'SLBGR',
+      'EPSW', 'TRTT', 'TRTO', 'TROT', 'TROO', 'MLR', 'DLR', 'ALCR', 'SLBR', 'ESEA',
+      'LARL', 'LGFI', 'BRCL', 'BRASL', 'XIHF', 'XILF', 'IIHF', 'IILF',
+      'NIHF', 'NILF', 'OIHF', 'OILF', 'LLIHF', 'LLILF', 'LLHRL', 'LGHRL',
+      'LHRL', 'AGFI', 'AFI', 'ALGFI', 'ALFI', 'CGFI', 'CFI', 'LLGFRL', 'STRL',
+      'EXRL', 'PFDRL', 'CGHRL','CHRL', 'CLGHRL', 'CLHRL', 'CGRL', 'CLGRL',
+      'CRL', 'CLGFRL', 'CLRL', 'MVCOS', 'ECTG', 'CSST', 'PKU',
+      'LRAG', 'LG', 'AG', 'SG', 'ALG', 'SLG', 'MSG', 'DSG', 'CVBG',
+      'LRVG', 'LGF', 'LGH', 'LLGF', 'LLGT', 'AGF', 'SGF', 'ALGF', 'SLGF',
+      'MSGF', 'DSGF', 'LRV', 'LRVH', 'CG', 'CLG', 'STG', 'CVDG', 'STRVG',
+      'CGF', 'CLGF', 'STRV', 'STRVH', 'BCTG', 'NG', 'OG', 'XG', 'MLG',
+      'DLG', 'ALCG', 'SLBG', 'STPQ', 'LPQ', 'LLGC', 'LLGH', 'ML', 'DL',
+      'ALC', 'SLB', 'PKA',
+      'DIL', 'BDIL', 'ANUM', 'COMP', 'MCPU', 'MIO', 'BIFLAG', 'MULDIV',
+      'LMG', 'SRAG', 'SLAG', 'SRLG', 'SLLG', 'TRACG', 'RLLG', 'RLL',
+      'CLMH', 'CLMY', 'CLT', 'CLTH', 'CLTL', 'CLTNE', 'CLTE', 'CLTNL',
+      'CLTNH', 'STMG', 'STCTG', 'STMH', 'STCMH', 'LCTLG', 'CSG', 'CDSG',
+      'BXHG', 'BXLEG', 'ICMH', 'MVCLU', 'CLCLU', 'LMH', 'LMY', 'TP',
+      'SRAK', 'SLAK', 'SRLK', 'SRLK', 'LOCG', 'BRXHG', 'BRXLG', 'LDEB',
+      'LXDB', 'LXEB', 'MXDB', 'KEB', 'CEB', 'AEB', 'SEB', 'MDEB', 'DEB',
+      'MAEB', 'MSEB', 'TCEB', 'TCDB', 'TCXB', 'SQEB', 'SQDB', 'MEEB',
+      'KDB', 'CDB', 'ADB', 'SDB', 'MDB', 'DDB', 'MADB', 'MSDB', 'LDE',
+      'LXD', 'LXE', 'SQE', 'SQD', 'MEE', 'PLO', 'LMD'
+    ]
+
+    keywords_z = [
+      'IIHH', 'IIHL', 'IILH', 'IILL',
+      'LLIHH', 'LLIHL', 'LLILH', 'LLILL',
+      'NIHH', 'NIHL', 'NILH', 'NILL',
+      'OIHH', 'OIHL', 'OILH', 'OILL',
+      'SAM64'
+    ]
+
+    if processor in ['360', '370', '390', 'system-z']:
       keywords += keywords_360
 
-    if processor in ['370']:
+    if processor in ['370', '390', 'system-z']:
       keywords += keywords_370
+
+    if processor in ['390', 'system-z']:
+      keywords += keywords_390
+
+    if processor in ['system-z']:
+      keywords += keywords_z
 
     opcode_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
 
@@ -306,6 +383,7 @@ class AssemblyIBMExaminer(Examiner):
     tokens_free = Examiner.convert_values_to_operators(tokens_free, known_operators)
     self.tokens = tokens_free
     self.convert_asm_identifiers_to_labels()
+    self.convert_asm_keywords_to_identifiers()
 
     self.calc_statistics()
     statistics1 = self.statistics
@@ -335,6 +413,7 @@ class AssemblyIBMExaminer(Examiner):
     tokens_space = Examiner.convert_values_to_operators(tokens_space, known_operators)
     self.tokens = tokens_space
     self.convert_asm_identifiers_to_labels()
+    self.convert_asm_keywords_to_identifiers()
 
     self.calc_statistics()
     statistics2 = self.statistics

@@ -234,6 +234,8 @@ codes_and_names = {
   'assembly': 'Assembly',
   'asm-360': 'ASM-360',
   'asm-370': 'ASM-370',
+  'asm-390': 'ASM-390',
+  'asm-system-z': 'ASM-System-Z',
   'asm-1802': 'ASM-1802',
   'asm-6502': 'ASM-6502',
   'asm-6800': 'ASM-6800',
@@ -321,6 +323,8 @@ codes_and_groups = {
   'assembly': 'Assembly',
   'asm-360': 'Assembly',
   'asm-370': 'Assembly',
+  'asm-390': 'Assembly',
+  'asm-system-z': 'Assembly',
   'asm-1802': 'Assembly',
   'asm-6502': 'Assembly',
   'asm-6800': 'Assembly',
@@ -408,6 +412,8 @@ codes_and_years = {
   'assembly': 1952,
   'asm-360': 1964,
   'asm-370': 1968,
+  'asm-390': 1990,
+  'asm-system-z': 2000,
   'asm-1802': 1973,
   'asm-6502': 1977,
   'asm-6800': 1978,
@@ -910,6 +916,12 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
   if language in ['asm-370']:
     examiner = AssemblyIBMExaminer(code, tab_size, '370')
 
+  if language in ['asm-390']:
+    examiner = AssemblyIBMExaminer(code, tab_size, '390')
+
+  if language in ['asm-system-z']:
+    examiner = AssemblyIBMExaminer(code, tab_size, 'system-z')
+
   if language in ['asm-1802']:
     examiner = AssemblyExaminer(code, tab_size, '1802')
 
@@ -1170,6 +1182,12 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
 
   if 'asm-370' in languages:
     examiners['asm-370'] = AssemblyIBMExaminer(code, tab_size, '370')
+
+  if 'asm-390' in languages:
+    examiners['asm-390'] = AssemblyIBMExaminer(code, tab_size, 'system-z')
+
+  if 'asm-system-z' in languages:
+    examiners['asm-system-z'] = AssemblyIBMExaminer(code, tab_size, 'system-z')
 
   if 'asm-1802' in languages:
     examiners['asm-1802'] = AssemblyExaminer(code, tab_size, '1802')
