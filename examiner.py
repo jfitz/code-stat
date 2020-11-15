@@ -167,7 +167,7 @@ class Examiner:
         new_token = Token(new_token.text + token.text, group, token.is_operand)
       else:
         if new_token is not None:
-            new_list.append(new_token)
+          new_list.append(new_token)
         new_token = token
 
     if new_token is not None:

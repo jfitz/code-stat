@@ -35,13 +35,13 @@ test\bin\run_test.ps1 -json -name subroutine1-asm -action confidence -language A
 test\bin\run_test.ps1 -json -name subroutine1_a-asm -action confidence -language ASM-360 -inputfile ".\test\data\ASM-360\subroutine1_a.asm" -expected ".\test\ref\confidence\ASM-360\subroutine1_a.txt"
 test\bin\run_test.ps1 -json -name subroutine2-asm -action confidence -language ASM-360 -inputfile ".\test\data\ASM-360\subroutine2.asm" -expected ".\test\ref\confidence\ASM-360\subroutine2.txt"
 test\bin\run_test.ps1 -json -name subroutine2_a-asm -action confidence -language ASM-360 -inputfile ".\test\data\ASM-360\subroutine2_a.asm" -expected ".\test\ref\confidence\ASM-360\subroutine2_a.txt"
-test\bin\run_test.ps1 -json -name osint-asm -action confidence -language ASM-360 -inputfile ".\test\data\ASM-360\osint.asm" -expected ".\test\ref\confidence\ASM-360\osint.txt"
 test\bin\run_test.ps1 -json -name spitbol-asm -action confidence -language ASM-360 -inputfile ".\test\data\ASM-360\spitbol.asm" -expected ".\test\ref\confidence\ASM-360\spitbol.txt"
 
 # ASM IBM-370
 test\bin\run_test.ps1 -json -name asm370a1-asm -action confidence -language ASM-370 -inputfile ".\test\data\ASM-370\asm370a1.asm" -expected ".\test\ref\confidence\ASM-370\asm370a1.txt"
 
 # ASM IBM-390
+test\bin\run_test.ps1 -json -name osint-asm -action confidence -language ASM-360 -inputfile ".\test\data\ASM-360\osint.asm" -expected ".\test\ref\confidence\ASM-360\osint.txt"
 
 # ASM IBM-system-z
 
@@ -53,6 +53,10 @@ test\bin\run_test.ps1 -json -name sweet16-asm -action confidence -language asm-6
 
 # ASM 6800
 test\bin\run_test.ps1 -json -name ET3400-S6-asm -action confidence -language asm-6800 -inputfile ".\test\data\ASM-6800\ET3400-S6.asm" -expected ".\test\ref\confidence\ASM-6800\ET3400-S6.txt"
+
+# ASM 68000
+test\bin\run_test.ps1 -json -name basic68k-asm -action confidence -language asm-68000 -inputfile ".\test\data\ASM-68000\basic68k.asm" -expected ".\test\ref\confidence\ASM-68000\basic68k.txt"
+test\bin\run_test.ps1 -json -name sprites-asm -action confidence -language asm-68000 -inputfile ".\test\data\ASM-68000\sprites.asm" -expected ".\test\ref\confidence\ASM-68000\sprites.txt"
 
 # ASM 8080
 test\bin\run_test.ps1 -json -name i8080core-asm -action confidence -language asm-8080 -inputfile ".\test\data\ASM-8080\i8080core.asm" -expected ".\test\ref\confidence\ASM-8080\i8080core.txt"

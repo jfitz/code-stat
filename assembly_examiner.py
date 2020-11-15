@@ -74,7 +74,11 @@ class AssemblyExaminer(Examiner):
     if processor in ['1802']:
       comment_2_tb = LeadToEndOfLineTokenBuilder('..', True, 'comment')
 
-    line_comment_tb = AssemblyCommentTokenBuilder('*')
+    line_comment_star_tb = AssemblyCommentTokenBuilder('*')
+    line_comment_hash_tb = NullTokenBuilder()
+
+    if processor in ['68000']:
+      line_comment_hash_tb = AssemblyCommentTokenBuilder('#')
 
     stmt_separator_tb = NullTokenBuilder()
 
@@ -141,33 +145,38 @@ class AssemblyExaminer(Examiner):
     preprocessor_tb = CaseInsensitiveListTokenBuilder(preprocessors, 'preprocessor', False)
 
     directives = [
-      '.8080', '.8086', '.6800', '.6502', ".386",
+      '=',
       'ALIGN', 'ASEG', 'ASSUME',
       'BITS',
-      '.CODE', 'CPU', 'CSEG',
+      'CODE', 'CPU', 'CSEG',
       'DB', 'DEFB', 'DEFS', 'DEFW', 'DFB', 'DFW', 'DW', 'DS', 'DSEG',
-      'EJECT', 'END', 'ENDS', 'EQU', 'EXTRN',
+      'EJECT', 'END', 'ENDC', 'ENDS', 'EQU', 'EVEN', 'EXTRN',
+      'IFARG', 'IFC', 'IFEQ', 'IFNE',
       'GLOBAL',
       'INS86', '%INCLUDE',
-      '.MODEL',
+      'MACRO',
       'NAM', 'NAME',
-      'ORG',
+      'OPT', 'ORG',
       'PAGE', 'PROC', 'PUBLIC',
       'RESB', 'RESD',
       'SECTION', 'SEGMENT', 'SSEG', 'START',
+      'TEXT',
+      '.8080', '.8086', '.6800', '.6502', ".386",
       '.ASCII', '.ASCIZ', '.ASECT',
       '.BLKB;', '.BLKW', '.BYTE',
-      '.CSECT',
+      '.CODE', '.CSECT',
+      '.DATA',
       '.ENABLE', 'DSABLE', '.EVEN', '.ODD', '.END', '.EOT', '.ERROR',
       '.FLT2', '.FLT4',
       '.GLOBL',
       '.IDENT', '.IF', '.ENDC', '.IFF', '.IFT', '.IFTF', '.IRP', '.IRPC',
-      '.LIMIT', '.LIST', '.NLST', '.NLIST',
-      '.MACRO', '.ENDM', '.MEXIT', '.MCALL',
-      '.NARG', '.NCHR', '.NTYPE', 
+      '.LIMIT', '.LIST', '.LONG',
+      '.MACRO', '.ENDM', '.MEXIT', '.MCALL', '.MODEL',
+      '.NARG', '.NCHR', '.NLST', '.NLIST', '.NTYPE', 
       '.PAGE', '.PRINT', '.PSECT',
       '.RAD50', '.RADIX', '.REPT', '.ENDR', '.RESTORE',
-      '.SALL',
+      '.SALL', '.SET',
+      '.TEXT',
       '.WORD',
       '.XLIST'
     ]
@@ -236,6 +245,109 @@ class AssemblyExaminer(Examiner):
     ]
 
     registers_6800 = ['A', 'B', 'IX', 'PC', 'SP']
+
+    opcodes_68000 = [
+      'AND', 'ANDI', 'EOR', 'EORI', 'NOT', 'OR', 'ORI', 'CLR',
+      'BCHG', 'BCLR', 'BSET', 'BTST', 'EXT', 'EXTB',
+      'MOVE', 'MOVEA', 'MOVEM', 'MOVEP', 'MOVEQ',
+      'CMP', 'CMPA', 'CMPI', 'CMPM', 'CMP2',
+      'LEA', 'PEA', 'TAS', 'CHK',
+      'ADD', 'ADDA', 'ADDI', 'ADDQ', 'ADDX',
+      'SUB', 'SUBA', 'SUBI', 'SUBQ', 'SUBX',
+      'MULS', 'MULU', 'DIVS', 'DIVU', 'NEG', 'NEGX',
+      'ASL', 'ASR', 'LSL', 'LSR', 'ROL', 'ROR', 'ROXL', 'ROXR',
+      'DBCC', 'SWAP', 'TST',
+      'ANDB', 'ANDIB', 'EORB', 'EORIB', 'NOTB', 'ORB', 'ORIB', 'CLRB',
+      'BCHGB', 'BCLRB', 'BSETB', 'BTSTB', 'EXTB', 'EXTBB',
+      'MOVEB', 'MOVEAB', 'MOVEMB', 'MOVEPB', 'MOVEQB',
+      'CMPB', 'CMPAB', 'CMPIB', 'CMPMB', 'CMP2B',
+      'LEAB', 'PEAB', 'TASB', 'CHKB',
+      'ADDB', 'ADDAB', 'ADDIB', 'ADDQB', 'ADDXB',
+      'SUBB', 'SUBAB', 'SUBIB', 'SUBQB', 'SUBXB',
+      'MULSB', 'MULUB', 'DIVSB', 'DIVUB', 'NEGB', 'NEGXB',
+      'ASLB', 'ASRB', 'LSLB', 'LSRB', 'ROLB', 'RORB', 'ROXLB', 'ROXRB',
+      'DBCCB', 'SWAPB', 'TSTB',
+      'ANDW', 'ANDIW', 'EORW', 'EORIW', 'NOTW', 'ORW', 'ORIW', 'CLRW',
+      'BCHGW', 'BCLRW', 'BSETW', 'BTSTW', 'EXTW', 'EXTBW',
+      'MOVEW', 'MOVEAW', 'MOVEMW', 'MOVEPW', 'MOVEQW',
+      'CMPW', 'CMPAW', 'CMPIW', 'CMPMW', 'CMP2W',
+      'LEAW', 'PEAW', 'TASW', 'CHKW',
+      'ADDW', 'ADDAW', 'ADDIW', 'ADDQW', 'ADDXW',
+      'SUBW', 'SUBAW', 'SUBIW', 'SUBQW', 'SUBXW',
+      'MULSW', 'MULUW', 'DIVSW', 'DIVUW', 'NEGW', 'NEGXW',
+      'ASLW', 'ASRW', 'LSLW', 'LSRW', 'ROLW', 'RORW', 'ROXLW', 'ROXRW',
+      'DBCCW', 'SWAPW', 'TSTW',
+      'ANDL', 'ANDIL', 'EORL', 'EORIL', 'NOTL', 'ORL', 'ORIL', 'CLRL',
+      'BCHGL', 'BCLRL', 'BSETL', 'BTSTL', 'EXTL', 'EXTBL',
+      'MOVEL', 'MOVEAL', 'MOVEML', 'MOVEPL', 'MOVEQL',
+      'CMPL', 'CMPAL', 'CMPIL', 'CMPML', 'CMP2L',
+      'LEAL', 'PEAL', 'TASL', 'CHKL',
+      'ADDL', 'ADDAL', 'ADDIL', 'ADDQL', 'ADDXL',
+      'SUBL', 'SUBAL' 'SUBIL', 'SUBQL', 'SUBXL',
+      'MULSL', 'MULUL', 'DIVSL', 'DIVUL', 'NEGL', 'NEGXL',
+      'ASLL', 'ASRL', 'LSLL', 'LSRL', 'ROLL', 'RORL', 'ROXLL', 'ROXRL',
+      'DBCCL', 'SWAPL', 'TSTL',
+      'ABCD', 'NBCD', 'PACK', 'SBCD', 'UNPK',
+      'BSR', 'BRA', 'BT', 'BF',
+      'BEQ', 'BNE', 'BLS', 'BLT', 'BLE', 'BGT', 'BGE',
+      'BCC', 'BCS', 'BPL', 'BMI', 'BHI', 'BVC', 'BVS',
+      'BSRS', 'BRAS', 'BEQS', 'BNES', 'BLSS', 'BLTS', 'BLES', 'BGTS', 'BGES',
+      'BCCS', 'BCSS', 'BPLS', 'BMIS', 'BHIS', 'BVCS', 'BVSS',
+      'DBSR', 'DBRA', 'DBT', 'DBF',
+      'DBEQ', 'DBNE', 'DBLS', 'DBLT', 'DBLE', 'DBGT', 'DBGE',
+      'DBCC', 'DBCS', 'DBPL', 'DBMI', 'DBHI', 'DBVC', 'DBVS',
+      'JSR', 'JMP',
+      'TRAP', 'HALT', 'STOP',
+      'RTD', 'RTE', 'RTR', 'RTS',
+      'TRAP', 'HALT', 'STOP', 'NOP', 'MOVE16', 'EXG',
+      'BFCHG', 'BFCLR', 'BFEXTS', 'BFEXTU', 'BFFFO', 'BFINS', 'BFSET', 'BFTST',
+      'FNOP', 'FABS', 'FACOS', 'FASIN', 'FATAN', 'FCOS', 'FCOSH', 'FETOX',
+      'FETOXM1', 'FGETMAN', 'FINT', 'FINTRZ', 'FLOGN', 'FLOGNP1', 'FLOG10',
+      'FLOG2', 'FNEG', 'FSIN', 'FSINH', 'FSQRT', 'FTAN', 'FTANH',
+      'FTENTOX', 'FTWOTOX', 'FTST',
+      'DSB', 'DSW', 'DSL', 'DCB', 'DCW', 'DCL',
+      'AND.B', 'ANDI.B', 'EOR.B', 'EORI.B', 'NOT.B', 'OR.B', 'ORI.B', 'CLR.B',
+      'BCHG.B', 'BCLR.B', 'BSET.B', 'BTST.B', 'EXT.B', 'EXTB.B',
+      'MOVE.B', 'MOVEA.B', 'MOVEM.B', 'MOVEP.B', 'MOVEQ.B',
+      'CMP.B', 'CMPA.B', 'CMPI.B', 'CMPM.B', 'CMP2.B',
+      'LEA.B', 'PEA.B', 'TAS.B', 'CHK.B',
+      'ADD.B', 'ADDA.B', 'ADDI.B', 'ADDQ.B', 'ADDX.B',
+      'SUB.B', 'SUBA.B', 'SUBI.B', 'SUBQ.B', 'SUBX.B',
+      'MULS.B', 'MULU.B', 'DIVS.B', 'DIVU.B', 'NEG.B', 'NEGX.B',
+      'ASL.B', 'ASR.B', 'LSL.B', 'LSR.B', 'ROL.B', 'ROR.B', 'ROXL.B', 'ROXR.B',
+      'DBCC.B', 'SWAP.B', 'TST.B',
+      'AND.W', 'ANDI.W', 'EOR.W', 'EORI.W', 'NOT.W', 'OR.W', 'ORI.W', 'CLR.W',
+      'BCHG.W', 'BCLR.W', 'BSET.W', 'BTST.W', 'EXT.W', 'EXTB.W',
+      'MOVE.W', 'MOVEA.W', 'MOVEM.W', 'MOVEP.W', 'MOVEQ.W',
+      'CMP.W', 'CMPA.W', 'CMPI.W', 'CMPM.W', 'CMP2.W',
+      'LEA.W', 'PEA.W', 'TAS.W', 'CHK.W',
+      'ADD.W', 'ADDA.W', 'ADDI.W', 'ADDQ.W', 'ADDX.W',
+      'SUB.W', 'SUBA.W', 'SUBI.W', 'SUBQ.W', 'SUBX.W',
+      'MULS.W', 'MULU.W', 'DIVS.W', 'DIVU.W', 'NEG.W', 'NEGX.W',
+      'ASL.W', 'ASR.W', 'LSL.W', 'LSR.W', 'ROL.W', 'ROR.W', 'ROXL.W', 'ROXR.W',
+      'DBCC.W', 'SWAP.W', 'TST.W',
+      'AND.L', 'ANDI.L', 'EOR.L', 'EORI.L', 'NOT.L', 'OR.L', 'ORI.L', 'CLR.L',
+      'BCHG.L', 'BCLR.L', 'BSET.L', 'BTST.L', 'EXT.L', 'EXTB.L',
+      'MOVE.L', 'MOVEA.L', 'MOVEM.L', 'MOVEP.L', 'MOVEQ.L',
+      'CMP.L', 'CMPA.L', 'CMPI.L', 'CMPM.L', 'CMP2.L',
+      'LEA.L', 'PEA.L', 'TAS.L', 'CHK.L',
+      'ADD.L', 'ADDA.L', 'ADDI.L', 'ADDQ.L', 'ADDX.L',
+      'SUB.L', 'SUBA.L', 'SUBI.L', 'SUBQ.L', 'SUBX.L',
+      'MULS.L', 'MULU.L', 'DIVS.L', 'DIVU.L', 'NEG.L', 'NEGX.L',
+      'ASL.L', 'ASR.L', 'LSL.L', 'LSR.L', 'ROL.L', 'ROR.L', 'ROXL.L', 'ROXR.L',
+      'DBCC.L', 'SWAP.L', 'TST.L',
+      'BSR.S', 'BRA.S', 'BT.S', 'BF.S',
+      'BEQ.S', 'BNE.S', 'BLS.S', 'BLT.S', 'BLE.S', 'BGT.S', 'BGE.S',
+      'BCC.S', 'BCS.S', 'BPL.S', 'BMI.S', 'BHI.S', 'BVC.S', 'BVS.S',
+      'DS.B', 'DS.W', 'DS.L', 'DC.B', 'DC.W', 'DC.L'
+    ]
+
+    registers_68000 = [
+      'D0', 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7',
+      'A0', 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7',
+      'FP0', 'FP1', 'FP2', 'FP3', 'FP4', 'FP5', 'FP6', 'FP7',
+      'PC', 'SR'
+    ]
 
     opcodes_8080 = [
       'ACI', 'ADC', 'ADD', 'ADI', 'ANA', 'ANI',
@@ -413,6 +525,10 @@ class AssemblyExaminer(Examiner):
       opcodes += opcodes_6800
       registers += registers_6800
 
+    if processor in ['68000']:
+      opcodes += opcodes_68000
+      registers += registers_68000
+
     if processor in ['8080']:
       opcodes += opcodes_8080
       registers += registers_8080
@@ -488,7 +604,8 @@ class AssemblyExaminer(Examiner):
       string_tb,
       comment_tb,
       comment_2_tb,
-      line_comment_tb,
+      line_comment_star_tb,
+      line_comment_hash_tb,
       known_operator_tb,
       self.unknown_operator_tb,
       invalid_token_builder
@@ -520,7 +637,8 @@ class AssemblyExaminer(Examiner):
       label_tb,
       string_tb,
       comment_tb,
-      line_comment_tb,
+      line_comment_star_tb,
+      line_comment_hash_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]
@@ -551,7 +669,7 @@ class AssemblyExaminer(Examiner):
     errors_free = self.errors
     self.errors = []
 
-    if processor in ['pdp-8', 'pdpd-11']:
+    if processor in ['pdp-8', 'pdp-11']:
       # do not try space-format, it never exists for these processors
       tokens_space = []
       statistics_space = {}
@@ -561,7 +679,7 @@ class AssemblyExaminer(Examiner):
       # tokenize as space-format
       opcode_extras = '.&=,()+-*/'
       label_leads = '.&$@#'
-      label_mids = '.&$#@'
+      label_mids = '.&$#@_'
       label_ends = ':'
       comment_leads = '*;'
       line_comment_leads = ''

@@ -239,6 +239,7 @@ codes_and_names = {
   'asm-1802': 'ASM-1802',
   'asm-6502': 'ASM-6502',
   'asm-6800': 'ASM-6800',
+  'asm-68000': 'ASM-68000',
   'asm-8080': 'ASM-8080',
   'asm-z-80': 'ASM-Z-80',
   'asm-8086': 'ASM-8086',
@@ -328,6 +329,7 @@ codes_and_groups = {
   'asm-1802': 'Assembly',
   'asm-6502': 'Assembly',
   'asm-6800': 'Assembly',
+  'asm-68000': 'Assembly',
   'asm-8080': 'Assembly',
   'asm-z-80': 'Assembly',
   'asm-8086': 'Assembly',
@@ -415,8 +417,9 @@ codes_and_years = {
   'asm-390': 1990,
   'asm-system-z': 2000,
   'asm-1802': 1973,
-  'asm-6502': 1977,
-  'asm-6800': 1978,
+  'asm-6502': 1974,
+  'asm-6800': 1974,
+  'asm-68000': 1979,
   'asm-8080': 1974,
   'asm-z-80': 1976,
   'asm-8086': 1979,
@@ -506,6 +509,7 @@ simpler_languages = {
   'asm-1802': None,
   'asm-6502': None,
   'asm-6800': None,
+  'asm-68000': None,
   'asm-8080': None,
   'asm-z-80': None,
   'asm-8086': None,
@@ -589,6 +593,7 @@ override_language = {
   'asm-1802': 'assembly',
   'asm-6502': 'assembly',
   'asm-6800': 'assembly',
+  'asm-68000': 'assembly',
   'asm-8080': 'assembly',
   'asm-8086': 'assembly',
   'asm-80286': 'assembly',
@@ -931,6 +936,9 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
   if language in ['asm-6800']:
     examiner = AssemblyExaminer(code, tab_size, '6800')
 
+  if language in ['asm-68000']:
+    examiner = AssemblyExaminer(code, tab_size, '68000')
+
   if language in ['asm-8080']:
     examiner = AssemblyExaminer(code, tab_size, '8080')
 
@@ -1197,6 +1205,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
 
   if 'asm-6800' in languages:
     examiners['asm-6800'] = AssemblyExaminer(code, tab_size, '6800')
+
+  if 'asm-68000' in languages:
+    examiners['asm-68000'] = AssemblyExaminer(code, tab_size, '68000')
 
   if 'asm-8080' in languages:
     examiners['asm-8080'] = AssemblyExaminer(code, tab_size, '8080')

@@ -52,7 +52,7 @@ TokenBuilders
 
 examiners for:
  ZZ, Elm, Mint, Futhark, Haxe, Pharo, Nim, Racket,
- Erlang, SmallTalk, Chaos, Occam, V (vlang.io), Caml, Ml,
+ SmallTalk, Chaos, Occam, V (vlang.io), Caml, Ml,
  HTML with PHP, plain PHP, Elena,
  Idris (idris-lang.org/),
  Hume (macs.hw.ac.uk/~greg/hume/),
@@ -60,21 +60,22 @@ examiners for:
  Raku, Crystal (Ruby), Wolfram, Expresso,
  MS-DOS batch, PowerShell, bash,
  J (APL), K (APL), ABAP, Scratch, Logo,
- True Basic, Small Basic, Modula-2, Oberon, Scheme, AspectJ,
- Focal, dBase IV and higher, Clipper, FoxBase, FoxPro,
+ Modula-2, Oberon, Scheme, AspectJ,
+ Focal,
+ dBase IV and higher, Clipper, FoxBase, FoxPro,
  DataFlex (1982), SAS,
  JCL, RPG, Lindo, SPSS, Forth, GPSS, CSMP,
  Rbase, Clarion, Rebol, Condor,
- 68000 ASM,
- IBM 390 ASM, IBM series Z ASM,
+ PowerPC ASM,
  LISP, Clojure, algol,
- Pascal-S, BASIC-E, PickBasic,
+ Pascal-S, PickBasic,
  Autocode, IPL, Flow-matic, COMTRAN, FACT, NELIAC, Simula,
  SNOBOL, Spitbol, CPL, BCPL, JOSS, MUMPS,
  ALPHARD, ALTRAN, Argus, Automath, COMTRAN, FLOW-MATIC,
  HOPE,
  Hypercard, ISWIM, JOVIAL, MacSyma, Mesa, Miranda, Multics Shell,
  PLANNER, SMP, Sketchpad,
+ True Basic, Small Basic, BASIC-E,
  BASIC-PLUS, BASIC-PLUS-2, Amiga BASIC, QuickBasic, QBASIC,
  Turbo BASIC, FreeBasic, MSX BASIC, Pure Basic, SpiderBasic,
  VBA, MDL (Zork on GitHub), FlashBasic
@@ -148,6 +149,8 @@ ASM-390
 - opcodes
 
 ASM-series-z
+
+ASM-68000
 
 ASM-8086 (16-bit, not x86)
 - registers
@@ -251,6 +254,7 @@ COBOL free-format
 - expected keyword confidence assigns value
 - paragraph name is a single identifier followed by period
 - block comment *><[ to *><] (OpenCobol)
+- combine AsteriskCommentTokenBuilder with AssemblyCommentTokenBuilder
 
 CoffeeScript
 - block comment ### / ###

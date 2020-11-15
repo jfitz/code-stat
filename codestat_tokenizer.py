@@ -248,7 +248,8 @@ class Tokenizer():
           oa_space += c
         else:
           # state change to in args or in comment, depending on position
-          if abs(column - prev_args_indent) < abs(column - prev_comment_indent):
+          if abs(column - prev_args_indent) < abs(column - prev_comment_indent) or \
+            len(oa_space) < 3:
             args = c
             args_indent = column
             state = IN_ARGS
