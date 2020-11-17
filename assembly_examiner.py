@@ -8,7 +8,7 @@ from token_builders import (
   NullTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
-  StringTokenBuilder,
+  EscapedStringTokenBuilder,
   PrefixedStringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
@@ -35,7 +35,7 @@ class AssemblyExaminer(Examiner):
     InvalidTokenBuilder.__escape_z__()
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
-    StringTokenBuilder.__escape_z__()
+    EscapedStringTokenBuilder.__escape_z__()
     PrefixedStringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
@@ -116,7 +116,7 @@ class AssemblyExaminer(Examiner):
     label_tb = LabelTokenBuilder(leads, extras, ':')
 
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, 0)
+    string_tb = EscapedStringTokenBuilder(quotes, 0)
     operand_types.append('string')
 
     known_operators = [
@@ -163,7 +163,7 @@ class AssemblyExaminer(Examiner):
       'TEXT',
       '.8080', '.8086', '.6800', '.6502', ".386",
       '.ASCII', '.ASCIZ', '.ASECT',
-      '.BLKB;', '.BLKW', '.BYTE',
+      '.BLKB', '.BLKW', '.BYTE',
       '.CODE', '.CSECT',
       '.DATA',
       '.ENABLE', 'DSABLE', '.EVEN', '.ODD', '.END', '.EOT', '.ERROR',
@@ -664,6 +664,7 @@ class AssemblyExaminer(Examiner):
     self.statistics = {}
 
     self.calc_confidences(operand_types, group_starts, group_mids, group_ends, None)
+    self.calc_line_length_confidence(code, 132)
     confidences_free = self.confidences
     self.confidences = {}
     errors_free = self.errors
@@ -698,6 +699,7 @@ class AssemblyExaminer(Examiner):
       self.statistics = {}
 
       self.calc_confidences(operand_types, group_starts, group_mids, group_ends, indents)
+      self.calc_line_length_confidence(code, 132)
       confidences_space = self.confidences
       self.confidences = {}
       errors_space = self.errors

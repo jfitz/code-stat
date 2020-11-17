@@ -7,7 +7,7 @@ from token_builders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
-  StringTokenBuilder,
+  EscapedStringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
@@ -31,7 +31,7 @@ class RubyExaminer(Examiner):
     InvalidTokenBuilder.__escape_z__()
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
-    StringTokenBuilder.__escape_z__()
+    EscapedStringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
@@ -71,7 +71,7 @@ class RubyExaminer(Examiner):
     operand_types.append('symbol')
 
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, 10)
+    string_tb = EscapedStringTokenBuilder(quotes, 10)
     operand_types.append('string')
 
     regex_tb = RegexTokenBuilder()

@@ -200,6 +200,58 @@ class StringTokenBuilder(TokenBuilder):
       return True
 
     # no quote stuffing, stop on second quote
+    # assume no escaped quotes are allowed
+    return candidate[-1] != candidate[0]
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(self.text) < 2:
+      return 0
+
+    if self.text[-1] != self.text[0]:
+      return 0
+
+    return len(self.text)
+
+
+# token reader for text literal (string)
+class EscapedStringTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self, quotes, newline_limit=0):
+    self.quotes = quotes
+    self.newline_limit = newline_limit
+    self.text = ''
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'string', True)]
+
+
+  def accept(self, candidate, c):
+    # newline breaks a string
+    if c in ['\n', '\r']:
+      count = candidate.count('\n') + candidate.count('\r')
+      if count >= self.newline_limit:
+        return False
+
+    if len(candidate) == 0:
+      return c in self.quotes
+
+    if len(candidate) == 1:
+      return True
+
+    # no quote stuffing, stop on second quote
     # assume escaped quotes are allowed
     quote_count = count_not_escaped(candidate[0], candidate)
 

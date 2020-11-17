@@ -7,7 +7,7 @@ from token_builders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
-  StringTokenBuilder,
+  EscapedStringTokenBuilder,
   TripleQuoteStringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
@@ -37,7 +37,7 @@ class GroovyExaminer(Examiner):
     InvalidTokenBuilder.__escape_z__()
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
-    StringTokenBuilder.__escape_z__()
+    EscapedStringTokenBuilder.__escape_z__()
     TripleQuoteStringTokenBuilder.__escape_z__()
     RegexTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
@@ -83,7 +83,7 @@ class GroovyExaminer(Examiner):
     operand_types.append('identifier')
 
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, 0)
+    string_tb = EscapedStringTokenBuilder(quotes, 0)
     triple_quote_string_tb = TripleQuoteStringTokenBuilder(quotes)
     regex_tb = RegexTokenBuilder()
     # dollar-slash slash-dollar strings (allow newline)

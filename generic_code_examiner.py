@@ -8,7 +8,7 @@ from token_builders import (
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
   IdentifierTokenBuilder,
-  StringTokenBuilder,
+  EscapedStringTokenBuilder,
   CaseInsensitiveListTokenBuilder,
   CaseSensitiveListTokenBuilder,
   TripleQuoteStringTokenBuilder,
@@ -34,7 +34,7 @@ class GenericCodeExaminer(Examiner):
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
-    StringTokenBuilder.__escape_z__()
+    EscapedStringTokenBuilder.__escape_z__()
     CaseInsensitiveListTokenBuilder.__escape_z__()
     CaseSensitiveListTokenBuilder.__escape_z__()
     TripleQuoteStringTokenBuilder.__escape_z__()
@@ -64,7 +64,7 @@ class GenericCodeExaminer(Examiner):
     operand_types.append('identifier')
 
     quotes = ['"', "'", "’", '`']
-    string_tb = StringTokenBuilder(quotes, 0)
+    string_tb = EscapedStringTokenBuilder(quotes, 0)
     triple_string_tb = TripleQuoteStringTokenBuilder(quotes)
     operand_types.append('string')
 

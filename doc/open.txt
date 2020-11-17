@@ -122,6 +122,9 @@ examiners
   (doesn't work for C, C++, C#, obj-c, Java, Pascal files which start with + or -)
   (doesn't work for Perl, Ruby files which start with regexes /)
   ? apply in a second phase
+- all languages that demand newlines also compute line length confidence (Dibol)
+- line length confidence can vary across languages
+- add common functions which can count as keywords (maybe just as functions in BASIC?)
 
 generic
 + double dollar signs as block for Tex (Rmd)
@@ -241,7 +244,6 @@ COBOL fixed-format
 + 'ON' is a value, a keyword after 'OCCURS DEPENDING', 'SORT file', 'IS id'
 - expected keyword confidence assigns value
 - paragraph name is a single identifier followed by period
-
 
 COBOL free-format
 - P010-wide fails detect
@@ -378,11 +380,24 @@ Lua
 Matlab
 
 Modula-2
-- copy of Pascal
-- keywords in upper case only
-- no stuffed quotes
-- braces are groupers, not comments
-- NIL is a value
+- common functions [
+      'ABS',
+      'CHR', 'CMPLX',
+      'DEC', 'DISPOSE',
+      'EXCL',
+      'FLOAT',
+      'HALT', 'HIGH',
+      'IN', 'INC', 'INCL', 'INT',
+      'LENGTH', 'LFLOAT',
+      'MAX', 'MIN',
+      'NEW',
+      'ODD', 'ORD',
+      'RE',
+      'SIZE',
+      'TRUNC',
+      'VAL',
+      'WriteString', 'WriteCard', 'WriteLn', 'WriteReal'
+]
 
 Objective-C
 - ... after value is operator

@@ -8,7 +8,7 @@ from token_builders import (
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
   IdentifierTokenBuilder,
-  StringTokenBuilder,
+  EscapedStringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
@@ -37,7 +37,7 @@ class DbaseExaminer(Examiner):
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
-    StringTokenBuilder.__escape_z__()
+    EscapedStringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
@@ -86,7 +86,7 @@ class DbaseExaminer(Examiner):
     operand_types.append('identifier')
 
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, 0)
+    string_tb = EscapedStringTokenBuilder(quotes, 0)
     bracket_string_tb = BracketedStringTokenBuilder()
     text_string_tb = TextBlockTokenBuilder('TEXT', 'ENDTEXT')
     operand_types.append('string')
@@ -382,26 +382,6 @@ class DbaseExaminer(Examiner):
       self.calc_line_format_confidence_ii()
     else:
       self.calc_line_format_confidence()
-
-
-  # find CTRL-Z in the last 512 bytes of code
-  # assume it is an old CP/M EOF marker
-  @staticmethod
-  def TrimCtrlZText(code, ctrlz_char):
-    length = len(code)
-
-    if length > 1023:
-      length = 1023
-
-    ctrlz_position = 0
-    for index in range(-1, -length, -1):
-      if code[index] == ctrlz_char:
-        ctrlz_position = index
-
-    if ctrlz_position != 0:
-      code = code[:ctrlz_position]
-
-    return code
 
 
   def calc_line_format_confidence_ii(self):

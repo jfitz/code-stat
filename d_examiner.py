@@ -7,7 +7,7 @@ from token_builders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
-  StringTokenBuilder,
+  EscapedStringTokenBuilder,
   PrefixedStringTokenBuilder,
   SuffixedStringTokenBuilder,
   IntegerTokenBuilder,
@@ -40,7 +40,7 @@ class DExaminer(Examiner):
     InvalidTokenBuilder.__escape_z__()
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
-    StringTokenBuilder.__escape_z__()
+    EscapedStringTokenBuilder.__escape_z__()
     PrefixedStringTokenBuilder.__escape_z__()
     SuffixedStringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
@@ -92,9 +92,9 @@ class DExaminer(Examiner):
 
     # string suffix: c,w,d
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, 0)
+    string_tb = EscapedStringTokenBuilder(quotes, 0)
     r_string_tb = PrefixedStringTokenBuilder('r', True, quotes)
-    backtick_string_tb = StringTokenBuilder(['`'], 0)
+    backtick_string_tb = EscapedStringTokenBuilder(['`'], 0)
     x_string_tb = PrefixedStringTokenBuilder('x', True, quotes)
     q_string_tb = PrefixedStringTokenBuilder('q', True, quotes)
     # q{} string

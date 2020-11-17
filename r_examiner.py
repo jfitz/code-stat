@@ -6,7 +6,7 @@ from token_builders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
-  StringTokenBuilder,
+  EscapedStringTokenBuilder,
   PrefixedRawStringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
@@ -29,7 +29,7 @@ class RExaminer(Examiner):
     InvalidTokenBuilder.__escape_z__()
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
-    StringTokenBuilder.__escape_z__()
+    EscapedStringTokenBuilder.__escape_z__()
     PrefixedRawStringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
@@ -65,7 +65,7 @@ class RExaminer(Examiner):
     operand_types.append('identifier')
 
     quotes = ['"', "'", "’", '`']
-    string_tb = StringTokenBuilder(quotes, 10)
+    string_tb = EscapedStringTokenBuilder(quotes, 10)
     raw_string_tb = PrefixedRawStringTokenBuilder('r', True, quotes)
     operand_types.append('string')
 

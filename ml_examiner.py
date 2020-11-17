@@ -6,7 +6,7 @@ from token_builders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
-  StringTokenBuilder,
+  EscapedStringTokenBuilder,
   PrefixedStringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
@@ -36,7 +36,7 @@ class MlExaminer(Examiner):
     InvalidTokenBuilder.__escape_z__()
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
-    StringTokenBuilder.__escape_z__()
+    EscapedStringTokenBuilder.__escape_z__()
     PrefixedStringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
@@ -78,7 +78,7 @@ class MlExaminer(Examiner):
     operand_types.append('class')
 
     quotes = ['"']
-    string_tb = StringTokenBuilder(quotes, 0)
+    string_tb = EscapedStringTokenBuilder(quotes, 0)
     triple_quote_string_tb = TripleQuoteStringTokenBuilder(quotes)
     prefixed_string_tb = PrefixedStringTokenBuilder('@', False, quotes)
     char_tb = FsharpCharTokenBuilder(["'", "’"])

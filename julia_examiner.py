@@ -7,7 +7,7 @@ from token_builders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
-  StringTokenBuilder,
+  EscapedStringTokenBuilder,
   PrefixedStringTokenBuilder,
   PrefixedRawStringTokenBuilder,
   TripleQuoteStringTokenBuilder,
@@ -33,7 +33,7 @@ class JuliaExaminer(Examiner):
     InvalidTokenBuilder.__escape_z__()
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
-    StringTokenBuilder.__escape_z__()
+    EscapedStringTokenBuilder.__escape_z__()
     PrefixedStringTokenBuilder.__escape_z__()
     PrefixedRawStringTokenBuilder.__escape_z__()
     TripleQuoteStringTokenBuilder.__escape_z__()
@@ -85,7 +85,7 @@ class JuliaExaminer(Examiner):
     dollar_sign_tb = SingleCharacterTokenBuilder('$', 'identifier', True)
 
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, 0)
+    string_tb = EscapedStringTokenBuilder(quotes, 0)
     raw_string_tb = PrefixedRawStringTokenBuilder('raw', True, quotes)
     b_string_tb = PrefixedStringTokenBuilder('b', True, quotes)
     triple_quote_string_tb = TripleQuoteStringTokenBuilder(quotes)

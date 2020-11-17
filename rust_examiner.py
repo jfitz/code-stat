@@ -7,7 +7,7 @@ from token_builders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
-  StringTokenBuilder,
+  EscapedStringTokenBuilder,
   PrefixedStringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
@@ -36,7 +36,7 @@ class RustExaminer(Examiner):
     InvalidTokenBuilder.__escape_z__()
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
-    StringTokenBuilder.__escape_z__()
+    EscapedStringTokenBuilder.__escape_z__()
     PrefixedStringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
@@ -81,7 +81,7 @@ class RustExaminer(Examiner):
     attribute_tb = RustAttributeTokenBuilder()
 
     quotes = ['"', "'"]
-    string_tb = StringTokenBuilder(quotes, 10)
+    string_tb = EscapedStringTokenBuilder(quotes, 10)
     bstring_tb = PrefixedStringTokenBuilder('b', True, quotes)
     rstring_tb = RustRawStringTokenBuilder()
     operand_types.append('string')

@@ -60,6 +60,26 @@ class Examiner:
     return detabbed_text
 
 
+  # find CTRL-Z in the last 512 bytes of code
+  # assume it is an old CP/M EOF marker
+  @staticmethod
+  def TrimCtrlZText(code, ctrlz_char):
+    length = len(code)
+
+    if length > 1023:
+      length = 1023
+
+    ctrlz_position = 0
+    for index in range(-1, -length, -1):
+      if code[index] == ctrlz_char:
+        ctrlz_position = index
+
+    if ctrlz_position != 0:
+      code = code[:ctrlz_position]
+
+    return code
+
+
   @staticmethod
   def find_tokens(tokens, groups):
     found_tokens = []
@@ -528,7 +548,10 @@ class Examiner:
     if not ok:
       paired_blocker_confidence *= 0.75
 
-    self.confidences['paired_blockers_match'] = paired_blocker_confidence
+    if 'paired_blockers_match' in self.confidences:
+      self.confidences['paired_blockers_match'] *= paired_blocker_confidence
+    else:
+      self.confidences['paired_blockers_match'] = paired_blocker_confidence
 
 
   def calc_line_format_confidence(self):

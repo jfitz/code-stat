@@ -1,11 +1,11 @@
 from codestat_token import Token
 from token_builders import (
   TokenBuilder,
-  StringTokenBuilder
+  EscapedStringTokenBuilder
 )
 
 # token reader for single-character text literal (string)
-class FsharpCharTokenBuilder(StringTokenBuilder):
+class FsharpCharTokenBuilder(EscapedStringTokenBuilder):
   @staticmethod
   def __escape_z__():
     Token.__escape_z__()

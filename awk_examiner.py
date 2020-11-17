@@ -7,7 +7,7 @@ from token_builders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
-  StringTokenBuilder,
+  EscapedStringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
   PrefixedIntegerTokenBuilder,
@@ -28,7 +28,7 @@ class AwkExaminer(Examiner):
     InvalidTokenBuilder.__escape_z__()
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
-    StringTokenBuilder.__escape_z__()
+    EscapedStringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
     PrefixedIntegerTokenBuilder.__escape_z__()
@@ -86,7 +86,7 @@ class AwkExaminer(Examiner):
     operand_types.append('identifier')
 
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, 0)
+    string_tb = EscapedStringTokenBuilder(quotes, 0)
     operand_types.append('string')
 
     hash_comment_tb = LeadToEndOfLineTokenBuilder('#', False, 'comment')

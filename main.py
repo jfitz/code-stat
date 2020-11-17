@@ -41,6 +41,7 @@ from lua_examiner import LuaExaminer
 from matlab_examiner import MatlabExaminer
 from microsoft_basic_examiner import MicrosoftBasicExaminer
 from ml_examiner import MlExaminer
+from modula2_examiner import Modula2Examiner
 from objectivec_examiner import ObjectiveCExaminer
 from pascal_examiner import PascalExaminer
 from perl_examiner import PerlExaminer
@@ -93,6 +94,7 @@ LuaExaminer.__escape_z__()
 MatlabExaminer.__escape_z__()
 MicrosoftBasicExaminer.__escape_z__()
 MlExaminer.__escape_z__()
+Modula2Examiner.__escape_z__()
 ObjectiveCExaminer.__escape_z__()
 PascalExaminer.__escape_z__()
 PerlExaminer.__escape_z__()
@@ -293,6 +295,7 @@ codes_and_names = {
   'kotlin': 'Kotlin',
   'lua': 'Lua',
   'matlab': 'Matlab',
+  'modula-2': 'Modula-2',
   'objective-c': 'Objective-C',
   'ocaml': 'OCaml',
   'octave': 'Octave',
@@ -383,6 +386,7 @@ codes_and_groups = {
   'kotlin': 'Kotlin',
   'lua': 'Lua',
   'matlab': 'Matlab',
+  'modula-2': 'Modula-2',
   'objective-c': 'Objective-C',
   'ocaml': 'ML',
   'octave': 'matlab',
@@ -474,6 +478,7 @@ codes_and_years = {
   'kotlin': 2011,
   'lua': 1993,
   'matlab': 1984,
+  'modula-2': 1977,
   'objective-c': 1984,
   'ocaml': 2011,
   'octave': 1993,
@@ -563,6 +568,7 @@ simpler_languages = {
   'kotlin': None,
   'lua': None,
   'matlab': None,
+  'modula-2': 'pascal',
   'objective-c': 'cplusplus',
   'octave': 'matlab',
   'ocaml': None,
@@ -1098,6 +1104,9 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
   if language in ['matlab', 'm']:
     examiner = MatlabExaminer(code, 'matlab')
 
+  if language in ['modula-2', 'mod']:
+    examiner = Modula2Examiner(code)
+
   if language in ['objective-c', 'objc']:
     examiner = ObjectiveCExaminer(code)
 
@@ -1387,6 +1396,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
 
   if 'matlab' in languages or 'm' in languages:
     examiners['matlab'] = MatlabExaminer(code, 'matlab')
+
+  if 'modula-2' in languages or 'mod' in languages:
+    examiners['modula-2'] = Modula2Examiner(code)
 
   if 'objective-c' in languages:
     examiners['objective-c'] = ObjectiveCExaminer(code)

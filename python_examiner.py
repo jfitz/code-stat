@@ -7,7 +7,7 @@ from token_builders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
-  StringTokenBuilder,
+  EscapedStringTokenBuilder,
   PrefixedStringTokenBuilder,
   PrefixedRawStringTokenBuilder,
   IntegerTokenBuilder,
@@ -33,7 +33,7 @@ class PythonExaminer(Examiner):
     InvalidTokenBuilder.__escape_z__()
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
-    StringTokenBuilder.__escape_z__()
+    EscapedStringTokenBuilder.__escape_z__()
     PrefixedStringTokenBuilder.__escape_z__()
     PrefixedRawStringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
@@ -75,7 +75,7 @@ class PythonExaminer(Examiner):
     decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator', False)
 
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, 0)
+    string_tb = EscapedStringTokenBuilder(quotes, 0)
     raw_string_tb = PrefixedRawStringTokenBuilder('r', True, quotes)
     byte_string_tb = PrefixedStringTokenBuilder('b', True, quotes)
     unicode_string_tb = PrefixedStringTokenBuilder('u', True, quotes)

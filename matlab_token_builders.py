@@ -1,10 +1,10 @@
-from token_builders import StringTokenBuilder
+from token_builders import EscapedStringTokenBuilder
 
 # token reader for text literal (string)
-class MatlabStringTokenBuilder(StringTokenBuilder):
+class MatlabStringTokenBuilder(EscapedStringTokenBuilder):
   @staticmethod
   def __escape_z__():
-    StringTokenBuilder.__escape_z__()
+    EscapedStringTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 

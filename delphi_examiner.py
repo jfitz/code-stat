@@ -7,7 +7,7 @@ from token_builders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
-  StringTokenBuilder,
+  EscapedStringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
@@ -34,7 +34,7 @@ class DelphiExaminer(Examiner):
     InvalidTokenBuilder.__escape_z__()
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
-    StringTokenBuilder.__escape_z__()
+    EscapedStringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
@@ -78,7 +78,7 @@ class DelphiExaminer(Examiner):
     class_tb = ClassTypeTokenBuilder()
     operand_types.append('class')
 
-    string_tb = StringTokenBuilder(["'"], 0)
+    string_tb = EscapedStringTokenBuilder(["'"], 0)
     operand_types.append('string')
 
     brace_comment_tb = BraceCommentTokenBuilder()

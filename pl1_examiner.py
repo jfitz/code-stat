@@ -6,7 +6,7 @@ from codestat_tokenizer import Tokenizer
 from token_builders import (
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
-  StringTokenBuilder,
+  EscapedStringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
   SuffixedIntegerTokenBuilder,
@@ -53,7 +53,7 @@ class PL1Examiner(Examiner):
     self.operand_types.append('identifier')
 
     quotes = ['"', "'", "’"]
-    self.string_tb = StringTokenBuilder(quotes, 0)
+    self.string_tb = EscapedStringTokenBuilder(quotes, 0)
     self.operand_types.append('string')
 
     self.label_tb = PL1LabelTokenBuilder()

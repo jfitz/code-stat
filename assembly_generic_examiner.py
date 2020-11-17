@@ -7,7 +7,7 @@ from token_builders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
-  StringTokenBuilder,
+  EscapedStringTokenBuilder,
   PrefixedStringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
@@ -30,7 +30,7 @@ class AssemblyGenericExaminer(Examiner):
     InvalidTokenBuilder.__escape_z__()
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
-    StringTokenBuilder.__escape_z__()
+    EscapedStringTokenBuilder.__escape_z__()
     PrefixedStringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
@@ -67,7 +67,7 @@ class AssemblyGenericExaminer(Examiner):
     operand_types.append('identifier')
 
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, 0)
+    string_tb = EscapedStringTokenBuilder(quotes, 0)
     hex_string_tb = PrefixedStringTokenBuilder('X', False, quotes)
     char_string_tb = PrefixedStringTokenBuilder('C', False, quotes)
     operand_types.append('string')
@@ -179,14 +179,14 @@ class AssemblyGenericExaminer(Examiner):
     self.convert_asm_identifiers_to_labels()
 
     self.calc_statistics()
-    statistics1 = self.statistics
+    statistics_free = self.statistics
     self.statistics = {}
 
     self.calc_confidences(operand_types, group_starts, group_mids, group_ends, None)
-
-    confidences1 = self.confidences
+    self.calc_line_length_confidence(code, 132)
+    confidences_free = self.confidences
     self.confidences = {}
-    errors1 = self.errors
+    errors_free = self.errors
     self.errors = []
 
     # tokenize as space-format
@@ -207,36 +207,37 @@ class AssemblyGenericExaminer(Examiner):
     self.convert_asm_identifiers_to_labels()
 
     self.calc_statistics()
-    statistics2 = self.statistics
+    statistics_space = self.statistics
     self.statistics = {}
 
     self.calc_confidences(operand_types, group_starts, group_mids, group_ends, indents)
-    confidences2 = self.confidences
+    self.calc_line_length_confidence(code, 132)
+    confidences_space = self.confidences
     self.confidences = {}
-    errors2 = self.errors
+    errors_space = self.errors
     self.errors = []
 
     # select the better of free-format and spaced-format
-    confidence1 = 1.0
-    for key in confidences1:
-      factor = confidences1[key]
-      confidence1 *= factor
+    confidence_free = 1.0
+    for key in confidences_free:
+      factor = confidences_free[key]
+      confidence_free *= factor
 
-    confidence2 = 1.0
-    for key in confidences2:
-      factor = confidences2[key]
-      confidence2 *= factor
+    confidence_space = 1.0
+    for key in confidences_space:
+      factor = confidences_space[key]
+      confidence_space *= factor
 
-    if confidence2 > confidence1:
+    if confidence_space > confidence_free:
       self.tokens = tokens_space
-      self.statistics = statistics2
-      self.confidences = confidences2
-      self.errors = errors2
+      self.statistics = statistics_space
+      self.confidences = confidences_space
+      self.errors = errors_space
     else:
       self.tokens = tokens_free
-      self.statistics = statistics1
-      self.confidences = confidences1
-      self.errors = errors1
+      self.statistics = statistics_free
+      self.confidences = confidences_free
+      self.errors = errors_free
 
 
   def calc_confidences(self, operand_types, group_starts, group_mids, group_ends, indents):

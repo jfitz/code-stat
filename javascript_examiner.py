@@ -6,7 +6,7 @@ from token_builders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
-  StringTokenBuilder,
+  EscapedStringTokenBuilder,
   IntegerTokenBuilder,
   SuffixedIntegerTokenBuilder,
   IntegerExponentTokenBuilder,
@@ -31,7 +31,7 @@ class JavaScriptExaminer(Examiner):
     InvalidTokenBuilder.__escape_z__()
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
-    StringTokenBuilder.__escape_z__()
+    EscapedStringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     SuffixedIntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
@@ -72,8 +72,8 @@ class JavaScriptExaminer(Examiner):
     operand_types.append('identifier')
 
     quotes = ['"', "'", "’"]
-    string_tb = StringTokenBuilder(quotes, 0)
-    template_string_tb = StringTokenBuilder(['`'], 10)
+    string_tb = EscapedStringTokenBuilder(quotes, 0)
+    template_string_tb = EscapedStringTokenBuilder(['`'], 10)
     operand_types.append('string')
 
     regex_tb = RegexTokenBuilder()

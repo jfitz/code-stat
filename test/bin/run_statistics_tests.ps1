@@ -41,7 +41,7 @@ test\bin\run_test.ps1 -json -name spitbol-asm -action statistics -language ASM-3
 test\bin\run_test.ps1 -json -name asm370a1-asm -action statistics -language ASM-370 -inputfile ".\test\data\ASM-370\asm370a1.asm" -expected ".\test\ref\statistics\ASM-370\asm370a1.txt"
 
 # ASM IBM-390
-test\bin\run_test.ps1 -json -name osint-asm -action statistics -language ASM-360 -inputfile ".\test\data\ASM-360\osint.asm" -expected ".\test\ref\statistics\ASM-360\osint.txt"
+test\bin\run_test.ps1 -json -name osint-asm -action statistics -language ASM-390 -inputfile ".\test\data\ASM-390\osint.asm" -expected ".\test\ref\statistics\ASM-390\osint.txt"
 
 # ASM IBM-system-z
 
@@ -345,6 +345,15 @@ test\bin\run_test.ps1 -json -name choose-matlab -action statistics -language Mat
 test\bin\run_test.ps1 -json -name fitnormal-matlab -action statistics -language Matlab -inputfile ".\test\data\Matlab\fitnormal.m" -expected ".\test\ref\statistics\Matlab\fitnormal.txt"
 test\bin\run_test.ps1 -json -name test_fitnormal-matlab -action statistics -language Matlab -inputfile ".\test\data\Matlab\test_fitnormal.m" -expected ".\test\ref\statistics\Matlab\test_fitnormal.txt"
 test\bin\run_test.ps1 -json -name tshow-matlab -action statistics -language Matlab -inputfile ".\test\data\Matlab\tshow.m" -expected ".\test\ref\statistics\Matlab\tshow.txt"
+
+# Modula-2
+test\bin\run_test.ps1 -json -name C64ToIBM-mod2 -action statistics -language Modula-2 -inputfile ".\test\data\Modula-2\C64ToIBM.mod" -expected ".\test\ref\statistics\Modula-2\C64ToIBM.txt"
+test\bin\run_test.ps1 -json -name CaseDemo-mod2 -action statistics -language Modula-2 -inputfile ".\test\data\Modula-2\CaseDemo.mod" -expected ".\test\ref\statistics\Modula-2\CaseDemo.txt"
+test\bin\run_test.ps1 -json -name game_def-mod2 -action statistics -language Modula-2 -inputfile ".\test\data\Modula-2\game.def" -expected ".\test\ref\statistics\Modula-2\game_def.txt"
+test\bin\run_test.ps1 -json -name game-mod2 -action statistics -language Modula-2 -inputfile ".\test\data\Modula-2\game.mod" -expected ".\test\ref\statistics\Modula-2\game.txt"
+test\bin\run_test.ps1 -json -name LoopDemo-mod2 -action statistics -language Modula-2 -inputfile ".\test\data\Modula-2\LoopDemo.mod" -expected ".\test\ref\statistics\Modula-2\LoopDemo.txt"
+test\bin\run_test.ps1 -json -name PigLatin-mod2 -action statistics -language Modula-2 -inputfile ".\test\data\Modula-2\PigLatin.mod" -expected ".\test\ref\statistics\Modula-2\PigLatin.txt"
+test\bin\run_test.ps1 -json -name TempConv-mod2 -action statistics -language Modula-2 -inputfile ".\test\data\Modula-2\TempConv.mod" -expected ".\test\ref\statistics\Modula-2\TempConv.txt"
 
 # Objective-C
 test\bin\run_test.ps1 -json -name hello-objc -action statistics -language Objective-C -inputfile ".\test\data\Objective-C\HelloWorld.objc" -expected ".\test\ref\statistics\Objective-C\HelloWorld.txt"
