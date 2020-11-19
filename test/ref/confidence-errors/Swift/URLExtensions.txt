@@ -3,5 +3,15 @@
         "TYPE":"OPERATOR4",
         "FIRST":"=",
         "SECOND":"try?"
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"        guard let components = URLComponents(url: self, resolvingAgainstBaseURL: false), let queryItems = components.queryItems else { return nil }",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"    /// Generate a thumbnail image from given url. Returns nil if no thumbnail could be created. This function may take some time to complete. It's recommended to dispatch the call if the thumbnail is not generated from a local resource.",
+        "WIDTH":132
     }
 ]

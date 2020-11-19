@@ -428,6 +428,7 @@ class CobolFreeFormatExaminer(CobolExaminer):
     # self.calc_operand_n_confidence(tokens, operand_types, 4)
 
     self.calc_keyword_confidence()
+    self.calc_line_length_confidence(code, self.max_expected_line)
 
     self.calc_picture_confidence()
     expected_keyword_confidence = self.check_expected_keywords()

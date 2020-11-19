@@ -214,6 +214,8 @@ class RubyExaminer(Examiner):
     closers = ['end']
     self.calc_paired_blockers_confidence(openers, closers)
 
+    self.calc_line_length_confidence(code, self.max_expected_line)
+
 
   def convert_bars_to_groups(self):
     bar_count = 2

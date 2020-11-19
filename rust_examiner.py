@@ -252,6 +252,7 @@ class RustExaminer(Examiner):
 
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_line_format_confidence()
+    self.calc_line_length_confidence(code, self.max_expected_line)
 
 
   def combine_numbers_and_adjacent_types(self, tokens):

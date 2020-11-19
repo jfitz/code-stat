@@ -32,6 +32,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
 
   def __init__(self, code, year, tab_size, wide):
     super().__init__()
+    self.max_expected_line = 80
 
     if year is not None and year not in ['66', '1966', '77', '1977']:
       raise CodeStatException('Unknown year for language')
@@ -184,7 +185,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
     self.calc_keyword_confidence()
 
     if not wide:
-      self.calc_line_length_confidence(code, 80)
+      self.calc_line_length_confidence(code, self.max_expected_line)
 
 
   def unwrapped_code(self, lines):

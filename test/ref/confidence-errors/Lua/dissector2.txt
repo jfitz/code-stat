@@ -1,2 +1,47 @@
 [
+    {
+        "TYPE":"LENGTH",
+        "LONG":"-- the \"mask\" argument is which bits we want to use for this field (e.g., base=16 and mask=0x8000 means we want the top bit of a 16-bit field)",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"local pf_flag_response              = ProtoField.new   (\"Response\", \"mydns.flags.response\", ftypes.BOOLEAN, {\"this is a response\",\"this is a query\"}, 16, 0x8000, \"is the message a response?\")",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"local pf_flag_opcode                = ProtoField.new   (\"Opcode\", \"mydns.flags.opcode\", ftypes.UINT16, nil, base.DEC, 0x7800, \"operation code\")",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"local pf_flag_authoritative         = ProtoField.new   (\"Authoritative\", \"mydns.flags.authoritative\", ftypes.BOOLEAN, nil, 16, 0x0400, \"is the response authoritative?\")",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"local pf_flag_truncated             = ProtoField.bool  (\"mydns.flags.truncated\", \"Truncated\", 16, nil, 0x0200, \"is the message truncated?\")",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"local pf_flag_recursion_desired     = ProtoField.bool  (\"mydns.flags.recursion_desired\", \"Recursion desired\", 16, {\"yes\",\"no\"}, 0x0100, \"do the query recursivley?\")",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"local pf_flag_recursion_available   = ProtoField.bool  (\"mydns.flags.recursion_available\", \"Recursion available\", 16, nil, 0x0080, \"does the server support recursion?\")",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"local pf_flag_z                     = ProtoField.uint16(\"mydns.flags.z\", \"World War Z - Reserved for future use\", base.HEX, nil, 0x0040, \"when is it the future?\")",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"local pf_flag_authenticated         = ProtoField.bool  (\"mydns.flags.authenticated\", \"Authenticated\", 16, {\"yes\",\"no\"}, 0x0020, \"did the server DNSSEC authenticate?\")",
+        "WIDTH":132
+    }
 ]

@@ -1,2 +1,7 @@
 [
+    {
+        "TYPE":"LENGTH",
+        "LONG":"    mt_pgram(s; onesided=eltype(s)<:Real, nfft=nextfastfft(n), fs=1, nw=4, ntapers=iceil(2nw)-1, window=dpss(length(s), nw, ntapers))",
+        "WIDTH":132
+    }
 ]

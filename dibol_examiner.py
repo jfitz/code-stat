@@ -47,6 +47,7 @@ class DibolExaminer(Examiner):
 
   def __init__(self, code):
     super().__init__()
+    self.newlines_important = 'always'
 
     operand_types = []
 
@@ -171,6 +172,7 @@ class DibolExaminer(Examiner):
     self.calc_keyword_confidence()
 
     self.calc_paired_blockers_confidence(['{'], ['}'])
+    self.calc_line_length_confidence(code, self.max_expected_line)
 
 
   # convert identifiers after 'goto' to labels

@@ -213,6 +213,7 @@ class DelphiExaminer(Examiner):
     pair_starters = ['unit', 'class', 'begin', 'record', 'case', 'try']
     pair_enders = ['end']
     self.calc_paired_blockers_confidence(pair_starters, pair_enders)
+    self.calc_line_length_confidence(code, self.max_expected_line)
 
 
   # convert identifiers after 'label' and before ';' to labels

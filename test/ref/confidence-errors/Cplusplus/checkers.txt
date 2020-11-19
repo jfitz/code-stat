@@ -1,2 +1,87 @@
 [
+    {
+        "TYPE":"LENGTH",
+        "LONG":"\t\t(theBoard[0][0] == theBoard[1][0] && theBoard[0][0] == theBoard[2][0] && theBoard[0][0] == theBoard[1][0] && theBoard[0][0] == theBoard[1][0] && theBoard[0][0] == theBoard[1][0] && theBoard[0][0] == theBoard[1][0]) || // col 1",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"\t\t((theBoard[0][0] == theBoard[1][0] && theBoard[0][0] == theBoard[2][0] && theBoard [0][0] == theBoard[3][0] && theBoard[0][0] == theBoard[4][0] && theBoard[5][0] == theBoard[0][0]  ) || // col 1",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"\t\t(theBoard[0][1] == theBoard[1][1] && theBoard[0][1] == theBoard[2][1] == theBoard [3][1] == theBoard[4][1] == theBoard[5][1] == theBoard[6][1] == theBoard[7][1] )) || // col 2",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"\t\t(theBoard[0][2] == theBoard[1][2] && theBoard[0][2] == theBoard[2][2] == theBoard [3][2] == theBoard[4][2] == theBoard[5][2] == theBoard[6][2] == theBoard[7][2] )) || // col 3",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"\t\t(theBoard[0][3] == theBoard[1][3] && theBoard[0][3] == theBoard[2][3] == theBoard [3][3] == theBoard[4][3] == theBoard[5][3] == theBoard[6][3] == theBoard[7][3] )) || // col 4",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"\t\t(theBoard[0][4] == theBoard[1][4] && theBoard[0][4] == theBoard[2][4] == theBoard [3][4] == theBoard[4][4] == theBoard[5][4] == theBoard[6][4] == theBoard[7][4] )) || // col 5",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"\t\t(theBoard[0][5] == theBoard[1][5] && theBoard[0][5] == theBoard[2][5] == theBoard [3][5] == theBoard[4][5] == theBoard[5][5] == theBoard[6][5] == theBoard[7][5] )) || // col 6",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"\t\t(theBoard[0][6] == theBoard[1][6] && theBoard[0][6] == theBoard[2][6] == theBoard [3][6] == theBoard[4][6] == theBoard[5][6] == theBoard[6][6] == theBoard[7][6] )) || // col 7",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"\t\t(theBoard[0][7] == theBoard[1][7] && theBoard[0][7] == theBoard[2][7] == theBoard [3][7] == theBoard[4][7] == theBoard[5][7] == theBoard[6][7] == theBoard[7][7] )) || // col 8",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"\t\t(theBoard[0][0] == theBoard[0][1] && theBoard[0][0] == theBoard[0][2] == theBoard [3][0] == theBoard[4][0] == theBoard[5][0] == theBoard[6][0] == theBoard[7][0] )) || // row 1",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"\t\t(theBoard[1][0] == theBoard[1][1] && theBoard[1][0] == theBoard[1][2] == theBoard [3][0] == theBoard[4][0] == theBoard[5][0] == theBoard[6][0] == theBoard[7][0] )) || // row 2",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"\t\t(theBoard[2][0] == theBoard[2][1] && theBoard[2][0] == theBoard[2][2] == theBoard [3][0] == theBoard[4][0] == theBoard[5][0] == theBoard[6][0] == theBoard[7][0] )) || // row 3",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"\t\t(theBoard[3][0] == theBoard[1][0] && theBoard[0][0] == theBoard[2][0] == theBoard [3][0] == theBoard[4][0] == theBoard[5][0] == theBoard[6][0] == theBoard[7][0] )) || // row 4",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"\t\t(theBoard[4][1] == theBoard[1][1] && theBoard[0][1] == theBoard[2][1] == theBoard [3][0] == theBoard[4][0] == theBoard[5][0] == theBoard[6][0] == theBoard[7][0] )) || // row 5",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"\t\t(theBoard[5][2] == theBoard[1][2] && theBoard[0][2] == theBoard[2][2] == theBoard [3][0] == theBoard[4][0] == theBoard[5][0] == theBoard[6][0] == theBoard[7][0] )) || // row 6",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"\t\t(theBoard[6][0] == theBoard[1][0] && theBoard[0][0] == theBoard[2][0] == theBoard [3][0] == theBoard[4][0] == theBoard[5][0] == theBoard[6][0] == theBoard[7][0] )) || // row 7",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"\t\t(theBoard[7][1] == theBoard[1][1] && theBoard[0][1] == theBoard[2][1] == theBoard [3][0] == theBoard[4][0] == theBoard[5][0] == theBoard[6][0] == theBoard[7][0] )) || // row 8",
+        "WIDTH":132
+    }
 ]

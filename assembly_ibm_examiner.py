@@ -390,7 +390,8 @@ class AssemblyIBMExaminer(Examiner):
     self.statistics = {}
 
     self.calc_confidences(operand_types, group_starts, group_mids, group_ends, None)
-    self.calc_line_length_confidence(code, 132)
+    self.calc_line_length_confidence(code, self.max_expected_line)
+
     confidences_free = self.confidences
     self.confidences = {}
     errors_free = self.errors
@@ -421,7 +422,8 @@ class AssemblyIBMExaminer(Examiner):
     self.statistics = {}
 
     self.calc_confidences(operand_types, group_starts, group_mids, group_ends, indents)
-    self.calc_line_length_confidence(code, 132)
+    self.calc_line_length_confidence(code, self.max_expected_line)
+
     confidences_space = self.confidences
     self.confidences = {}
     errors_space = self.errors
@@ -500,8 +502,6 @@ class AssemblyIBMExaminer(Examiner):
     self.calc_operand_n_confidence(tokens, operand_types, 4)
 
     self.calc_keyword_confidence()
-
-    # self.calc_paired_blockers_confidence(['{'], ['}'])
 
     if indents is not None:
       self.calc_indent_confidence(indents)

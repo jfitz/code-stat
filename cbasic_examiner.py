@@ -201,6 +201,7 @@ class CBasicExaminer(Examiner):
     self.calc_keyword_confidence()
 
     self.calc_line_format_confidence()
+    self.calc_line_length_confidence(code, self.max_expected_line)
 
 
   def convert_numbers_to_line_numbers(self):

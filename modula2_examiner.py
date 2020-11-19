@@ -191,3 +191,4 @@ class Modula2Examiner(Examiner):
 
     self.calc_paired_blockers_confidence(['BEGIN', 'RECORD', 'CASE', 'DO', 'IF', 'WHILE'], ['END'])
     self.calc_paired_blockers_confidence(['REPEAT'], ['UNTIL'])
+    self.calc_line_length_confidence(code, self.max_expected_line)

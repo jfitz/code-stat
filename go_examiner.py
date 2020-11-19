@@ -212,6 +212,7 @@ class GoExaminer(Examiner):
 
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_line_format_confidence()
+    self.calc_line_length_confidence(code, self.max_expected_line)
 
 
   def calc_line_format_confidence(self):

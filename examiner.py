@@ -23,6 +23,7 @@ class Examiner:
     self.errors = []
     self.statistics = {}
     self.newlines_important = 'never'
+    self.max_expected_line = 132
 
 
   def confidence(self):
@@ -580,8 +581,6 @@ class Examiner:
     self.calc_operand_n_confidence(tokens, operand_types, 4)
 
     self.calc_keyword_confidence()
-
-    # self.calc_paired_blockers_confidence(['{'], ['}'])
 
     if indents is not None:
       self.calc_indent_confidence(indents)

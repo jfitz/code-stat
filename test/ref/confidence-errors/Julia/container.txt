@@ -1,2 +1,17 @@
 [
+    {
+        "TYPE":"LENGTH",
+        "LONG":"- `raster`: if possible, render this subtree as a bitmap. This requires the Cairo. If Cairo isn't available, the default rendering is used.",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"show(io::IO, p::Compose.Property) = get(io, :compact, false) ? print(io, Compose.prop_string(p)) : invoke(show, Tuple{IO, Any}, io, p)",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"show(io::IO, cp::ContainerPromise) = get(io, :compact, false) ? print(io, typeof(cp).name.name) : invoke(show, Tuple{IO, Any}, io, cp)",
+        "WIDTH":132
+    }
 ]

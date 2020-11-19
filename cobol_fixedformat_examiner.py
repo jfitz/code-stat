@@ -48,6 +48,7 @@ class CobolFixedFormatExaminer(CobolExaminer):
 
   def __init__(self, code, year, extension, tab_size, wide):
     super().__init__()
+    self.max_expected_line = 80
 
     if year is not None and year not in ['68', '1968', '74', '1974', '85', '1985']:
       raise CodeStatException('Unknown year for language')
@@ -281,8 +282,10 @@ class CobolFixedFormatExaminer(CobolExaminer):
     self.calc_keyword_confidence()
 
     self.calc_picture_confidence()
+
     if not wide:
-      self.calc_line_length_confidence(code, 80)
+      self.calc_line_length_confidence(code, self.max_expected_line)
+
     expected_keyword_confidence = self.check_expected_keywords()
     self.confidences['expected_keywords'] = expected_keyword_confidence
 

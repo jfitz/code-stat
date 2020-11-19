@@ -1,2 +1,12 @@
 [
+    {
+        "TYPE":"LENGTH",
+        "LONG":"    type SqlConnection = SqlDataConnection<ConnectionString = @\"Data Source=.\\sqlexpress;Initial Catalog=tempdb;Integrated Security=True\">",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"    type Demographics = Microsoft.FSharp.Data.TypeProviders.ODataService<ServiceUri = \"https://api.datamarket.azure.com/Esri/KeyUSDemographicsTrial/\">",
+        "WIDTH":132
+    }
 ]
