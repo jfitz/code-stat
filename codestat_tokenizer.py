@@ -5,52 +5,25 @@ class Tokenizer():
     self.tokenbuilders = tokenbuilders
 
 
-  def tokenize(self, text):
-    tokens = []
-
-    line_printable_tokens = []
-
-    while len(text) > 0:
-      new_tokens = None
-
-      tokenbuilder = self.try_tokenbuilders(text, line_printable_tokens)
-
-      if tokenbuilder is not None:
-        new_tokens = tokenbuilder.get_tokens()
-
-      if new_tokens == None:
-        raise Exception("Cannot tokenize '" + text + "'")
-
-      for token in new_tokens:
-        if token.group not in ['whitespace', 'comment', 'line description']:
-          line_printable_tokens.append(token)
-
-        if token.group == 'newline':
-          line_printable_tokens = []
-
-      tokens += new_tokens
-      count = tokenbuilder.get_count()
-      text = text[count:]
-    
-    return tokens
-
-
-  def tokenize_and_stop(self, text, stop_tokens):
+  def tokenize(self, text, stop_tokens=None):
     tokens = []
 
     line_printable_tokens = []
 
     go = True
-    while len(text) > 0 and go:
+    start = 0
+
+    while start < len(text) and go:
       new_tokens = None
 
-      tokenbuilder = self.try_tokenbuilders(text, line_printable_tokens)
+      tokenbuilder = self.try_tokenbuilders(text, start, line_printable_tokens)
 
       if tokenbuilder is not None:
         new_tokens = tokenbuilder.get_tokens()
 
-      if new_tokens == None:
-        raise Exception("Cannot tokenize '" + text + "'")
+      if new_tokens is None:
+        t = text[start:]
+        raise Exception("Cannot tokenize '" + t + "'")
 
       for token in new_tokens:
         if token.group not in ['whitespace', 'comment', 'line description']:
@@ -61,19 +34,20 @@ class Tokenizer():
 
       tokens += new_tokens
       count = tokenbuilder.get_count()
-      text = text[count:]
+      start += count
 
-      for token in new_tokens:
-        if token.text in stop_tokens:
-          go = False
+      if stop_tokens is not None:
+        for token in new_tokens:
+          if token.text in stop_tokens:
+            go = False
 
-    return tokens, text
+    return tokens
 
 
-  def try_tokenbuilders(self, text, line_printable_tokens):
+  def try_tokenbuilders(self, text, start, line_printable_tokens):
     # try all tokenbuilders
     for tokenbuilder in self.tokenbuilders:
-      tokenbuilder.attempt(text)
+      tokenbuilder.attempt(text, start)
 
     # see which tokenbuilder found the highest score
     winner = None

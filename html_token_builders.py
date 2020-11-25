@@ -115,10 +115,10 @@ class HTMLUnicodeTokenBuilder(TokenBuilder):
     self.text = None
 
 
-  def attempt(self, text):
+  def attempt(self, text, start):
     self.text = None
-    if len(text) > 0:
-      self.text = text[0]
+    if len(text) > start:
+      self.text = text[start]
 
 
   def get_tokens(self):

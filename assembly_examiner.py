@@ -191,7 +191,7 @@ class AssemblyExaminer(Examiner):
     include_directive_tb = LeadToEndOfLineTokenBuilder('INCLUDE', False, 'directive')
     include_directive_2_tb = LeadToEndOfLineTokenBuilder('.INCLUDE', False, 'directive')
 
-    comment_directive_tb = MultilineCommentTokenBuilder()
+    multiline_comment_tb = MultilineCommentTokenBuilder()
 
     opcodes_1802 = [
       'IDL', 'LDN', 'INC', 'DEC', 'BR', 'BO', 'BZ', 'BDF', 'BPZ', 'BGE',
@@ -597,7 +597,7 @@ class AssemblyExaminer(Examiner):
       subtitle_directive_3_tb,
       include_directive_tb,
       include_directive_2_tb,
-      comment_directive_tb,
+      multiline_comment_tb,
       preprocessor_tb,
       identifier_tb,
       label_tb,
@@ -617,7 +617,6 @@ class AssemblyExaminer(Examiner):
       title_directive_tb,
       subtitle_directive_tb,
       include_directive_tb,
-      comment_directive_tb,
       preprocessor_tb,
       invalid_token_builder
     ]

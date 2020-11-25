@@ -202,7 +202,7 @@ def identify_language(contents, params, tiebreak_keywords, tiebreak_tokens, tieb
             print('in high languages\n')
             # decrease confidence for loser language
             confidences[loser]['overridden'] = 0.99
-            sys.stderr.write(' ADJ OVER: ' + loser + ' ' + str(keyword_count_confidence + '\n'))
+            # sys.stderr.write(' ADJ OVER: ' + loser + ' ' + str(keyword_count_confidence + '\n'))
 
       # recalculate confidence with new factor
       for language in high_languages:

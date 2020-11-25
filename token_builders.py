@@ -26,10 +26,10 @@ class TokenBuilder:
     return 'Escape ?Z'
 
 
-  def attempt(self, text):
+  def attempt(self, text, start):
     self.text = None
     candidate = ''
-    i = 0
+    i = start
 
     while i < len(text):
       c = text[i]
@@ -74,7 +74,7 @@ class NullTokenBuilder(TokenBuilder):
     self.text = None
 
 
-  def attempt(self, text):
+  def attempt(self, text, start):
     return False
 
 
@@ -94,10 +94,11 @@ class InvalidTokenBuilder(TokenBuilder):
     self.text = None
 
 
-  def attempt(self, text):
+  def attempt(self, text, start):
     self.text = None
-    if len(text) > 0:
-      self.text = text[0]
+
+    if len(text) > start:
+      self.text = text[start]
       return True
 
     return False
@@ -1138,11 +1139,11 @@ class CaseInsensitiveListTokenBuilder(TokenBuilder):
     self.text = ''
 
 
-  def attempt(self, text):
+  def attempt(self, text, start):
     self.text = None
     best_candidate = None
     candidate = ''
-    i = 0
+    i = start
 
     while i < len(text):
       c = text[i]
@@ -1202,11 +1203,11 @@ class CaseSensitiveListTokenBuilder(TokenBuilder):
     self.text = ''
 
 
-  def attempt(self, text):
+  def attempt(self, text, start):
     self.text = None
     best_candidate = None
     candidate = ''
-    i = 0
+    i = start
 
     while i < len(text):
       c = text[i]
@@ -1608,15 +1609,17 @@ class BlockTokenBuilder(TokenBuilder):
     return [Token(self.text, self.texttype, False)]
 
 
-  def attempt(self, text):
+  def attempt(self, text, start):
     self.text = None
 
-    if not text.startswith(self.prefix.upper()) and \
-      not text.startswith(self.prefix.lower()):
+    n1 = len(self.prefix)
+    n2 = n1 + start
+    t3 = text[start:n2].lower()
+    if t3 != self.prefix:
       return
 
-    end1 = text.find(self.suffix.upper())
-    end2 = text.find(self.suffix.lower())
+    end1 = text.find(self.suffix.upper(), start)
+    end2 = text.find(self.suffix.lower(), start)
 
     end = min(end1, end2)
     if end1 == -1:
@@ -1629,7 +1632,7 @@ class BlockTokenBuilder(TokenBuilder):
 
     end += len(self.suffix)
 
-    self.text = text[:end]
+    self.text = text[start:end]
 
 
   def get_score(self, line_printable_tokens):

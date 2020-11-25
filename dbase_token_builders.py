@@ -182,13 +182,13 @@ class KeywordCommentTokenBuilder(TokenBuilder):
     self.token2 = ''
 
 
-  def attempt(self, text):
+  def attempt(self, text, start):
     self.text = None
     self.token1 = None
     self.token2 = ''
     best_candidate = None
     candidate = ''
-    i = 0
+    i = start
 
     while i < len(text):
       c = text[i]
@@ -376,7 +376,7 @@ class TextBlockTokenBuilder(TokenBuilder):
     if self.text is None:
       return None
 
-    # split the text into 'TEXT', content, and 'ENDTEXT tokens
+    # split the text into 'TEXT', content, and 'ENDTEXT' tokens
     len_start = len(self.start_keyword)
     len_end = len(self.end_keyword)
 
@@ -391,15 +391,17 @@ class TextBlockTokenBuilder(TokenBuilder):
     ]
 
 
-  def attempt(self, text):
+  def attempt(self, text, start):
     self.text = None
 
-    if not text.startswith(self.start_keyword.upper()) and \
-      not text.startswith(self.start_keyword.lower()):
+    n1 = len(self.start_keyword)
+    n2 = n1 + start
+    t3 = text[start:n2].lower()
+    if t3 != self.start_keyword:
       return
 
-    end1 = text.find(self.end_keyword.upper())
-    end2 = text.find(self.end_keyword.lower())
+    end1 = text.find(self.end_keyword.upper(), start)
+    end2 = text.find(self.end_keyword.lower(), start)
 
     end = min(end1, end2)
     if end1 == -1:
@@ -412,7 +414,7 @@ class TextBlockTokenBuilder(TokenBuilder):
 
     end += len(self.end_keyword)
 
-    self.text = text[:end]
+    self.text = text[start:end]
 
 
   def get_score(self, line_printable_tokens):

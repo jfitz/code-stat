@@ -99,22 +99,30 @@ class MultilineCommentTokenBuilder(TokenBuilder):
 
 
   def __init__(self):
-    self.prefix = 'COMMENT'
+    self.prefix = 'comment'
     self.text = ''
 
 
-  def attempt(self, text):
+  def attempt(self, text, start):
     self.text = None
 
-    if not text.startswith(self.prefix):
+    len_text = len(text)
+
+    n1 = len(self.prefix)
+    n2 = n1 + start
+    t3 = text[start:n2].lower()
+    if t3 != self.prefix:
       return
 
     # end of prefix
-    index = len(self.prefix)
-    
+    index = start + len(self.prefix)
+
+    if index >= len_text:
+      return
+
     # at least one space
     n_spaces = 0
-    while text[index] in [' ', '\t']:
+    while index < len_text and text[index] in [' ', '\t']:
       index += 1
       n_spaces += 1
 
@@ -124,7 +132,7 @@ class MultilineCommentTokenBuilder(TokenBuilder):
 
     # at least one nonspace
     delimiter = ''
-    while not text[index].isspace():
+    while index < len_text and not text[index].isspace():
       delimiter += text[index]
       index += 1
 
@@ -142,7 +150,7 @@ class MultilineCommentTokenBuilder(TokenBuilder):
     # extract all text as comment token
     end = e + len(delimiter)
 
-    self.text = text[:end]
+    self.text = text[start:end]
 
 
   def get_tokens(self):

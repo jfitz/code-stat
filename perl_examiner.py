@@ -220,7 +220,7 @@ class PerlExaminer(Examiner):
     ]
 
     tokenizer = Tokenizer(tokenbuilders)
-    tokens, __ = tokenizer.tokenize_and_stop(code, ['__END__'])
+    tokens = tokenizer.tokenize(code, ['__END__'])
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     tokens = Examiner.combine_identifier_colon(tokens, ['statement terminator', 'newline'], ['{'], ['whitespace', 'comment', 'line description'])
