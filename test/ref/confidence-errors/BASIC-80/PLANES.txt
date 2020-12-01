@@ -1,20 +1,5 @@
 [
     {
-        "TYPE":"OPERATOR2",
-        "FIRST":"=",
-        "SECOND":">"
-    },
-    {
-        "TYPE":"OPERATOR3",
-        "FIRST":"=",
-        "SECOND":">"
-    },
-    {
-        "TYPE":"OPERATOR4",
-        "FIRST":"=",
-        "SECOND":">"
-    },
-    {
         "TYPE":"LENGTH",
         "LONG":"370 PRINT Y$CHR$(PY(F)+31)CHR$(PX(F)+31)P$(2);:S=S-1:IF S=0 THEN 420: ELSE FOR Z=F TO S:PX(Z)=PX(Z+1):PY(Z)=PY(Z+1):PD(Z)=PD(Z+1): PSD(Z)=PSD(Z+1):NEXT Z:GOTO 360",
         "WIDTH":132

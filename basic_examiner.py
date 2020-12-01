@@ -17,12 +17,16 @@ from token_builders import (
   CaseSensitiveListTokenBuilder,
   SingleCharacterTokenBuilder,
   PrefixedIntegerTokenBuilder,
-  LeadToEndOfLineTokenBuilder
+  LeadToEndOfLineTokenBuilder,
+  NullTokenBuilder
 )
 from basic_token_builders import (
   BasicVariableTokenBuilder,
+  BasicLongVariableTokenBuilder,
   RemarkTokenBuilder,
-  UserFunctionTokenBuilder
+  UserFunctionTokenBuilder,
+  LongUserFunctionTokenBuilder,
+  HardwareFunctionTokenBuilder
 )
 from examiner import Examiner
 
@@ -44,13 +48,17 @@ class BasicExaminer(Examiner):
     SingleCharacterTokenBuilder.__escape_z__()
     PrefixedIntegerTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
+    NullTokenBuilder.__escape_z__()
     BasicVariableTokenBuilder.__escape_z__()
+    BasicLongVariableTokenBuilder.__escape_z__()
     RemarkTokenBuilder.__escape_z__()
     UserFunctionTokenBuilder.__escape_z__()
+    LongUserFunctionTokenBuilder.__escape_z__()
+    HardwareFunctionTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
-  def __init__(self, code):
+  def __init__(self, code, version):
     super().__init__()
 
     operand_types = []
@@ -62,14 +70,26 @@ class BasicExaminer(Examiner):
     integer_exponent_tb = IntegerExponentTokenBuilder(False)
     real_tb = RealTokenBuilder(False, False, False)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', '_')
+    double_exponent_tb = NullTokenBuilder()
     integer_suffix_tb = SuffixedIntegerTokenBuilder(['%', '&', 'S', 'I', 'L', 'F', 'D', 'R', 'US', 'UI', 'UL'], True, '_')
     float_suffix_tb = SuffixedRealTokenBuilder(False, False, ['!', '#', 'F', 'D', 'R'], True, '_')
+
+    if version in ['basic-80', 'basica', 'gw-basic']:
+      double_exponent_tb = RealExponentTokenBuilder(False, False, 'D', '_')
+      integer_suffix_tb = SuffixedIntegerTokenBuilder(['%'], False, '_')
+      float_suffix_tb = SuffixedRealTokenBuilder(False, False, ['!', '#'], True, '_')
+
     hex_constant_tb = PrefixedIntegerTokenBuilder('&H', True, '0123456789ABCDEFabcdef_')
     octal_constant_tb = PrefixedIntegerTokenBuilder('&O', True, '01234567_')
     binary_constant_tb = PrefixedIntegerTokenBuilder('&B', True, '01_')
+
     operand_types.append('number')
 
     variable_tb = BasicVariableTokenBuilder('%#!$&')
+
+    if version in ['basic-80', 'basica', 'gw-basic']:
+      variable_tb = BasicLongVariableTokenBuilder('%#!$&')
+
     operand_types.append('variable')
 
     quotes = ['"']
@@ -87,6 +107,13 @@ class BasicExaminer(Examiner):
       '=', '>', '>=', '<', '<=', '<>',
       '#', '\\', '#', 'AND', 'OR', 'NOT'
     ]
+
+    if version in ['basic-80', 'basica', 'gw-basic']:
+      known_operators = [
+        '+', '-', '*', '/', '^',
+        '=', '>', '>=', '=>', '<', '<=', '=<', '<>',
+        '#', '\\', 'AND', 'OR', 'NOT', 'IMP', 'EQV', 'XOR', 'MOD'
+      ]
 
     known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
@@ -120,7 +147,43 @@ class BasicExaminer(Examiner):
       'USING'
     ]
 
+    if version in ['basic-80', 'basica', 'gw-basic']:
+      keywords = [
+        # 'AS',  ## promoted from variable after FIELD
+        # 'BASE',  ## promoted from variable after OPTION
+        'CALL', 'CHAIN', 'CLEAR', 'CLS', 'CLOSE', 'COMMON',
+        'DATA', 'DEF', 'DEFDBL', 'DEFINT', 'DEFSNG', 'DEFSTR', 'DIM',
+        'ELSE', 'END', 'ERASE', 'ERRLN', 'ERRNO', 'ERROR',
+        'FIELD', 'FILE', 'FILES', 'FOR',
+        'GET', 'GOSUB', 'GOTO',
+        'IF', 'INPUT',
+        'KILL',
+        'LET', 'LINE', 'LOAD', 'LPRINT', 'LSET',
+        'MERGE',
+        'NEXT', 'NULL',
+        'OFF', 'ON', 'ONERR', 'OPEN', 'OPTION', 'OUT', 'OUTPUT',
+        'POKE', 'PRINT', 'PUT',
+        'RANDOMIZE', 'READ', 'REM', 'REMARK', 'RESET', 'RESTORE', 'RESUME',
+        'RETURN', 'RSET', 'RUN',
+        'SET', 'STEP', 'STOP', 'SWAP', 'SYSTEM',
+        'THEN', 'TO', 'TRON', 'TROFF',
+        'USING',
+        'WAIT', 'WHILE', 'WEND', 'WIDTH', 'WRITE'
+      ]
+
+    keywords_basica = [
+      'COLOR', 'KEY', 'LOCATE', 'PAINT', 'PLAY', 'SCREEN', 'SOUND'
+    ]
+
+    if version in ['basica', 'gw-basic']:
+      keywords += keywords_basica
+
     keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
+
+    values = ['ERR', 'ERL', 'RND']
+
+    values_tb = CaseInsensitiveListTokenBuilder(values, 'value', True)
+    operand_types.append('value')
 
     functions = [
       'ABS',
@@ -140,10 +203,37 @@ class BasicExaminer(Examiner):
       'ZER'
     ]
 
-    function_tb = CaseInsensitiveListTokenBuilder(functions, 'function', True)
-    operand_types.append('function')
+    if version in ['basic-80', 'basica', 'gw-basic']:
+      # do not include RND() - it is a value and later converted to function
+      # if followed by open parenthesis
+      functions = [
+        'ABS', 'ASC', 'ATN',
+        'CDBL', 'CHR$', 'CINT', 'COS', 'CSNG', 'CVI', 'CVD', 'CVS',
+        'DATE$',
+        'EOF', 'EXP',
+        'FIX', 'FRE',
+        'HEX$',
+        'INKEY', 'INP', 'INPUT$', 'INSTR', 'INT',
+        'LEFT$', 'LEN', 'LOC', 'LOF', 'LOG', 'LPOS',
+        'MID$', 'MKI$', 'MKD$', 'MKS$',
+        'OCT$',
+        'PEEK', 'POS',
+        'RIGHT$',
+        'SGN', 'SIN', 'SPACE$', 'SPC', 'SQR', 'STR$', 'STRING$',
+        'TAB', 'TAN', 'TIME$',
+        'USR',
+        'VAL', 'VARPTR'
+      ]
 
+    function_tb = CaseInsensitiveListTokenBuilder(functions, 'function', True)
     user_function_tb = UserFunctionTokenBuilder('%#!$&')
+    hardware_function_tb = NullTokenBuilder()
+
+    if version in ['basic-80', 'basica', 'gw-basic']:
+      user_function_tb = LongUserFunctionTokenBuilder('%#!$&')
+      hardware_function_tb = HardwareFunctionTokenBuilder()
+
+    operand_types.append('function')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -157,6 +247,7 @@ class BasicExaminer(Examiner):
       integer_suffix_tb,
       real_tb,
       real_exponent_tb,
+      double_exponent_tb,
       hex_constant_tb,
       octal_constant_tb,
       binary_constant_tb,
@@ -164,9 +255,11 @@ class BasicExaminer(Examiner):
       known_operator_tb,
       function_tb,
       user_function_tb,
+      hardware_function_tb,
       variable_tb,
       groupers_tb,
       string_tb,
+      values_tb,
       remark_tb,
       comment_tb,
       comment2_tb,
@@ -181,6 +274,14 @@ class BasicExaminer(Examiner):
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     tokens = BasicExaminer.convert_numbers_to_line_numbers(tokens)
+
+    if version in ['basic-80', 'basica', 'gw-basic']:
+      tokens = BasicExaminer.extract_keywords_from_identifiers(tokens, keywords, known_operators)
+      tokens = BasicExaminer.convert_as_to_keyword(tokens)
+      tokens = BasicExaminer.convert_base_to_keyword(tokens)
+      tokens = BasicExaminer.convert_values_to_functions(tokens, values)
+      tokens = BasicExaminer.convert_operators_to_values(tokens)
+
     self.tokens = tokens
 
     self.calc_statistics()
@@ -202,8 +303,10 @@ class BasicExaminer(Examiner):
     self.calc_group_confidence(tokens, group_mids)
 
     operand_types_2 = ['number', 'string', 'variable', 'symbol']
-    self.calc_operand_n_confidence(tokens, operand_types_2, 2)
-    self.calc_operand_n_confidence(tokens, operand_types, 4)
+
+    if version not in ['basic-80', 'basica', 'gw-basic']:
+      self.calc_operand_n_confidence(tokens, operand_types_2, 2)
+      self.calc_operand_n_confidence(tokens, operand_types, 4)
 
     self.calc_keyword_confidence()
 
@@ -218,6 +321,132 @@ class BasicExaminer(Examiner):
     for token in tokens:
       if token.group == 'number' and prev_token.group == 'newline':
         token.group = 'line number'
+
+      if token.group not in ['whitespace', 'comment', 'line description']:
+        prev_token = token
+
+    return tokens
+
+
+  @staticmethod
+  def extract_keywords(text, words):
+    new_texts = []
+    new_text = ''
+    while len(text) > 0:
+      found = False
+      for word in words:
+        if text.startswith(word):
+          if len(new_text) > 0:
+            new_texts.append(new_text)
+            new_text = ''
+          new_texts.append(word)
+          # clip out keyword
+          text = text[len(word):]
+          found = True
+          break
+      if not found:
+        new_text += text[0]
+        text = text[1:]
+
+    if len(new_text) > 0:
+      new_texts.append(new_text)
+
+    return new_texts
+
+
+  @staticmethod
+  def extract_keywords_from_identifiers(tokens, keywords, operators):
+    new_tokens = []
+
+    words = keywords + operators
+
+    for token in tokens:
+      if token.group == 'variable':
+        new_texts = BasicExaminer.extract_keywords(token.text, words)
+
+        for new_text in new_texts:
+          if new_text in keywords:
+            new_token = Token(new_text, 'keyword', False)
+          elif new_text in operators:
+            new_token = Token(new_text, 'operator', False)
+          else:
+            if new_text.isdigit():
+              new_token = Token(new_text, 'number', True)
+            else:
+              new_token = Token(new_text, 'variable', True)
+
+          new_tokens.append(new_token)
+      else:
+        new_tokens.append(token)
+
+    return new_tokens
+
+
+  @staticmethod
+  def convert_as_to_keyword(tokens):
+    seen_field = False
+
+    for token in tokens:
+      if token.group == 'newline':
+        seen_field = False
+
+      if token.group == 'keyword' and token.text.lower() == 'field':
+        seen_field = True
+
+      if token.group == 'variable' and token.text.lower() == 'as' and seen_field:
+        token.group = 'keyword'
+
+    return tokens
+
+
+  @staticmethod
+  def convert_base_to_keyword(tokens):
+    prev_token = Token('\n', 'newline', False)
+
+    for token in tokens:
+      if token.group == 'variable' and token.text.lower() == 'base' and \
+        prev_token.group == 'keyword' and prev_token.text.lower() == 'option':
+        token.group = 'keyword'
+
+      if token.group not in ['whitespace', 'comment', 'line description']:
+        prev_token = token
+
+    return tokens
+
+
+  @staticmethod
+  def convert_operators_to_values(tokens):
+    prev_token = Token('\n', 'newline', False)
+    seen_put = False
+
+    for token in tokens:
+      if token.group == 'newline':
+        seen_put = False
+
+      if token.group == 'keyword' and token.text.lower() == 'put':
+        seen_put = True
+
+      # TODO: check not in open parens
+      if token.group == 'operator' and \
+        token.text.lower() in ['and', 'or', 'xor'] and \
+        seen_put and \
+        prev_token.text == ',':
+        token.group = 'value'
+
+      if token.group not in ['whitespace', 'comment', 'line description']:
+        prev_token = token
+
+    return tokens
+
+
+  @staticmethod
+  def convert_values_to_functions(tokens, values):
+    prev_token = Token('\n', 'newline', False)
+
+    for token in tokens:
+      if token.group == 'group' and token.text == '(' and \
+        prev_token.group == 'value' and prev_token.text in values:
+        prev_token.group = 'function'
 
       if token.group not in ['whitespace', 'comment', 'line description']:
         prev_token = token

@@ -39,7 +39,6 @@ from julia_examiner import JuliaExaminer
 from kotlin_examiner import KotlinExaminer
 from lua_examiner import LuaExaminer
 from matlab_examiner import MatlabExaminer
-from microsoft_basic_examiner import MicrosoftBasicExaminer
 from ml_examiner import MlExaminer
 from modula2_examiner import Modula2Examiner
 from objectivec_examiner import ObjectiveCExaminer
@@ -92,7 +91,6 @@ JuliaExaminer.__escape_z__()
 KotlinExaminer.__escape_z__()
 LuaExaminer.__escape_z__()
 MatlabExaminer.__escape_z__()
-MicrosoftBasicExaminer.__escape_z__()
 MlExaminer.__escape_z__()
 Modula2Examiner.__escape_z__()
 ObjectiveCExaminer.__escape_z__()
@@ -976,13 +974,13 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
     examiner = AwkExaminer(code, 'gnu')
 
   if language in ['basic', 'bas']:
-    examiner = BasicExaminer(code)
+    examiner = BasicExaminer(code, '')
 
   if language in ['basic-80', 'mbasic', 'mba']:
-    examiner = MicrosoftBasicExaminer(code, 'basic-80')
+    examiner = BasicExaminer(code, 'basic-80')
 
   if language in ['basica']:
-    examiner = MicrosoftBasicExaminer(code, 'basica')
+    examiner = BasicExaminer(code, 'basica')
 
   if language in ['c-78', 'c', 'c-k&r']:
     examiner = CExaminer(code, '78')
@@ -1249,13 +1247,13 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
     examiners['gawk'] = AwkExaminer(code, 'gnu')
 
   if 'basic' in languages or 'bas' in languages:
-    examiners['basic'] = BasicExaminer(code)
+    examiners['basic'] = BasicExaminer(code, '')
 
   if 'basic-80' in languages or 'mbasic' in languages or 'mba' in languages:
-    examiners['basic-80'] = MicrosoftBasicExaminer(code, 'basic-80')
+    examiners['basic-80'] = BasicExaminer(code, 'basic-80')
 
   if 'basica' in languages:
-    examiners['basica'] = MicrosoftBasicExaminer(code, 'basica')
+    examiners['basica'] = BasicExaminer(code, 'basica')
 
   if 'cbasic' in languages:
     examiners['cbasic'] = CBasicExaminer(code)
