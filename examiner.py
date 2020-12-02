@@ -319,6 +319,10 @@ class Examiner:
   def calc_line_length_confidence(self, code, width):
     num_ok_lines = 0
     lines = code.split('\n')
+
+    if len(lines) == 1 and self.newlines_important == 'never':
+      return
+
     for line in lines:
       line = line.rstrip('\r')
       line = line.rstrip()
@@ -330,7 +334,6 @@ class Examiner:
           'LONG': line,
           'WIDTH': width
         })
-
 
     line_length_confidence = 0.0
     if len(lines) > 0:

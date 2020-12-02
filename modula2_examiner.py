@@ -75,7 +75,7 @@ class Modula2Examiner(Examiner):
     known_operators = [
       ':=', '=', '>', '>=', '<', '<=', '#', '<>',
       '+', '-', '*', '/', 'DIV', 'MOD',
-      'AND', 'OR', 'NOT', '^', '.', '..', '&'
+      'AND', 'OR', 'NOT', '^', '.', '..', 'IN', '&'
     ]
 
     known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)

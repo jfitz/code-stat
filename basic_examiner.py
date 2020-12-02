@@ -60,6 +60,7 @@ class BasicExaminer(Examiner):
 
   def __init__(self, code, version):
     super().__init__()
+    self.newlines_important = 'always'
 
     operand_types = []
 
