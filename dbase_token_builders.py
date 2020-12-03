@@ -3,7 +3,8 @@ import re
 from codestat_token import Token
 from token_builders import (
   TokenBuilder,
-  IdentifierTokenBuilder
+  IdentifierTokenBuilder,
+  BlockTokenBuilder
 )
 
 # token reader for deleted record function
@@ -360,25 +361,24 @@ class KeywordComment2TokenBuilder(TokenBuilder):
 
 
 # token reader for identifier
-class TextBlockTokenBuilder(TokenBuilder):
+class TextBlockTokenBuilder(BlockTokenBuilder):
   @staticmethod
   def __escape_z__():
     Token.__escape_z__()
     return 'Escape ?Z'
 
 
-  def __init__(self, start_keyword, end_keyword):
-    self.text = None
-    self.start_keyword = start_keyword.lower()
-    self.end_keyword = end_keyword.lower()
+  def __init__(self, prefix, suffix):
+    super().__init__(prefix, suffix, 'string')
+
 
   def get_tokens(self):
     if self.text is None:
       return None
 
     # split the text into 'TEXT', content, and 'ENDTEXT' tokens
-    len_start = len(self.start_keyword)
-    len_end = len(self.end_keyword)
+    len_start = len(self.prefix)
+    len_end = len(self.suffix)
 
     starter_token = Token(self.text[:len_start], 'keyword', False)
     ender_token = Token(self.text[-len_end:], 'keyword', False)
@@ -389,42 +389,3 @@ class TextBlockTokenBuilder(TokenBuilder):
       content,
       ender_token
     ]
-
-
-  def attempt(self, text, start):
-    self.text = None
-
-    n1 = len(self.start_keyword)
-    n2 = n1 + start
-    t3 = text[start:n2].lower()
-    if t3 != self.start_keyword:
-      return
-
-    end1 = text.find(self.end_keyword.upper(), start)
-    end2 = text.find(self.end_keyword.lower(), start)
-
-    end = min(end1, end2)
-    if end1 == -1:
-      end = end2
-    if end2 == -1:
-      end = end1
-
-    if end == -1:
-      return
-
-    end += len(self.end_keyword)
-
-    self.text = text[start:end]
-
-
-  def get_score(self, line_printable_tokens):
-    if self.text is None:
-      return 0
-
-    if not self.text.lower().startswith(self.start_keyword):
-      return 0
-
-    if not self.text.lower().endswith(self.start_keyword):
-      return 0
-
-    return len(self.text)
