@@ -106,15 +106,16 @@ class BasicExaminer(Examiner):
     known_operators = [
       '+', '-', '*', '/', '^',
       '=', '>', '>=', '<', '<=', '<>',
-      '#', '\\', '#', 'AND', 'OR', 'NOT'
+      '#', '\\', 'AND', 'OR', 'NOT'
+    ]
+
+    known_operators_ms = [
+      '=>', '=<',
+      'IMP', 'EQV', 'XOR', 'MOD'
     ]
 
     if version in ['basic-80', 'basica', 'gw-basic']:
-      known_operators = [
-        '+', '-', '*', '/', '^',
-        '=', '>', '>=', '=>', '<', '<=', '=<', '<>',
-        '#', '\\', 'AND', 'OR', 'NOT', 'IMP', 'EQV', 'XOR', 'MOD'
-      ]
+      known_operators += known_operators_ms
 
     known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
@@ -130,12 +131,11 @@ class BasicExaminer(Examiner):
     groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
     keywords = [
-      'AS',
-      'CHANGE', 'CLOSE',
+      'CLOSE', 'CHAIN',
       'DATA', 'DEF', 'DIM',
-      'ELSE', 'END', 'ERROR', 'ERRNO', 'ERRLN',
+      'ELSE', 'END', 'ERROR',
       'FILE', 'FOR',
-      'GOSUB', 'GO', 'GOTO',
+      'GOSUB', 'GOTO',
       'IF', 'INPUT',
       'LET', 'LINE',
       'MAT',
@@ -148,29 +148,40 @@ class BasicExaminer(Examiner):
       'USING'
     ]
 
+    keywords_plain = [
+      'AS',
+      'GO'
+    ]
+
+    keywords_ms = [
+      # 'AS',  ## promoted from variable after FIELD
+      # 'BASE',  ## promoted from variable after OPTION
+      'CALL', 'CLEAR', 'CLS', 'COMMON',
+      'DEFDBL', 'DEFINT', 'DEFSNG', 'DEFSTR',
+      'ELSE', 'END', 'ERASE', 'ERRLN', 'ERRNO', 'ERROR',
+      'FIELD', 'FILES',
+      'GET',
+      'KILL',
+      'LOAD', 'LPRINT', 'LSET',
+      'MERGE',
+      'NULL',
+      'ONERR', 'OPTION', 'OUT',
+      'PUT',
+      'RESET', 'RESUME', 'RETURN', 'RSET', 'RUN',
+      'SET', 'SWAP', 'SYSTEM',
+      'TRON', 'TROFF',
+      'WAIT', 'WHILE', 'WEND', 'WIDTH', 'WRITE'
+    ]
+
+    plus_keywords = [
+      'CHANGE'
+    ]
+
+    if version in ['']:
+      keywords += keywords_plain
+
     if version in ['basic-80', 'basica', 'gw-basic']:
-      keywords = [
-        # 'AS',  ## promoted from variable after FIELD
-        # 'BASE',  ## promoted from variable after OPTION
-        'CALL', 'CHAIN', 'CLEAR', 'CLS', 'CLOSE', 'COMMON',
-        'DATA', 'DEF', 'DEFDBL', 'DEFINT', 'DEFSNG', 'DEFSTR', 'DIM',
-        'ELSE', 'END', 'ERASE', 'ERRLN', 'ERRNO', 'ERROR',
-        'FIELD', 'FILE', 'FILES', 'FOR',
-        'GET', 'GOSUB', 'GOTO',
-        'IF', 'INPUT',
-        'KILL',
-        'LET', 'LINE', 'LOAD', 'LPRINT', 'LSET',
-        'MERGE',
-        'NEXT', 'NULL',
-        'OFF', 'ON', 'ONERR', 'OPEN', 'OPTION', 'OUT', 'OUTPUT',
-        'POKE', 'PRINT', 'PUT',
-        'RANDOMIZE', 'READ', 'REM', 'REMARK', 'RESET', 'RESTORE', 'RESUME',
-        'RETURN', 'RSET', 'RUN',
-        'SET', 'STEP', 'STOP', 'SWAP', 'SYSTEM',
-        'THEN', 'TO', 'TRON', 'TROFF',
-        'USING',
-        'WAIT', 'WHILE', 'WEND', 'WIDTH', 'WRITE'
-      ]
+      keywords += keywords_ms
 
     keywords_basica = [
       'COLOR', 'KEY', 'LOCATE', 'PAINT', 'PLAY', 'SCREEN', 'SOUND'
@@ -181,18 +192,16 @@ class BasicExaminer(Examiner):
 
     keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
-    values = ['ERR', 'ERL', 'RND']
+    values = ['OFF', 'ON']
 
     values_tb = CaseInsensitiveListTokenBuilder(values, 'value', True)
     operand_types.append('value')
 
     functions = [
-      'ABS',
-      'ASC',
-      'ATN',
+      'ABS', 'ASC', 'ATN',
       'CHR', 'CHR$', 'CON', 'COS',
       'DET',
-      'EXP',
+      'ERL', 'ERR', 'EXP',
       'IDN', 'INSTR', 'INT', 'INV',
       'LEFT', 'LEFT$', 'LEN', 'LOG',
       'MID', 'MID$',
@@ -204,27 +213,25 @@ class BasicExaminer(Examiner):
       'ZER'
     ]
 
+    functions_ms = [
+      'CDBL', 'CINT', 'CSNG', 'CVI', 'CVD', 'CVS',
+      'DATE$',
+      'EOF',
+      'FIX', 'FRE',
+      'HEX$',
+      'INKEY', 'INP', 'INPUT$', 'INSTR',
+      'LOC', 'LOF', 'LPOS',
+      'MKI$', 'MKD$', 'MKS$',
+      'OCT$',
+      'PEEK',
+      'SPACE$', 'SPC', 'STRING$',
+      'TIME$',
+      'USR',
+      'VARPTR'
+    ]
+
     if version in ['basic-80', 'basica', 'gw-basic']:
-      # do not include RND() - it is a value and later converted to function
-      # if followed by open parenthesis
-      functions = [
-        'ABS', 'ASC', 'ATN',
-        'CDBL', 'CHR$', 'CINT', 'COS', 'CSNG', 'CVI', 'CVD', 'CVS',
-        'DATE$',
-        'EOF', 'EXP',
-        'FIX', 'FRE',
-        'HEX$',
-        'INKEY', 'INP', 'INPUT$', 'INSTR', 'INT',
-        'LEFT$', 'LEN', 'LOC', 'LOF', 'LOG', 'LPOS',
-        'MID$', 'MKI$', 'MKD$', 'MKS$',
-        'OCT$',
-        'PEEK', 'POS',
-        'RIGHT$',
-        'SGN', 'SIN', 'SPACE$', 'SPC', 'SQR', 'STR$', 'STRING$',
-        'TAB', 'TAN', 'TIME$',
-        'USR',
-        'VAL', 'VARPTR'
-      ]
+      functions += functions_ms
 
     function_tb = CaseInsensitiveListTokenBuilder(functions, 'function', True)
     user_function_tb = UserFunctionTokenBuilder('%#!$&')
@@ -257,10 +264,10 @@ class BasicExaminer(Examiner):
       function_tb,
       user_function_tb,
       hardware_function_tb,
+      values_tb,
       variable_tb,
       groupers_tb,
       string_tb,
-      values_tb,
       remark_tb,
       comment_tb,
       comment2_tb,
@@ -280,7 +287,6 @@ class BasicExaminer(Examiner):
       tokens = BasicExaminer.extract_keywords_from_identifiers(tokens, keywords, known_operators)
       tokens = BasicExaminer.convert_as_to_keyword(tokens)
       tokens = BasicExaminer.convert_base_to_keyword(tokens)
-      tokens = BasicExaminer.convert_values_to_functions(tokens, values)
       tokens = BasicExaminer.convert_operators_to_values(tokens)
 
     self.tokens = tokens
