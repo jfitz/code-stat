@@ -92,14 +92,18 @@ class AssemblyIBMExaminer(Examiner):
 
     known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
+    preprocessors = [
+      'MACRO', 'MEND'
+    ]
+
+    preprocessor_tb = CaseInsensitiveListTokenBuilder(preprocessors, 'preprocesssor', False)
+
     directives = [
-      'ABEND',
       'CSECT',
       'DC', 'DROP', 'DS', 
       'EJECT', 'END', 'ENTRY', 'EQU', 'EXTRN',
       'FREEMAIN',
       'GETMAIN', 'GLOBAL',
-      'MACRO', 'MEND',
       'NAM', 'NAME',
       'ORG',
       'PAGE', 'PARAM', 'PROC', 'PUBLIC',
@@ -114,7 +118,7 @@ class AssemblyIBMExaminer(Examiner):
     keywords = []
 
     keywords_360 = [
-      'A', 'AD', 'ADR', 'AE', 'AER', 'AH', 'AL', 'ALR', 'AP', 'AR',
+      'A', 'ABEND', 'AD', 'ADR', 'AE', 'AER', 'AH', 'AL', 'ALR', 'AP', 'AR',
       'AU', 'AUR', 'AW', 'AWR', 'AXR',
       'B', 'BAL', 'BALR', 'BAS', 'BASR', 'BC', 'BCR', 'BCT', 'BCTR',
       'BE', 'BH', 'BL', 'BM', 'BNE', 'BNH', 'BNL', 'BNM', 'BNP', 'BNO', 'BNZ',
@@ -326,6 +330,7 @@ class AssemblyIBMExaminer(Examiner):
       opcode_tb,
       directive_tb,
       include_directive_tb,
+      preprocessor_tb,
       identifier_tb,
       string_tb,
       hex_string_tb,
@@ -341,6 +346,7 @@ class AssemblyIBMExaminer(Examiner):
       opcode_tb,
       directive_tb,
       include_directive_tb,
+      preprocessor_tb,
       identifier_tb,
       self.unknown_operator_tb,
       invalid_token_builder

@@ -139,47 +139,186 @@ class AssemblyExaminer(Examiner):
     known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     preprocessors = [
-      'if', 'else', 'endif', 'endc', 'macro', 'endm', 'error'
+      'if', 'ifne', 'ifeq',
+      'else', 'endif', 'endc',
+      'error'
     ]
+
+    preprocessors_68000 = [
+      'MACRO', 'ENDM'
+    ]
+
+    preprocessors_8080 = [
+      'MACRO', 'ENDM'
+    ]
+
+    preprocessors_8086 = [
+      'ELSE', 'ELSEIF', 'ELSEIF2', 'ENDM', 'EXITM',
+      'FOR', 'FORC',
+      'GOTO',
+      'IF', 'IF2', 'IFB', 'IFNB', 'IFDEF', 'IFNDEF',
+      'IFDIF', 'IFDIF[[I]]', 'IFE', 'IFIDN', 'IFIDN[[I]]',
+      'LOCAL',
+      'MACRO',
+      'PURGE',
+      '.BREAK', '.CONTINUE',
+      '.ELSE', '.ELSEIF', '.ENDIF',
+      '.ERR', '.ERR2', '.ERRB', '.ERRDEF',
+      '.ERRDIF', '.ERRDIF[[I]]]', '.ERRE', '.ERRIDN', '.ERRIDN[[I]]',
+      '.ERRNB', '.ERRNDEF', '.ERRNZ', '.EXIT',
+      '.IF',
+      '.REPEAT', '.UNTIL', '.UNTILCXZ',
+      '.WHILE'
+    ]
+
+    if processor in ['68000']:
+      preprocessors += preprocessors_68000
+
+    if processor in ['8080']:
+      preprocessors += preprocessors_8080
+
+    if processor in ['8086']:
+      preprocessors += preprocessors_8086
 
     preprocessor_tb = CaseInsensitiveListTokenBuilder(preprocessors, 'preprocessor', False)
 
     directives = [
-      '=',
-      'ALIGN', 'ASEG', 'ASSUME',
-      'BITS',
-      'CODE', 'CPU', 'CSEG',
-      'DB', 'DEFB', 'DEFS', 'DEFW', 'DFB', 'DFW', 'DW', 'DS', 'DSEG',
-      'EJECT', 'END', 'ENDC', 'ENDS', 'EQU', 'EVEN', 'EXTRN',
-      'IFARG', 'IFC', 'IFEQ', 'IFNE',
-      'GLOBAL',
-      'INS86', '%INCLUDE',
-      'MACRO',
-      'NAM', 'NAME',
-      'OPT', 'ORG',
-      'PAGE', 'PROC', 'PUBLIC',
-      'RESB', 'RESD',
-      'SECTION', 'SEGMENT', 'SSEG', 'START',
-      'TEXT',
-      '.8080', '.8086', '.6800', '.6502', ".386",
-      '.ASCII', '.ASCIZ', '.ASECT',
-      '.BLKB', '.BLKW', '.BYTE',
-      '.CODE', '.CSECT',
-      '.DATA',
-      '.ENABLE', 'DSABLE', '.EVEN', '.ODD', '.END', '.EOT', '.ERROR',
-      '.FLT2', '.FLT4',
-      '.GLOBL',
-      '.IDENT', '.IF', '.ENDC', '.IFF', '.IFT', '.IFTF', '.IRP', '.IRPC',
-      '.LIMIT', '.LIST', '.LONG',
-      '.MACRO', '.ENDM', '.MEXIT', '.MCALL', '.MODEL',
-      '.NARG', '.NCHR', '.NLST', '.NLIST', '.NTYPE', 
-      '.PAGE', '.PRINT', '.PSECT',
-      '.RAD50', '.RADIX', '.REPT', '.ENDR', '.RESTORE',
-      '.SALL', '.SET',
-      '.TEXT',
-      '.WORD',
-      '.XLIST'
+      'DB', 'DW', 'DS',
+      'EJECT', 'END', 'EQU', 'EXTRN',
+      'INCLUDE',
+      'NAME',
+      'ORG',
+      'PAGE',
+      'SECTION', 'SEGMENT', 'START', 'SUBTITLE',
+      'TEXT'
     ]
+
+    directives_6502 = [
+      'DFB', 'DFW'
+    ]
+
+    directives_6800 = [
+      'CPU',
+      'NAM'
+    ]
+
+    directives_68000 = [
+      '=',
+      'EVEN',
+      'ODD'
+    ]
+
+    directives_8080 = [
+      'ASEG',
+      'CPU',
+      'LOCAL',
+      'TITLE',
+      '.8080', '.8086', '.6800', '.6502', ".386",
+    ]
+
+    directives_z80 = [
+      'DEFB', 'DEFS', 'DEFW'
+    ]
+
+    directives_8086 = [
+      '=',
+      'ABSOLUTE', 'ALIAS', 'ALIGN', 'AS', 'ASSUME', 'AT',
+      'BITS', 'BYTE',
+      'COMM', 'COMMON', 'CPU', 'CSEG',
+      'DEFAULT', 'DSEG', 'DWORD',
+      'ECHO', 'ENDP', 'ENDS', 'EVEN', 'EXTERNDEF',
+      'FWORD', 'FORMAT',
+      'GLOBAL', 'GROUP',
+      'INCLUDELIB', 'INS86', 'INVOKE',
+      'LABEL',
+      'MMWORD',
+      'OPTION',
+      'POPCONTEXT', 'PROC', 'PROTO', 'PUBLIC', 'PUSHCONTEXT',
+      'SEGMENT'
+      'QWORD',
+      'REAL4', 'REAL8', 'REAL10', 'RECORD',
+      'STRUCT',
+      'TEXTEQU', 'TBYTE', 'TYPEDEF',
+      'WORD',
+      'SBYTE', 'SDWORD', 'SWORD',
+      'SECT', 'SECTION', 'SEGMENT', 'STATIC'
+      'UNION', 'USE16', 'USE32', 'USE64',
+      'VIRTUAL',
+      'XMMWORD', 'YMMWORD',
+      '.386', '.386P', '.387', '.486', '.486P', '.586', '.586P',
+      '.686', '.686P', '.K3D',
+      '.ALLOCSTACK', '.ALPHA',
+      '.CODE', '.CONST', '.CREF',
+      '.DATA', '.DATA?', '.DOSSEG',
+      '.ENDW', '.ENDPROLOG',
+      '.FARDATA', '.FARDATA?', '.FPO',
+      '.LIST', '.LISTALL', '.LISTIF', '.LISTMACRO', '.LISTMACROALL',
+      '.MODEL', '.MMX',
+      '.NOCREF', '.NOLIST', '.NOLISTIF', '.NOLISTMACRO',
+      '.PUSHFRAME', '.PUSHREG',
+      '.RADIX',
+      '.SAFESEH', '.SALL', '.SAVEREG', '.SAVEXMM128', '.STACK', '.STARTUP',
+      '.SEQ', '.SETFRAME',
+      '.TFCOND',
+      '.XLIST', '.XMM',
+    ]
+
+    directives_80386 = [
+      'ALIGN',
+      'BITS',
+      'GLOBAL',
+      'PROC',
+      'SECTION',
+      'RESB', 'RESD',
+      '.386',
+      '.CODE',
+      '.DATA',
+      '.MODEL',
+      '.TEXT',
+      '%INCLUDE',
+    ]
+
+    directives_pdp8 = [
+      '='
+    ]
+
+    directives_pdp11 = [
+      '=',
+      'BYTE',
+      'WORD',
+      '.odd', '.even', '.blkb', '.blkw', '.byte', '.word',
+      '.ascii', '.asciz', '.end', '.hex', '.radix',
+      '.ident', '.if', '.ift', '.endc', '.psect', '.mcall',
+      '.macro', '.endm', '.restore', '.print', '.error',
+      '.list', '.nlist'
+    ]
+
+    if processor in ['6502']:
+      directives += directives_6502
+
+    if processor in ['6800']:
+      directives += directives_6800
+
+    if processor in ['68000']:
+      directives += directives_68000
+
+    if processor in ['8080']:
+      directives += directives_8080
+
+    if processor in ['z80']:
+      directives += directives_z80
+
+    if processor in ['8086']:
+      directives += directives_8086
+
+    if processor in ['80386']:
+      directives += directives_80386
+
+    if processor in ['pdp-8']:
+      directives += directives_pdp8
+
+    if processor in ['pdp-11']:
+      directives += directives_pdp11
 
     directive_tb = CaseInsensitiveListTokenBuilder(directives, 'directive', False)
 
