@@ -76,7 +76,7 @@ examiners for:
  HOPE,
  Hypercard, ISWIM, JOVIAL, MacSyma, Mesa, Miranda, Multics Shell,
  PLANNER, SMP, Sketchpad,
- True Basic, Small Basic, BASIC-E,
+ True Basic, Small Basic, BASIC-E, BBC BASIC,
  BASIC-PLUS, BASIC-PLUS-2, Amiga BASIC, QuickBasic, QBASIC,
  Turbo BASIC, FreeBasic, MSX BASIC, Pure Basic, SpiderBasic,
  VBA, MDL (Zork on GitHub), FlashBasic
@@ -171,6 +171,52 @@ BASIC
 - identify line numbers after THEN, GOTO, GOSUB (incuding ON GOTO, ON GOSUB) ON ERROR
 
 BASIC-80 / BASICA / GW-BASIC
+
+BBC BASIC
+- operators [
+*, **, *|, #, ', %, $, &, ~, ?, !, [, @%
+  '*', '**', '*|', '#', '%', '~', '@%',
+  'AND', 'OR', 'NOT',
+]
+- keywords [
+  ACS, ADVAL, ASN
+  BGET#, BPUT#
+  CALL, CASE, CHAIN, CIRCLE, CLEAR, CLG, CLOSE#, CLS, COLOR, COLOUR, COUNT
+  DATA, DEF, DEG, DIM, DIV, DRAW
+  EDIT, ELLIPSE, ELSE, END, ENDCASE, ENDIF, ENDWHILE, ENDPROC, ENVELOPE, EOF#, EOR, EVAL, EXT#
+  FILL, FN, FOR,
+  GCOL, GET, GET$, GOSUB, GOTO
+  HIMEM
+  IF, INKEY, INKEY$, INPUT, INPUT#,
+  LET, LINE, LN, LOCAL, LOMEM
+  MOD, MODE, MOUSE, MOVE
+  NEXT,
+  OF, ON ERROR, OPENIN, OPENOUT, OPENUP, OPT, ORIGIN, OSCLI, OTHERWISE
+  PAGE, PLOT, POINT, PRINT, PRINT#, PROC, PTR#
+  QUIT,
+  RAD, RECTANGLE, READ, READ#, REM, REPEAT, REPORT, RESTORE, RETURN, RUN,
+  SOUND, STEP, STOP, SUM, SWAP, SYS
+  THEN, TIME, TIME$, TINT, TO, TOP, TRACE,
+  UNTIL, USR
+  VDU, VPOS
+  WHEN, WHILE, WIDTH
+]
+- functions [
+  'ABS', 'ASC', 'ATN',
+  'CHR$', 'COS',
+  'EXP',
+  'INSTR', 'INT',
+  'LEFT$', 'LEN', 'LOG',
+  'MID$',
+  'POS',
+  'RIGHT$', 'RND',
+  'SGN', 'SIN', 'SPC', 'SQR', 'STR$', 'STRING$',
+  'TAB', 'TAN',
+  'VAL'
+]
+- values [
+  'ERL', 'ERR', 'FALSE', 'TRUE', 'OFF', 'ON', 'PI',
+]
 
 C
 * C89 source (has void but not bool, // comment)
@@ -399,6 +445,7 @@ PL/I
 ? 'example' has issues (plain text in source)
 + bit string constant is string with suffix B
 - use LabelTokenBuilder class
+- combine 'fixed' and 'free' into one examiner (like ASM)
 
 PL/M
 + copy of PL/1
