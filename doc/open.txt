@@ -173,50 +173,67 @@ BASIC
 BASIC-80 / BASICA / GW-BASIC
 
 BBC BASIC
+- line numbers or no line numbers
 - operators [
-*, **, *|, #, ', %, $, &, ~, ?, !, [, @%
-  '*', '**', '*|', '#', '%', '~', '@%',
-  'AND', 'OR', 'NOT',
+*, **, *|, #, ', %, &, ~, [,
+  '*', '**', '*|', '#', '%', '~',
+  '>>', '?', '!', ']', '|', '$', '$$',
+  '>>>', '<<<',
+  'AND', 'DIV', 'MOD', 'OR',
+  'AND=', 'DIV=', 'MOD=', 'OR=',
+  'NOT',
 ]
+- unary operators [
+  '?'. '!', ']', '|', '$', '$$', 'NOT', '+', '-'
+]
+- line continuation \
+- prefix for variable @
+- groupers () {}
 - keywords [
-  ACS, ADVAL, ASN
-  BGET#, BPUT#
-  CALL, CASE, CHAIN, CIRCLE, CLEAR, CLG, CLOSE#, CLS, COLOR, COLOUR, COUNT
-  DATA, DEF, DEG, DIM, DIV, DRAW
-  EDIT, ELLIPSE, ELSE, END, ENDCASE, ENDIF, ENDWHILE, ENDPROC, ENVELOPE, EOF#, EOR, EVAL, EXT#
-  FILL, FN, FOR,
-  GCOL, GET, GET$, GOSUB, GOTO
-  HIMEM
-  IF, INKEY, INKEY$, INPUT, INPUT#,
-  LET, LINE, LN, LOCAL, LOMEM
-  MOD, MODE, MOUSE, MOVE
-  NEXT,
-  OF, ON ERROR, OPENIN, OPENOUT, OPENUP, OPT, ORIGIN, OSCLI, OTHERWISE
-  PAGE, PLOT, POINT, PRINT, PRINT#, PROC, PTR#
-  QUIT,
-  RAD, RECTANGLE, READ, READ#, REM, REPEAT, REPORT, RESTORE, RETURN, RUN,
-  SOUND, STEP, STOP, SUM, SWAP, SYS
-  THEN, TIME, TIME$, TINT, TO, TOP, TRACE,
-  UNTIL, USR
-  VDU, VPOS
-  WHEN, WHILE, WIDTH
+  'BGET#', 'BPUT#',
+  'CALL', 'CASE', 'CHAIN', 'CIRCLE', 'CLEAR', 'CLG', 'CLOSE#', 'CLS', 'COLOR',
+  'COLOUR',
+  'DATA', 'DEF', 'DIM', 'DRAW',
+  'EDIT', 'ELLIPSE', 'ELSE', 'END', 'ENDCASE', 'ENDIF', 'ENDWHILE',
+  'ENDPROC', 'ENVELOPE', 'ERROR', 'EVAL',
+  'FILL', 'FOR',
+  'GCOL', 'GOSUB', 'GOTO',
+  'IF', 'INPUT', 'INPUT#',
+  'LET', 'LINE', 'LOCAL',
+  'MODE', 'MOUSE', 'MOVE',
+  'NEXT',
+  'OF', 'OPENIN', 'OPENOUT', 'OPENUP', 'OPT', 'ORIGIN', 'OSCLI', 'OTHERWISE',
+  'PAGE', 'PLOT', 'POINT', 'PRINT', 'PRINT#', 'PROC', 'PTR#',
+  'QUIT',
+  'RECTANGLE', 'READ', 'READ#', 'REM', 'REPEAT', 'REPORT', 'RESTORE',
+  'RETURN', 'RUN',
+  'SOUND', 'STEP', 'STOP', 'SUM', 'SWAP', 'SYS',
+  'THEN', 'TIME', 'TIME$', 'TO', 'TRACE',
+  'UNTIL', 'USR',
+  'VDU',
+  'WHEN', 'WHILE', 'WIDTH'
 ]
 - functions [
-  'ABS', 'ASC', 'ATN',
-  'CHR$', 'COS',
-  'EXP',
-  'INSTR', 'INT',
-  'LEFT$', 'LEN', 'LOG',
+  'ABS',  'ASC', 'ATN', 'ACS', 'ADVAL', 'ASN',
+  'CHR$', 'COS', 'COUNT',
+  'DEG',
+  'EXP', 'EOR', 'EOF#', 'EXT#',
+  'GET', 'GET$',
+  'HIMEM',
+  'INKEY', 'INKEY$', 'INSTR', 'INT',
+  'LEFT$', 'LEN', 'LN', 'LOG', 'LOMEM',
   'MID$',
   'POS',
-  'RIGHT$', 'RND',
+  'RAD', 'RIGHT$', 'RND',
   'SGN', 'SIN', 'SPC', 'SQR', 'STR$', 'STRING$',
-  'TAB', 'TAN',
-  'VAL'
+  'TAB', 'TAN', 'TINT', 'TOP',
+  'VAL', 'VPOS'
 ]
 - values [
   'ERL', 'ERR', 'FALSE', 'TRUE', 'OFF', 'ON', 'PI',
 ]
+- variables '@%'
+- long user function names
 
 C
 * C89 source (has void but not bool, // comment)
@@ -362,6 +379,7 @@ Go
 * more source
 
 Haskell
+- nested comments
 
 HTML
 + combine adjacent text, whitespace, number, punctuation tokens into text
@@ -381,6 +399,7 @@ Kotlin
 
 Lua
 + strings contain any character
+- multiline comments --[=[ --]=] with matching number of '=' signs (must be pair)
 
 Matlab
 
@@ -543,7 +562,8 @@ Raku
 Ruby
 + tokenize regex (which may contain #{} expressions, which may contain '/' characters)
 + examiner seems to take a long time - profile it
-
+- =begin =end
+1
 Rust
 
 Scala
