@@ -14,7 +14,7 @@ class PL1FreeFormatExaminer(PL1Examiner):
 
     invalid_token_builder = InvalidTokenBuilder()
 
-    tokenbuilders = [
+    tokenbuilders_free = [
       self.newline_tb,
       self.whitespace_tb,
       self.line_continuation_tb,
@@ -50,15 +50,15 @@ class PL1FreeFormatExaminer(PL1Examiner):
       invalid_token_builder
     ]
 
-    tokenizer = Tokenizer(tokenbuilders)
-    tokens = tokenizer.tokenize(code)
-    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
-    self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
+    tokenizer_free = Tokenizer(tokenbuilders_free)
+    tokens_free = tokenizer_free.tokenize(code)
+    tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid operator')
+    self.tokens = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid')
 
     self.calc_statistics()
 
-    tokens = self.source_tokens()
-    tokens = Examiner.join_all_lines(tokens)
+    tokens_free = self.source_tokens()
+    tokens_free = Examiner.join_all_lines(tokens_free)
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()
@@ -67,15 +67,15 @@ class PL1FreeFormatExaminer(PL1Examiner):
     if num_operators > 0:
       self.calc_operator_confidence(num_operators)
       allow_pairs = []
-      self.calc_operator_2_confidence(tokens, num_operators, allow_pairs)
-      self.calc_operator_3_confidence(tokens, num_operators, self.group_ends, allow_pairs)
-      self.calc_operator_4_confidence(tokens, num_operators, self.group_starts, allow_pairs)
+      self.calc_operator_2_confidence(tokens_free, num_operators, allow_pairs)
+      self.calc_operator_3_confidence(tokens_free, num_operators, self.group_ends, allow_pairs)
+      self.calc_operator_4_confidence(tokens_free, num_operators, self.group_starts, allow_pairs)
 
-    self.calc_group_confidence(tokens, self.group_mids)
+    self.calc_group_confidence(tokens_free, self.group_mids)
 
     operand_types_2 = ['number', 'symbol']
-    self.calc_operand_n_confidence(tokens, operand_types_2, 2)
-    self.calc_operand_n_confidence(tokens, self.operand_types, 4)
+    self.calc_operand_n_confidence(tokens_free, operand_types_2, 2)
+    self.calc_operand_n_confidence(tokens_free, self.operand_types, 4)
 
     self.calc_keyword_confidence()
 

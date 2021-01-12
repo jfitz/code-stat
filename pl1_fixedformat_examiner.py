@@ -23,7 +23,7 @@ class PL1FixedFormatExaminer(PL1Examiner):
 
     invalid_token_builder = InvalidTokenBuilder()
 
-    tokenbuilders = [
+    tokenbuilders_fixed = [
       self.newline_tb,
       self.whitespace_tb,
       self.line_continuation_tb,
@@ -64,23 +64,23 @@ class PL1FixedFormatExaminer(PL1Examiner):
     comment_end_tb = PL1CommentEndTokenBuilder()
 
     type1_tokenbuilders = [comment_start_tb]
-    tokenbuilders1 = tokenbuilders + type1_tokenbuilders + [invalid_token_builder]
-    tokenizer1 = Tokenizer(tokenbuilders1)
+    tokenbuilders_fixed_1 = tokenbuilders_fixed + type1_tokenbuilders + [invalid_token_builder]
+    tokenizer_fixed_1 = Tokenizer(tokenbuilders_fixed_1)
 
     type2_tokenbuilders = [comment_start_tb, comment_middle_tb, comment_end_tb]
-    tokenbuilders2 = tokenbuilders + type2_tokenbuilders + [invalid_token_builder]
-    tokenizer2 = Tokenizer(tokenbuilders2)
+    tokenbuilders_fixed_2 = tokenbuilders_fixed + type2_tokenbuilders + [invalid_token_builder]
+    tokenizer_fixed_2 = Tokenizer(tokenbuilders_fixed_2)
 
-    tokens = self.tokenize_code(code, tab_size, tokenizer1, tokenizer2, wide)
-    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
-    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
-    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'whitespace')
-    self.tokens = self.convert_broken_comments_to_comments(tokens)
+    tokens_fixed = self.tokenize_code(code, tab_size, tokenizer_fixed_1, tokenizer_fixed_2, wide)
+    tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid operator')
+    tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid')
+    tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'whitespace')
+    self.tokens = self.convert_broken_comments_to_comments(tokens_fixed)
 
     self.calc_statistics()
 
-    tokens = self.source_tokens()
-    tokens = Examiner.join_all_lines(tokens)
+    tokens_fixed = self.source_tokens()
+    tokens_fixed = Examiner.join_all_lines(tokens_fixed)
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()
@@ -89,15 +89,15 @@ class PL1FixedFormatExaminer(PL1Examiner):
     if num_operators > 0:
       self.calc_operator_confidence(num_operators)
       allow_pairs = []
-      self.calc_operator_2_confidence(tokens, num_operators, allow_pairs)
-      self.calc_operator_3_confidence(tokens, num_operators, self.group_ends, allow_pairs)
-      self.calc_operator_4_confidence(tokens, num_operators, self.group_starts, allow_pairs)
+      self.calc_operator_2_confidence(tokens_fixed, num_operators, allow_pairs)
+      self.calc_operator_3_confidence(tokens_fixed, num_operators, self.group_ends, allow_pairs)
+      self.calc_operator_4_confidence(tokens_fixed, num_operators, self.group_starts, allow_pairs)
 
-    self.calc_group_confidence(tokens, self.group_mids)
+    self.calc_group_confidence(tokens_fixed, self.group_mids)
 
     operand_types_2 = ['number', 'symbol']
-    self.calc_operand_n_confidence(tokens, operand_types_2, 2)
-    self.calc_operand_n_confidence(tokens, self.operand_types, 4)
+    self.calc_operand_n_confidence(tokens_fixed, operand_types_2, 2)
+    self.calc_operand_n_confidence(tokens_fixed, self.operand_types, 4)
 
     self.calc_keyword_confidence()
 
