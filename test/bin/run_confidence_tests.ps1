@@ -457,9 +457,9 @@ test\bin\run_test.ps1 -json -name zero_line-perl -action $action -language $lang
 
 # PL/1
 Set-Variable -Name language "PL1"
-test\bin\run_test.ps1 -json -name bpgpli-pl1 -action $action -language PL1-Fixed -inputfile ".\test\data\$language\BPGPLI.pl1" -expected ".\test\ref\$action\$language\BPGPLI.txt"
-test\bin\run_test.ps1 -json -name checkdt-pl1 -action $action -language PL1-Free -inputfile ".\test\data\$language\CHECKDT.pl1" -expected ".\test\ref\$action\$language\CHECKDT.txt"
-test\bin\run_test.ps1 -json -name crtpln3-pl1 -action $action -language PL1-Fixed -inputfile ".\test\data\$language\CRTPLN3.pl1" -expected ".\test\ref\$action\$language\CRTPLN3.txt"
+test\bin\run_test.ps1 -json -name bpgpli-pl1 -action $action -language $language -inputfile ".\test\data\$language\BPGPLI.pl1" -expected ".\test\ref\$action\$language\BPGPLI.txt"
+test\bin\run_test.ps1 -json -name checkdt-pl1 -action $action -language $language -inputfile ".\test\data\$language\CHECKDT.pl1" -expected ".\test\ref\$action\$language\CHECKDT.txt"
+test\bin\run_test.ps1 -json -name crtpln3-pl1 -action $action -language $language -inputfile ".\test\data\$language\CRTPLN3.pl1" -expected ".\test\ref\$action\$language\CRTPLN3.txt"
 test\bin\run_test.ps1 -json -name mainfact-pl1 -action $action -language $language -inputfile ".\test\data\$language\MAINFACT.pl1" -expected ".\test\ref\$action\$language\MAINFACT.txt"
 test\bin\run_test.ps1 -json -name example-pl1 -action $action -language $language -inputfile ".\test\data\$language\example.pl1" -expected ".\test\ref\$action\$language\example.txt"
 test\bin\run_test.ps1 -json -name digrams-pl1 -action $action -language $language -inputfile ".\test\data\$language\digrams.pl1" -expected ".\test\ref\$action\$language\digrams.txt"

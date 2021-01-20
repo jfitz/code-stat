@@ -1,7 +1,7 @@
 Set-StrictMode -Version Latest
 
 # Ada-83
-test\bin\run_test.ps1 -json -name adabkend-adb-83 -action confidence -language "ada-83 ada-95 basic c pl1-fixed swift" -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\detect-confidence\adabkend-adb.txt"
+test\bin\run_test.ps1 -json -name adabkend-adb-83 -action confidence -language "ada-83 ada-95 basic c pl1 swift" -inputfile ".\test\data\Ada-83\adabkend.adb" -expected ".\test\ref\detect-confidence\adabkend-adb.txt"
 
 # BASIC
 test\bin\run_test.ps1 -json -name values-bas -action confidence -language "BASIC CBASIC pascal python" -inputfile ".\test\data\BASIC\values.bas" -expected ".\test\ref\detect-confidence\values.txt"
@@ -19,7 +19,7 @@ test\bin\run_test.ps1 -json -name fibo -action confidence -language "CBASIC BASI
 test\bin\run_test.ps1 -json -name mccracken3-68 -action confidence -language "COBOL-68 cobol-85 fortran-77" -inputfile ".\test\data\COBOL-68\mccracken3.cob" -expected ".\test\ref\detect-confidence\mccracken3.txt"
 
 # COBOL-85
-test\bin\run_test.ps1 -json -name prog15-4-85 -action confidence -language "COBOL-85 pascal pl1-fixed" -inputfile ".\test\data\COBOL-85\PROG15-4.COB" -expected ".\test\ref\detect-confidence\PROG15-4.txt"
+test\bin\run_test.ps1 -json -name prog15-4-85 -action confidence -language "COBOL-85 pascal pl1" -inputfile ".\test\data\COBOL-85\PROG15-4.COB" -expected ".\test\ref\detect-confidence\PROG15-4.txt"
 
 # COBOL-2002
 test\bin\run_test.ps1 -json -name report-card-cob2002 -action confidence -language "COBOL-2002 java rust" -tabsize 4 -inputfile ".\test\data\COBOL-2002\ReportCard.cob" -expected ".\test\ref\detect-confidence\ReportCard.txt"
@@ -61,7 +61,7 @@ test\bin\run_test.ps1 -json -name hello-objc -action confidence -language "Objec
 test\bin\run_test.ps1 -json -name firework-pas -action confidence -language "Pascal fortran-77 basic ruby" -inputfile ".\test\data\Pascal\FIREWORK.PAS" -expected ".\test\ref\detect-confidence\FIREWORK.txt"
 
 # PL/1
-test\bin\run_test.ps1 -json -name bpgpli-pl1 -action confidence -language "PL1-Fixed fortran-77 cobol-85" -inputfile ".\test\data\PL1\BPGPLI.pl1" -expected ".\test\ref\detect-confidence\BPGPLI.txt"
+test\bin\run_test.ps1 -json -name bpgpli-pl1 -action confidence -language "PL1 fortran-77 cobol-85" -inputfile ".\test\data\PL1\BPGPLI.pl1" -expected ".\test\ref\detect-confidence\BPGPLI.txt"
 
 # Prolog
 test\bin\run_test.ps1 -json -name family-main-prolog -action confidence -language "Prolog basic ruby html" -inputfile ".\test\data\Prolog\family-main.pl" -expected ".\test\ref\detect-confidence\family-main.txt"

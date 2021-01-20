@@ -131,7 +131,10 @@ class WhitespaceTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    return c.isspace() and c != '\n' and c != '\r'
+    if c in ['\n', '\r']:
+      return False
+
+    return c.isspace()
 
 
 # token reader for newline

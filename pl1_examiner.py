@@ -17,12 +17,16 @@ from token_builders import (
   CaseInsensitiveListTokenBuilder,
   CaseSensitiveListTokenBuilder,
   SingleCharacterTokenBuilder,
-  LeadToEndOfLineTokenBuilder
+  LeadToEndOfLineTokenBuilder,
+  InvalidTokenBuilder
 )
 from cx_token_builders import (
   SlashStarCommentTokenBuilder
 )
 from pl1_token_builders import (
+  PL1CommentStartTokenBuilder,
+  PL1CommentMiddleTokenBuilder,
+  PL1CommentEndTokenBuilder,
   PL1LabelTokenBuilder
 )
 from jcl_token_builders import (
@@ -31,7 +35,16 @@ from jcl_token_builders import (
 from examiner import Examiner
 
 class PL1Examiner(Examiner):
-  def __init__(self):
+  @staticmethod
+  def __escape_z__():
+    PL1CommentStartTokenBuilder.__escape_z__()
+    PL1CommentMiddleTokenBuilder.__escape_z__()
+    PL1CommentEndTokenBuilder.__escape_z__()
+    PL1LabelTokenBuilder.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self, code, tab_size, wide):
     super().__init__()
 
     self.operand_types = []
@@ -275,3 +288,294 @@ class PL1Examiner(Examiner):
 
     self.values_tb = CaseInsensitiveListTokenBuilder(values, 'value', True)
     self.operand_types.append('value')
+
+    invalid_token_builder = InvalidTokenBuilder()
+
+    # tokenize as free-format
+    tokenbuilders_free = [
+      self.newline_tb,
+      self.whitespace_tb,
+      self.line_continuation_tb,
+      self.terminators_tb,
+      self.integer_tb,
+      self.integer_exponent_tb,
+      self.binary_integer_tb,
+      self.real_tb,
+      self.real_exponent_tb,
+      self.binary_real_tb,
+      self.keyword_tb,
+      self.function_tb,
+      self.attributes_tb,
+      self.options_tb,
+      self.conditions_tb,
+      self.subroutines_tb,
+      self.types_tb,
+      self.values_tb,
+      self.groupers_tb,
+      self.known_operator_tb,
+      self.identifier_tb,
+      self.string_tb,
+      self.label_tb,
+      self.slash_star_comment_tb,
+      self.preprocessor_tb,
+      self.title_tb,
+      self.subtitle_tb,
+      self.error_tb,
+      self.warn_tb,
+      self.inform_tb,
+      self.jcl_tb,
+      self.unknown_operator_tb,
+      invalid_token_builder
+    ]
+
+    tokenizer_free = Tokenizer(tokenbuilders_free)
+    tokens_free = tokenizer_free.tokenize(code)
+    tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid operator')
+    tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid')
+    self.tokens = tokens_free
+
+    self.calc_statistics()
+    statistics_free = self.statistics
+    self.statistics = {}
+
+    tokens = self.source_tokens()
+    tokens = Examiner.join_all_lines(tokens)
+
+    self.calc_token_confidence()
+    self.calc_token_2_confidence()
+
+    num_operators = self.count_my_tokens(['operator', 'invalid operator'])
+    if num_operators > 0:
+      self.calc_operator_confidence(num_operators)
+      allow_pairs = []
+      self.calc_operator_2_confidence(tokens, num_operators, allow_pairs)
+      self.calc_operator_3_confidence(tokens, num_operators, self.group_ends, allow_pairs)
+      self.calc_operator_4_confidence(tokens, num_operators, self.group_starts, allow_pairs)
+
+    self.calc_group_confidence(tokens, self.group_mids)
+
+    operand_types_2 = ['number', 'symbol']
+    self.calc_operand_n_confidence(tokens, operand_types_2, 2)
+    self.calc_operand_n_confidence(tokens, self.operand_types, 4)
+
+    self.calc_keyword_confidence()
+
+    self.calc_paired_blockers_confidence(['{'], ['}'])
+    self.calc_line_length_confidence(code, self.max_expected_line)
+    confidences_free = self.confidences
+    self.confidences = {}
+    errors_free = self.errors
+    self.errors = []
+
+    # tokenize as fixed-format
+    tokenbuilders_fixed = [
+      self.newline_tb,
+      self.whitespace_tb,
+      self.line_continuation_tb,
+      self.terminators_tb,
+      self.integer_tb,
+      self.integer_exponent_tb,
+      self.binary_integer_tb,
+      self.real_tb,
+      self.real_exponent_tb,
+      self.binary_real_tb,
+      self.keyword_tb,
+      self.function_tb,
+      self.attributes_tb,
+      self.options_tb,
+      self.conditions_tb,
+      self.subroutines_tb,
+      self.types_tb,
+      self.values_tb,
+      self.groupers_tb,
+      self.known_operator_tb,
+      self.identifier_tb,
+      self.string_tb,
+      self.label_tb,
+      self.slash_star_comment_tb,
+      self.preprocessor_tb,
+      self.title_tb,
+      self.subtitle_tb,
+      self.error_tb,
+      self.warn_tb,
+      self.inform_tb,
+      self.jcl_tb,
+      self.unknown_operator_tb,
+      invalid_token_builder
+    ]
+
+    comment_start_tb = PL1CommentStartTokenBuilder()
+    comment_middle_tb = PL1CommentMiddleTokenBuilder()
+    comment_end_tb = PL1CommentEndTokenBuilder()
+
+    type1_tokenbuilders = [comment_start_tb]
+    tokenbuilders_fixed_1 = tokenbuilders_fixed + type1_tokenbuilders + [invalid_token_builder]
+    tokenizer_fixed_1 = Tokenizer(tokenbuilders_fixed_1)
+
+    type2_tokenbuilders = [comment_start_tb, comment_middle_tb, comment_end_tb]
+    tokenbuilders_fixed_2 = tokenbuilders_fixed + type2_tokenbuilders + [invalid_token_builder]
+    tokenizer_fixed_2 = Tokenizer(tokenbuilders_fixed_2)
+
+    tokens_fixed = self.tokenize_code(code, tab_size, tokenizer_fixed_1, tokenizer_fixed_2, wide)
+    tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid operator')
+    tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid')
+    tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'whitespace')
+    tokens_fixed = self.convert_broken_comments_to_comments(tokens_fixed)
+    self.tokens = tokens_fixed
+
+    self.calc_statistics()
+    statistics_fixed = self.statistics
+    self.statistics = {}
+
+    tokens = self.source_tokens()
+    tokens = Examiner.join_all_lines(tokens)
+
+    self.calc_token_confidence()
+    self.calc_token_2_confidence()
+
+    num_operators = self.count_my_tokens(['operator', 'invalid operator'])
+    if num_operators > 0:
+      self.calc_operator_confidence(num_operators)
+      allow_pairs = []
+      self.calc_operator_2_confidence(tokens, num_operators, allow_pairs)
+      self.calc_operator_3_confidence(tokens, num_operators, self.group_ends, allow_pairs)
+      self.calc_operator_4_confidence(tokens, num_operators, self.group_starts, allow_pairs)
+
+    self.calc_group_confidence(tokens, self.group_mids)
+
+    operand_types_2 = ['number', 'symbol']
+    self.calc_operand_n_confidence(tokens, operand_types_2, 2)
+    self.calc_operand_n_confidence(tokens, self.operand_types, 4)
+
+    self.calc_keyword_confidence()
+
+    self.calc_paired_blockers_confidence(['{'], ['}'])
+    self.calc_line_length_confidence(code, self.max_expected_line)
+    confidences_fixed = self.confidences
+    self.confidences = {}
+    errors_fixed = self.errors
+    self.errors = []
+
+    # compute confidence for free-format and fixed-format
+    confidence_free = 1.0
+    if len(confidences_free) == 0:
+      confidence_free = 0.0
+    else:
+      for key in confidences_free:
+        factor = confidences_free[key]
+        confidence_free *= factor
+
+    confidence_fixed = 1.0
+    if len(confidences_fixed) == 0:
+      confidence_fixed = 0.0
+    else:
+      for key in confidences_fixed:
+        factor = confidences_fixed[key]
+        confidence_fixed *= factor
+
+    # select the better of free-format and spaced-format
+    if confidence_fixed > confidence_free:
+      self.tokens = tokens_fixed
+      self.statistics = statistics_fixed
+      self.confidences = confidences_fixed
+      self.errors = errors_fixed
+    else:
+      self.tokens = tokens_free
+      self.statistics = statistics_free
+      self.confidences = confidences_free
+      self.errors = errors_free
+
+
+  def tokenize_line(self, line, tokenizer, wide):
+    # break apart the line based on fixed format
+    tokens = []
+
+    # The fixed-format PL/1 line format is:
+    # 1: space or C or *
+    # 2-72: program text
+    # 73-: identification, traditionally sequence number (ignored)
+    # but if columns 1 and 2 are '//', then the line is JCL
+
+    if line.startswith(('//', '/*')):
+      tokens.append(Token(line, 'jcl', False))
+    else:
+      line_indicator = line[0:1]
+      if wide:
+        line_text = line[1:]
+        line_identification = ''
+      else:
+        line_text = line[1:72]
+        line_identification = line[72:]
+
+      # tokenize the line indicator
+      if line_indicator in ['C', '*']:
+        tokens.append(Token(line, 'comment', False))
+      else:
+        if len(line_indicator) > 0 and line_indicator != ' ':
+          tokens.append(Token(line_indicator, 'invalid', False))
+        else:
+          tokens.append(Token(' ', 'whitespace', False))
+        # tokenize the code
+        tokens += tokenizer.tokenize(line_text)
+
+        # tokenize the line identification
+        if len(line_identification) > 0:
+          tokens.append(Token(line_identification, 'line identification', False))
+
+    tokens.append(Token('\n', 'newline', False))
+
+    return tokens
+
+
+  def tokenize_code(self, code, tab_size, tokenizer1, tokenizer2, wide):
+    lines = code.split('\n')
+
+    tokens = []
+
+    mode = 1
+
+    for line in lines:
+      line = line.rstrip('\r')
+      line = line.rstrip()
+      line = Examiner.tabs_to_spaces(line, tab_size)
+
+      if mode == 1:
+        line_tokens = self.tokenize_line(line, tokenizer1, wide)
+      else:
+        line_tokens = self.tokenize_line(line, tokenizer2, wide)
+
+      for token in line_tokens:
+        if token.group == 'comment-end':
+          mode = 1
+        if token.group == 'comment-start':
+          mode = 2
+
+      tokens += line_tokens
+
+    return tokens
+
+
+  def convert_broken_comments_to_comments(self, tokens):
+    for token in tokens:
+      if token.group in ['comment-start', 'comment-middle', 'comment-end']:
+        token.group = 'comment'
+
+    return tokens
+
+
+  def unwrapped_code(self, lines):
+    unwrapped_lines = ''
+
+    for line in lines:
+      # remove line description (if any)
+      line = line[:72]
+      line = line.rstrip()
+
+      # wrap column-1 comment in slash-star, star-slash
+      if len(line) > 0 and line[0] != ' ':
+        line = '/*' + line + '*/'
+
+      unwrapped_lines += line
+      unwrapped_lines += '\n'
+
+    return unwrapped_lines

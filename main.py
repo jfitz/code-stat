@@ -44,8 +44,7 @@ from modula2_examiner import Modula2Examiner
 from objectivec_examiner import ObjectiveCExaminer
 from pascal_examiner import PascalExaminer
 from perl_examiner import PerlExaminer
-from pl1_fixedformat_examiner import PL1FixedFormatExaminer
-from pl1_freeformat_examiner import PL1FreeFormatExaminer
+from pl1_examiner import PL1Examiner
 from prolog_examiner import PrologExaminer
 from python_examiner import PythonExaminer
 from r_examiner import RExaminer
@@ -96,8 +95,7 @@ Modula2Examiner.__escape_z__()
 ObjectiveCExaminer.__escape_z__()
 PascalExaminer.__escape_z__()
 PerlExaminer.__escape_z__()
-PL1FixedFormatExaminer.__escape_z__()
-PL1FreeFormatExaminer.__escape_z__()
+PL1Examiner.__escape_z__()
 PrologExaminer.__escape_z__()
 PythonExaminer.__escape_z__()
 RExaminer.__escape_z__()
@@ -299,8 +297,7 @@ codes_and_names = {
   'octave': 'Octave',
   'pascal': 'Pascal',
   'perl': 'Perl',
-  'pl1-fixed': 'PL/1-Fixed',
-  'pl1-free': 'PL/1-Free',
+  'pl1': 'PL/1',
   'prolog': 'Prolog',
   'python': 'Python',
   'r': 'R',
@@ -390,8 +387,7 @@ codes_and_groups = {
   'octave': 'matlab',
   'pascal': 'Pascal',
   'perl': 'Perl',
-  'pl1-fixed': 'PL/1',
-  'pl1-free': 'PL/1',
+  'pl1': 'PL/1',
   'prolog': 'Prolog',
   'python': 'Python',
   'r': 'R',
@@ -482,8 +478,7 @@ codes_and_years = {
   'octave': 1993,
   'pascal': 1970,
   'perl': 1980,
-  'pl1-fixed': 1964,
-  'pl1-free': 1992,
+  'pl1': 1964,
   'prolog': 1972,
   'python': 1991,
   'r': 1976,
@@ -572,8 +567,7 @@ simpler_languages = {
   'ocaml': None,
   'pascal': None,
   'perl': 'awk',
-  'pl1-fixed': None,
-  'pl1-free': None,
+  'pl1': None,
   'prolog': None,
   'python': None,
   'r': None,
@@ -1120,11 +1114,8 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
   if language in ['perl', 'pl', 'pm']:
     examiner = PerlExaminer(code)
 
-  if language in ['pl1-fixed', 'pl1-fixed-format']:
-    examiner = PL1FixedFormatExaminer(code, tab_size, wide)
-
-  if language in ['pl1-free', 'pl1-free-format', 'pl1']:
-    examiner = PL1FreeFormatExaminer(code)
+  if language in ['pl1']:
+    examiner = PL1Examiner(code, tab_size, wide)
 
   if language in ['prolog']:
     examiner = PrologExaminer(code)
@@ -1413,11 +1404,8 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
   if 'perl' in languages or 'pl' in languages or 'pm' in languages:
     examiners['perl'] = PerlExaminer(code)
 
-  if 'pl1-fixed' in languages or 'pl1' in languages:
-    examiners['pl1-fixed'] = PL1FixedFormatExaminer(code, tab_size, wide)
-
-  if 'pl1-free' in languages or 'pl1' in languages:
-    examiners['pl1-free'] = PL1FreeFormatExaminer(code)
+  if 'pl1' in languages:
+    examiners['pl1'] = PL1Examiner(code, tab_size, wide)
 
   if 'prolog' in languages:
     examiners['prolog'] = PrologExaminer(code)
@@ -1601,7 +1589,7 @@ def unwrap_lines(text, language):
     unwrapped_text = examiner.unwrapped_code(lines)
 
   if language in pl1_names:
-    examiner = PL1FixedFormatExaminer(text, 8, False)
+    examiner = PL1Examiner(text, 8, False)
     lines = split_lines(text)
     unwrapped_text = examiner.unwrapped_code(lines)
 
