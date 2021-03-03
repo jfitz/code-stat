@@ -278,6 +278,9 @@ test\bin\run_detect_test.ps1 -json -name knuth-html -inputfile ".\test\data\HTML
 test\bin\run_detect_test.ps1 -json -name developer-html -inputfile ".\test\data\HTML\developer-css.html" -expected ".\test\ref\detect\HTML\developer-css.txt"
 test\bin\run_detect_test.ps1 -json -name codestat-html -inputfile ".\test\data\HTML\codestat-css-javascript.html" -expected ".\test\ref\detect\HTML\codestat-css-javascript.txt"
 
+# Intercal
+test\bin\run_detect_test.ps1 -json -name fizzbuzz-ical -inputfile ".\test\data\Intercal\fizzbuzz.intercal" -expected ".\test\ref\detect\Intercal\fizzbuzz.txt"
+
 # Java
 test\bin\run_detect_test.ps1 -json -name prime_test-java -inputfile ".\test\data\Java\prime_test.java" -expected ".\test\ref\detect\Java\prime_test.txt"
 test\bin\run_detect_test.ps1 -json -name palindrome-java -inputfile ".\test\data\Java\palindrome.java" -expected ".\test\ref\detect\Java\palindrome.txt"

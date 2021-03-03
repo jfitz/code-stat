@@ -33,6 +33,7 @@ from go_examiner import GoExaminer
 from groovy_examiner import GroovyExaminer
 from haskell_examiner import HaskellExaminer
 from html_examiner import HTMLExaminer
+from intercal_examiner import IntercalExaminer
 from java_examiner import JavaExaminer
 from javascript_examiner import JavaScriptExaminer
 from julia_examiner import JuliaExaminer
@@ -84,6 +85,7 @@ GoExaminer.__escape_z__()
 GroovyExaminer.__escape_z__()
 HaskellExaminer.__escape_z__()
 HTMLExaminer.__escape_z__()
+IntercalExaminer.__escape_z__()
 JavaExaminer.__escape_z__()
 JavaScriptExaminer.__escape_z__()
 JuliaExaminer.__escape_z__()
@@ -285,6 +287,7 @@ codes_and_names = {
   'groovy': 'Groovy',
   'haskell': 'Haskell',
   'html': 'HTML',
+  'intercal': 'INTERCAL',
   'java': 'Java',
   'javascript': 'JavaScript',
   'julia': 'Julia',
@@ -375,6 +378,7 @@ codes_and_groups = {
   'groovy': 'Groovy',
   'haskell': 'Haskell',
   'html': 'HTML',
+  'intercal': 'INTERCAL',
   'java': 'Java',
   'javascript': 'JavaScript',
   'julia': 'Julia',
@@ -466,6 +470,7 @@ codes_and_years = {
   'groovy': 2007,
   'haskell': 1998,
   'html': 1990,
+  'intercal': 1972,
   'java': 1995,
   'javascript': 1995,
   'julia': 2009,
@@ -555,6 +560,7 @@ simpler_languages = {
   'groovy': None,
   'haskell': None,
   'html': None,
+  'intercal': None,
   'java': None,
   'javascript': None,
   'julia': None,
@@ -1078,6 +1084,9 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
   if language in ['html', 'php']:
     examiner = HTMLExaminer(code)
 
+  if language in ['intercal']:
+    examiner = IntercalExaminer(code)
+
   if language in ['java', 'jav']:
     examiner = JavaExaminer(code)
 
@@ -1367,6 +1376,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
 
   if 'html' in languages:
     examiners['html'] = HTMLExaminer(code)
+
+  if 'intercal' in languages:
+    examiners['intercal'] = IntercalExaminer(code)
 
   if 'java' in languages:
     examiners['java'] = JavaExaminer(code)

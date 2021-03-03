@@ -366,6 +366,10 @@ test\bin\run_test.ps1 -json -name knuth-html -action $action -errors -language $
 test\bin\run_test.ps1 -json -name developer-html -action $action -errors -language $language -inputfile ".\test\data\$language\developer-css.html" -expected ".\test\ref\$action-errors\$language\developer-css.txt"
 test\bin\run_test.ps1 -json -name codestat-html -action $action -errors -language $language -inputfile ".\test\data\$language\codestat-css-javascript.html" -expected ".\test\ref\$action-errors\$language\codestat-css-$language.txt"
 
+# Intercal
+Set-Variable -Name language "Intercal"
+test\bin\run_test.ps1 -json -name fizzbuzz-ical -action $action -errors -language $language -inputfile ".\test\data\$language\fizzbuzz.intercal" -expected ".\test\ref\$action-errors\$language\fizzbuzz.txt"
+
 # Java
 Set-Variable -Name language "Java"
 test\bin\run_test.ps1 -json -name prime_test-$language -action $action -errors -language $language -inputfile ".\test\data\$language\prime_test.java" -expected ".\test\ref\$action-errors\$language\prime_test.txt"
