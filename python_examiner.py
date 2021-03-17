@@ -125,13 +125,22 @@ class PythonExaminer(Examiner):
     line_continuation_tb = CaseInsensitiveListTokenBuilder(continuation_chars, 'line continuation', False)
 
     keywords = [
-      'import', 'from', 'as', 'def', 'class',
-      'if', 'elif', 'else', 'pass', 'while',
-      'for', 'while', 'return', 'assert', 'raise',
-      'break', 'continue', 'del',
-      'try', 'except', 'finally',
-      'global', 'lambda', 'nonlocal', 'with', 'yield',
-      'print'
+      'as', 'assert',
+      'break',
+      'case', 'class', 'continue',
+      'def', 'del',
+      'elif', 'else', 'except',
+      'finally', 'for', 'from',
+      'global',
+      'if', 'import',
+      'lambda',
+      'match',
+      'nonlocal',
+      'pass', 'print',
+      'raise', 'return',
+      'try',
+      'while', 'while', 'with',
+      'yield'
     ]
 
     keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
