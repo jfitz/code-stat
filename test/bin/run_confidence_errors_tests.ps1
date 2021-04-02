@@ -159,6 +159,7 @@ test\bin\run_test.ps1 -json -name prime_test-$language -action $action -errors -
 test\bin\run_test.ps1 -json -name values-$language -action $action -errors -language $language -inputfile ".\test\data\$language\values.c" -expected ".\test\ref\$action-errors\$language\values.txt"
 test\bin\run_test.ps1 -json -name j_interpreter-$language -action $action -errors -language $language -inputfile ".\test\data\$language\j_interpreter.c" -expected ".\test\ref\$action-errors\$language\j_interpreter.txt"
 test\bin\run_test.ps1 -json -name zero_line-$language -action $action -errors -language $language -inputfile ".\test\data\$language\zero_line_hello_world.c" -expected ".\test\ref\$action-errors\$language\zero_line_hello_world.txt"
+test\bin\run_test.ps1 -json -name charlotte-c-78 -action $action -errors -language $language -inputfile ".\test\data\$language\charlotte.c" -expected ".\test\ref\$action\$language\charlotte.txt"
 
 # C-89
 

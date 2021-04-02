@@ -104,6 +104,8 @@ test\bin\run_detect_test.ps1 -json -name diamond-c-78 -inputfile ".\test\data\C-
 test\bin\run_detect_test.ps1 -json -name prime_test-c-78 -inputfile ".\test\data\C-78\prime_test.c" -expected ".\test\ref\detect\C-78\prime_test.txt"
 test\bin\run_detect_test.ps1 -json -name values-c-78 -inputfile ".\test\data\C-78\values.c" -expected ".\test\ref\detect\C-78\values.txt"
 test\bin\run_detect_test.ps1 -json -name j_interpreter-c-78 -inputfile ".\test\data\C-78\j_interpreter.c" -expected ".\test\ref\detect\C-78\j_interpreter.txt"
+test\bin\run_detect_test.ps1 -json -name zero-line-c-78 -inputfile ".\test\data\C-78\zero_line_hello_world.c" -expected ".\test\ref\detect\C-78\zero_line_hello_world.txt"
+test\bin\run_detect_test.ps1 -json -name charlotte-c-78 -inputfile ".\test\data\C-78\charlotte.c" -expected ".\test\ref\detect\C-78\charlotte.txt"
 
 # C-89
 
