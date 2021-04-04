@@ -3,8 +3,7 @@ $names = @{
     'C++'='Cplusplus';
     'C#'='Csharp';
     'F#'='Fsharp';
-    'PL/1-Fixed'='PL1';
-    'PL/1-Free'='PL1'
+    'PL/1'='PL1'
 }
 
 $ignore_names = 'noncode', 'multiple'

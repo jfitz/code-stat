@@ -227,6 +227,9 @@ test\bin\run_detect_test.ps1 -json -name armstrong-erlang -inputfile ".\test\dat
 test\bin\run_detect_test.ps1 -json -name list_comprehension-erlang -inputfile ".\test\data\Erlang\list_comprehension.erl" -expected ".\test\ref\detect\Erlang\list_comprehension.txt"
 test\bin\run_detect_test.ps1 -json -name send_receive-erlang Erlang -inputfile ".\test\data\Erlang\send_receive.erl" -expected ".\test\ref\detect\Erlang\send_receive.txt"
 
+# Flowmatic
+test\bin\run_detect_test.ps1 -json -name example-flowmatic -inputfile ".\test\data\Flowmatic\example.txt" -expected ".\test\ref\detect\Flowmatic\example.txt"
+
 # FORTRAN-66
 test\bin\run_detect_test.ps1 -json -name hello-ftn66 -inputfile ".\test\data\FORTRAN-66\HELLO.FOR" -expected ".\test\ref\detect\FORTRAN-66\HELLO.txt"
 test\bin\run_detect_test.ps1 -json -name heron-ftn66 -inputfile ".\test\data\FORTRAN-66\HERON.FOR" -expected ".\test\ref\detect\FORTRAN-66\HERON.txt"

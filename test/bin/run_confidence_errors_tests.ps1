@@ -301,6 +301,10 @@ test\bin\run_test.ps1 -json -name armstrong-erlang -action $action -errors -lang
 test\bin\run_test.ps1 -json -name list_comprehension-erlang -action $action -errors -language $language -inputfile ".\test\data\$language\list_comprehension.erl" -expected ".\test\ref\$action-errors\$language\list_comprehension.txt"
 test\bin\run_test.ps1 -json -name send_receive-erlang -action $action -errors -language $language -inputfile ".\test\data\$language\send_receive.erl" -expected ".\test\ref\$action-errors\$language\send_receive.txt"
 
+# Flowmatic
+Set-Variable -Name language "Flowmatic"
+test\bin\run_test.ps1 -json -name example-flowmatic -action $action -errors -language $language -inputfile ".\test\data\$language\example.txt" -expected ".\test\ref\$action\$language\example.txt"
+
 # FORTRAN-66
 Set-Variable -Name language "FORTRAN-66"
 test\bin\run_test.ps1 -json -name hello-ftn66 -action $action -errors -language $language -inputfile ".\test\data\$language\HELLO.FOR" -expected ".\test\ref\$action-errors\$language\HELLO.txt"

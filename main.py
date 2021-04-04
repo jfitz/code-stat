@@ -27,6 +27,7 @@ from delphi_examiner import DelphiExaminer
 from dibol_examiner import DibolExaminer
 from eiffel_examiner import EiffelExaminer
 from erlang_examiner import ErlangExaminer
+from flowmatic_examiner import FlowmaticExaminer
 from fortran_fixedformat_examiner import FortranFixedFormatExaminer
 from fortran_freeformat_examiner import FortranFreeFormatExaminer
 from go_examiner import GoExaminer
@@ -79,6 +80,7 @@ DelphiExaminer.__escape_z__()
 DibolExaminer.__escape_z__()
 EiffelExaminer.__escape_z__()
 ErlangExaminer.__escape_z__()
+FlowmaticExaminer.__escape_z__()
 FortranFixedFormatExaminer.__escape_z__()
 FortranFreeFormatExaminer.__escape_z__()
 GoExaminer.__escape_z__()
@@ -275,6 +277,7 @@ codes_and_names = {
   'dibol': 'Dibol',
   'eiffel': 'Eiffel',
   'erlang': 'Erlang',
+  'flowmatic': 'Flowmatic',
   'fortran-66': 'FORTRAN-66',
   'fortran-77': 'FORTRAN-77',
   'fortran-90': 'Fortran-90',
@@ -366,6 +369,7 @@ codes_and_groups = {
   'dibol': 'Dibol',
   'eiffel': 'Eiffel',
   'erlang': 'Erlang',
+  'flowmatic': 'Flowmatic',
   'fortran-66': 'Fortran',
   'fortran-77': 'Fortran',
   'fortran-90': 'Fortran',
@@ -458,6 +462,7 @@ codes_and_years = {
   'dibol': 1970,
   'eiffel': 1985,
   'erlang': 1985,
+  'flowmatic': 1957,
   'fortran-66': 1966,
   'fortran-77': 1977,
   'fortran-90': 1990,
@@ -1051,6 +1056,9 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
   if language in ['erlang']:
     examiner = ErlangExaminer(code)
 
+  if language in ['flowmatic']:
+    examiner = FlowmaticExaminer(code)
+
   if language in ['fortran-66', 'fortran-fixed', 'fortran-fixed-format', 'fortran']:
     examiner = FortranFixedFormatExaminer(code, '66', tab_size, wide)
 
@@ -1332,6 +1340,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
 
   if 'erlang' in languages:
     examiners['erlang'] = ErlangExaminer(code)
+
+  if 'flowmatic' in languages:
+    examiners['flowmatic'] = FlowmaticExaminer(code)
 
   if 'fortran-66' in languages or 'fortran' in languages or \
     'fortran-fixed' in languages or 'fortran-fixed-format' in languages or \
