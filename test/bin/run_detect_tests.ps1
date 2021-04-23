@@ -1,5 +1,7 @@
 Set-StrictMode -Version Latest
 
+Set-Variable -Name action "detect"
+
 # generic assembly
 
 # ASM iBM-360
@@ -309,6 +311,11 @@ test\bin\run_detect_test.ps1 -json -name periodograms-jl -inputfile ".\test\data
 test\bin\run_detect_test.ps1 -json -name qksms-kt -inputfile ".\test\data\Kotlin\qksms.kt" -expected ".\test\ref\detect\Kotlin\qksms.txt"
 test\bin\run_detect_test.ps1 -json -name render-kt -inputfile ".\test\data\Kotlin\render.kt" -expected ".\test\ref\detect\Kotlin\render.txt"
 
+# Latino
+Set-Variable -Name language "Latino"
+test\bin\run_detect_test.ps1 -json -name major-lat -inputfile ".\test\data\$language\major.lat" -expected ".\test\ref\$action\$language\major.txt"
+test\bin\run_detect_test.ps1 -json -name fibonacci-lat -inputfile ".\test\data\$language\fibonacci.lat" -expected ".\test\ref\$action\$language\fibonacci.txt"
+
 # Lua
 test\bin\run_detect_test.ps1 -json -name dissector-lua -inputfile ".\test\data\Lua\dissector.lua" -expected ".\test\ref\detect\Lua\dissector.txt"
 test\bin\run_detect_test.ps1 -json -name dissector2-lua -inputfile ".\test\data\Lua\dissector2.lua" -expected ".\test\ref\detect\Lua\dissector2.txt"
@@ -368,6 +375,10 @@ test\bin\run_detect_test.ps1 -json -name crtpln3-pl1 -inputfile ".\test\data\PL1
 test\bin\run_detect_test.ps1 -json -name mainfact-pl1 -inputfile ".\test\data\PL1\MAINFACT.pl1" -expected ".\test\ref\detect\PL1\MAINFACT.txt"
 test\bin\run_detect_test.ps1 -json -name example-pl1 -inputfile ".\test\data\PL1\example.pl1" -expected ".\test\ref\detect\PL1\example.txt"
 test\bin\run_detect_test.ps1 -json -name digrams-pl1 -inputfile ".\test\data\PL1\digrams.pl1" -expected ".\test\ref\detect\PL1\digrams.txt"
+
+# PL/M
+Set-Variable -Name language "PLM"
+test\bin\run_detect_test.ps1 -json -name example-plm -inputfile ".\test\data\$language\example.plm" -expected ".\test\ref\$action\$language\example.txt"
 
 # Prolog
 test\bin\run_detect_test.ps1 -json -name family-main -inputfile ".\test\data\Prolog\family-main.pl" -expected ".\test\ref\detect\Prolog\family-main.txt"

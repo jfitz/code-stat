@@ -169,7 +169,7 @@ class KotlinExaminer(Examiner):
 
     types = [
       'Byte', 'Short', 'Int', 'Long', 'Float', 'Double', 'Char',
-      'u', 'f', 'ul'
+      'u', 'f', 'ul', 'UInt', 'ULong', 'UByte', 'UShort'
     ]
 
     type_tb = CaseSensitiveListTokenBuilder(types, 'type', True)

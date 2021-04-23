@@ -61,7 +61,7 @@ examiners for:
  Raku, Crystal (Ruby), Wolfram, Expresso,
  MS-DOS batch, PowerShell, bash,
  J (APL), K (APL), ABAP, Scratch, Logo,
- Modula-2, Oberon, Scheme, AspectJ,
+ Oberon, Scheme, AspectJ,
  Focal, Pilot,
  dBase IV and higher, Clipper, FoxBase, FoxPro,
  DataFlex (1982), SAS,
@@ -249,6 +249,10 @@ C++:
 + raw strings R LR u8R uR UR with "abc()abc" with 'abc' as delimiter and paired but not nested () and possible " within () and may have trailing 's' and may contain newline
 + strings prefix u8 L u U
 + allow adjacent string literals
++ operators 'and', 'and_eq', 'bitand', 'bitor', 'compl', 'not', 'not_eq', 'or', 'or_eq', 'xor', 'xor_eq' ]
++ unary 'compl', 'not'
++ groupers '<%', '%>', '<:' not followed by ':', ':>', '%:', '%:%:'
++ operator '#', '##', '<=>', '<<=', '>>='
 
 C#:
 + operator ..
@@ -464,72 +468,11 @@ PL/I
 ? 'example' has issues (plain text in source)
 + bit string constant is string with suffix B
 - use LabelTokenBuilder class
-- combine 'fixed' and 'free' into one examiner (like ASM)
+- change 'self' variables to locals
 
 PL/M
-+ copy of PL/1
-+ drop JCL tokens
 + drop fixed format and use only free format
-+ drop operators with bent bar (negation)
-+ hex integer suffix H
-+ octal integer suffix Q
-+ binary integer suffix B
-+ decimal integer suffix D
-+ real must have digit before decimal, not required after
-+ types BYTE WORD DWORD STRUCTURE POINTER OFFSET REAL CHARINT SHORTINT QWORD HWORD INTEGER LONGINT SHORTINT
 + .B (and .W and .D ?)
-+ @ unary operator
-+ operators NOT AND OR XOR MINUS PLUS
-+ operators + - * / MOD
-+ operators < <= <> >= >
-+ keywords [
-  'ADDRESS', 'AT',
-  'BASED', 'BY',
-  'CALL', 'CASE',
-  'DATA', 'DECLARE', 'DISABLE', 'DO',
-  'ELSE', 'ENABLE', 'END', 'EOF', 'EXTERNAL',
-  'GO', 'GOTO',
-  'HALT',
-  'IF', 'INITIAL', 'INTERRUPT',
-  'LABEL', 'LITERALLY',
-  'OFFSET',
-  'PROCEDURE', 'PUBLIC',
-  'REENTRANT', 'RETURN',
-  'SELECTOR', 'STRUCTURE',
-  'THEN', 'TO',
-  'WHILE'
-]
-+ common identifiers [
-  'ABS', 'ADJUSTRPL',
-  'BLOCKINPUT', 'BLOCKINWORD', 'BLOCKOUTPUT', 'BLOCKOUTWORD', 'BUILDPTR',
-  'CARRY', 'CAUSEINTERRUPT', 'CLEARTASKSWITCHEDFLAG', 'CONTROLREGISTER',
-  'CMPB', 'CMPW',
-  'DEC', 'DOUBLE', 'DEBUGREGISTER',
-  'FINDB', 'FINDHW', 'FINDRB', 'FINDRHW', 'FINDRW', 'FINDW', 'FIX', 'FLAGS', 'FLOAT',
-  'GETACCESSRIGHTS', 'GETREALERROR', 'GETSEGMENTLIMIT',
-  'HIGH',
-  'IABS', 'INHWORD', 'INITREALMATHUNITSKIPRB', 'INT SIZE', 'INWORD SIZE', 'INPUT',
-  'LAST', 'LENGTH', 'LOCALTABLE', 'LOCKSET', 'LOW',
-  'MACHINESTATUS', 'MOVB', 'MOVBIT', 'MOVE', 'MOVHW', 'MOVRB', 'MOVRBIT'
-  'MOVRHW', 'MOVRW', 'MOVW',
-  'NIL',
-  'OFFSETOF', 'OUTHWORD', 'OUTPUT', 'OUTWORD',
-  'PARITY',
-  'RESTOREGLOBALTABLE', 'RESTOREINTERRUPTABLE', 'RESTOREREALSTATUS',
-  'ROL', 'ROR',
-  'SAL', 'SAR', 'SAVEGLOBALTABLE', 'SAVEINTERRUPTTABLE', 'SAVEREALSTATUS',
-  'SCANBIT', 'SCANRBIT', 'SCL', 'SCR', 'SEGMENTREADABLE', 'SEGMENTWRITABLE',
-  'SELECTOROF', 'SETB', 'SETHW', 'SETREALMODE', 'SETW', 'SHL', 'SHLD', 'SHR', 'SHRD',
-  'SIGN', 'SIGNED', 'SKIPB', 'SKIPHW', 'SKIPRHW', 'SKIPRW', 'SKIPW',
-  'STACKBASE', 'STACKPTR',
-  'TASKREGISTER', 'TESTREGISTER', 'TIME',
-  'UNSIGN',
-  'WAITFORINTERRUPT',
-  'XLAT',
-  'ZERO'
-]
-[BLOCKINDWORD BLOCKOUTDWORD CMPD FINDD FINDRD INDWORD MOVD MOVRD OUTDWORD SETD SKIPD SKIPRD]
-[BYTESWAP TESTREGISTER INVALIDATEDATACACHE WBINVALIDATEDATACACHE INVALIDATETLBENTRY]
 
 Prolog
 - empty file has too high confidence

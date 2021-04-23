@@ -403,6 +403,11 @@ Set-Variable -Name language "Kotlin"
 test\bin\run_test.ps1 -json -name qksms-kt -action $action -language $language -inputfile ".\test\data\$language\qksms.kt" -expected ".\test\ref\$action\$language\qksms.txt"
 test\bin\run_test.ps1 -json -name render-kt -action $action -language $language -inputfile ".\test\data\$language\render.kt" -expected ".\test\ref\$action\$language\render.txt"
 
+# Latino
+Set-Variable -Name language "Latino"
+test\bin\run_test.ps1 -json -name major-lat -action $action -language $language -inputfile ".\test\data\$language\major.lat" -expected ".\test\ref\$action\$language\major.txt"
+test\bin\run_test.ps1 -json -name fibonacci-lat -action $action -language $language -inputfile ".\test\data\$language\fibonacci.lat" -expected ".\test\ref\$action\$language\fibonacci.txt"
+
 # Lua
 Set-Variable -Name language "Lua"
 test\bin\run_test.ps1 -json -name dissector-lua -action $action -language $language -inputfile ".\test\data\$language\dissector.lua" -expected ".\test\ref\$action\$language\dissector.txt"
@@ -472,6 +477,10 @@ test\bin\run_test.ps1 -json -name crtpln3-pl1 -action $action -language $languag
 test\bin\run_test.ps1 -json -name mainfact-pl1 -action $action -language $language -inputfile ".\test\data\$language\MAINFACT.pl1" -expected ".\test\ref\$action\$language\MAINFACT.txt"
 test\bin\run_test.ps1 -json -name example-pl1 -action $action -language $language -inputfile ".\test\data\$language\example.pl1" -expected ".\test\ref\$action\$language\example.txt"
 test\bin\run_test.ps1 -json -name digrams-pl1 -action $action -language $language -inputfile ".\test\data\$language\digrams.pl1" -expected ".\test\ref\$action\$language\digrams.txt"
+
+# PL/M
+Set-Variable -Name language "PLM"
+test\bin\run_test.ps1 -json -name example-plm -action $action -language $language -inputfile ".\test\data\$language\example.plm" -expected ".\test\ref\$action\$language\example.txt"
 
 # Prolog
 Set-Variable -Name language "Prolog"

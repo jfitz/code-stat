@@ -159,7 +159,7 @@ test\bin\run_test.ps1 -json -name prime_test-$language -action $action -errors -
 test\bin\run_test.ps1 -json -name values-$language -action $action -errors -language $language -inputfile ".\test\data\$language\values.c" -expected ".\test\ref\$action-errors\$language\values.txt"
 test\bin\run_test.ps1 -json -name j_interpreter-$language -action $action -errors -language $language -inputfile ".\test\data\$language\j_interpreter.c" -expected ".\test\ref\$action-errors\$language\j_interpreter.txt"
 test\bin\run_test.ps1 -json -name zero_line-$language -action $action -errors -language $language -inputfile ".\test\data\$language\zero_line_hello_world.c" -expected ".\test\ref\$action-errors\$language\zero_line_hello_world.txt"
-test\bin\run_test.ps1 -json -name charlotte-c-78 -action $action -errors -language $language -inputfile ".\test\data\$language\charlotte.c" -expected ".\test\ref\$action\$language\charlotte.txt"
+test\bin\run_test.ps1 -json -name charlotte-c-78 -action $action -errors -language $language -inputfile ".\test\data\$language\charlotte.c" -expected ".\test\ref\$action-errors\$language\charlotte.txt"
 
 # C-89
 
@@ -303,7 +303,7 @@ test\bin\run_test.ps1 -json -name send_receive-erlang -action $action -errors -l
 
 # Flowmatic
 Set-Variable -Name language "Flowmatic"
-test\bin\run_test.ps1 -json -name example-flowmatic -action $action -errors -language $language -inputfile ".\test\data\$language\example.txt" -expected ".\test\ref\$action\$language\example.txt"
+test\bin\run_test.ps1 -json -name example-flowmatic -action $action -errors -language $language -inputfile ".\test\data\$language\example.txt" -expected ".\test\ref\$action-errors\$language\example.txt"
 
 # FORTRAN-66
 Set-Variable -Name language "FORTRAN-66"
@@ -403,6 +403,11 @@ Set-Variable -Name language "Kotlin"
 test\bin\run_test.ps1 -json -name qksms-kt -action $action -errors -language $language -inputfile ".\test\data\$language\qksms.kt" -expected ".\test\ref\$action-errors\$language\qksms.txt"
 test\bin\run_test.ps1 -json -name render-kt -action $action -errors -language $language -inputfile ".\test\data\$language\render.kt" -expected ".\test\ref\$action-errors\$language\render.txt"
 
+# Latino
+Set-Variable -Name language "Latino"
+test\bin\run_test.ps1 -json -name major-lat -action $action -errors -language $language -inputfile ".\test\data\$language\major.lat" -expected ".\test\ref\$action-errors\$language\major.txt"
+test\bin\run_test.ps1 -json -name fibonacci-lat -action $action -errors -language $language -inputfile ".\test\data\$language\fibonacci.lat" -expected ".\test\ref\$action-errors\$language\fibonacci.txt"
+
 # Lua
 Set-Variable -Name language "Lua"
 test\bin\run_test.ps1 -json -name dissector-$language -action $action -errors -language $language -inputfile ".\test\data\$language\dissector.lua" -expected ".\test\ref\$action-errors\$language\dissector.txt"
@@ -472,6 +477,10 @@ test\bin\run_test.ps1 -json -name crtpln3-pl1 -action $action -errors -language 
 test\bin\run_test.ps1 -json -name mainfact-pl1 -action $action -errors -language $language -inputfile ".\test\data\$language\MAINFACT.pl1" -expected ".\test\ref\$action-errors\$language\MAINFACT.txt"
 test\bin\run_test.ps1 -json -name example-pl1 -action $action -errors -language $language -inputfile ".\test\data\$language\example.pl1" -expected ".\test\ref\$action-errors\$language\example.txt"
 test\bin\run_test.ps1 -json -name digrams-pl1 -action $action -errors -language $language -inputfile ".\test\data\$language\digrams.pl1" -expected ".\test\ref\$action-errors\$language\digrams.txt"
+
+# PL/M
+Set-Variable -Name language "PLM"
+test\bin\run_test.ps1 -json -name example-plm -action $action -errors -language $language -inputfile ".\test\data\$language\example.plm" -expected ".\test\ref\$action-errors\$language\example.txt"
 
 # Prolog
 Set-Variable -Name language "Prolog"

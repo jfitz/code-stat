@@ -39,6 +39,7 @@ from java_examiner import JavaExaminer
 from javascript_examiner import JavaScriptExaminer
 from julia_examiner import JuliaExaminer
 from kotlin_examiner import KotlinExaminer
+from latino_examiner import LatinoExaminer
 from lua_examiner import LuaExaminer
 from matlab_examiner import MatlabExaminer
 from ml_examiner import MlExaminer
@@ -47,6 +48,7 @@ from objectivec_examiner import ObjectiveCExaminer
 from pascal_examiner import PascalExaminer
 from perl_examiner import PerlExaminer
 from pl1_examiner import PL1Examiner
+from plm_examiner import PLMExaminer
 from prolog_examiner import PrologExaminer
 from python_examiner import PythonExaminer
 from r_examiner import RExaminer
@@ -92,6 +94,7 @@ JavaExaminer.__escape_z__()
 JavaScriptExaminer.__escape_z__()
 JuliaExaminer.__escape_z__()
 KotlinExaminer.__escape_z__()
+LatinoExaminer.__escape_z__()
 LuaExaminer.__escape_z__()
 MatlabExaminer.__escape_z__()
 MlExaminer.__escape_z__()
@@ -100,6 +103,7 @@ ObjectiveCExaminer.__escape_z__()
 PascalExaminer.__escape_z__()
 PerlExaminer.__escape_z__()
 PL1Examiner.__escape_z__()
+PLMExaminer.__escape_z__()
 PrologExaminer.__escape_z__()
 PythonExaminer.__escape_z__()
 RExaminer.__escape_z__()
@@ -295,6 +299,7 @@ codes_and_names = {
   'javascript': 'JavaScript',
   'julia': 'Julia',
   'kotlin': 'Kotlin',
+  'latino': 'Latino',
   'lua': 'Lua',
   'matlab': 'Matlab',
   'modula-2': 'Modula-2',
@@ -304,6 +309,7 @@ codes_and_names = {
   'pascal': 'Pascal',
   'perl': 'Perl',
   'pl1': 'PL/1',
+  'plm': 'PL/M',
   'prolog': 'Prolog',
   'python': 'Python',
   'r': 'R',
@@ -387,6 +393,7 @@ codes_and_groups = {
   'javascript': 'JavaScript',
   'julia': 'Julia',
   'kotlin': 'Kotlin',
+  'latino': 'Latino',
   'lua': 'Lua',
   'matlab': 'Matlab',
   'modula-2': 'Modula-2',
@@ -396,6 +403,7 @@ codes_and_groups = {
   'pascal': 'Pascal',
   'perl': 'Perl',
   'pl1': 'PL/1',
+  'plm': 'PL/1',
   'prolog': 'Prolog',
   'python': 'Python',
   'r': 'R',
@@ -480,6 +488,7 @@ codes_and_years = {
   'javascript': 1995,
   'julia': 2009,
   'kotlin': 2011,
+  'latino': 2015,
   'lua': 1993,
   'matlab': 1984,
   'modula-2': 1977,
@@ -489,6 +498,7 @@ codes_and_years = {
   'pascal': 1970,
   'perl': 1980,
   'pl1': 1964,
+  'plm': 1978,
   'prolog': 1972,
   'python': 1991,
   'r': 1976,
@@ -570,6 +580,7 @@ simpler_languages = {
   'javascript': None,
   'julia': None,
   'kotlin': None,
+  'latino': None,
   'lua': None,
   'matlab': None,
   'modula-2': 'pascal',
@@ -579,6 +590,7 @@ simpler_languages = {
   'pascal': None,
   'perl': 'awk',
   'pl1': None,
+  'plm': 'pl1',
   'prolog': None,
   'python': None,
   'r': None,
@@ -1107,6 +1119,9 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
   if language in ['kotlin', 'kt']:
     examiner = KotlinExaminer(code)
 
+  if language in ['latino']:
+    examiner = LatinoExaminer(code)
+
   if language in ['lua']:
     examiner = LuaExaminer(code)
 
@@ -1133,6 +1148,9 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
 
   if language in ['pl1']:
     examiner = PL1Examiner(code, tab_size, wide)
+
+  if language in ['plm']:
+    examiner = PLMExaminer(code, tab_size, wide)
 
   if language in ['prolog']:
     examiner = PrologExaminer(code)
@@ -1403,6 +1421,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
   if 'kotlin' in languages:
     examiners['kotlin'] = KotlinExaminer(code)
 
+  if 'latino' in languages:
+    examiners['latino'] = LatinoExaminer(code)
+
   if 'lua' in languages:
     examiners['lua'] = LuaExaminer(code)
 
@@ -1429,6 +1450,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
 
   if 'pl1' in languages:
     examiners['pl1'] = PL1Examiner(code, tab_size, wide)
+
+  if 'plm' in languages:
+    examiners['plm'] = PLMExaminer(code, tab_size, wide)
 
   if 'prolog' in languages:
     examiners['prolog'] = PrologExaminer(code)

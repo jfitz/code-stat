@@ -611,7 +611,11 @@ class SuffixedIntegerTokenBuilder(TokenBuilder):
         self.abbrevs[suffix[:i+1]] = 1
 
     self.case_sensitive = case_sensitive
-    self.extra_chars = extra_chars
+
+    if case_sensitive or extra_chars is None:
+      self.extra_chars = extra_chars
+    else:
+      self.extra_chars = list(map(str.lower, extra_chars))
 
     self.text = None
 
