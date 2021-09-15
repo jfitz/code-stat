@@ -547,6 +547,7 @@ test\bin\run_test.ps1 -json -name chip8-display-$language -action $action -error
 test\bin\run_test.ps1 -json -name chip8-instructions-$language -action $action -errors -language $language -inputfile ".\test\data\$language\chip8-instructions.rs" -expected ".\test\ref\$action-errors\$language\chip8-instructions.txt"
 test\bin\run_test.ps1 -json -name chip8-main-$language -action $action -errors -language $language -inputfile ".\test\data\$language\chip8-main.rs" -expected ".\test\ref\$action-errors\$language\chip8-main.txt"
 test\bin\run_test.ps1 -json -name zero_line-$language -action $action -errors -language $language -inputfile ".\test\data\$language\zero_line_hello_world.rs" -expected ".\test\ref\$action-errors\$language\zero_line_hello_world.txt"
+test\bin\run_test.ps1 -json -name weird-$language -action $action -errors -language $language -inputfile ".\test\data\$language\weird.rs" -expected ".\test\ref\$action-errors\$language\weird.txt"
 
 # Scala
 Set-Variable -Name language "Scala"
@@ -555,6 +556,7 @@ test\bin\run_test.ps1 -json -name larger-$language -action $action -errors -lang
 test\bin\run_test.ps1 -json -name random-$language -action $action -errors -language $language -inputfile ".\test\data\$language\random.$language" -expected ".\test\ref\$action-errors\$language\random.txt"
 test\bin\run_test.ps1 -json -name variables-$language -action $action -errors -language $language -inputfile ".\test\data\$language\variables.$language" -expected ".\test\ref\$action-errors\$language\variables.txt"
 test\bin\run_test.ps1 -json -name zero_line-$language -action $action -errors -language $language -inputfile ".\test\data\$language\zero_line_hello_world.scala" -expected ".\test\ref\$action-errors\$language\zero_line_hello_world.txt"
+test\bin\run_test.ps1 -json -name v3-$language -action $action -errors -language $language -inputfile ".\test\data\$language\v3_control.$language" -expected ".\test\ref\$action-errors\$language\v3_control.txt"
 
 # SQL
 Set-Variable -Name language "SQL"

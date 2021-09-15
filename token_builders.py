@@ -3,13 +3,32 @@ import itertools
 
 from codestat_token import Token
 
-# count characters in string
-def count_not_escaped(c, candidate):
+# count specified character in string
+def count_not_escaped_quotes(c, candidate):
   count = 0
   escaped = False
+
   for ch in candidate:
     if ch == c and not escaped:
       count += 1
+
+    if ch == '\\':
+      escaped = not escaped
+    else:
+      escaped = False
+  
+  return count
+
+
+# count non-quote characters in string (don't count escapes)
+def count_not_escaped_chars(quote, candidate):
+  count = 0
+  escaped = False
+
+  for ch in candidate:
+    if ch != quote and not escaped:
+      count += 1
+
     if ch == '\\':
       escaped = not escaped
     else:
@@ -257,7 +276,7 @@ class EscapedStringTokenBuilder(TokenBuilder):
 
     # no quote stuffing, stop on second quote
     # assume escaped quotes are allowed
-    quote_count = count_not_escaped(candidate[0], candidate)
+    quote_count = count_not_escaped_quotes(candidate[0], candidate)
 
     return quote_count < 2
 
@@ -329,6 +348,61 @@ class StuffedQuoteStringTokenBuilder(TokenBuilder):
     return len(self.text)
 
 
+# token reader for text literal (char)
+class SingleCharStringTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self):
+    self.quotes = ["'"]
+    self.text = ''
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'string', True)]
+
+
+  def accept(self, candidate, c):
+    # newline breaks a string
+    if c in ['\n', '\r']:
+      return False
+
+    if len(candidate) == 0:
+      return c in self.quotes
+
+    if len(candidate) == 1:
+      return True
+
+    # no quote stuffing, stop on second quote
+    # assume escaped quotes are allowed
+    quote_count = count_not_escaped_quotes(candidate[0], candidate)
+    char_count = count_not_escaped_chars(candidate[0], candidate)
+
+    if c in self.quotes:
+      return quote_count < 2
+
+    return char_count < 1
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(self.text) < 2:
+      return 0
+
+    if self.text[-1] != self.text[0]:
+      return 0
+
+    return len(self.text)
+
+
 # token reader for prefixed text literal (string)
 class PrefixedStringTokenBuilder(TokenBuilder):
   @staticmethod
@@ -372,7 +446,7 @@ class PrefixedStringTokenBuilder(TokenBuilder):
 
     # no quote stuffing, stop on second quote
     # assume escaped quotes are allowed
-    quote_count = count_not_escaped(candidate[len(self.prefix)], candidate)
+    quote_count = count_not_escaped_quotes(candidate[len(self.prefix)], candidate)
 
     return quote_count < 2
 
@@ -483,7 +557,7 @@ class SuffixedStringTokenBuilder(TokenBuilder):
 
     # no quote stuffing, stop on second quote
     # assume escaped quotes are allowed
-    quote_count = count_not_escaped(candidate[0], candidate)
+    quote_count = count_not_escaped_quotes(candidate[0], candidate)
 
     if quote_count < 2:
       return True
@@ -1481,7 +1555,7 @@ class RegexTokenBuilder(TokenBuilder):
     if len(candidate) == 1:
       return True
 
-    slash_count = count_not_escaped('/', candidate)
+    slash_count = count_not_escaped_quotes('/', candidate)
 
     if slash_count < 2:
       return True

@@ -132,7 +132,7 @@ class ScalaExaminer(Examiner):
       'package', 'private', 'protected',
       'return',
       'sealed',
-      'throw', 'trait', 'try', 'type',
+      'then', 'throw', 'trait', 'try', 'type',
       'val', 'var',
       'while', 'with',
       'yield'

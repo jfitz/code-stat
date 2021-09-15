@@ -7,6 +7,7 @@ from token_builders import (
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
+  SingleCharStringTokenBuilder,
   EscapedStringTokenBuilder,
   PrefixedStringTokenBuilder,
   IntegerTokenBuilder,
@@ -36,6 +37,7 @@ class RustExaminer(Examiner):
     InvalidTokenBuilder.__escape_z__()
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
+    SingleCharStringTokenBuilder.__escape_z__()
     EscapedStringTokenBuilder.__escape_z__()
     PrefixedStringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
@@ -78,13 +80,17 @@ class RustExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder(leads, extras)
     operand_types.append('identifier')
 
+    lifetime_tb = IdentifierTokenBuilder("'", extras)
+
     attribute_tb = RustAttributeTokenBuilder()
 
-    quotes = ['"', "'"]
+    quotes = ['"']
     string_tb = EscapedStringTokenBuilder(quotes, 10)
     bstring_tb = PrefixedStringTokenBuilder('b', True, quotes)
     rstring_tb = RustRawStringTokenBuilder()
     operand_types.append('string')
+
+    char_tb = SingleCharStringTokenBuilder()
 
     class_type_tb = ClassTypeTokenBuilder()
     operand_types.append('class')
@@ -207,6 +213,8 @@ class RustExaminer(Examiner):
       groupers_tb,
       known_operator_tb,
       identifier_tb,
+      char_tb,
+      lifetime_tb,
       class_type_tb,
       attribute_tb,
       string_tb,
