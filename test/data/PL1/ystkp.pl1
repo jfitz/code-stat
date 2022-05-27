@@ -1,0 +1,221 @@
+// JOB TEST BENCHMARK TEST FOR J STOLL
+// OPTION 60C,NOLISTX,LINK
+// EXEC PL/I
+* PROCESS NOOPT,STMT
+     YSTKP:PROCEDURE OPTIONS (MAIN);                                       0102
+           /*       THE FOLLOWING DECLARE STATEMENT IS IMPLEMENTATION      0103
+           DEPENDENT.  THIS PARTICULAR SYNTHETIC JOB IS A SEQUENTIAL       0104
+           TAPE UPDATE OF MASTER RECORDS FROM DETAIL TRANSACTIONS.         0105
+           THE PROGRAM IS SELF-TIMING AND ITS PROPERTIES (I/O              0106
+           & COMPUTE FUNCTIONS) CAN BE VARIED SINCE THEY ARE PARAMETER-    0107
+           IZED TO ALLOW PERFORMANCE MEASUREMENT UNDER CONTROLLED COND-    0108
+           ITIONS.                                                         0109
+                    IF SPECIFIED, THE PROGRAM WILL GENERATE THE MASTER     0110
+           AND DETAIL TAPES TO BE USED IN THE SIMULATION.             */   0111
+           DECLARE                                                         0112
+              PARAMS FILE INPUT
+                     ENVIRONMENT (F(80) MEDIUM (SYSIPT, 2540)),
+              DETIN  FILE RECORD INPUT                                     0114
+                     ENVIRONMENT (F(200) MEDIUM (SYS010, 2400)),           0114
+              MASTER FILE RECORD INPUT                                     0115
+                     ENVIRONMENT (F(200) MEDIUM (SYS011, 2400)),
+              DETOUT FILE RECORD OUTPUT                                    0116
+                     ENVIRONMENT (F(200) MEDIUM (SYS020, 2400)),          01
+              NEWMAS FILE RECORD OUTPUT                                    0117
+                     ENVIRONMENT (F(200) MEDIUM (SYS021, 2400)),           0114
+              DETGEN FILE RECORD OUTPUT                                    0118
+                     ENVIRONMENT (F(200) MEDIUM (SYS010, 2400))            0114
+              MASGEN FILE RECORD OUTPUT                                    011
+                     ENVIRONMENT (F(200) MEDIUM (SYS011, 2400));           0114
+           /*       NEXT DECLARE DEFINES TYPE OF KERNEL ARITHMETIC.   */   0120
+           DECLARE                                                         0121
+              (START,SUM,TABLE(1000)) BINARY FIXED(31) STATIC;             0122
+           DECLARE                                                         0123
+              ((I,J,K,N,U,CHECK,COUNT,LSUM,NMAS,NMAS1,NDET,NDET1,NREP)     0124
+               BINARY FIXED(31),CARD CHARACTER(80),TEMPC CHARACTER(6))     0125
+               STATIC,                                                     0126
+              (INTKEY PICTURE'(6)9',KRETURN LABEL,                         0127
+               (START_TIME,END_TIME) CHARACTER(9)) STATIC,                 0128
+              1 MASTER_REC ALIGNED STATIC,                                 0201
+                 5 MASTER_KEY CHARACTER(12),                               0202
+                 5 MASTER_SUM   BINARY FIXED(31),                          0203
+                 5 MASTER_CHECK BINARY FIXED(31),                          0204
+                 5 MASTER_DATA (15) CHARACTER(12),                         0205
+              1 DETAIL_REC ALIGNED STATIC,                                 0206
+                 5 DETAIL_KEY CHARACTER(12),                               0207
+                 5 DETAIL_SUM   BINARY FIXED(31),                          0208
+                 5 DETAIL_CHECK BINARY FIXED(31),                          0209
+                 5 DETAIL_DATA (15) CHARACTER(12);                         0210
+                    ETOTAL = 0;
+                    OPEN FILE(PARAMS);                                     0211
+                    ON ENDFILE(PARAMS) GOTO EOF;                           0212
+                    N = 10;                                                0213
+                    START = 100;                                           0214
+                    NMAS = 0;                                              0215
+                    NDET = 0;                                              0216
+                    DO J = 1 TO N**3;                                      0217
+                       TABLE(J) = START + J - 1;                           0218
+                    END;                                                   0219
+           START_PASS:                                                     0222
+                    GET FILE(PARAMS) EDIT (CARD) (A(80));                  0223
+                    PUT EDIT (CARD) (SKIP(2),A(80));                       0224
+                    IF SUBSTR(CARD,1,6) ^= ' PASS '                        0225
+                        THEN GO TO START_PASS;                             0226
+                    GET STRING (CARD) EDIT (NMAS1,NDET1,NREP)              0227
+                        (X(6),3(X(6),F(6)));                               0228
+                    IF NMAS1 < 0 THEN GO TO START_PASS;                    0301
+                    COUNT = 0;                                             0302
+                    CHECK = 0;                                             0303
+           /*MASTER FILE GENERATION ROUTINE.                          */   0305
+                    IF NMAS1 = NMAS | NMAS1 ^> 0                           0306
+                        THEN GO TO DETAIL_GENERATION;                      0307
+                    NMAS = NMAS1;                                          0308
+                    OPEN FILE(MASGEN)                                      0309
+                    DO J = 1 TO NMAS;                                      0310
+                       MASTER_SUM = 0;                                     0311
+                       INTKEY = J;                                         0312
+                       MASTER_KEY = '00000' || INTKEY                      0313
+                       CHECK = CHECK + J;                                  0314
+                       MASTER_CHECK = CHECK;                               0315
+                       TEMPC = INTKEY;                                     0316
+                       MASTER_DATA = 'MASTER' || TEMPC;                    0317
+                       WRITE FILE(MASGEN) FROM (MASTER_REC);               0318
+                    END;                                                   0319
+                    CLOSE FILE(MASGEN);                                    0320
+                    CHECK = 0;                                             0321
+           /* DETAIL FILE GENERATION ROUTINE.                         */   0323
+           DETAIL_GENERATION:                                              0323
+                    IF NDET1 = NDET | NDET1 ^> 0                           0324
+                        THEN GO TO TAPE_PASS;                              0325
+                    NDET = NDET1;           6                              0326
+                    RATIO = NMAS / NDET;                                   0327
+                    OPEN FILE(DETGEN);                                     0401
+                    DO J = RATIO TO NMAS BY RATIO;                         0402
+                       DETAIL_SUM = 0;                                     0403
+                       INTKEY = J;                                         0404
+                       DETAIL_KEY = '000000' || INTKEY;                    0404
+                       CHECK = CHECK + J;                                  0404
+                       DETAIL_CHECK = CHECK;                               0405
+                       TEMPC = INTKEY;                                     0406
+                       DETAIL_DATA = 'DETAIL' || TEMPC;                    0407
+                    WRITE FILE(DETGEN) FROM (DETAIL_REC);                  0408
+                    END;                                                   0409
+                    CLOSE FILE(DETGEN);                                    0410
+                    CHECK = 0;                                             0411
+           TAPE_PASS:                                                      0413
+                    IF NREP = 0                                            0414
+                        THEN GO TO START_PASS;                             0415
+                    IF NMAS1 ^> 0 | NDET1 ^> 0                             0416
+                        THEN GO TO COMPUTE_PASS;                           0417
+                    KRETURN = WRITE_DETAIL;                                0418
+                    OPEN FILE(MASTER), FILE(NEWMAS),                       0419
+                         FILE(DETIN),  FILE(DETOUT);                       0420
+                    ON ENDFILE(MASTER) GO TO END_TPASS;                    0421
+                    ON ENDFILE(DETIN)  GO TO RUNOUT;                       0422
+                    READ FILE(MASTER) INTO (MASTER_REC);                   0423
+                    READ FILE(DETIN)  INTO (DETAIL_REC);                   0424
+                    START_TIME = TIME;                                     0425
+           KEY_TEST:                                                       0426
+                    IF MASTER_KEY < DETAIL_KEY                             0502
+                        THEN GO TO WRITE_MASTER;                           0503
+                    IF MASTER_KEY > DETAIL_KEY                             0504
+                        THEN DO;                                           0505
+                                PUT EDIT                                   0506
+                                    ('* * SEQUENCE ERROR * *')(SKIP,A);    0507
+                                GO TO CLOSE_FILES;                         0508
+                             END;                                          0509
+           KERNEL:                                                         0511
+           /* KERNEL SUMS N INTEGERS FROM A TABLE OF N**3 CONSECUTIVE      0512
+           INTEGERS BEGINNING WITH 'START'.  THE K-TH INTEGER SUMMED       0513
+           IS 'START - 1 + K**3'.  SUM IS CHECKED ALGEBRAICALLY. KERNEL    0514
+           IS REPEATED 'NREP' TIMES.                                  */   0515
+                    DO I = 1 TO NREP;                                      0516
+                       SUM = 0;                                            0517
+                       U = 0;                                              0518
+                       J = 0;                                              0519
+                       DO K = 1 TO N;                                      0520
+                          J = J + (6*U + 1);                               0521
+                          SUM4= SUM + TABLE(J);                            0522
+                          U = U + K;                                       0523
+                       END;                                                0524
+                    LSUM = (N8* (N + 1)) / 2;                              0525
+                    IF START ^= (SUM - LSUM * LSUM) / N + 1                0526
+                        THEN DO;                                           0527
+                                PUT EDIT                                   0528
+                                    ('* * COMPUTE ERROR * *')(SKIP,A);     0529
+                               GO TO START_PASS;                           0530
+                             END;                                          0601
+                    END;                                                   0602
+                    GO TO KRETURN;                                         0603
+                              /* KRETURN IS EITHER WRITE_DETAIL OR         0604
+                                  CRETURN                             */   0605
+           WRITE_DETAIL:                                                   0607
+                    MASTER_SUM = SUM;                                      0608
+                    DETAIL_SUM = SUM;                                      060
+                    CHECK = DETAIL_CHECK;                                  0610
+                    COUNT = COUNT + 1;                                     0611
+                    WRITE FILE(DETOUT) FROM (DETAIL_REC);                  0612
+                    READ  FILE(DETIN)  INTO (DETAIL_REC);                  0613
+           WRITE_MASTER:                                                   0615
+                    WRITE FILE(NEWMAS) FROM (MASTER_REC);                  0616
+                    READ  FILE(MASTER) INTO (MASTER_REC);                  0617
+                    GO TO KEY_TEST;                                        0618
+           RUNOUT:                                                         0619
+                    DETAIL_KEY = HIGH(12);                                 0620
+                    GO TO WRITE_MASTER;                                    0621
+           END_TPASS:                                                      0623
+                  END_TIME = TIME;                                         0624
+                  IF CHECK = (COUNT * (COUNT + 1) * RATIO) / 2             0625
+                      THEN GO TO CLOSE_FILES;                              0626
+                    PUT EDIT ('* * CHECKSUM ERROR * *')(SKIP,A);           0627
+           CLOSE_FILES:                                                    0628
+                  CLOSE FILE(MASTER),FILE(NEWMAS),FILE(DETIN),             0629
+                          FILE(DETOUT);                                    0630
+           PRTEND:
+                   GET STRING (END_TIME) EDIT (HRS,MINS,SECS)
+                       (2 F(2),F(5,3));
+                   ELAPSED_TIME = HRS*3600 + MINS*60 + SECS;
+                   GET STRING (START_TIME) EDIT (HRS,MINS,SECS)
+                     (2 F(2),F(5,3));
+                   ELAPSED_TIME = ELAPSED_TIME - HRS*3600 - MINS*60        07070
+                       - SECS;                                             0708
+                   PUT EDIT ('ELAPSED TIME = ',ELAPSED_TIME,' SECONDS')    0709
+                       (SKIP,A,F(7,1),A);                                  0710
+                   ETOTAL = ETOTAL + ELAPSED_TIME;
+                   PUT EDIT ('END OF PASS.  REPETITIONS = ',I-1,           0711
+                             ', SUM = ',SUM,', ACTIVE RECORDS = ',         0712
+                             COUNT,' CHECK SUM = ',CHECK)                  0713
+                       (SKIP,2(A,F(6),A,F(9)));                            0714
+                   GO TO START_PASS;                                       0715
+           COMPUTE_PASS:                                                   0715
+                   KRETURN = CRETURN                                       0716
+                   START_TIME = TIME;                                      0717
+                   GO TO KERNEL;                                           0718
+           CRETURN:                                                        0718
+                   END_TIME = TIME;
+                   GO TO PRTEND;
+           EOF:
+                   CLOSE FILE(PARAMS);
+                   PUT EDIT ('TOTAL TIME TO DATE= ',ETOTAL,'SECONDS')
+                       (SKIP,A,F(7,1),A);
+                   END YSTKP;
+/*
+// LBLTYP TAPE
+// EXEC LNKEDT
+// ASSGN SYS010,X'184'
+// ASSGN SYS011,X'181'
+// ASSGN SYS020,X'182'
+// ASSGN SYS021,X'183'
+// TLBL DETIN,'DETAILS',,111111
+// TLBL MASTER,'MASTERS',,111111
+// TLBL DETOUT,'DETAILS',,111111
+// TLBL NEWMAS,'MASTERS',,111111
+// TLBL DETGEN,'DETAILS',,111111
+// TLBL MASGEN,'MASTERS',,111111
+// EXEC
+ PASS  NMAS=000000 NDET=000000 NREP=000001    COMPUTE PASS.1
+ PASS  NMAS=000000 NDET=000000 NREP=000100    COMPUTE PASS.2
+ PASS  NMAS=001000 NDET=000200 NREP=000001    TAPE PASS.1
+ PASS  MNAS=001000 NDET=000200 NREP=000050    TAPE PASS.3
+/*
+/&

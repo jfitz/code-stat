@@ -285,8 +285,10 @@ test\bin\run_test.ps1 -json -name UChessBoardCmp-delphi -action $action -languag
 test\bin\run_test.ps1 -json -name UPlatform-delphi -action $action -language $language -inputfile ".\test\data\$language\UPlatform.pas" -expected ".\test\ref\$action\$language\UPlatform.txt"
 
 # Dibol
-$language= "Dibol"
-test\bin\run_test.ps1 -json -name bottles-dibol -action $action -language $language -inputfile ".\test\data\$language\bottles.dbl" -expected ".\test\ref\$action\$language\bottles.txt"
+Set-Variable -Name extension "dbl"
+Set-Variable -Name language "Dibol"
+test\bin\run_test.ps1 -json -name bottles-$language -action $action -language $language -inputfile ".\test\data\$language\bottles.$extension" -expected ".\test\ref\$action\$language\bottles.txt"
+test\bin\run_test.ps1 -json -name bilref-$language -action $action -language $language -inputfile ".\test\data\$language\bilref.$extension" -expected ".\test\ref\$action\$language\bilref.txt"
 
 # Eiffel
 Set-Variable -Name language "Eiffel"
@@ -471,12 +473,14 @@ test\bin\run_test.ps1 -json -name zero_line-perl -action $action -language $lang
 
 # PL/1
 Set-Variable -Name language "PL1"
-test\bin\run_test.ps1 -json -name bpgpli-pl1 -action $action -language $language -inputfile ".\test\data\$language\BPGPLI.pl1" -expected ".\test\ref\$action\$language\BPGPLI.txt"
-test\bin\run_test.ps1 -json -name checkdt-pl1 -action $action -language $language -inputfile ".\test\data\$language\CHECKDT.pl1" -expected ".\test\ref\$action\$language\CHECKDT.txt"
-test\bin\run_test.ps1 -json -name crtpln3-pl1 -action $action -language $language -inputfile ".\test\data\$language\CRTPLN3.pl1" -expected ".\test\ref\$action\$language\CRTPLN3.txt"
-test\bin\run_test.ps1 -json -name mainfact-pl1 -action $action -language $language -inputfile ".\test\data\$language\MAINFACT.pl1" -expected ".\test\ref\$action\$language\MAINFACT.txt"
-test\bin\run_test.ps1 -json -name example-pl1 -action $action -language $language -inputfile ".\test\data\$language\example.pl1" -expected ".\test\ref\$action\$language\example.txt"
-test\bin\run_test.ps1 -json -name digrams-pl1 -action $action -language $language -inputfile ".\test\data\$language\digrams.pl1" -expected ".\test\ref\$action\$language\digrams.txt"
+Set-Variable -Name extension "pl1"
+test\bin\run_test.ps1 -json -name bpgpli-$extension -action $action -language $language -inputfile ".\test\data\$language\BPGPLI.$extension" -expected ".\test\ref\$action\$language\BPGPLI.txt"
+test\bin\run_test.ps1 -json -name checkdt-$extension -action $action -language $language -inputfile ".\test\data\$language\CHECKDT.$extension" -expected ".\test\ref\$action\$language\CHECKDT.txt"
+test\bin\run_test.ps1 -json -name crtpln3-$extension -action $action -language $language -inputfile ".\test\data\$language\CRTPLN3.$extension" -expected ".\test\ref\$action\$language\CRTPLN3.txt"
+test\bin\run_test.ps1 -json -name mainfact-$extension -action $action -language $language -inputfile ".\test\data\$language\MAINFACT.$extension" -expected ".\test\ref\$action\$language\MAINFACT.txt"
+test\bin\run_test.ps1 -json -name example-$extension -action $action -language $language -inputfile ".\test\data\$language\example.$extension" -expected ".\test\ref\$action\$language\example.txt"
+test\bin\run_test.ps1 -json -name digrams-$extension -action $action -language $language -inputfile ".\test\data\$language\digrams.$extension" -expected ".\test\ref\$action\$language\digrams.txt"
+test\bin\run_test.ps1 -json -name ystkp-$extension -action $action -language $language -inputfile ".\test\data\$language\ystkp.$extension" -expected ".\test\ref\$action\$language\ystkp.txt"
 
 # PL/M
 Set-Variable -Name language "PLM"

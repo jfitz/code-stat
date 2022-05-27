@@ -1,0 +1,283 @@
+;BILREF
+;
+;               DATE: 18-JUN-81
+;
+;               TAPE SCAN, SELECT, AND REFORMAT
+;               THIS PROGRAM TAKES THE INFORMATION ORIGINALLY
+;               PREPARED BY THE HONEYWELL/PLANTRONICS SYSTEM
+;               IN MAGNETIC TAPE FORM AND PREPARES IT FOR THE
+;               THE PROCESS OF UPDATING THE BILLING HISTORY FILE.
+;               SINCE THE TAPE IS NOT FILE STRUCTURED, IT IS
+;               TRANSFERRED VIA A UTILITY TO DISK AND THEN
+;               BECOMES INPUT TO THIS PROGRAM.  THIS PROGRAM THEN
+;               PERFORMS ITS MAIN FUNCTIONS AGAINST THAT DATA:
+;
+;                       1)SELECTION OF RECORDS FOR PROCESSING.
+;
+;                       2)SCANNING THE VARIABLE LENGTH TEXT.
+;                         INFORMATION ACCORDING TO THE
+;                         SYNTACTIC REQUIREMENTS SET DOWN IN
+;                         THE SYSTEM SPECIFICATIONS.
+;
+;                       3)REFORMATTING THE VARIABLE DATA INTO
+;                         FIXED FORMAT.
+;
+;                       4)PERFORMING REFERENCE DATA LOOKUPS
+;                         (CUSTOMER, COUNTRY).
+;
+;                       5)HANDLING THE TRACEABILITY LOGIC AND
+;                         SORT KEY CONSTRUCTION FOR BOTH EAST
+;                         AND WESTBOUND MESSAGES.
+;
+;               THE OUTPUT OF THIS PROGRAM, THE FORMATTED
+;               BILLING DATA, IS INPUT TO AN ENSUING SORT AND
+;               THEN BECOMES INPUT TO THE BILLING HISTORY FILE
+;               UPDATE PROGRAM.
+;
+RECORD CUSBIL                   ;CUSTOMER BILLING RECORD
+                                ;  (GENERIC FORMAT - HEADER AND TEXT)
+        RECTYP  ,D2             ;RECORD TYPE:
+                                ;  01 => MESSAGE ARRIVAL
+                                ;  03 => MESSAGE RELAYED
+                                ;  04 => MESSAGE CONFIRMED
+        ORMNEM  ,A4             ;ORIGINATING MNEMONIC
+        ORTIME  ,D4             ;ORIGINATING TIME (HHMM)
+        ORDATE  ,D6             ;ORIGINATING DATE (DDMMYY)
+        INSEQN  ,D4             ;IRI INPUT SEQUENCE NUMBER
+        MSCHAR  ,D6             ;MESSAGE CHARACTER COUNT
+        MSTEXT  ,A484           ;TEXT OF MESSAGE
+
+RECORD ,X                       ;TYPE 01 FORMAT
+                ,A26            ;HEADER
+        CUSTID  ,A14            ;CUSTOMER IDENT.
+        CUSTAD  ,A472           ;CUSTOMER ADDRESSING INFORMATION
+
+RECORD ,X                       ;TYPE 03 FORMAT
+                ,A40            ;HEADER AND CUSTOMER IDENT.
+        DESMNE  ,A4             ;DESTIMATION MNEMONIC
+        OPTIME  ,D4             ;IRI OUTPUT TIME (HHMM)
+        OPDATE  ,D6             ;IRI OUTPUT DATE (DDMMYY)
+        OPSEQN  ,D4             ;IRI OUTPUT SEQUENCE NUMBER
+        R03END  ,A1             ;ENDING ETX
+        R03FIL  ,A453           ;SPACE FILLED
+
+RECORD ,X                       ;TYPE 04 FORMAT
+                                ;EXCEPT FOR HEADER, ENTIRE RECORD
+                                ;IS VARIABLE TEXT STRING WHICH IS
+                                ;SCANNED, SYNTACTICALLY CHECKED,
+                                ;REFORMATTED
+                ,A27            ;HEADER
+                ,A1
+        VARTXT  ,A484           ;VARIABLE TEXT STRING
+
+RECORD FORBIL                   ;FORMATTED BILLING RECORD
+        FRTYPE  ,D2             ;RECORD TYPE
+        FCUSTN  ,D5             ;CUSTOMER NO. (FROM T/D/E XREF)
+        FORMNE  ,A4             ;ORIGINATOR'S MNEMONIC
+        FMSGDA  ,DS6             ;MESSAGE DATE
+        FMSGTI  ,D4             ;MESSAGE TIME
+        FIRSEQ  ,D4             ;IRI SEQUENCE NUMBER
+        FOUSEQ  ,A6             ;OUTPUT SEQUENCE # FROM UKDP
+        FORSEQ  ,D4             ;ORIGINATOR'S SEQUENCE #
+        FFLASH  ,A2             ;FLASH INDICATOR
+        FDEPT   ,A20            ;DEPARTMENT NAME
+        FCONFC  ,A1             ;CONFIRMATION CODE
+        FXMTIM  ,D5             ;TRANSMIT TIME (RUSHBRIDGE)
+        FCHAR   ,D8             ;IRI CHARACTER COUNT
+        FSTATS  ,A3             ;STATUS
+        FCANUM  ,D18            ;CALLED NUMBER
+        FRANBK  ,A16            ;RECEIVED ANSWERBACK
+
+RECORD CUSMAS           ;CUSTOMER MASTER FILE (A/R)
+        CUSNO   ,D5             ;CUSTOMER NO. (MUST = # IN T/D/C XREF)
+        NAME    ,A25            ;CUSTOMER NAME
+        ADD1    ,A25            ;ADDRESS LINE 1
+        ADD2    ,A25            ;       "     2
+        CITY    ,A15            ;   "    CITY
+        STATE   ,A2             ;   "    STATE - ABBREV.
+        ZIP     ,A7             ;ZIP CODE
+        SLSMAN  ,D9
+        CUSTTYP ,A1
+        SLSMTD  ,D8
+        SLSYTD  ,D8
+        CSTMTD  ,D8
+        CSTYTD  ,D8
+        TAXFLG  ,D1
+        CLRMT   ,D6
+        BALMTH  ,D1
+        STMFLG  ,D1
+;
+RECORD DUMCUS           ;DUMMY CUSTOMER MASTER CONTROL RECORD
+                ,A128
+        DELFLG  ,D1
+        SRTFLG  ,D1
+        ORGCUS  ,D5
+        CNTCUS  ,D5
+        MAXCUS  ,D5
+        DELCNT  ,D3
+
+RECORD CUSIDX           ;CUSTOMER MASTER FILE INDEX
+        ICUSNO  ,D5             ;INDEX CUSTOMER #
+        IRECNO  ,D5             ;INDEX RECORD #
+;
+RECORD
+        BYPREC  ,D5             ;BYPASSED RECORD COUNTER
+        PROREC  ,D1             ;PROCESS OR BYPASS SWITCH
+                                ;  0 ==> BYPASS RECORD
+                                ;  1 ==> PROCESS RECORD
+        T01CTR  ,D5             ;TYPE 01 RECORDS COUNTER
+        T03CTR  ,D5             ; "   03    "       "
+        T04CTR  ,D5             ; "   04    "       "
+        V       ,D1             ;DEFINES TERMINAL TYPE
+        KEY     ,A29            ;CONTAINS SEARCH KEY
+        BSEND   ,D5             ;SENDING FIELD FOR SEARCH
+        BSMID   ,D5             ;LOCATION OF FOUND RECORD
+        SRCCTL  ,D1             ;SEARCH CONTROL:
+                                ;       0 ==> RECORD FOUND
+                                ;       1 ==> SEARCH FAILED
+        TDCCNT  ,D5             ; # OF RECORDS IN TERM./DEPT./CUST. XREF
+        CNMCNT  ,D5             ; "
+        ERRCTL  ,D2             ; TYPE OF ERROR ENCOUNTERED
+        SWITCH  ,D1,1           ;FILE PROTECT SWITCH
+                                ;       0 ==>
+                                ;       1 ==>
+        INPCTR  ,D5             ;INPUT RECORD COUNTER
+
+RECORD IR3DEF
+        ORGMNE  ,A4             ;ORIGINATOR'S MNEMONIC
+        DEPTID  ,A20            ;DEPARTMENT
+        CUSTNO  ,D5             ;CUSTOMER NO. (FOR A/R USE)
+RECORD  ,XREF                   ;DUMMY CONTROL RECORD
+                ,A11
+        ORGTDC  ,D5             ;
+        CNTTDC  ,D5             ;
+        MAXTDC  ,D5             ;
+        DELTDC  ,D3             ;
+;
+RECORD IRIDEF
+        CALNUM  ,A12            ;CALLED NUMBER
+        CNAME   ,A12            ;COUNTRY NAME
+        CRATE   ,D2             ;RATE BASIS
+RECORD  ,X                      ;DUMMY CONTROL RECORD
+                ,A8
+        ORGNUM  ,D5
+        CNTCNM  ,D5
+        MAXCNM  ,D5
+        DELCNM  ,D3
+
+        PROC
+        CALL    OPENS
+
+GETREC,
+        CALL READIN
+        CALL SELECT
+        IF (PROREC) CALL PROCES
+        CALL OUTPUT
+        STOP 'BILMNU'
+
+OPENS,                                  ;HOUSEKEEPING - OPEN FILES ETC.
+        OPEN    (15,I,'TT:')
+        XCALL   TERID (V)
+        XCALL   RDYPR ('BILMNU')        ;RETURN TO MENU IF PRINTER ALREADY BUSY
+        XCALL   FILES (1,'I',53,SWITCH,'DEVICE')        ;OPENS CUSBIL FILE
+        XCALL   FILES (3,'I',50,SWITCH,'DEVICE')        ;OPENS CALLED # TABLE
+        READ    (3,IRIDEF,1)            ;GET DUMMY CTL RECORD
+        TDCCNT = CNTTDC                 ;INITIALIZE COUNT FOR RECORD SEARCHING
+        XCALL   FILES (4,'I',48,SWITCH,'DEVICE')        ;OPENS CUST MASTER A/R
+        READ    (4,IRIDEF,1)            ;GET DUMMY CTL RECORD
+        CNMCNT = CNTCNM                 ;INITIALIZE COUNT FOR RECORD SEARCHING
+        XCALL   FILES (5,'1',01,SWITCH,'DEVICE')        ;OPENS CUST.MASTER A/R
+        READ    (4,DUMCUS,1)            ;GET DUMMY CTL RECORD
+        CUSORG = ORGCUS
+        XCALL   FILES(6,'O',54,SWITCH,'DEVICE')         ;OPENS FORBIL FILE
+        RETURN                          ;BACK TO MAIN LINE PROCESSING
+SELECT,
+        PROREC = 1
+        IF (RECTYPE .EQ. 01) GOTO SELT01
+        IF (RECTYPE .EQ. 03) GOTO SELT03
+        IF (RECTYPE .EQ. 04) GOTO SELT04
+        INCR BYPREC
+        PROREC = 0
+        GOTO SELRET
+
+SELT01,
+        INCR T01CTR
+        GOTO SELRET
+
+SELT03,
+        INCR T03CTR
+        GOTO SELRET
+
+SELT04,
+        INCR T04CTR
+        GOTO SELRET
+
+SELRET,
+        RETURN
+
+FMTHRD,
+        FRTYPE = RECTYPE
+        FORMNE = ORMNEM
+        FMSGTI = ORTIME
+        FMSGDA = ORDATE
+        FIRSEQ = INSEQN
+
+READIN,
+        RETURN
+
+PROCES,
+        CALL FMTHRD
+        KEY(1,4) = ORMNEM
+        CALL MNELKP
+        IF (SRCCTL.EQ.1)  GOTO FRER01
+        IF (RECTYP.EQ.01) GOTO PROT01
+        IF (RECTYP.EQ.03) GOTO PROT03
+        CALL SCANER
+        KEY(1,4) = FORMNE
+        CALL MNELKP
+        IF (SRCCTL.EQ.1)  GOTO PRER02
+        KEY(1,5) = FCUSTN
+        CALL CUSLKP
+        IF (SRCCTL.EQ.1)  GOTO PRER03
+        KEY(1,12) = FCANUM
+        CALL CANLKP
+        IF (SRCCTL.EQ.1)  GOTO PRER04
+        GOTO PRERET
+PRER01,
+        ERRCTL = 01
+        GOTO PRERET
+PRER02,
+        ERRCTL = 02
+        GOTO PRERET
+PRER03,
+        ERRCTL = 03
+        GOTO PRERET
+PRER04,
+        ERRCTL = 04
+        GOTO PRERET
+PROT01,
+        GOTO PRERET
+PROT02,
+        GOTO PRERET
+PRERET,
+        RETURN
+;
+MNELKP,
+        RETURN
+;
+SCANER,
+        RETURN
+;
+CUSLKP,
+        RETURN
+;
+CANLKP,
+        RETURN
+;
+        RETURN
+
+OUTPUT,
+        RETURN
+
+        END
+        

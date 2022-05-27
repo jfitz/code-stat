@@ -216,7 +216,10 @@ test\bin\run_detect_test.ps1 -json -name UChessBoardCmp-delphi -inputfile ".\tes
 test\bin\run_detect_test.ps1 -json -name UPlatform-delphi -inputfile ".\test\data\delphi\UPlatform.pas" -expected ".\test\ref\detect\Delphi\UPlatform.txt"
 
 # Dibol
-test\bin\run_detect_test.ps1 -json -name bottles-dibol -inputfile ".\test\data\Dibol\bottles.dbl" -expected ".\test\ref\detect`\Dibol\bottles.txt"
+Set-Variable -Name language "Dibol"
+Set-Variable -Name extension "dbl"
+test\bin\run_detect_test.ps1 -json -name bottles-$language -inputfile ".\test\data\Dibol\bottles.$extension" -expected ".\test\ref\$action\$language\bottles.txt"
+test\bin\run_detect_test.ps1 -json -name bilref-$language -inputfile ".\test\data\Dibol\bilref.$extension" -expected ".\test\ref\$action\$language\bilref.txt"
 
 # Eiffel
 test\bin\run_detect_test.ps1 -json -name hello-eiffel -inputfile ".\test\data\Eiffel\hello.e" -expected ".\test\ref\detect\Eiffel\hello.txt"
@@ -369,12 +372,15 @@ test\bin\run_detect_test.ps1 -json -name perligata-perl -inputfile ".\test\data\
 test\bin\run_detect_test.ps1 -json -name physics-perl -inputfile ".\test\data\Perl\Physics.pm" -expected ".\test\ref\detect\Perl\Physics.txt"
 
 # PL/1
-test\bin\run_detect_test.ps1 -json -name bpgpli-pl1 -inputfile ".\test\data\PL1\BPGPLI.pl1" -expected ".\test\ref\detect\PL1\BPGPLI.txt"
-test\bin\run_detect_test.ps1 -json -name checkdt-pl1 -inputfile ".\test\data\PL1\CHECKDT.pl1" -expected ".\test\ref\detect\PL1\CHECKDT.txt"
-test\bin\run_detect_test.ps1 -json -name crtpln3-pl1 -inputfile ".\test\data\PL1\CRTPLN3.pl1" -expected ".\test\ref\detect\PL1\CRTPLN3.txt"
-test\bin\run_detect_test.ps1 -json -name mainfact-pl1 -inputfile ".\test\data\PL1\MAINFACT.pl1" -expected ".\test\ref\detect\PL1\MAINFACT.txt"
-test\bin\run_detect_test.ps1 -json -name example-pl1 -inputfile ".\test\data\PL1\example.pl1" -expected ".\test\ref\detect\PL1\example.txt"
-test\bin\run_detect_test.ps1 -json -name digrams-pl1 -inputfile ".\test\data\PL1\digrams.pl1" -expected ".\test\ref\detect\PL1\digrams.txt"
+Set-Variable -Name language "PL1"
+Set-Variable -Name extension "pl1"
+test\bin\run_detect_test.ps1 -json -name bpgpli-$extension -inputfile ".\test\data\$language\BPGPLI.$extension" -expected ".\test\ref\$action\$language\BPGPLI.txt"
+test\bin\run_detect_test.ps1 -json -name checkdt-$extension -inputfile ".\test\data\$language\CHECKDT.$extension" -expected ".\test\ref\$action\$language\CHECKDT.txt"
+test\bin\run_detect_test.ps1 -json -name crtpln3-$extension -inputfile ".\test\data\$language\CRTPLN3.$extension" -expected ".\test\ref\$action\$language\CRTPLN3.txt"
+test\bin\run_detect_test.ps1 -json -name mainfact-$extension -inputfile ".\test\data\$language\MAINFACT.$extension" -expected ".\test\ref\$action\$language\MAINFACT.txt"
+test\bin\run_detect_test.ps1 -json -name example-$extension -inputfile ".\test\data\$language\example.$extension" -expected ".\test\ref\$action\$language\example.txt"
+test\bin\run_detect_test.ps1 -json -name digrams-$extension -inputfile ".\test\data\$language\digrams.$extension" -expected ".\test\ref\$action\$language\digrams.txt"
+test\bin\run_detect_test.ps1 -json -name ystkp-$extension -inputfile ".\test\data\$language\ystkp.$extension" -expected ".\test\ref\$action\$language\ystkp.txt"
 
 # PL/M
 Set-Variable -Name language "PLM"

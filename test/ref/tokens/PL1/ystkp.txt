@@ -1,0 +1,9982 @@
+[
+    {
+        "type":"jcl",
+        "value":"// JOB TEST BENCHMARK TEST FOR J STOLL"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"jcl",
+        "value":"// OPTION 60C,NOLISTX,LINK"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"jcl",
+        "value":"// EXEC PL/I"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"* PROCESS NOOPT,STMT"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"label",
+        "value":"YSTKP:"
+    },
+    {
+        "type":"keyword",
+        "value":"PROCEDURE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"OPTIONS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"MAIN"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                    "
+    },
+    {
+        "type":"line identification",
+        "value":"   0102"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"comment",
+        "value":"/*       THE FOLLOWING DECLARE STATEMENT IS IMPLEMENTATION   "
+    },
+    {
+        "type":"line identification",
+        "value":"   0103"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"          DEPENDENT.  THIS PARTICULAR SYNTHETIC JOB IS A SEQUENTIAL    "
+    },
+    {
+        "type":"line identification",
+        "value":"   0104"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"          TAPE UPDATE OF MASTER RECORDS FROM DETAIL TRANSACTIONS.      "
+    },
+    {
+        "type":"line identification",
+        "value":"   0105"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"          THE PROGRAM IS SELF-TIMING AND ITS PROPERTIES (I/O           "
+    },
+    {
+        "type":"line identification",
+        "value":"   0106"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"          & COMPUTE FUNCTIONS) CAN BE VARIED SINCE THEY ARE PARAMETER- "
+    },
+    {
+        "type":"line identification",
+        "value":"   0107"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"          IZED TO ALLOW PERFORMANCE MEASUREMENT UNDER CONTROLLED COND- "
+    },
+    {
+        "type":"line identification",
+        "value":"   0108"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"          ITIONS.                                                      "
+    },
+    {
+        "type":"line identification",
+        "value":"   0109"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"                   IF SPECIFIED, THE PROGRAM WILL GENERATE THE MASTER  "
+    },
+    {
+        "type":"line identification",
+        "value":"   0110"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"          AND DETAIL TAPES TO BE USED IN THE SIMULATION.             */"
+    },
+    {
+        "type":"line identification",
+        "value":"   0111"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"DECLARE"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                                      "
+    },
+    {
+        "type":"line identification",
+        "value":"   0112"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"              "
+    },
+    {
+        "type":"identifier",
+        "value":"PARAMS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"INPUT"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                     "
+    },
+    {
+        "type":"attribute",
+        "value":"ENVIRONMENT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"F"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"80"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MEDIUM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"SYSIPT"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"2540"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"              "
+    },
+    {
+        "type":"identifier",
+        "value":"DETIN"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"RECORD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"INPUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                  "
+    },
+    {
+        "type":"line identification",
+        "value":"   0114"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                     "
+    },
+    {
+        "type":"attribute",
+        "value":"ENVIRONMENT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"F"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"200"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MEDIUM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"SYS010"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"2400"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"line identification",
+        "value":"   0114"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"              "
+    },
+    {
+        "type":"identifier",
+        "value":"MASTER"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"RECORD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"INPUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                  "
+    },
+    {
+        "type":"line identification",
+        "value":"   0115"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                     "
+    },
+    {
+        "type":"attribute",
+        "value":"ENVIRONMENT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"F"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"200"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MEDIUM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"SYS011"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"2400"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"              "
+    },
+    {
+        "type":"identifier",
+        "value":"DETOUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"RECORD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"OUTPUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                 "
+    },
+    {
+        "type":"line identification",
+        "value":"   0116"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                     "
+    },
+    {
+        "type":"attribute",
+        "value":"ENVIRONMENT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"F"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"200"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MEDIUM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"SYS020"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"2400"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"line identification",
+        "value":"  01"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"              "
+    },
+    {
+        "type":"identifier",
+        "value":"NEWMAS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"RECORD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"OUTPUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                 "
+    },
+    {
+        "type":"line identification",
+        "value":"   0117"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                     "
+    },
+    {
+        "type":"attribute",
+        "value":"ENVIRONMENT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"F"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"200"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MEDIUM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"SYS021"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"2400"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"line identification",
+        "value":"   0114"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"              "
+    },
+    {
+        "type":"identifier",
+        "value":"DETGEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"RECORD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"OUTPUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                 "
+    },
+    {
+        "type":"line identification",
+        "value":"   0118"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                     "
+    },
+    {
+        "type":"attribute",
+        "value":"ENVIRONMENT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"F"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"200"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MEDIUM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"SYS010"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"2400"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"line identification",
+        "value":"   0114"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"              "
+    },
+    {
+        "type":"identifier",
+        "value":"MASGEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"RECORD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"OUTPUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                 "
+    },
+    {
+        "type":"line identification",
+        "value":"   011"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                     "
+    },
+    {
+        "type":"attribute",
+        "value":"ENVIRONMENT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"F"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"200"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MEDIUM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"SYS011"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"2400"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"line identification",
+        "value":"   0114"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"comment",
+        "value":"/*       NEXT DECLARE DEFINES TYPE OF KERNEL ARITHMETIC.   */"
+    },
+    {
+        "type":"line identification",
+        "value":"   0120"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"DECLARE"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                                      "
+    },
+    {
+        "type":"line identification",
+        "value":"   0121"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"              "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"START"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"function",
+        "value":"SUM"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"TABLE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"1000"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"BINARY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"FIXED"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"31"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"STATIC"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"          "
+    },
+    {
+        "type":"line identification",
+        "value":"   0122"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"DECLARE"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                                      "
+    },
+    {
+        "type":"line identification",
+        "value":"   0123"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"              "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"I"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"J"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"K"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"N"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"U"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"CHECK"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"COUNT"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"LSUM"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"NMAS"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"NMAS1"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"NDET"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"NDET1"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"NREP"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"line identification",
+        "value":"   0124"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"function",
+        "value":"BINARY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"FIXED"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"31"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"CARD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"CHARACTER"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"80"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"TEMPC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"CHARACTER"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"6"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"line identification",
+        "value":"   0125"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"attribute",
+        "value":"STATIC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":"                                                  "
+    },
+    {
+        "type":"line identification",
+        "value":"   0126"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"              "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"INTKEY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"PICTURE"
+    },
+    {
+        "type":"string",
+        "value":"'(6)9'"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"KRETURN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"LABEL"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":"                      "
+    },
+    {
+        "type":"line identification",
+        "value":"   0127"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"START_TIME"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"END_TIME"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"CHARACTER"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"9"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"STATIC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":"              "
+    },
+    {
+        "type":"line identification",
+        "value":"   0128"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"              "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MASTER_REC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"ALIGNED"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"STATIC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":"                              "
+    },
+    {
+        "type":"line identification",
+        "value":"   0201"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"number",
+        "value":"5"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MASTER_KEY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"CHARACTER"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"12"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":"                            "
+    },
+    {
+        "type":"line identification",
+        "value":"   0202"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"number",
+        "value":"5"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MASTER_SUM"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"function",
+        "value":"BINARY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"FIXED"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"31"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"line identification",
+        "value":"   0203"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"number",
+        "value":"5"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MASTER_CHECK"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"BINARY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"FIXED"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"31"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"line identification",
+        "value":"   0204"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"number",
+        "value":"5"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MASTER_DATA"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"15"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"CHARACTER"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"12"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":"                      "
+    },
+    {
+        "type":"line identification",
+        "value":"   0205"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"              "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"DETAIL_REC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"ALIGNED"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"STATIC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":"                              "
+    },
+    {
+        "type":"line identification",
+        "value":"   0206"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"number",
+        "value":"5"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"DETAIL_KEY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"CHARACTER"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"12"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":"                            "
+    },
+    {
+        "type":"line identification",
+        "value":"   0207"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"number",
+        "value":"5"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"DETAIL_SUM"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"function",
+        "value":"BINARY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"FIXED"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"31"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"line identification",
+        "value":"   0208"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"number",
+        "value":"5"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"DETAIL_CHECK"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"BINARY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"FIXED"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"31"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"line identification",
+        "value":"   0209"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"number",
+        "value":"5"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"DETAIL_DATA"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"15"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"CHARACTER"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"12"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                      "
+    },
+    {
+        "type":"line identification",
+        "value":"   0210"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"identifier",
+        "value":"ETOTAL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"OPEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"PARAMS"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                  "
+    },
+    {
+        "type":"line identification",
+        "value":"   0211"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"ON"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"condition",
+        "value":"ENDFILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"PARAMS"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"GOTO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EOF"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                        "
+    },
+    {
+        "type":"line identification",
+        "value":"   0212"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"identifier",
+        "value":"N"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"10"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                             "
+    },
+    {
+        "type":"line identification",
+        "value":"   0213"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"identifier",
+        "value":"START"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"100"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                        "
+    },
+    {
+        "type":"line identification",
+        "value":"   0214"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"identifier",
+        "value":"NMAS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                           "
+    },
+    {
+        "type":"line identification",
+        "value":"   0215"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"identifier",
+        "value":"NDET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                           "
+    },
+    {
+        "type":"line identification",
+        "value":"   0216"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"J"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"option",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"N"
+    },
+    {
+        "type":"operator",
+        "value":"**"
+    },
+    {
+        "type":"number",
+        "value":"3"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                   "
+    },
+    {
+        "type":"line identification",
+        "value":"   0217"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"identifier",
+        "value":"TABLE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"J"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"START"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"J"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                        "
+    },
+    {
+        "type":"line identification",
+        "value":"   0218"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                                "
+    },
+    {
+        "type":"line identification",
+        "value":"   0219"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"identifier",
+        "value":"START_PASS"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                                  "
+    },
+    {
+        "type":"line identification",
+        "value":"   0222"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"GET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"PARAMS"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"option",
+        "value":"EDIT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"CARD"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"80"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"line identification",
+        "value":"   0223"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"PUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"option",
+        "value":"EDIT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"CARD"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"option",
+        "value":"SKIP"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"80"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"line identification",
+        "value":"   0224"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"SUBSTR"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"CARD"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"6"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"^="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"' PASS '"
+    },
+    {
+        "type":"whitespace",
+        "value":"                     "
+    },
+    {
+        "type":"line identification",
+        "value":"   0225"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                        "
+    },
+    {
+        "type":"keyword",
+        "value":"THEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"GO TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"START_PASS"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                          "
+    },
+    {
+        "type":"line identification",
+        "value":"   0226"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"GET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"STRING"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"CARD"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"option",
+        "value":"EDIT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"NMAS1"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"NDET1"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"NREP"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"line identification",
+        "value":"   0227"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                        "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"X"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"6"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"3"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"X"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"6"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"F"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"6"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                            "
+    },
+    {
+        "type":"line identification",
+        "value":"   0228"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NMAS1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"<"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"THEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"GO TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"START_PASS"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"line identification",
+        "value":"   0301"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"identifier",
+        "value":"COUNT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                          "
+    },
+    {
+        "type":"line identification",
+        "value":"   0302"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"identifier",
+        "value":"CHECK"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                          "
+    },
+    {
+        "type":"line identification",
+        "value":"   0303"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"comment",
+        "value":"/*MASTER FILE GENERATION ROUTINE.                          */"
+    },
+    {
+        "type":"line identification",
+        "value":"   0305"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NMAS1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NMAS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"|"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NMAS1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"^>"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"whitespace",
+        "value":"                        "
+    },
+    {
+        "type":"line identification",
+        "value":"   0306"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                        "
+    },
+    {
+        "type":"keyword",
+        "value":"THEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"GO TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"DETAIL_GENERATION"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"line identification",
+        "value":"   0307"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"identifier",
+        "value":"NMAS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NMAS1"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                       "
+    },
+    {
+        "type":"line identification",
+        "value":"   0308"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"OPEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"MASGEN"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                   "
+    },
+    {
+        "type":"line identification",
+        "value":"   0309"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"J"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"option",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NMAS"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                   "
+    },
+    {
+        "type":"line identification",
+        "value":"   0310"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"identifier",
+        "value":"MASTER_SUM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                  "
+    },
+    {
+        "type":"line identification",
+        "value":"   0311"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"identifier",
+        "value":"INTKEY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"J"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                      "
+    },
+    {
+        "type":"line identification",
+        "value":"   0312"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"identifier",
+        "value":"MASTER_KEY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'00000'"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"||"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"INTKEY"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"line identification",
+        "value":"   0313"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"identifier",
+        "value":"CHECK"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CHECK"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"J"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                               "
+    },
+    {
+        "type":"line identification",
+        "value":"   0314"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"identifier",
+        "value":"MASTER_CHECK"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CHECK"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                            "
+    },
+    {
+        "type":"line identification",
+        "value":"   0315"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"identifier",
+        "value":"TEMPC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"INTKEY"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                  "
+    },
+    {
+        "type":"line identification",
+        "value":"   0316"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"identifier",
+        "value":"MASTER_DATA"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'MASTER'"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"||"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TEMPC"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"line identification",
+        "value":"   0317"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"keyword",
+        "value":"WRITE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"MASGEN"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"option",
+        "value":"FROM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"MASTER_REC"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"line identification",
+        "value":"   0318"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                                "
+    },
+    {
+        "type":"line identification",
+        "value":"   0319"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"CLOSE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"MASGEN"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                 "
+    },
+    {
+        "type":"line identification",
+        "value":"   0320"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"identifier",
+        "value":"CHECK"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                          "
+    },
+    {
+        "type":"line identification",
+        "value":"   0321"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"comment",
+        "value":"/* DETAIL FILE GENERATION ROUTINE.                         */"
+    },
+    {
+        "type":"line identification",
+        "value":"   0323"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"identifier",
+        "value":"DETAIL_GENERATION"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                           "
+    },
+    {
+        "type":"line identification",
+        "value":"   0323"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NDET1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NDET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"|"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NDET1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"^>"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"whitespace",
+        "value":"                        "
+    },
+    {
+        "type":"line identification",
+        "value":"   0324"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                        "
+    },
+    {
+        "type":"keyword",
+        "value":"THEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"GO TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TAPE_PASS"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"line identification",
+        "value":"   0325"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"identifier",
+        "value":"NDET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NDET1"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"number",
+        "value":"6"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"line identification",
+        "value":"   0326"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"identifier",
+        "value":"RATIO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NMAS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NDET"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                "
+    },
+    {
+        "type":"line identification",
+        "value":"   0327"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"OPEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"DETGEN"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                  "
+    },
+    {
+        "type":"line identification",
+        "value":"   0401"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"J"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"RATIO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"option",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NMAS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"option",
+        "value":"BY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"RATIO"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                      "
+    },
+    {
+        "type":"line identification",
+        "value":"   0402"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"identifier",
+        "value":"DETAIL_SUM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                  "
+    },
+    {
+        "type":"line identification",
+        "value":"   0403"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"identifier",
+        "value":"INTKEY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"J"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                      "
+    },
+    {
+        "type":"line identification",
+        "value":"   0404"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"identifier",
+        "value":"DETAIL_KEY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'000000'"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"||"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"INTKEY"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"line identification",
+        "value":"   0404"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"identifier",
+        "value":"CHECK"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CHECK"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"J"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                               "
+    },
+    {
+        "type":"line identification",
+        "value":"   0404"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"identifier",
+        "value":"DETAIL_CHECK"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CHECK"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                            "
+    },
+    {
+        "type":"line identification",
+        "value":"   0405"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"identifier",
+        "value":"TEMPC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"INTKEY"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                  "
+    },
+    {
+        "type":"line identification",
+        "value":"   0406"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"identifier",
+        "value":"DETAIL_DATA"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'DETAIL'"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"||"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TEMPC"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"line identification",
+        "value":"   0407"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"WRITE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"DETGEN"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"option",
+        "value":"FROM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"DETAIL_REC"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"line identification",
+        "value":"   0408"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                                "
+    },
+    {
+        "type":"line identification",
+        "value":"   0409"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"CLOSE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"DETGEN"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                 "
+    },
+    {
+        "type":"line identification",
+        "value":"   0410"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"identifier",
+        "value":"CHECK"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                          "
+    },
+    {
+        "type":"line identification",
+        "value":"   0411"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"identifier",
+        "value":"TAPE_PASS"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                                   "
+    },
+    {
+        "type":"line identification",
+        "value":"   0413"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NREP"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                         "
+    },
+    {
+        "type":"line identification",
+        "value":"   0414"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                        "
+    },
+    {
+        "type":"keyword",
+        "value":"THEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"GO TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"START_PASS"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                          "
+    },
+    {
+        "type":"line identification",
+        "value":"   0415"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NMAS1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"^>"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"|"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NDET1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"^>"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"whitespace",
+        "value":"                          "
+    },
+    {
+        "type":"line identification",
+        "value":"   0416"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                        "
+    },
+    {
+        "type":"keyword",
+        "value":"THEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"GO TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"COMPUTE_PASS"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                        "
+    },
+    {
+        "type":"line identification",
+        "value":"   0417"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"identifier",
+        "value":"KRETURN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WRITE_DETAIL"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                             "
+    },
+    {
+        "type":"line identification",
+        "value":"   0418"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"OPEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"MASTER"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"NEWMAS"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"line identification",
+        "value":"   0419"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                         "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"DETIN"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"DETOUT"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"line identification",
+        "value":"   0420"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"ON"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"condition",
+        "value":"ENDFILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"MASTER"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"GO TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"END_TPASS"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"line identification",
+        "value":"   0421"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"ON"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"condition",
+        "value":"ENDFILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"DETIN"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"GO TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"RUNOUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"line identification",
+        "value":"   0422"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"READ"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"MASTER"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"option",
+        "value":"INTO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"MASTER_REC"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                "
+    },
+    {
+        "type":"line identification",
+        "value":"   0423"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"READ"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"DETIN"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"option",
+        "value":"INTO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"DETAIL_REC"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                "
+    },
+    {
+        "type":"line identification",
+        "value":"   0424"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"identifier",
+        "value":"START_TIME"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"TIME"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                  "
+    },
+    {
+        "type":"line identification",
+        "value":"   0425"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"identifier",
+        "value":"KEY_TEST"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                                    "
+    },
+    {
+        "type":"line identification",
+        "value":"   0426"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MASTER_KEY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"<"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"DETAIL_KEY"
+    },
+    {
+        "type":"whitespace",
+        "value":"                          "
+    },
+    {
+        "type":"line identification",
+        "value":"   0502"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                        "
+    },
+    {
+        "type":"keyword",
+        "value":"THEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"GO TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WRITE_MASTER"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                        "
+    },
+    {
+        "type":"line identification",
+        "value":"   0503"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MASTER_KEY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":">"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"DETAIL_KEY"
+    },
+    {
+        "type":"whitespace",
+        "value":"                          "
+    },
+    {
+        "type":"line identification",
+        "value":"   0504"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                        "
+    },
+    {
+        "type":"keyword",
+        "value":"THEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                        "
+    },
+    {
+        "type":"line identification",
+        "value":"   0505"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                "
+    },
+    {
+        "type":"keyword",
+        "value":"PUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"option",
+        "value":"EDIT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                "
+    },
+    {
+        "type":"line identification",
+        "value":"   0506"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                    "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"string",
+        "value":"'* * SEQUENCE ERROR * *'"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"option",
+        "value":"SKIP"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"line identification",
+        "value":"   0507"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                "
+    },
+    {
+        "type":"keyword",
+        "value":"GO TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CLOSE_FILES"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                      "
+    },
+    {
+        "type":"line identification",
+        "value":"   0508"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                             "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                       "
+    },
+    {
+        "type":"line identification",
+        "value":"   0509"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"label",
+        "value":"KERNEL:"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                                      "
+    },
+    {
+        "type":"line identification",
+        "value":"   0511"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"comment",
+        "value":"/* KERNEL SUMS N INTEGERS FROM A TABLE OF N**3 CONSECUTIVE   "
+    },
+    {
+        "type":"line identification",
+        "value":"   0512"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"          INTEGERS BEGINNING WITH 'START'.  THE K-TH INTEGER SUMMED    "
+    },
+    {
+        "type":"line identification",
+        "value":"   0513"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"          IS 'START - 1 + K**3'.  SUM IS CHECKED ALGEBRAICALLY. KERNEL "
+    },
+    {
+        "type":"line identification",
+        "value":"   0514"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"          IS REPEATED 'NREP' TIMES.                                  */"
+    },
+    {
+        "type":"line identification",
+        "value":"   0515"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"I"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"option",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NREP"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                   "
+    },
+    {
+        "type":"line identification",
+        "value":"   0516"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"function",
+        "value":"SUM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                         "
+    },
+    {
+        "type":"line identification",
+        "value":"   0517"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"identifier",
+        "value":"U"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                           "
+    },
+    {
+        "type":"line identification",
+        "value":"   0518"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"identifier",
+        "value":"J"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                           "
+    },
+    {
+        "type":"line identification",
+        "value":"   0519"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"K"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"option",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"N"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                   "
+    },
+    {
+        "type":"line identification",
+        "value":"   0520"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                          "
+    },
+    {
+        "type":"identifier",
+        "value":"J"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"J"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"6"
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"identifier",
+        "value":"U"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                            "
+    },
+    {
+        "type":"line identification",
+        "value":"   0521"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                          "
+    },
+    {
+        "type":"identifier",
+        "value":"SUM4"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"SUM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TABLE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"J"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                         "
+    },
+    {
+        "type":"line identification",
+        "value":"   0522"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                          "
+    },
+    {
+        "type":"identifier",
+        "value":"U"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"U"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"K"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                    "
+    },
+    {
+        "type":"line identification",
+        "value":"   0523"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                             "
+    },
+    {
+        "type":"line identification",
+        "value":"   0524"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"identifier",
+        "value":"LSUM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"N8"
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"N"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"line identification",
+        "value":"   0525"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"START"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"^="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"function",
+        "value":"SUM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"LSUM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"LSUM"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"N"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":"             "
+    },
+    {
+        "type":"line identification",
+        "value":"   0526"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                        "
+    },
+    {
+        "type":"keyword",
+        "value":"THEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                        "
+    },
+    {
+        "type":"line identification",
+        "value":"   0527"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                "
+    },
+    {
+        "type":"keyword",
+        "value":"PUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"option",
+        "value":"EDIT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                "
+    },
+    {
+        "type":"line identification",
+        "value":"   0528"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                    "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"string",
+        "value":"'* * COMPUTE ERROR * *'"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"option",
+        "value":"SKIP"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"line identification",
+        "value":"   0529"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                               "
+    },
+    {
+        "type":"keyword",
+        "value":"GO TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"START_PASS"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                        "
+    },
+    {
+        "type":"line identification",
+        "value":"   0530"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                             "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                       "
+    },
+    {
+        "type":"line identification",
+        "value":"   0601"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                                "
+    },
+    {
+        "type":"line identification",
+        "value":"   0602"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"GO TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"KRETURN"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                      "
+    },
+    {
+        "type":"line identification",
+        "value":"   0603"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                              "
+    },
+    {
+        "type":"comment",
+        "value":"/* KRETURN IS EITHER WRITE_DETAIL OR      "
+    },
+    {
+        "type":"line identification",
+        "value":"   0604"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"                                 CRETURN                             */"
+    },
+    {
+        "type":"line identification",
+        "value":"   0605"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"identifier",
+        "value":"WRITE_DETAIL"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                                "
+    },
+    {
+        "type":"line identification",
+        "value":"   0607"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"identifier",
+        "value":"MASTER_SUM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"SUM"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                   "
+    },
+    {
+        "type":"line identification",
+        "value":"   0608"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"identifier",
+        "value":"DETAIL_SUM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"SUM"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                   "
+    },
+    {
+        "type":"line identification",
+        "value":"   060"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"identifier",
+        "value":"CHECK"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"DETAIL_CHECK"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                               "
+    },
+    {
+        "type":"line identification",
+        "value":"   0610"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"identifier",
+        "value":"COUNT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"COUNT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                  "
+    },
+    {
+        "type":"line identification",
+        "value":"   0611"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"WRITE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"DETOUT"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"option",
+        "value":"FROM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"DETAIL_REC"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"line identification",
+        "value":"   0612"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"READ"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"DETIN"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"option",
+        "value":"INTO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"DETAIL_REC"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"line identification",
+        "value":"   0613"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"identifier",
+        "value":"WRITE_MASTER"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                                "
+    },
+    {
+        "type":"line identification",
+        "value":"   0615"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"WRITE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"NEWMAS"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"option",
+        "value":"FROM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"MASTER_REC"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"line identification",
+        "value":"   0616"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"READ"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"MASTER"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"option",
+        "value":"INTO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"MASTER_REC"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"line identification",
+        "value":"   0617"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"GO TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"KEY_TEST"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                     "
+    },
+    {
+        "type":"line identification",
+        "value":"   0618"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"label",
+        "value":"RUNOUT:"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                                      "
+    },
+    {
+        "type":"line identification",
+        "value":"   0619"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"identifier",
+        "value":"DETAIL_KEY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"HIGH"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"12"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                              "
+    },
+    {
+        "type":"line identification",
+        "value":"   0620"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"GO TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WRITE_MASTER"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                 "
+    },
+    {
+        "type":"line identification",
+        "value":"   0621"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"identifier",
+        "value":"END_TPASS"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                                   "
+    },
+    {
+        "type":"line identification",
+        "value":"   0623"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                  "
+    },
+    {
+        "type":"identifier",
+        "value":"END_TIME"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"TIME"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                      "
+    },
+    {
+        "type":"line identification",
+        "value":"   0624"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                  "
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CHECK"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"COUNT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"COUNT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"RATIO"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"whitespace",
+        "value":"          "
+    },
+    {
+        "type":"line identification",
+        "value":"   0625"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                      "
+    },
+    {
+        "type":"keyword",
+        "value":"THEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"GO TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CLOSE_FILES"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"line identification",
+        "value":"   0626"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"PUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"option",
+        "value":"EDIT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"string",
+        "value":"'* * CHECKSUM ERROR * *'"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"option",
+        "value":"SKIP"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"line identification",
+        "value":"   0627"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"identifier",
+        "value":"CLOSE_FILES"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                                 "
+    },
+    {
+        "type":"line identification",
+        "value":"   0628"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                  "
+    },
+    {
+        "type":"keyword",
+        "value":"CLOSE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"MASTER"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"NEWMAS"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"DETIN"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":"          "
+    },
+    {
+        "type":"line identification",
+        "value":"   0629"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                          "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"DETOUT"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                 "
+    },
+    {
+        "type":"line identification",
+        "value":"   0630"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"label",
+        "value":"PRTEND:"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"keyword",
+        "value":"GET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"STRING"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"END_TIME"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"option",
+        "value":"EDIT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"HRS"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"MINS"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"SECS"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"F"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"F"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"5"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"3"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"identifier",
+        "value":"ELAPSED_TIME"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"HRS"
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"number",
+        "value":"3600"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MINS"
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"number",
+        "value":"60"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SECS"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"keyword",
+        "value":"GET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"STRING"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"START_TIME"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"option",
+        "value":"EDIT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"HRS"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"MINS"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"SECS"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                     "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"F"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"F"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"5"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"3"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"identifier",
+        "value":"ELAPSED_TIME"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ELAPSED_TIME"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"HRS"
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"number",
+        "value":"3600"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MINS"
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"number",
+        "value":"60"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"line identification",
+        "value":"   07070"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SECS"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                          "
+    },
+    {
+        "type":"line identification",
+        "value":"   0708"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"keyword",
+        "value":"PUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"option",
+        "value":"EDIT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"string",
+        "value":"'ELAPSED TIME = '"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"ELAPSED_TIME"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"' SECONDS'"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"line identification",
+        "value":"   0709"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"option",
+        "value":"SKIP"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"F"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"7"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                               "
+    },
+    {
+        "type":"line identification",
+        "value":"   0710"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"identifier",
+        "value":"ETOTAL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ETOTAL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ELAPSED_TIME"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"keyword",
+        "value":"PUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"option",
+        "value":"EDIT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"string",
+        "value":"'END OF PASS.  REPETITIONS = '"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"I"
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"line identification",
+        "value":"   0711"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                             "
+    },
+    {
+        "type":"string",
+        "value":"', SUM = '"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"function",
+        "value":"SUM"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"', ACTIVE RECORDS = '"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"line identification",
+        "value":"   0712"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                             "
+    },
+    {
+        "type":"identifier",
+        "value":"COUNT"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"' CHECK SUM = '"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"CHECK"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"line identification",
+        "value":"   0713"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"option",
+        "value":"SKIP"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"F"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"6"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"F"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"9"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                         "
+    },
+    {
+        "type":"line identification",
+        "value":"   0714"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"keyword",
+        "value":"GO TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"START_PASS"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                    "
+    },
+    {
+        "type":"line identification",
+        "value":"   0715"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"identifier",
+        "value":"COMPUTE_PASS"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                                "
+    },
+    {
+        "type":"line identification",
+        "value":"   0715"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"identifier",
+        "value":"KRETURN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CRETURN"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                    "
+    },
+    {
+        "type":"line identification",
+        "value":"   0716"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"identifier",
+        "value":"START_TIME"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"TIME"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                   "
+    },
+    {
+        "type":"line identification",
+        "value":"   0717"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"keyword",
+        "value":"GO TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"KERNEL"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                        "
+    },
+    {
+        "type":"line identification",
+        "value":"   0718"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"label",
+        "value":"CRETURN:"
+    },
+    {
+        "type":"whitespace",
+        "value":"                                                     "
+    },
+    {
+        "type":"line identification",
+        "value":"   0718"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"identifier",
+        "value":"END_TIME"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"TIME"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"keyword",
+        "value":"GO TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PRTEND"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"label",
+        "value":"EOF:"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"keyword",
+        "value":"CLOSE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"attribute",
+        "value":"FILE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"PARAMS"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"keyword",
+        "value":"PUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"option",
+        "value":"EDIT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"string",
+        "value":"'TOTAL TIME TO DATE= '"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"ETOTAL"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'SECONDS'"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"option",
+        "value":"SKIP"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"F"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"7"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"YSTKP"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"jcl",
+        "value":"/*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"jcl",
+        "value":"// LBLTYP TAPE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"jcl",
+        "value":"// EXEC LNKEDT"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"jcl",
+        "value":"// ASSGN SYS010,X'184'"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"jcl",
+        "value":"// ASSGN SYS011,X'181'"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"jcl",
+        "value":"// ASSGN SYS020,X'182'"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"jcl",
+        "value":"// ASSGN SYS021,X'183'"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"jcl",
+        "value":"// TLBL DETIN,'DETAILS',,111111"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"jcl",
+        "value":"// TLBL MASTER,'MASTERS',,111111"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"jcl",
+        "value":"// TLBL DETOUT,'DETAILS',,111111"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"jcl",
+        "value":"// TLBL NEWMAS,'MASTERS',,111111"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"jcl",
+        "value":"// TLBL DETGEN,'DETAILS',,111111"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"jcl",
+        "value":"// TLBL MASGEN,'MASTERS',,111111"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"jcl",
+        "value":"// EXEC"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PASS"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"NMAS"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"number",
+        "value":"000000"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NDET"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"number",
+        "value":"000000"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NREP"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"number",
+        "value":"000001"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"identifier",
+        "value":"COMPUTE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PASS"
+    },
+    {
+        "type":"number",
+        "value":".1"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PASS"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"NMAS"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"number",
+        "value":"000000"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NDET"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"number",
+        "value":"000000"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NREP"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"number",
+        "value":"000100"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"identifier",
+        "value":"COMPUTE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PASS"
+    },
+    {
+        "type":"number",
+        "value":".2"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PASS"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"NMAS"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"number",
+        "value":"001000"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NDET"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"number",
+        "value":"000200"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NREP"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"number",
+        "value":"000001"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"identifier",
+        "value":"TAPE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PASS"
+    },
+    {
+        "type":"number",
+        "value":".1"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PASS"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"MNAS"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"number",
+        "value":"001000"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NDET"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"number",
+        "value":"000200"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NREP"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"number",
+        "value":"000050"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"identifier",
+        "value":"TAPE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PASS"
+    },
+    {
+        "type":"number",
+        "value":".3"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"jcl",
+        "value":"/*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"/"
+    },
+    {
+        "type":"operator",
+        "value":"&"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    }
+]
