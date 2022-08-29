@@ -232,6 +232,7 @@ class AssemblyExaminer(Examiner):
       'INCLUDELIB', 'INS86', 'INVOKE',
       'LABEL',
       'MMWORD',
+      'NOT',
       'OPTION',
       'POPCONTEXT', 'PROC', 'PROTO', 'PUBLIC', 'PUSHCONTEXT',
       'SEGMENT'
@@ -558,7 +559,7 @@ class AssemblyExaminer(Examiner):
       'JA', 'JAE', 'JB', 'JBE', 'JC', 'JCXZ', 'JE', 'JECXZ', 'JG', 'JGE', 'JL', 'JLE', 'JMP', 'JNA', 'JNAE', 'JNB', 'JNBE', 'JNC', 'JNE', 'JNG', 'JNGE', 'JNL', 'JNLE', 'JNO', 'JNP', 'JNS', 'JO', 'JP', 'JPE', 'JPO', 'JNZ', 'JS', 'JZ',
       'LAHF', 'LAR', 'LDS', 'LEA', 'LES', 'LOCK', 'LODS', 'LODSB', 'LODSW', 'LOOP', 'LOOPE', 'LOOPNE', 'LOOPNZ', 'LOOPZ',
       'MOV', 'MOVS', 'MOVSB', 'MOVSW', 'MUL',
-      'NEG', 'NOP', 'NOT',
+      'NEG', 'NOP',
       'OR', 'OUT',
       'POP', 'POPF', 'POPFD', 'PUSH', 'PUSHF', 'PUSHFD',
       'RCL', 'RCR', 'REP', 'REPE', 'REPNE', 'REPNZ', 'REPZ', 'RET', 'RETF', 'ROL', 'ROR',
@@ -704,6 +705,11 @@ class AssemblyExaminer(Examiner):
     register_tb = CaseInsensitiveListTokenBuilder(registers, 'register', True)
 
     values = ['*', '$', '.']
+
+    values_8086 = ['?']
+
+    if processor in ['8086', '80186', '80286', '80386', '80486']:
+      values += values_8086
 
     values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
     operand_types.append('value')

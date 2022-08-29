@@ -170,18 +170,24 @@ Awk
 BASIC
 - identify line numbers after THEN, GOTO, GOSUB (incuding ON GOTO, ON GOSUB) ON ERROR
 
-BASIC-80 / BASICA / GW-BASIC
+BASIC-80
+- 4K version: extract keywords from text
+- 8K version: extract keywords from front of text
+- Disk version: keywords for files
+
+BASICA / GW-BASIC
+- do not extract keywords; AS and BASE are keywords
 
 BBC BASIC
 - line numbers or no line numbers
 - operators [
-*, **, *|, #, ', %, &, ~, [,
+  *, **, *|, #, ', %, &, ~, [,
   '*', '**', '*|', '#', '%', '~',
   '>>', '?', '!', ']', '|', '$', '$$',
   '>>>', '<<<',
   'AND', 'DIV', 'MOD', 'OR',
   'AND=', 'DIV=', 'MOD=', 'OR=',
-  'NOT',
+  'NOT'
 ]
 - unary operators [
   '?'. '!', ']', '|', '$', '$$', 'NOT', '+', '-'
@@ -448,6 +454,7 @@ Perl 5
 - __END__, __LINE__, __FILE__, __SUB__, __DATA__, __PACKAGE__
 - heredoc (details?)
 - qr// regex
+- qw// (can use alternate delimiters)
 
 Pick Basic
 - may have editor line numbers or not (which are not BASIC line numbers)
@@ -480,6 +487,13 @@ Prolog
 Python
 + detab code
 + keywords: 'match', 'case'
++ 3.10: match
++ 3.9: @0
++ 3.8: :=
++ 3.7:? await
++ 3.6: 0_0 (underscore)
++ 3.5: @ operator
++ 3.3: yield from [] 
 
 R
 ? 'basketball' has issues (no keywords, few tokens)

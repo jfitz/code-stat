@@ -173,7 +173,7 @@ class BasicExaminer(Examiner):
       'WAIT', 'WHILE', 'WEND', 'WIDTH', 'WRITE'
     ]
 
-    plus_keywords = [
+    keywords_plus = [
       'CHANGE'
     ]
 
@@ -184,7 +184,8 @@ class BasicExaminer(Examiner):
       keywords += keywords_ms
 
     keywords_basica = [
-      'COLOR', 'KEY', 'LOCATE', 'PAINT', 'PLAY', 'SCREEN', 'SOUND'
+      'COLOR', 'KEY', 'LOCATE', 'PAINT', 'PLAY', 'PSET',
+      'SCREEN', 'SOUND'
     ]
 
     if version in ['basica', 'gw-basic']:
@@ -339,21 +340,49 @@ class BasicExaminer(Examiner):
   def extract_keywords(text, words):
     new_texts = []
     new_text = ''
+
     while len(text) > 0:
       found = False
+
       for word in words:
         if text.startswith(word):
           if len(new_text) > 0:
             new_texts.append(new_text)
             new_text = ''
+
           new_texts.append(word)
           # clip out keyword
           text = text[len(word):]
           found = True
           break
+
       if not found:
         new_text += text[0]
         text = text[1:]
+
+    if len(new_text) > 0:
+      new_texts.append(new_text)
+
+    return new_texts
+
+
+  @staticmethod
+  def extract_lead_keywords(text, words):
+    new_texts = []
+    new_text = text + ''
+
+    found = True
+
+    while found:
+      found = False
+
+      for word in words:
+        if new_text.startswith(word):
+          new_texts.append(word)
+          # clip out keyword
+          new_text = new_text[len(word):]
+          found = True
+          break
 
     if len(new_text) > 0:
       new_texts.append(new_text)
@@ -421,6 +450,8 @@ class BasicExaminer(Examiner):
     return tokens
 
 
+  # Convert operators to values, because in certain statements these
+  # operators are used without values
   @staticmethod
   def convert_operators_to_values(tokens):
     prev_token = Token('\n', 'newline', False)

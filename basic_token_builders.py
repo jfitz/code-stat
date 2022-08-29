@@ -35,6 +35,46 @@ class BasicVariableTokenBuilder(TokenBuilder):
 
 
 # token reader for variable
+class BasicTwoCharVariableTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self, suffixes):
+    self.text = None
+    self.suffixes = suffixes
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'variable', True)]
+
+
+  def accept(self, candidate, c):
+    if len(candidate) == 0:
+      return c.isalpha()
+
+    if len(candidate) == 1:
+      return c.isalpha() or c.isdigit() or c in self.suffixes
+
+    if len(candidate) == 2:
+      if candidate[1].isalpha():
+        return c.isdigit() or c in self.suffixes
+
+      if candidate[1].isdigit():
+        return c in self.suffixes
+
+    if candidate[-1] in self.suffixes:
+      return False
+
+    return c in self.suffixes
+
+
+# token reader for variable
 class BasicLongVariableTokenBuilder(TokenBuilder):
   @staticmethod
   def __escape_z__():

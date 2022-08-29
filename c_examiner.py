@@ -119,6 +119,13 @@ class CExaminer(Examiner):
       '++', '--', '&', '*'
     ]
 
+    known_operators_99 = [
+      '..', '=>'
+    ]
+
+    if year in ['99']:
+      known_operators += known_operators_99
+
     groupers = ['(', ')', ',', '[', ']', '{', '}', ':']
     group_starts = ['(', '[', ',', '{']
     group_ends = [')', ']', '}']

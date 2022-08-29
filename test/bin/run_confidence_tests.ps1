@@ -88,14 +88,15 @@ test\bin\run_test.ps1 -json -name DSKCOM-asm -action $action -language $language
 test\bin\run_test.ps1 -json -name FIVEO-asm -action $action -language $language -inputfile ".\test\data\$language\FIVEO.asm" -expected ".\test\ref\$action\$language\FIVEO.txt"
 test\bin\run_test.ps1 -json -name GWEVAL-asm -action $action -language $language -inputfile ".\test\data\$language\GWEVAL.asm" -expected ".\test\ref\$action\$language\GWEVAL.txt"
 test\bin\run_test.ps1 -json -name NEXT86-asm -action $action -language $language -inputfile ".\test\data\$language\NEXT86.asm" -expected ".\test\ref\$action\$language\NEXT86.txt"
+test\bin\run_test.ps1 -json -name io_indic-asm -action $action -language $language -inputfile ".\test\data\$language\io_indic.asm" -expected ".\test\ref\$action\$language\io_indic.txt"
 
-# $language
+# ASM 80386
 Set-Variable -Name language "ASM-80386"
 test\bin\run_test.ps1 -json -name reverser-asm -action $action -language $language -inputfile ".\test\data\$language\reverser.asm" -expected ".\test\ref\$action\$language\reverser.txt"
 test\bin\run_test.ps1 -json -name crc16-asm -action $action -language $language -inputfile ".\test\data\$language\crc16.asm" -expected ".\test\ref\$action\$language\crc16.txt"
 test\bin\run_test.ps1 -json -name mat_get_element-asm -action $action -language $language -inputfile ".\test\data\$language\mat_get_element.asm" -expected ".\test\ref\$action\$language\mat_get_element.txt"
 
-# ASM-80486
+# ASM 80486
 
 # ASM PDP-8
 Set-Variable -Name language "ASM-PDP-8"
@@ -115,14 +116,16 @@ Set-Variable -Name language "Ada-83"
 test\bin\run_test.ps1 -json -name adabkend-adb-83 -action $action -language $language -inputfile ".\test\data\$language\adabkend.adb" -expected ".\test\ref\$action\$language\adabkend-adb.txt"
 test\bin\run_test.ps1 -json -name adabkend-ads-83 -action $action -language $language -inputfile ".\test\data\$language\adabkend.ads" -expected ".\test\ref\$action\$language\adabkend-ads.txt"
 test\bin\run_test.ps1 -json -name signup-adb-83 -action $action -language $language -inputfile ".\test\data\$language\signup.adb" -expected ".\test\ref\$action\$language\signup-adb.txt"
+test\bin\run_test.ps1 -json -name naive-sort-ada-83 -action $action -language $language -inputfile ".\test\data\$language\naive-sort.ada" -expected ".\test\ref\$action\$language\naive-sort-ada.txt"
+test\bin\run_test.ps1 -json -name naive-sort-0-ada-83 -action $action -language $language -inputfile ".\test\data\$language\naive-sort-0.ada" -expected ".\test\ref\$action\$language\naive-sort-0-ada.txt"
 
 # Ada 95
 Set-Variable -Name language "Ada-95"
 test\bin\run_test.ps1 -json -name philosophers-ads-95 -action $action -language $language -inputfile ".\test\data\$language\philosophers.ads" -expected ".\test\ref\$action\$language\philosophers-ads.txt"
 
-# Ada-2005
+# Ada 2005
 
-# Ada-2012
+# Ada 2012
 
 # Awk
 Set-Variable -Name language "Awk"
@@ -145,12 +148,15 @@ test\bin\run_test.ps1 -json -name doctor-mbasic -action $action -language $langu
 test\bin\run_test.ps1 -json -name airinput-mbasic -action $action -language $language -inputfile ".\test\data\BASIC\AIRINPUT.bas" -expected ".\test\ref\$action\$language\AIRINPUT.txt"
 test\bin\run_test.ps1 -json -name backgamm-mbasic -action $action -language $language -inputfile ".\test\data\BASIC\BACKGAMM.bas" -expected ".\test\ref\$action\$language\BACKGAMM.txt"
 test\bin\run_test.ps1 -json -name planes-mbasic -action $action -language $language -inputfile ".\test\data\BASIC\PLANES.bas" -expected ".\test\ref\$action\$language\PLANES.txt"
+test\bin\run_test.ps1 -json -name primes-mbasic -action $action -language $language -inputfile ".\test\data\BASIC\primes.bas" -expected ".\test\ref\$action\$language\primes.txt"
+test\bin\run_test.ps1 -json -name escape-mbasic -action $action -language $language -inputfile ".\test\data\BASIC\escape.bas" -expected ".\test\ref\$action\$language\escape.txt"
 
 # BASICA
 Set-Variable -Name language "BASICA"
 test\bin\run_test.ps1 -json -name sea-creature-basica -action $action -language $language -inputfile ".\test\data\BASIC\sea_creature.bas" -expected ".\test\ref\$action\$language\sea_creature.txt"
 test\bin\run_test.ps1 -json -name lanturn-basica -action $action -language $language -inputfile ".\test\data\BASIC\lanturn.bas" -expected ".\test\ref\$action\$language\lanturn.txt"
 test\bin\run_test.ps1 -json -name gw3d-basica -action $action -language $language -inputfile ".\test\data\BASIC\GW3D.bas" -expected ".\test\ref\$action\$language\GW3D.txt"
+test\bin\run_test.ps1 -json -name guotte-basica -action $action -language $language -inputfile ".\test\data\BASIC\guotte.bas" -expected ".\test\ref\$action\$language\guotte.txt"
 
 # C-78
 Set-Variable -Name language "C-78"
@@ -160,6 +166,9 @@ test\bin\run_test.ps1 -json -name values-c-78 -action $action -language $languag
 test\bin\run_test.ps1 -json -name j_interpreter-c-78 -action $action -language $language -inputfile ".\test\data\$language\j_interpreter.c" -expected ".\test\ref\$action\$language\j_interpreter.txt"
 test\bin\run_test.ps1 -json -name zero_line-c-78 -action $action -language $language -inputfile ".\test\data\$language\zero_line_hello_world.c" -expected ".\test\ref\$action\$language\zero_line_hello_world.txt"
 test\bin\run_test.ps1 -json -name charlotte-c-78 -action $action -language $language -inputfile ".\test\data\$language\charlotte.c" -expected ".\test\ref\$action\$language\charlotte.txt"
+test\bin\run_test.ps1 -json -name light_pen-c-78 -action $action -language $language -inputfile ".\test\data\$language\light_pen.c" -expected ".\test\ref\$action\$language\light_pen.txt"
+test\bin\run_test.ps1 -json -name cpaint-c-78 -action $action -language $language -inputfile ".\test\data\$language\cpaint.c" -expected ".\test\ref\$action\$language\cpaint_c.txt"
+test\bin\run_test.ps1 -json -name cpaint-h-78 -action $action -language $language -inputfile ".\test\data\$language\cpaint.h" -expected ".\test\ref\$action\$language\cpaint_h.txt"
 
 # C-89
 
@@ -168,6 +177,7 @@ Set-Variable -Name language "C-99"
 test\bin\run_test.ps1 -json -name decl-c-99 -action $action -language $language -inputfile ".\test\data\$language\c-decl.c" -expected ".\test\ref\$action\$language\c-decl-c.txt"
 test\bin\run_test.ps1 -json -name parser-h-99 -action $action -language $language -inputfile ".\test\data\$language\parser.h" -expected ".\test\ref\$action\$language\parser-h.txt"
 test\bin\run_test.ps1 -json -name parser-c-99 -action $action -language $language -inputfile ".\test\data\$language\parser.c" -expected ".\test\ref\$action\$language\parser-c.txt"
+test\bin\run_test.ps1 -json -name cleancode-c-99 -action $action -language $language -inputfile ".\test\data\$language\cleancode.c" -expected ".\test\ref\$action\$language\cleancode-c.txt"
 
 # CBASIC
 Set-Variable -Name language "CBASIC"
@@ -470,6 +480,7 @@ Set-Variable -Name language "Perl"
 test\bin\run_test.ps1 -json -name perligata-perl -action $action -language $language -inputfile ".\test\data\$language\Perligata.pm" -expected ".\test\ref\$action\$language\Perligata.txt"
 test\bin\run_test.ps1 -json -name physics-perl -action $action -language $language -inputfile ".\test\data\$language\Physics.pm" -expected ".\test\ref\$action\$language\Physics.txt"
 test\bin\run_test.ps1 -json -name zero_line-perl -action $action -language $language -inputfile ".\test\data\$language\zero_line_hello_world.pl" -expected ".\test\ref\$action\$language\zero_line_hello_world.txt"
+test\bin\run_test.ps1 -json -name root_distance-perl -action $action -language $language -inputfile ".\test\data\$language\root_distance.pl" -expected ".\test\ref\$action\$language\root_distance.txt"
 
 # PL/1
 Set-Variable -Name language "PL1"
