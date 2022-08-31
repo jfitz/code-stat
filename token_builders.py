@@ -677,19 +677,18 @@ class SuffixedIntegerTokenBuilder(TokenBuilder):
     if case_sensitive:
       self.suffixes = suffixes
     else:
-      self.suffixes = list(map(str.lower, suffixes))
+      self.suffixes = []
+      for suffix in suffixes:
+        self.suffixes.append(suffix.lower())
 
     self.abbrevs = {}
+
     for suffix in self.suffixes:
       for i in range(len(suffix)):
         self.abbrevs[suffix[:i+1]] = 1
 
     self.case_sensitive = case_sensitive
-
-    if case_sensitive or extra_chars is None:
-      self.extra_chars = extra_chars
-    else:
-      self.extra_chars = list(map(str.lower, extra_chars))
+    self.extra_chars = extra_chars
 
     self.text = None
 
@@ -717,21 +716,24 @@ class SuffixedIntegerTokenBuilder(TokenBuilder):
     if len(groups) == 1:
       if self.extra_chars is not None:
         if self.case_sensitive:
-          return c.isdigit() or c in self.extra_chars or c in self.abbrevs
+          x = c.isdigit() or c in self.extra_chars or c in self.abbrevs
         else:
-          return c.isdigit() or c in self.extra_chars or c.lower() in self.abbrevs
+          x = c.isdigit() or c in self.extra_chars or c.lower() in self.abbrevs
       else:
         if self.case_sensitive:
-          return c.isdigit() or c in self.abbrevs
+          x = c.isdigit() or c in self.abbrevs
         else:
-          return c.isdigit() or c.lower() in self.abbrevs
+          x = c.isdigit() or c.lower() in self.abbrevs
+      return x
 
     if len(groups) == 2:
       suffix = groups[1] + c
       if self.case_sensitive:
-        return suffix in self.abbrevs
+        x = suffix in self.abbrevs
       else:
-        return suffix.lower() in self.abbrevs
+        x = suffix.lower() in self.abbrevs
+
+      return x
 
     return False
 

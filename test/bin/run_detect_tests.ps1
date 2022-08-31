@@ -525,13 +525,15 @@ test\bin\run_detect_test.ps1 -json -name zero_line-$language -inputfile ".\test\
 test\bin\run_detect_test.ps1 -json -name v3-$language -inputfile ".\test\data\$language\v3_control.$language" -expected ".\test\ref\$action\$language\v3_control.txt"
 
 # SQL
-Set-Variable -Name language "SQL"
-test\bin\run_detect_test.ps1 -json -name microsoft-sql -inputfile ".\test\data\SQL\microsoft.sql" -expected ".\test\ref\detect\SQL\microsoft.txt"
-test\bin\run_detect_test.ps1 -json -name table-sql -inputfile ".\test\data\SQL\table.sql" -expected ".\test\ref\detect\SQL\table.txt"
+
+# PL-SQL
+Set-Variable -Name language "PL-SQL"
+test\bin\run_detect_test.ps1 -json -name table-plsql -inputfile ".\test\data\$language\table.sql" -expected ".\test\ref\$action\$language\table.txt"
 
 # T-SQL
 Set-Variable -Name language "T-SQL"
-test\bin\run_detect_test.ps1 -json -name brackets-tsql -inputfile ".\test\data\T-SQL\brackets.sql" -expected ".\test\ref\detect\T-SQL\brackets.txt"
+test\bin\run_detect_test.ps1 -json -name microsoft-tsql -inputfile ".\test\data\$language\microsoft.sql" -expected ".\test\ref\$action\$language\microsoft.txt"
+test\bin\run_detect_test.ps1 -json -name brackets-tsql -inputfile ".\test\data\$language\brackets.sql" -expected ".\test\ref\$action\$language\brackets.txt"
 
 # Swift
 Set-Variable -Name language "Swift"

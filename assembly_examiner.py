@@ -88,16 +88,20 @@ class AssemblyExaminer(Examiner):
     integer_tb = IntegerTokenBuilder("'")
     integer_exponent_tb = IntegerExponentTokenBuilder("'")
     integer_1_tb = NullTokenBuilder()
-    integer_2_tb = NullTokenBuilder()
-    prefixed_integer_tb = PrefixedIntegerTokenBuilder('#', True, '0123456789')
+
     if processor in ['pdp-11']:
-      integer_1_tb = SuffixedIntegerTokenBuilder('$', True, '0123456789')
+      integer_1_tb = SuffixedIntegerTokenBuilder(['$', 'D', '^D', '^O', '^B'], True, '0123456789')
+
+    if processor in ['8080']:
+      integer_1_tb = SuffixedIntegerTokenBuilder(['Q', 'A'], True, '0123456789')
+
     if processor in ['z80']:
-      integer_1_tb = SuffixedIntegerTokenBuilder('O', True, '0123456789')
-      integer_2_tb = SuffixedIntegerTokenBuilder('D', True, '0123456789')
+      integer_1_tb = SuffixedIntegerTokenBuilder(['O', 'D'], True, '0123456789')
+
+    prefixed_integer_tb = PrefixedIntegerTokenBuilder('#', True, '0123456789')
 
     hex_integer_1_tb = PrefixedIntegerTokenBuilder('&', True, '0123456789abcdefABCDEF')
-    hex_integer_2_tb = SuffixedIntegerTokenBuilder('h', False, '0123456789abcdefABCDEF')
+    hex_integer_2_tb = SuffixedIntegerTokenBuilder(['h'], False, '0123456789abcdefABCDEF')
     hex_integer_3_tb = PrefixedIntegerTokenBuilder('$', True, '0123456789abcdefABCDEF')
     hex_integer_4_tb = PrefixedIntegerTokenBuilder('#$', True, '0123456789abcdefABCDEF')
 
@@ -723,7 +727,6 @@ class AssemblyExaminer(Examiner):
       integer_tb,
       integer_exponent_tb,
       integer_1_tb,
-      integer_2_tb,
       prefixed_integer_tb,
       hex_integer_1_tb,
       hex_integer_2_tb,

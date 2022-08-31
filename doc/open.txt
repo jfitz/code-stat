@@ -119,13 +119,7 @@ Python client (codestat_CLI.py)
 - Create report (LOC, SLOC, complexity; total by source code; grand total)
 
 examiners
-+ ? make a binary operator (not unary) at the beginning a line comment indicator
-  (doesn't work for C, C++, C#, obj-c, Java, Pascal files which start with + or -)
-  (doesn't work for Perl, Ruby files which start with regexes /)
-  ? apply in a second phase
-- all languages that demand newlines also compute line length confidence (Dibol)
-- line length confidence can vary across languages
-- add common functions which can count as keywords (maybe just as functions in BASIC?)
++ keyword comparison checks variety of keywords
 
 generic
 + double dollar signs as block for Tex (Rmd)
@@ -136,15 +130,10 @@ generic ASM
 - allow space in args, comment only after marker (PDP-11)
 - first item is label if colon, opcode if no colon (PDP-11, 8080, 8086)
 - values on the left (listing) (xxxx xx xx xx or ooo.ooo ooo ooo ooo)
-- number: $xxxx nnnQ nnnnnnA #xxxx &xxxx $
-- operator =
-
-spaced-format ASM
 
 ASM-PDP-8
 
 ASM-PDP-11
-- numbers 10d 10. 1010b 10^O 10^D 10^B
 
 ASM-390
 

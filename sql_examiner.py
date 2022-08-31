@@ -176,7 +176,7 @@ class SqlExaminer(Examiner):
       'OBJECT', 'OLD', 'ORDINALITY', 'OUT', 'OUTER',
       'OCTET_LENGTH', 'OFFSET',
       'OMIT',
-      'OCCURRENCES_REGEX', 'ONE', 'OVER',
+      'OCCURRENCES_REGEX', 'OVER',
       'OVERLAY',
       'PAD', 'PARAMETER', 'PARTIAL', 'PRECISION', 'PREPARE', 'PRESERVE',
       'PRIMARY', 'PRIOR', 'PRIVILEGES', 'PROCEDURE', 'PUBLIC',
@@ -247,7 +247,7 @@ class SqlExaminer(Examiner):
 
     keyword_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
 
-    values = ['TRUE', 'FALSE', 'NULL', 'OFF', 'ON', 'NONE']
+    values = ['TRUE', 'FALSE', 'NULL', 'OFF', 'ON', 'NONE', 'ONE']
 
     values_tsql = [
       'ALLOW_ROW_LOCKS', 'ALLOW_PAGE_LOCKS', 'ALWAYS', 'IGNORE_DUP_KEY',
@@ -278,11 +278,18 @@ class SqlExaminer(Examiner):
       'nvarchar', 'bigint', 'datetime', 'datetime2', 'geography'
     ]
 
+    types_plsql = [
+      'VARCHAR2'
+    ]
+
     if extension in ['microsoft', 't-sql']:
       types += types_tsql
 
+    if extension in ['oracle', 'pl-sql']:
+      types += types_plsql
+
     type_tb = CaseInsensitiveListTokenBuilder(types, 'type', True)
-    operand_types.append('value')
+    operand_types.append('type')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -299,8 +306,8 @@ class SqlExaminer(Examiner):
       groupers_tb,
       keyword_tb,
       values_tb,
-      identifier_tb,
       type_tb,
+      identifier_tb,
       bracketed_identifier_tb,
       comment_tb,
       self.unknown_operator_tb,
@@ -333,9 +340,9 @@ class SqlExaminer(Examiner):
 
     self.calc_group_confidence(tokens, group_mids)
 
-    # operand_types_2 = ['number', 'string', 'symbol']
-    # self.calc_operand_n_confidence(tokens, operand_types_2, 2)
-    # self.calc_operand_n_confidence(tokens, operand_types, 4)
+    operand_types_2 = ['number', 'string', 'identifier', 'value']
+    self.calc_operand_n_confidence(tokens, operand_types_2, 1)
+    # self.calc_operand_n_confidence(tokens, operand_types, 1)
 
     self.calc_keyword_confidence()
     self.calc_line_length_confidence(code, self.max_expected_line)

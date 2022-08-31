@@ -284,8 +284,10 @@ class BasicExaminer(Examiner):
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     tokens = BasicExaminer.convert_numbers_to_line_numbers(tokens)
 
-    if version in ['basic-80', 'basica', 'gw-basic']:
+    if version in ['basic-80']:
       tokens = BasicExaminer.extract_keywords_from_identifiers(tokens, keywords, known_operators)
+
+    if version in ['basic-80', 'basica', 'gw-basic']:
       tokens = BasicExaminer.convert_as_to_keyword(tokens)
       tokens = BasicExaminer.convert_base_to_keyword(tokens)
       tokens = BasicExaminer.convert_operators_to_values(tokens)
