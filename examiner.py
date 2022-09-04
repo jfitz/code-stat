@@ -735,14 +735,13 @@ class Examiner:
       invalid_groups = ['invalid', 'invalid operator']
       num_invalid_tokens = Examiner.count_tokens(self.tokens, invalid_groups)
       num_valid_tokens = num_tokens - num_invalid_tokens
+      whitespace_groups = ['whitespace', 'comment', 'newline', 'line description']
+      num_whitespace_tokens = Examiner.count_tokens(self.tokens, whitespace_groups)
 
       # fewer than 1000 tokens and no keyword? possible
-      if num_valid_tokens > 0 and num_tokens < 1000:
-        # the more invalid tokens, the less likely
-        confidence_1 = 1.0 - num_invalid_tokens / num_tokens
-        # the more tokens, the less likely
-        confidence_2 = 1.0 - num_tokens / 1000
-        self.confidences['keyword'] = confidence_1 * confidence_2
+      if num_tokens > 0:
+        # the more valid tokens, the more likely
+        self.confidences['keyword'] = 1.0 - (num_whitespace_tokens / num_tokens)
       else:
         # more than 1000 tokens and no keyword? assume it is not
         self.confidences['keyword'] = 0.0

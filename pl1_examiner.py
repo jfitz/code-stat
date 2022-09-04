@@ -355,8 +355,8 @@ class PL1Examiner(Examiner):
     self.calc_group_confidence(tokens, self.group_mids)
 
     operand_types_2 = ['number', 'symbol']
-    self.calc_operand_n_confidence(tokens, operand_types_2, 2)
-    self.calc_operand_n_confidence(tokens, self.operand_types, 4)
+    # self.calc_operand_n_confidence(tokens, operand_types_2, 2)
+    self.calc_operand_n_confidence(tokens, self.operand_types, 2)
 
     self.calc_keyword_confidence()
 
@@ -444,8 +444,8 @@ class PL1Examiner(Examiner):
     self.calc_group_confidence(tokens, self.group_mids)
 
     operand_types_2 = ['number', 'symbol']
-    self.calc_operand_n_confidence(tokens, operand_types_2, 2)
-    self.calc_operand_n_confidence(tokens, self.operand_types, 4)
+    # self.calc_operand_n_confidence(tokens, operand_types_2, 2)
+    self.calc_operand_n_confidence(tokens, self.operand_types, 2)
 
     self.calc_keyword_confidence()
 

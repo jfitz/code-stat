@@ -7,17 +7,31 @@ $names = @{
     'PL/M'='PLM'
 }
 
+$lang_names = @{
+    'C-K&R'='C-78';
+    'Cplusplus'='C++';
+    'Csharp'='C#';
+    'Fsharp'='F#';
+    'PL1'='PL/1';
+    'PLM'='PL/M';
+    'PL-SQL'='PL/SQL'
+}
+
 $ignore_names = 'noncode', 'multiple'
 
 Get-ChildItem .\test\ref\detect |
 ForEach-Object {
     $language = $_.BaseName
+
     if (-Not $ignore_names.Contains($language)) {
         Get-ChildItem $_ -Filter *.txt |
+
         ForEach-Object {
             $test = $_.BaseName
+            $dict = Get-Content $_ | ConvertFrom-Json
             $a = Get-Content $_ | Select-String ":"
-            $c = $a -replace ":", " " -replace '"', '' -replace ',', '' | Sort-Object { [double]$_.split()[-1] } -Descending | Select-Object -first 1
+            $c = $a -replace ':', '' -replace '"', '' -replace ',', '' | Sort-Object { [double]$_.split()[-1] } -Descending | Select-Object -first 1
+
             if (-Not ([string]::IsNullOrEmpty($c))) {
                 $d = $c.Trim()
                 $detected, $confidence = $d.Split(' ', 2)
@@ -28,7 +42,12 @@ ForEach-Object {
                 }
 
                 If ($detected -ne $language) {
-                    Write-Output "$test $language $detected $confidence"
+                    if ($lang_names.Contains($language)) {
+                        Set-Variable -Name language -Value $lang_names[$language]
+                    }
+    
+                    $lang_conf = $dict | Select-Object -expand $language
+                    Write-Output "$test : $language $lang_conf as $detected $confidence"
                 }
             }
         }
