@@ -312,9 +312,8 @@ class BasicExaminer(Examiner):
 
     self.calc_group_confidence(tokens, group_mids)
 
-    operand_types_2 = ['number', 'string', 'variable', 'symbol']
-
     if version not in ['basic-80', 'basica', 'gw-basic']:
+      operand_types_2 = ['number', 'string', 'variable', 'symbol']
       self.calc_operand_n_confidence(tokens, operand_types_2, 2)
       self.calc_operand_n_confidence(tokens, operand_types, 4)
 
@@ -396,7 +395,7 @@ class BasicExaminer(Examiner):
   def extract_keywords_from_identifiers(tokens, keywords, operators):
     new_tokens = []
 
-    words = keywords + operators
+    words = keywords
 
     for token in tokens:
       if token.group == 'variable':

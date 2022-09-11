@@ -16,7 +16,7 @@
 34 ' Signon message
 35 LOCATE 5,30:PRINT" Escape from Warehouse"
 40 LOCATE 13,18:PRINT'Do you want to read the instructions (Y/N) ?";
-50 I$=INPUTS(1):CLS:IF I$="Y" OR I$="y" THEN GOSUB 3000
+50 I$=INPUT$(1):CLS:IF I$="Y" OR I$="y" THEN GOSUB 3000
 90 PV=100:LOCATE 13,21:INPUT"Number of gangsters (1 to 25)";NB$
 100 XSB=0:NB=VAL(NBS):IF NB<1 OR NB>25 THEN BEEP:GOTO 90
 110 CLS:PRINT"One moment please..."
@@ -115,7 +115,7 @@
 2480 ' End or beginning again
 2500 IF XSB THEN PUT(XSB,YSB),BANDIT,PSET:XSB=0
 2505 LOCATE 25,22,1:PRINT "Do you want to play again (Y/N) ?";
-2510 I$=INPUTS(1)
+2510 I$=INPUT$(1)
 2520 IF I$="y" OR I$="Y" THEN PRINT "Yes.";:GOTO 90
 2530 IF I$="n" OR I$="N" THEN PRINT "No.";:LOCATE 1,1,1:END
 2540 GOTO 2510

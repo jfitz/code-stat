@@ -34,94 +34,94 @@ test\bin\run_test.ps1 -json -name spider -action $action -errors -language gener
 
 # ASM IBM-360
 Set-Variable -Name language "ASM-360"
-test\bin\run_test.ps1 -json -name subroutine1-asm -action $action -errors -language $language -inputfile ".\test\data\$language\subroutine1.asm" -expected ".\test\ref\$action-errors\$language\subroutine1.txt"
-test\bin\run_test.ps1 -json -name subroutine1_a-asm -action $action -errors -language $language -inputfile ".\test\data\$language\subroutine1_a.asm" -expected ".\test\ref\$action-errors\$language\subroutine1_a.txt"
-test\bin\run_test.ps1 -json -name subroutine2-asm -action $action -errors -language $language -inputfile ".\test\data\$language\subroutine2.asm" -expected ".\test\ref\$action-errors\$language\subroutine2.txt"
-test\bin\run_test.ps1 -json -name subroutine2_a-asm -action $action -errors -language $language -inputfile ".\test\data\$language\subroutine2_a.asm" -expected ".\test\ref\$action-errors\$language\subroutine2_a.txt"
-test\bin\run_test.ps1 -json -name spitbol-asm -action $action -errors -language $language -inputfile ".\test\data\$language\spitbol.asm" -expected ".\test\ref\$action-errors\$language\spitbol.txt"
+test\bin\run_test.ps1 -json -name subroutine1-$language -action $action -errors -language $language -inputfile ".\test\data\$language\subroutine1.asm" -expected ".\test\ref\$action-errors\$language\subroutine1.txt"
+test\bin\run_test.ps1 -json -name subroutine1_a-$language -action $action -errors -language $language -inputfile ".\test\data\$language\subroutine1_a.asm" -expected ".\test\ref\$action-errors\$language\subroutine1_a.txt"
+test\bin\run_test.ps1 -json -name subroutine2-$language -action $action -errors -language $language -inputfile ".\test\data\$language\subroutine2.asm" -expected ".\test\ref\$action-errors\$language\subroutine2.txt"
+test\bin\run_test.ps1 -json -name subroutine2_a-$language -action $action -errors -language $language -inputfile ".\test\data\$language\subroutine2_a.asm" -expected ".\test\ref\$action-errors\$language\subroutine2_a.txt"
+test\bin\run_test.ps1 -json -name spitbol-$language -action $action -errors -language $language -inputfile ".\test\data\$language\spitbol.asm" -expected ".\test\ref\$action-errors\$language\spitbol.txt"
 
 # ASM IBM-370
 Set-Variable -Name language "ASM-370"
-test\bin\run_test.ps1 -json -name asm370a1-asm -action $action -errors -language $language -inputfile ".\test\data\$language\asm370a1.asm" -expected ".\test\ref\$action-errors\$language\asm370a1.txt"
+test\bin\run_test.ps1 -json -name asm370a1-$language -action $action -errors -language $language -inputfile ".\test\data\$language\asm370a1.asm" -expected ".\test\ref\$action-errors\$language\asm370a1.txt"
 
 # ASM IBM-390
 Set-Variable -Name language "ASM-390"
-test\bin\run_test.ps1 -json -name osint-asm -action $action -errors -language $language -inputfile ".\test\data\$language\osint.asm" -expected ".\test\ref\$action-errors\$language\osint.txt"
+test\bin\run_test.ps1 -json -name osint-$language -action $action -errors -language $language -inputfile ".\test\data\$language\osint.asm" -expected ".\test\ref\$action-errors\$language\osint.txt"
 
 # ASM IBM-system-z
 
 # ASM 1802
 Set-Variable -Name language "ASM-1802"
-test\bin\run_test.ps1 -json -name test_alu-asm -action $action -errors -language $language -inputfile ".\test\data\$language\test_alu.asm" -expected ".\test\ref\$action-errors\$language\test_alu.txt"
+test\bin\run_test.ps1 -json -name test_alu-$language -action $action -errors -language $language -inputfile ".\test\data\$language\test_alu.asm" -expected ".\test\ref\$action-errors\$language\test_alu.txt"
 
 # ASM 6502
 Set-Variable -Name language "ASM-6502"
-test\bin\run_test.ps1 -json -name sweet16-asm -action $action -errors -language $language -inputfile ".\test\data\$language\sweet16.asm" -expected ".\test\ref\$action-errors\$language\sweet16.txt"
+test\bin\run_test.ps1 -json -name sweet16-$language -action $action -errors -language $language -inputfile ".\test\data\$language\sweet16.asm" -expected ".\test\ref\$action-errors\$language\sweet16.txt"
 
 # ASM 6800
 Set-Variable -Name language "ASM-6800"
-test\bin\run_test.ps1 -json -name ET3400-S6-asm -action $action -errors -language $language -inputfile ".\test\data\$language\ET3400-S6.asm" -expected ".\test\ref\$action-errors\$language\ET3400-S6.txt"
+test\bin\run_test.ps1 -json -name ET3400-S6-$language -action $action -errors -language $language -inputfile ".\test\data\$language\ET3400-S6.asm" -expected ".\test\ref\$action-errors\$language\ET3400-S6.txt"
 
 # ASM 68000
 Set-Variable -Name language "ASM-68000"
-test\bin\run_test.ps1 -json -name basic68k-asm -action $action -errors -language $language -inputfile ".\test\data\$language\basic68k.asm" -expected ".\test\ref\$action-errors\$language\basic68k.txt"
-test\bin\run_test.ps1 -json -name sprites-asm -action $action -errors -language $language -inputfile ".\test\data\$language\sprites.asm" -expected ".\test\ref\$action-errors\$language\sprites.txt"
+test\bin\run_test.ps1 -json -name basic68k-$language -action $action -errors -language $language -inputfile ".\test\data\$language\basic68k.asm" -expected ".\test\ref\$action-errors\$language\basic68k.txt"
+test\bin\run_test.ps1 -json -name sprites-$language -action $action -errors -language $language -inputfile ".\test\data\$language\sprites.asm" -expected ".\test\ref\$action-errors\$language\sprites.txt"
 
 # ASM 8080
 Set-Variable -Name language "ASM-8080"
-test\bin\run_test.ps1 -json -name i8080core-asm -action $action -errors -language $language -inputfile ".\test\data\$language\i8080core.asm" -expected ".\test\ref\$action-errors\$language\i8080core.txt"
-test\bin\run_test.ps1 -json -name microcosm-asm -action $action -errors -language $language -inputfile ".\test\data\$language\microcosm.asm" -expected ".\test\ref\$action-errors\$language\microcosm.txt"
-test\bin\run_test.ps1 -json -name hello_free-asm -action $action -errors -language $language -inputfile ".\test\data\$language\hello_free.asm" -expected ".\test\ref\$action-errors\$language\hello_free.txt"
-test\bin\run_test.ps1 -json -name hello_spaced-asm -action $action -errors -language $language -inputfile ".\test\data\$language\hello_spaced.asm" -expected ".\test\ref\$action-errors\$language\hello_spaced.txt"
+test\bin\run_test.ps1 -json -name i8080core-$language -action $action -errors -language $language -inputfile ".\test\data\$language\i8080core.asm" -expected ".\test\ref\$action-errors\$language\i8080core.txt"
+test\bin\run_test.ps1 -json -name microcosm-$language -action $action -errors -language $language -inputfile ".\test\data\$language\microcosm.asm" -expected ".\test\ref\$action-errors\$language\microcosm.txt"
+test\bin\run_test.ps1 -json -name hello_free-$language -action $action -errors -language $language -inputfile ".\test\data\$language\hello_free.asm" -expected ".\test\ref\$action-errors\$language\hello_free.txt"
+test\bin\run_test.ps1 -json -name hello_spaced-$language -action $action -errors -language $language -inputfile ".\test\data\$language\hello_spaced.asm" -expected ".\test\ref\$action-errors\$language\hello_spaced.txt"
 
 # ASM Z-80
 Set-Variable -Name language "ASM-Z-80"
-test\bin\run_test.ps1 -json -name intro-asm -action $action -errors -language $language -inputfile ".\test\data\$language\intro.asm" -expected ".\test\ref\$action-errors\$language\intro.txt"
-test\bin\run_test.ps1 -json -name hardmess-asm -action $action -errors -language $language -inputfile ".\test\data\$language\hardmess.asm" -expected ".\test\ref\$action-errors\$language\hardmess.txt"
-test\bin\run_test.ps1 -json -name shftspr-asm -action $action -errors -language $language -inputfile ".\test\data\$language\shftspr.asm" -expected ".\test\ref\$action-errors\$language\shftspr.txt"
-test\bin\run_test.ps1 -json -name sincos-asm -action $action -errors -language $language -inputfile ".\test\data\$language\sincos.asm" -expected ".\test\ref\$action-errors\$language\sincos.txt"
+test\bin\run_test.ps1 -json -name intro-$language -action $action -errors -language $language -inputfile ".\test\data\$language\intro.asm" -expected ".\test\ref\$action-errors\$language\intro.txt"
+test\bin\run_test.ps1 -json -name hardmess-$language -action $action -errors -language $language -inputfile ".\test\data\$language\hardmess.asm" -expected ".\test\ref\$action-errors\$language\hardmess.txt"
+test\bin\run_test.ps1 -json -name shftspr-$language -action $action -errors -language $language -inputfile ".\test\data\$language\shftspr.asm" -expected ".\test\ref\$action-errors\$language\shftspr.txt"
+test\bin\run_test.ps1 -json -name sincos-$language -action $action -errors -language $language -inputfile ".\test\data\$language\sincos.asm" -expected ".\test\ref\$action-errors\$language\sincos.txt"
 
 # ASM 8086
 Set-Variable -Name language "ASM-8086"
-test\bin\run_test.ps1 -json -name BISTRS-asm -action $action -errors -language $language -inputfile ".\test\data\$language\BISTRS.asm" -expected ".\test\ref\$action-errors\$language\BISTRS.txt"
-test\bin\run_test.ps1 -json -name DSKCOM-asm -action $action -errors -language $language -inputfile ".\test\data\$language\DSKCOM.asm" -expected ".\test\ref\$action-errors\$language\DSKCOM.txt"
-test\bin\run_test.ps1 -json -name FIVEO-asm -action $action -errors -language $language -inputfile ".\test\data\$language\FIVEO.asm" -expected ".\test\ref\$action-errors\$language\FIVEO.txt"
-test\bin\run_test.ps1 -json -name GWEVAL-asm -action $action -errors -language $language -inputfile ".\test\data\$language\GWEVAL.asm" -expected ".\test\ref\$action-errors\$language\GWEVAL.txt"
-test\bin\run_test.ps1 -json -name NEXT86-asm -action $action -errors -language $language -inputfile ".\test\data\$language\NEXT86.asm" -expected ".\test\ref\$action-errors\$language\NEXT86.txt"
-test\bin\run_test.ps1 -json -name io_indic-asm -action $action -errors -language $language -inputfile ".\test\data\$language\io_indic.asm" -expected ".\test\ref\$action-errors\$language\io_indic.txt"
+test\bin\run_test.ps1 -json -name BISTRS-$language -action $action -errors -language $language -inputfile ".\test\data\$language\BISTRS.asm" -expected ".\test\ref\$action-errors\$language\BISTRS.txt"
+test\bin\run_test.ps1 -json -name DSKCOM-$language -action $action -errors -language $language -inputfile ".\test\data\$language\DSKCOM.asm" -expected ".\test\ref\$action-errors\$language\DSKCOM.txt"
+test\bin\run_test.ps1 -json -name FIVEO-$language -action $action -errors -language $language -inputfile ".\test\data\$language\FIVEO.asm" -expected ".\test\ref\$action-errors\$language\FIVEO.txt"
+test\bin\run_test.ps1 -json -name GWEVAL-$language -action $action -errors -language $language -inputfile ".\test\data\$language\GWEVAL.asm" -expected ".\test\ref\$action-errors\$language\GWEVAL.txt"
+test\bin\run_test.ps1 -json -name NEXT86-$language -action $action -errors -language $language -inputfile ".\test\data\$language\NEXT86.asm" -expected ".\test\ref\$action-errors\$language\NEXT86.txt"
+test\bin\run_test.ps1 -json -name io_indic-$language -action $action -errors -language $language -inputfile ".\test\data\$language\io_indic.asm" -expected ".\test\ref\$action-errors\$language\io_indic.txt"
 
 # ASM 80386
 Set-Variable -Name language "ASM-80386"
-test\bin\run_test.ps1 -json -name reverser-asm -action $action -errors -language $language -inputfile ".\test\data\$language\reverser.asm" -expected ".\test\ref\$action-errors\$language\reverser.txt"
-test\bin\run_test.ps1 -json -name crc16-asm -action $action -errors -language $language -inputfile ".\test\data\$language\crc16.asm" -expected ".\test\ref\$action-errors\$language\crc16.txt"
-test\bin\run_test.ps1 -json -name mat_get_element-asm -action $action -errors -language $language -inputfile ".\test\data\$language\mat_get_element.asm" -expected ".\test\ref\$action-errors\$language\mat_get_element.txt"
+test\bin\run_test.ps1 -json -name reverser-$language -action $action -errors -language $language -inputfile ".\test\data\$language\reverser.asm" -expected ".\test\ref\$action-errors\$language\reverser.txt"
+test\bin\run_test.ps1 -json -name crc16-$language -action $action -errors -language $language -inputfile ".\test\data\$language\crc16.asm" -expected ".\test\ref\$action-errors\$language\crc16.txt"
+test\bin\run_test.ps1 -json -name mat_get_element-$language -action $action -errors -language $language -inputfile ".\test\data\$language\mat_get_element.asm" -expected ".\test\ref\$action-errors\$language\mat_get_element.txt"
 
 # ASM 80486
 
 # ASM PDP-8
 Set-Variable -Name language "ASM-PDP-8"
-test\bin\run_test.ps1 -json -name io-asm -action $action -errors -language $language -inputfile ".\test\data\$language\io.asm" -expected ".\test\ref\$action-errors\$language\io.txt"
-test\bin\run_test.ps1 -json -name life-asm -action $action -errors -language $language -inputfile ".\test\data\$language\life.asm" -expected ".\test\ref\$action-errors\$language\life.txt"
-test\bin\run_test.ps1 -json -name sum-asm -action $action -errors -language $language -inputfile ".\test\data\$language\sum.asm" -expected ".\test\ref\$action-errors\$language\sum.txt"
+test\bin\run_test.ps1 -json -name io-$language -action $action -errors -language $language -inputfile ".\test\data\$language\io.asm" -expected ".\test\ref\$action-errors\$language\io.txt"
+test\bin\run_test.ps1 -json -name life-$language -action $action -errors -language $language -inputfile ".\test\data\$language\life.asm" -expected ".\test\ref\$action-errors\$language\life.txt"
+test\bin\run_test.ps1 -json -name sum-$language -action $action -errors -language $language -inputfile ".\test\data\$language\sum.asm" -expected ".\test\ref\$action-errors\$language\sum.txt"
 
 # ASM PDP-11
 Set-Variable -Name language "ASM-PDP-11"
-test\bin\run_test.ps1 -json -name print-asm -action $action -errors -language $language -inputfile ".\test\data\$language\print.asm" -expected ".\test\ref\$action-errors\$language\print.txt"
-test\bin\run_test.ps1 -json -name k11tsx-asm -action $action -errors -language $language -inputfile ".\test\data\$language\k11tsx.mac" -expected ".\test\ref\$action-errors\$language\k11tsx.txt"
-test\bin\run_test.ps1 -json -name krtser-asm -action $action -errors -language $language -inputfile ".\test\data\$language\krtser.mac" -expected ".\test\ref\$action-errors\$language\krtser.txt"
-test\bin\run_test.ps1 -json -name krtsub-asm -action $action -errors -language $language -inputfile ".\test\data\$language\krtsub.mac" -expected ".\test\ref\$action-errors\$language\krtsub.txt"
+test\bin\run_test.ps1 -json -name print-$language -action $action -errors -language $language -inputfile ".\test\data\$language\print.asm" -expected ".\test\ref\$action-errors\$language\print.txt"
+test\bin\run_test.ps1 -json -name k11tsx-$language -action $action -errors -language $language -inputfile ".\test\data\$language\k11tsx.mac" -expected ".\test\ref\$action-errors\$language\k11tsx.txt"
+test\bin\run_test.ps1 -json -name krtser-$language -action $action -errors -language $language -inputfile ".\test\data\$language\krtser.mac" -expected ".\test\ref\$action-errors\$language\krtser.txt"
+test\bin\run_test.ps1 -json -name krtsub-$language -action $action -errors -language $language -inputfile ".\test\data\$language\krtsub.mac" -expected ".\test\ref\$action-errors\$language\krtsub.txt"
 
 # Ada 83
 Set-Variable -Name language "Ada-83"
-test\bin\run_test.ps1 -json -name adabkend-adb-83 -action $action -errors -language $language -inputfile ".\test\data\$language\adabkend.adb" -expected ".\test\ref\$action-errors\$language\adabkend-adb.txt"
-test\bin\run_test.ps1 -json -name adabkend-ads-83 -action $action -errors -language $language -inputfile ".\test\data\$language\adabkend.ads" -expected ".\test\ref\$action-errors\$language\adabkend-ads.txt"
-test\bin\run_test.ps1 -json -name signup-adb-83 -action $action -errors -language $language -inputfile ".\test\data\$language\signup.adb" -expected ".\test\ref\$action-errors\$language\signup-adb.txt"
-test\bin\run_test.ps1 -json -name naive-sort-ada-83 -action $action -errors -language $language -inputfile ".\test\data\$language\naive-sort.ada" -expected ".\test\ref\$action-errors\$language\naive-sort-ada.txt"
-test\bin\run_test.ps1 -json -name naive-sort-0-ada-83 -action $action -errors -language $language -inputfile ".\test\data\$language\naive-sort-0.ada" -expected ".\test\ref\$action-errors\$language\naive-sort-0-ada.txt"
+test\bin\run_test.ps1 -json -name adabkend-$language -action $action -errors -language $language -inputfile ".\test\data\$language\adabkend.adb" -expected ".\test\ref\$action-errors\$language\adabkend-adb.txt"
+test\bin\run_test.ps1 -json -name adabkend-ads-$language -action $action -errors -language $language -inputfile ".\test\data\$language\adabkend.ads" -expected ".\test\ref\$action-errors\$language\adabkend-ads.txt"
+test\bin\run_test.ps1 -json -name signup-adb-$language -action $action -errors -language $language -inputfile ".\test\data\$language\signup.adb" -expected ".\test\ref\$action-errors\$language\signup-adb.txt"
+test\bin\run_test.ps1 -json -name naive-sort-$language -action $action -errors -language $language -inputfile ".\test\data\$language\naive-sort.ada" -expected ".\test\ref\$action-errors\$language\naive-sort-ada.txt"
+test\bin\run_test.ps1 -json -name naive-sort-0-$language -action $action -errors -language $language -inputfile ".\test\data\$language\naive-sort-0.ada" -expected ".\test\ref\$action-errors\$language\naive-sort-0-ada.txt"
 
 # Ada 95
 Set-Variable -Name language "Ada-95"
-test\bin\run_test.ps1 -json -name philosophers-ads-95 -action $action -errors -language $language -inputfile ".\test\data\$language\philosophers.ads" -expected ".\test\ref\$action-errors\$language\philosophers-ads.txt"
+test\bin\run_test.ps1 -json -name philosophers-$language -action $action -errors -language $language -inputfile ".\test\data\$language\philosophers.ads" -expected ".\test\ref\$action-errors\$language\philosophers-ads.txt"
 
 # Ada 2005
 
@@ -129,34 +129,34 @@ test\bin\run_test.ps1 -json -name philosophers-ads-95 -action $action -errors -l
 
 # Awk
 Set-Variable -Name language "Awk"
-test\bin\run_test.ps1 -json -name funstack-awk -action $action -errors -language $language -inputfile ".\test\data\$language\funstack.awk" -expected ".\test\ref\$action-errors\$language\funstack.txt"
-test\bin\run_test.ps1 -json -name awkaster-awk -action $action -errors -language $language -inputfile ".\test\data\$language\awkaster.awk" -expected ".\test\ref\$action-errors\$language\awkaster.txt"
+test\bin\run_test.ps1 -json -name funstack-$language -action $action -errors -language $language -inputfile ".\test\data\$language\funstack.awk" -expected ".\test\ref\$action-errors\$language\funstack.txt"
+test\bin\run_test.ps1 -json -name awkaster-$language -action $action -errors -language $language -inputfile ".\test\data\$language\awkaster.awk" -expected ".\test\ref\$action-errors\$language\awkaster.txt"
 
 # BASIC
 Set-Variable -Name language "BASIC"
-test\bin\run_test.ps1 -json -name values-bas -action $action -errors -language $language -inputfile ".\test\data\$language\values.bas" -expected ".\test\ref\$action-errors\$language\values.txt"
-test\bin\run_test.ps1 -json -name simple-bas -action $action -errors -language $language -inputfile ".\test\data\$language\simple.bas" -expected ".\test\ref\$action-errors\$language\simple.txt"
-test\bin\run_test.ps1 -json -name 3dplot-bas -action $action -errors -language $language -inputfile ".\test\data\$language\3dplot.bas" -expected ".\test\ref\$action-errors\$language\3dplot.txt"
-test\bin\run_test.ps1 -json -name batnum-bas -action $action -errors -language $language -inputfile ".\test\data\$language\batnum.bas" -expected ".\test\ref\$action-errors\$language\batnum.txt"
-test\bin\run_test.ps1 -json -name life-bas -action $action -errors -language $language -inputfile ".\test\data\$language\life.bas" -expected ".\test\ref\$action-errors\$language\life.txt"
-test\bin\run_test.ps1 -json -name income-bas -action $action -errors -language $language -inputfile ".\test\data\$language\income.bas" -expected ".\test\ref\$action-errors\$language\income.txt"
-test\bin\run_test.ps1 -json -name rockt2-bas -action $action -errors -language $language -inputfile ".\test\data\$language\rockt2.bas" -expected ".\test\ref\$action-errors\$language\rockt2.txt"
+test\bin\run_test.ps1 -json -name values-$language -action $action -errors -language $language -inputfile ".\test\data\$language\values.bas" -expected ".\test\ref\$action-errors\$language\values.txt"
+test\bin\run_test.ps1 -json -name simple-$language -action $action -errors -language $language -inputfile ".\test\data\$language\simple.bas" -expected ".\test\ref\$action-errors\$language\simple.txt"
+test\bin\run_test.ps1 -json -name 3dplot-$language -action $action -errors -language $language -inputfile ".\test\data\$language\3dplot.bas" -expected ".\test\ref\$action-errors\$language\3dplot.txt"
+test\bin\run_test.ps1 -json -name batnum-$language -action $action -errors -language $language -inputfile ".\test\data\$language\batnum.bas" -expected ".\test\ref\$action-errors\$language\batnum.txt"
+test\bin\run_test.ps1 -json -name life-$language -action $action -errors -language $language -inputfile ".\test\data\$language\life.bas" -expected ".\test\ref\$action-errors\$language\life.txt"
+test\bin\run_test.ps1 -json -name income-$language -action $action -errors -language $language -inputfile ".\test\data\$language\income.bas" -expected ".\test\ref\$action-errors\$language\income.txt"
+test\bin\run_test.ps1 -json -name rockt2-$language -action $action -errors -language $language -inputfile ".\test\data\$language\rockt2.bas" -expected ".\test\ref\$action-errors\$language\rockt2.txt"
 
 # BASIC-80
 Set-Variable -Name language "BASIC-80"
-test\bin\run_test.ps1 -json -name doctor-mbasic -action $action -errors -language $language -inputfile ".\test\data\BASIC\doctor.bas" -expected ".\test\ref\$action-errors\$language\doctor.txt"
-test\bin\run_test.ps1 -json -name airinput-mbasic -action $action -errors -language $language -inputfile ".\test\data\BASIC\AIRINPUT.bas" -expected ".\test\ref\$action-errors\$language\AIRINPUT.txt"
-test\bin\run_test.ps1 -json -name backgamm-mbasic -action $action -errors -language $language -inputfile ".\test\data\BASIC\BACKGAMM.bas" -expected ".\test\ref\$action-errors\$language\BACKGAMM.txt"
-test\bin\run_test.ps1 -json -name planes-mbasic -action $action -errors -language $language -inputfile ".\test\data\BASIC\PLANES.bas" -expected ".\test\ref\$action-errors\$language\PLANES.txt"
-test\bin\run_test.ps1 -json -name primes-mbasic -action $action -errors -language $language -inputfile ".\test\data\BASIC\primes.bas" -expected ".\test\ref\$action-errors\$language\primes.txt"
-test\bin\run_test.ps1 -json -name escape-mbasic -action $action -errors -language $language -inputfile ".\test\data\BASIC\escape.bas" -expected ".\test\ref\$action-errors\$language\escape.txt"
+test\bin\run_test.ps1 -json -name doctor-$language -action $action -errors -language $language -inputfile ".\test\data\BASIC\doctor.bas" -expected ".\test\ref\$action-errors\$language\doctor.txt"
+test\bin\run_test.ps1 -json -name airinput-$language -action $action -errors -language $language -inputfile ".\test\data\BASIC\AIRINPUT.bas" -expected ".\test\ref\$action-errors\$language\AIRINPUT.txt"
+test\bin\run_test.ps1 -json -name backgamm-$language -action $action -errors -language $language -inputfile ".\test\data\BASIC\BACKGAMM.bas" -expected ".\test\ref\$action-errors\$language\BACKGAMM.txt"
+test\bin\run_test.ps1 -json -name planes-$language -action $action -errors -language $language -inputfile ".\test\data\BASIC\PLANES.bas" -expected ".\test\ref\$action-errors\$language\PLANES.txt"
+test\bin\run_test.ps1 -json -name primes-$language -action $action -errors -language $language -inputfile ".\test\data\BASIC\primes.bas" -expected ".\test\ref\$action-errors\$language\primes.txt"
+test\bin\run_test.ps1 -json -name escape-$language -action $action -errors -language $language -inputfile ".\test\data\BASIC\escape.bas" -expected ".\test\ref\$action-errors\$language\escape.txt"
 
 # BASICA
 Set-Variable -Name language "BASICA"
-test\bin\run_test.ps1 -json -name sea-creature-basica -action $action -errors -language $language -inputfile ".\test\data\BASIC\sea_creature.bas" -expected ".\test\ref\$action-errors\$language\sea_creature.txt"
-test\bin\run_test.ps1 -json -name lanturn-basica -action $action -errors -language $language -inputfile ".\test\data\BASIC\lanturn.bas" -expected ".\test\ref\$action-errors\$language\lanturn.txt"
-test\bin\run_test.ps1 -json -name gw3d-basica -action $action -errors -language $language -inputfile ".\test\data\BASIC\GW3D.bas" -expected ".\test\ref\$action-errors\$language\GW3D.txt"
-test\bin\run_test.ps1 -json -name guotte-basica -action $action -errors -language $language -inputfile ".\test\data\BASIC\guotte.bas" -expected ".\test\ref\$action-errors\$language\guotte.txt"
+test\bin\run_test.ps1 -json -name sea-creature-$language -action $action -errors -language $language -inputfile ".\test\data\BASIC\sea_creature.bas" -expected ".\test\ref\$action-errors\$language\sea_creature.txt"
+test\bin\run_test.ps1 -json -name lanturn-$language -action $action -errors -language $language -inputfile ".\test\data\BASIC\lanturn.bas" -expected ".\test\ref\$action-errors\$language\lanturn.txt"
+test\bin\run_test.ps1 -json -name gw3d-$language -action $action -errors -language $language -inputfile ".\test\data\BASIC\GW3D.bas" -expected ".\test\ref\$action-errors\$language\GW3D.txt"
+test\bin\run_test.ps1 -json -name guotte-$language -action $action -errors -language $language -inputfile ".\test\data\BASIC\guotte.bas" -expected ".\test\ref\$action-errors\$language\guotte.txt"
 
 # C-78
 Set-Variable -Name language "C-78"
@@ -165,56 +165,56 @@ test\bin\run_test.ps1 -json -name prime_test-$language -action $action -errors -
 test\bin\run_test.ps1 -json -name values-$language -action $action -errors -language $language -inputfile ".\test\data\$language\values.c" -expected ".\test\ref\$action-errors\$language\values.txt"
 test\bin\run_test.ps1 -json -name j_interpreter-$language -action $action -errors -language $language -inputfile ".\test\data\$language\j_interpreter.c" -expected ".\test\ref\$action-errors\$language\j_interpreter.txt"
 test\bin\run_test.ps1 -json -name zero_line-$language -action $action -errors -language $language -inputfile ".\test\data\$language\zero_line_hello_world.c" -expected ".\test\ref\$action-errors\$language\zero_line_hello_world.txt"
-test\bin\run_test.ps1 -json -name charlotte-c-78 -action $action -errors -language $language -inputfile ".\test\data\$language\charlotte.c" -expected ".\test\ref\$action-errors\$language\charlotte.txt"
-test\bin\run_test.ps1 -json -name light_pen-c-78 -action $action -errors -language $language -inputfile ".\test\data\$language\light_pen.c" -expected ".\test\ref\$action-errors\$language\light_pen.txt"
-test\bin\run_test.ps1 -json -name cpaint-c-78 -action $action -errors -language $language -inputfile ".\test\data\$language\cpaint.c" -expected ".\test\ref\$action-errors\$language\cpaint_c.txt"
-test\bin\run_test.ps1 -json -name cpaint-h-78 -action $action -errors -language $language -inputfile ".\test\data\$language\cpaint.h" -expected ".\test\ref\$action-errors\$language\cpaint_h.txt"
+test\bin\run_test.ps1 -json -name charlotte-$language -action $action -errors -language $language -inputfile ".\test\data\$language\charlotte.c" -expected ".\test\ref\$action-errors\$language\charlotte.txt"
+test\bin\run_test.ps1 -json -name light_pen-$language -action $action -errors -language $language -inputfile ".\test\data\$language\light_pen.c" -expected ".\test\ref\$action-errors\$language\light_pen.txt"
+test\bin\run_test.ps1 -json -name cpaint-$language -action $action -errors -language $language -inputfile ".\test\data\$language\cpaint.c" -expected ".\test\ref\$action-errors\$language\cpaint_c.txt"
+test\bin\run_test.ps1 -json -name cpaint-h-$language -action $action -errors -language $language -inputfile ".\test\data\$language\cpaint.h" -expected ".\test\ref\$action-errors\$language\cpaint_h.txt"
 
 # C-89
 
 # C-99
 Set-Variable -Name language "C-99"
-test\bin\run_test.ps1 -json -name decl-c-99 -action $action -errors -language $language -inputfile ".\test\data\$language\c-decl.c" -expected ".\test\ref\$action-errors\$language\c-decl-c.txt"
-test\bin\run_test.ps1 -json -name parser-h-99 -action $action -errors -language $language -inputfile ".\test\data\$language\parser.h" -expected ".\test\ref\$action-errors\$language\parser-h.txt"
-test\bin\run_test.ps1 -json -name parser-c-99 -action $action -errors -language $language -inputfile ".\test\data\$language\parser.c" -expected ".\test\ref\$action-errors\$language\parser-c.txt"
-test\bin\run_test.ps1 -json -name cleancode-c-99 -action $action -errors -language $language -inputfile ".\test\data\$language\cleancode.c" -expected ".\test\ref\$action-errors\$language\cleancode-c.txt"
+test\bin\run_test.ps1 -json -name decl-$language -action $action -errors -language $language -inputfile ".\test\data\$language\c-decl.c" -expected ".\test\ref\$action-errors\$language\c-decl-c.txt"
+test\bin\run_test.ps1 -json -name parser-h-$language -action $action -errors -language $language -inputfile ".\test\data\$language\parser.h" -expected ".\test\ref\$action-errors\$language\parser-h.txt"
+test\bin\run_test.ps1 -json -name parser-$language -action $action -errors -language $language -inputfile ".\test\data\$language\parser.c" -expected ".\test\ref\$action-errors\$language\parser-c.txt"
+test\bin\run_test.ps1 -json -name cleancode-$language -action $action -errors -language $language -inputfile ".\test\data\$language\cleancode.c" -expected ".\test\ref\$action-errors\$language\cleancode-c.txt"
 
 # CBASIC
 Set-Variable -Name language "CBASIC"
-test\bin\run_test.ps1 -json -name fibo -action $action -errors -language $language -inputfile ".\test\data\$language\fibo.bas" -expected ".\test\ref\$action-errors\$language\fibo.txt"
-test\bin\run_test.ps1 -json -name demograf -action $action -errors -language $language -inputfile ".\test\data\$language\DEMOGRAF.BAS" -expected ".\test\ref\$action-errors\$language\DEMOGRAF.txt"
-test\bin\run_test.ps1 -json -name graphr -action $action -errors -language $language -inputfile ".\test\data\$language\GRAPHR.BAS" -expected ".\test\ref\$action-errors\$language\GRAPHR.txt"
+test\bin\run_test.ps1 -json -name fibo-$language -action $action -errors -language $language -inputfile ".\test\data\$language\fibo.bas" -expected ".\test\ref\$action-errors\$language\fibo.txt"
+test\bin\run_test.ps1 -json -name demograf-$language -action $action -errors -language $language -inputfile ".\test\data\$language\DEMOGRAF.BAS" -expected ".\test\ref\$action-errors\$language\DEMOGRAF.txt"
+test\bin\run_test.ps1 -json -name graphr-$language -action $action -errors -language $language -inputfile ".\test\data\$language\GRAPHR.BAS" -expected ".\test\ref\$action-errors\$language\GRAPHR.txt"
 
 # COBOL-68
 Set-Variable -Name language "COBOL-68"
-test\bin\run_test.ps1 -json -name mccracken1-68 -action $action -errors -language $language -inputfile ".\test\data\$language\mccracken1.cob" -expected ".\test\ref\$action-errors\$language\mccracken1.txt"
-test\bin\run_test.ps1 -json -name mccracken2-68 -action $action -errors -language $language -inputfile ".\test\data\$language\mccracken2.cob" -expected ".\test\ref\$action-errors\$language\mccracken2.txt"
-test\bin\run_test.ps1 -json -name mccracken3-68 -action $action -errors -language $language -inputfile ".\test\data\$language\mccracken3.cob" -expected ".\test\ref\$action-errors\$language\mccracken3.txt"
-test\bin\run_test.ps1 -json -name prog1-68 -action $action -errors -language $language -inputfile ".\test\data\$language\PROG1.COB" -expected ".\test\ref\$action-errors\$language\PROG1.txt"
-test\bin\run_test.ps1 -json -name prog2-68 -action $action -errors -language $language -inputfile ".\test\data\$language\PROG2.COB" -expected ".\test\ref\$action-errors\$language\PROG2.txt"
-test\bin\run_test.ps1 -json -name prog2A-68 -action $action -errors -language $language -inputfile ".\test\data\$language\PROG2A.COB" -expected ".\test\ref\$action-errors\$language\PROG2A.txt"
+test\bin\run_test.ps1 -json -name mccracken1-$language -action $action -errors -language $language -inputfile ".\test\data\$language\mccracken1.cob" -expected ".\test\ref\$action-errors\$language\mccracken1.txt"
+test\bin\run_test.ps1 -json -name mccracken2-$language -action $action -errors -language $language -inputfile ".\test\data\$language\mccracken2.cob" -expected ".\test\ref\$action-errors\$language\mccracken2.txt"
+test\bin\run_test.ps1 -json -name mccracken3-$language -action $action -errors -language $language -inputfile ".\test\data\$language\mccracken3.cob" -expected ".\test\ref\$action-errors\$language\mccracken3.txt"
+test\bin\run_test.ps1 -json -name prog1-$language -action $action -errors -language $language -inputfile ".\test\data\$language\PROG1.COB" -expected ".\test\ref\$action-errors\$language\PROG1.txt"
+test\bin\run_test.ps1 -json -name prog2-$language -action $action -errors -language $language -inputfile ".\test\data\$language\PROG2.COB" -expected ".\test\ref\$action-errors\$language\PROG2.txt"
+test\bin\run_test.ps1 -json -name prog2A-$language -action $action -errors -language $language -inputfile ".\test\data\$language\PROG2A.COB" -expected ".\test\ref\$action-errors\$language\PROG2A.txt"
 
 # COBOL-74
 
 # COBOL-85
 Set-Variable -Name language "COBOL-85"
-test\bin\run_test.ps1 -json -name prog3-85 -action $action -errors -language $language -inputfile ".\test\data\$language\PROG3.COB" -expected ".\test\ref\$action-errors\$language\PROG3.txt"
-test\bin\run_test.ps1 -json -name prog4-85 -action $action -errors -language $language -inputfile ".\test\data\$language\PROG4.COB" -expected ".\test\ref\$action-errors\$language\PROG4.txt"
-test\bin\run_test.ps1 -json -name prog5-85 -action $action -errors -language $language -inputfile ".\test\data\$language\PROG5.COB" -expected ".\test\ref\$action-errors\$language\PROG5.txt"
-test\bin\run_test.ps1 -json -name prog6-85 -action $action -errors -language $language -inputfile ".\test\data\$language\PROG6.COB" -expected ".\test\ref\$action-errors\$language\PROG6.txt"
-test\bin\run_test.ps1 -json -name prog12-2-85 -action $action -errors -language $language -inputfile ".\test\data\$language\PROG12-2.COB" -expected ".\test\ref\$action-errors\$language\PROG12-2.txt"
-test\bin\run_test.ps1 -json -name prog13-3-85 -action $action -errors -language $language -inputfile ".\test\data\$language\PROG13-3.COB" -expected ".\test\ref\$action-errors\$language\PROG13-3.txt"
-test\bin\run_test.ps1 -json -name prog14-2-85 -action $action -errors -language $language -inputfile ".\test\data\$language\PROG14-2.COB" -expected ".\test\ref\$action-errors\$language\PROG14-2.txt"
-test\bin\run_test.ps1 -json -name prog15-4-85 -action $action -errors -language $language -inputfile ".\test\data\$language\PROG15-4.COB" -expected ".\test\ref\$action-errors\$language\PROG15-4.txt"
-test\bin\run_test.ps1 -json -name exec1-85 -action $action -errors -language $language -tabsize 4 -inputfile ".\test\data\$language\UNLDDBCU2.COB" -expected ".\test\ref\$action-errors\$language\UNLDDBCU2.txt"
-test\bin\run_test.ps1 -json -name P010-85 -action $action -errors -language $language -inputfile ".\test\data\$language\P010.cob" -expected ".\test\ref\$action-errors\$language\P010.txt"
+test\bin\run_test.ps1 -json -name prog3-$language -action $action -errors -language $language -inputfile ".\test\data\$language\PROG3.COB" -expected ".\test\ref\$action-errors\$language\PROG3.txt"
+test\bin\run_test.ps1 -json -name prog4-$language -action $action -errors -language $language -inputfile ".\test\data\$language\PROG4.COB" -expected ".\test\ref\$action-errors\$language\PROG4.txt"
+test\bin\run_test.ps1 -json -name prog5-$language -action $action -errors -language $language -inputfile ".\test\data\$language\PROG5.COB" -expected ".\test\ref\$action-errors\$language\PROG5.txt"
+test\bin\run_test.ps1 -json -name prog6-$language -action $action -errors -language $language -inputfile ".\test\data\$language\PROG6.COB" -expected ".\test\ref\$action-errors\$language\PROG6.txt"
+test\bin\run_test.ps1 -json -name prog12-2-$language -action $action -errors -language $language -inputfile ".\test\data\$language\PROG12-2.COB" -expected ".\test\ref\$action-errors\$language\PROG12-2.txt"
+test\bin\run_test.ps1 -json -name prog13-3-$language -action $action -errors -language $language -inputfile ".\test\data\$language\PROG13-3.COB" -expected ".\test\ref\$action-errors\$language\PROG13-3.txt"
+test\bin\run_test.ps1 -json -name prog14-2-$language -action $action -errors -language $language -inputfile ".\test\data\$language\PROG14-2.COB" -expected ".\test\ref\$action-errors\$language\PROG14-2.txt"
+test\bin\run_test.ps1 -json -name prog15-4-$language -action $action -errors -language $language -inputfile ".\test\data\$language\PROG15-4.COB" -expected ".\test\ref\$action-errors\$language\PROG15-4.txt"
+test\bin\run_test.ps1 -json -name exec1-$language -action $action -errors -language $language -tabsize 4 -inputfile ".\test\data\$language\UNLDDBCU2.COB" -expected ".\test\ref\$action-errors\$language\UNLDDBCU2.txt"
+test\bin\run_test.ps1 -json -name P010-$language -action $action -errors -language $language -inputfile ".\test\data\$language\P010.cob" -expected ".\test\ref\$action-errors\$language\P010.txt"
 
 # COBOL-2002
 Set-Variable -Name language "COBOL-2002"
-test\bin\run_test.ps1 -json -name report-card-cob2002 -action $action -errors -language $language -tabsize 4 -inputfile ".\test\data\$language\ReportCard.cob" -expected ".\test\ref\$action-errors\$language\ReportCard.txt"
-test\bin\run_test.ps1 -json -name person-cob2002 -action $action -errors -language $language -tabsize 4 -inputfile ".\test\data\$language\Person.cob" -expected ".\test\ref\$action-errors\$language\Person.txt"
-test\bin\run_test.ps1 -json -name report-cob2002 -action $action -errors -language $language -tabsize 4 -inputfile ".\test\data\$language\Report.cob" -expected ".\test\ref\$action-errors\$language\Report.txt"
-test\bin\run_test.ps1 -json -name advent-of-code-cob2002 -action $action -errors -language $language -inputfile ".\test\data\$language\AdventOfCode.cob" -expected ".\test\ref\$action-errors\$language\AdventOfCode.txt"
+test\bin\run_test.ps1 -json -name report-card-$language -action $action -errors -language $language -tabsize 4 -inputfile ".\test\data\$language\ReportCard.cob" -expected ".\test\ref\$action-errors\$language\ReportCard.txt"
+test\bin\run_test.ps1 -json -name person-$language -action $action -errors -language $language -tabsize 4 -inputfile ".\test\data\$language\Person.cob" -expected ".\test\ref\$action-errors\$language\Person.txt"
+test\bin\run_test.ps1 -json -name report-$language -action $action -errors -language $language -tabsize 4 -inputfile ".\test\data\$language\Report.cob" -expected ".\test\ref\$action-errors\$language\Report.txt"
+test\bin\run_test.ps1 -json -name advent-of-code-$language -action $action -errors -language $language -inputfile ".\test\data\$language\AdventOfCode.cob" -expected ".\test\ref\$action-errors\$language\AdventOfCode.txt"
 test\bin\run_test.ps1 -json -name P010-wide-2002 -action $action -errors -language $language -inputfile ".\test\data\$language\P010-wide.COB" -wide -expected ".\test\ref\$action-errors\$language\P010-wide.txt"
 
 # COBOL-2014
@@ -225,120 +225,119 @@ test\bin\run_test.ps1 -json -name P010-wide-2002 -action $action -errors -langua
 
 # COBOL-2014 with GNU extensions
 Set-Variable -Name language "COBOL-2014-GNU"
-test\bin\run_test.ps1 -json -name sales-report-cob2014-GNU -action $action -errors -language $language -tabsize 4 -inputfile ".\test\data\$language\SalesReport.cob" -expected ".\test\ref\$action-errors\$language\SalesReport.txt"
+test\bin\run_test.ps1 -json -name sales-report-$language -action $action -errors -language $language -tabsize 4 -inputfile ".\test\data\$language\SalesReport.cob" -expected ".\test\ref\$action-errors\$language\SalesReport.txt"
 
 # C++
 Set-Variable -Name language "Cplusplus"
-test\bin\run_test.ps1 -json -name checkers-cpp -action $action -errors -language $language -inputfile ".\test\data\$language\checkers.cpp" -expected ".\test\ref\$action-errors\$language\checkers.txt"
-test\bin\run_test.ps1 -json -name hrdb-cpp -action $action -errors -language $language -inputfile ".\test\data\$language\hrdb.cpp" -expected ".\test\ref\$action-errors\$language\hrdb.txt"
-test\bin\run_test.ps1 -json -name date-h-cpp -action $action -errors -language $language -inputfile ".\test\data\$language\date.h" -expected ".\test\ref\$action-errors\$language\date_h.txt"
-test\bin\run_test.ps1 -json -name date-cpp -action $action -errors -language $language -inputfile ".\test\data\$language\date.cpp" -expected ".\test\ref\$action-errors\$language\date_cpp.txt"
-test\bin\run_test.ps1 -json -name inherit-cpp -action $action -errors -language $language -inputfile ".\test\data\$language\inherit.cpp" -expected ".\test\ref\$action-errors\$language\inherit.txt"
-test\bin\run_test.ps1 -json -name zero_line-cpp -action $action -errors -language $language -inputfile ".\test\data\$language\zero_line_hello_world.cpp" -expected ".\test\ref\$action-errors\$language\zero_line_hello_world.txt"
+test\bin\run_test.ps1 -json -name checkers-$language -action $action -errors -language $language -inputfile ".\test\data\$language\checkers.cpp" -expected ".\test\ref\$action-errors\$language\checkers.txt"
+test\bin\run_test.ps1 -json -name hrdb-$language -action $action -errors -language $language -inputfile ".\test\data\$language\hrdb.cpp" -expected ".\test\ref\$action-errors\$language\hrdb.txt"
+test\bin\run_test.ps1 -json -name date-h-$language -action $action -errors -language $language -inputfile ".\test\data\$language\date.h" -expected ".\test\ref\$action-errors\$language\date_h.txt"
+test\bin\run_test.ps1 -json -name date-$language -action $action -errors -language $language -inputfile ".\test\data\$language\date.cpp" -expected ".\test\ref\$action-errors\$language\date_cpp.txt"
+test\bin\run_test.ps1 -json -name inherit-$language -action $action -errors -language $language -inputfile ".\test\data\$language\inherit.cpp" -expected ".\test\ref\$action-errors\$language\inherit.txt"
+test\bin\run_test.ps1 -json -name zero_line-$language -action $action -errors -language $language -inputfile ".\test\data\$language\zero_line_hello_world.cpp" -expected ".\test\ref\$action-errors\$language\zero_line_hello_world.txt"
 
 # C#
 Set-Variable -Name language "Csharp"
-test\bin\run_test.ps1 -json -name calculator1-cs -action $action -errors -language $language -inputfile ".\test\data\$language\calculator1.cs" -expected ".\test\ref\$action-errors\$language\calculator1.txt"
-test\bin\run_test.ps1 -json -name calculator2-cs -action $action -errors -language $language -inputfile ".\test\data\$language\calculator2.cs" -expected ".\test\ref\$action-errors\$language\calculator2.txt"
-test\bin\run_test.ps1 -json -name calculator3-cs -action $action -errors -language $language -inputfile ".\test\data\$language\calculator3.cs" -expected ".\test\ref\$action-errors\$language\calculator3.txt"
-test\bin\run_test.ps1 -json -name zero_line-cs -action $action -errors -language $language -inputfile ".\test\data\$language\zero_line_hello_world.cs" -expected ".\test\ref\$action-errors\$language\zero_line_hello_world.txt"
+test\bin\run_test.ps1 -json -name calculator1-$language -action $action -errors -language $language -inputfile ".\test\data\$language\calculator1.cs" -expected ".\test\ref\$action-errors\$language\calculator1.txt"
+test\bin\run_test.ps1 -json -name calculator2-$language -action $action -errors -language $language -inputfile ".\test\data\$language\calculator2.cs" -expected ".\test\ref\$action-errors\$language\calculator2.txt"
+test\bin\run_test.ps1 -json -name calculator3-$language -action $action -errors -language $language -inputfile ".\test\data\$language\calculator3.cs" -expected ".\test\ref\$action-errors\$language\calculator3.txt"
+test\bin\run_test.ps1 -json -name zero_line-$language -action $action -errors -language $language -inputfile ".\test\data\$language\zero_line_hello_world.cs" -expected ".\test\ref\$action-errors\$language\zero_line_hello_world.txt"
 
 # CoffeeScript
 Set-Variable -Name language "CoffeeScript"
-test\bin\run_test.ps1 -json -name provider-coffee -action $action -errors -language $language -inputfile ".\test\data\$language\provider.coffee" -expected ".\test\ref\$action-errors\$language\provider.txt"
-test\bin\run_test.ps1 -json -name resque-coffee -action $action -errors -language $language -inputfile ".\test\data\$language\resque.coffee" -expected ".\test\ref\$action-errors\$language\resque.txt"
-test\bin\run_test.ps1 -json -name world-map-coffee -action $action -errors -language $language -inputfile ".\test\data\$language\world_map.coffee" -expected ".\test\ref\$action-errors\$language\world_map.txt"
+test\bin\run_test.ps1 -json -name provider-$language -action $action -errors -language $language -inputfile ".\test\data\$language\provider.coffee" -expected ".\test\ref\$action-errors\$language\provider.txt"
+test\bin\run_test.ps1 -json -name resque-$language -action $action -errors -language $language -inputfile ".\test\data\$language\resque.coffee" -expected ".\test\ref\$action-errors\$language\resque.txt"
+test\bin\run_test.ps1 -json -name world-map-$language -action $action -errors -language $language -inputfile ".\test\data\$language\world_map.coffee" -expected ".\test\ref\$action-errors\$language\world_map.txt"
 
 # D
 Set-Variable -Name language "D"
-test\bin\run_test.ps1 -json -name regex-d -action $action -errors -language $language -inputfile ".\test\data\d\regex.d" -expected ".\test\ref\$action-errors\$language\regex.txt"
-test\bin\run_test.ps1 -json -name halffloat-d -action $action -errors -language $language -inputfile ".\test\data\d\halffloat.d" -expected ".\test\ref\$action-errors\$language\halffloat.txt"
-test\bin\run_test.ps1 -json -name wc-d -action $action -errors -language $language -inputfile ".\test\data\d\wc.d" -expected ".\test\ref\$action-errors\$language\wc.txt"
+test\bin\run_test.ps1 -json -name regex-$language -action $action -errors -language $language -inputfile ".\test\data\d\regex.d" -expected ".\test\ref\$action-errors\$language\regex.txt"
+test\bin\run_test.ps1 -json -name halffloat-$language -action $action -errors -language $language -inputfile ".\test\data\d\halffloat.d" -expected ".\test\ref\$action-errors\$language\halffloat.txt"
+test\bin\run_test.ps1 -json -name wc-$language -action $action -errors -language $language -inputfile ".\test\data\d\wc.d" -expected ".\test\ref\$action-errors\$language\wc.txt"
 
 # Dart
 Set-Variable -Name language "Dart"
-test\bin\run_test.ps1 -json -name anagram-dart -action $action -errors -language $language -inputfile ".\test\data\$language\anagram.dart" -expected ".\test\ref\$action-errors\$language\anagram.txt"
-test\bin\run_test.ps1 -json -name note_client-dart -action $action -errors -language $language -inputfile ".\test\data\$language\note_client.dart" -expected ".\test\ref\$action-errors\$language\note_client.txt"
-test\bin\run_test.ps1 -json -name web_app-dart -action $action -errors -language $language -inputfile ".\test\data\$language\web_app.dart" -expected ".\test\ref\$action-errors\$language\web_app.txt"
+test\bin\run_test.ps1 -json -name anagram-$language -action $action -errors -language $language -inputfile ".\test\data\$language\anagram.dart" -expected ".\test\ref\$action-errors\$language\anagram.txt"
+test\bin\run_test.ps1 -json -name note_client-$language -action $action -errors -language $language -inputfile ".\test\data\$language\note_client.dart" -expected ".\test\ref\$action-errors\$language\note_client.txt"
+test\bin\run_test.ps1 -json -name web_app-$language -action $action -errors -language $language -inputfile ".\test\data\$language\web_app.dart" -expected ".\test\ref\$action-errors\$language\web_app.txt"
 test\bin\run_test.ps1 -json -name zero_line-$language -action $action -errors -language $language -inputfile ".\test\data\$language\zero_line_hello_world.dart" -expected ".\test\ref\$action-errors\$language\zero_line_hello_world.txt"
 
 # dbase II
 Set-Variable -Name language "dbase-ii"
-test\bin\run_test.ps1 -json -name sample-dbii -action $action -errors -language $language -inputfile ".\test\data\$language\sample.prg" -expected ".\test\ref\$action-errors\$language\sample.txt"
-test\bin\run_test.ps1 -json -name addm-dbii -action $action -errors -language $language -inputfile ".\test\data\$language\ADDM.PRG" -expected ".\test\ref\$action-errors\$language\ADDM.txt"
-test\bin\run_test.ps1 -json -name changedm-dbii -action $action -errors -language $language -inputfile ".\test\data\$language\CHANGEDM.PRG" -expected ".\test\ref\$action-errors\$language\CHANGEDM.txt"
-test\bin\run_test.ps1 -json -name dater-dbii -action $action -errors -language $language -inputfile ".\test\data\$language\DATER.PRG" -expected ".\test\ref\$action-errors\$language\DATER.txt"
-test\bin\run_test.ps1 -json -name updatedm-dbii -action $action -errors -language $language -inputfile ".\test\data\$language\UPDATEDM.PRG" -expected ".\test\ref\$action-errors\$language\UPDATEDM.txt"
-test\bin\run_test.ps1 -json -name viewdm-dbii -action $action -errors -language $language -inputfile ".\test\data\$language\VIEWDM.PRG" -expected ".\test\ref\$action-errors\$language\VIEWDM.txt"
-test\bin\run_test.ps1 -json -name emain-dbii -action $action -errors -language $language -inputfile ".\test\data\$language\EMAIN.PRG" -expected ".\test\ref\$action-errors\$language\EMAIN.txt"
-test\bin\run_test.ps1 -json -name emp-entr-dbii -action $action -errors -language $language -inputfile ".\test\data\$language\EMP-ENTR.PRG" -expected ".\test\ref\$action-errors\$language\EMP-ENTR.txt"
-test\bin\run_test.ps1 -json -name emp-rprt-dbii -action $action -errors -language $language -inputfile ".\test\data\$language\EMP-RPRT.PRG" -expected ".\test\ref\$action-errors\$language\EMP-RPRT.txt"
-test\bin\run_test.ps1 -json -name emp-term-dbii -action $action -errors -language $language -inputfile ".\test\data\$language\EMP-TERM.PRG" -expected ".\test\ref\$action-errors\$language\EMP-TERM.txt"
-test\bin\run_test.ps1 -json -name emp-upd-dbii -action $action -errors -language $language -inputfile ".\test\data\$language\EMP-UPD.PRG" -expected ".\test\ref\$action-errors\$language\EMP-UPD.txt"
-test\bin\run_test.ps1 -json -name invmaint-dbii -action $action -errors -language $language -inputfile ".\test\data\$language\INVMAINT.PRG" -expected ".\test\ref\$action-errors\$language\INVMAINT.txt"
-test\bin\run_test.ps1 -json -name invquan-dbii -action $action -errors -language $language -inputfile ".\test\data\$language\INVQUAN.PRG" -expected ".\test\ref\$action-errors\$language\INVQUAN.txt"
-test\bin\run_test.ps1 -json -name invread-dbii -action $action -errors -language $language -inputfile ".\test\data\$language\INVREAD.PRG" -expected ".\test\ref\$action-errors\$language\INVREAD.txt"
-test\bin\run_test.ps1 -json -name invrprt-dbii -action $action -errors -language $language -inputfile ".\test\data\$language\INVRPRT.PRG" -expected ".\test\ref\$action-errors\$language\INVRPRT.txt"
+test\bin\run_test.ps1 -json -name sample-$language -action $action -errors -language $language -inputfile ".\test\data\$language\sample.prg" -expected ".\test\ref\$action-errors\$language\sample.txt"
+test\bin\run_test.ps1 -json -name addm-$language -action $action -errors -language $language -inputfile ".\test\data\$language\ADDM.PRG" -expected ".\test\ref\$action-errors\$language\ADDM.txt"
+test\bin\run_test.ps1 -json -name changedm-$language -action $action -errors -language $language -inputfile ".\test\data\$language\CHANGEDM.PRG" -expected ".\test\ref\$action-errors\$language\CHANGEDM.txt"
+test\bin\run_test.ps1 -json -name dater-$language -action $action -errors -language $language -inputfile ".\test\data\$language\DATER.PRG" -expected ".\test\ref\$action-errors\$language\DATER.txt"
+test\bin\run_test.ps1 -json -name updatedm-$language -action $action -errors -language $language -inputfile ".\test\data\$language\UPDATEDM.PRG" -expected ".\test\ref\$action-errors\$language\UPDATEDM.txt"
+test\bin\run_test.ps1 -json -name viewdm-$language -action $action -errors -language $language -inputfile ".\test\data\$language\VIEWDM.PRG" -expected ".\test\ref\$action-errors\$language\VIEWDM.txt"
+test\bin\run_test.ps1 -json -name emain-$language -action $action -errors -language $language -inputfile ".\test\data\$language\EMAIN.PRG" -expected ".\test\ref\$action-errors\$language\EMAIN.txt"
+test\bin\run_test.ps1 -json -name emp-entr-$language -action $action -errors -language $language -inputfile ".\test\data\$language\EMP-ENTR.PRG" -expected ".\test\ref\$action-errors\$language\EMP-ENTR.txt"
+test\bin\run_test.ps1 -json -name emp-rprt-$language -action $action -errors -language $language -inputfile ".\test\data\$language\EMP-RPRT.PRG" -expected ".\test\ref\$action-errors\$language\EMP-RPRT.txt"
+test\bin\run_test.ps1 -json -name emp-term-$language -action $action -errors -language $language -inputfile ".\test\data\$language\EMP-TERM.PRG" -expected ".\test\ref\$action-errors\$language\EMP-TERM.txt"
+test\bin\run_test.ps1 -json -name emp-upd-$language -action $action -errors -language $language -inputfile ".\test\data\$language\EMP-UPD.PRG" -expected ".\test\ref\$action-errors\$language\EMP-UPD.txt"
+test\bin\run_test.ps1 -json -name invmaint-$language -action $action -errors -language $language -inputfile ".\test\data\$language\INVMAINT.PRG" -expected ".\test\ref\$action-errors\$language\INVMAINT.txt"
+test\bin\run_test.ps1 -json -name invquan-$language -action $action -errors -language $language -inputfile ".\test\data\$language\INVQUAN.PRG" -expected ".\test\ref\$action-errors\$language\INVQUAN.txt"
+test\bin\run_test.ps1 -json -name invread-$language -action $action -errors -language $language -inputfile ".\test\data\$language\INVREAD.PRG" -expected ".\test\ref\$action-errors\$language\INVREAD.txt"
+test\bin\run_test.ps1 -json -name invrprt-$language -action $action -errors -language $language -inputfile ".\test\data\$language\INVRPRT.PRG" -expected ".\test\ref\$action-errors\$language\INVRPRT.txt"
 
 # dBase III
 Set-Variable -Name language "dbase-III"
-test\bin\run_test.ps1 -json -name fdate-dbiii -action $action -errors -language $language -inputfile ".\test\data\$language\FDATE.PRG" -expected ".\test\ref\$action-errors\$language\FDATE.txt"
-test\bin\run_test.ps1 -json -name library-dbiii -action $action -errors -language $language -inputfile ".\test\data\$language\LIBRARY.PRG" -expected ".\test\ref\$action-errors\$language\LIBRARY.txt"
-test\bin\run_test.ps1 -json -name dp_sort-dbiii -action $action -errors -language $language -inputfile ".\test\data\$language\DP_SORT.PRG" -expected ".\test\ref\$action-errors\$language\DP_SORT.txt"
+test\bin\run_test.ps1 -json -name fdate-$language -action $action -errors -language $language -inputfile ".\test\data\$language\FDATE.PRG" -expected ".\test\ref\$action-errors\$language\FDATE.txt"
+test\bin\run_test.ps1 -json -name library-$language -action $action -errors -language $language -inputfile ".\test\data\$language\LIBRARY.PRG" -expected ".\test\ref\$action-errors\$language\LIBRARY.txt"
+test\bin\run_test.ps1 -json -name dp_sort-$language -action $action -errors -language $language -inputfile ".\test\data\$language\DP_SORT.PRG" -expected ".\test\ref\$action-errors\$language\DP_SORT.txt"
 
 # Delphi
 Set-Variable -Name language "Delphi"
-test\bin\run_test.ps1 -json -name FmMain-dfm-delphi -action $action -errors -language $language -inputfile ".\test\data\$language\FmMain.dfm" -expected ".\test\ref\$action-errors\$language\FmMain-dfm.txt"
-test\bin\run_test.ps1 -json -name FmMain-pas-delphi -action $action -errors -language $language -inputfile ".\test\data\$language\FmMain.pas" -expected ".\test\ref\$action-errors\$language\FmMain-pas.txt"
-test\bin\run_test.ps1 -json -name UCalc-delphi -action $action -errors -language $language -inputfile ".\test\data\$language\UCalc.pas" -expected ".\test\ref\$action-errors\$language\UCalc.txt"
-test\bin\run_test.ps1 -json -name UChessBoardCmp-delphi -action $action -errors -language $language -inputfile ".\test\data\$language\UChessBoardCmp.pas" -expected ".\test\ref\$action-errors\$language\UChessBoardCmp.txt"
-test\bin\run_test.ps1 -json -name UPlatform-delphi -action $action -errors -language $language -inputfile ".\test\data\$language\UPlatform.pas" -expected ".\test\ref\$action-errors\$language\UPlatform.txt"
+test\bin\run_test.ps1 -json -name FmMain-dfm-$language -action $action -errors -language $language -inputfile ".\test\data\$language\FmMain.dfm" -expected ".\test\ref\$action-errors\$language\FmMain-dfm.txt"
+test\bin\run_test.ps1 -json -name FmMain-$language -action $action -errors -language $language -inputfile ".\test\data\$language\FmMain.pas" -expected ".\test\ref\$action-errors\$language\FmMain-$language.txt"
+test\bin\run_test.ps1 -json -name UCalc-$language -action $action -errors -language $language -inputfile ".\test\data\$language\UCalc.pas" -expected ".\test\ref\$action-errors\$language\UCalc.txt"
+test\bin\run_test.ps1 -json -name UChessBoardCmp-$language -action $action -errors -language $language -inputfile ".\test\data\$language\UChessBoardCmp.pas" -expected ".\test\ref\$action-errors\$language\UChessBoardCmp.txt"
+test\bin\run_test.ps1 -json -name UPlatform-$language -action $action -errors -language $language -inputfile ".\test\data\$language\UPlatform.pas" -expected ".\test\ref\$action-errors\$language\UPlatform.txt"
 
 # Dibol
 Set-Variable -Name language "Dibol"
-Set-Variable -Name extension "dbl"
 test\bin\run_test.ps1 -json -name bottles-$language -action $action -errors -language $language -inputfile ".\test\data\$language\bottles.$extension" -expected ".\test\ref\$action-errors\$language\bottles.txt"
 test\bin\run_test.ps1 -json -name bilref-$language -action $action -errors -language $language -inputfile ".\test\data\$language\bilref.$extension" -expected ".\test\ref\$action-errors\$language\bilref.txt"
 
 # Eiffel
 Set-Variable -Name language "Eiffel"
-test\bin\run_test.ps1 -json -name hello-eiffel -action $action -errors -language $language -inputfile ".\test\data\$language\hello.e" -expected ".\test\ref\$action-errors\$language\hello.txt"
-test\bin\run_test.ps1 -json -name bakery-eiffel -action $action -errors -language $language -inputfile ".\test\data\$language\bakery.e" -expected ".\test\ref\$action-errors\$language\bakery.txt"
-test\bin\run_test.ps1 -json -name reverse-eiffel -action $action -errors -language $language -inputfile ".\test\data\$language\reverse.e" -expected ".\test\ref\$action-errors\$language\reverse.txt"
-test\bin\run_test.ps1 -json -name bottles-eiffel -action $action -errors -language $language -inputfile ".\test\data\$language\bottles_of_beer.e" -expected ".\test\ref\$action-errors\$language\bottles_of_beer.txt"
+test\bin\run_test.ps1 -json -name hello-$language -action $action -errors -language $language -inputfile ".\test\data\$language\hello.e" -expected ".\test\ref\$action-errors\$language\hello.txt"
+test\bin\run_test.ps1 -json -name bakery-$language -action $action -errors -language $language -inputfile ".\test\data\$language\bakery.e" -expected ".\test\ref\$action-errors\$language\bakery.txt"
+test\bin\run_test.ps1 -json -name reverse-$language -action $action -errors -language $language -inputfile ".\test\data\$language\reverse.e" -expected ".\test\ref\$action-errors\$language\reverse.txt"
+test\bin\run_test.ps1 -json -name bottles-$language -action $action -errors -language $language -inputfile ".\test\data\$language\bottles_of_beer.e" -expected ".\test\ref\$action-errors\$language\bottles_of_beer.txt"
 
 # Erlang
 Set-Variable -Name language "Erlang"
-test\bin\run_test.ps1 -json -name armstrong-erlang -action $action -errors -language $language -inputfile ".\test\data\$language\armstrong.erl" -expected ".\test\ref\$action-errors\$language\armstrong.txt"
-test\bin\run_test.ps1 -json -name list_comprehension-erlang -action $action -errors -language $language -inputfile ".\test\data\$language\list_comprehension.erl" -expected ".\test\ref\$action-errors\$language\list_comprehension.txt"
-test\bin\run_test.ps1 -json -name send_receive-erlang -action $action -errors -language $language -inputfile ".\test\data\$language\send_receive.erl" -expected ".\test\ref\$action-errors\$language\send_receive.txt"
+test\bin\run_test.ps1 -json -name armstrong-$language -action $action -errors -language $language -inputfile ".\test\data\$language\armstrong.erl" -expected ".\test\ref\$action-errors\$language\armstrong.txt"
+test\bin\run_test.ps1 -json -name list_comprehension-$language -action $action -errors -language $language -inputfile ".\test\data\$language\list_comprehension.erl" -expected ".\test\ref\$action-errors\$language\list_comprehension.txt"
+test\bin\run_test.ps1 -json -name send_receive-$language -action $action -errors -language $language -inputfile ".\test\data\$language\send_receive.erl" -expected ".\test\ref\$action-errors\$language\send_receive.txt"
 
 # Flowmatic
 Set-Variable -Name language "Flowmatic"
-test\bin\run_test.ps1 -json -name example-flowmatic -action $action -errors -language $language -inputfile ".\test\data\$language\example.txt" -expected ".\test\ref\$action-errors\$language\example.txt"
+test\bin\run_test.ps1 -json -name example-$language -action $action -errors -language $language -inputfile ".\test\data\$language\example.txt" -expected ".\test\ref\$action-errors\$language\example.txt"
 
 # FORTRAN-66
 Set-Variable -Name language "FORTRAN-66"
-test\bin\run_test.ps1 -json -name hello-ftn66 -action $action -errors -language $language -inputfile ".\test\data\$language\HELLO.FOR" -expected ".\test\ref\$action-errors\$language\HELLO.txt"
-test\bin\run_test.ps1 -json -name heron-ftn66 -action $action -errors -language $language -inputfile ".\test\data\$language\HERON.FOR" -expected ".\test\ref\$action-errors\$language\HERON.txt"
-test\bin\run_test.ps1 -json -name heron2-ftn66 -action $action -errors -language $language -inputfile ".\test\data\$language\HERON2.FOR" -expected ".\test\ref\$action-errors\$language\HERON2.txt"
-test\bin\run_test.ps1 -json -name heron-wide-ftn66 -action $action -errors -language $language -inputfile ".\test\data\$language\HERON-wide.FOR" -wide -expected ".\test\ref\$action-errors\$language\HERON-wide.txt"
+test\bin\run_test.ps1 -json -name hello-$language -action $action -errors -language $language -inputfile ".\test\data\$language\HELLO.FOR" -expected ".\test\ref\$action-errors\$language\HELLO.txt"
+test\bin\run_test.ps1 -json -name heron-$language -action $action -errors -language $language -inputfile ".\test\data\$language\HERON.FOR" -expected ".\test\ref\$action-errors\$language\HERON.txt"
+test\bin\run_test.ps1 -json -name heron2-$language -action $action -errors -language $language -inputfile ".\test\data\$language\HERON2.FOR" -expected ".\test\ref\$action-errors\$language\HERON2.txt"
+test\bin\run_test.ps1 -json -name heron-wide-$language -action $action -errors -language $language -inputfile ".\test\data\$language\HERON-wide.FOR" -wide -expected ".\test\ref\$action-errors\$language\HERON-wide.txt"
 
 # FORTRAN-77
 Set-Variable -Name language "FORTRAN-77"
-test\bin\run_test.ps1 -json -name hello-ftn77 -action $action -errors -language $language -inputfile ".\test\data\$language\HELLO.F77" -expected ".\test\ref\$action-errors\$language\HELLO.txt"
-test\bin\run_test.ps1 -json -name complex-ftn77 -action $action -errors -language $language -inputfile ".\test\data\$language\COMPLEX.F77" -expected ".\test\ref\$action-errors\$language\COMPLEX.txt"
-test\bin\run_test.ps1 -json -name euclid-ftn77 -action $action -errors -language $language -inputfile ".\test\data\$language\EUCLID.F77" -expected ".\test\ref\$action-errors\$language\EUCLID.txt"
-test\bin\run_test.ps1 -json -name heron-ftn77 -action $action -errors -language $language -inputfile ".\test\data\$language\HERON.F77" -expected ".\test\ref\$action-errors\$language\HERON.txt"
+test\bin\run_test.ps1 -json -name hello-$language -action $action -errors -language $language -inputfile ".\test\data\$language\HELLO.F77" -expected ".\test\ref\$action-errors\$language\HELLO.txt"
+test\bin\run_test.ps1 -json -name complex-$language -action $action -errors -language $language -inputfile ".\test\data\$language\COMPLEX.F77" -expected ".\test\ref\$action-errors\$language\COMPLEX.txt"
+test\bin\run_test.ps1 -json -name euclid-$language -action $action -errors -language $language -inputfile ".\test\data\$language\EUCLID.F77" -expected ".\test\ref\$action-errors\$language\EUCLID.txt"
+test\bin\run_test.ps1 -json -name heron-$language -action $action -errors -language $language -inputfile ".\test\data\$language\HERON.F77" -expected ".\test\ref\$action-errors\$language\HERON.txt"
 
 # Fortran-90
 Set-Variable -Name language "Fortran-90"
-test\bin\run_test.ps1 -json -name cylinder-ftn90 -action $action -errors -language $language -inputfile ".\test\data\$language\cylinder.f90" -expected ".\test\ref\$action-errors\$language\cylinder.txt"
-test\bin\run_test.ps1 -json -name gauss-ftn90 -action $action -errors -language $language -inputfile ".\test\data\$language\gauss.f90" -expected ".\test\ref\$action-errors\$language\gauss.txt"
-test\bin\run_test.ps1 -json -name hello-ftn90 -action $action -errors -language $language -inputfile ".\test\data\$language\hello.f90" -expected ".\test\ref\$action-errors\$language\hello.txt"
-test\bin\run_test.ps1 -json -name temp-sub-ftn90 -action $action -errors -language $language -inputfile ".\test\data\$language\temp_sub.for" -expected ".\test\ref\$action-errors\$language\temp_sub.txt"
-test\bin\run_test.ps1 -json -name temp-func-ftn90 -action $action -errors -language $language -inputfile ".\test\data\$language\temp_func.for" -expected ".\test\ref\$action-errors\$language\temp_func.txt"
-test\bin\run_test.ps1 -json -name Wikibooks-ex2-ftn90 -action $action -errors -language $language -inputfile ".\test\data\$language\Wikibooks-ex2.f95" -expected ".\test\ref\$action-errors\$language\Wikibooks-ex2.txt"
+test\bin\run_test.ps1 -json -name cylinder-$language -action $action -errors -language $language -inputfile ".\test\data\$language\cylinder.f90" -expected ".\test\ref\$action-errors\$language\cylinder.txt"
+test\bin\run_test.ps1 -json -name gauss-$language -action $action -errors -language $language -inputfile ".\test\data\$language\gauss.f90" -expected ".\test\ref\$action-errors\$language\gauss.txt"
+test\bin\run_test.ps1 -json -name hello-$language -action $action -errors -language $language -inputfile ".\test\data\$language\hello.f90" -expected ".\test\ref\$action-errors\$language\hello.txt"
+test\bin\run_test.ps1 -json -name temp-sub-$language -action $action -errors -language $language -inputfile ".\test\data\$language\temp_sub.for" -expected ".\test\ref\$action-errors\$language\temp_sub.txt"
+test\bin\run_test.ps1 -json -name temp-func-$language -action $action -errors -language $language -inputfile ".\test\data\$language\temp_func.for" -expected ".\test\ref\$action-errors\$language\temp_func.txt"
+test\bin\run_test.ps1 -json -name Wikibooks-ex2-$language -action $action -errors -language $language -inputfile ".\test\data\$language\Wikibooks-ex2.f95" -expected ".\test\ref\$action-errors\$language\Wikibooks-ex2.txt"
 
 # Fortran-95
 Set-Variable -Name language "Fortran-95"
@@ -347,17 +346,17 @@ test\bin\run_test.ps1 -json -name Wikibooks-ex1-ftn95 -action $action -errors -l
 
 # Fortran-2003
 Set-Variable -Name language "Fortran-2003"
-test\bin\run_test.ps1 -json -name average-ftn2003 -action $action -errors -language $language -inputfile ".\test\data\$language\average.f90" -expected ".\test\ref\$action-errors\$language\average.txt"
-test\bin\run_test.ps1 -json -name geo4060-ftn2003 -action $action -errors -language $language -inputfile ".\test\data\$language\geo4060.for" -expected ".\test\ref\$action-errors\$language\geo4060.txt"
-test\bin\run_test.ps1 -json -name Wikibooks-ex3-ftn2003 -action $action -errors -language $language -inputfile ".\test\data\$language\Wikibooks-ex3.f95" -expected ".\test\ref\$action-errors\$language\Wikibooks-ex3.txt"
-test\bin\run_test.ps1 -json -name Wikibooks-ex4-ftn2003 -action $action -errors -language $language -inputfile ".\test\data\$language\Wikibooks-ex4.f95" -expected ".\test\ref\$action-errors\$language\Wikibooks-ex4.txt"
+test\bin\run_test.ps1 -json -name average-$language -action $action -errors -language $language -inputfile ".\test\data\$language\average.f90" -expected ".\test\ref\$action-errors\$language\average.txt"
+test\bin\run_test.ps1 -json -name geo4060-$language -action $action -errors -language $language -inputfile ".\test\data\$language\geo4060.for" -expected ".\test\ref\$action-errors\$language\geo4060.txt"
+test\bin\run_test.ps1 -json -name Wikibooks-ex3-$language -action $action -errors -language $language -inputfile ".\test\data\$language\Wikibooks-ex3.f95" -expected ".\test\ref\$action-errors\$language\Wikibooks-ex3.txt"
+test\bin\run_test.ps1 -json -name Wikibooks-ex4-$language -action $action -errors -language $language -inputfile ".\test\data\$language\Wikibooks-ex4.f95" -expected ".\test\ref\$action-errors\$language\Wikibooks-ex4.txt"
 
 # Fortran-2008
 
 # F#
 Set-Variable -Name language "Fsharp"
-test\bin\run_test.ps1 -json -name samples-fs -action $action -errors -language $language -inputfile ".\test\data\$language\samples.fs" -expected ".\test\ref\$action-errors\$language\samples.txt"
-test\bin\run_test.ps1 -json -name antwalk-fs -action $action -errors -language $language -inputfile ".\test\data\$language\ant_walk.fs" -expected ".\test\ref\$action-errors\$language\ant_walk.txt"
+test\bin\run_test.ps1 -json -name samples-$language -action $action -errors -language $language -inputfile ".\test\data\$language\samples.fs" -expected ".\test\ref\$action-errors\$language\samples.txt"
+test\bin\run_test.ps1 -json -name antwalk-$language -action $action -errors -language $language -inputfile ".\test\data\$language\ant_walk.fs" -expected ".\test\ref\$action-errors\$language\ant_walk.txt"
 
 # Go
 Set-Variable -Name language "Go"
@@ -372,20 +371,20 @@ test\bin\run_test.ps1 -json -name zero_line-$language -action $action -errors -l
 
 # Haskell
 Set-Variable -Name language "Haskell"
-test\bin\run_test.ps1 -json -name calendar-hs -action $action -errors -language $language -inputfile ".\test\data\$language\calendar.hs" -expected ".\test\ref\$action-errors\$language\calendar.txt"
-test\bin\run_test.ps1 -json -name todo-hs -action $action -errors -language $language -inputfile ".\test\data\$language\todo.hs" -expected ".\test\ref\$action-errors\$language\todo.txt"
-test\bin\run_test.ps1 -json -name rna-hs -action $action -errors -language $language -inputfile ".\test\data\$language\todo.hs" -expected ".\test\ref\$action-errors\$language\rna.txt"
-test\bin\run_test.ps1 -json -name zero_line-hs -action $action -errors -language $language -inputfile ".\test\data\$language\zero_line_hello_world.hs" -expected ".\test\ref\$action-errors\$language\zero_line_hello_world.txt"
+test\bin\run_test.ps1 -json -name calendar-$language -action $action -errors -language $language -inputfile ".\test\data\$language\calendar.hs" -expected ".\test\ref\$action-errors\$language\calendar.txt"
+test\bin\run_test.ps1 -json -name todo-$language -action $action -errors -language $language -inputfile ".\test\data\$language\todo.hs" -expected ".\test\ref\$action-errors\$language\todo.txt"
+test\bin\run_test.ps1 -json -name rna-$language -action $action -errors -language $language -inputfile ".\test\data\$language\todo.hs" -expected ".\test\ref\$action-errors\$language\rna.txt"
+test\bin\run_test.ps1 -json -name zero_line-$language -action $action -errors -language $language -inputfile ".\test\data\$language\zero_line_hello_world.hs" -expected ".\test\ref\$action-errors\$language\zero_line_hello_world.txt"
 
 # HTML
 Set-Variable -Name language "HTML"
-test\bin\run_test.ps1 -json -name knuth-html -action $action -errors -language $language -inputfile ".\test\data\$language\knuth.html" -expected ".\test\ref\$action-errors\$language\knuth.txt"
-test\bin\run_test.ps1 -json -name developer-html -action $action -errors -language $language -inputfile ".\test\data\$language\developer-css.html" -expected ".\test\ref\$action-errors\$language\developer-css.txt"
-test\bin\run_test.ps1 -json -name codestat-html -action $action -errors -language $language -inputfile ".\test\data\$language\codestat-css-javascript.html" -expected ".\test\ref\$action-errors\$language\codestat-css-$language.txt"
+test\bin\run_test.ps1 -json -name knuth-$language -action $action -errors -language $language -inputfile ".\test\data\$language\knuth.html" -expected ".\test\ref\$action-errors\$language\knuth.txt"
+test\bin\run_test.ps1 -json -name developer-$language -action $action -errors -language $language -inputfile ".\test\data\$language\developer-$languages.html" -expected ".\test\ref\$action-errors\$language\developer-$languages.txt"
+test\bin\run_test.ps1 -json -name codestat-$language -action $action -errors -language $language -inputfile ".\test\data\$language\codestat-css-javascript.html" -expected ".\test\ref\$action-errors\$language\codestat-css-javascript.txt"
 
 # Intercal
 Set-Variable -Name language "Intercal"
-test\bin\run_test.ps1 -json -name fizzbuzz-ical -action $action -errors -language $language -inputfile ".\test\data\$language\fizzbuzz.intercal" -expected ".\test\ref\$action-errors\$language\fizzbuzz.txt"
+test\bin\run_test.ps1 -json -name fizzbuzz-$language -action $action -errors -language $language -inputfile ".\test\data\$language\fizzbuzz.intercal" -expected ".\test\ref\$action-errors\$language\fizzbuzz.txt"
 
 # Java
 Set-Variable -Name language "Java"
@@ -397,28 +396,28 @@ test\bin\run_test.ps1 -json -name zero_line-$language -action $action -errors -l
 
 # JavaScript
 Set-Variable -Name language "JavaScript"
-test\bin\run_test.ps1 -json -name values-js -action $action -errors -language $language -inputfile ".\test\data\$language\values.js" -expected ".\test\ref\$action-errors\$language\values.txt"
-test\bin\run_test.ps1 -json -name codestat-js -action $action -errors -language $language -inputfile ".\test\data\$language\codestat.js" -expected ".\test\ref\$action-errors\$language\codestat.txt"
-test\bin\run_test.ps1 -json -name bing-js -action $action -errors -language $language -inputfile ".\test\data\$language\bing.js" -expected ".\test\ref\$action-errors\$language\bing.txt"
-test\bin\run_test.ps1 -json -name calc_prime-js -action $action -errors -language $language -inputfile ".\test\data\$language\calc_prime.js" -expected ".\test\ref\$action-errors\$language\calc_prime.txt"
-test\bin\run_test.ps1 -json -name backtick-js -action $action -errors -language $language -inputfile ".\test\data\$language\backtick.js" -expected ".\test\ref\$action-errors\$language\backtick.txt"
+test\bin\run_test.ps1 -json -name values-$language -action $action -errors -language $language -inputfile ".\test\data\$language\values.js" -expected ".\test\ref\$action-errors\$language\values.txt"
+test\bin\run_test.ps1 -json -name codestat-$language -action $action -errors -language $language -inputfile ".\test\data\$language\codestat.js" -expected ".\test\ref\$action-errors\$language\codestat.txt"
+test\bin\run_test.ps1 -json -name bing-$language -action $action -errors -language $language -inputfile ".\test\data\$language\bing.js" -expected ".\test\ref\$action-errors\$language\bing.txt"
+test\bin\run_test.ps1 -json -name calc_prime-$language -action $action -errors -language $language -inputfile ".\test\data\$language\calc_prime.js" -expected ".\test\ref\$action-errors\$language\calc_prime.txt"
+test\bin\run_test.ps1 -json -name backtick-$language -action $action -errors -language $language -inputfile ".\test\data\$language\backtick.js" -expected ".\test\ref\$action-errors\$language\backtick.txt"
 
 # Julia
 Set-Variable -Name language "Julia"
-test\bin\run_test.ps1 -json -name dsp-jl -action $action -errors -language $language -inputfile ".\test\data\$language\dsp.jl" -expected ".\test\ref\$action-errors\$language\dsp.txt"
-test\bin\run_test.ps1 -json -name container-jl -action $action -errors -language $language -inputfile ".\test\data\$language\container.jl" -expected ".\test\ref\$action-errors\$language\container.txt"
-test\bin\run_test.ps1 -json -name microbiome-jl -action $action -errors -language $language -inputfile ".\test\data\$language\microbiome.jl" -expected ".\test\ref\$action-errors\$language\microbiome.txt"
-test\bin\run_test.ps1 -json -name periodograms-jl -action $action -errors -language $language -inputfile ".\test\data\$language\periodograms.jl" -expected ".\test\ref\$action-errors\$language\periodograms.txt"
+test\bin\run_test.ps1 -json -name dsp-$language -action $action -errors -language $language -inputfile ".\test\data\$language\dsp.jl" -expected ".\test\ref\$action-errors\$language\dsp.txt"
+test\bin\run_test.ps1 -json -name container-$language -action $action -errors -language $language -inputfile ".\test\data\$language\container.jl" -expected ".\test\ref\$action-errors\$language\container.txt"
+test\bin\run_test.ps1 -json -name microbiome-$language -action $action -errors -language $language -inputfile ".\test\data\$language\microbiome.jl" -expected ".\test\ref\$action-errors\$language\microbiome.txt"
+test\bin\run_test.ps1 -json -name periodograms-$language -action $action -errors -language $language -inputfile ".\test\data\$language\periodograms.jl" -expected ".\test\ref\$action-errors\$language\periodograms.txt"
 
 # Kotlin
 Set-Variable -Name language "Kotlin"
-test\bin\run_test.ps1 -json -name qksms-kt -action $action -errors -language $language -inputfile ".\test\data\$language\qksms.kt" -expected ".\test\ref\$action-errors\$language\qksms.txt"
-test\bin\run_test.ps1 -json -name render-kt -action $action -errors -language $language -inputfile ".\test\data\$language\render.kt" -expected ".\test\ref\$action-errors\$language\render.txt"
+test\bin\run_test.ps1 -json -name qksms-$language -action $action -errors -language $language -inputfile ".\test\data\$language\qksms.kt" -expected ".\test\ref\$action-errors\$language\qksms.txt"
+test\bin\run_test.ps1 -json -name render-$language -action $action -errors -language $language -inputfile ".\test\data\$language\render.kt" -expected ".\test\ref\$action-errors\$language\render.txt"
 
 # Latino
 Set-Variable -Name language "Latino"
-test\bin\run_test.ps1 -json -name major-lat -action $action -errors -language $language -inputfile ".\test\data\$language\major.lat" -expected ".\test\ref\$action-errors\$language\major.txt"
-test\bin\run_test.ps1 -json -name fibonacci-lat -action $action -errors -language $language -inputfile ".\test\data\$language\fibonacci.lat" -expected ".\test\ref\$action-errors\$language\fibonacci.txt"
+test\bin\run_test.ps1 -json -name major-$language -action $action -errors -language $language -inputfile ".\test\data\$language\major.lat" -expected ".\test\ref\$action-errors\$language\major.txt"
+test\bin\run_test.ps1 -json -name fibonacci-$language -action $action -errors -language $language -inputfile ".\test\data\$language\fibonacci.lat" -expected ".\test\ref\$action-errors\$language\fibonacci.txt"
 
 # Lua
 Set-Variable -Name language "Lua"
@@ -429,7 +428,7 @@ test\bin\run_test.ps1 -json -name markov-$language -action $action -errors -lang
 test\bin\run_test.ps1 -json -name zero_line-$language -action $action -errors -language $language -inputfile ".\test\data\$language\zero_line_hello_world.lua" -expected ".\test\ref\$action-errors\$language\zero_line_hello_world.txt"
 
 # Matlab
-$language= "Matlab"
+Set-Variable -Name language "Matlab"
 test\bin\run_test.ps1 -json -name transpose-$language -action $action -errors -language $language -inputfile ".\test\data\$language\transpose.m" -expected ".\test\ref\$action-errors\$language\transpose.txt"
 test\bin\run_test.ps1 -json -name choose-$language -action $action -errors -language $language -inputfile ".\test\data\$language\choose.m" -expected ".\test\ref\$action-errors\$language\choose.txt"
 test\bin\run_test.ps1 -json -name fitnormal-$language -action $action -errors -language $language -inputfile ".\test\data\$language\fitnormal.m" -expected ".\test\ref\$action-errors\$language\fitnormal.txt"
@@ -437,25 +436,25 @@ test\bin\run_test.ps1 -json -name test_fitnormal-$language -action $action -erro
 
 # Modula-2
 Set-Variable -Name language "Modula-2"
-test\bin\run_test.ps1 -json -name C64ToIBM-mod2 -action $action -errors -language $language -inputfile ".\test\data\$language\C64ToIBM.mod" -expected ".\test\ref\$action-errors\$language\C64ToIBM.txt"
-test\bin\run_test.ps1 -json -name CaseDemo-mod2 -action $action -errors -language $language -inputfile ".\test\data\$language\CaseDemo.mod" -expected ".\test\ref\$action-errors\$language\CaseDemo.txt"
-test\bin\run_test.ps1 -json -name game_def-mod2 -action $action -errors -language $language -inputfile ".\test\data\$language\game.def" -expected ".\test\ref\$action-errors\$language\game_def.txt"
-test\bin\run_test.ps1 -json -name game-mod2 -action $action -errors -language $language -inputfile ".\test\data\$language\game.mod" -expected ".\test\ref\$action-errors\$language\game.txt"
-test\bin\run_test.ps1 -json -name LoopDemo-mod2 -action $action -errors -language $language -inputfile ".\test\data\$language\LoopDemo.mod" -expected ".\test\ref\$action-errors\$language\LoopDemo.txt"
-test\bin\run_test.ps1 -json -name PigLatin-mod2 -action $action -errors -language $language -inputfile ".\test\data\$language\PigLatin.mod" -expected ".\test\ref\$action-errors\$language\PigLatin.txt"
-test\bin\run_test.ps1 -json -name TempConv-mod2 -action $action -errors -language $language -inputfile ".\test\data\$language\TempConv.mod" -expected ".\test\ref\$action-errors\$language\TempConv.txt"
+test\bin\run_test.ps1 -json -name C64ToIBM-$language -action $action -errors -language $language -inputfile ".\test\data\$language\C64ToIBM.mod" -expected ".\test\ref\$action-errors\$language\C64ToIBM.txt"
+test\bin\run_test.ps1 -json -name CaseDemo-$language -action $action -errors -language $language -inputfile ".\test\data\$language\CaseDemo.mod" -expected ".\test\ref\$action-errors\$language\CaseDemo.txt"
+test\bin\run_test.ps1 -json -name game_def-$language -action $action -errors -language $language -inputfile ".\test\data\$language\game.def" -expected ".\test\ref\$action-errors\$language\game_def.txt"
+test\bin\run_test.ps1 -json -name game-$language -action $action -errors -language $language -inputfile ".\test\data\$language\game.mod" -expected ".\test\ref\$action-errors\$language\game.txt"
+test\bin\run_test.ps1 -json -name LoopDemo-$language -action $action -errors -language $language -inputfile ".\test\data\$language\LoopDemo.mod" -expected ".\test\ref\$action-errors\$language\LoopDemo.txt"
+test\bin\run_test.ps1 -json -name PigLatin-$language -action $action -errors -language $language -inputfile ".\test\data\$language\PigLatin.mod" -expected ".\test\ref\$action-errors\$language\PigLatin.txt"
+test\bin\run_test.ps1 -json -name TempConv-$language -action $action -errors -language $language -inputfile ".\test\data\$language\TempConv.mod" -expected ".\test\ref\$action-errors\$language\TempConv.txt"
 
 # Objective-C
 Set-Variable -Name language "Objective-C"
-test\bin\run_test.ps1 -json -name hello-objc -action $action -errors -language $language -inputfile ".\test\data\$language\HelloWorld.objc" -expected ".\test\ref\$action-errors\$language\HelloWorld.txt"
-test\bin\run_test.ps1 -json -name qrmath-objc -action $action -errors -language $language -inputfile ".\test\data\$language\QRMath.h" -expected ".\test\ref\$action-errors\$language\QRMath.txt"
-test\bin\run_test.ps1 -json -name qrencoder-objc -action $action -errors -language $language -inputfile ".\test\data\$language\QREncoder.m" -expected ".\test\ref\$action-errors\$language\QREncoder.txt"
-test\bin\run_test.ps1 -json -name jsonkit_h-objc -action $action -errors -language $language -inputfile ".\test\data\$language\JSONKit.h" -expected ".\test\ref\$action-errors\$language\JSONKit_h.txt"
-test\bin\run_test.ps1 -json -name jsonkit_m-objc -action $action -errors -language $language -inputfile ".\test\data\$language\JSONKit.m" -expected ".\test\ref\$action-errors\$language\JSONKit_m.txt"
+test\bin\run_test.ps1 -json -name hello-$language -action $action -errors -language $language -inputfile ".\test\data\$language\HelloWorld.objc" -expected ".\test\ref\$action-errors\$language\HelloWorld.txt"
+test\bin\run_test.ps1 -json -name qrmath-$language -action $action -errors -language $language -inputfile ".\test\data\$language\QRMath.h" -expected ".\test\ref\$action-errors\$language\QRMath.txt"
+test\bin\run_test.ps1 -json -name qrencoder-$language -action $action -errors -language $language -inputfile ".\test\data\$language\QREncoder.m" -expected ".\test\ref\$action-errors\$language\QREncoder.txt"
+test\bin\run_test.ps1 -json -name jsonkit_h-$language -action $action -errors -language $language -inputfile ".\test\data\$language\JSONKit.h" -expected ".\test\ref\$action-errors\$language\JSONKit_h.txt"
+test\bin\run_test.ps1 -json -name jsonkit_m-$language -action $action -errors -language $language -inputfile ".\test\data\$language\JSONKit.m" -expected ".\test\ref\$action-errors\$language\JSONKit_m.txt"
 
 # OCaml
 Set-Variable -Name language "OCaml"
-test\bin\run_test.ps1 -json -name antwalk-ocaml -action $action -errors -language $language -inputfile ".\test\data\$language\ant_walk.ml" -expected ".\test\ref\$action-errors\$language\ant_walk.txt"
+test\bin\run_test.ps1 -json -name antwalk-$language -action $action -errors -language $language -inputfile ".\test\data\$language\ant_walk.ml" -expected ".\test\ref\$action-errors\$language\ant_walk.txt"
 
 # Octave
 Set-Variable -Name language "Octave"
@@ -468,19 +467,19 @@ test\bin\run_test.ps1 -json -name ex7_pca-$language -action $action -errors -lan
 
 # Pascal
 Set-Variable -Name language "Pascal"
-test\bin\run_test.ps1 -json -name label_declare-pas -action $action -errors -language $language -inputfile ".\test\data\$language\LabelDeclaration.pas" -expected ".\test\ref\$action-errors\$language\LabelDeclaration.txt"
-test\bin\run_test.ps1 -json -name firework-pas -action $action -errors -language $language -inputfile ".\test\data\$language\FIREWORK.PAS" -expected ".\test\ref\$action-errors\$language\FIREWORK.txt"
-test\bin\run_test.ps1 -json -name hello-pas -action $action -errors -language $language -inputfile ".\test\data\$language\HELLO.PAS" -expected ".\test\ref\$action-errors\$language\HELLO.txt"
-test\bin\run_test.ps1 -json -name rose-pas -action $action -errors -language $language -inputfile ".\test\data\$language\ROSE.PAS" -expected ".\test\ref\$action-errors\$language\ROSE.txt"
-test\bin\run_test.ps1 -json -name spider-pas -action $action -errors -language $language -inputfile ".\test\data\$language\SPIDER.PAS" -expected ".\test\ref\$action-errors\$language\SPIDER.txt"
-test\bin\run_test.ps1 -json -name tpc16-pas -action $action -errors -language $language -inputfile ".\test\data\$language\TPC16.PAS" -expected ".\test\ref\$action-errors\$language\TPC16.txt"
+test\bin\run_test.ps1 -json -name label_declare-$language -action $action -errors -language $language -inputfile ".\test\data\$language\LabelDeclaration.pas" -expected ".\test\ref\$action-errors\$language\LabelDeclaration.txt"
+test\bin\run_test.ps1 -json -name firework-$language -action $action -errors -language $language -inputfile ".\test\data\$language\FIREWORK.PAS" -expected ".\test\ref\$action-errors\$language\FIREWORK.txt"
+test\bin\run_test.ps1 -json -name hello-$language -action $action -errors -language $language -inputfile ".\test\data\$language\HELLO.PAS" -expected ".\test\ref\$action-errors\$language\HELLO.txt"
+test\bin\run_test.ps1 -json -name rose-$language -action $action -errors -language $language -inputfile ".\test\data\$language\ROSE.PAS" -expected ".\test\ref\$action-errors\$language\ROSE.txt"
+test\bin\run_test.ps1 -json -name spider-$language -action $action -errors -language $language -inputfile ".\test\data\$language\SPIDER.PAS" -expected ".\test\ref\$action-errors\$language\SPIDER.txt"
+test\bin\run_test.ps1 -json -name tpc16-$language -action $action -errors -language $language -inputfile ".\test\data\$language\TPC16.PAS" -expected ".\test\ref\$action-errors\$language\TPC16.txt"
 
 # Perl
 Set-Variable -Name language "Perl"
 test\bin\run_test.ps1 -json -name perligata-$language -action $action -errors -language $language -inputfile ".\test\data\$language\Perligata.pm" -expected ".\test\ref\$action-errors\$language\Perligata.txt"
 test\bin\run_test.ps1 -json -name physics-$language -action $action -errors -language $language -inputfile ".\test\data\$language\Physics.pm" -expected ".\test\ref\$action-errors\$language\Physics.txt"
 test\bin\run_test.ps1 -json -name zero_line-$language -action $action -errors -language $language -inputfile ".\test\data\$language\zero_line_hello_world.pl" -expected ".\test\ref\$action-errors\$language\zero_line_hello_world.txt"
-test\bin\run_test.ps1 -json -name root_distance-perl -action $action -errors -language $language -inputfile ".\test\data\$language\root_distance.pl" -expected ".\test\ref\$action-errors\$language\root_distance.txt"
+test\bin\run_test.ps1 -json -name root_distance-$language -action $action -errors -language $language -inputfile ".\test\data\$language\root_distance.pl" -expected ".\test\ref\$action-errors\$language\root_distance.txt"
 
 # PL/1
 Set-Variable -Name language "PL1"
@@ -495,7 +494,7 @@ test\bin\run_test.ps1 -json -name ystkp-$extension -action $action -errors -lang
 
 # PL/M
 Set-Variable -Name language "PLM"
-test\bin\run_test.ps1 -json -name example-plm -action $action -errors -language $language -inputfile ".\test\data\$language\example.plm" -expected ".\test\ref\$action-errors\$language\example.txt"
+test\bin\run_test.ps1 -json -name example-$language -action $action -errors -language $language -inputfile ".\test\data\$language\example.plm" -expected ".\test\ref\$action-errors\$language\example.txt"
 
 # Prolog
 Set-Variable -Name language "Prolog"
@@ -518,13 +517,13 @@ test\bin\run_test.ps1 -json -name zero_line-$language -action $action -errors -l
 
 # R
 Set-Variable -Name language "R"
-test\bin\run_test.ps1 -json -name ETM-540-01-r -action $action -errors -language $language -inputfile ".\test\data\$language\ETM-540-01.R" -expected ".\test\ref\$action-errors\$language\ETM-540-01.txt"
-test\bin\run_test.ps1 -json -name ETM-540-02-r -action $action -errors -language $language -inputfile ".\test\data\$language\ETM-540-02.R" -expected ".\test\ref\$action-errors\$language\ETM-540-02.txt"
-test\bin\run_test.ps1 -json -name ETM-540-03-r -action $action -errors -language $language -inputfile ".\test\data\$language\ETM-540-03.R" -expected ".\test\ref\$action-errors\$language\ETM-540-03.txt"
-test\bin\run_test.ps1 -json -name ETM-540-04-r -action $action -errors -language $language -inputfile ".\test\data\$language\ETM-540-04.R" -expected ".\test\ref\$action-errors\$language\ETM-540-04.txt"
-test\bin\run_test.ps1 -json -name ETM-540-05-r -action $action -errors -language $language -inputfile ".\test\data\$language\ETM-540-05.R" -expected ".\test\ref\$action-errors\$language\ETM-540-05.txt"
-test\bin\run_test.ps1 -json -name basketball-r -action $action -errors -language $language -inputfile ".\test\data\$language\basketball.R" -expected ".\test\ref\$action-errors\$language\basketball.txt"
-test\bin\run_test.ps1 -json -name render-r -action $action -errors -language $language -inputfile ".\test\data\$language\render.R" -expected ".\test\ref\$action-errors\$language\render.txt"
+test\bin\run_test.ps1 -json -name ETM-540-01-$language -action $action -errors -language $language -inputfile ".\test\data\$language\ETM-540-01.R" -expected ".\test\ref\$action-errors\$language\ETM-540-01.txt"
+test\bin\run_test.ps1 -json -name ETM-540-02-$language -action $action -errors -language $language -inputfile ".\test\data\$language\ETM-540-02.R" -expected ".\test\ref\$action-errors\$language\ETM-540-02.txt"
+test\bin\run_test.ps1 -json -name ETM-540-03-$language -action $action -errors -language $language -inputfile ".\test\data\$language\ETM-540-03.R" -expected ".\test\ref\$action-errors\$language\ETM-540-03.txt"
+test\bin\run_test.ps1 -json -name ETM-540-04-$language -action $action -errors -language $language -inputfile ".\test\data\$language\ETM-540-04.R" -expected ".\test\ref\$action-errors\$language\ETM-540-04.txt"
+test\bin\run_test.ps1 -json -name ETM-540-05-$language -action $action -errors -language $language -inputfile ".\test\data\$language\ETM-540-05.R" -expected ".\test\ref\$action-errors\$language\ETM-540-05.txt"
+test\bin\run_test.ps1 -json -name basketball-$language -action $action -errors -language $language -inputfile ".\test\data\$language\basketball.R" -expected ".\test\ref\$action-errors\$language\basketball.txt"
+test\bin\run_test.ps1 -json -name render-$language -action $action -errors -language $language -inputfile ".\test\data\$language\render.R" -expected ".\test\ref\$action-errors\$language\render.txt"
 test\bin\run_test.ps1 -json -name zero_line-$language -action $action -errors -language $language -inputfile ".\test\data\$language\zero_line_hello_world.R" -expected ".\test\ref\$action-errors\$language\zero_line_hello_world.txt"
 
 # Ruby
@@ -577,38 +576,38 @@ test\bin\run_test.ps1 -json -name v3-$language -action $action -errors -language
 
 # PL-SQL
 Set-Variable -Name language "PL-SQL"
-test\bin\run_test.ps1 -json -name table-plsql -action $action -errors -language $language -inputfile ".\test\data\$language\table.sql" -expected ".\test\ref\$action-errors\$language\table.txt"
+test\bin\run_test.ps1 -json -name table-$language -action $action -errors -language $language -inputfile ".\test\data\$language\table.sql" -expected ".\test\ref\$action-errors\$language\table.txt"
 
 # T-SQL
 Set-Variable -Name language "T-SQL"
-test\bin\run_test.ps1 -json -name microsoft-tsql -action $action -errors -language $language -inputfile ".\test\data\$language\microsoft.sql" -expected ".\test\ref\$action-errors\$language\microsoft.txt"
-test\bin\run_test.ps1 -json -name brackets-tsql -action $action -errors -language $language -inputfile ".\test\data\$language\brackets.sql" -expected ".\test\ref\$action-errors\$language\brackets.txt"
+test\bin\run_test.ps1 -json -name microsoft-$language -action $action -errors -language $language -inputfile ".\test\data\$language\microsoft.sql" -expected ".\test\ref\$action-errors\$language\microsoft.txt"
+test\bin\run_test.ps1 -json -name brackets-$language -action $action -errors -language $language -inputfile ".\test\data\$language\brackets.sql" -expected ".\test\ref\$action-errors\$language\brackets.txt"
 
 # Swift
 Set-Variable -Name language "Swift"
-test\bin\run_test.ps1 -json -name AppDelegate -action $action -errors -language $language -inputfile ".\test\data\$language\AppDelegate.$language" -expected ".\test\ref\$action-errors\$language\AppDelegate.txt"
-test\bin\run_test.ps1 -json -name Meal -action $action -errors -language $language -inputfile ".\test\data\$language\Meal.$language" -expected ".\test\ref\$action-errors\$language\Meal.txt"
-test\bin\run_test.ps1 -json -name MealTableViewCell -action $action -errors -language $language -inputfile ".\test\data\$language\MealTableViewCell.$language" -expected ".\test\ref\$action-errors\$language\MealTableViewCell.txt"
-test\bin\run_test.ps1 -json -name MealTableViewController -action $action -errors -language $language -inputfile ".\test\data\$language\MealTableViewController.$language" -expected ".\test\ref\$action-errors\$language\MealTableViewController.txt"
-test\bin\run_test.ps1 -json -name MealViewController -action $action -errors -language $language -inputfile ".\test\data\$language\MealViewController.$language" -expected ".\test\ref\$action-errors\$language\MealViewController.txt"
-test\bin\run_test.ps1 -json -name RatingControl -action $action -errors -language $language -inputfile ".\test\data\$language\RatingControl.$language" -expected ".\test\ref\$action-errors\$language\RatingControl.txt"
-test\bin\run_test.ps1 -json -name URLExtensions -action $action -errors -language $language -inputfile ".\test\data\$language\URLExtensions.$language" -expected ".\test\ref\$action-errors\$language\URLExtensions.txt"
+test\bin\run_test.ps1 -json -name AppDelegate-$language -action $action -errors -language $language -inputfile ".\test\data\$language\AppDelegate.$language" -expected ".\test\ref\$action-errors\$language\AppDelegate.txt"
+test\bin\run_test.ps1 -json -name Meal-$language -action $action -errors -language $language -inputfile ".\test\data\$language\Meal.$language" -expected ".\test\ref\$action-errors\$language\Meal.txt"
+test\bin\run_test.ps1 -json -name MealTableViewCell-$language -action $action -errors -language $language -inputfile ".\test\data\$language\MealTableViewCell.$language" -expected ".\test\ref\$action-errors\$language\MealTableViewCell.txt"
+test\bin\run_test.ps1 -json -name MealTableViewController-$language -action $action -errors -language $language -inputfile ".\test\data\$language\MealTableViewController.$language" -expected ".\test\ref\$action-errors\$language\MealTableViewController.txt"
+test\bin\run_test.ps1 -json -name MealViewController-$language -action $action -errors -language $language -inputfile ".\test\data\$language\MealViewController.$language" -expected ".\test\ref\$action-errors\$language\MealViewController.txt"
+test\bin\run_test.ps1 -json -name RatingControl-$language -action $action -errors -language $language -inputfile ".\test\data\$language\RatingControl.$language" -expected ".\test\ref\$action-errors\$language\RatingControl.txt"
+test\bin\run_test.ps1 -json -name URLExtensions-$language -action $action -errors -language $language -inputfile ".\test\data\$language\URLExtensions.$language" -expected ".\test\ref\$action-errors\$language\URLExtensions.txt"
 test\bin\run_test.ps1 -json -name zero_line-$language -action $action -errors -language $language -inputfile ".\test\data\$language\zero_line_hello_world.swift" -expected ".\test\ref\$action-errors\$language\zero_line_hello_world.txt"
 
 # TypeScript
 Set-Variable -Name language "TypeScript"
-test\bin\run_test.ps1 -json -name TimeReporter-ts -action $action -errors -language $language -inputfile ".\test\data\$language\TimeReporter.ts" -expected ".\test\ref\$action-errors\$language\TimeReporter.txt"
-test\bin\run_test.ps1 -json -name ImageBoard-ts -action $action -errors -language $language -inputfile ".\test\data\$language\ImageBoard.ts" -expected ".\test\ref\$action-errors\$language\ImageBoard.txt"
+test\bin\run_test.ps1 -json -name TimeReporter-$language -action $action -errors -language $language -inputfile ".\test\data\$language\TimeReporter.ts" -expected ".\test\ref\$action-errors\$language\TimeReporter.txt"
+test\bin\run_test.ps1 -json -name ImageBoard-$language -action $action -errors -language $language -inputfile ".\test\data\$language\ImageBoard.ts" -expected ".\test\ref\$action-errors\$language\ImageBoard.txt"
 
 # Visual Basic 6
 Set-Variable -Name language "VisualBasic-6"
-test\bin\run_test.ps1 -json -name spider-vb6 -action $action -errors -language $language -inputfile ".\test\data\$language\spider.bas" -expected ".\test\ref\$action-errors\$language\spider.txt"
-test\bin\run_test.ps1 -json -name azure_metadata-vb6 -action $action -errors -language $language -inputfile ".\test\data\$language\azure_metadata.bas" -expected ".\test\ref\$action-errors\$language\azure_metadata.txt"
-test\bin\run_test.ps1 -json -name diffie_hellman-vb6 -action $action -errors -language $language -inputfile ".\test\data\$language\diffie_hellman.bas" -expected ".\test\ref\$action-errors\$language\diffie_hellman.txt"
+test\bin\run_test.ps1 -json -name spider-$language -action $action -errors -language $language -inputfile ".\test\data\$language\spider.bas" -expected ".\test\ref\$action-errors\$language\spider.txt"
+test\bin\run_test.ps1 -json -name azure_metadata-$language -action $action -errors -language $language -inputfile ".\test\data\$language\azure_metadata.bas" -expected ".\test\ref\$action-errors\$language\azure_metadata.txt"
+test\bin\run_test.ps1 -json -name diffie_hellman-$language -action $action -errors -language $language -inputfile ".\test\data\$language\diffie_hellman.bas" -expected ".\test\ref\$action-errors\$language\diffie_hellman.txt"
 
 # Visual Basic .NET
 Set-Variable -Name language "VisualBasic-NET"
-test\bin\run_test.ps1 -json -name word-processor-vbnet -action $action -errors -language $language -inputfile ".\test\data\$language\WordProcessor.bas" -expected ".\test\ref\$action-errors\$language\WordProcessor.txt"
+test\bin\run_test.ps1 -json -name word-processor-$language -action $action -errors -language $language -inputfile ".\test\data\$language\WordProcessor.bas" -expected ".\test\ref\$action-errors\$language\WordProcessor.txt"
 
 # Polyglot programs
 test\bin\run_test.ps1 -json -name polyglot-c-78 -action $action -errors -language C-78 -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\$action-errors\C-78\polyglot.txt"
