@@ -49,32 +49,32 @@ class PL1Examiner(Examiner):
 
     self.operand_types = []
 
-    self.whitespace_tb = WhitespaceTokenBuilder()
-    self.newline_tb = NewlineTokenBuilder()
+    whitespace_tb = WhitespaceTokenBuilder()
+    newline_tb = NewlineTokenBuilder()
 
-    self.integer_tb = IntegerTokenBuilder(None)
-    self.integer_exponent_tb = IntegerExponentTokenBuilder(None)
-    self.binary_integer_tb = SuffixedIntegerTokenBuilder(['B'], False, None)
-    self.real_tb = RealTokenBuilder(False, False, None)
-    self.real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
-    self.binary_real_tb = SuffixedRealTokenBuilder(True, True, ['B'], False, None)
+    integer_tb = IntegerTokenBuilder(None)
+    integer_exponent_tb = IntegerExponentTokenBuilder(None)
+    binary_integer_tb = SuffixedIntegerTokenBuilder(['B'], False, None)
+    real_tb = RealTokenBuilder(False, False, None)
+    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
+    binary_real_tb = SuffixedRealTokenBuilder(True, True, ['B'], False, None)
     self.operand_types.append('number')
 
     leads = '_'
     extras = '_'
-    self.identifier_tb = IdentifierTokenBuilder(leads, extras)
+    identifier_tb = IdentifierTokenBuilder(leads, extras)
     self.operand_types.append('identifier')
 
     quotes = ['"', "'", "’"]
-    self.string_tb = EscapedStringTokenBuilder(quotes, 0)
+    string_tb = EscapedStringTokenBuilder(quotes, 0)
     self.operand_types.append('string')
 
-    self.label_tb = PL1LabelTokenBuilder()
+    label_tb = PL1LabelTokenBuilder()
     self.operand_types.append('label')
 
-    self.slash_star_comment_tb = SlashStarCommentTokenBuilder()
+    slash_star_comment_tb = SlashStarCommentTokenBuilder()
 
-    self.jcl_tb = JCLTokenBuilder()
+    jcl_tb = JCLTokenBuilder()
 
     directives = [
       '%ACTIVATE',
@@ -90,14 +90,14 @@ class PL1Examiner(Examiner):
       '%THEN'
     ]
 
-    self.line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation', False)
-    self.preprocessor_tb = CaseInsensitiveListTokenBuilder(directives, 'preprocessor', False)
-    self.title_tb = LeadToEndOfLineTokenBuilder('%TITLE', True, 'preprocessor')
-    self.subtitle_tb = LeadToEndOfLineTokenBuilder('%SBTTL', True, 'preprocessor')
-    self.error_tb = LeadToEndOfLineTokenBuilder('%ERROR', True, 'preprocessor')
-    self.warn_tb = LeadToEndOfLineTokenBuilder('%WARN', True, 'preprocessor')
-    self.inform_tb = LeadToEndOfLineTokenBuilder('%INFORM', True, 'preprocessor')
-    self.terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)
+    line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation', False)
+    preprocessor_tb = CaseInsensitiveListTokenBuilder(directives, 'preprocessor', False)
+    title_tb = LeadToEndOfLineTokenBuilder('%TITLE', True, 'preprocessor')
+    subtitle_tb = LeadToEndOfLineTokenBuilder('%SBTTL', True, 'preprocessor')
+    error_tb = LeadToEndOfLineTokenBuilder('%ERROR', True, 'preprocessor')
+    warn_tb = LeadToEndOfLineTokenBuilder('%WARN', True, 'preprocessor')
+    inform_tb = LeadToEndOfLineTokenBuilder('%INFORM', True, 'preprocessor')
+    terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)
 
     known_operators = [
       '+', '-', '*', '/', '**',
@@ -123,9 +123,9 @@ class PL1Examiner(Examiner):
     self.group_mids = [',']
     self.group_ends = [')', ']', '}']
 
-    self.groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
+    groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
-    self.known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
+    known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     keywords = [
       'ALLOCATE', 'ALLOC',
@@ -145,7 +145,7 @@ class PL1Examiner(Examiner):
       'WHEN', 'WRITE'
      ]
 
-    self.keyword_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
+    keyword_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
 
     attributes = [
       'ALIGNED', 'ANY', 'AREA',
@@ -170,7 +170,7 @@ class PL1Examiner(Examiner):
       'VARIABLE', 'VARYING', 'VAR'
     ]
 
-    self.attributes_tb = CaseInsensitiveListTokenBuilder(attributes, 'attribute', False)
+    attributes_tb = CaseInsensitiveListTokenBuilder(attributes, 'attribute', False)
 
     functions = [
       'ABS', 'ACOS', 'ACTUALCOUNT', 'ADD', 'ADDR', 'ADDREL', 'ALLOCATION', 'ALLOCN',
@@ -197,7 +197,7 @@ class PL1Examiner(Examiner):
       'WARN'
     ]
 
-    self.function_tb = CaseInsensitiveListTokenBuilder(functions, 'function', True)
+    function_tb = CaseInsensitiveListTokenBuilder(functions, 'function', True)
 
     format_items = [
       'A',
@@ -211,7 +211,7 @@ class PL1Examiner(Examiner):
       'X'
     ]
 
-    self.format_item_tb = CaseSensitiveListTokenBuilder(format_items, 'format', True)
+    format_item_tb = CaseSensitiveListTokenBuilder(format_items, 'format', True)
     self.operand_types.append('format')
 
     options = [
@@ -247,7 +247,7 @@ class PL1Examiner(Examiner):
       'WAIT_FOR_RECORD', 'WHILE', 'WORLD_PROTECTION', 'WRITE_BEHIND', 'WRITE_CHECK'
     ]
 
-    self.options_tb = CaseInsensitiveListTokenBuilder(options, 'option', False)
+    options_tb = CaseInsensitiveListTokenBuilder(options, 'option', False)
 
     conditions = [
       'ANYCONDITION',
@@ -261,7 +261,7 @@ class PL1Examiner(Examiner):
       'ZERODIVIDE', 'ZDIV'
     ]
 
-    self.conditions_tb = CaseInsensitiveListTokenBuilder(conditions, 'condition', False)
+    conditions_tb = CaseInsensitiveListTokenBuilder(conditions, 'condition', False)
 
     subroutines = [
       'DISPLAY',
@@ -272,58 +272,58 @@ class PL1Examiner(Examiner):
       'SPACEBLOCK'
     ]
 
-    self.subroutines_tb = CaseInsensitiveListTokenBuilder(subroutines, 'subroutine', False)
+    subroutines_tb = CaseInsensitiveListTokenBuilder(subroutines, 'subroutine', False)
 
     types = [
       'FIXED', 'BINARY', 'FLOAT', 'DECIMAL',
       'BIT', 'CHARACTER', 'PICTURE'
     ]
 
-    self.types_tb = CaseInsensitiveListTokenBuilder(types, 'type', True)
+    types_tb = CaseInsensitiveListTokenBuilder(types, 'type', True)
     self.operand_types.append('type')
 
     values = [
       'SYSIN', 'SYSPRINT'
     ]
 
-    self.values_tb = CaseInsensitiveListTokenBuilder(values, 'value', True)
+    values_tb = CaseInsensitiveListTokenBuilder(values, 'value', True)
     self.operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
     # tokenize as free-format
     tokenbuilders_free = [
-      self.newline_tb,
-      self.whitespace_tb,
-      self.line_continuation_tb,
-      self.terminators_tb,
-      self.integer_tb,
-      self.integer_exponent_tb,
-      self.binary_integer_tb,
-      self.real_tb,
-      self.real_exponent_tb,
-      self.binary_real_tb,
-      self.keyword_tb,
-      self.function_tb,
-      self.attributes_tb,
-      self.options_tb,
-      self.conditions_tb,
-      self.subroutines_tb,
-      self.types_tb,
-      self.values_tb,
-      self.groupers_tb,
-      self.known_operator_tb,
-      self.identifier_tb,
-      self.string_tb,
-      self.label_tb,
-      self.slash_star_comment_tb,
-      self.preprocessor_tb,
-      self.title_tb,
-      self.subtitle_tb,
-      self.error_tb,
-      self.warn_tb,
-      self.inform_tb,
-      self.jcl_tb,
+      newline_tb,
+      whitespace_tb,
+      line_continuation_tb,
+      terminators_tb,
+      integer_tb,
+      integer_exponent_tb,
+      binary_integer_tb,
+      real_tb,
+      real_exponent_tb,
+      binary_real_tb,
+      keyword_tb,
+      function_tb,
+      attributes_tb,
+      options_tb,
+      conditions_tb,
+      subroutines_tb,
+      types_tb,
+      values_tb,
+      groupers_tb,
+      known_operator_tb,
+      identifier_tb,
+      string_tb,
+      label_tb,
+      slash_star_comment_tb,
+      preprocessor_tb,
+      title_tb,
+      subtitle_tb,
+      error_tb,
+      warn_tb,
+      inform_tb,
+      jcl_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]
@@ -369,37 +369,37 @@ class PL1Examiner(Examiner):
 
     # tokenize as fixed-format
     tokenbuilders_fixed = [
-      self.newline_tb,
-      self.whitespace_tb,
-      self.line_continuation_tb,
-      self.terminators_tb,
-      self.integer_tb,
-      self.integer_exponent_tb,
-      self.binary_integer_tb,
-      self.real_tb,
-      self.real_exponent_tb,
-      self.binary_real_tb,
-      self.keyword_tb,
-      self.function_tb,
-      self.attributes_tb,
-      self.options_tb,
-      self.conditions_tb,
-      self.subroutines_tb,
-      self.types_tb,
-      self.values_tb,
-      self.groupers_tb,
-      self.known_operator_tb,
-      self.identifier_tb,
-      self.string_tb,
-      self.label_tb,
-      self.slash_star_comment_tb,
-      self.preprocessor_tb,
-      self.title_tb,
-      self.subtitle_tb,
-      self.error_tb,
-      self.warn_tb,
-      self.inform_tb,
-      self.jcl_tb,
+      newline_tb,
+      whitespace_tb,
+      line_continuation_tb,
+      terminators_tb,
+      integer_tb,
+      integer_exponent_tb,
+      binary_integer_tb,
+      real_tb,
+      real_exponent_tb,
+      binary_real_tb,
+      keyword_tb,
+      function_tb,
+      attributes_tb,
+      options_tb,
+      conditions_tb,
+      subroutines_tb,
+      types_tb,
+      values_tb,
+      groupers_tb,
+      known_operator_tb,
+      identifier_tb,
+      string_tb,
+      label_tb,
+      slash_star_comment_tb,
+      preprocessor_tb,
+      title_tb,
+      subtitle_tb,
+      error_tb,
+      warn_tb,
+      inform_tb,
+      jcl_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]

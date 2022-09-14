@@ -296,8 +296,8 @@ test\bin\run_test.ps1 -json -name UPlatform-$language -action $action -errors -l
 
 # Dibol
 Set-Variable -Name language "Dibol"
-test\bin\run_test.ps1 -json -name bottles-$language -action $action -errors -language $language -inputfile ".\test\data\$language\bottles.$extension" -expected ".\test\ref\$action-errors\$language\bottles.txt"
-test\bin\run_test.ps1 -json -name bilref-$language -action $action -errors -language $language -inputfile ".\test\data\$language\bilref.$extension" -expected ".\test\ref\$action-errors\$language\bilref.txt"
+test\bin\run_test.ps1 -json -name bottles-$language -action $action -errors -language $language -inputfile ".\test\data\$language\bottles.dbl" -expected ".\test\ref\$action-errors\$language\bottles.txt"
+test\bin\run_test.ps1 -json -name bilref-$language -action $action -errors -language $language -inputfile ".\test\data\$language\bilref.dbl" -expected ".\test\ref\$action-errors\$language\bilref.txt"
 
 # Eiffel
 Set-Variable -Name language "Eiffel"
@@ -483,14 +483,13 @@ test\bin\run_test.ps1 -json -name root_distance-$language -action $action -error
 
 # PL/1
 Set-Variable -Name language "PL1"
-Set-Variable -Name extension "pl1"
-test\bin\run_test.ps1 -json -name bpgpli-$extension -action $action -errors -language $language -inputfile ".\test\data\$language\BPGPLI.$extension" -expected ".\test\ref\$action-errors\$language\BPGPLI.txt"
-test\bin\run_test.ps1 -json -name checkdt-$extension -action $action -errors -language $language -inputfile ".\test\data\$language\CHECKDT.$extension" -expected ".\test\ref\$action-errors\$language\CHECKDT.txt"
-test\bin\run_test.ps1 -json -name crtpln3-$extension -action $action -errors -language $language -inputfile ".\test\data\$language\CRTPLN3.$extension" -expected ".\test\ref\$action-errors\$language\CRTPLN3.txt"
-test\bin\run_test.ps1 -json -name mainfact-$extension -action $action -errors -language $language -inputfile ".\test\data\$language\MAINFACT.$extension" -expected ".\test\ref\$action-errors\$language\MAINFACT.txt"
-test\bin\run_test.ps1 -json -name example-$extension -action $action -errors -language $language -inputfile ".\test\data\$language\example.$extension" -expected ".\test\ref\$action-errors\$language\example.txt"
-test\bin\run_test.ps1 -json -name digrams-$extension -action $action -errors -language $language -inputfile ".\test\data\$language\digrams.$extension" -expected ".\test\ref\$action-errors\$language\digrams.txt"
-test\bin\run_test.ps1 -json -name ystkp-$extension -action $action -errors -language $language -inputfile ".\test\data\$language\ystkp.$extension" -expected ".\test\ref\$action-errors\$language\ystkp.txt"
+test\bin\run_test.ps1 -json -name bpgpli-$language -action $action -errors -language $language -inputfile ".\test\data\$language\BPGPLI.pl1" -expected ".\test\ref\$action-errors\$language\BPGPLI.txt"
+test\bin\run_test.ps1 -json -name checkdt-$language -action $action -errors -language $language -inputfile ".\test\data\$language\CHECKDT.pl1" -expected ".\test\ref\$action-errors\$language\CHECKDT.txt"
+test\bin\run_test.ps1 -json -name crtpln3-$language -action $action -errors -language $language -inputfile ".\test\data\$language\CRTPLN3.pl1" -expected ".\test\ref\$action-errors\$language\CRTPLN3.txt"
+test\bin\run_test.ps1 -json -name mainfact-$language -action $action -errors -language $language -inputfile ".\test\data\$language\MAINFACT.pl1" -expected ".\test\ref\$action-errors\$language\MAINFACT.txt"
+test\bin\run_test.ps1 -json -name example-$language -action $action -errors -language $language -inputfile ".\test\data\$language\example.pl1" -expected ".\test\ref\$action-errors\$language\example.txt"
+test\bin\run_test.ps1 -json -name digrams-$language -action $action -errors -language $language -inputfile ".\test\data\$language\digrams.pl1" -expected ".\test\ref\$action-errors\$language\digrams.txt"
+test\bin\run_test.ps1 -json -name ystkp-$language -action $action -errors -language $language -inputfile ".\test\data\$language\ystkp.pl1" -expected ".\test\ref\$action-errors\$language\ystkp.txt"
 
 # PL/M
 Set-Variable -Name language "PLM"
