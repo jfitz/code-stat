@@ -1,0 +1,474 @@
+[
+    {
+        "type":"identifier",
+        "value":"NOTE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"THIS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"IS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"THE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TEXT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"FOR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"THE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"USER"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"FORM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"LETTER"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"*  - the text presented here describes how to generate the "
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"*  - letter.  The user will put in own text."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"?"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'This  is  the body of a form letter.  It was first written with  a  word'"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"?"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'processor and then modified to become a command file.  The modifications'"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"?"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'are:  placement  of  question  marks at the beginning of each  line  and'"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"?"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'enclosing  the text in single quotes or square brackets.  In  this  way,'"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"?"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'each  line of text is written to the ALTERNATE file by means of the  SET'"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"?"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'ALTERNATE commands in MAILLTTR.CMD (which calls this command file).'"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"?"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"?"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'The text of the letter can be altered based on the database data fields.'"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"?"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'For instance,  if the content of the letter should change for  different'"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"?"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'states,  then  this condition can be checked and the appropriate  action'"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"?"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'can be taken.'"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"?"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"?"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"?"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'                                              Yours truly'"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"?"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"?"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"?"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"?"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"?"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'                                              Mike R. O. Chip'"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"?"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"?"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'Example:'"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"?"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"STATE"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"string",
+        "value":"'CA'"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"?"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'California residents add 6% sales tax'"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"ENDIF"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"RETURN"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    }
+]

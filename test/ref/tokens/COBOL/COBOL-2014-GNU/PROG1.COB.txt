@@ -1,0 +1,3898 @@
+[
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"IDENTIFICATION"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"DIVISION"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"PROGRAM-ID"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"identifier",
+        "value":"PROG1"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*AUTHOR.        ERIC."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*INSTALLATION.  WSC."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*DATE WRITTEN.  SEPT 20,2002."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*SECURITY.      NONE."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"ENVIRONMENT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"DIVISION"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"INPUT-OUTPUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SECTION"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"FILE-CONTROL"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"SELECT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EMPL-FILE-IN"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"ASSIGN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"COBOLDATA2D"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"SELECT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EMPL-REPORT-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"ASSIGN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PROG1-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"DATA"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"DIVISION"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"FILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SECTION"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"FD"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"EMPL-FILE-IN"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"RECORD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"CONTAINS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"80"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"CHARACTERS"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"LABEL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"RECORDS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"ARE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"OMITTED"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"DATA"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"RECORD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-EMPL-REC-IN"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"level",
+        "value":"01"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-EMPL-REC-IN"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-EMPL-DEPT-NUM-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"9(2)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-SSN-IN"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-SSN-1ST-3-CHAR-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"9(3)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-SSN-MID-2-CHAR-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"9(2)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-SSN-LST-4-CHAR-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"9(4)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-FULL-NAME-IN"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-LAST-NAME-IN"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"level",
+        "value":"15"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-1ST-CHAR-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":"              "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(1)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"level",
+        "value":"15"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-REST-OF-LNAME-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(11)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-FIRST-NAME-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":"                "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(11)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-MID-INIT-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":"                  "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(1)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-ADDRESS-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(15)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                              "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(10)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-CITY-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":"                          "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(13)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-PHONE-NUM-IN"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-PHONE-PREFIX-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":"              "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"9(3)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-PHONE-LINE-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":"                "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"9(4)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"          "
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"FD"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"EMPL-REPORT-OUT"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"RECORD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"CONTAINS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"132"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"CHARACTERS"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"LABEL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"RECORDS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"ARE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"OMITTED"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"DATA"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"RECORD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-EMPL-LINE-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"level",
+        "value":"01"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-EMPL-LINE-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-FULL-NAME-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-LAST-NAME-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(12)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                          "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(2)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-FIRST-NAME-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(11)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                          "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(1)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-MID-INIT-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(1)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                              "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(2)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-SSN-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-SSN-1ST-3-CHAR-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"9(3)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-HYPHEN-1-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(1)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-SSN-MID-2-CHAR-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"9(2)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-HYPHEN-2-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(1)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-SSN-LST-4-CHAR-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"9(4)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                              "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(2)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-ADDRESS-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                      "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(15)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                              "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(12)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-CITY-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                         "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(13)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                              "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(2)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-PHONE-NUM-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-PHONE-PREFIX-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"             "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"9(3)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-HYPHEN-3-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(1)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-PHONE-LINE-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"9(4)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                              "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(3)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-EMPL-DEPT-NUM-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"9(2)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                              "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(4)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-EMPL-CODE-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-EMPL-CODE-1ST-CHAR-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(1)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-EMPL-CODE-NEXT4-CHAR-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"9(4)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"level",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-EMPL-CODE-LAST2-CHAR-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"9(2)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                              "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(24)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"WORKING-STORAGE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SECTION"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"level",
+        "value":"01"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-PROGRAM-SWITCHES"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-EOF-SWITCH"
+    },
+    {
+        "type":"whitespace",
+        "value":"                        "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(3)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"PROCEDURE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"DIVISION"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"identifier",
+        "value":"A00-MAINLINE-PARA"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"OPEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"INPUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EMPL-FILE-IN"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"OUTPUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EMPL-REPORT-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"PERFORM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"B10-INIT-PARA"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"READ"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EMPL-FILE-IN"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"AT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"YES\""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-EOF-SWITCH"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"PERFORM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"B20-PROCESS-PARA"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"UNTIL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-EOF-SWITCH"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"EQUAL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"YES\""
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"CLOSE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EMPL-FILE-IN"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"identifier",
+        "value":"EMPL-REPORT-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"STOP"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"RUN"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"identifier",
+        "value":"B10-INIT-PARA"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"NO\""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-EOF-SWITCH"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"identifier",
+        "value":"B20-PROCESS-PARA"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"SPACES"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-EMPL-LINE-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-LAST-NAME-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-LAST-NAME-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-FIRST-NAME-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-FIRST-NAME-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-MID-INIT-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-MID-INIT-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-SSN-1ST-3-CHAR-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-SSN-1ST-3-CHAR-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"-\""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-HYPHEN-1-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-SSN-MID-2-CHAR-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-SSN-MID-2-CHAR-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"-\""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-HYPHEN-2-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-SSN-LST-4-CHAR-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-SSN-LST-4-CHAR-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-ADDRESS-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-ADDRESS-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-CITY-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-CITY-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-PHONE-PREFIX-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-PHONE-PREFIX-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"-\""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-HYPHEN-3-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-PHONE-LINE-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-PHONE-LINE-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-EMPL-DEPT-NUM-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-EMPL-DEPT-NUM-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-1ST-CHAR-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-EMPL-CODE-1ST-CHAR-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-SSN-LST-4-CHAR-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-EMPL-CODE-NEXT4-CHAR-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ER-EMPL-DEPT-NUM-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-EMPL-CODE-LAST2-CHAR-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"WRITE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EL-EMPL-LINE-OUT"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"AFTER"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"ADVANCING"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"LINES"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"READ"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EMPL-FILE-IN"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"AT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"YES\""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-EOF-SWITCH"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    }
+]

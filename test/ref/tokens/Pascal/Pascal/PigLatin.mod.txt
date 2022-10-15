@@ -1,0 +1,5618 @@
+[
+    {
+        "type":"identifier",
+        "value":"MODULE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Latin"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* Title : Latin.MOD LastEdit: 07/20/88 Author : Kim Moser System : JPI's TopSpeed Modula-2 with PMI's Repertoire 1.5 Descrip : Reads standard input and writes Pig Latin or Egg Latin equivalent to standard output. *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* JPI *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"FROM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"IO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"IMPORT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WrStr"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WrLn"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* Other M-2 compilers: FROM InOut IMPORT WriteString, WriteLn *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* Repertoire *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"IMPORT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"InitJPI"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"FROM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"M2Strings"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"IMPORT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Length"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"FROM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"StrEdit"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"IMPORT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Append"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"FROM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"StringIO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"IMPORT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"inp"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"outp"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WriteStr"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ErrorMessage"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"FROM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"FileIO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"IMPORT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EndReached"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"BlockRead"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"FROM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EnvironUtils"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"IMPORT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ParsedParam"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TYPE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CharSet"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"type",
+        "value":"SET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"OF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"type",
+        "value":"CHAR"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"CONST"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"LetterSet"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CharSet"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"{ 'A'..'Z', \"'\" }"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"VowelSet"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CharSet"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"{ 'A', 'E', 'I', 'O', 'U', 'Y' }"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"UpperSet"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CharSet"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"{ 'A'..'Z' }"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"VAR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ch"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"type",
+        "value":"CHAR"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Language"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"PigLatin"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EggLatin"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Unknown"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Word"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Word2"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"type",
+        "value":"ARRAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"operator",
+        "value":".."
+    },
+    {
+        "type":"number",
+        "value":"128"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"OF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"type",
+        "value":"CHAR"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* Longest allowed word *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CmdLine"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"type",
+        "value":"ARRAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"operator",
+        "value":".."
+    },
+    {
+        "type":"number",
+        "value":"3"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"OF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"type",
+        "value":"CHAR"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PROCEDURE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WrStrLn"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"s"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"type",
+        "value":"ARRAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"OF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"type",
+        "value":"CHAR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"BEGIN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WrStr"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"s"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WrLn"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WrStrLn"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PROCEDURE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Lower"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"c"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"type",
+        "value":"CHAR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"type",
+        "value":"CHAR"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* If 'c' is uppercase, returns its lowercase equivalent, else returns 'c'. *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"BEGIN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"c"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"UpperSet"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"THEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"RETURN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CHR"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ORD"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"c"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ORD"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"string",
+        "value":"'A'"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ORD"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"string",
+        "value":"'a'"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"ELSE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"RETURN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"c"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Lower"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PROCEDURE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ReadCh"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"f"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CARDINAL"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"VAR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ch"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"type",
+        "value":"CHAR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"BEGIN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"BlockRead"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"f"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ADR"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"ch"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NoError"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"THEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* Ignore result [for now] *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ReadCh"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PROCEDURE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ReadWord"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"VAR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"w"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"type",
+        "value":"ARRAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"OF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"type",
+        "value":"CHAR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"type",
+        "value":"BOOLEAN"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* Parses a \"word\" [any sequence of alpha chars, delimited by leading and/or trailing blanks] from standard input into 'w'. Returns TRUE if length of word is > 0, else returns FALSE. *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"VAR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CARDINAL"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* Index into 'w' *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"BEGIN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":":="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* Find beginning of word: *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"WHILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"NOT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EndReached"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"inp"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"AND"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"NOT"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"CAP"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"ch"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"LetterSet"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WriteStr"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"outp"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ch"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ReadCh"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"inp"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ch"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* Parse until end of word: *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"WHILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"NOT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"EndReached"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"inp"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"AND"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"CAP"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"ch"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"LetterSet"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"w"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":":="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ch"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"INC"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ReadCh"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"inp"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ch"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"w"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":":="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CHR"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* Properly terminate word *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"RETURN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":">"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ReadWord"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PROCEDURE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ShowUsage"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"BEGIN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WrStrLn"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'LATIN v1.0 (c) Copyright 1988 Kim Moser All Rights Reserved'"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WrStrLn"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'Translates standard input to either Pig Latin or Egg Latin,'"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WrStrLn"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'depending on command line switch used.'"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WrLn"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WrStrLn"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'Usage: LATIN -p | -e'"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ShowUsage"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PROCEDURE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Translate"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"VAR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"in"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"out"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"type",
+        "value":"ARRAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"OF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"type",
+        "value":"CHAR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"VAR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CARDINAL"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TempWord"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"type",
+        "value":"ARRAY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"operator",
+        "value":".."
+    },
+    {
+        "type":"number",
+        "value":"128"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"OF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"type",
+        "value":"CHAR"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"VowelCount"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CARDINAL"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* How many vowels found in word [for Egg Latin] *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"BEGIN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":":="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* Index into 'in' *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"out"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":":="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CHR"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* Properly initialize string *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"CASE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Language"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"OF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PigLatin"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TempWord"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":":="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CHR"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* Properly initialize string *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"LOOP"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* Find first vowel ['Y' does NOT count if it's the first letter of the word]: *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"WHILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"in"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"<>"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CHR"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"AND"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"NOT"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"CAP"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"in"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"VowelSet"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Append"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TempWord"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Lower"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"in"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"INC"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"CAP"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"in"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"string",
+        "value":"'Y'"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"AND"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"THEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* Leading 'Y' does NOT count as a vowel *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Append"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TempWord"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Lower"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"in"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* Will always be 'y' *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"INC"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"ELSE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EXIT"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* LOOP *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* Put rest of 'word' in 'out': *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"WHILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"in"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"<>"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CHR"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Append"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"out"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"in"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"INC"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Append"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"out"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TempWord"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Append"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"out"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'ay'"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"|"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EggLatin"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"VowelCount"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":":="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* No vowels found [yet] *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"out"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":":="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CHR"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* Properly initialize string *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"REPEAT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* Process all vowels: *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* Find next vowel: *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"WHILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"in"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"<>"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CHR"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"AND"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"NOT"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"CAP"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"in"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"VowelSet"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"OR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* Leading 'Y' does NOT count as a vowel: *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"CAP"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"in"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"string",
+        "value":"'Y'"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"AND"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"OR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* Trailing vowel does NOT count as vowel IFF there were previous vowels: *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"CAP"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"in"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"VowelSet"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"AND"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"in"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"identifier",
+        "value":"CHR"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"AND"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"VowelCount"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":">"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"OR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* Ignore vowel if previous char was vowel, too: *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"operator",
+        "value":">"
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"AND"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"CAP"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"in"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"VowelSet"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Append"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"out"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"in"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"INC"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"in"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"<>"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CHR"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"THEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* Vowel was found [we're not at end of word] *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"INC"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"VowelCount"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Append"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"out"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'egg'"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Append"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"out"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"in"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"INC"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"UNTIL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"in"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CHR"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"ELSE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WrStrLn"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'LATIN: Internal error; unknown language to translate to.'"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"HALT"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Translate"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"BEGIN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* MAIN *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"NOT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ParsedParam"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CmdLine"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"OR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EndReached"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"inp"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"THEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ShowUsage"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"ELSE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"CASE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CAP"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"CmdLine"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"OF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'P'"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Language"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":":="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PigLatin"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"|"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'E'"
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Language"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":":="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EggLatin"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"ELSE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Language"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":":="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Unknown"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Language"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Unknown"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"THEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ShowUsage"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"ELSE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ReadCh"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"inp"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ch"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"WHILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"NOT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"EndReached"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"inp"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ReadWord"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Word"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"THEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Translate"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Word"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Word2"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"(* Capitalize first letter, if supposed to be: *)"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CAP"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"Word"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"identifier",
+        "value":"Word"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"THEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Word2"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":":="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CAP"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"Word2"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WriteStr"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"outp"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Word2"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement separator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Latin"
+    },
+    {
+        "type":"operator",
+        "value":"."
+    }
+]

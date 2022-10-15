@@ -1,0 +1,1406 @@
+[
+    {
+        "type":"invalid",
+        "value":"program average"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"! Read in some numbers and take the average"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"! As written, if there are no data points, an average of zero is returned"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"! While this may not be desired behavior, it keeps this example simple"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":" imp"
+    },
+    {
+        "type":"line continuation",
+        "value":"l"
+    },
+    {
+        "type":"identifier",
+        "value":"icit"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"none"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":" int"
+    },
+    {
+        "type":"line continuation",
+        "value":"e"
+    },
+    {
+        "type":"identifier",
+        "value":"ger"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"::"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"number"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"of"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"points"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":" rea"
+    },
+    {
+        "type":"line continuation",
+        "value":"l"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"dimension"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid operator",
+        "value":":"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"allocatable"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"::"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"points"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":" rea"
+    },
+    {
+        "type":"line continuation",
+        "value":"l"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"::"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"average"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"points"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"positive"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"average"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"negative"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"average"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":" wri"
+    },
+    {
+        "type":"line continuation",
+        "value":"t"
+    },
+    {
+        "type":"identifier",
+        "value":"e"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"Input number of points to average:\""
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":" rea"
+    },
+    {
+        "type":"line continuation",
+        "value":"d"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"number"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"of"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"points"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":" all"
+    },
+    {
+        "type":"line continuation",
+        "value":"o"
+    },
+    {
+        "type":"identifier",
+        "value":"cate"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"points"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"number"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"of"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"points"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":" wri"
+    },
+    {
+        "type":"line continuation",
+        "value":"t"
+    },
+    {
+        "type":"identifier",
+        "value":"e"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"Enter the points to average:\""
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":" rea"
+    },
+    {
+        "type":"line continuation",
+        "value":"d"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"points"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"! Take the average by summing points and dividing by number_of_points"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":" if "
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"line continuation",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"number"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"of"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"points"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":">"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"average"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"points"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"sum"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"points"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"identifier",
+        "value":"number"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"of"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"point"
+    },
+    {
+        "type":"line identification",
+        "value":"s"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"! Now form average over positive and negative points only"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":" if "
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"line continuation",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"count"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"points"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":">"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":">"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"positive"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"average"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"sum"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"points"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"points"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":">"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"line identification",
+        "value":") &"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"identifier",
+        "value":"count"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"points"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":">"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":" if "
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"line continuation",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"count"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"points"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"<"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":">"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"negative"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"average"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"sum"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"points"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"points"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"<"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"line identification",
+        "value":") &"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"identifier",
+        "value":"count"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"points"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"<"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":" dea"
+    },
+    {
+        "type":"line continuation",
+        "value":"l"
+    },
+    {
+        "type":"identifier",
+        "value":"locate"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"points"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"! Print result to terminal"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":" wri"
+    },
+    {
+        "type":"line continuation",
+        "value":"t"
+    },
+    {
+        "type":"identifier",
+        "value":"e"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'(''Average = '', 1g12.4)'"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"average"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"points"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":" wri"
+    },
+    {
+        "type":"line continuation",
+        "value":"t"
+    },
+    {
+        "type":"identifier",
+        "value":"e"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'(''Average of positive points = '', 1g12.4)'"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"positive"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"avera"
+    },
+    {
+        "type":"line identification",
+        "value":"ge"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":" wri"
+    },
+    {
+        "type":"line continuation",
+        "value":"t"
+    },
+    {
+        "type":"identifier",
+        "value":"e"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'(''Average of negative points = '', 1g12.4)'"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"negative"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"avera"
+    },
+    {
+        "type":"line identification",
+        "value":"ge"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"end program average"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    }
+]

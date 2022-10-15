@@ -1,0 +1,1098 @@
+[
+    {
+        "type":"comment",
+        "value":"; this is a simple example for reversing"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"; an array using x86 intel 80386 assembly"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"directive",
+        "value":".386"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; set directive to i386"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"directive",
+        "value":".model"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"flat"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"c"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; tell assembler that we are using a flat memory segment model, and that we are using the c language"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"directive",
+        "value":".code"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; code section start"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"label",
+        "value":"reverser"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"proc"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; create a procedure called reverser"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"keyword",
+        "value":"push"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ebp"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; push base pointer, function frame, stuff like arguments are offseted from here"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"keyword",
+        "value":"mov"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ebp"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"esp"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; mov esp into ebp, this starts the function prologue and will preserve stack frame"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"keyword",
+        "value":"push"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"esi"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; push source on the stack, see the C++ signature if you're having trouble understanding"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"keyword",
+        "value":"push"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"edi"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; pust destination on the stack, see the C++ signature if you're having trouble understanding"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"keyword",
+        "value":"xor"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"eax"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"eax"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; init to zero"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"comment",
+        "value":"; tip: ebp + 4 is where the return address lies. this is so the assembly"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"comment",
+        "value":"; knows where to return to after the procedure is done being ran"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"keyword",
+        "value":"mov"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"edi"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"ebp"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"8"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; ebp + 8 is where the pointer to the destination array is"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"keyword",
+        "value":"mov"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"esi"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"ebp"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"12"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; ebp + 12 is the offset where the pointer to the src array is"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"keyword",
+        "value":"mov"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ecx"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"ebp"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"16"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; mov the count register into the num_elements argument"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"keyword",
+        "value":"test"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ecx"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ecx"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; check if num elements is not zero"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"keyword",
+        "value":"jz"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"done"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; if num elements is zero it'll jump to the return and break out the procedure"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"keyword",
+        "value":"lea"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"esi"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"esi"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ecx"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"4"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"4"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; this will get the final index of esi (esi + num_elements), with scale factor of 4 for DWORD integers"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"keyword",
+        "value":"pushfd"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; push flags"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"keyword",
+        "value":"std"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; set direction flag to one which will decrement indexes (right to left)"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"label",
+        "value":"@@:"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"identifier",
+        "value":"lodsd"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; start of loop"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"keyword",
+        "value":"mov"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"edi"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"eax"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; mov eax into the dereferenced index at edi *(edi + offset)"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"keyword",
+        "value":"add"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"edi"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"4"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; run through the destination array"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"keyword",
+        "value":"dec"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ecx"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; decrement counter"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"keyword",
+        "value":"jnz"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t"
+    },
+    {
+        "type":"identifier",
+        "value":"@B"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; jump back to start of loop while the counter is not zero"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"keyword",
+        "value":"popfd"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; pop flags"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"keyword",
+        "value":"mov"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"eax"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; return 1"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"keyword",
+        "value":"pop"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"edi"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; procedure epilogue"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"keyword",
+        "value":"pop"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"esi"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; procedure epilogue"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"keyword",
+        "value":"pop"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ebp"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; procedure epilogue"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"label",
+        "value":"done:"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"keyword",
+        "value":"ret"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; return the procedure"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t\t"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"label",
+        "value":"reverser"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"endp"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; end the procedure called reverser"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"directive",
+        "value":"end"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; end code section"
+    }
+]

@@ -1,0 +1,322 @@
+[
+    {
+        "type":"label",
+        "value":"INIT"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t"
+    },
+    {
+        "type":"identifier",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"#600"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"R0"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t    "
+    },
+    {
+        "type":"comment",
+        "value":"; set up source address"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"identifier",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"#prtbuf"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"R1"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t    "
+    },
+    {
+        "type":"comment",
+        "value":"; set up destination address"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"identifier",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"#76"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"R2"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t        "
+    },
+    {
+        "type":"comment",
+        "value":"; set up loop count"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"directive",
+        "value":"START"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t"
+    },
+    {
+        "type":"identifier",
+        "value":"MOVB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"R0"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"R1"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t"
+    },
+    {
+        "type":"comment",
+        "value":"; move one character"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                            "
+    },
+    {
+        "type":"comment",
+        "value":"; and increment"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                            "
+    },
+    {
+        "type":"comment",
+        "value":"; both source and"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                            "
+    },
+    {
+        "type":"comment",
+        "value":"; destination addresses"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"keyword",
+        "value":"DEC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"R2"
+    },
+    {
+        "type":"whitespace",
+        "value":"          \t"
+    },
+    {
+        "type":"comment",
+        "value":"; decrement count by one"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"identifier",
+        "value":"BNE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"START"
+    },
+    {
+        "type":"whitespace",
+        "value":"       \t"
+    },
+    {
+        "type":"comment",
+        "value":"; loop back if"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"identifier",
+        "value":"HALT"
+    },
+    {
+        "type":"whitespace",
+        "value":"\t            "
+    },
+    {
+        "type":"comment",
+        "value":"; decremented counter is not"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                            "
+    },
+    {
+        "type":"comment",
+        "value":"; equal to zero"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                            "
+    }
+]

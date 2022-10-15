@@ -1,0 +1,5318 @@
+[
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"IDENTIFICATION"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"DIVISION"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"PROGRAM-ID"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"identifier",
+        "value":"PROG2"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*AUTHOR.        ERIC."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*INSTALLATION.  WSC."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*DATE-WRITTEN.  OCT 24,2002."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*DATE-COMPILED. OCT 24,2002."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*SECURITY.      NONE."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"ENVIRONMENT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"DIVISION"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"INPUT-OUTPUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SECTION"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"FILE-CONTROL"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"SELECT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PURCHASES-FILE-IN"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"ASSIGN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TW5C5D"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"SELECT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PURCHASES-FILE-OUT"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"ASSIGN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PROG2-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"DATA"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"DIVISION"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"FILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SECTION"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"FD"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"PURCHASES-FILE-IN"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"RECORD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"CONTAINS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"80"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"CHARACTERS"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"LABEL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"RECORDS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"ARE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"OMITTED"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"DATA"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"RECORD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PURCHASES-REC-IN"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"level",
+        "value":"01"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"PURCHASES-REC-IN"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"PR-REC-CODE-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"9(2)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(3)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"PR-CUST-NAME-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":"                  "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(24)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(38)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"PR-DISC-PERCENT-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"V99"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(2)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"PR-PURCH-AMT-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":"                  "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"S9(7)V99"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"FD"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"PURCHASES-FILE-OUT"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"RECORD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"CONTAINS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"132"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"CHARACTERS"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"LABEL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"RECORDS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"ARE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"OMITTED"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"DATA"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"RECORD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SALES-REPORT-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"level",
+        "value":"01"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"SALES-REPORT-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(2)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"SR-CUST-NAME-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(24)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(3)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"SR-PURCH-AMT-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"Z,ZZZ,ZZ9.99-"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(4)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"SR-DISC-AMT-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                  "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"ZZZ,ZZ9.99"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(4)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"SR-NET-AMT-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"ZZZZ,ZZ9.99-"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(60)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"level",
+        "value":"01"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"TOT-TRANS-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(4)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"TT-TITLE-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                     "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(18)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(1)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"TT-TOT-TRANS-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"ZZZ9"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(1)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"TT-TOT-PURCH-AMT-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"             "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"ZZ,ZZZ,ZZ9.99"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"TT-ASTERISK-01-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(1)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(1)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"TT-TOT-DISC-AMT-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"              "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"Z,ZZZ,ZZ9.99"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"TT-ASTERISK-02-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(1)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(1)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"TT-TOT-NET-PURCH-AMT-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"ZZ,ZZZ,ZZ9.99"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"TT-ASTERISK-03-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(1)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(61)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"level",
+        "value":"01"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"AVG-AMTS-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(4)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"AA-TITLE-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                     "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(15)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(10)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"AA-AVG-PURCH-AMT-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"             "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"Z,ZZZ,ZZ9.99"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(4)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"AA-AVG-DISC-AMT-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"              "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"ZZZ,ZZ9.99"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(3)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"AA-AVG-NET-PURCH-AMT-OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"ZZ,ZZZ,ZZ9.99"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FILLER"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(61)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"WORKING-STORAGE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"SECTION"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"level",
+        "value":"01"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-SWITCHES"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-EOF-SWITCH"
+    },
+    {
+        "type":"whitespace",
+        "value":"                    "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"X(3)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"level",
+        "value":"01"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-TEMP-AMTS"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-DISC-AMT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                      "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"S9(7)V99"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-NET-AMT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                       "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"S9(7)V99"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"level",
+        "value":"01"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-TOT-AMTS"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-TOT-TRANSACTIONS"
+    },
+    {
+        "type":"whitespace",
+        "value":"              "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"9(4)"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-TOT-PURCH-AMT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"S9(7)V99"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-TOT-DISC-AMT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                  "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"S9(7)V99"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-TOT-NET-AMT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"S9(8)V99"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"level",
+        "value":"01"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-AVERAGES"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-AVG-PURCH-AMT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"ZZZ,ZZ9.99"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-AVG-DISC-AMT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                  "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"ZZZ,ZZ9.99"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"level",
+        "value":"05"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-AVG-NET-AMT"
+    },
+    {
+        "type":"whitespace",
+        "value":"                   "
+    },
+    {
+        "type":"keyword",
+        "value":"PIC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"picture",
+        "value":"ZZZ,ZZ9.99"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"keyword",
+        "value":"PROCEDURE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"DIVISION"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"identifier",
+        "value":"A00-MAINLINE-PARA"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"OPEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"INPUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PURCHASES-FILE-IN"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                "
+    },
+    {
+        "type":"keyword",
+        "value":"OUTPUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PURCHASES-FILE-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"PERFORM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"B10-INIT-PARA"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"READ"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PURCHASES-FILE-IN"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"AT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"YES\""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-EOF-SWITCH"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"PERFORM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"B20-PROCESS-DETAILS-PARA"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"UNTIL"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-EOF-SWITCH"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"EQUAL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"YES\""
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"PERFORM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"C10-PROCESS-TOTALS-PARA"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"PERFORM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"C20-PROCESS-AVGS-PARA"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"CLOSE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PURCHASES-FILE-IN"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"identifier",
+        "value":"PURCHASES-FILE-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"STOP"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"RUN"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"identifier",
+        "value":"B10-INIT-PARA"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"NO\""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-EOF-SWITCH"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"identifier",
+        "value":"B20-PROCESS-DETAILS-PARA"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"SPACES"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SALES-REPORT-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"ADD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-TOT-TRANSACTIONS"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MULTIPLY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PR-PURCH-AMT-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"BY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PR-DISC-PERCENT-IN"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"GIVING"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-DISC-AMT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"ROUNDED"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"SUBTRACT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-DISC-AMT"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"FROM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PR-PURCH-AMT-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"GIVING"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-NET-AMT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"ADD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-NET-AMT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-TOT-NET-AMT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"ADD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-DISC-AMT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-TOT-DISC-AMT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"ADD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PR-PURCH-AMT-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-TOT-PURCH-AMT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PR-CUST-NAME-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SR-CUST-NAME-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PR-PURCH-AMT-IN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SR-PURCH-AMT-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-DISC-AMT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SR-DISC-AMT-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-NET-AMT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SR-NET-AMT-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"WRITE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SALES-REPORT-OUT"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"AFTER"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"ADVANCING"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"LINES"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"READ"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PURCHASES-FILE-IN"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"AT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"YES\""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-EOF-SWITCH"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"identifier",
+        "value":"C10-PROCESS-TOTALS-PARA"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"SPACES"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SALES-REPORT-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"TOTAL TRANSACTIONS\""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TT-TITLE-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-TOT-TRANSACTIONS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TT-TOT-TRANS-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-TOT-PURCH-AMT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TT-TOT-PURCH-AMT-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"*\""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TT-ASTERISK-01-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-TOT-DISC-AMT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TT-TOT-DISC-AMT-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"*\""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TT-ASTERISK-02-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-TOT-NET-AMT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TT-TOT-NET-PURCH-AMT-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"*\""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TT-ASTERISK-03-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"WRITE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TOT-TRANS-OUT"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"AFTER"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"ADVANCING"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"3"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"LINES"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"identifier",
+        "value":"C20-PROCESS-AVGS-PARA"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"DIVIDE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-TOT-PURCH-AMT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"BY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-TOT-TRANSACTIONS"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"GIVING"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-AVG-PURCH-AMT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"DIVIDE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-TOT-DISC-AMT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"BY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-TOT-TRANSACTIONS"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"GIVING"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-AVG-DISC-AMT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"DIVIDE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-TOT-NET-AMT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"BY"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-TOT-TRANSACTIONS"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"GIVING"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-AVG-NET-AMT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"SPACES"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SALES-REPORT-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"AVERAGE AMOUNTS\""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"AA-TITLE-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-AVG-PURCH-AMT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"AA-AVG-PURCH-AMT-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-AVG-DISC-AMT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"AA-AVG-DISC-AMT-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"MOVE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WS-AVG-NET-AMT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"AA-AVG-NET-PURCH-AMT-OUT"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"keyword",
+        "value":"WRITE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"AVG-AMTS-OUT"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"               "
+    },
+    {
+        "type":"keyword",
+        "value":"AFTER"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"ADVANCING"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"LINES"
+    },
+    {
+        "type":"statement terminator",
+        "value":"."
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    }
+]

@@ -1,0 +1,866 @@
+[
+    {
+        "type":"comment",
+        "value":"*---------------------------------------------------"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"*-- Program...: MAIN.PRG"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"*---------------------------------------------------"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"*-- save the environment and reset it"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"identifier",
+        "value":"cTalk"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"set"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"string",
+        "value":"\"TALK\""
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"set"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"talk"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"off"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"identifier",
+        "value":"cStat"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"set"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"string",
+        "value":"\"STATUS\""
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"set"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"stat"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"off"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"identifier",
+        "value":"cBell"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"set"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"string",
+        "value":"\"BELL\""
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"set"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"bell"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"off"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"identifier",
+        "value":"cDel"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"set"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"string",
+        "value":"\"DELETED\""
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"set"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"deleted"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"on"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"*-- define the form:"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"identifier",
+        "value":"fMain"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"new"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"form"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":"              "
+    },
+    {
+        "type":"comment",
+        "value":"&& create a new form"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"identifier",
+        "value":"fMain"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"function",
+        "value":"Left"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"comment",
+        "value":"&& left at 1"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"identifier",
+        "value":"fMain"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"value",
+        "value":"Top"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"comment",
+        "value":"&& top at 0"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"identifier",
+        "value":"fMain"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"identifier",
+        "value":"Text"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"Ken's Address Book\""
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"identifier",
+        "value":"fMain"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"identifier",
+        "value":"MenuFile"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"MAIN.MNU\""
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"comment",
+        "value":"&& menu we created"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"identifier",
+        "value":"fMain"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"identifier",
+        "value":"MDI"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":".f."
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"comment",
+        "value":"&& not \"Multiple Document"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"comment",
+        "value":"&& Interface\" form"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"identifier",
+        "value":"fMain"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"identifier",
+        "value":"OnOpen"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"{"
+    },
+    {
+        "type":"line continuation",
+        "value":";"
+    },
+    {
+        "type":"identifier",
+        "value":"fMain"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"identifier",
+        "value":"WindowState"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"invalid operator",
+        "value":"}"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"comment",
+        "value":"&& When we open, maximize"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"comment",
+        "value":"&& the form! Note the use"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"comment",
+        "value":"&& of a codeblock ..."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"identifier",
+        "value":"fMain"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"identifier",
+        "value":"ReadModal"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":"          "
+    },
+    {
+        "type":"comment",
+        "value":"&& open form and suspend"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"comment",
+        "value":"&& this program until"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"comment",
+        "value":"&& it's closed."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"*-- when the form closes, we will continue here:"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"set"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"talk"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"&"
+    },
+    {
+        "type":"identifier",
+        "value":"cTalk"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"set"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"stat"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"&"
+    },
+    {
+        "type":"identifier",
+        "value":"cStat"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"set"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"bell"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"&"
+    },
+    {
+        "type":"identifier",
+        "value":"cBell"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"set"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"deleted"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"&"
+    },
+    {
+        "type":"identifier",
+        "value":"cDel"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"*---------------------------------------------------"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"*-- End of Program: MAIN.PRG"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"comment",
+        "value":"*---------------------------------------------------"
+    }
+]

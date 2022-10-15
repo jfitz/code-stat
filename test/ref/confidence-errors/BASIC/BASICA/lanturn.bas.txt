@@ -1,0 +1,23 @@
+[
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"\u001a",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"140   KEY(11) ON: KEY(12) ON: KEY(13) ON: KEY(14) ON: ON KEY(11) GOSUB 180: ON KEY(12) GOSUB 181: ON KEY(13) GOSUB 182: ON KEY(14) GOSUB 183",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"330   CLS: LINE (0,0) - (31,61), 15, B: LOCATE 2,2: PRINT \"P\";: LOCATE 3,2: PRINT \"L\";: LOCATE 4,2: PRINT \"A\";: LOCATE 5,2: PRINT \"Y\";: LOCATE 6,2: PRINT \"E\";: LOCATE 7,2: PRINT \"R\";: GET (0,0) - (31, 61), SP1",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"2110   IF MX <> 0 THEN PF = SGN(SGN(MX) + 1): I = MX: PX = PX + I: MX = MX - I: IF PX < 32 THEN PX = 32 ELSE IF PX > 256 THEN PX = 256",
+        "WIDTH":132
+    }
+]

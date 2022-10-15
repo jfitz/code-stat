@@ -1,0 +1,1334 @@
+[
+    {
+        "type":"label",
+        "value":".."
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"TEST"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ALU"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"OPS"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"number",
+        "value":"0000"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"90"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"GHI"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"0     .. SET UP R6"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"number",
+        "value":"0001"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"B6"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"PHI"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"6"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"number",
+        "value":"0002"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"F829"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"identifier",
+        "value":"LDI"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"DOIT  .. FOR INPUT OF OPCODE"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"number",
+        "value":"0004"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"A6"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"PLO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"6"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"number",
+        "value":"0005"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"E0"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"SEX"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"0     .. (X=0 ALREADY)"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"number",
+        "value":"0006"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"6400"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"identifier",
+        "value":"OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"4,00  .. ANNOUNCE US READY"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"number",
+        "value":"0008"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"E6"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"SEX"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"6     .. NOW X=6"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"number",
+        "value":"0009"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"3"
+    },
+    {
+        "type":"identifier",
+        "value":"F09"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"identifier",
+        "value":"BN4"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"*     .. WAIT FOR IT"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid",
+        "value":"000B"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"6"
+    },
+    {
+        "type":"identifier",
+        "value":"C"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"INP"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"4     .. OK, GET IT"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid",
+        "value":"000C"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"64"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"4     .. AND ECHO TO DISPLAY"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid",
+        "value":"000D"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"370"
+    },
+    {
+        "type":"identifier",
+        "value":"D"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"identifier",
+        "value":"B4"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"*      .. WAIT FOR RELEASE"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid",
+        "value":"000F"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"F860"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"identifier",
+        "value":"LDI"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"#60   .. NOW GET READY FOR"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"number",
+        "value":"0011"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"A6"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"PLO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"6     .. FIRST OPERAND"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"number",
+        "value":"0012"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"E0"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"SEX"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"0     .. SAY SO"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"number",
+        "value":"0013"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"6401"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"identifier",
+        "value":"OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"4,01"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"number",
+        "value":"0015"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"3"
+    },
+    {
+        "type":"identifier",
+        "value":"F15"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"identifier",
+        "value":"BN4"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"number",
+        "value":"0017"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"E6"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"SEX"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"6     .. TAKE IT IN AND ECHO"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"number",
+        "value":"0018"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"6"
+    },
+    {
+        "type":"identifier",
+        "value":"C"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"INP"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"4     .. (TO 0060)"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"number",
+        "value":"0019"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"64"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"4     .. (ALSO INCREMENT R6)"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid",
+        "value":"001A"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"371"
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"identifier",
+        "value":"B4"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid",
+        "value":"001C"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"E0"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"SEX"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"0     .. DITTO SECOND OPERAND"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid",
+        "value":"001D"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"6402"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"identifier",
+        "value":"OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"4,02"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid",
+        "value":"001F"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"E6"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"SEX"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"6"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"number",
+        "value":"0020"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"3"
+    },
+    {
+        "type":"identifier",
+        "value":"F20"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"LOOP"
+    },
+    {
+        "type":"group",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"BN4 *     .. WAIT FOR IT"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"number",
+        "value":"0022"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"6"
+    },
+    {
+        "type":"identifier",
+        "value":"C"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"INP"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"4     .. GET IT (NOTE: X=6)"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"number",
+        "value":"0023"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"64"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"4     .. ECHO IT"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"number",
+        "value":"0024"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"3724"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"identifier",
+        "value":"B4"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"*      .. WAIT FOR RELEASE"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"number",
+        "value":"0026"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"26"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"DEC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"6     .. BACK UP R6 TO 0060"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"number",
+        "value":"0027"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"26"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"DEC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"6"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"number",
+        "value":"0028"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"46"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"LDA"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"6     .. GET 1ST OPERAND TO D"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"number",
+        "value":"0029"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"C4"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"identifier",
+        "value":"DOIT"
+    },
+    {
+        "type":"group",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"NOP       .. DO OPERATION"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid",
+        "value":"002A"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"C4"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"NOP"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"comment",
+        "value":".. (SPARE)"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid",
+        "value":"002B"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"26"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"DEC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"6     .. BACK TO 0060"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid",
+        "value":"002C"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"56"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"STR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"6     .. OUTPUT RESULT"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid",
+        "value":"002D"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"64"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"OUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"4     .. (X=6 STILL)"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid",
+        "value":"002E"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"7"
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"REQ"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"comment",
+        "value":".. TURN OFF Q"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid",
+        "value":"002F"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CA0020"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"identifier",
+        "value":"LBNZ"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"LOOP .. THEN IF ZERO,"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"number",
+        "value":"0032"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"7"
+    },
+    {
+        "type":"identifier",
+        "value":"B"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"identifier",
+        "value":"SEQ"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"comment",
+        "value":".. TURN IT ON AGAIN"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"number",
+        "value":"0033"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"3020"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"identifier",
+        "value":"BR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"LOOP   .. REPEAT IN ANY CASE"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    }
+]

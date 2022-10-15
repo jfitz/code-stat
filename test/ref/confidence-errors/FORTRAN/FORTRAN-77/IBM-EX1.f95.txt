@@ -1,0 +1,84 @@
+[
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"INTEGER A(1000,1000), B(200)",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"I=17",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"FORALL (I=1:1000,J=1:1000,I.NE.J) A(I,J)=A(J,I)",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"PRINT *, I    ! The value 17 is printed because the I",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"FORALL (N=1:200:2) B(N)=B(N+1)",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"END",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":".",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"the",
+        "SECOND":"FORALL"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"FORALL",
+        "SECOND":"has"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"has",
+        "SECOND":"statement"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"statement",
+        "SECOND":"scope"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"has",
+        "SECOND":"statement"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"statement",
+        "SECOND":"scope"
+    },
+    {
+        "TYPE":"KEYWORDS",
+        "MESSAGE":"No keywords found"
+    }
+]

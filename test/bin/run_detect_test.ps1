@@ -3,7 +3,6 @@ Param
     [string]$name,
     [string]$language,
     [string]$comment,
-    [switch]$wide,
     [string]$inputfile,
     [string]$expected,
     [int32]$tabsize
@@ -23,10 +22,6 @@ $params += "-i $inputfile"
 if ($PSBoundParameters.ContainsKey('comment')) {
     $params += '--comment'
     $params += $comment
-}
-
-if ($wide) {
-    $params += '--wide'
 }
 
 if ($PSBoundParameters.ContainsKey('tabsize')) {

@@ -1,0 +1,1718 @@
+[
+    {
+        "type":"invalid",
+        "value":"function gauss_sparse(num_iter, tol, b, A, x, actual_iter) result(tol_max)"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"!  This function solves a system of equations (Ax = b) by using the Gauss-Seidel Method"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"invalid",
+        "value":"  im"
+    },
+    {
+        "type":"line continuation",
+        "value":"p"
+    },
+    {
+        "type":"invalid",
+        "value":"licit"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"none"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"invalid",
+        "value":"  re"
+    },
+    {
+        "type":"line continuation",
+        "value":"a"
+    },
+    {
+        "type":"invalid",
+        "value":"l"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"::"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"invalid",
+        "value":"tol_max"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"!  Input: its value cannot be modified from within the function"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"invalid",
+        "value":"  in"
+    },
+    {
+        "type":"line continuation",
+        "value":"t"
+    },
+    {
+        "type":"invalid",
+        "value":"eger"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"intent"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid",
+        "value":"in"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"::"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"num_iter"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"invalid",
+        "value":"  re"
+    },
+    {
+        "type":"line continuation",
+        "value":"a"
+    },
+    {
+        "type":"invalid",
+        "value":"l"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"intent"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid",
+        "value":"in"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"::"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"tol"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"invalid",
+        "value":"  re"
+    },
+    {
+        "type":"line continuation",
+        "value":"a"
+    },
+    {
+        "type":"invalid",
+        "value":"l"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"intent"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid",
+        "value":"in"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"dimension"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid operator",
+        "value":":"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"::"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"b"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid operator",
+        "value":":"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"invalid operator",
+        "value":":"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"!  Input/Output: its input value is used within the function, and can be modified"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"invalid",
+        "value":"  re"
+    },
+    {
+        "type":"line continuation",
+        "value":"a"
+    },
+    {
+        "type":"invalid",
+        "value":"l"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"intent"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid",
+        "value":"inout"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"::"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"x"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid operator",
+        "value":":"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"!  Output: its value is modified from within the function, only if the argument is required"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"invalid",
+        "value":"  in"
+    },
+    {
+        "type":"line continuation",
+        "value":"t"
+    },
+    {
+        "type":"invalid",
+        "value":"eger"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"optional"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"intent"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid",
+        "value":"out"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"::"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"actual_iter"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"!  Locals"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"invalid",
+        "value":"  in"
+    },
+    {
+        "type":"line continuation",
+        "value":"t"
+    },
+    {
+        "type":"invalid",
+        "value":"eger"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"::"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"n"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"iter"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"invalid",
+        "value":"  re"
+    },
+    {
+        "type":"line continuation",
+        "value":"a"
+    },
+    {
+        "type":"invalid",
+        "value":"l"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"::"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"xk"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"!  Initialize values"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"invalid",
+        "value":"  n "
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"line continuation",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"size"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid",
+        "value":"b"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"S"
+    },
+    {
+        "type":"invalid",
+        "value":"ize"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"of"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"array"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"obtained"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"using"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"size"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"intrinsic"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"function"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"invalid",
+        "value":"  to"
+    },
+    {
+        "type":"line continuation",
+        "value":"l"
+    },
+    {
+        "type":"invalid",
+        "value":"_max"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"tol"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"invalid",
+        "value":"  it"
+    },
+    {
+        "type":"line continuation",
+        "value":"e"
+    },
+    {
+        "type":"invalid",
+        "value":"r"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"!  Compute solution until convergence"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"invalid",
+        "value":"  co"
+    },
+    {
+        "type":"line continuation",
+        "value":"n"
+    },
+    {
+        "type":"invalid",
+        "value":"vergence_loop"
+    },
+    {
+        "type":"invalid operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"do"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"while"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid",
+        "value":"tol_max"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":">"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"tol"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"invalid",
+        "value":"and"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"iter"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"<"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"num_iter"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"invalid operator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"it"
+    },
+    {
+        "type":"line identification",
+        "value":"er = iter + 1"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"invalid",
+        "value":"tol_max"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"R"
+    },
+    {
+        "type":"invalid",
+        "value":"eset"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"the"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"tolerance"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"value"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"!     Compute solution for the k-th iteration"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"invalid",
+        "value":"iteration_loop"
+    },
+    {
+        "type":"invalid operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"do"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"i"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"!        Compute the current x-value"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"invalid",
+        "value":"xk"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid",
+        "value":"b"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"dot_product"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"invalid operator",
+        "value":":"
+    },
+    {
+        "type":"invalid",
+        "value":"i"
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"invalid",
+        "value":"x"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid operator",
+        "value":":"
+    },
+    {
+        "type":"invalid",
+        "value":"i"
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"dot_product"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"invalid",
+        "value":"i"
+    },
+    {
+        "type":"line identification",
+        "value":"+1:n),x(i+1:n))) / A(i, i)"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"!        Compute the error of the solution"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"!        dot_product(a,v)=a'b"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"invalid",
+        "value":"tol_max"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"max"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid",
+        "value":"abs"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid",
+        "value":"x"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"xk"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"abs"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid",
+        "value":"xk"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"**"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"abs"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"line identification",
+        "value":" * (x(i) - xk)), tol_max)"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"invalid",
+        "value":"x"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"xk"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"invalid",
+        "value":"enddo"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"iteration_loop"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"invalid",
+        "value":"  en"
+    },
+    {
+        "type":"line continuation",
+        "value":"d"
+    },
+    {
+        "type":"invalid",
+        "value":"do"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"convergence_loop"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"invalid",
+        "value":"  if"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid",
+        "value":"present"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid",
+        "value":"actual_iter"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"actual_iter"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"iter"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"end function gauss_sparse"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    }
+]

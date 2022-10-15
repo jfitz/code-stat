@@ -1,0 +1,4450 @@
+[
+    {
+        "type":"comment",
+        "value":";Start of modifications"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"FALSE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"EQU"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"comment",
+        "value":";Logical FALSE for conditionals   JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"TRUE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"EQU"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NOT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"FALSE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":";Logical TRUE for conditionals  JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"Z100"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"EQU"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TRUE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":";Set TRUE for Z-100 or    JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"IBMPC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"EQU"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NOT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Z100"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":";FALSE for IBM-PC compatibles"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"preprocessor",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Z100"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":";Z-100 MTR-100 ROM Definitions JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"ESC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"EQU"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1BH"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"comment",
+        "value":";ASCII escape character JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"MTRSEG"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"SEGMENT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"AT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"OFEO1H"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":";MTR-100 ROM Segment JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"ORG"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"19H"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":";0ffset to JMP instruction JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"MTRSCRT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"LABEL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"FAR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":";Smart Terminal Emulator JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"MTRSEG"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ENDS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"3"
+    },
+    {
+        "type":"directive",
+        "value":"End"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"of"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"Segment"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"JES"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"preprocessor",
+        "value":"ENDIF"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":".xlist"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"directive",
+        "value":"INCLUDE PARMS.ASM"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"directive",
+        "value":"INCLUDE MACLIB.ASM"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"directive",
+        "value":"INCLUDE DEFASCII.ASM"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"directive",
+        "value":"INCLUDE DEFMS.ASM"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"directive",
+        "value":"INCLUDE DEFDEV.ASM"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"directive",
+        "value":".list"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"* MD IO - Major I/O routine"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":";╬ô├ç├┐This is the I/O routine"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"MD_IO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PROC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NEAR"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PUSH"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PUSH"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"DX"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PUSH"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ES"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"comment",
+        "value":"; Save registers JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PUSH"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"BX"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"BX"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"OFFSET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CS"
+    },
+    {
+        "type":"group",
+        "value":":"
+    },
+    {
+        "type":"identifier",
+        "value":"MDRD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Memory Disk Read Logo JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TEST"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CS"
+    },
+    {
+        "type":"group",
+        "value":":"
+    },
+    {
+        "type":"directive",
+        "value":"BYTE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PTR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TFLAG"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"OFFH"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Memory Disk Read? JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"JZ"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MD_IO1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Jump if so JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"BX"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"OFFSET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CS"
+    },
+    {
+        "type":"group",
+        "value":":"
+    },
+    {
+        "type":"identifier",
+        "value":"MDWR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Memory Disk Write Logo JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"MD_IO1:"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CALL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MD_LOGO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Go output string JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"POP"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"BX"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"comment",
+        "value":"; Restore registers JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"POP"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ES"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":";End of transfer"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"MD_1O9:"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PUSH"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"BX"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Save register JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"BX"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"OFFSET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CS"
+    },
+    {
+        "type":"group",
+        "value":":"
+    },
+    {
+        "type":"identifier",
+        "value":"MDOFF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Turn off Memory Disk Logo JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CALL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MD_LOGO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Go output string JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"POP"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"BX"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"comment",
+        "value":"; Restore register JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"POP"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"DX"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"POP"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"JMP"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MD_SUCC"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"MD_IO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ENDP"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":";Turn the Memory Disk Logo On or Off JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"preprocessor",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Z100"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"MD_LOGO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PROC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NEAR"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"LOOP:"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"AL"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"CS"
+    },
+    {
+        "type":"group",
+        "value":":"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"BX"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Get next character JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"CMP"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"AL"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'$'"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; End of string? JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"JZ"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"DONE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Jump if so   JES"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PUSH"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"BX"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Save register JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CLD"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"comment",
+        "value":"; Clear direction flag JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CALL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MTRSCRT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Output character JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"POP"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"BX"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"comment",
+        "value":"; Restore register JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"INC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"BX"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"comment",
+        "value":"; Point to next character JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"JMP"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SHORT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"LOOP"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Continue looping JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"DONE:"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"RET"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"comment",
+        "value":"; Return to caller JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"MD_LOGO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ENDP"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"preprocessor",
+        "value":"ENDIF"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"preprocessor",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"IBMPC"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"MD_LOGO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PROC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NEAR"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"BX"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"CS"
+    },
+    {
+        "type":"group",
+        "value":":"
+    },
+    {
+        "type":"group",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"BX"
+    },
+    {
+        "type":"group",
+        "value":"]"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Get characters into BX JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"WORD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PTR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CS"
+    },
+    {
+        "type":"group",
+        "value":":"
+    },
+    {
+        "type":"identifier",
+        "value":"MDPC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"BX"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Save them for later JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"BH"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"O"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; BH=video page # JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"AH"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"3"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Get cursor position JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"INT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"10H"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; DH=row, DL=col JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CS"
+    },
+    {
+        "type":"group",
+        "value":":"
+    },
+    {
+        "type":"identifier",
+        "value":"CURSOR"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"DX"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Save cursor position JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"BH"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"O"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; BH=video page # JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"DX"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"256"
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"number",
+        "value":"24"
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"number",
+        "value":"78"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; DH=row, DL=col JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"AH"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Set cursor position JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"INT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"10H"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"AL"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"CS"
+    },
+    {
+        "type":"group",
+        "value":":"
+    },
+    {
+        "type":"identifier",
+        "value":"MDPC"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; lst character to write JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"BX"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"70H"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; BL=attr (reverse video) JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"CMP"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"AL"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"' '"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Space character? JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"JNZ"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MD_L1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Jump if not JES"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"BX"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"07H"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; BL=attr (normal video) JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"MD_L1:"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CX"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; CX=# of characters JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"AH"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"9"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Write char and attribute JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"INT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"10H"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"BH"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"O"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; BH=video page # JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"DX"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"256"
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"number",
+        "value":"24"
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"number",
+        "value":"79"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; DH=row, DL=col JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"AH"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Set cursor position JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"INT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"10H"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"AL"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"CS"
+    },
+    {
+        "type":"group",
+        "value":":"
+    },
+    {
+        "type":"identifier",
+        "value":"MDPC"
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; 2nd character to write JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"BX"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"70H"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; BL=attr (reverse video) JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CMP."
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"AL"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"' '"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Space character? JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"JNZ"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MD_L2"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Jump if not JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"BX"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"O7H"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; BL=attr (normal video) JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"_L2"
+    },
+    {
+        "type":"group",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CX"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; CX=# of characters JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"AH"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"9"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Write char and attribute JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"INT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"10H"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"BH"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"O"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; BH=video page # JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"DX"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"CS"
+    },
+    {
+        "type":"group",
+        "value":":"
+    },
+    {
+        "type":"identifier",
+        "value":"CURSOR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Restore cursor position JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"MOV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"AH"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Set cursor position JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"INT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"10H"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"RET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Return to caller JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"MD_LOGO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ENDP"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"preprocessor",
+        "value":"ENDIF"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"* DATA areas"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"MDISK_START"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DW"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"O"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Start segment of MDISK"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"PTRSAV"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"DD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Request packet address"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"SAVESS"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DW"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"?"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; Old stack save"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"SAVESP"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DW"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"?"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"TFLAG"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"; 0 = read, 1 = write"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"SECCNT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DW"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"?"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DW"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"128"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"DUP"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid operator",
+        "value":"?"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"MYSTACK"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"LABEL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NEAR"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":";Memory Disk Logo Strings JES"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"preprocessor",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Z100"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"MDRD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ESC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'x5'"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":";cursor off JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ESC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'j'"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"comment",
+        "value":";save cursor position JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ESC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'x1'"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"comment",
+        "value":";enable line 25 JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ESC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'Y8n'"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"comment",
+        "value":";cursor to row 25 col JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ESC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'p'"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"comment",
+        "value":";enter reverse video JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'RD'"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"comment",
+        "value":";memory disk read logo JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ESC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'q'"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"comment",
+        "value":";exit reverse video JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ESC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'k'"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"comment",
+        "value":";restore cursor position JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ESC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'y5'"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"comment",
+        "value":";cursor on JES"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'$'"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"comment",
+        "value":";end of string JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"MDWR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ESC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'x5'"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":";cursor off JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ESC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'j'"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"comment",
+        "value":";save cursor position JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ESC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'x1'"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"comment",
+        "value":";enable line 25 JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ESC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'Y8n'"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"comment",
+        "value":";cursor to row 25 col 79 JES"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ESC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'p'"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"comment",
+        "value":";enter reverse video JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'WR'"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"comment",
+        "value":";memory disk write logo JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ESC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'q'"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"comment",
+        "value":";exit reverse video JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ESC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'k'"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"comment",
+        "value":";restore cursor position JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ESC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'y5'"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"comment",
+        "value":";cursor on JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'$'"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"comment",
+        "value":";end of string JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"MDOFF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ESC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'x5'"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":";cursor off JES"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ESC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'j'"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"comment",
+        "value":";save cursor position JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ESC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'x1'"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"comment",
+        "value":";enable line 25 JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ESC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'Y8n'"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"comment",
+        "value":";cursor to row 25 col 79 JES"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'  '"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"comment",
+        "value":";erase memory disk logo JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ESC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'k'"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"comment",
+        "value":";restore cursor position JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ESC"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"string",
+        "value":"'y5'"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"comment",
+        "value":";cursor on JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'$'"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"comment",
+        "value":";end of string JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"preprocessor",
+        "value":"ENDIF"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"preprocessor",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"IBMPC"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"CURSOR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DW"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"comment",
+        "value":";saved cursor row and column JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"MDPG"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"operator",
+        "value":"'"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"comment",
+        "value":";saved memory disk logo chars JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"MDRD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'RD'"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"comment",
+        "value":";memory disk read logo string JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"MDWR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'WR'"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"comment",
+        "value":";memory disk write logo string JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"MDOFF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"DB"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'  '"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"comment",
+        "value":";erase memory disk logo string JFS"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"preprocessor",
+        "value":"ENDIF"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"directive",
+        "value":"End"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"of"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"resident"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"code"
+    },
+    {
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"identifier",
+        "value":"data"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"label",
+        "value":"MD_END"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"LABEL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NEAR"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    }
+]

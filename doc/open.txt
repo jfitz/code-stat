@@ -143,7 +143,8 @@ ASM-68000
 
 ASM-8086 (16-bit, not x86)
 
-ASM
+ASM 6502
+ - examples: http://textfiles.com/apple/ANATOMY/
 
 ADA
 + Embedded SQL (EXEC ;)
@@ -157,7 +158,8 @@ ADA
 Awk
 
 BASIC
-- identify line numbers after THEN, GOTO, GOSUB (incuding ON GOTO, ON GOSUB) ON ERROR
+- identify line numbers after THEN, GOTO, ON GOSUB, ON ERROR
+- identify line numbers after GOSUB, ON GOTO
 
 BASIC-80
 - 4K version: extract keywords from text
@@ -257,25 +259,24 @@ C#:
 CBASIC
 + colon as part of GRAPHIC PRINT statement
 
+COBOL
+- combine fixed-format and free-format like PL/1
++ tokenize EXEC block
++ 'ON' is a value, a keyword after 'OCCURS DEPENDING', 'SORT file', 'IS id'
+- paragraph name is a single identifier followed by period
+- expected keyword confidence assigns value
+
 COBOL fixed-format
 - empty file has too high confidence
-+ tokenize EXEC block
 + unclosed quoted strings on continuation extend to column 72
 + extensions: https://www.ibm.com/support/knowledgecenter/SS6SGM_5.1.0/com.ibm.cobol51.aix.doc/PGandLR/ref/rlext.html
-+ 'ON' is a value, a keyword after 'OCCURS DEPENDING', 'SORT file', 'IS id'
-- expected keyword confidence assigns value
-- paragraph name is a single identifier followed by period
 
 COBOL free-format
 - P010-wide fails detect
-+ tokenize EXEC block
 * more tests from extra
 + Micro-Focus extensions (MF)
 * source for COBOL-85, COBOL-74 Acucobol, IBM, GNU, MF extensions
 + keywords for GNU
-+ 'ON' is a value, a keyword after 'OCCURS DEPENDING', 'SORT file', 'IS id'
-- expected keyword confidence assigns value
-- paragraph name is a single identifier followed by period
 - block comment *><[ to *><] (OpenCobol)
 - combine AsteriskCommentTokenBuilder with AssemblyCommentTokenBuilder
 
@@ -364,6 +365,7 @@ trunc(Number)
 tuple_size(Tuple)
 
 Fortran
+- combine fixed-format and free-format like PL/1
 - empty file has too high confidence
 + embedded SQL (EXEC newline)
 + tokenize EXEC block

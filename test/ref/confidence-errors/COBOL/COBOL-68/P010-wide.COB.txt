@@ -1,0 +1,188 @@
+[
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"'",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"       01  T010-MONTHS-TABLE              PIC X(36)      VALUE 'ENEFEBMARABRMAYJUNJULAGOSEPOCTNOVDIC'.",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"           05 T030-DETALLES-PRODUCTOS OCCURS 30 TIMES INDEXED BY T030-I-PRODUCTO.",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"           05 FILLER                      PIC X(60)      VALUE \"R E P O R T E C O M P A R A T I V O   D E   C O N S U M O S\".",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"           05 FILLER                      PIC X(15)       VALUE \"REPORTO ALMACEN\".",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"           05 FILLER                      PIC X(18)       VALUE \"REPORTO PRODUCCION\".",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"           05 FILLER                      PIC X(20)       VALUE \"DIF. ENTRE REPORTES\".",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"           05 FILLER                      PIC X(15)       VALUE \"TOTAL DEL DPTO\".",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"           05 FILLER                      PIC X(20)       VALUE \"DIFERENCIA A FAVOR\".",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"           05 FILLER                      PIC X(20)       VALUE \"DIFERENCIA A FAVOR\".",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"           PERFORM 040-PROC-PTA UNTIL (S000-FINARCHCONSUMO NOT = 0 AND S000-FINARCHDEVOLUCION NOT = 0).",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"           IF ((RI-F-COMP-YEAR GREATER THAN OR EQUAL TO 0) AND (RI-F-MONTH GREATER THAN OR EQUAL TO 1 AND RI-F-MONTH LESS THAN OR EQUAL TO 12) AND (RI-F-DAY GREATER THAN OR EQUAL TO 1",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"               (FUNCTION REM(RI-F-YEAR,4)=0 AND FUNCTION REM(RI-F-YEAR,100) NOT =0))",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"               (FUNCTION REM(RI-F-YEAR,4)NOT =0 AND FUNCTION REM(RI-F-YEAR,100) =0)) AND RI-F-DAY <29))))))",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"               ELSE IF ((RI-F-COMP-YEAR GREATER THAN OR EQUAL TO 0) AND (RI-F-MONTH GREATER THAN OR EQUAL TO 1 AND",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"                   RI-F-MONTH LESS THAN OR EQUAL TO 12) AND (RI-F-DAY GREATER THAN OR EQUAL TO 1 AND",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"                   ((RI-F-MONTH = 04 OR RI-F-MONTH =06 OR RI-F-MONTH =09 OR RI-F-MONTH = 11) AND",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"                 ELSE IF ((RI-F-COMP-YEAR GREATER THAN OR EQUAL TO 0) AND (RI-F-MONTH GREATER THAN OR EQUAL TO 1 AND RI-F-MONTH LESS THAN OR EQUAL TO 12) AND (RI-F-DAY GREATER THAN OR EQUAL TO 1 AND",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"                   ((RI-F-MONTH = 01 OR RI-F-MONTH =03 OR RI-F-MONTH =05 OR RI-F-MONTH = 07 OR RI-F-MONTH = 08",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"             MOVE T020-DESCRIPCION-T05(T020-I-T05-I) TO R1-20-DESCRIPCION-DPTO-ENCA",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"           PERFORM 060-PROC-REG UNTIL ((I040-ID-PROC-DPTO-CONS NOT = I070-AC-ID-DPTO-CONS) AND (I040-ID-PROC-DPTO-CONS NOT = I110-AD-ID-DPTO-DEV)).",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"               PERFORM 060-0600-CALCULA-DEV UNTIL I040-ID-PROC-CODIGO-CONS NOT = I110-AD-ID-CODIGO-DEV.",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"           MULTIPLY W050-COSTO BY A060-ACUM-REG-RP-CONSUMO GIVING A060-ACUM-REG-RP-IMPORTE.",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"           SUBTRACT A060-ACUM-REG-RP-IMPORTE FROM A060-ACUM-REG-RA-IMPORTE GIVING A060-ACUM-DIF-IMPORTE.",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"           SUBTRACT A060-ACUM-REG-RP-CONSUMO FROM A060-ACUM-REG-RA-CONSUMO GIVING A060-ACUM-DIF-CONSUMO.",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"               DISPLAY '            ARCHIVO CONSUMO               ' 'FUERA DE SECUENCIA     '",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"               DISPLAY '            ARCHIVO TABLA                 ' 'FUERA DE SECUENCIA     '",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"               DISPLAY '            ARCHIVO PRODUCTO              ' 'FUERA DE SECUENCIA     '",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"               DISPLAY '            ARCHIVO DEVOLUCION            ' 'FUERA DE SECUENCIA     '",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"       DISPLAY W000-PROG '  CON.S LEIDOS                                           ' A990-PROC-LEIDO-CONSUMO   .",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"       DISPLAY W000-PROG '  DEV.S LEIDOS                                           ' A990-PROC-LEIDO-DEVOLUCION   .",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"       DISPLAY W000-PROG '  PLANTAS PROCESADAS                                     ' A990-PROC-PTA.",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"       DISPLAY W000-PROG '  DEPARTAMENTOS PROCESADOS                               ' A990-PROC-DPTO.",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"       DISPLAY W000-PROG '  PROCESOS PROCESADOS                                    ' A990-PROC-REG.",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"       DISPLAY W000-PROG '  REG.S A FAVOR DE ALMACEN                               ' A990-PROC-A-FAVOR-RA.",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"       DISPLAY W000-PROG '  REG.S A FAVOR DE PRODUCCION                            ' A990-PROC-A-FAVOR-RP.",
+        "WIDTH":80
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"       DISPLAY W000-PROG '  REG.S A FAVOR DE NINGUNO                               ' A990-PROC-EMPATE.",
+        "WIDTH":80
+    }
+]

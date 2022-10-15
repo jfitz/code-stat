@@ -1,0 +1,22 @@
+[
+    {
+        "TYPE":"LENGTH",
+        "LONG":"30 BL$=CHR$(7):E$=CHR$(27):ER$=E$+\"E\":P$=E$+\"p\":Q$=E$+\"q\":G$=E$+\"F\":NG$=E$+\"G\":Y$=E$+\"Y\":L$=E$+\"l\":J$=E$+\"j\":K$=E$+\"k\":J1$=E$+\"J\":U=1.790493109375",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"290 PRINT FNC$(3,6);\"`\";FNC$(3,12);\"`\";FNC$(3,15);\"`\";FNC$(3,23);\"`\";FNC$(3,44);\"`\";FNC$(3,52);\"`\";FNC$(3,61);\"`\";FNC$(3,69);\"`\";FNC$(3,75);\"`\"",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"910 PRINT:PRINT\"A = Airport\":PRINT\"V = VOR/VORTAC\":PRINT\"N = NDB/LOM\":PRINT\"I = Intersection\":PRINT\"R = Reporting point\":PRINT\"C = Checkpoint\":PRINT\"W = Waypoint\":PRINT\"L = Landmark\"",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"3500 IF AB<15 OR AB>165 THEN PRINT BL$;FNC$(7,1);J1$;FNC$(9,1);\"You're too close to the line that runs between the navaids\":PRINT\"to compute your position accurately.\":GOTO2420",
+        "WIDTH":132
+    }
+]

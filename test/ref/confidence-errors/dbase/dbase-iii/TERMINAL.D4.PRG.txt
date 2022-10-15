@@ -1,0 +1,167 @@
+[
+    {
+        "TYPE":"OPERATOR3",
+        "FIRST":"\r\n",
+        "SECOND":"!"
+    },
+    {
+        "TYPE":"OPERATOR4",
+        "FIRST":"=",
+        "SECOND":"MEMORY"
+    },
+    {
+        "TYPE":"OPERATOR4",
+        "FIRST":"!",
+        "SECOND":"DIR"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"ERROR",
+        "SECOND":"'VALID CHOICES: 1 - 5'"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"ERROR",
+        "SECOND":"'VALID CHOICES: 2 - 7'"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"ERROR",
+        "SECOND":"'VALID CHOICES: 300 - 38400'"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"ERROR",
+        "SECOND":"'VALID CHOICES: None, Even or Odd (N, E or O)'"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"ERROR",
+        "SECOND":"'VALID CHOICES: 7 or 8'"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"ERROR",
+        "SECOND":"'VALID CHOICES: Xon/Xoff, Rts/cts or None (X, R or N)'"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"ERROR",
+        "SECOND":"'VALID CHOICES: 1 or 2'"
+    },
+    {
+        "TYPE":"LINE FORMAT",
+        "FIRST":"identifier",
+        "SECOND":"DEFINE"
+    },
+    {
+        "TYPE":"LINE FORMAT",
+        "FIRST":"identifier",
+        "SECOND":"ACTIVATE"
+    },
+    {
+        "TYPE":"LINE FORMAT",
+        "FIRST":"value",
+        "SECOND":"ON"
+    },
+    {
+        "TYPE":"LINE FORMAT",
+        "FIRST":"value",
+        "SECOND":"ON"
+    },
+    {
+        "TYPE":"LINE FORMAT",
+        "FIRST":"identifier",
+        "SECOND":"ACTIVATE"
+    },
+    {
+        "TYPE":"LINE FORMAT",
+        "FIRST":"identifier",
+        "SECOND":"ACTIVATE"
+    },
+    {
+        "TYPE":"LINE FORMAT",
+        "FIRST":"value",
+        "SECOND":"ON"
+    },
+    {
+        "TYPE":"LINE FORMAT",
+        "FIRST":"value",
+        "SECOND":"ON"
+    },
+    {
+        "TYPE":"LINE FORMAT",
+        "FIRST":"value",
+        "SECOND":"ON"
+    },
+    {
+        "TYPE":"LINE FORMAT",
+        "FIRST":"value",
+        "SECOND":"ON"
+    },
+    {
+        "TYPE":"LINE FORMAT",
+        "FIRST":"operator",
+        "SECOND":"!"
+    },
+    {
+        "TYPE":"LINE FORMAT",
+        "FIRST":"identifier",
+        "SECOND":"DEACTIVATE"
+    },
+    {
+        "TYPE":"LINE FORMAT",
+        "FIRST":"identifier",
+        "SECOND":"ACTIVATE"
+    },
+    {
+        "TYPE":"LINE FORMAT",
+        "FIRST":"value",
+        "SECOND":"ON"
+    },
+    {
+        "TYPE":"LINE FORMAT",
+        "FIRST":"value",
+        "SECOND":"ON"
+    },
+    {
+        "TYPE":"LINE FORMAT",
+        "FIRST":"identifier",
+        "SECOND":"DEFINE"
+    },
+    {
+        "TYPE":"LINE FORMAT",
+        "FIRST":"identifier",
+        "SECOND":"ACTIVATE"
+    },
+    {
+        "TYPE":"LINE FORMAT",
+        "FIRST":"identifier",
+        "SECOND":"ACTIVATE"
+    },
+    {
+        "TYPE":"LINE FORMAT",
+        "FIRST":"identifier",
+        "SECOND":"ACTIVATE"
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"@ 8,10 SAY \"I/O Address (x#### = heX) ?\" GET ComAddr VALID .NOT. '?' $ ComAddr ERROR 'NEED TO SPECIFY PORT ADDRESS IN heX OR DECIMAL'",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"@10,10 SAY \"BAUD Rate (300-38400) ?\" GET ComBaud PICTURE 'X9999' VALID VAL(ComBaud) >= 300 .AND. VAL(ComBaud) <=38400 ERROR 'VALID CHOICES: 300 - 38400'",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"@11,10 SAY \"Parity (None, Odd or Even) ?\" GET ComPrty PICTURE '!' VALID ComPrty $ 'NEO' ERROR 'VALID CHOICES: None, Even or Odd (N, E or O)'",
+        "WIDTH":132
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"@13,10 SAY \"Flow Control (Xon/xoff, Rts/cts or None) ?\" GET ComFlow PICTURE \"!\" VALID ComFlow $ 'XRN' ERROR 'VALID CHOICES: Xon/Xoff, Rts/cts or None (X, R or N)'",
+        "WIDTH":132
+    }
+]

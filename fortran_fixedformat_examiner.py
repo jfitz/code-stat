@@ -30,7 +30,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
     return 'Escape ?Z'
 
 
-  def __init__(self, code, year, tab_size, wide):
+  def __init__(self, code, year, tab_size):
     super().__init__()
     self.max_expected_line = 80
 
@@ -153,7 +153,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
 
     tokenizer = Tokenizer(tokenbuilders)
 
-    tokens = self.tokenize_code(code, tab_size, tokenizer, wide)
+    tokens = self.tokenize_code(code, tab_size, tokenizer)
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'whitespace')
@@ -184,8 +184,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
 
     self.calc_keyword_confidence()
 
-    if not wide:
-      self.calc_line_length_confidence(code, self.max_expected_line)
+    self.calc_line_length_confidence(code, self.max_expected_line)
 
 
   def unwrapped_code(self, lines):
@@ -250,7 +249,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
     return tokens
 
 
-  def tokenize_line(self, line, tokenizer, wide):
+  def tokenize_line(self, line, tokenizer):
     # break apart the line based on fixed format
     tokens = []
 
@@ -267,12 +266,8 @@ class FortranFixedFormatExaminer(FortranExaminer):
       line_indicator = line[0:1]
       line_number = line[1:5]
       line_continuation = line[5:6]
-      if wide:
-        line_text = line[6:]
-        line_identification = ''
-      else:
-        line_text = line[6:72]
-        line_identification = line[72:]
+      line_text = line[6:72]
+      line_identification = line[72:]
 
       # tokenize the line indicator
       if line_indicator in ['C', '*']:
@@ -302,7 +297,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
     return tokens
 
 
-  def tokenize_code(self, code, tab_size, tokenizer, wide):
+  def tokenize_code(self, code, tab_size, tokenizer):
     lines = code.split('\n')
 
     tokens = []
@@ -312,7 +307,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
       line = line.rstrip()
       line = Examiner.tabs_to_spaces(line, tab_size)
 
-      line_tokens = self.tokenize_line(line, tokenizer, wide)
+      line_tokens = self.tokenize_line(line, tokenizer)
       tokens += line_tokens
 
     return tokens

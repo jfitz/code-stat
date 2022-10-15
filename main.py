@@ -169,18 +169,16 @@ def extract_params(request_args):
   except ValueError:
     tab_size = 8
 
-  wide = 'wide' in request_args
-
   get_errors = 'errors' in request_args
 
-  return languages, comment, tab_size, wide, get_errors
+  return languages, comment, tab_size, get_errors
 
 
-def find_winners(text, tab_size, wide, comment, block_comment_limit, languages):
+def find_winners(text, tab_size, comment, block_comment_limit, languages):
   tiebreak_keywords = False
   tiebreak_tokens = False
   tiebreak_simple = False
-  detected_languages, examiners = identify_language(text, tab_size, wide, comment, block_comment_limit, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages)
+  detected_languages, examiners = identify_language(text, tab_size, comment, block_comment_limit, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages)
 
   # find the highest value
   high_value = 0
@@ -198,17 +196,17 @@ def find_winners(text, tab_size, wide, comment, block_comment_limit, languages):
   return winning_languages, examiners
 
 
-def build_language_list(languages, text, tab_size, wide, comment, block_comment_limit):
+def build_language_list(languages, text, tab_size, comment, block_comment_limit):
   examiners = None
 
   if len(languages) > 0:
     # detect for specified languages, pick the most confident
-    winning_languages, examiners = find_winners(text, tab_size, wide, comment, block_comment_limit, languages)
+    winning_languages, examiners = find_winners(text, tab_size, comment, block_comment_limit, languages)
   else:
     # tokenize as generic
     winning_languages = ['generic']
     examiners = {}
-    examiner = make_one_examiner('generic', text, tab_size, wide, comment, block_comment_limit)
+    examiner = make_one_examiner('generic', text, tab_size, comment, block_comment_limit)
     examiners['generic'] = examiner
 
   return winning_languages, examiners
@@ -713,7 +711,7 @@ def route_unwrap():
 
 @app.route('/detect', methods=['POST'])
 def route_detect():
-  languages, _, tab_size, wide, comment = extract_params(request.args)
+  languages, _, tab_size, comment = extract_params(request.args)
 
   if len(languages) == 0:
     languages = list(codes_and_names.keys())
@@ -734,7 +732,7 @@ def route_detect():
   http_status = 200
   try:
     text = decode_bytes(request_bytes)
-    detected_languages, _ = identify_language(text, tab_size, wide, comment, block_comment_limit, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages)
+    detected_languages, _ = identify_language(text, tab_size, comment, block_comment_limit, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages)
 
     mydict = {}
     for key in detected_languages:
@@ -752,7 +750,7 @@ def route_detect():
 
 @app.route('/tokens', methods=['POST'])
 def route_tokens():
-  languages, comment, tab_size, wide, _ = extract_params(request.args)
+  languages, comment, tab_size, _ = extract_params(request.args)
 
   if len(languages) == 0:
     languages = list(codes_and_names.keys())
@@ -764,7 +762,7 @@ def route_tokens():
   http_status = 200
   try:
     text = decode_bytes(request_bytes)
-    winning_languages, examiners = build_language_list(languages, text, tab_size, wide, comment, block_comment_limit)
+    winning_languages, examiners = build_language_list(languages, text, tab_size, comment, block_comment_limit)
 
     list_of_dicts = []
 
@@ -788,7 +786,7 @@ def route_tokens():
 
 @app.route('/confidence', methods=['POST'])
 def route_confidence():
-  languages, comment, tab_size, wide, get_errors = extract_params(request.args)
+  languages, comment, tab_size, get_errors = extract_params(request.args)
 
   if len(languages) == 0:
     languages = list(codes_and_names.keys())
@@ -800,7 +798,48 @@ def route_confidence():
   http_status = 200
   try:
     text = decode_bytes(request_bytes)
-    winning_languages, examiners = build_language_list(languages, text, tab_size, wide, comment, block_comment_limit)
+    winning_languages, examiners = build_language_list(languages, text, tab_size, comment, block_comment_limit)
+
+    operation = ''
+    list_of_dicts = []
+    if examiners is not None:
+      for winning_language in winning_languages:
+        mydict = {}
+        mydict['language'] = winning_language
+        if get_errors:
+          mydict['errors'] = examiners[winning_language].errors
+          operation = 'errors'
+        else:
+          mydict['confidences'] = examiners[winning_language].confidences
+          operation = 'confidences'
+
+        list_of_dicts.append(mydict)
+
+    json_text = dicts_to_json(list_of_dicts, languages, operation)
+
+  except CodeStatException as e:
+    http_status = 450
+    json_text = str(e)
+
+  return Response(json_text, status=http_status, mimetype='application/json')
+
+
+@app.route('/confidence-errors', methods=['POST'])
+def route_confidence_errors():
+  languages, comment, tab_size, get_errors = extract_params(request.args)
+  get_errors = True
+
+  if len(languages) == 0:
+    languages = list(codes_and_names.keys())
+
+  block_comment_limit = 2048
+
+  request_bytes = request.get_data()
+
+  http_status = 200
+  try:
+    text = decode_bytes(request_bytes)
+    winning_languages, examiners = build_language_list(languages, text, tab_size, comment, block_comment_limit)
 
     operation = ''
     list_of_dicts = []
@@ -828,7 +867,7 @@ def route_confidence():
 
 @app.route('/statistics', methods=['POST'])
 def route_statistics():
-  languages, comment, tab_size, wide, _ = extract_params(request.args)
+  languages, comment, tab_size, _ = extract_params(request.args)
 
   if len(languages) == 0:
     languages = list(codes_and_names.keys())
@@ -840,7 +879,7 @@ def route_statistics():
   http_status = 200
   try:
     text = decode_bytes(request_bytes)
-    winning_languages, examiners = build_language_list(languages, text, tab_size, wide, comment, block_comment_limit)
+    winning_languages, examiners = build_language_list(languages, text, tab_size, comment, block_comment_limit)
 
     list_of_dicts = []
 
@@ -915,7 +954,7 @@ def truncate_lines(text, width):
   return truncated_lines
 
 
-def make_one_examiner(language, code, tab_size, wide, comment, block_comment_limit):
+def make_one_examiner(language, code, tab_size, comment, block_comment_limit):
   examiner = None
 
   if language in ['generic']:
@@ -1017,28 +1056,28 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
   if language in ['cbasic']:
     examiner = CBasicExaminer(code)
 
-  if language in ['cobol-68', 'cobol-fixed', 'cobol-fixed-format', 'cobol']:
-    examiner = CobolFixedFormatExaminer(code, '68', '', tab_size, wide)
+  if language in ['cobol-68']:
+    examiner = CobolFixedFormatExaminer(code, '68', '', tab_size)
 
-  if language in ['cobol-74', 'cobol-fixed', 'cobol-fixed-format', 'cobol']:
-    examiner = CobolFixedFormatExaminer(code, '74', '', tab_size, wide)
+  if language in ['cobol-74']:
+    examiner = CobolFixedFormatExaminer(code, '74', '', tab_size)
 
-  if language in ['cobol-85', 'cobol-fixed', 'cobol-fixed-format', 'cobol']:
-    examiner = CobolFixedFormatExaminer(code, '85', '', tab_size, wide)
+  if language in ['cobol-85']:
+    examiner = CobolFixedFormatExaminer(code, '85', '', tab_size)
 
-  if language in ['cobol-2002', 'cobol-free', 'cobol-free-format', 'cobol']:
+  if language in ['cobol-2002']:
     examiner = CobolFreeFormatExaminer(code, '2002', '')
 
-  if language in ['cobol-2014', 'cobol-free', 'cobol-free-format', 'cobol', 'cob', 'cbl']:
+  if language in ['cobol-2014', 'cobol']:
     examiner = CobolFreeFormatExaminer(code, '2014', '')
 
-  if language in ['cobol-2014-acu', 'cobol-free', 'cobol-free-format', 'cobol']:
+  if language in ['cobol-2014-acu']:
     examiner = CobolFreeFormatExaminer(code, '2014', 'acu')
 
-  if language in ['cobol-2014-ibm', 'cobol-free', 'cobol-free-format', 'cobol']:
+  if language in ['cobol-2014-ibm']:
     examiner = CobolFreeFormatExaminer(code, '2014', 'ibm')
 
-  if language in ['cobol-2014-gnu', 'cobol-free', 'cobol-free-format', 'cobol']:
+  if language in ['cobol-2014-gnu']:
     examiner = CobolFreeFormatExaminer(code, '2014', 'gnu')
 
   if language in ['coffeescript', 'coffee']:
@@ -1071,19 +1110,19 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
   if language in ['flowmatic']:
     examiner = FlowmaticExaminer(code)
 
-  if language in ['fortran-66', 'fortran-fixed', 'fortran-fixed-format', 'fortran']:
-    examiner = FortranFixedFormatExaminer(code, '66', tab_size, wide)
+  if language in ['fortran-66']:
+    examiner = FortranFixedFormatExaminer(code, '66', tab_size)
 
-  if language in ['fortran-77', 'fortran-fixed', 'fortran-fixed-format', 'fortran', 'f77']:
-    examiner = FortranFixedFormatExaminer(code, '77', tab_size, wide)
+  if language in ['fortran-77', 'f77']:
+    examiner = FortranFixedFormatExaminer(code, '77', tab_size)
 
-  if language in ['fortran-90', 'fortran-free', 'fortran-free-format', 'fortran', 'f90']:
+  if language in ['fortran-90', 'f90']:
     examiner = FortranFreeFormatExaminer(code, '90')
 
-  if language in ['fortran-95', 'fortran-free', 'fortran-free-format', 'fortran', 'f95']:
+  if language in ['fortran-95', 'f95']:
     examiner = FortranFreeFormatExaminer(code, '95')
 
-  if language in ['fortran-2003', 'fortran-free', 'fortran-free-format', 'fortran', 'f03']:
+  if language in ['fortran-2003', 'fortran', 'f03']:
     examiner = FortranFreeFormatExaminer(code, '2003')
 
   if language in ['fortran-2008', 'fortran-free', 'fortran-free-format', 'fortran', 'f08', 'for', 'ftn']:
@@ -1147,10 +1186,10 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
     examiner = PerlExaminer(code)
 
   if language in ['pl1']:
-    examiner = PL1Examiner(code, tab_size, wide)
+    examiner = PL1Examiner(code, tab_size)
 
   if language in ['plm']:
-    examiner = PLMExaminer(code, tab_size, wide)
+    examiner = PLMExaminer(code, tab_size)
 
   if language in ['prolog']:
     examiner = PrologExaminer(code)
@@ -1197,7 +1236,7 @@ def make_one_examiner(language, code, tab_size, wide, comment, block_comment_lim
   return examiner
 
 
-def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, languages):
+def make_multiple_examiners(code, tab_size, comment, block_comment_limit, languages):
   examiners = {}
 
   if 'generic' in languages:
@@ -1299,37 +1338,28 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
   if 'csharp' in languages or 'cs' in languages or 'c#' in languages:
     examiners['csharp'] = CsharpExaminer(code)
 
-  if 'cobol-68' in languages or 'cobol' in languages or \
-    'cobol-fixed' in languages or 'cobol-fixed-format' in languages:
-    examiners['cobol-68'] = CobolFixedFormatExaminer(code, '68', '', tab_size, wide)
+  if 'cobol-68' in languages or 'cobol' in languages:
+    examiners['cobol-68'] = CobolFixedFormatExaminer(code, '68', '', tab_size)
 
-  if 'cobol-74' in languages or 'cobol' in languages or \
-    'cobol-fixed' in languages or 'cobol-fixed-format' in languages:
-    examiners['cobol-74'] = CobolFixedFormatExaminer(code, '74', '', tab_size, wide)
+  if 'cobol-74' in languages or 'cobol' in languages:
+    examiners['cobol-74'] = CobolFixedFormatExaminer(code, '74', '', tab_size)
 
-  if 'cobol-85' in languages or 'cobol' in languages or \
-    'cobol-fixed' in languages or 'cobol-fixed-format' in languages:
-    examiners['cobol-85'] = CobolFixedFormatExaminer(code, '85', '', tab_size, wide)
+  if 'cobol-85' in languages or 'cobol' in languages:
+    examiners['cobol-85'] = CobolFixedFormatExaminer(code, '85', '', tab_size)
 
-  if 'cobol-2002' in languages or 'cobol' in languages or \
-    'cobol-free' in languages or 'cobol-free-format' in languages:
+  if 'cobol-2002' in languages or 'cobol' in languages:
     examiners['cobol-2002'] = CobolFreeFormatExaminer(code, '2002', '')
 
-  if 'cobol-2014' in languages or 'cobol' in languages or \
-    'cobol-free' in languages or 'cobol-free-format' in languages or \
-    'cob' in languages:
+  if 'cobol-2014' in languages or 'cobol' in languages or 'cob' in languages:
     examiners['cobol-2014'] = CobolFreeFormatExaminer(code, '2014', '')
 
-  if 'cobol-2014-acu' in languages or 'cobol' in languages or \
-    'cobol-free' in languages or 'cobol-free-format' in languages:
+  if 'cobol-2014-acu' in languages or 'cobol' in languages:
     examiners['cobol-2014-acu'] = CobolFreeFormatExaminer(code, '2014', 'acu')
 
-  if 'cobol-2014-ibm' in languages or 'cobol' in languages or \
-    'cobol-free' in languages or 'cobol-free-format' in languages:
+  if 'cobol-2014-ibm' in languages or 'cobol' in languages:
     examiners['cobol-2014-ibm'] = CobolFreeFormatExaminer(code, '2014', 'ibm')
 
-  if 'cobol-2014-gnu' in languages or 'cobol' in languages or \
-    'cobol-free' in languages or 'cobol-free-format' in languages:
+  if 'cobol-2014-gnu' in languages or 'cobol' in languages:
     examiners['cobol-2014-gnu'] = CobolFreeFormatExaminer(code, '2014', 'gnu')
 
   if 'coffeescript' in languages or 'coffee' in languages:
@@ -1362,33 +1392,22 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
   if 'flowmatic' in languages:
     examiners['flowmatic'] = FlowmaticExaminer(code)
 
-  if 'fortran-66' in languages or 'fortran' in languages or \
-    'fortran-fixed' in languages or 'fortran-fixed-format' in languages or \
-    'f66' in languages:
-    examiners['fortran-66'] = FortranFixedFormatExaminer(code, '66', tab_size, wide)
+  if 'fortran-66' in languages or 'fortran' in languages or 'f66' in languages:
+    examiners['fortran-66'] = FortranFixedFormatExaminer(code, '66', tab_size)
 
-  if 'fortran-77' in languages or 'fortran' in languages or \
-    'fortran-fixed' in languages or 'fortran-fixed-format' in languages or \
-    'f77' in languages:
-    examiners['fortran-77'] = FortranFixedFormatExaminer(code, '77', tab_size, wide)
+  if 'fortran-77' in languages or 'fortran' in languages or 'f77' in languages:
+    examiners['fortran-77'] = FortranFixedFormatExaminer(code, '77', tab_size)
 
-  if 'fortran-90' in languages or 'fortran' in languages or \
-    'fortran-free' in languages or 'fortran-free-format' in languages or \
-    'f90' in languages:
+  if 'fortran-90' in languages or 'fortran' in languages or'f90' in languages:
     examiners['fortran-90'] = FortranFreeFormatExaminer(code, '90')
 
-  if 'fortran-95' in languages or 'fortran' in languages or \
-    'fortran-free' in languages or 'fortran-free-format' in languages or \
-    'f95' in languages:
+  if 'fortran-95' in languages or 'fortran' in languages or 'f95' in languages:
     examiners['fortran-95'] = FortranFreeFormatExaminer(code, '95')
 
-  if 'fortran-2003' in languages or 'fortran' in languages or \
-    'fortran-free' in languages or 'fortran-free-format' in languages or \
-    'f03' in languages:
+  if 'fortran-2003' in languages or 'fortran' in languages or 'f03' in languages:
     examiners['fortran-2003'] = FortranFreeFormatExaminer(code, '2003')
 
-  if 'fortran-2008' in languages or 'fortran' in languages or \
-    'fortran-free' in languages or 'fortran-free-format' in languages:
+  if 'fortran-2008' in languages or 'fortran' in languages:
     examiners['fortran-2008'] = FortranFreeFormatExaminer(code, '2008')
 
   if 'fsharp' in languages or 'fs' in languages or 'f#' in languages:
@@ -1449,10 +1468,10 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
     examiners['perl'] = PerlExaminer(code)
 
   if 'pl1' in languages:
-    examiners['pl1'] = PL1Examiner(code, tab_size, wide)
+    examiners['pl1'] = PL1Examiner(code, tab_size)
 
   if 'plm' in languages:
-    examiners['plm'] = PLMExaminer(code, tab_size, wide)
+    examiners['plm'] = PLMExaminer(code, tab_size)
 
   if 'prolog' in languages:
     examiners['prolog'] = PrologExaminer(code)
@@ -1496,9 +1515,9 @@ def make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, 
   return examiners
 
 
-def identify_language(code, tab_size, wide, comment, block_comment_limit, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages):
+def identify_language(code, tab_size, comment, block_comment_limit, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages):
   tiebreak_override = True
-  examiners = make_multiple_examiners(code, tab_size, wide, comment, block_comment_limit, languages)
+  examiners = make_multiple_examiners(code, tab_size, comment, block_comment_limit, languages)
 
   # get confidence values
   retval = {}
@@ -1619,9 +1638,9 @@ def identify_language(code, tab_size, wide, comment, block_comment_limit, tiebre
 
 def unwrap_lines(text, language):
   # only the fixed-format versions can be unwrapped
-  cobol_names = ['cobol', 'cobol-68', 'cobol-74', 'cobol-85', 'cobol-fixed', 'cobol-fixed-format']
-  fortran_names = ['fortran', 'fortran-66', 'fortran-77', 'fortran-fixed', 'fortran-fixed-format']
-  pl1_names = ['pl1', 'pl1-fixed', 'pl1-fixed-format']
+  cobol_names = ['cobol', 'cobol-68', 'cobol-74', 'cobol-85']
+  fortran_names = ['fortran', 'fortran-66', 'fortran-77']
+  pl1_names = ['pl1']
 
   unwrapped_text = text
 
@@ -1667,10 +1686,10 @@ def unwrap_lines(text, language):
   return unwrapped_text
 
 
-def tokenize(code, language, tab_size, wide, comment, block_comment_limit):
+def tokenize(code, language, tab_size, comment, block_comment_limit):
   retval = []
 
-  examiner = make_one_examiner(language, code, tab_size, wide, comment, block_comment_limit)
+  examiner = make_one_examiner(language, code, tab_size, comment, block_comment_limit)
 
   if examiner is not None:
     retval = examiner.tokens
@@ -1678,10 +1697,10 @@ def tokenize(code, language, tab_size, wide, comment, block_comment_limit):
   return retval
 
 
-def tokenize_confidence(code, language, tab_size, get_errors, wide, comment, block_comment_limit):
+def tokenize_confidence(code, language, tab_size, get_errors, comment, block_comment_limit):
   retval = []
 
-  examiner = make_one_examiner(language, code, tab_size, wide, comment, block_comment_limit)
+  examiner = make_one_examiner(language, code, tab_size, comment, block_comment_limit)
 
   if examiner is not None:
     if get_errors:
@@ -1692,10 +1711,10 @@ def tokenize_confidence(code, language, tab_size, get_errors, wide, comment, blo
   return retval
 
 
-def tokenize_statistics(code, language, tab_size, wide, comment, block_comment_limit):
+def tokenize_statistics(code, language, tab_size, comment, block_comment_limit):
   retval = []
 
-  examiner = make_one_examiner(language, code, tab_size, wide, comment, block_comment_limit)
+  examiner = make_one_examiner(language, code, tab_size, comment, block_comment_limit)
 
   if examiner is not None:
     retval = examiner.statistics
@@ -1717,11 +1736,10 @@ if __name__ == '__main__':
     in_file.close()
     language = 'rust'
     tab_size = 4
-    wide = False
     comment = ''
     block_comment_limit = 2048
-    # tokenize(code, language, tab_size, wide, comment, block_comment_limit)
-    cProfile.run("tokenize(code, language, tab_size, wide, comment, block_comment_limit)")
+    # tokenize(code, language, tab_size, comment, block_comment_limit)
+    cProfile.run("tokenize(code, language, tab_size, comment, block_comment_limit)")
   else:
     if args.confidence is not None:
       print('Confidencing file ' + args.confidence)
@@ -1730,10 +1748,9 @@ if __name__ == '__main__':
       in_file.close()
       language = 'ruby'
       tab_size = 4
-      wide = False
       comment = ''
       block_comment_limit = 2048
-      cProfile.run("tokenize_confidence(code, language, False, tab_size, wide, comment, block_comment_limit)")
+      cProfile.run("tokenize_confidence(code, language, False, tab_size, comment, block_comment_limit)")
     else:
       if args.detect is not None:
         print('Detecting file ' + args.detect)
@@ -1741,13 +1758,12 @@ if __name__ == '__main__':
         code = in_file.read()
         in_file.close()
         tab_size = 4
-        wide = False
         tiebreak_keywords = True
         tiebreak_tokens = False
         tiebreak_simple = False
         comment = ''
         block_comment_limit = 2048
         languages = list(codes_and_names.keys())
-        cProfile.run('identify_language(code, tab_size, wide, comment, block_comment_limit, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages)')
+        cProfile.run('identify_language(code, tab_size, comment, block_comment_limit, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages)')
       else:
         app.run()

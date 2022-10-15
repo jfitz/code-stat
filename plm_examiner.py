@@ -41,7 +41,7 @@ class PLMExaminer(Examiner):
     return 'Escape ?Z'
 
 
-  def __init__(self, code, tab_size, wide):
+  def __init__(self, code, tab_size):
     super().__init__()
 
     self.operand_types = []
@@ -441,7 +441,7 @@ class PLMExaminer(Examiner):
     tokenbuilders_fixed_2 = tokenbuilders_fixed + type2_tokenbuilders + [invalid_token_builder]
     tokenizer_fixed_2 = Tokenizer(tokenbuilders_fixed_2)
 
-    tokens_fixed = self.tokenize_code(code, tab_size, tokenizer_fixed_1, tokenizer_fixed_2, wide)
+    tokens_fixed = self.tokenize_code(code, tab_size, tokenizer_fixed_1, tokenizer_fixed_2)
     tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid operator')
     tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid')
     tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'whitespace')
@@ -511,7 +511,7 @@ class PLMExaminer(Examiner):
       self.errors = errors_free
 
 
-  def tokenize_line(self, line, tokenizer, wide):
+  def tokenize_line(self, line, tokenizer):
     # break apart the line based on fixed format
     tokens = []
 
@@ -520,12 +520,8 @@ class PLMExaminer(Examiner):
     # 2-72: program text
     # 73-: identification, traditionally sequence number (ignored)
     line_indicator = line[0:1]
-    if wide:
-      line_text = line[1:]
-      line_identification = ''
-    else:
-      line_text = line[1:72]
-      line_identification = line[72:]
+    line_text = line[1:]
+    line_identification = ''
 
     # tokenize the line indicator
     if line_indicator in ['C', '*']:
@@ -547,7 +543,7 @@ class PLMExaminer(Examiner):
     return tokens
 
 
-  def tokenize_code(self, code, tab_size, tokenizer1, tokenizer2, wide):
+  def tokenize_code(self, code, tab_size, tokenizer1, tokenizer2):
     lines = code.split('\n')
 
     tokens = []
@@ -560,9 +556,9 @@ class PLMExaminer(Examiner):
       line = Examiner.tabs_to_spaces(line, tab_size)
 
       if mode == 1:
-        line_tokens = self.tokenize_line(line, tokenizer1, wide)
+        line_tokens = self.tokenize_line(line, tokenizer1)
       else:
-        line_tokens = self.tokenize_line(line, tokenizer2, wide)
+        line_tokens = self.tokenize_line(line, tokenizer2)
 
       for token in line_tokens:
         if token.group == 'comment-end':

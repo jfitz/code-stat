@@ -1,0 +1,130 @@
+[
+    {
+        "type":"label",
+        "value":"EOFLAG"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"directive",
+        "value":"DS"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"identifier",
+        "value":"X"
+    },
+    {
+        "type":"whitespace",
+        "value":"                  "
+    },
+    {
+        "type":"comment",
+        "value":"END OF FILE FLAG                      "
+    },
+    {
+        "type":"line identification",
+        "value":"02754000"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"label",
+        "value":"TEMPEOF"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"directive",
+        "value":"EQU"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"string",
+        "value":"X'80'"
+    },
+    {
+        "type":"whitespace",
+        "value":"              "
+    },
+    {
+        "type":"comment",
+        "value":"FLAG FOR TEMPORARY (./*) EOF          "
+    },
+    {
+        "type":"line identification",
+        "value":"02755000"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
+    },
+    {
+        "type":"keyword",
+        "value":"l"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
+    },
+    {
+        "type":"register",
+        "value":"r15"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"subr"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"comment",
+        "value":"! load address of subroutine in r1"
+    },
+    {
+        "type":"line identification",
+        "value":"5"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    }
+]

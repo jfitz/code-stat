@@ -1,0 +1,118 @@
+[
+    {
+        "type":"invalid",
+        "value":"INTEGER A(1000,1000), B(200)"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"I=17"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"FORALL (I=1:1000,J=1:1000,I.NE.J) A(I,J)=A(J,I)"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"PRINT *, I    ! The value 17 is printed because the I"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"             "
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"in"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"the"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"FORALL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"has"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"statement"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"scope"
+    },
+    {
+        "type":"invalid operator",
+        "value":"."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"FORALL (N=1:200:2) B(N)=B(N+1)"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"END"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    }
+]

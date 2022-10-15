@@ -1,0 +1,7 @@
+[
+    {
+        "TYPE":"LENGTH",
+        "LONG":"\t\tlea esi, [esi + ecx * 4 - 4] ; this will get the final index of esi (esi + num_elements), with scale factor of 4 for DWORD integers",
+        "WIDTH":132
+    }
+]

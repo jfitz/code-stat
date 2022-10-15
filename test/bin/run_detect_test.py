@@ -215,7 +215,6 @@ def identify_language(contents, params, tiebreak_keywords, tiebreak_tokens, tieb
 parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--input')
 parser.add_argument('--tabsize')
-parser.add_argument('--wide', action='store_true')
 parser.add_argument('--comment')
 parser.add_argument('--block-comment-limit')
 parser.add_argument('--languages')
@@ -232,10 +231,6 @@ tabsize = args.tabsize
 if tabsize:
   tabsize = int(tabsize)
   params.append('tabsize=' + str(tabsize))
-
-wide = args.wide
-if wide:
-  params.append('wide')
 
 tiebreak_keywords = True
 tiebreak_tokens = False

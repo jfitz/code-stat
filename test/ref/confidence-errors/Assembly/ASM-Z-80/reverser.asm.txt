@@ -1,0 +1,22 @@
+[
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"lea",
+        "SECOND":"esi"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"popfd",
+        "SECOND":"mov"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"mov",
+        "SECOND":"eax"
+    },
+    {
+        "TYPE":"LENGTH",
+        "LONG":"\t\tlea esi, [esi + ecx * 4 - 4] ; this will get the final index of esi (esi + num_elements), with scale factor of 4 for DWORD integers",
+        "WIDTH":132
+    }
+]

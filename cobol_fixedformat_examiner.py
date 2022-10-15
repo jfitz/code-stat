@@ -46,7 +46,7 @@ class CobolFixedFormatExaminer(CobolExaminer):
     return 'Escape ?Z'
 
 
-  def __init__(self, code, year, extension, tab_size, wide):
+  def __init__(self, code, year, extension, tab_size):
     super().__init__()
     self.max_expected_line = 80
 
@@ -250,7 +250,7 @@ class CobolFixedFormatExaminer(CobolExaminer):
 
     tokenizer = Tokenizer(tokenbuilders)
 
-    tokens = self.tokenize_code(code, tab_size, tokenizer, wide)
+    tokens = self.tokenize_code(code, tab_size, tokenizer)
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'whitespace')
@@ -282,9 +282,7 @@ class CobolFixedFormatExaminer(CobolExaminer):
     self.calc_keyword_confidence()
 
     self.calc_picture_confidence()
-
-    if not wide:
-      self.calc_line_length_confidence(code, self.max_expected_line)
+    self.calc_line_length_confidence(code, self.max_expected_line)
 
     expected_keyword_confidence = self.check_expected_keywords()
     self.confidences['expected_keywords'] = expected_keyword_confidence
@@ -332,7 +330,7 @@ class CobolFixedFormatExaminer(CobolExaminer):
     return token
 
 
-  def tokenize_line(self, line, tokenizer, wide):
+  def tokenize_line(self, line, tokenizer):
     # break apart the line based on fixed format
     tokens = []
 
@@ -343,12 +341,8 @@ class CobolFixedFormatExaminer(CobolExaminer):
     # 72-: identification, traditionally sequence number (ignored)
 
     line_indicator = line[6:7]
-    if wide:
-      line_text = line[7:]
-      line_identification = ''
-    else:
-      line_text = line[7:71]
-      line_identification = line[72:]
+    line_text = line[7:72]
+    line_identification = line[72:]
 
     if line.startswith(('//', '/*')):
       tokens.append(Token(line, 'jcl', False))
@@ -380,7 +374,7 @@ class CobolFixedFormatExaminer(CobolExaminer):
     return tokens
 
 
-  def tokenize_code(self, code, tab_size, tokenizer, wide):
+  def tokenize_code(self, code, tab_size, tokenizer):
     lines = code.split('\n')
 
     tokens = []
@@ -390,7 +384,7 @@ class CobolFixedFormatExaminer(CobolExaminer):
       line = line.rstrip()
       line = Examiner.tabs_to_spaces(line, tab_size)
 
-      line_tokens = self.tokenize_line(line, tokenizer, wide)
+      line_tokens = self.tokenize_line(line, tokenizer)
       tokens += line_tokens
 
     return tokens
