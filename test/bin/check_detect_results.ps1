@@ -17,39 +17,22 @@ $lang_names = @{
     'PL-SQL'='PL/SQL'
 }
 
-$ignore_names = 'noncode', 'multiple'
-
 Get-ChildItem .\test\ref\detect |
 ForEach-Object {
-    $language = $_.BaseName
+    $test = $_.BaseName
+    $dict = Get-Content $_ | ConvertFrom-Json
+    $a = Get-Content $_ | Select-String ":"
+    $c = $a -replace ':', '' -replace '"', '' -replace ',', '' | Sort-Object { [double]$_.split()[-1] } -Descending | Select-Object -first 1
 
-    if (-Not $ignore_names.Contains($language)) {
-        Get-ChildItem $_ -Filter *.txt |
+    if (-Not ([string]::IsNullOrEmpty($c))) {
+        $d = $c.Trim()
+        $detected, $confidence = $d.Split(' ', 2)
 
-        ForEach-Object {
-            $test = $_.BaseName
-            $dict = Get-Content $_ | ConvertFrom-Json
-            $a = Get-Content $_ | Select-String ":"
-            $c = $a -replace ':', '' -replace '"', '' -replace ',', '' | Sort-Object { [double]$_.split()[-1] } -Descending | Select-Object -first 1
-
-            if (-Not ([string]::IsNullOrEmpty($c))) {
-                $d = $c.Trim()
-                $detected, $confidence = $d.Split(' ', 2)
-
-                # map detected name to standard name
-                If ($names.ContainsKey($detected)) {
-                    Set-Variable -Name detected -Value $names[$detected]
-                }
-
-                If ($detected -ne $language) {
-                    if ($lang_names.Contains($language)) {
-                        Set-Variable -Name language -Value $lang_names[$language]
-                    }
-    
-                    $lang_conf = $dict | Select-Object -expand $language
-                    Write-Output "$test : $language $lang_conf as $detected $confidence"
-                }
-            }
+        # map detected name to standard name
+        If ($names.ContainsKey($detected)) {
+            Set-Variable -Name detected -Value $names[$detected]
         }
+
+        Write-Output "$test : $detected $confidence"
     }
 }

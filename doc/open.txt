@@ -120,6 +120,7 @@ Python client (codestat_CLI.py)
 
 examiners
 + keyword comparison checks variety of keywords
+- allow for mis-matched strings (" and ', or ' and ") only when string fails
 
 generic
 + double dollar signs as block for Tex (Rmd)
@@ -293,6 +294,7 @@ Dart
 dBase II
 - convert function not followed by parens to identifier
 - derive TextBlockTokenBuilder from BlockTokenBuilder
+- parse FMT files
 
 dBase III
 
@@ -372,6 +374,7 @@ Fortran
 - -66 HELLO detects as SQL (SQL keywords in FTN comment)
 * source for Fortran-2003
 - geo4060 detects as haskell
+- FORMAT editing characters ( / // I Iw Iw.m F Fw.d E ES EN L Lw A Aw nX Tc / : r(...) BN BZ)
 
 F sharp
 * more source
@@ -387,6 +390,7 @@ HTML
 - faster, simpler checks for attribute
 
 Java
+- C++ class type tokens for generics (allow ? . , )
 
 JavaScript
 ? 'values' detects as F# because single quote string isn't a string in F#

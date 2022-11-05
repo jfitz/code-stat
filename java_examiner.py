@@ -112,18 +112,21 @@ class JavaExaminer(Examiner):
     groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
     keywords = [
-      'abstract', 'assert', 'break',
-      'case', 'catch', 'class', 'const',
-      'continue', 'default', 'do',
-      'else', 'enum', 'extends', 'final',
-      'finally', 'for', 'goto',
+      'abstract', 'assert',
+      'break',
+      'case', 'catch', 'class', 'const', 'continue',
+      'default', 'do',
+      'else', 'enum', 'extends',
+      'final', 'finally', 'for',
+      'goto',
       'if', 'implements', 'import', 'instanceof', 'interface',
-      'native', 'package',
-      'private', 'protected', 'public',
+      'native',
+      'package', 'private', 'protected', 'public',
       'return',
       'static', 'strictfp', 'super', 'switch', 'synchronized',
       'throw', 'throws', 'transient', 'try',
-      'volatile', 'while'
+      'volatile',
+      'when', 'while'
     ]
 
     keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
