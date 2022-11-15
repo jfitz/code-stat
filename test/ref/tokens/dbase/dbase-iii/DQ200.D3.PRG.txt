@@ -8,7 +8,7 @@
         "value":" "
     },
     {
-        "type":"keyword",
+        "type":"identifier",
         "value":"FORMAT"
     },
     {
@@ -216,16 +216,8 @@
         "value":"'"
     },
     {
-        "type":"invalid operator",
-        "value":"["
-    },
-    {
-        "type":"identifier",
-        "value":"CRSR"
-    },
-    {
-        "type":"invalid operator",
-        "value":"]"
+        "type":"string",
+        "value":"[CRSR]"
     },
     {
         "type":"operator",
@@ -248,7 +240,7 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
+        "type":"group",
         "value":"["
     },
     {
@@ -272,7 +264,7 @@
         "value":"D"
     },
     {
-        "type":"invalid operator",
+        "type":"group",
         "value":"]"
     },
     {
@@ -280,7 +272,7 @@
         "value":"-"
     },
     {
-        "type":"keyword",
+        "type":"identifier",
         "value":"Accept"
     },
     {
@@ -296,7 +288,7 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
+        "type":"group",
         "value":"["
     },
     {
@@ -304,7 +296,7 @@
         "value":"F8"
     },
     {
-        "type":"invalid operator",
+        "type":"group",
         "value":"]"
     },
     {
@@ -320,7 +312,7 @@
         "value":" "
     },
     {
-        "type":"keyword",
+        "type":"identifier",
         "value":"fields"
     },
     {
@@ -336,16 +328,8 @@
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
-        "value":"["
-    },
-    {
-        "type":"operator",
-        "value":"<>"
-    },
-    {
-        "type":"invalid operator",
-        "value":"]"
+        "type":"string",
+        "value":"[<>]"
     },
     {
         "type":"whitespace",
@@ -1204,7 +1188,7 @@
         "value":" "
     },
     {
-        "type":"keyword",
+        "type":"identifier",
         "value":"TALK"
     },
     {
@@ -1404,7 +1388,7 @@
         "value":" "
     },
     {
-        "type":"keyword",
+        "type":"identifier",
         "value":"type"
     },
     {

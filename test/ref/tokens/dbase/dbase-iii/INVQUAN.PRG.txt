@@ -52,7 +52,7 @@
         "value":" "
     },
     {
-        "type":"keyword",
+        "type":"identifier",
         "value":"talk"
     },
     {
@@ -128,7 +128,7 @@
         "value":" "
     },
     {
-        "type":"keyword",
+        "type":"identifier",
         "value":"intensity"
     },
     {
@@ -540,7 +540,7 @@
         "value":" "
     },
     {
-        "type":"keyword",
+        "type":"identifier",
         "value":"to"
     },
     {
@@ -640,7 +640,7 @@
         "value":"  "
     },
     {
-        "type":"invalid operator",
+        "type":"group",
         "value":"["
     },
     {
@@ -700,7 +700,7 @@
         "value":"9999"
     },
     {
-        "type":"invalid operator",
+        "type":"group",
         "value":"]"
     },
     {
@@ -760,7 +760,7 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
+        "type":"group",
         "value":"["
     },
     {
@@ -828,7 +828,7 @@
         "value":"9999"
     },
     {
-        "type":"invalid operator",
+        "type":"group",
         "value":"]"
     },
     {
@@ -888,7 +888,7 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
+        "type":"group",
         "value":"["
     },
     {
@@ -932,7 +932,7 @@
         "value":" "
     },
     {
-        "type":"keyword",
+        "type":"identifier",
         "value":"order"
     },
     {
@@ -948,7 +948,7 @@
         "value":"9999"
     },
     {
-        "type":"invalid operator",
+        "type":"group",
         "value":"]"
     },
     {
@@ -1032,100 +1032,8 @@
         "value":"     "
     },
     {
-        "type":"invalid operator",
-        "value":"["
-    },
-    {
-        "type":"keyword",
-        "value":"Total"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"cost"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"of"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"value",
-        "value":"all"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"goods"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"in"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"inventory"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"is"
-    },
-    {
-        "type":"invalid operator",
-        "value":":"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"number",
-        "value":"9"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"number",
-        "value":"999"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"number",
-        "value":"999.99"
-    },
-    {
-        "type":"invalid operator",
-        "value":"]"
+        "type":"string",
+        "value":"[Total cost of all goods in inventory is:     9,999,999.99]"
     },
     {
         "type":"newline",
@@ -1196,92 +1104,8 @@
         "value":"     "
     },
     {
-        "type":"invalid operator",
-        "value":"["
-    },
-    {
-        "type":"keyword",
-        "value":"Total"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"price"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"of"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"value",
-        "value":"all"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"inventoried"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"goods"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"is"
-    },
-    {
-        "type":"invalid operator",
-        "value":":"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"number",
-        "value":"9"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"number",
-        "value":"999"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"number",
-        "value":"999.99"
-    },
-    {
-        "type":"invalid operator",
-        "value":"]"
+        "type":"string",
+        "value":"[Total price of all inventoried goods is:     9,999,999.99]"
     },
     {
         "type":"newline",
@@ -1352,84 +1176,8 @@
         "value":"     "
     },
     {
-        "type":"invalid operator",
-        "value":"["
-    },
-    {
-        "type":"identifier",
-        "value":"Ratio"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"of"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"inventory"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"cost"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"keyword",
-        "value":"to"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"selling"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"price"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"is"
-    },
-    {
-        "type":"invalid operator",
-        "value":":"
-    },
-    {
-        "type":"whitespace",
-        "value":"       "
-    },
-    {
-        "type":"number",
-        "value":"999.999"
-    },
-    {
-        "type":"invalid operator",
-        "value":"%]"
+        "type":"string",
+        "value":"[Ratio of inventory cost to selling price is:       999.999%]"
     },
     {
         "type":"newline",
@@ -1480,88 +1228,8 @@
         "value":" "
     },
     {
-        "type":"invalid operator",
-        "value":"["
-    },
-    {
-        "type":"identifier",
-        "value":"Press"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":">"
-    },
-    {
-        "type":"keyword",
-        "value":"return"
-    },
-    {
-        "type":"operator",
-        "value":"<"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"when"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"ready"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"keyword",
-        "value":"for"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"main"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"menu"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"keyword",
-        "value":"to"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"keyword",
-        "value":"display"
-    },
-    {
-        "type":"invalid operator",
-        "value":"]"
+        "type":"string",
+        "value":"[Press >return< when ready for main menu to display]"
     },
     {
         "type":"newline",
@@ -1584,7 +1252,7 @@
         "value":" "
     },
     {
-        "type":"keyword",
+        "type":"identifier",
         "value":"intensity"
     },
     {

@@ -7,20 +7,9 @@ $names = @{
     'PL/M'='PLM'
 }
 
-$lang_names = @{
-    'C-K&R'='C-78';
-    'Cplusplus'='C++';
-    'Csharp'='C#';
-    'Fsharp'='F#';
-    'PL1'='PL/1';
-    'PLM'='PL/M';
-    'PL-SQL'='PL/SQL'
-}
-
 Get-ChildItem .\test\ref\detect |
 ForEach-Object {
     $test = $_.BaseName
-    $dict = Get-Content $_ | ConvertFrom-Json
     $a = Get-Content $_ | Select-String ":"
     $c = $a -replace ':', '' -replace '"', '' -replace ',', '' | Sort-Object { [double]$_.split()[-1] } -Descending | Select-Object -first 1
 

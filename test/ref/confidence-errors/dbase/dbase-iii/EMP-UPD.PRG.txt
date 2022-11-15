@@ -24,6 +24,36 @@
         "SECOND":""
     },
     {
+        "TYPE":"TOKEN",
+        "REPEATED":".",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "REPEATED":".",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":":",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":":",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":":",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
         "TYPE":"OPERATOR",
         "INVALID":":",
         "FIRST":"",
@@ -49,43 +79,7 @@
     },
     {
         "TYPE":"OPERATOR",
-        "INVALID":".",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"OPERATOR",
         "INVALID":":",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"OPERATOR",
-        "INVALID":":",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"OPERATOR",
-        "INVALID":":",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"OPERATOR",
-        "INVALID":":",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"OPERATOR",
-        "INVALID":".",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"OPERATOR",
-        "INVALID":"...",
         "FIRST":"",
         "SECOND":""
     },
@@ -246,33 +240,18 @@
     },
     {
         "TYPE":"OPERATOR2",
+        "FIRST":".",
+        "SECOND":"."
+    },
+    {
+        "TYPE":"OPERATOR2",
+        "FIRST":".",
+        "SECOND":"."
+    },
+    {
+        "TYPE":"OPERATOR2",
         "FIRST":"#",
         "SECOND":"="
-    },
-    {
-        "TYPE":"OPERATOR3",
-        "FIRST":"IF",
-        "SECOND":"#"
-    },
-    {
-        "TYPE":"OPERATOR3",
-        "FIRST":"#",
-        "SECOND":"="
-    },
-    {
-        "TYPE":"OPERATOR3",
-        "FIRST":"(",
-        "SECOND":"#"
-    },
-    {
-        "TYPE":"OPERATOR3",
-        "FIRST":"STORE",
-        "SECOND":"!"
-    },
-    {
-        "TYPE":"OPERATOR3",
-        "FIRST":"IF",
-        "SECOND":"#"
     },
     {
         "TYPE":"OPERATOR3",
@@ -281,8 +260,18 @@
     },
     {
         "TYPE":"OPERATOR3",
-        "FIRST":"(",
-        "SECOND":"#"
+        "FIRST":".",
+        "SECOND":"."
+    },
+    {
+        "TYPE":"OPERATOR3",
+        "FIRST":".",
+        "SECOND":"."
+    },
+    {
+        "TYPE":"OPERATOR3",
+        "FIRST":"#",
+        "SECOND":"="
     },
     {
         "TYPE":"OPERATOR3",
@@ -290,9 +279,34 @@
         "SECOND":"**"
     },
     {
-        "TYPE":"OPERATOR3",
-        "FIRST":"Date",
-        "SECOND":"**"
+        "TYPE":"OPERATOR4",
+        "FIRST":"#",
+        "SECOND":"="
+    },
+    {
+        "TYPE":"OPERATOR4",
+        "FIRST":"#",
+        "SECOND":","
+    },
+    {
+        "TYPE":"OPERATOR4",
+        "FIRST":".",
+        "SECOND":"\r\n"
+    },
+    {
+        "TYPE":"OPERATOR4",
+        "FIRST":".",
+        "SECOND":"."
+    },
+    {
+        "TYPE":"OPERATOR4",
+        "FIRST":".",
+        "SECOND":"."
+    },
+    {
+        "TYPE":"OPERATOR4",
+        "FIRST":".",
+        "SECOND":"\r\n"
     },
     {
         "TYPE":"OPERATOR4",
@@ -302,71 +316,11 @@
     {
         "TYPE":"OPERATOR4",
         "FIRST":"#",
-        "SECOND":"="
+        "SECOND":","
     },
     {
         "TYPE":"OPERATOR4",
         "FIRST":"**",
         "SECOND":"'"
-    },
-    {
-        "TYPE":"OPERAND_4",
-        "FIRST":"was",
-        "SECOND":"entered"
-    },
-    {
-        "TYPE":"OPERAND_4",
-        "FIRST":"the",
-        "SECOND":"E"
-    },
-    {
-        "TYPE":"OPERAND_4",
-        "FIRST":"what",
-        "SECOND":"we"
-    },
-    {
-        "TYPE":"OPERAND_4",
-        "FIRST":"we",
-        "SECOND":"have"
-    },
-    {
-        "TYPE":"OPERAND_4",
-        "FIRST":"have",
-        "SECOND":"is"
-    },
-    {
-        "TYPE":"OPERAND_4",
-        "FIRST":"is",
-        "SECOND":"an"
-    },
-    {
-        "TYPE":"OPERAND_4",
-        "FIRST":"an",
-        "SECOND":"employee"
-    },
-    {
-        "TYPE":"OPERAND_4",
-        "FIRST":"employee",
-        "SECOND":"name"
-    },
-    {
-        "TYPE":"LINE FORMAT",
-        "FIRST":"identifier",
-        "SECOND":"remark"
-    },
-    {
-        "TYPE":"LINE FORMAT",
-        "FIRST":"identifier",
-        "SECOND":"remark"
-    },
-    {
-        "TYPE":"LINE FORMAT",
-        "FIRST":"identifier",
-        "SECOND":"REMARK"
-    },
-    {
-        "TYPE":"LINE FORMAT",
-        "FIRST":"identifier",
-        "SECOND":"REMARK"
     }
 ]

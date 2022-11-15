@@ -240,8 +240,32 @@
         "value":" "
     },
     {
-        "type":"string",
-        "value":"[PG U/D]"
+        "type":"invalid operator",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"PG"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"U"
+    },
+    {
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"identifier",
+        "value":"D"
+    },
+    {
+        "type":"invalid operator",
+        "value":"]"
     },
     {
         "type":"operator",
@@ -264,8 +288,16 @@
         "value":" "
     },
     {
-        "type":"string",
-        "value":"[F8]"
+        "type":"invalid operator",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"F8"
+    },
+    {
+        "type":"invalid operator",
+        "value":"]"
     },
     {
         "type":"operator",
@@ -1152,7 +1184,7 @@
         "value":" "
     },
     {
-        "type":"keyword",
+        "type":"identifier",
         "value":"TALK"
     },
     {

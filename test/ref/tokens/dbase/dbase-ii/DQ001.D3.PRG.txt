@@ -56,7 +56,7 @@
         "value":" "
     },
     {
-        "type":"keyword",
+        "type":"identifier",
         "value":"talk"
     },
     {
@@ -2088,8 +2088,16 @@
         "value":" "
     },
     {
-        "type":"string",
-        "value":"[0]"
+        "type":"invalid operator",
+        "value":"["
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"invalid operator",
+        "value":"]"
     },
     {
         "type":"whitespace",
@@ -4128,7 +4136,7 @@
         "value":" "
     },
     {
-        "type":"keyword",
+        "type":"identifier",
         "value":"color"
     },
     {
@@ -4312,8 +4320,16 @@
         "value":" "
     },
     {
-        "type":"string",
-        "value":"[T]"
+        "type":"invalid operator",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"T"
+    },
+    {
+        "type":"invalid operator",
+        "value":"]"
     },
     {
         "type":"whitespace",
@@ -4344,8 +4360,16 @@
         "value":" "
     },
     {
-        "type":"string",
-        "value":"[R]"
+        "type":"invalid operator",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"R"
+    },
+    {
+        "type":"invalid operator",
+        "value":"]"
     },
     {
         "type":"whitespace",
@@ -4376,8 +4400,16 @@
         "value":" "
     },
     {
-        "type":"string",
-        "value":"[E]"
+        "type":"invalid operator",
+        "value":"["
+    },
+    {
+        "type":"identifier",
+        "value":"E"
+    },
+    {
+        "type":"invalid operator",
+        "value":"]"
     },
     {
         "type":"whitespace",
@@ -4444,7 +4476,7 @@
         "value":" "
     },
     {
-        "type":"keyword",
+        "type":"identifier",
         "value":"color"
     },
     {
@@ -6244,7 +6276,7 @@
         "value":" "
     },
     {
-        "type":"keyword",
+        "type":"identifier",
         "value":"color"
     },
     {
@@ -6904,7 +6936,7 @@
         "value":" "
     },
     {
-        "type":"keyword",
+        "type":"identifier",
         "value":"color"
     },
     {
@@ -7600,7 +7632,7 @@
         "value":" "
     },
     {
-        "type":"keyword",
+        "type":"identifier",
         "value":"color"
     },
     {
@@ -9508,7 +9540,7 @@
         "value":" "
     },
     {
-        "type":"keyword",
+        "type":"identifier",
         "value":"TALK"
     },
     {
@@ -10776,8 +10808,16 @@
         "value":" "
     },
     {
-        "type":"string",
-        "value":"[0]"
+        "type":"invalid operator",
+        "value":"["
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"invalid operator",
+        "value":"]"
     },
     {
         "type":"whitespace",
@@ -11572,16 +11612,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"DQ1004"
-    },
-    {
-        "type":"invalid operator",
-        "value":"."
-    },
-    {
-        "type":"identifier",
-        "value":"dbf"
+        "type":"filename",
+        "value":"DQ1004.dbf"
     },
     {
         "type":"newline",
@@ -11772,7 +11804,7 @@
         "value":" "
     },
     {
-        "type":"keyword",
+        "type":"identifier",
         "value":"color"
     },
     {

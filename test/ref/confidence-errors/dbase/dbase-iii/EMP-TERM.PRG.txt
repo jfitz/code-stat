@@ -12,8 +12,14 @@
         "SECOND":""
     },
     {
-        "TYPE":"OPERATOR",
-        "INVALID":":",
+        "TYPE":"TOKEN",
+        "REPEATED":".",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "REPEATED":".",
         "FIRST":"",
         "SECOND":""
     },
@@ -109,7 +115,7 @@
     },
     {
         "TYPE":"OPERATOR",
-        "INVALID":"...",
+        "INVALID":":",
         "FIRST":"",
         "SECOND":""
     },
@@ -124,14 +130,19 @@
         "SECOND":"="
     },
     {
-        "TYPE":"OPERATOR3",
-        "FIRST":"STORE",
-        "SECOND":"!"
+        "TYPE":"OPERATOR2",
+        "FIRST":".",
+        "SECOND":"."
+    },
+    {
+        "TYPE":"OPERATOR2",
+        "FIRST":".",
+        "SECOND":"."
     },
     {
         "TYPE":"OPERATOR3",
-        "FIRST":"IF",
-        "SECOND":"#"
+        "FIRST":"#",
+        "SECOND":"="
     },
     {
         "TYPE":"OPERATOR3",
@@ -140,13 +151,13 @@
     },
     {
         "TYPE":"OPERATOR3",
-        "FIRST":"IF",
-        "SECOND":"#"
+        "FIRST":".",
+        "SECOND":"."
     },
     {
         "TYPE":"OPERATOR3",
-        "FIRST":"#",
-        "SECOND":"="
+        "FIRST":".",
+        "SECOND":"."
     },
     {
         "TYPE":"OPERATOR4",
@@ -157,5 +168,15 @@
         "TYPE":"OPERATOR4",
         "FIRST":"#",
         "SECOND":"="
+    },
+    {
+        "TYPE":"OPERATOR4",
+        "FIRST":".",
+        "SECOND":"."
+    },
+    {
+        "TYPE":"OPERATOR4",
+        "FIRST":".",
+        "SECOND":"."
     }
 ]

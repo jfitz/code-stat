@@ -292,9 +292,11 @@ D
 Dart
 
 dBase II
-- convert function not followed by parens to identifier
+- strings continued when they end with ;
 - derive TextBlockTokenBuilder from BlockTokenBuilder
 - parse FMT files
+- * is value after keyword or operator
+- ; is continuation even in string
 
 dBase III
 

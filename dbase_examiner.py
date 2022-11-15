@@ -24,6 +24,7 @@ from dbase_token_builders import (
   DbaseFilenameTokenBuilder,
   WildCardIdentifierTokenBuilder,
   BracketedStringTokenBuilder,
+  SetCaseInsensitiveListTokenBuilder,
   KeywordCommentTokenBuilder,
   KeywordComment2TokenBuilder,
   TextBlockTokenBuilder
@@ -51,6 +52,7 @@ class DbaseExaminer(Examiner):
     DbaseFilenameTokenBuilder.__escape_z__()
     WildCardIdentifierTokenBuilder.__escape_z__()
     BracketedStringTokenBuilder.__escape_z__()
+    SetCaseInsensitiveListTokenBuilder.__escape_z__()
     KeywordCommentTokenBuilder.__escape_z__()
     KeywordComment2TokenBuilder.__escape_z__()
     TextBlockTokenBuilder.__escape_z__()
@@ -108,10 +110,10 @@ class DbaseExaminer(Examiner):
     if version == 'iii':
       known_operators = [
         '+', '-', '*', '/', '**', '^',
-        '=', '<>', '#', '>', '>=', '<', '<=',
-        '$',
+        '=', '<>', '#', '>', '>=', '<', '<=', '!=',
+        '$', '->',
         '.NOT.', '.AND.', '.OR.',
-        '&', '$', '#', '!'
+        '&', '$', '#', '!', '.'
       ]
 
     known_operator_tb = CaseInsensitiveListTokenBuilder(known_operators, 'operator', False)
@@ -127,7 +129,7 @@ class DbaseExaminer(Examiner):
       self.unary_operators = [
         '+', '-',
         '.NOT.',
-        '&'
+        '&', '$', '#', '!'
       ]
 
     self.postfix_operators = []
@@ -141,9 +143,14 @@ class DbaseExaminer(Examiner):
     special_function_tb = DbaseSpecialFunctionTokenBuilder(special_chars, previous)
 
     groupers = ['(', ')', ',']
-    group_starts = ['(', ',']
+    group_starts = ['(']
     group_mids = [',']
     group_ends = [')']
+
+    if version == 'iii':
+      groupers = ['(', ')', ',', '[', ']']
+      group_starts = ['(', '[']
+      group_ends = [')', ']']
 
     groupers_tb = CaseSensitiveListTokenBuilder(groupers, 'group', False)
 
@@ -167,14 +174,7 @@ class DbaseExaminer(Examiner):
         'TO',
         'USE', 'USING', 'USIN',
         'WAIT', 'WHILE', 'WHIL', 'WITH',
-        '@', '?', '??',
-        'ALTERNATE',
-        'BELL',
-        'COLON', 'COLOR', 'CONSOLE', 'CONS',
-        'DELIMITERS',
-        'INTENSITY',
-        'PRINT',
-        'TALK'
+        '@', '?', '??'
       ]
 
     if version == 'iii':
@@ -184,49 +184,37 @@ class DbaseExaminer(Examiner):
         'CALL', 'CANCEL', 'CASE', 'CHANGE', 'CLEAR', 'CLOSE', 'CONTINUE',
         'COPY', 'COUNT', 'CREATE',
         'DELETE', 'DIR', 'DISPLAY', 'DISP', 'DO',
-        'EDIT', 'ELSE', 'ENDCASE', 'ENDDO', 'ENDIF', 'ENDWHILE', 'ERASE', 'EXIT',
+        'EDIT', 'ELSE', 'ELSEIF', 'ENDCASE', 'ENDC', 'ENDDO', 'ENDD',
+        'ENDIF', 'ENDI', 'ENDWHILE', 'ENDW', 'ERASE', 'EXIT',
         'EXPORT',
-        'FIND', 'FOR', 'FROM',
+        'FIND', 'FOR', 'FROM', 'FUNCTION', 'FUNC',
         'GET', 'GO', 'GOTO',
         'HELP',
         'IF', 'IMPORT', 'INDEX', 'INPUT', 'INSERT',
         'JOIN',
+        'KEYBOARD', 'KEYB',
         'LABEL', 'LIKE', 'LIST', 'LOAD', 'LOCATE', 'LOOP',
         'MODIFY',
+        'NEXT',
         'OTHERWISE', 'OTHE',
-        'PACK', 'PARAMETERS', 'PICTURE', 'PRIVATE', 'PROCEDURE', 'PUBLIC',
+        'PACK', 'PARAMETERS', 'PARA', 'PICTURE', 'PICT', 'PRIVATE', 'PRIV',
+        'PROCEDURE', 'PROC', 'PUBLIC',
         'QUIT',
         'READ', 'RECALL', 'RELEASE', 'REPLACE', 'REPORT', 'RESTORE',
-        'RESUME', 'RETURN', 'RETRY', 'RUN',
+        'RESUME', 'RETURN', 'RETU', 'RETRY', 'RUN',
         'SAVE', 'SAY', 'SELECT', 'SELE', 'SEEK', 'SET', 'SKIP', 'SORT',
         'STORE', 'SUM', 'SUSPEND',
         'TO', 'TOTAL', 'TYPE',
         'UPDATE', 'USE',
         'WHILE', 'WITH',
         'ZAP',
-        '@', '?', '??',
-        'ALTERNATE',
-        'BELL',
-        'CARRY', 'CATALOG', 'CENTURY', 'COLOR', 'CONFIRM', 'CONSOLE',
-        'DATE', 'AMERICAN', 'ANSI', 'BRITISH', 'ITALIAN', 'FRENCH', 'GERMAN',
-        'DATABASES', 'DEBUG', 'DECIMALS', 'DEFAULT', 'DELETED',
-        'DELIMITERS', 'DEVICE', 'DOHISTORY',
-        'ECHO', 'ESCAPE', 'EXACT',
-        'FIELDS', 'FILTER', 'FIXED', 'FORMAT', 'FUNCTION',
-        'HEADING', 'HELP', 'HISTORY',
-        'INTENSITY',
-        'MARGIN', 'MEMO', 'WIDTH', 'MENUS', 'MESSAGE',
-        'ODOMETER', 'ORDER',
-        'PATH', 'PRINTER',
-        'RELATION',
-        'SAFETY', 'STATUS', 'STEP',
-        'TALK', 'TITLE', 'TYPEAHEAD',
-        'UNIQUE', 'VIEW', 'STRUCTURE', 'MEMORY', 'LABEL', 'QUERY', 'REPORT',
-        'GETS', 'LOCK', 'FREEZE', 'NOFOLLOW', 'NOMENU'
+        '@', '?', '??'
       ]
 
     keyword_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
 
+    # keyword comments are keywords that also start a comment
+    # any text after the keyword is a comment
     keyword_comments = []
     if version == 'ii':
       keyword_comments = [
@@ -238,22 +226,64 @@ class DbaseExaminer(Examiner):
 
     keyword_comment2_tb = KeywordComment2TokenBuilder(['DO', 'CASE'], False)
 
+    values = []
+
     if version == 'ii':
       values = [
         'ALL', 'BLANK', 'BLAN', 'BOTTOM', 'BOTT', 'EOF', 'OFF', 'ON', 'TOP',
-        'PRIMARY', 'PRIM', 'SECONDARY', 'SECO',
         '.T.', '.F.'
       ]
 
     if version == 'iii':
       values = [
         'ALL', 'BLANK', 'BLAN', 'BOTTOM', 'BOTT', 'EOF', 'OFF', 'ON', 'TOP',
-        '.T.', '.F.'
+        '.T.', '.F.',
+        'AMERICAN', 'ANSI', 'BRITISH', 'ITALIAN', 'FRENCH', 'GERMAN',
       ]
 
     values_tb = CaseInsensitiveListTokenBuilder(values, 'value', True)
     operand_types.append('value')
 
+    set_keywords = []
+
+    if version == 'ii':
+      set_keywords = [
+        'ALTERNATE',
+        'BELL',
+        'COLON', 'COLOR', 'CONSOLE', 'CONS',
+        'DELIMITERS',
+        'INTENSITY',
+        'PRIMARY', 'PRIM', 'PRINT',
+        'SECONDARY', 'SECO',
+        'TALK'
+        ]
+
+    if version == 'iii':
+      set_keywords = [
+        'ALTERNATE',
+        'BELL',
+        'CARRY', 'CATALOG', 'CENTURY', 'COLOR', 'CONFIRM', 'CONSOLE',
+        'DATE', 'DATABASES', 'DEBUG', 'DECIMALS', 'DEFAULT', 'DELETED',
+        'DELIMITERS', 'DEVICE', 'DOHISTORY',
+        'ECHO', 'ESCAPE', 'EXACT',
+        'FIELDS', 'FILTER', 'FIXED', 'FORMAT', 'FUNCTION',
+        'HEADING', 'HELP', 'HISTORY',
+        'INTENSITY',
+        'MARGIN', 'MEMO', 'WIDTH', 'MENUS', 'MESSAGE',
+        'ODOMETER', 'ORDER',
+        'PATH', 'PRIMARY', 'PRIM', 'PRINTER',
+        'RELATION',
+        'SAFETY', 'SECONDARY', 'SECO', 'STATUS', 'STEP',
+        'TALK', 'TITLE', 'TYPEAHEAD',
+        'UNIQUE', 'VIEW',
+        'STRUCTURE', 'MEMORY', 'LABEL', 'QUERY', 'REPORT',
+        'GETS', 'LOCK', 'FREEZE', 'NOFOLLOW', 'NOMENU'
+      ]
+
+    set_keyword_tb = SetCaseInsensitiveListTokenBuilder(set_keywords, 'keyword', False)
+
+    functions = []
+  
     if version == 'ii':
       functions = [
         'ALLTRIM',
@@ -312,7 +342,8 @@ class DbaseExaminer(Examiner):
       real_tb,
       real_exponent_tb,
       keyword_tb,
-      keyword_comment_tb,
+      set_keyword_tb,
+      keyword_comment_tb, # after keyword, because these are longer
       keyword_comment2_tb,
       values_tb,
       groupers_tb,
@@ -331,6 +362,7 @@ class DbaseExaminer(Examiner):
     ]
 
     tokenbuilders_iii = [
+      bracket_string_tb,
       line_comment_tb
     ]
 
@@ -353,7 +385,13 @@ class DbaseExaminer(Examiner):
     tokenizer = Tokenizer(tokenbuilders)
     tokens = tokenizer.tokenize(code)
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
-    self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
+    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
+    self.tokens = tokens
+
+    if version == 'iii':
+      self.convert_keywords_to_identifiers()
+
+    self.convert_dollar_to_value()
 
     self.calc_statistics()
 
@@ -374,14 +412,11 @@ class DbaseExaminer(Examiner):
 
     operand_types_2 = ['number', 'number', 'function', 'value', 'string', 'filename']
     self.calc_operand_n_confidence(tokens, operand_types_2, 2)
-    self.calc_operand_n_confidence(tokens, operand_types, 4)
 
     self.calc_keyword_confidence()
 
     if version == 'ii':
       self.calc_line_format_confidence_ii()
-    else:
-      self.calc_line_format_confidence()
 
     self.calc_line_length_confidence(code, self.max_expected_line)
 
@@ -423,39 +458,47 @@ class DbaseExaminer(Examiner):
     return tokens
 
 
-  def calc_line_format_confidence(self):
-    # remove tokens we don't care about
-    drop_types = ['whitespace', 'comment', 'EOF']
-    tokens = Examiner.drop_tokens(self.tokens, drop_types)
+  # convert certain keywords to identifiers
+  def convert_keywords_to_identifiers(self):
+    prev_token = Token('\n', 'newline', False)
 
-    # join continued lines
-    tokens = self.join_continued_lines(tokens)
+    for token in self.tokens:
+      # keyword '='
+      #  => change keyword to identifier
+      if token.group == 'operator' and token.text == '=' and \
+        prev_token.group == 'keyword':
+        prev_token.group = 'identifier'
+        prev_token.is_operand = True
 
-    # split tokens by lines
-    lines = self.split_tokens_into_lines(tokens)
+      # operator keyword
+      #  => change keyword to identifier
+      if prev_token.group == 'operator' and token.group == 'keyword':
+        token.group = 'identifier'
+        token.is_operand = True
 
-    # check that each line either blank or starts with a keyword or identifier '='
-    num_lines = len(lines)
-    num_lines_correct = 0
+      # keyword ['FUNCTION', 'IF', 'ELSEIF'] keyword
+      #  => change second keyword to identifier
+      lead_keywords = ['function', 'func', 'if', 'elseif', 'elsi']
 
-    for line in lines:
-      if len(line) > 0:
-        if line[0].group == 'keyword' or\
-          len(line) > 1 and line[0].group == 'identifier' and line[1].text == '=':
-          num_lines_correct += 1
-        else:
-          self.errors.append({
-            'TYPE': 'LINE FORMAT',
-            'FIRST': line[0].group,
-            'SECOND': line[0].text
-          })
-      else:
-        num_lines_correct += 1
+      if prev_token.group == 'keyword' and \
+        prev_token.text.lower() in lead_keywords and \
+        token.group == 'keyword':
+        token.group = 'identifier'
+        token.is_operand = True
 
-    line_format_confidence = 1.0
-    if num_lines > 0:
-      line_format_confidence = num_lines_correct / num_lines
+      if token.group not in ['whitespace', 'comment', 'newline', 'line description']:
+        prev_token = token
 
-    self.confidences['line format'] = line_format_confidence
 
-    return tokens
+  # convert dollar signs after '@' to value
+  def convert_dollar_to_value(self):
+    prev_token = Token('\n', 'newline', False)
+
+    for token in self.tokens:
+      if token.group == 'operator' and token.text == '$' and \
+        prev_token.group == 'keyword' and prev_token.text == '@':
+        token.group = 'value'
+        token.is_operand = True
+
+      if token.group not in ['whitespace', 'comment', 'newline', 'line description']:
+        prev_token = token

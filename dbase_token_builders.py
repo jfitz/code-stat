@@ -81,7 +81,7 @@ class DbaseFilenameTokenBuilder(TokenBuilder):
       return 0
 
     # file names always follow these keywords
-    predecessors = ['do', 'use', 'index', 'to', 'load', 'call']
+    predecessors = ['call', 'do', 'from', 'index', 'load', 'to', 'use']
     if line_printable_tokens[-1].text.lower() not in predecessors:
       return 0
 
@@ -156,7 +156,79 @@ class BracketedStringTokenBuilder(TokenBuilder):
     if self.text[-1] != ']':
       return 0
 
+    if len(line_printable_tokens) > 0:
+      if line_printable_tokens[-1].group == 'identifier':
+        return 0
+
     return len(self.text)
+
+
+# keywords that follow the 'SET' keyword
+class SetCaseInsensitiveListTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self, legals, group, is_operand):
+    self.legals = list(map(str.lower, legals))
+
+    self.abbrevs = {}
+    for legal in self.legals:
+      for i in range(len(legal)):
+        self.abbrevs[legal[:i+1]] = 1
+
+    self.group = group
+    self.is_operand = is_operand
+    self.text = ''
+
+
+  def attempt(self, text, start):
+    self.text = None
+    best_candidate = None
+    candidate = ''
+    i = start
+
+    while i < len(text):
+      c = text[i]
+
+      if not self.accept(candidate, c):
+        break
+
+      candidate += c
+      i += 1
+
+      if candidate.lower() in self.legals:
+        best_candidate = candidate
+
+    self.text = best_candidate
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, self.group, self.is_operand)]
+
+
+  def accept(self, candidate, c):
+    token = candidate + c
+    return token.lower() in self.abbrevs
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    set_token = Token('set', 'keyword', False)
+    if not set_token in line_printable_tokens:
+      return 0
+
+    if self.text.lower() in self.legals:
+      return len(self.text)
+
+    return 0
 
 
 # accept characters to match item in list
