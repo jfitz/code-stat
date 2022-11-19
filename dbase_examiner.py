@@ -20,7 +20,6 @@ from token_builders import (
 )
 from cobol_token_builders import AsteriskCommentTokenBuilder
 from dbase_token_builders import (
-  DbaseSpecialFunctionTokenBuilder,
   DbaseFilenameTokenBuilder,
   WildCardIdentifierTokenBuilder,
   BracketedStringTokenBuilder,
@@ -48,7 +47,6 @@ class DbaseExaminer(Examiner):
     SingleCharacterTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
     AsteriskCommentTokenBuilder.__escape_z__()
-    DbaseSpecialFunctionTokenBuilder.__escape_z__()
     DbaseFilenameTokenBuilder.__escape_z__()
     WildCardIdentifierTokenBuilder.__escape_z__()
     BracketedStringTokenBuilder.__escape_z__()
@@ -104,7 +102,7 @@ class DbaseExaminer(Examiner):
         '=', '<>', '#', '>', '>=', '<', '<=',
         '$',
         '.NOT.', '.AND.', '.OR.',
-        '&', '$', '#', '!'
+        '&', '$', '!'
       ]
 
     if version == 'iii':
@@ -113,7 +111,7 @@ class DbaseExaminer(Examiner):
         '=', '<>', '#', '>', '>=', '<', '<=', '!=',
         '$', '->',
         '.NOT.', '.AND.', '.OR.',
-        '&', '$', '#', '!', '.'
+        '&', '$', '!', '.'
       ]
 
     known_operator_tb = CaseInsensitiveListTokenBuilder(known_operators, 'operator', False)
@@ -122,25 +120,17 @@ class DbaseExaminer(Examiner):
       self.unary_operators = [
         '+', '-',
         '.NOT.',
-        '&', '$', '#', '!'
+        '&', '$', '!'
       ]
 
     if version == 'iii':
       self.unary_operators = [
         '+', '-',
         '.NOT.',
-        '&', '$', '#', '!'
+        '&', '$', '!'
       ]
 
     self.postfix_operators = []
-
-    special_chars = []
-
-    if version == 'ii':
-      special_chars = ['*', '#']
-
-    previous = ['if', 'case', 'while', 'store', '(', '.and.', '.or', '.not.']
-    special_function_tb = DbaseSpecialFunctionTokenBuilder(special_chars, previous)
 
     groupers = ['(', ')', ',']
     group_starts = ['(']
@@ -157,14 +147,14 @@ class DbaseExaminer(Examiner):
     if version == 'ii':
       keywords = [
         'ACCEPT', 'ACCE', 'APPEND', 'APPE',
-        'CASE', 'CLEAR', 'CLEA', 'COPY', 'COUNT', 'CREATE', 'CREA',
+        'CASE', 'CLEAR', 'CLEA', 'COPY', 'COUNT', 'COUN', 'CREATE', 'CREA',
         'DELETE', 'DELE', 'DISPLAY', 'DISP', 'DO',
-        'EJECT', 'EJEC', 'ELSE', 'ENDCASE', 'ENDC', 'ENDDO', 'ENDD',
+        'EDIT', 'EJECT', 'EJEC', 'ELSE', 'ENDCASE', 'ENDC', 'ENDDO', 'ENDD',
         'ENDIF', 'ENDI', 'ENDWHILE', 'ENDW', 'ERASE', 'ERAS',
         'FIND', 'FOR', 'FORMAT', 'FORM',
         'GET', 'GO', 'GOTO',
-        'IF', 'INDEX',
-        'LIKE', 'LOCATE', 'LOCA', 'LOOP',
+        'IF', 'INDEX', 'INDE', 'INPUT', 'INPU',
+        'LIKE', 'LIST', 'LOCATE', 'LOCA', 'LOOP',
         'OTHERWISE', 'OTHE',
         'PACK', 'PICTURE', 'PICT',
         'READ', 'RECALL', 'RECA', 'RELEASE', 'RELE', 'REPLACE', 'REPL',
@@ -179,34 +169,37 @@ class DbaseExaminer(Examiner):
 
     if version == 'iii':
       keywords = [
-        'ACCEPT', 'APPEND', 'ASSIST', 'AVERAGE',
-        'BROWSE',
-        'CALL', 'CANCEL', 'CASE', 'CHANGE', 'CLEAR', 'CLOSE', 'CONTINUE',
-        'COPY', 'COUNT', 'CREATE',
-        'DELETE', 'DIR', 'DISPLAY', 'DISP', 'DO',
+        'ACCEPT', 'ACCE', 'APPEND', 'APPE', 'ASSIST', 'ASSI', 'AVERAGE', 'AVER',
+        'BROWSE', 'BROW',
+        'CALL', 'CANCEL', 'CANC', 'CASE', 'CHANGE', 'CHAN', 'CLEAR', 'CLEA',
+        'CLOSE', 'CLOS', 'CONTINUE', 'CONT',
+        'COPY', 'COUNT', 'COUN', 'CREATE', 'CREA',
+        'DELETE', 'DELE', 'DIR', 'DISPLAY', 'DISP', 'DO',
         'EDIT', 'ELSE', 'ELSEIF', 'ENDCASE', 'ENDC', 'ENDDO', 'ENDD',
-        'ENDIF', 'ENDI', 'ENDWHILE', 'ENDW', 'ERASE', 'EXIT',
-        'EXPORT',
+        'ENDIF', 'ENDI', 'ENDWHILE', 'ENDW', 'ERASE', 'ERAS', 'EXIT',
+        'EXPORT', 'EXPO',
         'FIND', 'FOR', 'FROM', 'FUNCTION', 'FUNC',
         'GET', 'GO', 'GOTO',
         'HELP',
-        'IF', 'IMPORT', 'INDEX', 'INPUT', 'INSERT',
+        'IF', 'IMPORT', 'IMPO', 'INDEX', 'INDE', 'INPUT', 'INPU',
+        'INSERT', 'INSE',
         'JOIN',
         'KEYBOARD', 'KEYB',
-        'LABEL', 'LIKE', 'LIST', 'LOAD', 'LOCATE', 'LOOP',
-        'MODIFY',
+        'LABEL', 'LABE', 'LIKE', 'LIST', 'LOAD', 'LOCATE', 'LOCA', 'LOOP',
+        'MODIFY', 'MODI',
         'NEXT',
         'OTHERWISE', 'OTHE',
         'PACK', 'PARAMETERS', 'PARA', 'PICTURE', 'PICT', 'PRIVATE', 'PRIV',
-        'PROCEDURE', 'PROC', 'PUBLIC',
+        'PROCEDURE', 'PROC', 'PUBLIC', 'PUBL',
         'QUIT',
-        'READ', 'RECALL', 'RELEASE', 'REPLACE', 'REPORT', 'RESTORE',
-        'RESUME', 'RETURN', 'RETU', 'RETRY', 'RUN',
+        'READ', 'RECALL', 'RECA', 'RELEASE', 'RELE', 'REPLACE', 'REPL',
+        'REPORT', 'REPO', 'RESTORE', 'REST', 'RESUME', 'RESU', 'RETURN', 'RETU',
+        'RETRY', 'RETR', 'RUN',
         'SAVE', 'SAY', 'SELECT', 'SELE', 'SEEK', 'SET', 'SKIP', 'SORT',
-        'STORE', 'SUM', 'SUSPEND',
-        'TO', 'TOTAL', 'TYPE',
-        'UPDATE', 'USE',
-        'WHILE', 'WITH',
+        'STORE', 'STOR', 'SUM', 'SUSPEND', 'SUSP',
+        'TO', 'TOTAL', 'TOTA', 'TYPE',
+        'UPDATE', 'UPDA', 'USE',
+        'WHILE', 'WHIL', 'WITH',
         'ZAP',
         '@', '?', '??'
       ]
@@ -283,7 +276,7 @@ class DbaseExaminer(Examiner):
     set_keyword_tb = SetCaseInsensitiveListTokenBuilder(set_keywords, 'keyword', False)
 
     functions = []
-  
+
     if version == 'ii':
       functions = [
         'ALLTRIM',
@@ -347,7 +340,6 @@ class DbaseExaminer(Examiner):
       keyword_comment2_tb,
       values_tb,
       groupers_tb,
-      special_function_tb,
       comment_tb,         # before operators, to catch single asterisk on line
       known_operator_tb,
       function_tb,
@@ -387,6 +379,9 @@ class DbaseExaminer(Examiner):
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     self.tokens = tokens
+
+    if version == 'ii':
+      self.convert_specials_to_functions(group_starts, group_mids)
 
     if version == 'iii':
       self.convert_keywords_to_identifiers()
@@ -456,6 +451,25 @@ class DbaseExaminer(Examiner):
     self.confidences['line format'] = line_format_confidence
 
     return tokens
+
+
+  # convert star and hash to function
+  def convert_specials_to_functions(self, group_starts, group_mids):
+    prev_token = Token('\n', 'newline', False)
+
+    for token in self.tokens:
+      x1 = prev_token.group in ['keyword', 'operator']
+
+      x2 = prev_token.group == 'group' and \
+        (prev_token.text in group_starts or prev_token.text in group_mids)
+
+      if token.group == 'operator' and token.text in '*#' and \
+        (x1 or x2):
+        token.group = 'function'
+        token.is_operand = True
+
+      if token.group not in ['whitespace', 'comment', 'newline', 'line description']:
+        prev_token = token
 
 
   # convert certain keywords to identifiers

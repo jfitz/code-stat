@@ -78,8 +78,18 @@
     },
     {
         "TYPE":"OPERATOR2",
+        "FIRST":"#",
+        "SECOND":"#"
+    },
+    {
+        "TYPE":"OPERATOR2",
         "FIRST":".not.",
         "SECOND":"*"
+    },
+    {
+        "TYPE":"OPERATOR2",
+        "FIRST":".or.",
+        "SECOND":"#"
     },
     {
         "TYPE":"OPERATOR2",
@@ -88,13 +98,33 @@
     },
     {
         "TYPE":"OPERATOR3",
+        "FIRST":"IF",
+        "SECOND":"#"
+    },
+    {
+        "TYPE":"OPERATOR3",
         "FIRST":"#",
         "SECOND":"="
     },
     {
         "TYPE":"OPERATOR3",
+        "FIRST":"IF",
+        "SECOND":"#"
+    },
+    {
+        "TYPE":"OPERATOR3",
+        "FIRST":"#",
+        "SECOND":"#"
+    },
+    {
+        "TYPE":"OPERATOR3",
         "FIRST":"SAY",
         "SECOND":"*"
+    },
+    {
+        "TYPE":"OPERATOR3",
+        "FIRST":"EDIT",
+        "SECOND":"#"
     },
     {
         "TYPE":"OPERATOR3",
@@ -108,6 +138,11 @@
     },
     {
         "TYPE":"OPERATOR3",
+        "FIRST":".or.",
+        "SECOND":"#"
+    },
+    {
+        "TYPE":"OPERATOR3",
         "FIRST":"#",
         "SECOND":"="
     },
@@ -115,6 +150,11 @@
         "TYPE":"OPERATOR4",
         "FIRST":"#",
         "SECOND":"="
+    },
+    {
+        "TYPE":"OPERATOR4",
+        "FIRST":"#",
+        "SECOND":"#"
     },
     {
         "TYPE":"OPERATOR4",
@@ -135,6 +175,11 @@
         "TYPE":"OPERATOR4",
         "FIRST":"*",
         "SECOND":"\r\n"
+    },
+    {
+        "TYPE":"OPERATOR4",
+        "FIRST":".or.",
+        "SECOND":"#"
     },
     {
         "TYPE":"OPERATOR4",

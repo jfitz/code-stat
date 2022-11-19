@@ -7,43 +7,6 @@ from token_builders import (
   BlockTokenBuilder
 )
 
-# token reader for deleted record function
-class DbaseSpecialFunctionTokenBuilder(TokenBuilder):
-  @staticmethod
-  def __escape_z__():
-    return 'Escape ?Z'
-
-
-  def __init__(self, chars, previous):
-    self.chars = chars
-    self.previous = previous
-    self.text = None
-
-
-  def get_tokens(self):
-    if self.text is None:
-      return None
-
-    return [Token(self.text, 'function', True)]
-
-
-  def accept(self, candidate, c):
-    return len(candidate) == 0 and c in self.chars
-
-
-  def get_score(self, line_printable_tokens):
-    if self.text is None:
-      return 0
-
-    if len(line_printable_tokens) == 0:
-      return 0
-
-    if line_printable_tokens[-1].text.lower() not in self.previous:
-      return 0
-
-    return len(self.text)
-
-
 # token reader for identifier
 class DbaseFilenameTokenBuilder(TokenBuilder):
   @staticmethod
@@ -89,7 +52,7 @@ class DbaseFilenameTokenBuilder(TokenBuilder):
     if line_printable_tokens[-1].text.lower() == 'to' and \
       line_printable_tokens[0].text.lower() not in ['set', 'copy']:
       return 0
-    
+  
     # some keywords look like file names but are not
     if self.text.lower() in ['screen', 'print', 'file']:
       return 0

@@ -67,9 +67,6 @@ class Examiner:
   def TrimCtrlZText(code, ctrlz_char):
     length = len(code)
 
-    if length > 1023:
-      length = 1023
-
     ctrlz_position = 0
     for index in range(-1, -length, -1):
       if code[index] == ctrlz_char:
