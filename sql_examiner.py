@@ -1,5 +1,6 @@
 import string
 
+from codestat_token import Token
 from codestat_exception import CodeStatException
 from codestat_tokenizer import Tokenizer
 from token_builders import (
@@ -79,9 +80,21 @@ class SqlExaminer(Examiner):
     known_operators = [
       '=', '>', '>=', '<', '<=', '<>', '!=',
       'AND', 'OR', 'NOT',
-      'IN', 'EXISTS', 'LIKE', 'BETWEEN', 'ANY', 'ALL',
+      'IN', 'EXISTS', 'LIKE', 'BETWEEN', 'ANY', 'ALL', 'SOME',
       '.'
     ]
+
+    operators_tsql = [
+      '&', '|', '^', '~', '>>', '<<', '%',
+      '+=', '-=', '*=', '/=', '%=', '&=', '^=', '|=',
+      'GENERATE_SERIES',
+      'OPENDATASOURCE', 'OPENQUERY', 'OPENROWSET', 'OPENXML', 'OPENJSON',
+      'PREDICT',
+      'STRING_SPLIT'
+    ]
+
+    if extension in ['microsoft', 't-sql']:
+      known_operators += operators_tsql
 
     known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
@@ -171,7 +184,7 @@ class SqlExaminer(Examiner):
       'NTH_VALUE', 'NTILE',
       'NEW',
       'NORMALIZE',
-      'OCTET_LENGTH', 'OF', 'ONLY', 'OPEN', 'OPTION', 'ORDER',
+      'OCTET_LENGTH', 'OF', 'ON', 'ONLY', 'OPEN', 'OPTION', 'ORDER',
       'OUTPUT', 'OVERLAPS',
       'OBJECT', 'OLD', 'ORDINALITY', 'OUT', 'OUTER',
       'OCTET_LENGTH', 'OFFSET',
@@ -195,7 +208,7 @@ class SqlExaminer(Examiner):
       'REGR_SLOPE', 'REGR_SXX', 'REGR_SXY', 'REGR_SYY', 'ROW_NUMBER',
       'RUNNING',
       'SCHEMA', 'SCROLL', 'SECOND', 'SECTION', 'SELECT', 'SESSION',
-      'SESSION_USER', 'SET', 'SIZE', 'SOME', 'SPACE',
+      'SESSION_USER', 'SET', 'SIZE', 'SPACE',
       'SPECIFIC', 'SQL', 'SQLCODE', 'SQLERROR',
       'SQLEXCEPTION', 'SQLSTATE', 'SQLWARNING', 'SUBSTRING', 'SUM',
       'SQRT', 'STDDEV_POP', 'STDDEV_SAMP', 'SUBSTRING_REGEX', 'SUM',
@@ -227,11 +240,17 @@ class SqlExaminer(Examiner):
     ]
 
     keywords_tsql = [
-      'INSTEAD', 'CASE', 'UPDLOCK', 'DATEADD', 'GETDATE',
-      'TEXTIMAGE_ON', 'CLUSTERED',
-      'GENERATED', 'DECLARE', 'SET',
-      'BEGIN', 'END', 'BREAK', 'CONTINUE', 'GOTO', 'ELSE', 'RETURN',
-      'WAITFOR', 'BULK', 'TRY', 'CATCH'
+      'BEGIN', 'BREAK', 'BULK',
+      'CASE', 'CATCH', 'CONTINUE', 'CLUSTERED',
+      'DATEADD', 'DECLARE',
+      'ELSE', 'END',
+      'GENERATED', 'GETDATE', 'GOTO',
+      'INSTEAD',
+      'RETURN',
+      'SET',
+      'TEXTIMAGE_ON', 'TRY',
+      'UPDLOCK',
+      'WAITFOR'
     ]
 
     keywords_plsql = [
@@ -247,7 +266,7 @@ class SqlExaminer(Examiner):
 
     keyword_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
 
-    values = ['TRUE', 'FALSE', 'NULL', 'OFF', 'ON', 'NONE', 'ONE']
+    values = ['TRUE', 'FALSE', 'NULL', 'OFF', 'NONE', 'ONE']
 
     values_tsql = [
       'ALLOW_ROW_LOCKS', 'ALLOW_PAGE_LOCKS', 'ALWAYS', 'IGNORE_DUP_KEY',
@@ -321,6 +340,7 @@ class SqlExaminer(Examiner):
     tokens = Examiner.combine_identifier_colon(tokens, ['statement terminator', 'newline'], [], ['whitespace', 'comment'])
     self.tokens = tokens
     self.convert_identifiers_to_labels()
+    self.convert_keywords_to_values()
 
     self.calc_statistics()
 
@@ -346,3 +366,17 @@ class SqlExaminer(Examiner):
 
     self.calc_keyword_confidence()
     self.calc_line_length_confidence(code, self.max_expected_line)
+
+
+  # convert identifiers after 'goto' to labels
+  def convert_keywords_to_values(self):
+    prev_token = Token('\n', 'newline', False)
+
+    for token in self.tokens:
+      if token.group == 'keyword' and token.text.lower() == 'on' and \
+        prev_token.group == 'operator':
+        token.group = 'value'
+        token.is_operand = True
+
+      if token.group not in ['whitespace', 'comment', 'newline', 'line description']:
+        prev_token = token
