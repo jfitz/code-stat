@@ -140,6 +140,19 @@ class ScalaExaminer(Examiner):
 
     keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
+    types = [
+      'BigDecimal', 'BigInt', 'Boolean', 'Byte',
+      'Char',
+      'Double',
+      'Float',
+      'Int',
+      'Long',
+      'Short', 'String'
+    ]
+
+    types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
+    operand_types.append('type')
+
     values = [
       'false', 'true', 'null', 'this', 'super'
     ]
@@ -162,6 +175,7 @@ class ScalaExaminer(Examiner):
       real_exponent_tb,
       float_real_tb,
       keyword_tb,
+      types_tb,
       values_tb,
       groupers_tb,
       known_operator_tb,

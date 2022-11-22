@@ -120,7 +120,7 @@ REMARK  opening the E'BYNAME index, FINDing the name says...
        DO WHILE .not. Meu:dateok
          STORE T TO Meu:dateok
          IF Meu:dte = '  /  /  '
-           @ 15,40 SAY "** Invalid Terminate Date **'
+           @ 15,40 SAY "** Invalid Terminate Date **"
            @ 15,10 SAY "Terminated"
            @ 15,21 GET Meu:dte PICTURE '99/99/99'
            READ

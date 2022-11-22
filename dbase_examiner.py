@@ -157,6 +157,7 @@ class DbaseExaminer(Examiner):
         'LIKE', 'LIST', 'LOCATE', 'LOCA', 'LOOP',
         'OTHERWISE', 'OTHE',
         'PACK', 'PICTURE', 'PICT',
+        'QUIT',
         'READ', 'RECALL', 'RECA', 'RELEASE', 'RELE', 'REPLACE', 'REPL',
         'REPORT', 'REPO', 'RESTORE', 'REST', 'RETURN', 'RETU',
         'SAVE', 'SAY', 'SELECT', 'SELE', 'SET', 'SKIP', 'SORT',
