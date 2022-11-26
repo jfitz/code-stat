@@ -1,0 +1,902 @@
+[
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"label",
+        "value":"FIND:"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PROCEDURE"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"PA"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"PB"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"BYTE"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"keyword",
+        "value":"DECLARE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"PA"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"PB"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"BYTE"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"comment",
+        "value":"/* FIND THE STRING IN SCRATCH STARTING AT PA AND ENDING AT PB */"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"keyword",
+        "value":"DECLARE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"J"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"ADDRESS"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"K"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MATCH"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"BYTE"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"identifier",
+        "value":"J"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"BACK"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"identifier",
+        "value":"MATCH"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"FALSE"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"option",
+        "value":"WHILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NOT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MATCH"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"AND"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"MAXM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":">"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"J"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"identifier",
+        "value":"LAST"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"J"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"J"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"/* START SCAN AT J */"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"identifier",
+        "value":"K"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PA"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"/* ATTEMPT STRING MATCH AT K */"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"option",
+        "value":"WHILE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SCRATCH"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"K"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MEMORY"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"LAST"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"AND"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                "
+    },
+    {
+        "type":"identifier",
+        "value":"NOT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"MATCH"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":":"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"K"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PB"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"comment",
+        "value":"/* MATCHED ONE MORE CHARACTER */"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"identifier",
+        "value":"K"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"K"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"LAST"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"LAST"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"            "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MATCH"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"THEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"/* MOVE STORAGE */"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"keyword",
+        "value":"DO"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"LAST"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"LAST"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"CALL"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MOVER"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"keyword",
+        "value":"RETURN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"MATCH"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"FIND"
+    },
+    {
+        "type":"statement terminator",
+        "value":";"
+    }
+]

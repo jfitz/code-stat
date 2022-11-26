@@ -1,77 +1,58 @@
 [
     {
-        "TYPE":"TOKEN",
-        "INVALID":"ΓòÉΓò¢",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"Γê⌐Γò¥├ä",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"Γê⌐Γò¥├«",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"╬⌐Γéº├½Γê⌐Γò¥┬Ñ",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"Γê⌐Γò¥┬Ñ",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"Γê⌐Γò¥┬ó",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"Γê⌐Γò¥┬úΓê⌐Γò¥Γéº",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"╬⌐Γéº├½",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"╬⌐Γéº├½Γê⌐Γò¥┬Ñ",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"OPERATOR3",
-        "FIRST":"╬⌐Γéº├½Γê⌐Γò¥┬Ñ",
+        "TYPE":"OPERATOR2",
+        "FIRST":"=",
         "SECOND":"="
     },
     {
-        "TYPE":"OPERATOR3",
-        "FIRST":"Γê⌐Γò¥┬Ñ",
+        "TYPE":"OPERATOR2",
+        "FIRST":"=",
         "SECOND":"=="
     },
     {
         "TYPE":"OPERATOR3",
-        "FIRST":"Γê⌐Γò¥┬úΓê⌐Γò¥Γéº",
-        "SECOND":"!="
+        "FIRST":":",
+        "SECOND":"="
+    },
+    {
+        "TYPE":"OPERATOR3",
+        "FIRST":"=",
+        "SECOND":"="
+    },
+    {
+        "TYPE":"OPERATOR3",
+        "FIRST":"#define",
+        "SECOND":"="
+    },
+    {
+        "TYPE":"OPERATOR3",
+        "FIRST":"=",
+        "SECOND":"=="
+    },
+    {
+        "TYPE":"OPERATOR3",
+        "FIRST":":",
+        "SECOND":"="
+    },
+    {
+        "TYPE":"OPERATOR4",
+        "FIRST":".",
+        "SECOND":"#define"
+    },
+    {
+        "TYPE":"OPERATOR4",
+        "FIRST":"=",
+        "SECOND":"="
     },
     {
         "TYPE":"OPERATOR4",
         "FIRST":"=",
         "SECOND":"#define"
+    },
+    {
+        "TYPE":"OPERATOR4",
+        "FIRST":"=",
+        "SECOND":"=="
     },
     {
         "TYPE":"OPERATOR4",
@@ -92,5 +73,10 @@
         "TYPE":"OPERATOR4",
         "FIRST":"!=",
         "SECOND":"#define"
+    },
+    {
+        "TYPE":"OPERATOR4",
+        "FIRST":"=",
+        "SECOND":"return"
     }
 ]

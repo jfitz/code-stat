@@ -5,12 +5,7 @@ Set-Variable -Name action "detect"
 # generic assembly
 
 # Assembly for IBM, DEC, Intel, and more
-Set-Variable -Name language "ASM-360"
-test\bin\run_detect_test.ps1 -json -name subroutine1-$language -inputfile ".\test\data\ASM-360\subroutine1.asm" -expected ".\test\ref\$action\$language\subroutine1.asm.txt"
-test\bin\run_detect_test.ps1 -json -name subroutine1_a-$language -inputfile ".\test\data\ASM-360\subroutine1_a.asm" -expected ".\test\ref\$action\$language\subroutine1_a.asm.txt"
-test\bin\run_detect_test.ps1 -json -name subroutine2-$language -inputfile ".\test\data\ASM-360\subroutine2.asm" -expected ".\test\ref\$action\$language\subroutine2.asm.txt"
-test\bin\run_detect_test.ps1 -json -name subroutine2_a-$language -inputfile ".\test\data\ASM-360\subroutine2_a.asm" -expected ".\test\ref\$action\$language\subroutine2_a.asm.txt"
-test\bin\run_detect_test.ps1 -json -name spitbol-$language -inputfile ".\test\data\ASM-360\spitbol.asm" -expected ".\test\ref\$action\$language\spitbol.asm.txt"
+test\bin\run_detect_tests_language.ps1 -language "Assembly"
 
 # Ada 83, Ada 95
 test\bin\run_detect_tests_language.ps1 -language "Ada"

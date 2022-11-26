@@ -26,6 +26,31 @@ class Examiner:
     self.max_expected_line = 132
 
 
+# Convert some UNICODE characters to ASCII equivalents
+  @staticmethod
+  def convert_to_ascii(code):
+    convertables = {
+      '＝': '=',
+      '＜': '<',
+      '＞': '>',
+      '꞉': ':',
+      '．': '.',
+      '，': ',',
+      ';': ';',
+      '；': ';'
+    }
+
+    ascii_code = ""
+
+    for c in code:
+      if c in convertables:
+        ascii_code += convertables[c]
+      else:
+        ascii_code += c
+
+    return ascii_code
+
+
   def confidence(self):
     value = 1.0
 

@@ -209,7 +209,10 @@ class JuliaExaminer(Examiner):
     ]
 
     tokenizer = Tokenizer(tokenbuilders)
-    tokens = tokenizer.tokenize(code)
+
+    ascii_code = self.convert_to_ascii(code)
+    tokens = tokenizer.tokenize(ascii_code)
+
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     tokens = JuliaExaminer.split_symbols_to_operators_identifiers(tokens, group_ends)

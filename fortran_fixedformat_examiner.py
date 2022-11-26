@@ -153,7 +153,9 @@ class FortranFixedFormatExaminer(FortranExaminer):
 
     tokenizer = Tokenizer(tokenbuilders)
 
-    tokens = self.tokenize_code(code, tab_size, tokenizer)
+
+    ascii_code = self.convert_to_ascii(code)
+    tokens = self.tokenize_code(ascii_code, tab_size, tokenizer)
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'whitespace')

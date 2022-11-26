@@ -221,7 +221,10 @@ class PerlExaminer(Examiner):
     ]
 
     tokenizer = Tokenizer(tokenbuilders)
-    tokens = tokenizer.tokenize(code, ['__END__'])
+
+    ascii_code = self.convert_to_ascii(code)
+    tokens = tokenizer.tokenize(ascii_code)
+
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     tokens = Examiner.combine_identifier_colon(tokens, ['statement terminator', 'newline'], ['{'], ['whitespace', 'comment', 'line description'])

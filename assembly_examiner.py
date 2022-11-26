@@ -795,7 +795,10 @@ class AssemblyExaminer(Examiner):
     args_tokenizer = Tokenizer(args_tokenbuilders)
 
     # tokenize as free-format
-    tokens_free = tokenizer.tokenize(code)
+
+    ascii_code = self.convert_to_ascii(code)
+    tokens_free = tokenizer.tokenize(ascii_code)
+
     tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid operator')
     tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid')
     tokens_free = Examiner.combine_identifier_colon(tokens_free, ['newline'], [], [])

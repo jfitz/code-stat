@@ -329,7 +329,10 @@ class PL1Examiner(Examiner):
     ]
 
     tokenizer_free = Tokenizer(tokenbuilders_free)
-    tokens_free = tokenizer_free.tokenize(code)
+
+    ascii_code = self.convert_to_ascii(code)
+    tokens_free = tokenizer_free.tokenize(ascii_code)
+
     tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid operator')
     tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid')
     self.tokens = tokens_free
@@ -416,7 +419,7 @@ class PL1Examiner(Examiner):
     tokenbuilders_fixed_2 = tokenbuilders_fixed + type2_tokenbuilders + [invalid_token_builder]
     tokenizer_fixed_2 = Tokenizer(tokenbuilders_fixed_2)
 
-    tokens_fixed = self.tokenize_code(code, tab_size, tokenizer_fixed_1, tokenizer_fixed_2)
+    tokens_fixed = self.tokenize_code(ascii_code, tab_size, tokenizer_fixed_1, tokenizer_fixed_2)
     tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid operator')
     tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid')
     tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'whitespace')

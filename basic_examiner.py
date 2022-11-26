@@ -279,7 +279,10 @@ class BasicExaminer(Examiner):
     operand_types = ['number', 'string', 'symbol', 'identifier', 'variable', 'function']
 
     tokenizer = Tokenizer(tokenbuilders)
-    tokens = tokenizer.tokenize(code)
+
+    ascii_code = self.convert_to_ascii(code)
+    tokens = tokenizer.tokenize(ascii_code)
+
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     tokens = BasicExaminer.convert_numbers_to_line_numbers(tokens)
