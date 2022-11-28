@@ -330,6 +330,7 @@ class PL1Examiner(Examiner):
 
     tokenizer_free = Tokenizer(tokenbuilders_free)
 
+    code = self.TrimCtrlZText(code)
     ascii_code = self.convert_to_ascii(code)
     tokens_free = tokenizer_free.tokenize(ascii_code)
 

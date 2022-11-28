@@ -43,8 +43,6 @@ class Modula2Examiner(Examiner):
 
   def __init__(self, code):
     super().__init__()
-    ctrlz_char = ''
-    code = self.TrimCtrlZText(code, ctrlz_char)
 
     operand_types = []
 
@@ -161,6 +159,7 @@ class Modula2Examiner(Examiner):
 
     tokenizer = Tokenizer(tokenbuilders)
 
+    code = self.TrimCtrlZText(code)
     ascii_code = self.convert_to_ascii(code)
     tokens = tokenizer.tokenize(ascii_code)
 

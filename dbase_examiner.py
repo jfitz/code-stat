@@ -59,8 +59,6 @@ class DbaseExaminer(Examiner):
 
   def __init__(self, code, version):
     super().__init__()
-    ctrlz_char = ''
-    code = self.TrimCtrlZText(code, ctrlz_char)
 
     self.newlines_important = 'always'
 
@@ -377,6 +375,7 @@ class DbaseExaminer(Examiner):
 
     tokenizer = Tokenizer(tokenbuilders)
 
+    code = self.TrimCtrlZText(code)
     ascii_code = self.convert_to_ascii(code)
     tokens = tokenizer.tokenize(ascii_code)
 

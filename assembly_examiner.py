@@ -796,6 +796,7 @@ class AssemblyExaminer(Examiner):
 
     # tokenize as free-format
 
+    code = self.TrimCtrlZText(code)
     ascii_code = self.convert_to_ascii(code)
     tokens_free = tokenizer.tokenize(ascii_code)
 

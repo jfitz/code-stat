@@ -110,6 +110,7 @@ class FlowmaticExaminer(Examiner):
 
     tokenizer = Tokenizer(tokenbuilders)
 
+    code = self.TrimCtrlZText(code)
     ascii_code = self.convert_to_ascii(code)
     tokens = tokenizer.tokenize(ascii_code)
 

@@ -86,12 +86,13 @@ class Examiner:
     return detabbed_text
 
 
-  # find CTRL-Z in the last 512 bytes of code
-  # assume it is an old CP/M EOF marker
+  # assume CTRL-Z is a EOF marker
+  # remove CTRL-Z and all text after
   @staticmethod
-  def TrimCtrlZText(code, ctrlz_char):
+  def TrimCtrlZText(code):
     length = len(code)
 
+    ctrlz_char = ''
     ctrlz_position = 0
     for index in range(-1, -length, -1):
       if code[index] == ctrlz_char:
