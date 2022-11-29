@@ -65,7 +65,7 @@ class PL1Examiner(Examiner):
     identifier_tb = IdentifierTokenBuilder(leads, extras)
     self.operand_types.append('identifier')
 
-    quotes = ['"', "'", "’"]
+    quotes = ['"', "'"]
     string_tb = EscapedStringTokenBuilder(quotes, 0)
     self.operand_types.append('string')
 
@@ -421,6 +421,7 @@ class PL1Examiner(Examiner):
     tokenizer_fixed_2 = Tokenizer(tokenbuilders_fixed_2)
 
     tokens_fixed = self.tokenize_code(ascii_code, tab_size, tokenizer_fixed_1, tokenizer_fixed_2)
+
     tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid operator')
     tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid')
     tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'whitespace')

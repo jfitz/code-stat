@@ -68,7 +68,7 @@ class CoffeeScriptExaminer(Examiner):
     dollar_sign_tb = SingleCharacterTokenBuilder('$', 'identifier', False)
     operand_types.append('identifier')
 
-    quotes = ['"', "'", "’"]
+    quotes = ['"', "'"]
     string_tb = EscapedStringTokenBuilder(quotes, 0)
     template_string_tb = EscapedStringTokenBuilder(['`'], 10)
     operand_types.append('string')

@@ -66,7 +66,7 @@ class CsharpExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder(leads, extras)
     operand_types.append('identifier')
 
-    quotes = ['"', "'", "’"]
+    quotes = ['"', "'"]
     string_tb = EscapedStringTokenBuilder(quotes, 10)
     prefixed_string_tb = PrefixedStringTokenBuilder('@', False, ['"'])
     operand_types.append('string')

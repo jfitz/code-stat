@@ -97,7 +97,7 @@ class PerlExaminer(Examiner):
 
     sigilbrace_tb = PerlSigilBraceTokenBuilder()
 
-    quotes = ['"', "'", "’"]
+    quotes = ['"', "'"]
     string_tb = EscapedStringTokenBuilder(quotes, 0)
     operand_types.append('string')
 

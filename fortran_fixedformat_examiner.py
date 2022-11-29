@@ -146,27 +146,26 @@ class FortranFixedFormatExaminer(FortranExaminer):
     ]
 
     if year in ['66', '1966']:
-      tokenbuilders = tokenbuilders1 + [hollerith_tb] + tokenbuilders2
+      tokenbuilders_fixed = tokenbuilders1 + [hollerith_tb] + tokenbuilders2
 
     if year in ['77', '1977']:
-      tokenbuilders = tokenbuilders1 + [string_tb] + tokenbuilders2
+      tokenbuilders_fixed = tokenbuilders1 + [string_tb] + tokenbuilders2
 
-    tokenizer = Tokenizer(tokenbuilders)
-
+    tokenizer_fixed = Tokenizer(tokenbuilders_fixed)
 
     code = self.TrimCtrlZText(code)
     ascii_code = self.convert_to_ascii(code)
-    tokens = self.tokenize_code(ascii_code, tab_size, tokenizer)
-    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
-    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
-    self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'whitespace')
+    tokens_fixed = self.tokenize_code(ascii_code, tab_size, tokenizer_fixed)
+    tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid operator')
+    tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid')
+    self.tokens = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'whitespace')
 
     self.convert_numbers_to_lineNumbers()
     self.convert_stars_to_io_channels()
 
     self.calc_statistics()
 
-    tokens = self.source_tokens()
+    tokens_fixed = self.source_tokens()
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()
@@ -175,15 +174,15 @@ class FortranFixedFormatExaminer(FortranExaminer):
     if num_operators > 0:
       self.calc_operator_confidence(num_operators)
       allow_pairs = []
-      self.calc_operator_2_confidence(tokens, num_operators, allow_pairs)
+      self.calc_operator_2_confidence(tokens_fixed, num_operators, allow_pairs)
       # self.calc_operator_3_confidence(tokens, num_operators, group_ends, allow_pairs)
       # self.calc_operator_4_confidence(tokens, num_operators, group_starts, allow_pairs)
 
-    self.calc_group_confidence(tokens, group_mids)
+    self.calc_group_confidence(tokens_fixed, group_mids)
 
     operand_types_2 = ['number', 'string', 'identifier', 'variable', 'symbol']
-    self.calc_operand_n_confidence(tokens, operand_types_2, 2)
-    self.calc_operand_n_confidence(tokens, operand_types, 4)
+    self.calc_operand_n_confidence(tokens_fixed, operand_types_2, 2)
+    self.calc_operand_n_confidence(tokens_fixed, operand_types, 4)
 
     self.calc_keyword_confidence()
 

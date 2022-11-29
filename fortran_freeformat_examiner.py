@@ -54,7 +54,7 @@ class FortranFreeFormatExaminer(FortranExaminer):
 
     bang_comment_tb = LeadToEndOfLineTokenBuilder('!', False, 'comment')
 
-    quotes = ["'", '"', "’"]
+    quotes = ['"', "'"]
     string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
     binary_string_tb = PrefixedStringTokenBuilder('B', False, quotes)
     octal_string_tb = PrefixedStringTokenBuilder('O', False, quotes)
@@ -135,7 +135,7 @@ class FortranFreeFormatExaminer(FortranExaminer):
     types_tb = CaseInsensitiveListTokenBuilder(types, 'type', True)
     operand_types.append('type')
 
-    tokenbuilders = [
+    tokenbuilders_free = [
       self.newline_tb,
       self.whitespace_tb,
       continuation_tb,
@@ -163,16 +163,16 @@ class FortranFreeFormatExaminer(FortranExaminer):
       self.invalid_token_builder
     ]
 
-    tokenizer = Tokenizer(tokenbuilders)
+    tokenizer_free = Tokenizer(tokenbuilders_free)
 
     code = self.TrimCtrlZText(code)
     ascii_code = self.convert_to_ascii(code)
-    tokens = tokenizer.tokenize(ascii_code)
+    tokens_free = tokenizer_free.tokenize(ascii_code)
 
-    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
-    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
-    tokens = Examiner.combine_identifier_colon(tokens, ['newline'], [], ['whitespace', 'comment', 'line description'])
-    self.tokens = tokens
+    tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid operator')
+    tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid')
+    tokens_free = Examiner.combine_identifier_colon(tokens_free, ['newline'], [], ['whitespace', 'comment', 'line description'])
+    self.tokens = tokens_free
     self.convert_identifiers_to_labels()
 
     self.convert_numbers_to_lineNumbers()
@@ -180,7 +180,7 @@ class FortranFreeFormatExaminer(FortranExaminer):
 
     self.calc_statistics()
 
-    tokens = self.source_tokens()
+    tokens_free = self.source_tokens()
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()
@@ -189,15 +189,15 @@ class FortranFreeFormatExaminer(FortranExaminer):
     if num_operators > 0:
       self.calc_operator_confidence(num_operators)
       allow_pairs = []
-      self.calc_operator_2_confidence(tokens, num_operators, allow_pairs)
+      self.calc_operator_2_confidence(tokens_free, num_operators, allow_pairs)
       # self.calc_operator_3_confidence(tokens, num_operators, group_ends, allow_pairs)
       # self.calc_operator_4_confidence(tokens, num_operators, group_starts, allow_pairs)
 
-    self.calc_group_confidence(tokens, group_mids)
+    self.calc_group_confidence(tokens_free, group_mids)
 
     operand_types_2 = ['number', 'string', 'identifier', 'variable', 'symbol']
-    self.calc_operand_n_confidence(tokens, operand_types_2, 2)
-    self.calc_operand_n_confidence(tokens, operand_types, 4)
+    self.calc_operand_n_confidence(tokens_free, operand_types_2, 2)
+    self.calc_operand_n_confidence(tokens_free, operand_types, 4)
 
     self.calc_keyword_confidence()
     self.calc_line_length_confidence(code, self.max_expected_line)

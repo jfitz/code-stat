@@ -119,7 +119,7 @@ class AssemblyExaminer(Examiner):
 
     label_tb = LabelTokenBuilder(leads, extras, ':')
 
-    quotes = ['"', "'", "’"]
+    quotes = ['"', "'"]
     string_tb = EscapedStringTokenBuilder(quotes, 0)
     operand_types.append('string')
 

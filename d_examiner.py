@@ -91,7 +91,7 @@ class DExaminer(Examiner):
     operand_types.append('attribute')
 
     # string suffix: c,w,d
-    quotes = ['"', "'", "’"]
+    quotes = ['"', "'"]
     string_tb = EscapedStringTokenBuilder(quotes, 0)
     r_string_tb = PrefixedStringTokenBuilder('r', True, quotes)
     backtick_string_tb = EscapedStringTokenBuilder(['`'], 0)

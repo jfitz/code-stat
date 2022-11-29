@@ -82,7 +82,7 @@ class SwiftExaminer(Examiner):
     symbol_tb = SwiftSymbolTokenBuilder('.', 'symbol', True)
     operand_types.append('symbol')
 
-    quotes = ['"', "'", "’"]
+    quotes = ['"', "'"]
     string_tb = EscapedStringTokenBuilder(quotes, 10)
     triple_quote_comment_tb = TripleQuoteStringTokenBuilder(quotes)
     slash_slash_comment_tb = SlashSlashCommentTokenBuilder()

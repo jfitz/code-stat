@@ -69,7 +69,7 @@ class LuaExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder(leads, extras)
     operand_types.append('identifier')
 
-    quotes = ['"', "'", "’"]
+    quotes = ['"', "'"]
     string_tb = EscapedStringTokenBuilder(quotes, 0)
     bracket_string_tb = DoubleBracketStringTokenBuilder()
     operand_types.append('string')

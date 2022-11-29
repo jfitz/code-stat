@@ -64,7 +64,7 @@ class RExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder(leads, extras)
     operand_types.append('identifier')
 
-    quotes = ['"', "'", "’", '`']
+    quotes = ['"', "'", '`']
     string_tb = EscapedStringTokenBuilder(quotes, 10)
     raw_string_tb = PrefixedRawStringTokenBuilder('r', True, quotes)
     operand_types.append('string')

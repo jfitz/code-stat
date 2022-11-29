@@ -69,7 +69,7 @@ class HaskellExaminer(Examiner):
     class_tb = HaskellClassTokenBuilder()
     operand_types.append('class')
 
-    quotes = ['"', "'", "’"]
+    quotes = ['"', "'"]
     string_tb = EscapedStringTokenBuilder(quotes, 0)
     operand_types.append('string')
 

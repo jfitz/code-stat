@@ -70,7 +70,7 @@ class MatlabExaminer(Examiner):
 
     metaclass_tb = PrefixedIdentifierTokenBuilder('?', 'metaclass', False)
 
-    quotes = ['"', "'", "’"]
+    quotes = ['"', "'"]
     string_tb = MatlabStringTokenBuilder(quotes, False)
     operand_types.append('string')
 

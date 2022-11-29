@@ -67,7 +67,7 @@ class CobolFixedFormatExaminer(CobolExaminer):
     identifier_tb = CobolIdentifierTokenBuilder()
     operand_types.append('identifier')
 
-    quotes = ['"', "'", "’"]
+    quotes = ['"', "'"]
     string_tb = StuffedQuoteStringTokenBuilder(quotes, True)
     operand_types.append('string')
 

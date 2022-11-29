@@ -67,7 +67,7 @@ class JavaExaminer(Examiner):
     operand_types.append('identifier')
 
     decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator', False)
-    quotes = ['"', "'", "’"]
+    quotes = ['"', "'"]
     string_tb = EscapedStringTokenBuilder(quotes, 0)
     operand_types.append('string')
 

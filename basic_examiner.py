@@ -99,7 +99,6 @@ class BasicExaminer(Examiner):
 
     remark_tb = RemarkTokenBuilder()
     comment_tb = LeadToEndOfLineTokenBuilder("'", False, 'comment')
-    comment2_tb = LeadToEndOfLineTokenBuilder("’", False, 'comment')
 
     stmt_separator_tb = SingleCharacterTokenBuilder(':', 'statement separator', False)
 
@@ -271,7 +270,6 @@ class BasicExaminer(Examiner):
       string_tb,
       remark_tb,
       comment_tb,
-      comment2_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]

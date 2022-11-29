@@ -57,7 +57,7 @@ class HTMLExaminer(Examiner):
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     operand_types.append('number')
 
-    quotes = ['"', "'", "’"]
+    quotes = ['"', "'"]
     string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
     operand_types.append('string')
 

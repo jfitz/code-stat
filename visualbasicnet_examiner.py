@@ -75,7 +75,6 @@ class VisualBasicNETExaminer(Examiner):
 
     remark_tb = RemarkTokenBuilder()
     comment_tb = LeadToEndOfLineTokenBuilder("'", True, 'comment')
-    comment2_tb = LeadToEndOfLineTokenBuilder("’", True, 'comment')
 
     directives = [
       '#If', '#Else', '#ElseIf', '#End If',
@@ -190,7 +189,6 @@ class VisualBasicNETExaminer(Examiner):
       string_tb,
       remark_tb,
       comment_tb,
-      comment2_tb,
       preprocessor_tb,
       self.unknown_operator_tb,
       invalid_token_builder

@@ -74,7 +74,7 @@ class ObjectiveCExaminer(Examiner):
 
     directive_tb = DirectiveTokenBuilder()
 
-    quotes = ['"', "'", "’"]
+    quotes = ['"', "'"]
     string_tb = EscapedStringTokenBuilder(quotes, 10)
     prefixed_string_tb = PrefixedStringTokenBuilder('@', False, quotes)
     operand_types.append('string')

@@ -70,7 +70,7 @@ class RubyExaminer(Examiner):
     symbol_tb = PrefixedIdentifierTokenBuilder(':', 'symbol', True)
     operand_types.append('symbol')
 
-    quotes = ['"', "'", "’"]
+    quotes = ['"', "'"]
     string_tb = EscapedStringTokenBuilder(quotes, 10)
     operand_types.append('string')
 

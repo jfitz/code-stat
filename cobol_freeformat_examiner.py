@@ -72,7 +72,7 @@ class CobolFreeFormatExaminer(CobolExaminer):
 
     identifier_tb = CobolIdentifierTokenBuilder()
 
-    quotes = ['"', "'", "’"]
+    quotes = ['"', "'"]
     string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
     n_string_tb = PrefixedStringTokenBuilder('N', False, quotes)
     nx_string_tb = PrefixedStringTokenBuilder('NX', False, quotes)

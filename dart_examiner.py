@@ -80,7 +80,7 @@ class DartExaminer(Examiner):
     symbol_tb = PrefixedIdentifierTokenBuilder('#', 'symbol', True)
     operand_types.append('symbol')
 
-    quotes = ['"', "'", "’"]
+    quotes = ['"', "'"]
     string_tb = EscapedStringTokenBuilder(quotes, 0)
     raw_string_tb = PrefixedRawStringTokenBuilder('r', True, quotes)
     operand_types.append('string')

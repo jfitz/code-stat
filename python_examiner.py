@@ -74,7 +74,7 @@ class PythonExaminer(Examiner):
 
     decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator', False)
 
-    quotes = ['"', "'", "’"]
+    quotes = ['"', "'"]
     string_tb = EscapedStringTokenBuilder(quotes, 0)
     raw_string_tb = PrefixedRawStringTokenBuilder('r', True, quotes)
     byte_string_tb = PrefixedStringTokenBuilder('b', True, quotes)

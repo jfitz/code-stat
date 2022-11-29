@@ -75,7 +75,6 @@ class VisualBasic6Examiner(Examiner):
 
     remark_tb = RemarkTokenBuilder()
     comment_tb = LeadToEndOfLineTokenBuilder("'", True, 'comment')
-    comment2_tb = LeadToEndOfLineTokenBuilder("’", True, 'comment')
 
     known_operators = [
       '+', '-', '*', '/', '\\', 'Mod', '^', '&',
@@ -203,7 +202,6 @@ class VisualBasic6Examiner(Examiner):
       string_tb,
       remark_tb,
       comment_tb,
-      comment2_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]

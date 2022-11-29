@@ -81,7 +81,7 @@ class MlExaminer(Examiner):
     string_tb = EscapedStringTokenBuilder(quotes, 0)
     triple_quote_string_tb = TripleQuoteStringTokenBuilder(quotes)
     prefixed_string_tb = PrefixedStringTokenBuilder('@', False, quotes)
-    char_tb = FsharpCharTokenBuilder(["'", "’"])
+    char_tb = FsharpCharTokenBuilder(["'"])
     operand_types.append('string')
 
     slash_slash_comment_tb = NullTokenBuilder()

@@ -58,7 +58,7 @@ class ErlangExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder(leads, extras)
     operand_types.append('identifier')
 
-    quotes = ['"', "'", "’"]
+    quotes = ['"', "'"]
     string_tb = EscapedStringTokenBuilder(quotes, 0)
     operand_types.append('string')
 

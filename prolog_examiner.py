@@ -66,7 +66,7 @@ class PrologExaminer(Examiner):
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
 
-    quotes = ['"', "'", "’"]
+    quotes = ['"', "'"]
     string_tb = EscapedStringTokenBuilder(quotes, 0)
     operand_types.append('string')
 

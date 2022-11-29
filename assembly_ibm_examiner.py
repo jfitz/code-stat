@@ -67,7 +67,7 @@ class AssemblyIBMExaminer(Examiner):
     identifier_tb = IbmAsmIdentifierTokenBuilder(leads, extras)
     operand_types.append('identifier')
 
-    quotes = ['"', "'", "’"]
+    quotes = ['"', "'"]
     string_tb = EscapedStringTokenBuilder(quotes, 0)
     hex_string_tb = PrefixedStringTokenBuilder('X', False, quotes)
     char_string_tb = PrefixedStringTokenBuilder('C', False, quotes)

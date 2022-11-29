@@ -73,7 +73,7 @@ class KotlinExaminer(Examiner):
     decorator_tb = PrefixedIdentifierTokenBuilder('@', 'decorator', False)
     operand_types.append('decorator')
 
-    quotes = ['"', "'", "’"]
+    quotes = ['"', "'"]
     string_tb = EscapedStringTokenBuilder(quotes, 0)
     triple_quote_string_tb = TripleQuoteStringTokenBuilder(quotes)
     operand_types.append('string')

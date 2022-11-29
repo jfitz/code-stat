@@ -67,7 +67,7 @@ class AdaExaminer(Examiner):
 
     quotes = ['"']
     string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
-    char_tb = AdaCharTokenBuilder(["'", "’"])
+    char_tb = AdaCharTokenBuilder(["'"])
     operand_types.append('string')
 
     dash_dash_comment_tb = DashDashCommentTokenBuilder()

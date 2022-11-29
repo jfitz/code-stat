@@ -65,7 +65,7 @@ class PLMExaminer(Examiner):
     identifier_tb = IdentifierTokenBuilder(leads, extras)
     self.operand_types.append('identifier')
 
-    quotes = ['"', "'", "’"]
+    quotes = ['"', "'"]
     string_tb = EscapedStringTokenBuilder(quotes, 0)
     self.operand_types.append('string')
 
