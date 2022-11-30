@@ -7,12 +7,17 @@ from token_builders import (
   CaseSensitiveListTokenBuilder,
   CaseInsensitiveListTokenBuilder,
   IdentifierTokenBuilder,
-  StuffedQuoteStringTokenBuilder
+  PrefixedStringTokenBuilder,
+  StuffedQuoteStringTokenBuilder,
+  LeadToEndOfLineTokenBuilder,
+  NullTokenBuilder
 )
 from fortran_token_builders import (
   FortranIdentifierTokenBuilder,
   FormatSpecifierTokenBuilder,
-  HollerithStringTokenBuilder
+  HollerithStringTokenBuilder,
+  KindIntegerTokenBuilder,
+  KindRealTokenBuilder
 )
 from fortran_examiner import FortranExaminer
 from examiner import Examiner
@@ -27,6 +32,9 @@ class FortranFixedFormatExaminer(FortranExaminer):
     FortranIdentifierTokenBuilder.__escape_z__()
     FormatSpecifierTokenBuilder.__escape_z__()
     HollerithStringTokenBuilder.__escape_z__()
+    LeadToEndOfLineTokenBuilder.__escape_z__()
+    KindIntegerTokenBuilder.__escape_z__()
+    KindRealTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
@@ -43,26 +51,73 @@ class FortranFixedFormatExaminer(FortranExaminer):
 
     operand_types = []
 
-    if case_significant:
-      identifier_tb = FortranIdentifierTokenBuilder()
+    if year in ['66', '1966', '77', '1977']:
+      kind_integer_tb = NullTokenBuilder()
+      kind_real_tb = NullTokenBuilder()
     else:
+      kind_integer_tb = KindIntegerTokenBuilder()
+      kind_real_tb = KindRealTokenBuilder()
+
+    operand_types.append('number')
+
+    if year in ['66', '1966']:
+      identifier_tb = FortranIdentifierTokenBuilder()
+    elif year in ['77', '1977']:
       leads = ''
       extras = ''
+      identifier_tb = IdentifierTokenBuilder(leads, extras)
+    else:
+      leads = '_'
+      extras = '_'
       identifier_tb = IdentifierTokenBuilder(leads, extras)
 
     operand_types.append('identifier')
 
-    hollerith_tb = HollerithStringTokenBuilder()
-    string_tb = StuffedQuoteStringTokenBuilder(["'", '"'], False)
+    quotes = ['"', "'"]
+
+    if year in ['66', '1966', '77', '1977']:
+      bang_comment_tb = NullTokenBuilder()
+    else:
+      bang_comment_tb = LeadToEndOfLineTokenBuilder('!', False, 'comment')
+
+    if year in ['66', '1966', '77', '1977']:
+      if year in ['66', '1966']:
+        hollerith_tb = HollerithStringTokenBuilder()
+        string_tb = NullTokenBuilder()
+      else:
+        hollerith_tb = NullTokenBuilder()
+        string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
+
+      binary_string_tb = NullTokenBuilder()
+      octal_string_tb = NullTokenBuilder()
+      hex_string_tb = NullTokenBuilder()
+    else:
+      string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
+      binary_string_tb = PrefixedStringTokenBuilder('B', False, quotes)
+      octal_string_tb = PrefixedStringTokenBuilder('O', False, quotes)
+      hex_string_tb = PrefixedStringTokenBuilder('Z', False, quotes)
+
     operand_types.append('string')
 
-    format_tb = FormatSpecifierTokenBuilder()
+    if year in ['66', '1966', '77', '1977']:
+      format_tb = FormatSpecifierTokenBuilder()
+    else:
+      format_tb = NullTokenBuilder()
 
-    known_operators = [
-      '=', '+', '-', '*', '/', '**',
-      '.EQ.', '.GT.', '.GE.', '.LT.', '.LE.', '.NE.',
-      '.AND.', '.OR.', '.NOT.'
-    ]
+    if year in ['66', '1966', '77', '1977']:
+      known_operators = [
+        '=', '+', '-', '*', '/', '**',
+        '.EQ.', '.GT.', '.GE.', '.LT.', '.LE.', '.NE.',
+        '.AND.', '.OR.', '.NOT.'
+      ]
+    else:
+      known_operators = [
+        '=', '+', '-', '*', '/', '**',
+        '==', '>', '>=', '<', '<=', '/=',
+        '.EQ.', '.NE.', '.LT.', '.LE.', '.GT.', '.GE.',
+        '.AND.', '.OR.', '.NOT.', '.EQV.', '.NEQV.',
+        ':', '::', '=>', '%'
+      ]
 
     if case_significant:
       known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
@@ -70,7 +125,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
       known_operator_tb = CaseInsensitiveListTokenBuilder(known_operators, 'operator', False)
 
     self.unary_operators = [
-      '+', '-'
+      '+', '-', '.NOT.'
     ]
 
     groupers = ['(', ')', ',']
@@ -105,16 +160,16 @@ class FortranFixedFormatExaminer(FortranExaminer):
     else:
       keyword_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
 
-    types = [
-      'INTEGER', 'REAL', 'COMPLEX', 'DOUBLE PRECISION', 'LOGICAL'
-    ]
-
-    types_77 = [
-      'CHARACTER'
-    ]
-
-    if year in ['77', '1977']:
-      types += types_77
+    if year in ['66', '1966']:
+      types = [
+        'INTEGER', 'REAL', 'COMPLEX', 'DOUBLE PRECISION', 'DOUBLEPRECISION',
+        'LOGICAL'
+      ]
+    else:
+      types = [
+        'INTEGER', 'REAL', 'COMPLEX', 'DOUBLE PRECISION', 'DOUBLEPRECISION',
+        'LOGICAL', 'CHARACTER'
+      ]
 
     if case_significant:
       types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
@@ -123,7 +178,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
 
     operand_types.append('type')
 
-    tokenbuilders1 = [
+    tokenbuilders_fixed = [
       self.newline_tb,
       self.whitespace_tb,
       self.integer_tb,
@@ -137,19 +192,13 @@ class FortranFixedFormatExaminer(FortranExaminer):
       known_operator_tb,
       groupers_tb,
       identifier_tb,
-      self.jcl_tb
-    ]
-
-    tokenbuilders2 = [
+      bang_comment_tb,
+      hollerith_tb,
+      string_tb,
+      self.jcl_tb,
       self.unknown_operator_tb,
       self.invalid_token_builder
     ]
-
-    if year in ['66', '1966']:
-      tokenbuilders_fixed = tokenbuilders1 + [hollerith_tb] + tokenbuilders2
-
-    if year in ['77', '1977']:
-      tokenbuilders_fixed = tokenbuilders1 + [string_tb] + tokenbuilders2
 
     tokenizer_fixed = Tokenizer(tokenbuilders_fixed)
 
