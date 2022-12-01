@@ -42,9 +42,6 @@ class FortranFixedFormatExaminer(FortranExaminer):
     super().__init__()
     self.max_expected_line = 80
 
-    if year is not None and year not in ['66', '1966', '77', '1977']:
-      raise CodeStatException('Unknown year for language')
-
     # FORTRAN-66 should be upper case only
     # FORTRAN-77 may be upper or lower case
     case_significant = year in ['66', '1966']
@@ -73,12 +70,12 @@ class FortranFixedFormatExaminer(FortranExaminer):
 
     operand_types.append('identifier')
 
-    quotes = ['"', "'"]
-
     if year in ['66', '1966', '77', '1977']:
       bang_comment_tb = NullTokenBuilder()
     else:
       bang_comment_tb = LeadToEndOfLineTokenBuilder('!', False, 'comment')
+
+    quotes = ['"', "'"]
 
     if year in ['66', '1966', '77', '1977']:
       if year in ['66', '1966']:
@@ -128,10 +125,25 @@ class FortranFixedFormatExaminer(FortranExaminer):
       '+', '-', '.NOT.'
     ]
 
-    groupers = ['(', ')', ',']
-    # group_starts = ['(', ',']
-    group_mids = [',']
-    # group_ends = [')']
+    if year in ['66', '1966', '77', '1977']:
+      user_operator_tb = NullTokenBuilder()
+      continuation_tb = NullTokenBuilder()
+      stmt_separator_tb = NullTokenBuilder()
+    else:
+      user_operator_tb = UserDefinedOperatorTokenBuilder()
+      continuation_tb = SingleCharacterTokenBuilder('&', 'line continuation', False)
+      stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator', False)
+
+    if year in ['66', '1966', '77', '1977']:
+      groupers = ['(', ')', ',']
+      # group_starts = ['(', ',']
+      group_mids = [',']
+      # group_ends = [')']
+    else:
+      groupers = ['(', ')', ',', '[', ']']
+      # group_starts = ['(', '[', ',', '{']
+      group_mids = [',']
+      # group_ends = [')', ']', '}']
 
     groupers_tb = CaseSensitiveListTokenBuilder(groupers, 'group', False)
 
@@ -152,8 +164,43 @@ class FortranFixedFormatExaminer(FortranExaminer):
       'INQUIRE', 'INTRINSIC', 'PARAMETER'
     ]
 
-    if year in ['77', '1977']:
+    keywords_90 = [
+      'DATA', 'EXTERNAL',
+      'allocate', 'case', 'contains', 'cycle', 'deallocate',
+      'elsewhere', 'exit', 'include', 'interface', 'intent', 'kind', 'module',
+      'namelist', 'nullify', 'only', 'operator', 'optional', 'pointer',
+      'private', 'procedure', 'public', 'recursive', 'result', 'select',
+      'sequence', 'target', 'type', 'use', 'while', 'where',
+      'enddo', 'end do', 'none'
+    ]
+
+    keywords_95 = [
+      'FORALL', 'PURE', 'ELEMENTAL'
+    ]
+
+    keywords_2003 = [
+      'abstract', 'allocatable', 'associate', 'bind', 'class', 'enum', 'end enum',
+      'import', 'protected', 'select type', 'type guard', 'value', 'wait'
+    ]
+
+    keywords_2008 = [
+      'block', 'contiguous'
+    ]
+
+    if year in ['77', '1977', '90', '1990', '95', '2003', '2008']:
       keywords += keywords_77
+
+    if year in ['90', '1990', '95', '2003', '2008']:
+      keywords += keywords_90
+
+    if year in ['95', '2003', '2008']:
+      keywords += keywords_95
+
+    if year in ['2003', '2008']:
+      keywords += keywords_2003
+
+    if year in ['2008']:
+      keywords += keywords_2008
 
     if case_significant:
       keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
@@ -168,7 +215,7 @@ class FortranFixedFormatExaminer(FortranExaminer):
     else:
       types = [
         'INTEGER', 'REAL', 'COMPLEX', 'DOUBLE PRECISION', 'DOUBLEPRECISION',
-        'LOGICAL', 'CHARACTER'
+        'DOUBLE', 'LOGICAL', 'CHARACTER'
       ]
 
     if case_significant:
@@ -205,10 +252,13 @@ class FortranFixedFormatExaminer(FortranExaminer):
     code = self.TrimCtrlZText(code)
     ascii_code = self.convert_to_ascii(code)
     tokens_fixed = self.tokenize_code(ascii_code, tab_size, tokenizer_fixed)
+
     tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid operator')
     tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid')
-    self.tokens = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'whitespace')
+    tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'whitespace')
+    self.tokens = tokens_fixed
 
+    self.convert_identifiers_to_labels()
     self.convert_numbers_to_lineNumbers()
     self.convert_stars_to_io_channels()
 
@@ -234,7 +284,6 @@ class FortranFixedFormatExaminer(FortranExaminer):
     self.calc_operand_n_confidence(tokens_fixed, operand_types, 4)
 
     self.calc_keyword_confidence()
-
     self.calc_line_length_confidence(code, self.max_expected_line)
 
 

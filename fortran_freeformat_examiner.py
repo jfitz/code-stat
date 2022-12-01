@@ -44,9 +44,6 @@ class FortranFreeFormatExaminer(FortranExaminer):
   def __init__(self, code, year):
     super().__init__()
 
-    if year is not None and year not in ['90', '1990', '95', '1995', '2003', '2008']:
-      raise CodeStatException('Unknown year for language')
-
     # FORTRAN-66 should be upper case only
     # FORTRAN-77 may be upper or lower case
     case_significant = year in ['66', '1966']
@@ -121,20 +118,34 @@ class FortranFreeFormatExaminer(FortranExaminer):
         ':', '::', '=>', '%'
       ]
 
-    known_operator_tb = CaseInsensitiveListTokenBuilder(known_operators, 'operator', False)
+    if case_significant:
+      known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
+    else:
+      known_operator_tb = CaseInsensitiveListTokenBuilder(known_operators, 'operator', False)
 
     self.unary_operators = [
       '+', '-', '.NOT.'
     ]
 
-    user_operator_tb = UserDefinedOperatorTokenBuilder()
-    continuation_tb = SingleCharacterTokenBuilder('&', 'line continuation', False)
-    stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator', False)
+    if year in ['66', '1966', '77', '1977']:
+      user_operator_tb = NullTokenBuilder()
+      continuation_tb = NullTokenBuilder()
+      stmt_separator_tb = NullTokenBuilder()
+    else:
+      user_operator_tb = UserDefinedOperatorTokenBuilder()
+      continuation_tb = SingleCharacterTokenBuilder('&', 'line continuation', False)
+      stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator', False)
 
-    groupers = ['(', ')', ',', '[', ']']
-    # group_starts = ['(', '[', ',', '{']
-    group_mids = [',']
-    # group_ends = [')', ']', '}']
+    if year in ['66', '1966', '77', '1977']:
+      groupers = ['(', ')', ',']
+      # group_starts = ['(', ',']
+      group_mids = [',']
+      # group_ends = [')']
+    else:
+      groupers = ['(', ')', ',', '[', ']']
+      # group_starts = ['(', '[', ',', '{']
+      group_mids = [',']
+      # group_ends = [')', ']', '}']
 
     groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
@@ -193,7 +204,10 @@ class FortranFreeFormatExaminer(FortranExaminer):
     if year in ['2008']:
       keywords += keywords_2008
 
-    keyword_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
+    if case_significant:
+      keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
+    else:
+      keyword_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
 
     if year in ['66', '1966']:
       types = [
@@ -206,7 +220,11 @@ class FortranFreeFormatExaminer(FortranExaminer):
         'DOUBLE', 'LOGICAL', 'CHARACTER'
       ]
 
-    types_tb = CaseInsensitiveListTokenBuilder(types, 'type', True)
+    if case_significant:
+      types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
+    else:
+      types_tb = CaseInsensitiveListTokenBuilder(types, 'type', True)
+
     operand_types.append('type')
 
     tokenbuilders_free = [
@@ -247,8 +265,8 @@ class FortranFreeFormatExaminer(FortranExaminer):
     tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid')
     tokens_free = Examiner.combine_identifier_colon(tokens_free, ['newline'], [], ['whitespace', 'comment', 'line description'])
     self.tokens = tokens_free
-    self.convert_identifiers_to_labels()
 
+    self.convert_identifiers_to_labels()
     self.convert_numbers_to_lineNumbers()
     self.convert_stars_to_io_channels()
 
