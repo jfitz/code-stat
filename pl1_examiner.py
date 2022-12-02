@@ -336,9 +336,11 @@ class PL1Examiner(Examiner):
 
     tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid operator')
     tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid')
+
     self.tokens = tokens_free
 
     self.calc_statistics()
+
     statistics_free = self.statistics
     self.statistics = {}
 
@@ -363,9 +365,9 @@ class PL1Examiner(Examiner):
     self.calc_operand_n_confidence(tokens, self.operand_types, 2)
 
     self.calc_keyword_confidence()
-
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_line_length_confidence(code, self.max_expected_line)
+
     confidences_free = self.confidences
     self.confidences = {}
     errors_free = self.errors
@@ -426,9 +428,11 @@ class PL1Examiner(Examiner):
     tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid')
     tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'whitespace')
     tokens_fixed = self.convert_broken_comments_to_comments(tokens_fixed)
+
     self.tokens = tokens_fixed
 
     self.calc_statistics()
+
     statistics_fixed = self.statistics
     self.statistics = {}
 
@@ -453,9 +457,9 @@ class PL1Examiner(Examiner):
     self.calc_operand_n_confidence(tokens, self.operand_types, 2)
 
     self.calc_keyword_confidence()
-
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_line_length_confidence(code, self.max_expected_line)
+
     confidences_fixed = self.confidences
     self.confidences = {}
     errors_fixed = self.errors

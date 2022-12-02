@@ -1,55 +1,7 @@
 [
     {
         "TYPE":"TOKEN",
-        "INVALID":"subroutine swap_real(a1, a2)",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"  im",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"!  Input/Output",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"  re",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"!  Locals",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"  in",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"!  Swap, using the internal subroutine",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"  N ",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"  ca",
+        "INVALID":"_",
         "FIRST":"",
         "SECOND":""
     },
@@ -61,13 +13,7 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"cont",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"  el",
+        "INVALID":"_",
         "FIRST":"",
         "SECOND":""
     },
@@ -79,19 +25,13 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  en",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
         "INVALID":"_",
         "FIRST":"",
         "SECOND":""
     },
     {
-        "TYPE":"TOKEN",
-        "INVALID":"end subroutine swap_real",
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
         "FIRST":"",
         "SECOND":""
     },
@@ -115,7 +55,19 @@
     },
     {
         "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
         "INVALID":"::",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
         "FIRST":"",
         "SECOND":""
     },
@@ -142,5 +94,10 @@
         "INVALID":"::",
         "FIRST":"",
         "SECOND":""
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"the",
+        "SECOND":"internal"
     }
 ]

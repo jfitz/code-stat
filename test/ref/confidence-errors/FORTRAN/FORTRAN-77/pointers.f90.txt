@@ -547,30 +547,5 @@
         "TYPE":"OPERATOR2",
         "FIRST":"/",
         "SECOND":"="
-    },
-    {
-        "TYPE":"LENGTH",
-        "LONG":"   write (fmt, '(\"(/ A / A, \"\" = [\"\", \", i0, \"( \"\"[\"\",\", i0, \"(i2, 1x), \"\"]\"\" / 5x), \"\"]\"\" )\")') m, n",
-        "WIDTH":80
-    },
-    {
-        "TYPE":"LENGTH",
-        "LONG":"   write(*, fmt) \"Matrix A is:\", \"A\", ((A(i, j), j = 1, size(A, 2)), i = 1, size(A, 1))",
-        "WIDTH":80
-    },
-    {
-        "TYPE":"LENGTH",
-        "LONG":"   write(*, fmt) \"Matrix A becomes:\", \"A\", ((A(i, j), j = 1, size(A, 2)), i = 1, size(A, 1))",
-        "WIDTH":80
-    },
-    {
-        "TYPE":"LENGTH",
-        "LONG":"   write(*, fmt) \"Matrix q becomes:\", \"q\", ((q(i, j), j = 1, size(A, 2)), i = 1, size(A, 1))",
-        "WIDTH":80
-    },
-    {
-        "TYPE":"LENGTH",
-        "LONG":"   write(*, '(\"Array operation:\" / (4x,\"p(\",i0,\") = \",i0))') (i, p(i), i = 1, size(p))",
-        "WIDTH":80
     }
 ]

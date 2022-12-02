@@ -1,25 +1,37 @@
 [
     {
         "TYPE":"TOKEN",
-        "INVALID":"INTEGER A(1000,1000), B(200)",
+        "INVALID":"he",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"I=17",
+        "INVALID":"value",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"FORALL (I=1:1000,J=1:1000,I.NE.J) A(I,J)=A(J,I)",
+        "INVALID":"is",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"PRINT *, I    ! The value 17 is printed because the I",
+        "INVALID":"printed",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"because",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"the",
         "FIRST":"",
         "SECOND":""
     },
@@ -54,14 +66,20 @@
         "SECOND":""
     },
     {
-        "TYPE":"TOKEN",
-        "INVALID":"FORALL (N=1:200:2) B(N)=B(N+1)",
+        "TYPE":"OPERATOR",
+        "INVALID":":",
         "FIRST":"",
         "SECOND":""
     },
     {
-        "TYPE":"TOKEN",
-        "INVALID":"END",
+        "TYPE":"OPERATOR",
+        "INVALID":":",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
         "FIRST":"",
         "SECOND":""
     },
@@ -78,7 +96,15 @@
         "SECOND":""
     },
     {
-        "TYPE":"KEYWORDS",
-        "MESSAGE":"No keywords found"
+        "TYPE":"OPERATOR",
+        "INVALID":":",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":":",
+        "FIRST":"",
+        "SECOND":""
     }
 ]

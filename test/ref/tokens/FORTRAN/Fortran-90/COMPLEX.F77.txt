@@ -1,387 +1,51 @@
 [
     {
-        "type":"operator",
+        "type":"comment",
+        "value":"*     cmplxd.f (FORTRAN 77)"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"*     Demonstration of COMPLEX numbers"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
         "value":"*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"*     Prints the values of e ** (j * i * pi / 4) for i = 0, 1, 2, ..., 7"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"*         where j is the imaginary number sqrt(-1)"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
     },
     {
         "type":"whitespace",
         "value":"     "
-    },
-    {
-        "type":"identifier",
-        "value":"cmplxd"
-    },
-    {
-        "type":"invalid operator",
-        "value":"."
-    },
-    {
-        "type":"identifier",
-        "value":"f"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"FORTRAN"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"77"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"identifier",
-        "value":"Demonstration"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"of"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"type",
-        "value":"COMPLEX"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"numbers"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"identifier",
-        "value":"Prints"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"the"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"values"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"of"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"e"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"**"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"j"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"i"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"pi"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"4"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"for"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"i"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"="
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"0"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"1"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"2"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid operator",
-        "value":"..."
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"7"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"whitespace",
-        "value":"         "
-    },
-    {
-        "type":"keyword",
-        "value":"where"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"j"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"is"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"the"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"imaginary"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"number"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"sqrt"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"number",
-        "value":"1"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"      "
     },
     {
         "type":"keyword",
@@ -397,11 +61,11 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"        "
+        "value":"       "
     },
     {
         "type":"keyword",
@@ -429,11 +93,11 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"        "
+        "value":"       "
     },
     {
         "type":"keyword",
@@ -521,11 +185,11 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"        "
+        "value":"       "
     },
     {
         "type":"keyword",
@@ -581,11 +245,11 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"          "
+        "value":"         "
     },
     {
         "type":"identifier",
@@ -669,11 +333,11 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"          "
+        "value":"         "
     },
     {
         "type":"keyword",
@@ -725,11 +389,11 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"            "
+        "value":"           "
     },
     {
         "type":"keyword",
@@ -841,11 +505,11 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"          "
+        "value":"         "
     },
     {
         "type":"keyword",
@@ -853,11 +517,11 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"            "
+        "value":"           "
     },
     {
         "type":"keyword",
@@ -969,11 +633,11 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"          "
+        "value":"         "
     },
     {
         "type":"keyword",
@@ -981,11 +645,11 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"    "
+        "value":"   "
     },
     {
         "type":"line number",
@@ -1085,11 +749,11 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"    "
+        "value":"   "
     },
     {
         "type":"line number",
@@ -1105,11 +769,11 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"        "
+        "value":"       "
     },
     {
         "type":"keyword",
@@ -1117,14 +781,18 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"      "
+        "value":"     "
     },
     {
         "type":"keyword",
         "value":"END"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
     }
 ]

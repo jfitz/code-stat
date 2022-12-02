@@ -1,37 +1,19 @@
 [
     {
-        "TYPE":"TOKEN",
-        "INVALID":"INTEGER A(1000,1000), B(200)",
+        "TYPE":"OPERATOR",
+        "INVALID":":",
         "FIRST":"",
         "SECOND":""
     },
     {
-        "TYPE":"TOKEN",
-        "INVALID":"I=17",
+        "TYPE":"OPERATOR",
+        "INVALID":":",
         "FIRST":"",
         "SECOND":""
     },
     {
-        "TYPE":"TOKEN",
-        "INVALID":"FORALL (I=1:1000,J=1:1000,I.NE.J) A(I,J)=A(J,I)",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"PRINT *, I    ! The value 17 is printed because the I",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"FORALL (N=1:200:2) B(N)=B(N+1)",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"END",
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
         "FIRST":"",
         "SECOND":""
     },
@@ -46,6 +28,48 @@
         "INVALID":".",
         "FIRST":"",
         "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":":",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":":",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"value",
+        "SECOND":"17"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"17",
+        "SECOND":"is"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"is",
+        "SECOND":"printed"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"printed",
+        "SECOND":"because"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"because",
+        "SECOND":"the"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"the",
+        "SECOND":"I"
     },
     {
         "TYPE":"OPERAND_2",
@@ -69,6 +93,26 @@
     },
     {
         "TYPE":"OPERAND_4",
+        "FIRST":"is",
+        "SECOND":"printed"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"printed",
+        "SECOND":"because"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"because",
+        "SECOND":"the"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"the",
+        "SECOND":"I"
+    },
+    {
+        "TYPE":"OPERAND_4",
         "FIRST":"has",
         "SECOND":"statement"
     },
@@ -76,9 +120,5 @@
         "TYPE":"OPERAND_4",
         "FIRST":"statement",
         "SECOND":"scope"
-    },
-    {
-        "TYPE":"KEYWORDS",
-        "MESSAGE":"No keywords found"
     }
 ]

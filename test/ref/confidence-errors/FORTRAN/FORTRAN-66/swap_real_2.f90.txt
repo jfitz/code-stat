@@ -1,19 +1,31 @@
 [
     {
         "TYPE":"TOKEN",
-        "INVALID":"subroutine swap_real(a1, a2)",
+        "INVALID":"subroutine",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  im",
+        "INVALID":"swap_real",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"licit",
+        "INVALID":"a",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"a",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"implicit",
         "FIRST":"",
         "SECOND":""
     },
@@ -25,19 +37,19 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!  Input/Output",
+        "INVALID":"nput",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  re",
+        "INVALID":"utput",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"l",
+        "INVALID":"real",
         "FIRST":"",
         "SECOND":""
     },
@@ -67,31 +79,43 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!  Locals",
+        "INVALID":"ocals",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  in",
+        "INVALID":"integer",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"eger",
+        "INVALID":"wap",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!  Swap, using the internal subroutine",
+        "INVALID":"using",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  N ",
+        "INVALID":"the",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"internal",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"subroutine",
         "FIRST":"",
         "SECOND":""
     },
@@ -127,13 +151,7 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  ca",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"l",
+        "INVALID":"call",
         "FIRST":"",
         "SECOND":""
     },
@@ -157,25 +175,13 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"cont",
+        "INVALID":"contains",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"ins",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"  el",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"mental",
+        "INVALID":"elemental",
         "FIRST":"",
         "SECOND":""
     },
@@ -283,7 +289,7 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  en",
+        "INVALID":"end",
         "FIRST":"",
         "SECOND":""
     },
@@ -301,7 +307,25 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"end subroutine swap_real",
+        "INVALID":"end",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"subroutine",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"swap_real",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
         "FIRST":"",
         "SECOND":""
     },
@@ -325,7 +349,19 @@
     },
     {
         "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
         "INVALID":"::",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
         "FIRST":"",
         "SECOND":""
     },

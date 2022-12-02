@@ -426,35 +426,5 @@
         "TYPE":"OPERAND_2",
         "FIRST":"tolerance",
         "SECOND":"value"
-    },
-    {
-        "TYPE":"LENGTH",
-        "LONG":"!  This function solves a system of equations (Ax = b) by using the Gauss-Seidel Method",
-        "WIDTH":80
-    },
-    {
-        "TYPE":"LENGTH",
-        "LONG":"!  Input/Output: its input value is used within the function, and can be modified",
-        "WIDTH":80
-    },
-    {
-        "TYPE":"LENGTH",
-        "LONG":"!  Output: its value is modified from within the function, only if the argument is required",
-        "WIDTH":80
-    },
-    {
-        "TYPE":"LENGTH",
-        "LONG":"   convergence_loop: do while (tol_max >= tol .and. iter < num_iter); iter = iter + 1",
-        "WIDTH":80
-    },
-    {
-        "TYPE":"LENGTH",
-        "LONG":"         xk = (b(i) - dot_product(A(i,:i-1),x(:i-1)) - dot_product(A(i,i+1:n),x(i+1:n))) / A(i, i)",
-        "WIDTH":80
-    },
-    {
-        "TYPE":"LENGTH",
-        "LONG":"         tol_max = max((abs(x(i) - xk)/(1. + abs(xk))) ** 2, abs(A(i, i) * (x(i) - xk)), tol_max)",
-        "WIDTH":80
     }
 ]

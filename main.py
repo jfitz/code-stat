@@ -28,8 +28,7 @@ from dibol_examiner import DibolExaminer
 from eiffel_examiner import EiffelExaminer
 from erlang_examiner import ErlangExaminer
 from flowmatic_examiner import FlowmaticExaminer
-from fortran_fixedformat_examiner import FortranFixedFormatExaminer
-from fortran_freeformat_examiner import FortranFreeFormatExaminer
+from fortran_examiner import FortranExaminer
 from go_examiner import GoExaminer
 from groovy_examiner import GroovyExaminer
 from haskell_examiner import HaskellExaminer
@@ -83,8 +82,7 @@ DibolExaminer.__escape_z__()
 EiffelExaminer.__escape_z__()
 ErlangExaminer.__escape_z__()
 FlowmaticExaminer.__escape_z__()
-FortranFixedFormatExaminer.__escape_z__()
-FortranFreeFormatExaminer.__escape_z__()
+FortranExaminer.__escape_z__()
 GoExaminer.__escape_z__()
 GroovyExaminer.__escape_z__()
 HaskellExaminer.__escape_z__()
@@ -1111,22 +1109,22 @@ def make_one_examiner(language, code, tab_size, comment, block_comment_limit):
     examiner = FlowmaticExaminer(code)
 
   if language in ['fortran-66']:
-    examiner = FortranFixedFormatExaminer(code, '66', tab_size)
+    examiner = FortranExaminer(code, '66', tab_size)
 
   if language in ['fortran-77', 'f77']:
-    examiner = FortranFixedFormatExaminer(code, '77', tab_size)
+    examiner = FortranExaminer(code, '77', tab_size)
 
   if language in ['fortran-90', 'f90']:
-    examiner = FortranFreeFormatExaminer(code, '90')
+    examiner = FortranExaminer(code, '90', tab_size)
 
   if language in ['fortran-95', 'f95']:
-    examiner = FortranFreeFormatExaminer(code, '95')
+    examiner = FortranExaminer(code, '95', tab_size)
 
   if language in ['fortran-2003', 'fortran', 'f03']:
-    examiner = FortranFreeFormatExaminer(code, '2003')
+    examiner = FortranExaminer(code, '2003', tab_size)
 
-  if language in ['fortran-2008', 'fortran-free', 'fortran-free-format', 'fortran', 'f08', 'for', 'ftn']:
-    examiner = FortranFreeFormatExaminer(code, '2008')
+  if language in ['fortran-2008', 'fortran', 'f08', 'for', 'ftn']:
+    examiner = FortranExaminer(code, '2008', tab_size)
 
   if language in ['fsharp', 'fs']:
     examiner = MlExaminer(code, 'fsharp')
@@ -1393,22 +1391,22 @@ def make_multiple_examiners(code, tab_size, comment, block_comment_limit, langua
     examiners['flowmatic'] = FlowmaticExaminer(code)
 
   if 'fortran-66' in languages or 'fortran' in languages or 'f66' in languages:
-    examiners['fortran-66'] = FortranFixedFormatExaminer(code, '66', tab_size)
+    examiners['fortran-66'] = FortranExaminer(code, '66', tab_size)
 
   if 'fortran-77' in languages or 'fortran' in languages or 'f77' in languages:
-    examiners['fortran-77'] = FortranFixedFormatExaminer(code, '77', tab_size)
+    examiners['fortran-77'] = FortranExaminer(code, '77', tab_size)
 
   if 'fortran-90' in languages or 'fortran' in languages or'f90' in languages:
-    examiners['fortran-90'] = FortranFreeFormatExaminer(code, '90')
+    examiners['fortran-90'] = FortranExaminer(code, '90', tab_size)
 
   if 'fortran-95' in languages or 'fortran' in languages or 'f95' in languages:
-    examiners['fortran-95'] = FortranFreeFormatExaminer(code, '95')
+    examiners['fortran-95'] = FortranExaminer(code, '95', tab_size)
 
   if 'fortran-2003' in languages or 'fortran' in languages or 'f03' in languages:
-    examiners['fortran-2003'] = FortranFreeFormatExaminer(code, '2003')
+    examiners['fortran-2003'] = FortranExaminer(code, '2003', tab_size)
 
   if 'fortran-2008' in languages or 'fortran' in languages:
-    examiners['fortran-2008'] = FortranFreeFormatExaminer(code, '2008')
+    examiners['fortran-2008'] = FortranExaminer(code, '2008', tab_size)
 
   if 'fsharp' in languages or 'fs' in languages or 'f#' in languages:
     examiners['fsharp'] = MlExaminer(code, 'fsharp')
@@ -1645,7 +1643,7 @@ def unwrap_lines(text, language):
   unwrapped_text = text
 
   if language in fortran_names:
-    examiner = FortranFixedFormatExaminer(text, '77', 8, False)
+    examiner = FortranExaminer(text, '77', 8, False)
     lines = split_lines(text)
     unwrapped_text = examiner.unwrapped_code(lines)
 

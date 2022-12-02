@@ -1,31 +1,63 @@
 [
     {
         "type":"invalid",
-        "value":"subroutine swap_real(a1, a2)"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "value":"subroutine"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":" "
     },
     {
         "type":"invalid",
-        "value":"  im"
+        "value":"swap_real"
     },
     {
-        "type":"line continuation",
-        "value":"p"
+        "type":"group",
+        "value":"("
     },
     {
         "type":"invalid",
-        "value":"licit"
+        "value":"a"
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"a"
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"invalid",
+        "value":"implicit"
     },
     {
         "type":"whitespace",
@@ -37,35 +69,51 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!  Input/Output"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  re"
-    },
-    {
-        "type":"line continuation",
-        "value":"a"
+        "type":"identifier",
+        "value":"I"
     },
     {
         "type":"invalid",
-        "value":"l"
+        "value":"nput"
+    },
+    {
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"identifier",
+        "value":"O"
+    },
+    {
+        "type":"invalid",
+        "value":"utput"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"invalid",
+        "value":"real"
     },
     {
         "type":"group",
@@ -153,35 +201,39 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!  Locals"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  in"
-    },
-    {
-        "type":"line continuation",
-        "value":"t"
+        "type":"identifier",
+        "value":"L"
     },
     {
         "type":"invalid",
-        "value":"eger"
+        "value":"ocals"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"invalid",
+        "value":"integer"
     },
     {
         "type":"whitespace",
@@ -201,34 +253,82 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!  Swap, using the internal subroutine"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
+        "type":"identifier",
+        "value":"S"
+    },
+    {
         "type":"invalid",
-        "value":"  N "
+        "value":"wap"
+    },
+    {
+        "type":"group",
+        "value":","
     },
     {
         "type":"whitespace",
         "value":" "
     },
     {
-        "type":"line continuation",
+        "type":"invalid",
+        "value":"using"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"the"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"internal"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"subroutine"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"identifier",
+        "value":"N"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
         "value":"="
     },
     {
@@ -297,23 +397,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
         "type":"invalid",
-        "value":"  ca"
-    },
-    {
-        "type":"line continuation",
-        "value":"l"
-    },
-    {
-        "type":"invalid",
-        "value":"l"
+        "value":"call"
     },
     {
         "type":"whitespace",
@@ -389,43 +481,31 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"cont"
-    },
-    {
-        "type":"line continuation",
-        "value":"a"
-    },
-    {
-        "type":"invalid",
-        "value":"ins"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":" "
     },
     {
         "type":"invalid",
-        "value":"  el"
+        "value":"contains"
     },
     {
-        "type":"line continuation",
-        "value":"e"
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
     },
     {
         "type":"invalid",
-        "value":"mental"
+        "value":"elemental"
     },
     {
         "type":"whitespace",
@@ -477,11 +557,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"      "
     },
     {
         "type":"invalid",
@@ -549,11 +629,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"      "
     },
     {
         "type":"invalid",
@@ -577,11 +657,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"      "
     },
     {
         "type":"invalid",
@@ -609,11 +689,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"      "
     },
     {
         "type":"invalid",
@@ -645,11 +725,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"      "
     },
     {
         "type":"invalid",
@@ -677,19 +757,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
         "type":"invalid",
-        "value":"  en"
-    },
-    {
-        "type":"line continuation",
-        "value":"d"
+        "value":"end"
     },
     {
         "type":"whitespace",
@@ -709,18 +785,30 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"invalid",
-        "value":"end subroutine swap_real"
+        "value":"end"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"subroutine"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"swap_real"
     },
     {
         "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     }
 ]
