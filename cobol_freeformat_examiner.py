@@ -4,6 +4,7 @@ from codestat_exception import CodeStatException
 from codestat_token import Token
 from codestat_tokenizer import Tokenizer
 from token_builders import (
+  NullTokenBuilder,
   InvalidTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
@@ -32,6 +33,7 @@ from examiner import Examiner
 class CobolFreeFormatExaminer(CobolExaminer):
   @staticmethod
   def __escape_z__():
+    NullTokenBuilder.__escape_z__()
     InvalidTokenBuilder.__escape_z__()
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
@@ -57,7 +59,7 @@ class CobolFreeFormatExaminer(CobolExaminer):
   def __init__(self, code, year, extension):
     super().__init__()
 
-    if year is not None and year not in ['2002', '2014']:
+    if year is not None and year not in ['68', '1968', '74', '1974', '85', '1985', '2002', '2014']:
       raise CodeStatException('Unknown year for language')
 
     operand_types = []
@@ -69,30 +71,43 @@ class CobolFreeFormatExaminer(CobolExaminer):
     integer_exponent_tb = IntegerExponentTokenBuilder(None)
     real_tb = RealTokenBuilder(False, True, None)
     real_exponent_tb = RealExponentTokenBuilder(False, True, 'E', None)
+    operand_types.append('number')
 
     identifier_tb = CobolIdentifierTokenBuilder()
+    operand_types.append('identifier')
 
     quotes = ['"', "'"]
     string_tb = StuffedQuoteStringTokenBuilder(quotes, False)
     n_string_tb = PrefixedStringTokenBuilder('N', False, quotes)
     nx_string_tb = PrefixedStringTokenBuilder('NX', False, quotes)
+    operand_types.append('string')
 
     picture_tb = PictureTokenBuilder()
     cr_picture_tb = CRPictureTokenBuilder()
+    operand_types.append('picture')
 
     inline_comment_tb = LeadToEndOfLineTokenBuilder('*>', True, 'comment')
     star_comment_tb = AsteriskCommentTokenBuilder()
 
     terminators_tb = SingleCharacterTokenBuilder('.', 'statement terminator', False)
 
-    known_operators = [
-      'ADD', 'SUBTRACT', 'MULTIPLY', 'DIVIDE',
-      '+', '-', '*', '/', '**',
-      '=', '<>', '>', '>=', '<', '<=',
-      'AND', 'OR', 'NOT',
-      'B-AND', 'B-NOT', 'B-OR', 'B-XOR',
-      ':'
-    ]
+    if year in ['68', '1968', '74', '1974', '85', '1985']:
+      known_operators = [
+        'ADD', 'SUBTRACT', 'MULTIPLY', 'DIVIDE',
+        '+', '-', '*', '/', '**',
+        '=', '<>', '>', '>=', '<', '<=',
+        'AND', 'OR', 'NOT',
+        ':'
+      ]
+    else:
+      known_operators = [
+        'ADD', 'SUBTRACT', 'MULTIPLY', 'DIVIDE',
+        '+', '-', '*', '/', '**',
+        '=', '<>', '>', '>=', '<', '<=',
+        'AND', 'OR', 'NOT',
+        'B-AND', 'B-NOT', 'B-OR', 'B-XOR',
+        ':'
+      ]
 
     known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
@@ -109,71 +124,103 @@ class CobolFreeFormatExaminer(CobolExaminer):
 
     keywords = [
       'ACCEPT', 'ACCESS', 'ADD', 'ADDRESS', 'ADVANCING', 'AFTER', 'ALL',
-      'ALPHABET', 'ALPHABETIC', 'ALPHABETIC-LOWER', 'ALPHABETIC-UPPER',
-      'ALPHANUMERIC', 'ALPHANUMERIC-EDITED', 'ALSO', 'ALTER', 'ALTERNATE', 'AND',
-      'ANY', 'APPLY', 'ARE', 'AREA', 'AREAS', 'ASCENDING', 'ASSIGN', 'AT',
-      'AUTHOR',
-      'BEFORE', 'BEGINNING', 'BELL', 'BINARY', 'BLOCK', 'BOTTOM', 'BY',
-      'BYTE-LENGTH',
-      'CALL', 'CANCEL', 'CBL', 'CD', 'CF', 'CH', 'CHARACTER', 'CHARACTERS',
-      'CLOCK-UNITS', 'CLOSE', 'COBOL', 'CODE', 'CODE-SET', 'COL',
-      'COLLATING', 'COLS', 'COLUMN', 'COMMA', 'COMMON', 'COMMUNICATION',
-      'COMP', 'COMPUTATIONAL', 'COMPUTE', 'CONFIGURATION', 'CONTAINS',
-      'CONTENT', 'CONTINUE', 'CONTROL', 'CONTROLS', 'CONVERTING',
-      'COPY', 'CORR', 'CORRESPONDING', 'COUNT', 'CURRENCY',
+      'ALPHABETIC', 'ALPHABETIC-LOWER', 'ALPHABETIC-UPPER',
+      'ALPHANUMERIC', 'ALPHANUMERIC-EDITED', 'ALTER', 'ALTERNATE', 'AND',
+      'APPLY', 'ARE', 'AREA', 'AREAS', 'ASCENDING', 'ASSIGN', 'AT', 'AUTHOR',
+      'BEFORE', 'BLOCK', 'BY',
+      'CALL', 'CANCEL', 'CD', 'CF', 'CH', 'CHARACTER', 'CHARACTERS',
+      'CLOCK-UNITS', 'CLOSE', 'COBOL', 'CODE', 'COLUMN', 'COMMA',
+      'COMMUNICATION', 'COMP', 'COMPUTATIONAL', 'COMPUTE', 'CONFIGURATION',
+      'CONTAINS', 'CONTROL', 'CONTROLS', 'COPY', 'CORR', 'CORRESPONDING',
+      'COUNT', 'CURRENCY',
       'DATA', 'DATE', 'DATE-COMPILED', 'DATE-WRITTEN',
-      'DAY', 'DAY-OF-WEEK',
       'DE', 'DEBUG-CONTENTS', 'DEBUG-ITEM', 'DEBUG-LINE', 'DEBUG-NAME',
-      'DEBUG-SUB-1', 'DEBUG-SUB-2', 'DEBUG-SUB-3', 'DECIMAL-POINT', 'DECLARATIVES',
-      'DELETE', 'DELIMITED', 'DELIMITER', 'DEPENDING', 'DESCENDING', 'DESTINATION',
-      'DISABLE', 'DIVIDE', 'DIVISION', 'DOWN', 'DUPLICATES', 'DYNAMIC',
-      'EGI', 'ELSE', 'EMI', 'ENABLE', 'END',
-      'END-ACCEPT', 'END-ADD', 'END-CALL', 'END-COMPUTE', 'END-DELETE', 'END-DISPLAY',
-      'END-DIVIDE', 'END-EVALUATE', 'END-EXEC', 'END-IF', 'END-MULTIPLY',
-      'END-OF-PAGE', 'END-PERFORM', 'END-READ', 'END-RECEIVE', 'END-RETURN',
-      'END-REWRITE', 'END-SEARCH', 'END-START', 'END-STRING', 'END-SUBTRACT',
-      'END-UNSTRING', 'END-WRITE',
-      'ENTER', 'ENVIRONMENT', 'EOL', 'EOP', 'EQUAL', 'ERROR', 'ESI', 'EVALUATE',
-      'EVERY', 'EXCEPTION', 'EXEC', 'EXIT', 'EXTEND', 'EXTERNAL',
-      'FD', 'FILE', 'FILE-CONTROL', 'FILLER', 'FINAL', 'FIRST', 'FOOTING',
-      'FOR', 'FROM', 'FULL',
+      'DEBUG-SUB-1', 'DEBUG-SUB-2', 'DEBUG-SUB-3',
+      'DECIMAL-POINT', 'DECLARATIVES', 'DELIMITED', 'DELIMITER', 'DEPENDING',
+      'DESCENDING', 'DESTINATION', 'DETAIL', 'DISABLE', 'DISPLAY',
+      'DIVIDE', 'DIVISION', 'DOWN',
+      'EGI', 'ELSE', 'EMI', 'ENABLE', 'END', 'ENTER', 'ENVIRONMENT', 'EQUAL',
+      'ERROR', 'ESI', 'EVERY', 'EXIT', 'EXTEND',
+      'FD', 'FILE', 'FILE-CONTROL', 'FILLER', 'FINAL', 'FIRST', 'FOOTING', 'FOR',
+      'FROM',
       'GENERATE', 'GIVING', 'GLOBAL', 'GO', 'GOBACK', 'GREATER', 'GROUP',
       'HEADING', 'HIGH-VALUE', 'HIGH-VALUES',
-      'I-O', 'I-O-CONTROL', 'IDENTIFICATION', 'IF', 'IN', 'INDEX', 'INDEXED',
-      'INDICATE', 'INITIAL', 'INITIALIZE', 'INITIATE', 'INPUT', 'INPUT-OUTPUT',
-      'INSPECT', 'INSTALLATION', 'INTO', 'INVALID', 'IS',
+      'I-O', 'I-O-CONTROL',
+      'IDENTIFICATION', 'IF', 'IN', 'INDEX', 'INDEXED', 'INDICATE', 'INITIAL',
+      'INITIATE', 'INPUT', 'INPUT-OUTPUT', 'INSTALLATION', 'INTO', 'INVALID',
+      'IS',
       'JUST', 'JUSTIFIED',
       'KEY',
       'LABEL', 'LAST', 'LEADING', 'LEFT', 'LENGTH', 'LESS', 'LIMIT', 'LIMITS',
-      'LINAGE', 'LINAGE-COUNTER', 'LINE', 'LINE-COUNTER', 'LINES', 'LINKAGE',
+      'LINE', 'LINE-COUNTER', 'LINES', 'LINKAGE',
       'LOCK', 'LOW-VALUE', 'LOW-VALUES',
-      'MEMORY', 'MERGE', 'MESSAGE', 'MODE', 'MODULES', 'MOVE', 'MULTIPLE', 'MULTIPLY',
-      'NATIVE', 'NEGATIVE', 'NEXT', 'NOT',
-      'NUMBER', 'NUMBERS', 'NUMERIC', 'NUMERIC-EDITED',
-      'OBJECT-COMPUTER', 'OCCURS', 'OF', 'OMITTED',  'OPEN', 'OPTIONAL', 'OR',
-      'ORDER', 'ORGANIZATION', 'OTHER', 'OUTPUT', 'OVERFLOW',
-      'PACKED-DECIMAL', 'PADDING', 'PAGE', 'PAGE-COUNTER', 'PARAGRAPH', 'PERFORM',
-      'PF', 'PH', 'PIC', 'PICTURE', 'PLUS', 'POINTER', 'POSITION', 'POSITIVE',
-      'PRINTING', 'PROCEDURE', 'PROCEDURES', 'PROCEED', 'PROGRAM', 'PROGRAM-ID',
-      'PURGE',
+      'MEMORY', 'MERGE', 'MESSAGE', 'MODE', 'MODULES', 'MOVE', 'MULTIPLE',
+      'MULTIPLY',
+      'NEGATIVE', 'NEXT', 'NO', 'NOT', 'NUMBER', 'NUMERIC', 'NUMERIC-EDITED',
+      'OBJECT-COMPUTER', 'OCCURS', 'OF', 'OMITTED',
+      'OPEN', 'OPTIONAL', 'OR', 'OUTPUT', 'OVERFLOW',
+      'PAGE', 'PAGE-COUNTER', 'PERFORM', 'PF', 'PH', 'PIC', 'PICTURE',
+      'PLUS', 'POINTER', 'POSITION', 'POSITIVE', 'PROCEDURE', 'PROCEED',
+      'PROGRAM', 'PROGRAM-ID',
       'QUEUE', 'QUOTE', 'QUOTES',
-      'RANDOM', 'RD', 'READ', 'RECEIVE', 'RECORD', 'RECORDS', 'REDEFINES', 'REEL',
-      'REFERENCE', 'RELATIVE', 'RELEASE', 'REMAINDER', 'REMOVAL',
+      'RANDOM', 'RD', 'READ', 'RECEIVE', 'RECORD', 'RECORDS', 'REDEFINES',
+      'REEL', 'REFERENCE', 'RELATIVE', 'RELEASE', 'REMAINDER',
       'RENAMES', 'REPLACE', 'REPLACING', 'REPORT', 'REPORTING', 'REPORTS',
-      'RERUN', 'RESERVE', 'RESET', 'RESUME', 'RETRY', 'RETURN',
-      'REVERSED', 'REWIND', 'REWRITE', 'RF', 'RH', 'RIGHT', 'ROUNDED', 'RUN',
-      'SAME', 'SD', 'SEARCH', 'SECTION', 'SECURE', 'SECURITY', 'SEGMENT',
-      'SEGMENT-LIMIT', 'SELECT', 'SEND', 'SENTENCE', 'SEPARATE', 'SEQUENCE',
-      'SEQUENTIAL', 'SET', 'SIGN', 'SIZE', 'SORT', 'SORT-MERGE', 'SOURCE',
-      'SOURCE-COMPUTER', 'SPECIAL-NAMES', 'STANDARD', 'STANDARD-1', 'STANDARD-2',
-      'START', 'STATUS', 'STOP', 'STRING', 'SUB-QUEUE-1', 'SUB-QUEUE-2', 'SUB-QUEUE-3',
-      'SUBTRACT', 'SUM', 'SUPPRESS', 'SYMBOLIC', 'SYNC', 'SYNCHRONIZED',
-      'TABLE', 'TALLY', 'TALLYING', 'TAPE', 'TERMINAL', 'TERMINATE', 'TEST',
-      'TEXT', 'THAN', 'THEN', 'THROUGH', 'THRU', 'TIME', 'TIMES', 'TITLE', 'TO',
-      'TOP', 'TRAILING', 'TYPE',
+      'RERUN', 'RESERVE', 'RESET', 'RETURN', 'REVERSED', 'REWIND', 'REWRITE',
+      'RF', 'RH', 'RIGHT', 'ROUNDED', 'RUN',
+      'SAME', 'SD', 'SEARCH', 'SECTION', 'SECURITY', 'SEGMENT', 'SEGMENT-LIMIT',
+      'SELECT', 'SEND', 'SENTENCE', 'SEQUENCE', 'SEQUENTIAL', 'SET', 'SIGN', 'SIZE',
+      'SORT', 'SOURCE', 'SOURCE-COMPUTER', 'SPECIAL-NAMES', 'STANDARD', 'STATUS',
+      'STOP', 'STRING','SUB-QUEUE-1', 'SUB-QUEUE-2', 'SUB-QUEUE-3', 'SUBTRACT',
+      'SUM', 'SUPPRESS', 'SYMBOLIC', 'SYNC', 'SYNCHRONIZED',
+      'TABLE', 'TALLY', 'TAPE', 'TERMINAL', 'TERMINATE', 'TEST', 'TEXT', 'THAN',
+      'THEN', 'THROUGH', 'THRU', 'TIME', 'TIMES', 'TITLE', 'TO', 'TYPE',
       'UNIT', 'UNSTRING', 'UNTIL', 'UP', 'UPON', 'USAGE', 'USE', 'USING',
       'VALUE', 'VALUES', 'VARYING',
-      'WHEN', 'WITH', 'WORDS', 'WORKING-STORAGE', 'WRITE'
+      'WHEN',
+      'WITH', 'WORDS', 'WORKING-STORAGE', 'WRITE'
+    ]
+
+    keywords_68_only = [
+      'ACTUAL',
+      'FILE-LIMITS',
+      'NOMINAL',
+      'PROCESSING',
+      'NOTE',
+      'REMARKS',
+      'SEEK',
+      'TODAY'
+    ]
+
+    keywords_74 = [
+      'ALSO',
+      'BOTTOM',
+      'CODE-SET', 'COLLATING', 'COMMON',
+      'DAY', 'DELETE', 'DEBUGGING', 'DUPLICATES', 'DYNAMIC',
+      'END-OF-PAGE', 'EOP', 'EXCEPTION',
+      'INSPECT',
+      'LINAGE', 'LINAGE-COUNTER',
+      'NATIVE',
+      'ORGANIZATION',
+      'PACKED-DECIMAL', 'PADDING', 'PRINTING', 'PROCEDURES',
+      'REFERENCES', 'REMOVAL',
+      'SEPARATE', 'SORT-MERGE', 'STANDARD-1', 'STANDARD-2', 'START',
+      'TALLYING', 'TOP', 'TRAILING'
+    ]
+
+    keywords_85 = [
+      'ALPHABET', 'ANY',
+      'BINARY',
+      'CONTENT', 'CONTINUE', 'CONVERTING',
+      'DAY-OF-WEEK',
+      'END-ADD', 'END-CALL', 'END-COMPUTE', 'END-DELETE', 'END-DIVIDE',
+      'END-EVALUATE', 'END-IF', 'END-MULTIPLY', 'END-PERFORM', 'END-READ',
+      'END-RECEIVE', 'END-RETURN', 'END-REWRITE', 'END-SEARCH', 'END-START',
+      'END-STRING', 'END-SUBTRACT', 'END-UNSTRING', 'END-WRITE',
+      'EVALUATE', 'EXTERNAL',
+      'INITIALIZE',
+      'ORDER', 'OTHER',
+      'PURGE'
     ]
 
     keywords_2002 = [
@@ -336,6 +383,15 @@ class CobolFreeFormatExaminer(CobolExaminer):
       'WEB-BROWSER', 'WIDTH', 'WIDTH-IN-CELLS', 'WINDOW', 'X', 'Y'
     ]
 
+    if year in ['68', '1968']:
+      keywords += keywords_68_only
+
+    if year in ['74', '1974', '85', '1985', '2002', '2014']:
+      keywords += keywords_74
+
+    if year in ['85', '1985', '2002', '2014']:
+      keywords += keywords_85
+
     if year in ['2002', '2014']:
       keywords += keywords_2002
 
@@ -353,15 +409,24 @@ class CobolFreeFormatExaminer(CobolExaminer):
 
     keyword_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
 
-    values = [
-      'BLANK', 'SPACE', 'SPACES', 'ZERO', 'ZEROES', 'ZEROS',
-      'FALSE', 'NO', 'OFF', 'ON', 'TRUE'
-    ]
-
-    values_2002 = ['NULL', 'NULLS', 'SELF', 'SUPER']
-
-    if year in ['2002', '2014']:
-      values += values_2002
+    if year in ['68', '1968', '74', '1974']:
+      values = [
+        'BLANK', 'SPACE', 'SPACES', 'ZERO', 'ZEROES', 'ZEROS',
+        'NO', 'OFF', 'ON'
+      ]
+    elif year in ['85', '1985', '2002', '2014']:
+      values = [
+        'BLANK', 'SPACE', 'SPACES', 'ZERO', 'ZEROES', 'ZEROS',
+        'NO', 'OFF', 'ON',
+        'FALSE', 'TRUE'
+      ]
+    else:
+      values = [
+        'BLANK', 'SPACE', 'SPACES', 'ZERO', 'ZEROES', 'ZEROS',
+        'NO', 'OFF', 'ON',
+        'FALSE', 'TRUE',
+        'NULL', 'NULLS', 'SELF', 'SUPER'
+      ]
 
     value_tb = CaseInsensitiveListTokenBuilder(values, 'value', True)
     operand_types.append('value')
@@ -372,7 +437,7 @@ class CobolFreeFormatExaminer(CobolExaminer):
 
     invalid_token_builder = InvalidTokenBuilder()
 
-    tokenbuilders = [
+    tokenbuilders_free = [
       newline_tb,
       whitespace_tb,
       terminators_tb,
@@ -398,11 +463,11 @@ class CobolFreeFormatExaminer(CobolExaminer):
       invalid_token_builder
     ]
 
-    tokenizer = Tokenizer(tokenbuilders)
+    tokenizer_free = Tokenizer(tokenbuilders_free)
 
     code = self.TrimCtrlZText(code)
     ascii_code = self.convert_to_ascii(code)
-    tokens = tokenizer.tokenize(ascii_code)
+    tokens = tokenizer_free.tokenize(ascii_code)
 
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
@@ -432,8 +497,8 @@ class CobolFreeFormatExaminer(CobolExaminer):
     # self.calc_operand_n_confidence(tokens, operand_types, 4)
 
     self.calc_keyword_confidence()
+    self.calc_picture_confidence()
     self.calc_line_length_confidence(code, self.max_expected_line)
 
-    self.calc_picture_confidence()
     expected_keyword_confidence = self.check_expected_keywords()
     self.confidences['expected_keywords'] = expected_keyword_confidence
