@@ -261,19 +261,15 @@ CBASIC
 + colon as part of GRAPHIC PRINT statement
 
 COBOL
-- combine fixed-format and free-format like PL/1
+- P010-wide does not tokenize unterm string
++ remove duplicate source
 + tokenize EXEC block
-+ 'ON' is a value, a keyword after 'OCCURS DEPENDING', 'SORT file', 'IS id'
 - paragraph name is a single identifier followed by period
 - expected keyword confidence assigns value
-
-COBOL fixed-format
-- empty file has too high confidence
+- change 'self' variables to locals
+- line identifiers contain only digits, no embedded spaces
 + unclosed quoted strings on continuation extend to column 72
 + extensions: https://www.ibm.com/support/knowledgecenter/SS6SGM_5.1.0/com.ibm.cobol51.aix.doc/PGandLR/ref/rlext.html
-
-COBOL free-format
-- P010-wide fails detect
 * more tests from extra
 + Micro-Focus extensions (MF)
 * source for COBOL-85, COBOL-74 Acucobol, IBM, GNU, MF extensions
@@ -368,14 +364,13 @@ trunc(Number)
 tuple_size(Tuple)
 
 Fortran
-- combine fixed-format and free-format like PL/1
 - empty file has too high confidence
 + embedded SQL (EXEC newline)
 + tokenize EXEC block
-- -66 HELLO detects as SQL (SQL keywords in FTN comment)
 * source for Fortran-2003
-- geo4060 detects as haskell
 - FORMAT editing characters ( / // I Iw Iw.m F Fw.d E ES EN L Lw A Aw nX Tc / : r(...) BN BZ)
+- change 'self' variables to locals
+- line identifiers contain only digits, no embedded spaces
 
 F sharp
 * more source
@@ -472,6 +467,7 @@ PL/I
 + bit string constant is string with suffix B
 - use LabelTokenBuilder class
 - change 'self' variables to locals
+- line identifiers contain only digits, no embedded spaces
 
 PL/M
 + drop fixed format and use only free format

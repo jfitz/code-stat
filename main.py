@@ -15,8 +15,7 @@ from awk_examiner import AwkExaminer
 from basic_examiner import BasicExaminer
 from cbasic_examiner import CBasicExaminer
 from c_examiner import CExaminer
-from cobol_fixedformat_examiner import CobolFixedFormatExaminer
-from cobol_freeformat_examiner import CobolFreeFormatExaminer
+from cobol_examiner import CobolExaminer
 from coffeescript_examiner import CoffeeScriptExaminer
 from cpp_examiner import CppExaminer
 from csharp_examiner import CsharpExaminer
@@ -69,8 +68,7 @@ AwkExaminer.__escape_z__()
 BasicExaminer.__escape_z__()
 CBasicExaminer.__escape_z__()
 CExaminer.__escape_z__()
-CobolFixedFormatExaminer.__escape_z__()
-CobolFreeFormatExaminer.__escape_z__()
+CobolExaminer.__escape_z__()
 CoffeeScriptExaminer.__escape_z__()
 CppExaminer.__escape_z__()
 CsharpExaminer.__escape_z__()
@@ -1055,28 +1053,28 @@ def make_one_examiner(language, code, tab_size, comment, block_comment_limit):
     examiner = CBasicExaminer(code)
 
   if language in ['cobol-68']:
-    examiner = CobolFixedFormatExaminer(code, '68', '', tab_size)
+    examiner = CobolExaminer(code, '68', '', tab_size)
 
   if language in ['cobol-74']:
-    examiner = CobolFixedFormatExaminer(code, '74', '', tab_size)
+    examiner = CobolExaminer(code, '74', '', tab_size)
 
   if language in ['cobol-85']:
-    examiner = CobolFixedFormatExaminer(code, '85', '', tab_size)
+    examiner = CobolExaminer(code, '85', '', tab_size)
 
   if language in ['cobol-2002']:
-    examiner = CobolFreeFormatExaminer(code, '2002', '')
+    examiner = CobolExaminer(code, '2002', '', tab_size)
 
   if language in ['cobol-2014', 'cobol']:
-    examiner = CobolFreeFormatExaminer(code, '2014', '')
+    examiner = CobolExaminer(code, '2014', '', tab_size)
 
   if language in ['cobol-2014-acu']:
-    examiner = CobolFreeFormatExaminer(code, '2014', 'acu')
+    examiner = CobolExaminer(code, '2014', 'acu', tab_size)
 
   if language in ['cobol-2014-ibm']:
-    examiner = CobolFreeFormatExaminer(code, '2014', 'ibm')
+    examiner = CobolExaminer(code, '2014', 'ibm', tab_size)
 
   if language in ['cobol-2014-gnu']:
-    examiner = CobolFreeFormatExaminer(code, '2014', 'gnu')
+    examiner = CobolExaminer(code, '2014', 'gnu', tab_size)
 
   if language in ['coffeescript', 'coffee']:
     examiner = CoffeeScriptExaminer(code)
@@ -1337,28 +1335,28 @@ def make_multiple_examiners(code, tab_size, comment, block_comment_limit, langua
     examiners['csharp'] = CsharpExaminer(code)
 
   if 'cobol-68' in languages or 'cobol' in languages:
-    examiners['cobol-68'] = CobolFixedFormatExaminer(code, '68', '', tab_size)
+    examiners['cobol-68'] = CobolExaminer(code, '68', '', tab_size)
 
   if 'cobol-74' in languages or 'cobol' in languages:
-    examiners['cobol-74'] = CobolFixedFormatExaminer(code, '74', '', tab_size)
+    examiners['cobol-74'] = CobolExaminer(code, '74', '', tab_size)
 
   if 'cobol-85' in languages or 'cobol' in languages:
-    examiners['cobol-85'] = CobolFixedFormatExaminer(code, '85', '', tab_size)
+    examiners['cobol-85'] = CobolExaminer(code, '85', '', tab_size)
 
   if 'cobol-2002' in languages or 'cobol' in languages:
-    examiners['cobol-2002'] = CobolFreeFormatExaminer(code, '2002', '')
+    examiners['cobol-2002'] = CobolExaminer(code, '2002', '', tab_size)
 
   if 'cobol-2014' in languages or 'cobol' in languages or 'cob' in languages:
-    examiners['cobol-2014'] = CobolFreeFormatExaminer(code, '2014', '')
+    examiners['cobol-2014'] = CobolExaminer(code, '2014', '', tab_size)
 
   if 'cobol-2014-acu' in languages or 'cobol' in languages:
-    examiners['cobol-2014-acu'] = CobolFreeFormatExaminer(code, '2014', 'acu')
+    examiners['cobol-2014-acu'] = CobolExaminer(code, '2014', 'acu', tab_size)
 
   if 'cobol-2014-ibm' in languages or 'cobol' in languages:
-    examiners['cobol-2014-ibm'] = CobolFreeFormatExaminer(code, '2014', 'ibm')
+    examiners['cobol-2014-ibm'] = CobolExaminer(code, '2014', 'ibm', tab_size)
 
   if 'cobol-2014-gnu' in languages or 'cobol' in languages:
-    examiners['cobol-2014-gnu'] = CobolFreeFormatExaminer(code, '2014', 'gnu')
+    examiners['cobol-2014-gnu'] = CobolExaminer(code, '2014', 'gnu', tab_size)
 
   if 'coffeescript' in languages or 'coffee' in languages:
     examiners['coffeescript'] = CoffeeScriptExaminer(code)
@@ -1648,7 +1646,7 @@ def unwrap_lines(text, language):
     unwrapped_text = examiner.unwrapped_code(lines)
 
   if language in cobol_names:
-    examiner = CobolFixedFormatExaminer(text, '85', '', 8, False)
+    examiner = CobolExaminer(text, '85', '', 8, False)
     lines = split_lines(text)
     unwrapped_text = examiner.unwrapped_code(lines)
 
