@@ -45,8 +45,8 @@ class FormatSpecifierTokenBuilder(TokenBuilder):
     self.text = None
     # 'p' patterns are approved, 't' patterns are for accept()
     self.t1 = re.compile(r'\A\d+\Z')
-    self.p2 = re.compile(r'\A\d*[IFEDGAL]\Z')
-    self.p3 = re.compile(r'\A\d*[IFEDG]\d+\Z')
+    self.p2 = re.compile(r'\A\d*[XIFEDGAL]\Z')
+    self.p3 = re.compile(r'\A\d*[IFEDGAL]\d+\Z')
     self.t4 = re.compile(r'\A\d*[IFEDG]\d+\.\Z')
     self.p5 = re.compile(r'\A\d*[FEDG]\d+\.\d+\Z')
     self.t6 = re.compile(r'\A\d*[FEDG]\d+\.\d+E\Z')
@@ -69,7 +69,13 @@ class FormatSpecifierTokenBuilder(TokenBuilder):
 
   def accept(self, candidate, c):
     if len(candidate) == 0:
-      return c.isdigit() or c in 'IFEDGALXP'
+      return c.isdigit() or c in 'IFEDGALXP/B'
+
+    if candidate == '/':
+      return c == '/'
+
+    if candidate == 'B':
+      return c in 'NZ'
 
     if self.t1.match(candidate):
       return c.isdigit() or c in 'IFEDGALXP'

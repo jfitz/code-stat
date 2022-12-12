@@ -157,8 +157,6 @@ ADA
 + labels enclosed in << >>
 
 Awk
-- action script adds gawk as variant
-- detect script adds gawk as variant
 
 BASIC
 - identify line numbers after THEN, GOTO, ON GOSUB, ON ERROR
@@ -268,7 +266,6 @@ COBOL
 + tokenize EXEC block
 - paragraph name is a single identifier followed by period
 - expected keyword confidence assigns value
-- change 'self' variables to locals
 - line identifiers contain only digits, no embedded spaces
 + unclosed quoted strings on continuation extend to column 72
 + extensions: https://www.ibm.com/support/knowledgecenter/SS6SGM_5.1.0/com.ibm.cobol51.aix.doc/PGandLR/ref/rlext.html
@@ -371,7 +368,6 @@ Fortran
 + tokenize EXEC block
 * source for Fortran-2003
 - FORMAT editing characters ( / // I Iw Iw.m F Fw.d E ES EN L Lw A Aw nX Tc / : r(...) BN BZ)
-- change 'self' variables to locals
 - line identifiers contain only digits, no embedded spaces
 
 F sharp
@@ -468,7 +464,6 @@ PL/I
 ? 'example' has issues (plain text in source)
 + bit string constant is string with suffix B
 - use LabelTokenBuilder class
-- change 'self' variables to locals
 - line identifiers contain only digits, no embedded spaces
 
 PL/M
