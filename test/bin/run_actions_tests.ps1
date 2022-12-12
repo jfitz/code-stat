@@ -43,7 +43,7 @@ test\bin\run_action_tests_language.ps1 -language "Assembly" -variants ("ASM-360"
 test\bin\run_action_tests_language.ps1 -language "Ada" -variants ("Ada-83", "Ada-95")
 
 # Awk
-test\bin\run_action_tests_language.ps1 -language "Awk" -variants ("Awk")
+test\bin\run_action_tests_language.ps1 -language "Awk" -variants ("Awk", "gawk")
 
 # BASIC
 test\bin\run_action_tests_language.ps1 -language "BASIC" -variants ("BASIC", "BASIC-80", "BASICA")
@@ -55,7 +55,7 @@ test\bin\run_action_tests_language.ps1 -language "C" -variants ("C-78", "C-89", 
 test\bin\run_action_tests_language.ps1 -language "CBASIC" -variants ("CBASIC")
 
 # COBOL
-test\bin\run_action_tests_language.ps1 -language "COBOL" -variants ("COBOL-68", "COBOL-74", "COBOL-85", "COBOL-2014", "COBOL-2014-ACU", "COBOL-2014-GNU", "COBOL-2014-IBM")
+test\bin\run_action_tests_language.ps1 -language "COBOL" -variants ("COBOL-68", "COBOL-74", "COBOL-85", "COBOL-2002", "COBOL-2014", "COBOL-2014-ACU", "COBOL-2014-GNU", "COBOL-2014-IBM")
 
 # C++
 test\bin\run_action_tests_language.ps1 -language "Cplusplus" -variants ("Cplusplus")
@@ -85,7 +85,7 @@ test\bin\run_action_tests_language.ps1 -language "Erlang" -variants ("Erlang")
 test\bin\run_action_tests_language.ps1 -language "Flowmatic" -variants ("Flowmatic")
 
 # FORTRAN
-test\bin\run_action_tests_language.ps1 -language "FORTRAN" -variants ("FORTRAN-66", "FORTRAN-77", "Fortran-90", "Fortran-95", "Fortran-2003")
+test\bin\run_action_tests_language.ps1 -language "FORTRAN" -variants ("FORTRAN-66", "FORTRAN-77", "Fortran-90", "Fortran-95", "Fortran-2003", "Fortran-2008")
 
 # F#
 test\bin\run_action_tests_language.ps1 -language "Fsharp" -variants ("Fsharp")
