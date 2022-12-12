@@ -47,7 +47,7 @@ class PL1Examiner(Examiner):
   def __init__(self, code, tab_size):
     super().__init__()
 
-    self.operand_types = []
+    operand_types = []
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
@@ -58,19 +58,19 @@ class PL1Examiner(Examiner):
     real_tb = RealTokenBuilder(False, False, None)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
     binary_real_tb = SuffixedRealTokenBuilder(True, True, ['B'], False, None)
-    self.operand_types.append('number')
+    operand_types.append('number')
 
     leads = '_'
     extras = '_'
     identifier_tb = IdentifierTokenBuilder(leads, extras)
-    self.operand_types.append('identifier')
+    operand_types.append('identifier')
 
     quotes = ['"', "'"]
     string_tb = EscapedStringTokenBuilder(quotes, 0)
-    self.operand_types.append('string')
+    operand_types.append('string')
 
     label_tb = PL1LabelTokenBuilder()
-    self.operand_types.append('label')
+    operand_types.append('label')
 
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
 
@@ -119,9 +119,9 @@ class PL1Examiner(Examiner):
     ]
 
     groupers = ['(', ')', ',', '[', ']', '{', '}']
-    self.group_starts = ['(', '[', ',', '{']
-    self.group_mids = [',']
-    self.group_ends = [')', ']', '}']
+    group_starts = ['(', '[', ',', '{']
+    group_mids = [',']
+    group_ends = [')', ']', '}']
 
     groupers_tb = CaseInsensitiveListTokenBuilder(groupers, 'group', False)
 
@@ -212,7 +212,7 @@ class PL1Examiner(Examiner):
     ]
 
     format_item_tb = CaseSensitiveListTokenBuilder(format_items, 'format', True)
-    self.operand_types.append('format')
+    operand_types.append('format')
 
     options = [
       'APPEND',
@@ -280,14 +280,14 @@ class PL1Examiner(Examiner):
     ]
 
     types_tb = CaseInsensitiveListTokenBuilder(types, 'type', True)
-    self.operand_types.append('type')
+    operand_types.append('type')
 
     values = [
       'SYSIN', 'SYSPRINT'
     ]
 
     values_tb = CaseInsensitiveListTokenBuilder(values, 'value', True)
-    self.operand_types.append('value')
+    operand_types.append('value')
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -355,14 +355,14 @@ class PL1Examiner(Examiner):
       self.calc_operator_confidence(num_operators)
       allow_pairs = []
       self.calc_operator_2_confidence(tokens, num_operators, allow_pairs)
-      self.calc_operator_3_confidence(tokens, num_operators, self.group_ends, allow_pairs)
-      self.calc_operator_4_confidence(tokens, num_operators, self.group_starts, allow_pairs)
+      self.calc_operator_3_confidence(tokens, num_operators, group_ends, allow_pairs)
+      self.calc_operator_4_confidence(tokens, num_operators, group_starts, allow_pairs)
 
-    self.calc_group_confidence(tokens, self.group_mids)
+    self.calc_group_confidence(tokens, group_mids)
 
     operand_types_2 = ['number', 'symbol']
     # self.calc_operand_n_confidence(tokens, operand_types_2, 2)
-    self.calc_operand_n_confidence(tokens, self.operand_types, 2)
+    self.calc_operand_n_confidence(tokens, operand_types, 2)
 
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
@@ -447,14 +447,14 @@ class PL1Examiner(Examiner):
       self.calc_operator_confidence(num_operators)
       allow_pairs = []
       self.calc_operator_2_confidence(tokens, num_operators, allow_pairs)
-      self.calc_operator_3_confidence(tokens, num_operators, self.group_ends, allow_pairs)
-      self.calc_operator_4_confidence(tokens, num_operators, self.group_starts, allow_pairs)
+      self.calc_operator_3_confidence(tokens, num_operators, group_ends, allow_pairs)
+      self.calc_operator_4_confidence(tokens, num_operators, group_starts, allow_pairs)
 
-    self.calc_group_confidence(tokens, self.group_mids)
+    self.calc_group_confidence(tokens, group_mids)
 
     operand_types_2 = ['number', 'symbol']
     # self.calc_operand_n_confidence(tokens, operand_types_2, 2)
-    self.calc_operand_n_confidence(tokens, self.operand_types, 2)
+    self.calc_operand_n_confidence(tokens, operand_types, 2)
 
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])

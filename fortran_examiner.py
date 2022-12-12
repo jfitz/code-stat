@@ -52,18 +52,18 @@ class FortranExaminer(Examiner):
     super().__init__()
     self.newlines_important = 'always'
 
-    self.whitespace_tb = WhitespaceTokenBuilder()
-    self.newline_tb = NewlineTokenBuilder()
+    whitespace_tb = WhitespaceTokenBuilder()
+    newline_tb = NewlineTokenBuilder()
 
-    self.integer_tb = IntegerTokenBuilder(None)
-    self.integer_exponent_tb = IntegerExponentTokenBuilder(None)
-    self.real_tb = RealTokenBuilder(False, False, None)
-    self.real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
-    self.double_exponent_tb = RealExponentTokenBuilder(False, False, 'D', None)
+    integer_tb = IntegerTokenBuilder(None)
+    integer_exponent_tb = IntegerExponentTokenBuilder(None)
+    real_tb = RealTokenBuilder(False, False, None)
+    real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', None)
+    double_exponent_tb = RealExponentTokenBuilder(False, False, 'D', None)
 
-    self.jcl_tb = JCLTokenBuilder()
+    jcl_tb = JCLTokenBuilder()
 
-    self.invalid_token_builder = InvalidTokenBuilder()
+    invalid_token_builder = InvalidTokenBuilder()
 
     # FORTRAN-66 should be upper case only
     # FORTRAN-77 may be upper or lower case
@@ -251,16 +251,16 @@ class FortranExaminer(Examiner):
 
     # tokenize as free-format
     tokenbuilders_free = [
-      self.newline_tb,
-      self.whitespace_tb,
+      newline_tb,
+      whitespace_tb,
       continuation_tb,
       stmt_separator_tb,
-      self.integer_tb,
-      self.integer_exponent_tb,
+      integer_tb,
+      integer_exponent_tb,
       kind_integer_tb,
-      self.real_tb,
-      self.real_exponent_tb,
-      self.double_exponent_tb,
+      real_tb,
+      real_exponent_tb,
+      double_exponent_tb,
       kind_real_tb,
       keyword_tb,
       types_tb,
@@ -273,9 +273,9 @@ class FortranExaminer(Examiner):
       octal_string_tb,
       hex_string_tb,
       bang_comment_tb,
-      self.jcl_tb,
+      jcl_tb,
       self.unknown_operator_tb,
-      self.invalid_token_builder
+      invalid_token_builder
     ]
 
     tokenizer_free = Tokenizer(tokenbuilders_free)
@@ -327,13 +327,13 @@ class FortranExaminer(Examiner):
 
     # tokenize as fixed-format
     tokenbuilders_fixed = [
-      self.newline_tb,
-      self.whitespace_tb,
-      self.integer_tb,
-      self.integer_exponent_tb,
-      self.real_tb,
-      self.real_exponent_tb,
-      self.double_exponent_tb,
+      newline_tb,
+      whitespace_tb,
+      integer_tb,
+      integer_exponent_tb,
+      real_tb,
+      real_exponent_tb,
+      double_exponent_tb,
       keyword_tb,
       types_tb,
       format_tb,
@@ -343,9 +343,9 @@ class FortranExaminer(Examiner):
       bang_comment_tb,
       hollerith_tb,
       string_tb,
-      self.jcl_tb,
+      jcl_tb,
       self.unknown_operator_tb,
-      self.invalid_token_builder
+      invalid_token_builder
     ]
 
     tokenizer_fixed = Tokenizer(tokenbuilders_fixed)
