@@ -459,6 +459,7 @@ class PL1Examiner(Examiner):
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_line_length_confidence(code, self.max_expected_line)
+    # self.calc_line_description_confidence()
 
     confidences_fixed = self.confidences
     self.confidences = {}
@@ -572,7 +573,7 @@ class PL1Examiner(Examiner):
     unwrapped_lines = ''
 
     for line in lines:
-      # remove line description (if any)
+      # remove line identification (if any)
       line = line[:72]
       line = line.rstrip()
 

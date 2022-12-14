@@ -157,5 +157,5 @@ class FlowmaticExaminer(Examiner):
         token.group = 'label'
         token.is_operand = False
 
-      if token.group not in ['whitespace', 'comment', 'newline', 'line description']:
+      if token.group not in ['whitespace', 'comment', 'newline', 'line identification']:
         prev_token = token

@@ -471,7 +471,7 @@ class DbaseExaminer(Examiner):
         token.group = 'function'
         token.is_operand = True
 
-      if token.group not in ['whitespace', 'comment', 'newline', 'line description']:
+      if token.group not in ['whitespace', 'comment', 'newline']:
         prev_token = token
 
 
@@ -503,7 +503,7 @@ class DbaseExaminer(Examiner):
         token.group = 'identifier'
         token.is_operand = True
 
-      if token.group not in ['whitespace', 'comment', 'newline', 'line description']:
+      if token.group not in ['whitespace', 'comment', 'newline']:
         prev_token = token
 
 
@@ -517,5 +517,5 @@ class DbaseExaminer(Examiner):
         token.group = 'value'
         token.is_operand = True
 
-      if token.group not in ['whitespace', 'comment', 'newline', 'line description']:
+      if token.group not in ['whitespace', 'comment', 'newline']:
         prev_token = token

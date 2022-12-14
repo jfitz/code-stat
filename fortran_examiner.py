@@ -286,7 +286,7 @@ class FortranExaminer(Examiner):
 
     tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid operator')
     tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid')
-    tokens_free = Examiner.combine_identifier_colon(tokens_free, ['newline'], [], ['whitespace', 'comment', 'line description'])
+    tokens_free = Examiner.combine_identifier_colon(tokens_free, ['newline'], [], ['whitespace', 'comment', 'line identification'])
     self.tokens = tokens_free
 
     self.convert_identifiers_to_labels()
@@ -390,6 +390,7 @@ class FortranExaminer(Examiner):
 
     self.calc_keyword_confidence()
     self.calc_line_length_confidence(code, self.max_expected_line)
+    # self.calc_line_description_confidence()
 
     confidences_fixed = self.confidences
     self.confidences = {}
@@ -434,7 +435,7 @@ class FortranExaminer(Examiner):
         prev_token.group == 'newline':
         token.group = 'line number'
 
-      if token.group not in ['whitespace', 'comment', 'line description']:
+      if token.group not in ['whitespace', 'comment', 'line identification']:
         prev_token = token
 
 
@@ -469,7 +470,7 @@ class FortranExaminer(Examiner):
         prev_tokens[-4].text.lower() in ['read', 'write', 'print']:
         token.group = 'number'
 
-      if token.group not in ['whitespace', 'comment', 'line description']:
+      if token.group not in ['whitespace', 'comment', 'line identification']:
         prev_tokens.append(token)
         prev_tokens.pop(0)
 

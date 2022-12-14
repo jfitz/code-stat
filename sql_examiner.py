@@ -382,5 +382,5 @@ class SqlExaminer(Examiner):
         token.group = 'value'
         token.is_operand = True
 
-      if token.group not in ['whitespace', 'comment', 'newline', 'line description']:
+      if token.group not in ['whitespace', 'comment', 'newline', 'line identification']:
         prev_token = token

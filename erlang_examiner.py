@@ -198,5 +198,5 @@ class ErlangExaminer(Examiner):
         token.group = 'identifier'
         token.is_operand = True
 
-      if token.group not in ['whitespace', 'comment', 'newline', 'line description']:
+      if token.group not in ['whitespace', 'comment', 'newline']:
         prev_token = token

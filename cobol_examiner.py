@@ -591,6 +591,7 @@ class CobolExaminer(Examiner):
     self.calc_keyword_confidence()
     self.calc_picture_confidence()
     self.calc_line_length_confidence(code, self.max_expected_line)
+    # self.calc_line_description_confidence()
 
     expected_keyword_confidence = self.check_expected_keywords()
     self.confidences['expected_keywords'] = expected_keyword_confidence
@@ -737,7 +738,7 @@ class CobolExaminer(Examiner):
 
     buffer = None
     for line in lines:
-      # remove line description (if any)
+      # remove line identification (if any)
       line = line[:72]
 
       # force line length to 72 (used later when continuing strings)
@@ -792,7 +793,7 @@ class CobolExaminer(Examiner):
         prev_token.group == 'keyword' and prev_token.text in ['PIC', 'PICTURE']:
         token.group = 'picture'
 
-      if token.group not in ['whitespace', 'comment', 'newline', 'line description']:
+      if token.group not in ['whitespace', 'comment', 'newline', 'line identification']:
         prev_token = token
 
 
@@ -804,7 +805,7 @@ class CobolExaminer(Examiner):
         prev_token.group == 'newline':
         token.group = 'level'
 
-      if token.group not in ['whitespace', 'line number', 'line description']:
+      if token.group not in ['whitespace', 'line number', 'line identification']:
         prev_token = token
 
 
@@ -870,7 +871,7 @@ class CobolExaminer(Examiner):
   def calc_line_format_confidence(self):
     # check PICTURE keywords are followed by a picture element
     # and picture elements are preceded by a PICTURE keyword
-    drop_types = ['newline', 'whitespace', 'comment', 'line description', 'line continuation']
+    drop_types = ['newline', 'whitespace', 'comment', 'line identification', 'line continuation']
 
     tokens = Examiner.drop_tokens(self.tokens, drop_types)
 

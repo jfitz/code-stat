@@ -26,7 +26,7 @@ class Tokenizer():
         raise Exception("Cannot tokenize '" + t + "'")
 
       for token in new_tokens:
-        if token.group not in ['whitespace', 'comment', 'line description']:
+        if token.group not in ['whitespace', 'comment', 'line identification']:
           line_printable_tokens.append(token)
 
         if token.group == 'newline':

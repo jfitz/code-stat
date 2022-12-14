@@ -145,7 +145,7 @@ class Examiner:
         prev_token.group == 'group' and prev_token.text == '(':
         token.group = 'function'
 
-      if token.group not in ['whitespace', 'comment', 'newline', 'line description']:
+      if token.group not in ['whitespace', 'comment', 'newline', 'line identification']:
         prev_token = token
 
 
@@ -262,7 +262,7 @@ class Examiner:
         token.group = 'identifier'
         token.is_operand = True
 
-      if token.group not in ['whitespace', 'comment', 'newline', 'line description']:
+      if token.group not in ['whitespace', 'comment', 'newline', 'line identification']:
         prev_token = token
 
 
@@ -276,7 +276,7 @@ class Examiner:
         token.group = 'label'
         token.is_operand = False
 
-      if token.group not in ['whitespace', 'comment', 'newline', 'line description']:
+      if token.group not in ['whitespace', 'comment', 'newline', 'line identification']:
         prev_token = token
 
 
@@ -395,7 +395,7 @@ class Examiner:
     num_repeated_tokens = 0
     prev_token = Token('\n', 'newline', False)
 
-    allowed_groups = ['invalid', 'whitespace', 'newline', 'comment', 'line description', 'group']
+    allowed_groups = ['invalid', 'whitespace', 'newline', 'comment', 'line identification', 'group']
     for token in self.tokens:
       if token.group not in allowed_groups and token.text not in allowed_tokens:
         if token.group == prev_token.group and token.text == prev_token.text:
@@ -586,6 +586,30 @@ class Examiner:
     self.confidences['line format'] = 1.0
 
 
+  # groups that follow groups reduce confidence
+  def calc_line_description_confidence(self):
+    num_line_descrips = self.count_my_tokens(['line identification'])
+
+    line_des_confidence = 1.0
+
+    if num_line_descrips > 0:
+      errors = 0
+
+      for token in self.tokens:
+        if token.group == 'line identification' and ' ' in token.text.strip():
+          errors += 1
+          self.errors.append({
+            'TYPE': 'LINE DESCRIPTION',
+            'FIRST': token.text,
+            'SECOND': ''
+            })
+
+      line_des_confidence = 1.0 - errors / num_line_descrips
+
+      # add this confidence only when there are some line identifications
+      self.confidences['line_description'] = line_des_confidence
+
+
   def calc_confidences(self, operand_types, group_starts, group_mids, group_ends, indents):
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
@@ -651,7 +675,7 @@ class Examiner:
 
   def source_tokens(self):
     # remove tokens we don't care about
-    drop_types = ['whitespace', 'comment', 'line description']
+    drop_types = ['whitespace', 'comment', 'line identification']
     tokens = self.drop_tokens(self.tokens, drop_types)
 
     tokens = Examiner.join_continued_lines(tokens)
@@ -710,7 +734,7 @@ class Examiner:
   # two values in a row decreases confidence
   def calc_value_value_different_confidence(self, tokens):
     # remove tokens we don't care about
-    drop_types = ['whitespace', 'comment', 'line description', 'line continuation']
+    drop_types = ['whitespace', 'comment', 'line identification', 'line continuation']
     tokens = Examiner.drop_tokens(self.tokens, drop_types)
 
     value_types = ['number', 'string', 'symbol']
@@ -759,7 +783,7 @@ class Examiner:
       invalid_groups = ['invalid', 'invalid operator']
       num_invalid_tokens = Examiner.count_tokens(self.tokens, invalid_groups)
       num_valid_tokens = num_tokens - num_invalid_tokens
-      whitespace_groups = ['whitespace', 'comment', 'newline', 'line description']
+      whitespace_groups = ['whitespace', 'comment', 'newline', 'line identification']
       num_whitespace_tokens = Examiner.count_tokens(self.tokens, whitespace_groups)
 
       # fewer than 1000 tokens and no keyword? possible
@@ -833,7 +857,7 @@ class Examiner:
 
   def count_source_lines(self):
     # count source lines
-    # (lines with tokens other than space or comment or line number or line description)
+    # (lines with tokens other than space or comment or line number or line identification)
     drop_types = ['whitespace', 'comment', 'line number', 'line identification']
     tokens = Examiner.drop_tokens(self.tokens, drop_types)
     line_count = 0
