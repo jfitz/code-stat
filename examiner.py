@@ -595,15 +595,6 @@ class Examiner:
     if num_line_descrips > 0:
       errors = 0
 
-      for token in self.tokens:
-        if token.group == 'line identification' and ' ' in token.text.strip():
-          errors += 1
-          self.errors.append({
-            'TYPE': 'LINE DESCRIPTION',
-            'FIRST': token.text,
-            'SECOND': ''
-            })
-
       line_des_confidence = 1.0 - errors / num_line_descrips
 
       # add this confidence only when there are some line identifications
@@ -842,17 +833,11 @@ class Examiner:
 
 
   def calc_line_ident_confidence(self):
-    groups = ['line identification']
-    num_line_idents = self.count_my_tokens(groups)
-
-    groups = ['newline']
-    num_lines = self.count_my_tokens(groups)
-
-    if num_lines > 0:
-      if num_line_idents > 0:
-        self.confidences['line_idents'] = num_line_idents / num_lines
-    else:
-      self.confidences['line_idents'] = 0.0
+    if 'line identification' in self.statistics:
+      num_line_idents = self.statistics['line identification']
+      num_valid_line_idents = self.statistics['valid line identification']
+      confidence = num_valid_line_idents / num_line_idents
+      self.confidences['line identification'] = confidence
 
 
   def count_source_lines(self):
@@ -908,6 +893,21 @@ class Examiner:
     self.statistics['parentheses bias'] = self.calc_pair_balance('(', ')')
     self.statistics['bracket bias'] = self.calc_pair_balance('[', ']')
     self.statistics['brace bias'] = self.calc_pair_balance('{', '}')
+
+    # count line identifications
+    if 'line identification' in self.statistics:
+      num_valid_line_identifications = 0
+
+      for token in self.tokens:
+        if token.group == 'line identification' and ' ' not in token.text.strip():
+          num_valid_line_identifications += 1
+          self.errors.append({
+            'TYPE': 'LINE DESCRIPTION',
+            'FIRST': token.text,
+            'SECOND': ''
+            })
+    
+      self.statistics['valid line identification'] = num_valid_line_identifications
 
     # calculate complexity based on decision points
 
