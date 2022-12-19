@@ -1,39 +1,275 @@
 [
     {
-        "type":"comment",
-        "value":"C AREA OF A TRIANGLE - HERON'S FORMULA"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"comment",
-        "value":"C INPUT - CARD READER UNIT 5, INTEGER INPUT"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"comment",
-        "value":"C OUTPUT -"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"comment",
-        "value":"C INTEGER VARIABLES START WITH I,J,K,L,M OR N"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"identifier",
+        "value":"C"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"AREA"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"OF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"TRIANGLE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"HERON"
+    },
+    {
+        "type":"invalid",
+        "value":"'"
+    },
+    {
+        "type":"identifier",
+        "value":"S"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"FORMULA"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"identifier",
+        "value":"C"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"INPUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"CARD"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"READER"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"UNIT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"5"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"type",
+        "value":"INTEGER"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"INPUT"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"identifier",
+        "value":"C"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"OUTPUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"identifier",
+        "value":"C"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"type",
+        "value":"INTEGER"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"VARIABLES"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"START"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"WITH"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"I"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"J"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"K"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"L"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"M"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"OR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"N"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
     },
     {
         "type":"keyword",
@@ -85,11 +321,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":" "
+        "value":"  "
     },
     {
         "type":"line number",
@@ -108,8 +344,12 @@
         "value":"("
     },
     {
-        "type":"format",
-        "value":"3I5"
+        "type":"number",
+        "value":"3"
+    },
+    {
+        "type":"identifier",
+        "value":"I5"
     },
     {
         "type":"group",
@@ -117,11 +357,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"      "
     },
     {
         "type":"keyword",
@@ -213,11 +453,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"      "
     },
     {
         "type":"identifier",
@@ -297,11 +537,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"      "
     },
     {
         "type":"identifier",
@@ -465,11 +705,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"      "
     },
     {
         "type":"keyword",
@@ -529,11 +769,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":" "
+        "value":"  "
     },
     {
         "type":"line number",
@@ -552,84 +792,188 @@
         "value":"("
     },
     {
-        "type":"string",
-        "value":"4H A= "
+        "type":"number",
+        "value":"4"
     },
     {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"format",
-        "value":"I5"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"string",
-        "value":"5H  B= "
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"format",
-        "value":"I5"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"string",
-        "value":"5H  C= "
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"format",
-        "value":"I5"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"string",
-        "value":"8H  AREA= "
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"format",
-        "value":"F10.2"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"string",
-        "value":"13H SQUARE"
-    },
-    {
-        "type":"line identification",
-        "value":" UNITS)"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"identifier",
+        "value":"H"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"I5"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"5"
+    },
+    {
+        "type":"identifier",
+        "value":"H"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"B"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"I5"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"5"
+    },
+    {
+        "type":"identifier",
+        "value":"H"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"C"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"I5"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"8"
+    },
+    {
+        "type":"identifier",
+        "value":"H"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"AREA"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"F10"
+    },
+    {
+        "type":"number",
+        "value":".2"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"13"
+    },
+    {
+        "type":"identifier",
+        "value":"H"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"SQUARE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"UNITS"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
     },
     {
         "type":"keyword",
@@ -637,11 +981,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"      "
     },
     {
         "type":"keyword",
@@ -649,10 +993,6 @@
     },
     {
         "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     }
 ]

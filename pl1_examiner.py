@@ -341,9 +341,6 @@ class PL1Examiner(Examiner):
 
     self.calc_statistics()
 
-    statistics_free = self.statistics
-    self.statistics = {}
-
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
 
@@ -367,6 +364,9 @@ class PL1Examiner(Examiner):
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_line_length_confidence(code, self.max_expected_line)
+
+    statistics_free = self.statistics
+    self.statistics = {}
 
     confidences_free = self.confidences
     self.confidences = {}
@@ -433,9 +433,6 @@ class PL1Examiner(Examiner):
 
     self.calc_statistics()
 
-    statistics_fixed = self.statistics
-    self.statistics = {}
-
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
 
@@ -459,7 +456,10 @@ class PL1Examiner(Examiner):
     self.calc_keyword_confidence()
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_line_length_confidence(code, self.max_expected_line)
-    # self.calc_line_description_confidence()
+    self.calc_line_description_confidence()
+
+    statistics_fixed = self.statistics
+    self.statistics = {}
 
     confidences_fixed = self.confidences
     self.confidences = {}

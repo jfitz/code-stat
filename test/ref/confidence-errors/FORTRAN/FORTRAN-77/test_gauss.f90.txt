@@ -1,30 +1,37 @@
 [
     {
-        "TYPE":"LINE DESCRIPTION",
-        "FIRST":"t(tol_max)",
-        "SECOND":""
-    },
-    {
         "TYPE":"TOKEN",
-        "INVALID":"program test_gauss_sparse",
+        "INVALID":"_",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"   i",
+        "INVALID":"_",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!   explicit interface to the gauss_sparse function",
+        "INVALID":"_",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"   i",
+        "INVALID":"_",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"_",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"_",
         "FIRST":"",
         "SECOND":""
     },
@@ -66,115 +73,13 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"   e",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"!   declare variables",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"   i",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
         "INVALID":"_",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"   r",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"   r",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"!   allocate arrays",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"   a",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"!   Initialize matrix",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"   A",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"!   Make matrix diagonally dominant",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"   d",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"   e",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"!   Initialize b",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"   b",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"!   Initial (guess) solution",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"   x",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"!   invoke the gauss_sparse function",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"   r",
+        "INVALID":"_",
         "FIRST":"",
         "SECOND":""
     },
@@ -204,55 +109,13 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!   Output",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"   p",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"   d",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"   e",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"   p",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"   p",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"'",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
         "INVALID":"_",
         "FIRST":"",
         "SECOND":""
     },
     {
-        "TYPE":"TOKEN",
-        "INVALID":"end program test_gauss_sparse",
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
         "FIRST":"",
         "SECOND":""
     },
@@ -318,7 +181,7 @@
     },
     {
         "TYPE":"OPERATOR",
-        "INVALID":"::",
+        "INVALID":"!",
         "FIRST":"",
         "SECOND":""
     },
@@ -336,7 +199,7 @@
     },
     {
         "TYPE":"OPERATOR",
-        "INVALID":":",
+        "INVALID":"::",
         "FIRST":"",
         "SECOND":""
     },
@@ -355,6 +218,24 @@
     {
         "TYPE":"OPERATOR",
         "INVALID":":",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":":",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
         "FIRST":"",
         "SECOND":""
     },
@@ -372,7 +253,19 @@
     },
     {
         "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
         "INVALID":":",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
         "FIRST":"",
         "SECOND":""
     },
@@ -390,7 +283,13 @@
     },
     {
         "TYPE":"OPERATOR",
-        "INVALID":"&",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
         "FIRST":"",
         "SECOND":""
     },
@@ -415,6 +314,18 @@
     {
         "TYPE":"OPERATOR",
         "INVALID":"&",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"&",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
         "FIRST":"",
         "SECOND":""
     },
@@ -423,5 +334,26 @@
         "INVALID":":",
         "FIRST":"",
         "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"&",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"matrix",
+        "SECOND":"diagonally"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"diagonally",
+        "SECOND":"dominant"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"the",
+        "SECOND":"gauss"
     }
 ]

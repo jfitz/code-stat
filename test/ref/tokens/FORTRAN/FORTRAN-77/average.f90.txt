@@ -1,59 +1,343 @@
 [
     {
-        "type":"invalid",
-        "value":"program average"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"! Read in some numbers and take the average"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"! As written, if there are no data points, an average of zero is returned"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"! While this may not be desired behavior, it keeps this example simple"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"keyword",
+        "value":"program"
     },
     {
         "type":"whitespace",
         "value":" "
     },
     {
-        "type":"invalid",
-        "value":" imp"
+        "type":"identifier",
+        "value":"average"
     },
     {
-        "type":"line continuation",
-        "value":"l"
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"Read"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"identifier",
-        "value":"icit"
+        "value":"in"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"some"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"numbers"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"and"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"take"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"the"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"average"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"As"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"written"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"if"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"there"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"are"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"no"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"data"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"points"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"an"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"average"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"of"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"zero"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"is"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"returned"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"While"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"this"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"may"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"not"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"be"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"desired"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"behavior"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"it"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"keeps"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"this"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"example"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"simple"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"implicit"
     },
     {
         "type":"whitespace",
@@ -65,23 +349,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":" "
+        "value":"  "
     },
     {
-        "type":"invalid",
-        "value":" int"
-    },
-    {
-        "type":"line continuation",
-        "value":"e"
-    },
-    {
-        "type":"identifier",
-        "value":"ger"
+        "type":"type",
+        "value":"integer"
     },
     {
         "type":"whitespace",
@@ -117,19 +393,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":" "
+        "value":"  "
     },
     {
-        "type":"invalid",
-        "value":" rea"
-    },
-    {
-        "type":"line continuation",
-        "value":"l"
+        "type":"type",
+        "value":"real"
     },
     {
         "type":"group",
@@ -185,19 +457,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":" "
+        "value":"  "
     },
     {
-        "type":"invalid",
-        "value":" rea"
-    },
-    {
-        "type":"line continuation",
-        "value":"l"
+        "type":"type",
+        "value":"real"
     },
     {
         "type":"whitespace",
@@ -301,27 +569,19 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":" "
+        "value":"  "
     },
     {
-        "type":"invalid",
-        "value":" wri"
-    },
-    {
-        "type":"line continuation",
-        "value":"t"
-    },
-    {
-        "type":"identifier",
-        "value":"e"
+        "type":"keyword",
+        "value":"write"
     },
     {
         "type":"whitespace",
@@ -332,7 +592,7 @@
         "value":"("
     },
     {
-        "type":"operator",
+        "type":"number",
         "value":"*"
     },
     {
@@ -340,7 +600,7 @@
         "value":","
     },
     {
-        "type":"operator",
+        "type":"number",
         "value":"*"
     },
     {
@@ -357,19 +617,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":" "
+        "value":"  "
     },
     {
-        "type":"invalid",
-        "value":" rea"
-    },
-    {
-        "type":"line continuation",
-        "value":"d"
+        "type":"keyword",
+        "value":"read"
     },
     {
         "type":"whitespace",
@@ -380,7 +636,7 @@
         "value":"("
     },
     {
-        "type":"operator",
+        "type":"number",
         "value":"*"
     },
     {
@@ -388,7 +644,7 @@
         "value":","
     },
     {
-        "type":"operator",
+        "type":"number",
         "value":"*"
     },
     {
@@ -421,27 +677,19 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":" all"
-    },
-    {
-        "type":"line continuation",
-        "value":"o"
+        "value":"  "
     },
     {
         "type":"identifier",
-        "value":"cate"
+        "value":"allocate"
     },
     {
         "type":"whitespace",
@@ -489,27 +737,19 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":" "
+        "value":"  "
     },
     {
-        "type":"invalid",
-        "value":" wri"
-    },
-    {
-        "type":"line continuation",
-        "value":"t"
-    },
-    {
-        "type":"identifier",
-        "value":"e"
+        "type":"keyword",
+        "value":"write"
     },
     {
         "type":"whitespace",
@@ -520,7 +760,7 @@
         "value":"("
     },
     {
-        "type":"operator",
+        "type":"number",
         "value":"*"
     },
     {
@@ -528,7 +768,7 @@
         "value":","
     },
     {
-        "type":"operator",
+        "type":"number",
         "value":"*"
     },
     {
@@ -545,19 +785,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":" "
+        "value":"  "
     },
     {
-        "type":"invalid",
-        "value":" rea"
-    },
-    {
-        "type":"line continuation",
-        "value":"d"
+        "type":"keyword",
+        "value":"read"
     },
     {
         "type":"whitespace",
@@ -568,7 +804,7 @@
         "value":"("
     },
     {
-        "type":"operator",
+        "type":"number",
         "value":"*"
     },
     {
@@ -576,7 +812,7 @@
         "value":","
     },
     {
-        "type":"operator",
+        "type":"number",
         "value":"*"
     },
     {
@@ -593,34 +829,130 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"! Take the average by summing points and dividing by number_of_points"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":" "
     },
     {
-        "type":"invalid",
-        "value":" if "
+        "type":"identifier",
+        "value":"Take"
     },
     {
         "type":"whitespace",
         "value":" "
     },
     {
-        "type":"line continuation",
+        "type":"identifier",
+        "value":"the"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"average"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"by"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"summing"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"points"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"and"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"dividing"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"by"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"number"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"of"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"points"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"if"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
         "value":"("
     },
     {
@@ -729,42 +1061,110 @@
     },
     {
         "type":"identifier",
-        "value":"point"
-    },
-    {
-        "type":"line identification",
-        "value":"s"
+        "value":"points"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"! Now form average over positive and negative points only"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":" "
     },
     {
-        "type":"invalid",
-        "value":" if "
+        "type":"identifier",
+        "value":"Now"
     },
     {
         "type":"whitespace",
         "value":" "
     },
     {
-        "type":"line continuation",
+        "type":"identifier",
+        "value":"form"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"average"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"over"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"positive"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"and"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"negative"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"points"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"only"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"if"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
         "value":"("
     },
     {
@@ -896,16 +1296,24 @@
         "value":"."
     },
     {
-        "type":"line identification",
-        "value":") &"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"group",
+        "value":")"
     },
     {
         "type":"whitespace",
-        "value":"       "
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"&"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
     },
     {
         "type":"operator",
@@ -949,22 +1357,22 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"if"
     },
     {
         "type":"whitespace",
         "value":" "
     },
     {
-        "type":"invalid",
-        "value":" if "
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"line continuation",
+        "type":"group",
         "value":"("
     },
     {
@@ -1096,16 +1504,24 @@
         "value":"."
     },
     {
-        "type":"line identification",
-        "value":") &"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"group",
+        "value":")"
     },
     {
         "type":"whitespace",
-        "value":"       "
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"&"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
     },
     {
         "type":"operator",
@@ -1149,27 +1565,19 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":" dea"
-    },
-    {
-        "type":"line continuation",
-        "value":"l"
+        "value":"  "
     },
     {
         "type":"identifier",
-        "value":"locate"
+        "value":"deallocate"
     },
     {
         "type":"whitespace",
@@ -1189,35 +1597,59 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"! Print result to terminal"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":" "
     },
     {
-        "type":"invalid",
-        "value":" wri"
+        "type":"keyword",
+        "value":"Print"
     },
     {
-        "type":"line continuation",
-        "value":"t"
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"identifier",
-        "value":"e"
+        "value":"result"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"to"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"terminal"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"write"
     },
     {
         "type":"whitespace",
@@ -1228,7 +1660,7 @@
         "value":"("
     },
     {
-        "type":"operator",
+        "type":"number",
         "value":"*"
     },
     {
@@ -1261,23 +1693,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":" "
+        "value":"  "
     },
     {
-        "type":"invalid",
-        "value":" wri"
-    },
-    {
-        "type":"line continuation",
-        "value":"t"
-    },
-    {
-        "type":"identifier",
-        "value":"e"
+        "type":"keyword",
+        "value":"write"
     },
     {
         "type":"whitespace",
@@ -1288,7 +1712,7 @@
         "value":"("
     },
     {
-        "type":"operator",
+        "type":"number",
         "value":"*"
     },
     {
@@ -1317,31 +1741,19 @@
     },
     {
         "type":"identifier",
-        "value":"avera"
-    },
-    {
-        "type":"line identification",
-        "value":"ge"
+        "value":"average"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":" "
+        "value":"  "
     },
     {
-        "type":"invalid",
-        "value":" wri"
-    },
-    {
-        "type":"line continuation",
-        "value":"t"
-    },
-    {
-        "type":"identifier",
-        "value":"e"
+        "type":"keyword",
+        "value":"write"
     },
     {
         "type":"whitespace",
@@ -1352,7 +1764,7 @@
         "value":"("
     },
     {
-        "type":"operator",
+        "type":"number",
         "value":"*"
     },
     {
@@ -1381,26 +1793,34 @@
     },
     {
         "type":"identifier",
-        "value":"avera"
-    },
-    {
-        "type":"line identification",
-        "value":"ge"
+        "value":"average"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"end program average"
+        "type":"keyword",
+        "value":"end"
     },
     {
-        "type":"newline",
-        "value":"\n"
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"program"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"average"
     }
 ]

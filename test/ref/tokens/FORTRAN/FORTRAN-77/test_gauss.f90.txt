@@ -1,27 +1,43 @@
 [
     {
-        "type":"invalid",
-        "value":"program test_gauss_sparse"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"keyword",
+        "value":"program"
     },
     {
         "type":"whitespace",
-        "value":"   "
-    },
-    {
-        "type":"invalid",
-        "value":"   i"
-    },
-    {
-        "type":"line continuation",
-        "value":"m"
+        "value":" "
     },
     {
         "type":"identifier",
-        "value":"plicit"
+        "value":"test"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"gauss"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"sparse"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"keyword",
+        "value":"implicit"
     },
     {
         "type":"whitespace",
@@ -33,43 +49,91 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!   explicit interface to the gauss_sparse function"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"   i"
-    },
-    {
-        "type":"line continuation",
-        "value":"n"
-    },
-    {
         "type":"identifier",
-        "value":"terface"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "value":"explicit"
     },
     {
         "type":"whitespace",
-        "value":"       "
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"interface"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"to"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"the"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"gauss"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"sparse"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"function"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"identifier",
+        "value":"interface"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
     },
     {
         "type":"keyword",
@@ -185,19 +249,35 @@
     },
     {
         "type":"identifier",
-        "value":"resul"
+        "value":"result"
     },
     {
-        "type":"line identification",
-        "value":"t(tol_max)"
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"tol"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"max"
+    },
+    {
+        "type":"group",
+        "value":")"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"          "
+        "value":"           "
     },
     {
         "type":"type",
@@ -229,11 +309,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"          "
+        "value":"           "
     },
     {
         "type":"type",
@@ -289,11 +369,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"          "
+        "value":"           "
     },
     {
         "type":"type",
@@ -341,11 +421,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"          "
+        "value":"           "
     },
     {
         "type":"type",
@@ -449,11 +529,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"          "
+        "value":"           "
     },
     {
         "type":"type",
@@ -513,11 +593,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"          "
+        "value":"           "
     },
     {
         "type":"type",
@@ -585,11 +665,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"       "
+        "value":"        "
     },
     {
         "type":"keyword",
@@ -605,23 +685,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"   "
+        "value":"    "
     },
     {
-        "type":"invalid",
-        "value":"   e"
-    },
-    {
-        "type":"line continuation",
-        "value":"n"
-    },
-    {
-        "type":"identifier",
-        "value":"d"
+        "type":"keyword",
+        "value":"end"
     },
     {
         "type":"whitespace",
@@ -633,35 +705,43 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!   declare variables"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"   i"
+        "type":"identifier",
+        "value":"declare"
     },
     {
-        "type":"line continuation",
-        "value":"n"
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"identifier",
-        "value":"teger"
+        "value":"variables"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"type",
+        "value":"integer"
     },
     {
         "type":"whitespace",
@@ -729,23 +809,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"   "
+        "value":"    "
     },
     {
-        "type":"invalid",
-        "value":"   r"
-    },
-    {
-        "type":"line continuation",
-        "value":"e"
-    },
-    {
-        "type":"identifier",
-        "value":"al"
+        "type":"type",
+        "value":"real"
     },
     {
         "type":"whitespace",
@@ -765,23 +837,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"   "
+        "value":"    "
     },
     {
-        "type":"invalid",
-        "value":"   r"
-    },
-    {
-        "type":"line continuation",
-        "value":"e"
-    },
-    {
-        "type":"identifier",
-        "value":"al"
+        "type":"type",
+        "value":"real"
     },
     {
         "type":"group",
@@ -881,35 +945,43 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!   allocate arrays"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"   a"
+        "type":"identifier",
+        "value":"allocate"
     },
     {
-        "type":"line continuation",
-        "value":"l"
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"identifier",
-        "value":"locate"
+        "value":"arrays"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"identifier",
+        "value":"allocate"
     },
     {
         "type":"whitespace",
@@ -1001,27 +1073,43 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!   Initialize matrix"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"   A"
+        "type":"identifier",
+        "value":"Initialize"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"matrix"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"identifier",
+        "value":"A"
     },
     {
         "type":"whitespace",
@@ -1157,31 +1245,59 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!   Make matrix diagonally dominant"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"   d"
+        "type":"identifier",
+        "value":"Make"
     },
     {
-        "type":"line continuation",
-        "value":"o"
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"matrix"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"diagonally"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"dominant"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"keyword",
+        "value":"do"
     },
     {
         "type":"whitespace",
@@ -1245,11 +1361,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"       "
+        "value":"        "
     },
     {
         "type":"identifier",
@@ -1341,47 +1457,55 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"   "
-    },
-    {
-        "type":"invalid",
-        "value":"   e"
-    },
-    {
-        "type":"line continuation",
-        "value":"n"
+        "value":"    "
     },
     {
         "type":"identifier",
-        "value":"ddo"
+        "value":"enddo"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!   Initialize b"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"   b"
+        "type":"identifier",
+        "value":"Initialize"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"b"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"identifier",
+        "value":"b"
     },
     {
         "type":"whitespace",
@@ -1469,27 +1593,59 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!   Initial (guess) solution"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"   x"
+        "type":"identifier",
+        "value":"Initial"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"guess"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"solution"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"identifier",
+        "value":"x"
     },
     {
         "type":"whitespace",
@@ -1509,35 +1665,71 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!   invoke the gauss_sparse function"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"   r"
+        "type":"identifier",
+        "value":"invoke"
     },
     {
-        "type":"line continuation",
-        "value":"e"
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"identifier",
-        "value":"sidue"
+        "value":"the"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"gauss"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"sparse"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"function"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"identifier",
+        "value":"residue"
     },
     {
         "type":"whitespace",
@@ -1609,11 +1801,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"                          "
+        "value":"                           "
     },
     {
         "type":"identifier",
@@ -1649,11 +1841,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"                          "
+        "value":"                           "
     },
     {
         "type":"identifier",
@@ -1689,11 +1881,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"                          "
+        "value":"                           "
     },
     {
         "type":"identifier",
@@ -1729,11 +1921,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"                          "
+        "value":"                           "
     },
     {
         "type":"identifier",
@@ -1769,11 +1961,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"                          "
+        "value":"                           "
     },
     {
         "type":"identifier",
@@ -1817,35 +2009,35 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!   Output"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"   p"
-    },
-    {
-        "type":"line continuation",
-        "value":"r"
-    },
-    {
         "type":"identifier",
-        "value":"int"
+        "value":"Output"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"keyword",
+        "value":"print"
     },
     {
         "type":"whitespace",
@@ -1857,19 +2049,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"   "
+        "value":"    "
     },
     {
-        "type":"invalid",
-        "value":"   d"
-    },
-    {
-        "type":"line continuation",
-        "value":"o"
+        "type":"keyword",
+        "value":"do"
     },
     {
         "type":"whitespace",
@@ -1933,11 +2121,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"       "
+        "value":"        "
     },
     {
         "type":"keyword",
@@ -1985,47 +2173,31 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"   "
-    },
-    {
-        "type":"invalid",
-        "value":"   e"
-    },
-    {
-        "type":"line continuation",
-        "value":"n"
+        "value":"    "
     },
     {
         "type":"identifier",
-        "value":"ddo"
+        "value":"enddo"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"   "
+        "value":"    "
     },
     {
-        "type":"invalid",
-        "value":"   p"
-    },
-    {
-        "type":"line continuation",
-        "value":"r"
-    },
-    {
-        "type":"identifier",
-        "value":"int"
+        "type":"keyword",
+        "value":"print"
     },
     {
         "type":"whitespace",
@@ -2049,43 +2221,19 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"   "
+        "value":"    "
     },
     {
-        "type":"invalid",
-        "value":"   p"
-    },
-    {
-        "type":"line continuation",
-        "value":"r"
-    },
-    {
-        "type":"identifier",
-        "value":"int"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"'"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"operator",
-        "value":"/"
+        "type":"keyword",
+        "value":"print"
     },
     {
         "type":"whitespace",
@@ -2093,7 +2241,7 @@
     },
     {
         "type":"string",
-        "value":"\"residue = \""
+        "value":"'(/ \"residue = \", g10.3 / \"iterations = \", i0 / \"solution = \"/ (11x, g10.3))'"
     },
     {
         "type":"group",
@@ -2104,72 +2252,16 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"g10"
-    },
-    {
-        "type":"number",
-        "value":".3"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"string",
-        "value":"\"iterations = \""
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"i0"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"string",
-        "value":"\"solution = \""
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"line identification",
-        "value":" (11x, g10.3))', &"
+        "type":"invalid operator",
+        "value":"&"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"       "
+        "value":"        "
     },
     {
         "type":"identifier",
@@ -2209,18 +2301,46 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"end"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"program"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"test"
     },
     {
         "type":"invalid",
-        "value":"end program test_gauss_sparse"
+        "value":"_"
     },
     {
-        "type":"newline",
-        "value":"\n"
+        "type":"identifier",
+        "value":"gauss"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"sparse"
     }
 ]

@@ -1,43 +1,159 @@
 [
     {
-        "type":"invalid",
-        "value":"module GlobalModule"
+        "type":"identifier",
+        "value":"module"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"GlobalModule"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!  Reference to a pair of procedures included in a previously compiled"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!  module named PortabilityLibrary"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  us"
+        "type":"identifier",
+        "value":"Reference"
     },
     {
-        "type":"line continuation",
-        "value":"e"
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"to"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"a"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"pair"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"of"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"procedures"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"included"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"in"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"a"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"previously"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"compiled"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"module"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"named"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"PortabilityLibrary"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"identifier",
+        "value":"use"
     },
     {
         "type":"whitespace",
@@ -109,11 +225,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"                                "
+        "value":"                                 "
     },
     {
         "type":"identifier",
@@ -145,31 +261,31 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!  Constants"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  in"
-    },
-    {
-        "type":"line continuation",
-        "value":"t"
-    },
-    {
         "type":"identifier",
-        "value":"eger"
+        "value":"Constants"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"type",
+        "value":"integer"
     },
     {
         "type":"group",
@@ -261,31 +377,19 @@
     },
     {
         "type":"identifier",
-        "value":"kin"
-    },
-    {
-        "type":"line identification",
-        "value":"d"
+        "value":"kind"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"  re"
-    },
-    {
-        "type":"line continuation",
-        "value":"a"
-    },
-    {
-        "type":"identifier",
-        "value":"l"
+        "type":"type",
+        "value":"real"
     },
     {
         "type":"group",
@@ -345,23 +449,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"  re"
-    },
-    {
-        "type":"line continuation",
-        "value":"a"
-    },
-    {
-        "type":"identifier",
-        "value":"l"
+        "type":"type",
+        "value":"real"
     },
     {
         "type":"group",
@@ -445,35 +541,35 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!  Variables"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  in"
-    },
-    {
-        "type":"line continuation",
-        "value":"t"
-    },
-    {
         "type":"identifier",
-        "value":"eger"
+        "value":"Variables"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"type",
+        "value":"integer"
     },
     {
         "type":"whitespace",
@@ -517,23 +613,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"  lo"
-    },
-    {
-        "type":"line continuation",
-        "value":"g"
-    },
-    {
-        "type":"identifier",
-        "value":"ical"
+        "type":"type",
+        "value":"logical"
     },
     {
         "type":"whitespace",
@@ -565,23 +653,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"  ch"
-    },
-    {
-        "type":"line continuation",
-        "value":"a"
-    },
-    {
-        "type":"identifier",
-        "value":"racter"
+        "type":"type",
+        "value":"character"
     },
     {
         "type":"group",
@@ -613,35 +693,35 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!  Arrays"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  re"
-    },
-    {
-        "type":"line continuation",
-        "value":"a"
-    },
-    {
         "type":"identifier",
-        "value":"l"
+        "value":"Arrays"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"type",
+        "value":"real"
     },
     {
         "type":"group",
@@ -749,23 +829,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"  co"
-    },
-    {
-        "type":"line continuation",
-        "value":"m"
-    },
-    {
-        "type":"identifier",
-        "value":"plex"
+        "type":"type",
+        "value":"complex"
     },
     {
         "type":"group",
@@ -841,35 +913,51 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!  Derived type definitions"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  ty"
+        "type":"identifier",
+        "value":"Derived"
     },
     {
-        "type":"line continuation",
-        "value":"p"
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"identifier",
-        "value":"e"
+        "value":"type"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"definitions"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"identifier",
+        "value":"type"
     },
     {
         "type":"whitespace",
@@ -881,11 +969,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"      "
     },
     {
         "type":"type",
@@ -909,11 +997,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"      "
     },
     {
         "type":"type",
@@ -937,11 +1025,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"      "
     },
     {
         "type":"type",
@@ -965,19 +1053,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"  en"
-    },
-    {
-        "type":"line continuation",
-        "value":"d"
+        "type":"keyword",
+        "value":"end"
     },
     {
         "type":"whitespace",
@@ -997,27 +1081,19 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
-    },
-    {
-        "type":"invalid",
-        "value":"  ty"
-    },
-    {
-        "type":"line continuation",
-        "value":"p"
+        "value":"   "
     },
     {
         "type":"identifier",
-        "value":"e"
+        "value":"type"
     },
     {
         "type":"whitespace",
@@ -1029,19 +1105,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"    "
+        "value":"     "
     },
     {
-        "type":"line continuation",
-        "value":"i"
-    },
-    {
-        "type":"identifier",
-        "value":"nteger"
+        "type":"type",
+        "value":"integer"
     },
     {
         "type":"whitespace",
@@ -1065,19 +1137,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"    "
+        "value":"     "
     },
     {
-        "type":"line continuation",
-        "value":"r"
-    },
-    {
-        "type":"identifier",
-        "value":"eal"
+        "type":"type",
+        "value":"real"
     },
     {
         "type":"group",
@@ -1188,24 +1256,60 @@
         "value":"95"
     },
     {
-        "type":"line identification",
-        "value":", use the pointer attribute instead"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"group",
+        "value":","
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":" "
     },
     {
-        "type":"invalid",
-        "value":"  en"
+        "type":"identifier",
+        "value":"use"
     },
     {
-        "type":"line continuation",
-        "value":"d"
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"the"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"pointer"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"attribute"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"instead"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"keyword",
+        "value":"end"
     },
     {
         "type":"whitespace",
@@ -1225,63 +1329,195 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!  All the variables and procedures from this module can be accessed"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!  by other program units, except for AppName"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  pu"
+        "type":"identifier",
+        "value":"All"
     },
     {
-        "type":"line continuation",
-        "value":"b"
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"identifier",
-        "value":"lic"
+        "value":"the"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"variables"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"and"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"procedures"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"from"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"this"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"module"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"can"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"be"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"accessed"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  pr"
+        "type":"identifier",
+        "value":"by"
     },
     {
-        "type":"line continuation",
-        "value":"i"
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"identifier",
-        "value":"vate"
+        "value":"other"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"program"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"units"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"except"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"for"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"AppName"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"identifier",
+        "value":"public"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"identifier",
+        "value":"private"
     },
     {
         "type":"whitespace",
@@ -1301,35 +1537,31 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!  Generic procedure swap"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  in"
+        "type":"identifier",
+        "value":"Generic"
     },
     {
-        "type":"line continuation",
-        "value":"t"
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"identifier",
-        "value":"erface"
+        "value":"procedure"
     },
     {
         "type":"whitespace",
@@ -1341,11 +1573,31 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"   "
+    },
+    {
+        "type":"identifier",
+        "value":"interface"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"swap"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
     },
     {
         "type":"identifier",
@@ -1397,19 +1649,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"  en"
-    },
-    {
-        "type":"line continuation",
-        "value":"d"
+        "type":"keyword",
+        "value":"end"
     },
     {
         "type":"whitespace",
@@ -1429,27 +1677,19 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
-    },
-    {
-        "type":"invalid",
-        "value":"  in"
-    },
-    {
-        "type":"line continuation",
-        "value":"t"
+        "value":"   "
     },
     {
         "type":"identifier",
-        "value":"erface"
+        "value":"interface"
     },
     {
         "type":"whitespace",
@@ -1533,19 +1773,15 @@
     },
     {
         "type":"identifier",
-        "value":"th"
-    },
-    {
-        "type":"line identification",
-        "value":"e"
+        "value":"the"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"                          "
+        "value":"                           "
     },
     {
         "type":"invalid operator",
@@ -1577,11 +1813,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"      "
     },
     {
         "type":"identifier",
@@ -1613,19 +1849,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"  en"
-    },
-    {
-        "type":"line continuation",
-        "value":"d"
+        "type":"keyword",
+        "value":"end"
     },
     {
         "type":"whitespace",
@@ -1645,35 +1877,43 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!  Operator overloading"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  in"
+        "type":"identifier",
+        "value":"Operator"
     },
     {
-        "type":"line continuation",
-        "value":"t"
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"identifier",
-        "value":"erface"
+        "value":"overloading"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"identifier",
+        "value":"interface"
     },
     {
         "type":"whitespace",
@@ -1697,11 +1937,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"      "
     },
     {
         "type":"identifier",
@@ -1733,19 +1973,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"  en"
-    },
-    {
-        "type":"line continuation",
-        "value":"d"
+        "type":"keyword",
+        "value":"end"
     },
     {
         "type":"whitespace",
@@ -1757,43 +1993,67 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!  Prototype for external procedure"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  in"
-    },
-    {
-        "type":"line continuation",
-        "value":"t"
-    },
-    {
         "type":"identifier",
-        "value":"erface"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "value":"Prototype"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"for"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"external"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"procedure"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"identifier",
+        "value":"interface"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
     },
     {
         "type":"keyword",
@@ -1916,16 +2176,28 @@
         "value":"("
     },
     {
-        "type":"line identification",
-        "value":"tol_max)"
+        "type":"identifier",
+        "value":"tol"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"max"
+    },
+    {
+        "type":"group",
+        "value":")"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"        "
+        "value":"         "
     },
     {
         "type":"type",
@@ -1957,11 +2229,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"        "
+        "value":"         "
     },
     {
         "type":"type",
@@ -2017,11 +2289,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"        "
+        "value":"         "
     },
     {
         "type":"type",
@@ -2069,11 +2341,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"        "
+        "value":"         "
     },
     {
         "type":"type",
@@ -2177,11 +2449,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"        "
+        "value":"         "
     },
     {
         "type":"type",
@@ -2241,11 +2513,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"        "
+        "value":"         "
     },
     {
         "type":"type",
@@ -2313,11 +2585,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"      "
     },
     {
         "type":"keyword",
@@ -2349,19 +2621,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"  en"
-    },
-    {
-        "type":"line continuation",
-        "value":"d"
+        "type":"keyword",
+        "value":"end"
     },
     {
         "type":"whitespace",
@@ -2373,67 +2641,107 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!  Procedures included in the module"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  co"
+        "type":"identifier",
+        "value":"Procedures"
     },
     {
-        "type":"line continuation",
-        "value":"n"
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"identifier",
-        "value":"tains"
+        "value":"included"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"in"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"the"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"module"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"identifier",
+        "value":"contains"
     },
     {
         "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!  Internal function"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  fu"
-    },
-    {
-        "type":"line continuation",
-        "value":"n"
-    },
-    {
         "type":"identifier",
-        "value":"ction"
+        "value":"Internal"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"function"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"keyword",
+        "value":"function"
     },
     {
         "type":"whitespace",
@@ -2493,19 +2801,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"line continuation",
-        "value":"t"
+        "value":"     "
     },
     {
         "type":"identifier",
-        "value":"ype"
+        "value":"type"
     },
     {
         "type":"group",
@@ -2577,19 +2881,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"line continuation",
-        "value":"i"
+        "value":"     "
     },
     {
         "type":"identifier",
-        "value":"ntent"
+        "value":"intent"
     },
     {
         "type":"group",
@@ -2649,19 +2949,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"line continuation",
-        "value":"a"
+        "value":"     "
     },
     {
         "type":"identifier",
-        "value":"dd"
+        "value":"add"
     },
     {
         "type":"invalid",
@@ -2856,24 +3152,28 @@
         "value":"2"
     },
     {
-        "type":"line identification",
-        "value":"%k)"
+        "type":"invalid operator",
+        "value":"%"
+    },
+    {
+        "type":"identifier",
+        "value":"k"
+    },
+    {
+        "type":"group",
+        "value":")"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"  en"
-    },
-    {
-        "type":"line continuation",
-        "value":"d"
+        "type":"keyword",
+        "value":"end"
     },
     {
         "type":"whitespace",
@@ -2901,35 +3201,51 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!  Include external files"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  in"
+        "type":"identifier",
+        "value":"Include"
     },
     {
-        "type":"line continuation",
-        "value":"c"
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"external"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"identifier",
-        "value":"lude"
+        "value":"files"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"identifier",
+        "value":"include"
     },
     {
         "type":"whitespace",
@@ -3009,31 +3325,19 @@
     },
     {
         "type":"identifier",
-        "value":"l"
-    },
-    {
-        "type":"line identification",
-        "value":"ines"
+        "value":"lines"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
-    },
-    {
-        "type":"invalid",
-        "value":"  in"
-    },
-    {
-        "type":"line continuation",
-        "value":"c"
+        "value":"   "
     },
     {
         "type":"identifier",
-        "value":"lude"
+        "value":"include"
     },
     {
         "type":"whitespace",
@@ -3045,18 +3349,30 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"end module GlobalModule"
+        "type":"keyword",
+        "value":"end"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"module"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"GlobalModule"
     },
     {
         "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     }
 ]

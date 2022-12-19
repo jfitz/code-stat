@@ -588,14 +588,18 @@ class Examiner:
 
   # groups that follow groups reduce confidence
   def calc_line_description_confidence(self):
-    num_line_descrips = self.count_my_tokens(['line identification'])
+    if 'line identification' not in self.statistics:
+      return
 
-    line_des_confidence = 1.0
+    num_line_descrips = self.statistics['line identification']
+
+    if 'valid line identification' not in self.statistics:
+      return
+
+    num_valid_line_descrips = self.statistics['valid line identification']
 
     if num_line_descrips > 0:
-      errors = 0
-
-      line_des_confidence = 1.0 - errors / num_line_descrips
+      line_des_confidence = 1.0 - num_valid_line_descrips / num_line_descrips
 
       # add this confidence only when there are some line identifications
       self.confidences['line_description'] = line_des_confidence
@@ -899,13 +903,15 @@ class Examiner:
       num_valid_line_identifications = 0
 
       for token in self.tokens:
-        if token.group == 'line identification' and ' ' not in token.text.strip():
-          num_valid_line_identifications += 1
-          self.errors.append({
-            'TYPE': 'LINE DESCRIPTION',
-            'FIRST': token.text,
-            'SECOND': ''
-            })
+        if token.group == 'line identification':
+          if ' ' in token.text.strip():
+            self.errors.append({
+              'TYPE': 'LINE DESCRIPTION',
+              'FIRST': token.text,
+              'SECOND': ''
+              })
+          else:
+            num_valid_line_identifications += 1
     
       self.statistics['valid line identification'] = num_valid_line_identifications
 

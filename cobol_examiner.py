@@ -490,9 +490,6 @@ class CobolExaminer(Examiner):
 
     self.calc_statistics()
 
-    statistics_free = self.statistics
-    self.statistics = {}
-
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
 
@@ -518,6 +515,9 @@ class CobolExaminer(Examiner):
 
     expected_keyword_confidence = self.check_expected_keywords()
     self.confidences['expected_keywords'] = expected_keyword_confidence
+
+    statistics_free = self.statistics
+    self.statistics = {}
 
     confidences_free = self.confidences
     self.confidences = {}
@@ -566,9 +566,6 @@ class CobolExaminer(Examiner):
 
     self.calc_statistics()
 
-    statistics_fixed = self.statistics
-    self.statistics = {}
-
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
 
@@ -591,10 +588,13 @@ class CobolExaminer(Examiner):
     self.calc_keyword_confidence()
     self.calc_picture_confidence()
     self.calc_line_length_confidence(code, self.max_expected_line)
-    # self.calc_line_description_confidence()
+    self.calc_line_description_confidence()
 
     expected_keyword_confidence = self.check_expected_keywords()
     self.confidences['expected_keywords'] = expected_keyword_confidence
+
+    statistics_fixed = self.statistics
+    self.statistics = {}
 
     confidences_fixed = self.confidences
     self.confidences = {}
