@@ -261,8 +261,6 @@ CBASIC
 + colon as part of GRAPHIC PRINT statement
 
 COBOL
-- P010-wide does not tokenize unterm string
-+ remove duplicate source
 + tokenize EXEC block
 - paragraph name is a single identifier followed by period
 - expected keyword confidence assigns value
@@ -273,7 +271,7 @@ COBOL
 * source for COBOL-85, COBOL-74 Acucobol, IBM, GNU, MF extensions
 + keywords for GNU
 - block comment *><[ to *><] (OpenCobol)
-- combine AsteriskCommentTokenBuilder with AssemblyCommentTokenBuilder
+- combine LineCommentTokenBuilder with AssemblyCommentTokenBuilder
 - fixed-format tokenizes AsteriskCommentTokenBuilder
 
 CoffeeScript
@@ -368,7 +366,6 @@ Fortran
 + tokenize EXEC block
 * source for Fortran-2003
 - FORMAT editing characters ( / // I Iw Iw.m F Fw.d E ES EN L Lw A Aw nX Tc / : r(...) BN BZ)
-- line identifiers contain only digits, no embedded spaces
 
 F sharp
 * more source
@@ -449,7 +446,7 @@ Pick Basic
 - may have editor line numbers or not (which are not BASIC line numbers)
 - BASIC line numbers are optional
 - statement separator ;
-- variables alpha [alpha num .]*
+- variable names: alpha [alpha num .]*
 - strings '' "" \\
 - operator = : + - * / ^ > >= < <= # <> >< MATCHES
 - comment * at start of line or after line number
@@ -464,10 +461,8 @@ PL/I
 ? 'example' has issues (plain text in source)
 + bit string constant is string with suffix B
 - use LabelTokenBuilder class
-- line identifiers contain only digits, no embedded spaces
 
 PL/M
-+ drop fixed format and use only free format
 + .B (and .W and .D ?)
 
 Prolog
@@ -532,6 +527,17 @@ VB6
 
 VB.NET
 - 'Then' must be preceded on line by 'If' or 'ElseIf'
+
+Wing
+- keywords: bring, struct, public, enum, async, await, interface, inflight, return, class, private, static, protected, internal, while, for, if, continue, break, try, catch, static, resource, let, 
+- groupers: { } ( ) ; : [ ]
+- types: str, um, bool, void, nil, any, num
+- operators: == != > < >= <= && || ! * / \ % + - ^ = ??
+- unary: + - !
+- strings: "" ``
+- comments: // /* */
+- identifiers: a-z A-Z 0-9 _ (? at end)
+- common functions: throw, print, assert, panic
 
 Stats and analysis
 + cyclomatic complexity

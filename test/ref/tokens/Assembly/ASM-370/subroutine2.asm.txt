@@ -61,7 +61,11 @@
     },
     {
         "type":"comment",
-        "value":"! store multiple registers into caller's"
+        "value":"! store multiple registers into c"
+    },
+    {
+        "type":"line identification",
+        "value":"aller's"
     },
     {
         "type":"newline",
@@ -73,7 +77,11 @@
     },
     {
         "type":"comment",
-        "value":"!    save area (r14,r15,r0,...,r12)"
+        "value":"!    save area (r14,r15,r0,...,r1"
+    },
+    {
+        "type":"line identification",
+        "value":"2)"
     },
     {
         "type":"newline",
@@ -109,7 +117,11 @@
     },
     {
         "type":"comment",
-        "value":"! set address in r12 for use as base reg"
+        "value":"! set address in r12 for use as b"
+    },
+    {
+        "type":"line identification",
+        "value":"ase reg"
     },
     {
         "type":"newline",
@@ -128,16 +140,8 @@
         "value":" "
     },
     {
-        "type":"value",
-        "value":"*"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"register",
-        "value":"r12"
+        "type":"comment",
+        "value":"*,r12"
     },
     {
         "type":"whitespace",
@@ -145,7 +149,11 @@
     },
     {
         "type":"comment",
-        "value":"! pseudo-op to tell assembler to use r12"
+        "value":"! pseudo-op to tell assembler to "
+    },
+    {
+        "type":"line identification",
+        "value":"use r12"
     },
     {
         "type":"newline",
@@ -225,7 +233,11 @@
     },
     {
         "type":"comment",
-        "value":"! store address of caller's save area"
+        "value":"! store address of caller's save "
+    },
+    {
+        "type":"line identification",
+        "value":"area"
     },
     {
         "type":"newline",
@@ -273,7 +285,11 @@
     },
     {
         "type":"comment",
-        "value":"! store address of my save area in"
+        "value":"! store address of my save area i"
+    },
+    {
+        "type":"line identification",
+        "value":"n"
     },
     {
         "type":"newline",
@@ -316,24 +332,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"of"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"subroutine"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid operator",
-        "value":"..."
+        "type":"comment",
+        "value":"of subroutine ..."
     },
     {
         "type":"newline",
@@ -364,68 +364,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"is"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"used"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"for"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"directive",
-        "value":"return"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"code"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"if"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"present"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid operator",
-        "value":"..."
+        "type":"comment",
+        "value":"is used for return code, if present ..."
     },
     {
         "type":"newline",
@@ -473,7 +413,11 @@
     },
     {
         "type":"comment",
-        "value":"! load address of caller's save area"
+        "value":"! load address of caller's save a"
+    },
+    {
+        "type":"line identification",
+        "value":"rea"
     },
     {
         "type":"newline",
@@ -529,7 +473,11 @@
     },
     {
         "type":"comment",
-        "value":"! load multiple registers from caller's"
+        "value":"! load multiple registers from ca"
+    },
+    {
+        "type":"line identification",
+        "value":"ller's"
     },
     {
         "type":"newline",
@@ -541,7 +489,11 @@
     },
     {
         "type":"comment",
-        "value":"!    save area (r14,r15,r0,...,r12)"
+        "value":"!    save area (r14,r15,r0,...,r1"
+    },
+    {
+        "type":"line identification",
+        "value":"2)"
     },
     {
         "type":"newline",
@@ -604,12 +556,8 @@
         "value":"   "
     },
     {
-        "type":"number",
-        "value":"18"
-    },
-    {
         "type":"identifier",
-        "value":"f"
+        "value":"18f"
     },
     {
         "type":"whitespace",
@@ -653,7 +601,11 @@
     },
     {
         "type":"comment",
-        "value":"!    byte  8: address of called subroutine's save area"
+        "value":"!    byte  8: address of called subroutine's save"
+    },
+    {
+        "type":"line identification",
+        "value":" area"
     },
     {
         "type":"newline",
@@ -730,5 +682,9 @@
     {
         "type":"newline",
         "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
     }
 ]

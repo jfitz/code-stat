@@ -20,7 +20,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"comment",
         "value":"SAMPLE6"
     },
     {
@@ -60,7 +60,7 @@
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -84,7 +84,7 @@
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -108,47 +108,15 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"TWELVE"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"HOUR"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"CLOCK"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"PROGRAM"
+        "type":"comment",
+        "value":"A TWELVE HOUR CLOCK PROGRAM"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -172,55 +140,15 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"IS"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"DEPENDENT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"UPON"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"THE"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"MPU"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"CLOCK"
+        "type":"comment",
+        "value":"IS DEPENDENT UPON THE MPU CLOCK"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -244,47 +172,15 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"THE"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"TIMING"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"LOOP"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"AT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"START."
+        "type":"comment",
+        "value":"THE TIMING LOOP AT START."
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -308,63 +204,15 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"VALUE"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"AT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"0005"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"number",
-        "value":"6"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"BY"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"HEX"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"100"
+        "type":"comment",
+        "value":"VALUE AT 0005/6 BY HEX 100"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -388,47 +236,15 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"ACCURACY"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"APPROXIMATELY"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"1"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"SEC"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"identifier",
-        "value":"MIN."
+        "type":"comment",
+        "value":"ACCURACY APPROXIMATELY 1 SEC/MIN."
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -452,47 +268,15 @@
         "value":" "
     },
     {
-        "type":"number",
-        "value":"0001"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"number",
-        "value":"2"
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"number",
-        "value":"3"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"ARE"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"LOADED"
+        "type":"comment",
+        "value":"0001/2/3 ARE LOADED"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -516,47 +300,15 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"STARTING"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"TIME."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"THE"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"FIRST"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"DISPLAY"
+        "type":"comment",
+        "value":"STARTING TIME. THE FIRST DISPLAY"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -580,55 +332,15 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"SECOND"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"AFTER"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"START"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"OF"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"THE"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"PROGRAM."
+        "type":"comment",
+        "value":"SECOND AFTER START OF THE PROGRAM."
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -652,63 +364,15 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"BE"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"CONTENT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"OF"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"SECOND"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"RMB"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"+"
-    },
-    {
-        "type":"number",
-        "value":"1"
-    },
-    {
-        "type":"invalid operator",
-        "value":"."
+        "type":"comment",
+        "value":"BE CONTENT OF SECOND RMB +1."
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -732,31 +396,15 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"SUBROUTINES"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"REDIS"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"identifier",
-        "value":"DISPLAY."
+        "type":"comment",
+        "value":"SUBROUTINES REDIS,DISPLAY."
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -768,7 +416,7 @@
         "value":"NOTE"
     },
     {
-        "type":"group",
+        "type":"invalid operator",
         "value":":"
     },
     {
@@ -788,28 +436,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"PROGRAM"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"AT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"0004"
-    },
-    {
-        "type":"invalid operator",
-        "value":"."
+        "type":"comment",
+        "value":"PROGRAM AT 0004."
     },
     {
         "type":"newline",
@@ -820,7 +448,7 @@
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -844,87 +472,19 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"listing"
+        "type":"comment",
+        "value":"listing in ET-3400A manual by Jeff Tranter <tranter@pobox"
     },
     {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"in"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"ET"
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"number",
-        "value":"3400A"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"manual"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"by"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"Jeff"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"Tranter"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"group",
-        "value":"<"
-    },
-    {
-        "type":"identifier",
-        "value":"tranter@pobox.com"
-    },
-    {
-        "type":"group",
-        "value":">"
+        "type":"line identification",
+        "value":".com>"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -948,87 +508,15 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"to"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"get"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"it"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"to"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"assemble"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"and"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"adapted"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"to"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"the"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"crasm"
+        "type":"comment",
+        "value":"to get it to assemble and adapted to the crasm"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -1136,7 +624,7 @@
         "value":"   "
     },
     {
-        "type":"directive",
+        "type":"identifier",
         "value":"EQU"
     },
     {
@@ -1144,7 +632,7 @@
         "value":" "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"$FCBC"
     },
     {
@@ -1164,7 +652,7 @@
         "value":"  "
     },
     {
-        "type":"directive",
+        "type":"identifier",
         "value":"EQU"
     },
     {
@@ -1172,7 +660,7 @@
         "value":" "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"$FD7B"
     },
     {
@@ -1184,7 +672,7 @@
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -1208,95 +696,15 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"is"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"used"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"depending"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"on"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"whether"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"running"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"on"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"an"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"ET"
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"number",
-        "value":"3400"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"or"
+        "type":"comment",
+        "value":"is used depending on whether running on an ET-3400 or"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -1308,12 +716,16 @@
         "value":"ET"
     },
     {
-        "type":"operator",
+        "type":"invalid operator",
         "value":"-"
     },
     {
-        "type":"number",
-        "value":"3400A"
+        "type":"invalid",
+        "value":"3400"
+    },
+    {
+        "type":"identifier",
+        "value":"A"
     },
     {
         "type":"whitespace",
@@ -1372,47 +784,15 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"Define"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"one"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"of"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"the"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"two"
+        "type":"comment",
+        "value":"Define one of the two"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -1436,87 +816,15 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"to"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"1"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"depending"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"on"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"your"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"system."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"Use"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"ET3400A"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"if"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"running"
+        "type":"comment",
+        "value":"to 1 depending on your system. Use ET3400A if running"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -1540,115 +848,15 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"ET"
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"number",
-        "value":"3400"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"modified"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"for"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"a"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"4"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"MHz"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"crystal"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"clock"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"e.g."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"for"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"use"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"with"
+        "type":"comment",
+        "value":"ET-3400 modified for a 4 MHz crystal clock (e.g. for use with"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -1700,7 +908,7 @@
         "value":" "
     },
     {
-        "type":"directive",
+        "type":"identifier",
         "value":"EQU"
     },
     {
@@ -1708,7 +916,7 @@
         "value":" "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"1"
     },
     {
@@ -1728,7 +936,7 @@
         "value":" "
     },
     {
-        "type":"directive",
+        "type":"identifier",
         "value":"EQU"
     },
     {
@@ -1736,7 +944,7 @@
         "value":" "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"0"
     },
     {
@@ -1752,8 +960,24 @@
         "value":"        "
     },
     {
+        "type":"invalid operator",
+        "value":"*"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
         "type":"comment",
-        "value":"* = $0001"
+        "value":"$0001"
     },
     {
         "type":"newline",
@@ -1884,32 +1108,8 @@
         "value":"          "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"ADJUST"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"FOR"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"ACCURACY"
+        "type":"comment",
+        "value":"; ADJUST FOR ACCURACY"
     },
     {
         "type":"newline",
@@ -1976,32 +1176,8 @@
         "value":"          "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"ADJUST"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"FOR"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"ACCURACY"
+        "type":"comment",
+        "value":"; ADJUST FOR ACCURACY"
     },
     {
         "type":"newline",
@@ -2060,32 +1236,8 @@
         "value":"           "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"WAIT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"ONE"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"SECOND"
+        "type":"comment",
+        "value":"; WAIT ONE SECOND"
     },
     {
         "type":"newline",
@@ -2136,32 +1288,8 @@
         "value":"          "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"SET"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"FIXED"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"DELAY"
+        "type":"comment",
+        "value":"; SET FIXED DELAY"
     },
     {
         "type":"newline",
@@ -2240,32 +1368,8 @@
         "value":"            "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"SIXTY"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"SECONDS.SIXTY"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"MINUTES"
+        "type":"comment",
+        "value":"; SIXTY SECONDS.SIXTY MINUTES"
     },
     {
         "type":"newline",
@@ -2284,32 +1388,8 @@
         "value":"                     "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"ALWAYS"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"INCREMENT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"SECONDS"
+        "type":"comment",
+        "value":"; ALWAYS INCREMENT SECONDS"
     },
     {
         "type":"newline",
@@ -2336,24 +1416,8 @@
         "value":"            "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"INCREMENT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"SECONDS"
+        "type":"comment",
+        "value":"; INCREMENT SECONDS"
     },
     {
         "type":"newline",
@@ -2380,40 +1444,8 @@
         "value":"           "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"INCREMENT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"MINUTES"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"IF"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"NEEDED"
+        "type":"comment",
+        "value":"; INCREMENT MINUTES IF NEEDED"
     },
     {
         "type":"newline",
@@ -2440,32 +1472,8 @@
         "value":"            "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"TWELVE"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"HOUR"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"CLOCK"
+        "type":"comment",
+        "value":"; TWELVE HOUR CLOCK"
     },
     {
         "type":"newline",
@@ -2492,40 +1500,8 @@
         "value":"           "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"INCREMENT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"HOURS"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"IS"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"NEEDED"
+        "type":"comment",
+        "value":"; INCREMENT HOURS IS NEEDED"
     },
     {
         "type":"newline",
@@ -2552,32 +1528,8 @@
         "value":"           "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"RESET"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"DISPLAY"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"ADDRESS"
+        "type":"comment",
+        "value":"; RESET DISPLAY ADDRESS"
     },
     {
         "type":"newline",
@@ -2608,48 +1560,8 @@
         "value":"              "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"NUMBER"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"OF"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"BYTES"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"TO"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"DISPLAY"
+        "type":"comment",
+        "value":"; NUMBER OF BYTES TO DISPLAY"
     },
     {
         "type":"newline",
@@ -2676,24 +1588,8 @@
         "value":"           "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"DISPLAY"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"HOURS.MINUTES.SECONDS"
+        "type":"comment",
+        "value":"; DISPLAY HOURS.MINUTES.SECONDS"
     },
     {
         "type":"newline",
@@ -2720,24 +1616,8 @@
         "value":"           "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"DO"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"AGAIN"
+        "type":"comment",
+        "value":"; DO AGAIN"
     },
     {
         "type":"newline",
@@ -2772,48 +1652,8 @@
         "value":"         "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"POINT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"X"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"AT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"TIME"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"RMB"
+        "type":"comment",
+        "value":"; POINT X AT TIME RMB"
     },
     {
         "type":"newline",
@@ -2852,32 +1692,8 @@
         "value":"             "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"GET"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"CURRENT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"TIME"
+        "type":"comment",
+        "value":"; GET CURRENT TIME"
     },
     {
         "type":"newline",
@@ -2908,32 +1724,8 @@
         "value":"              "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"INCREMENT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"IF"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"NECESSARY"
+        "type":"comment",
+        "value":"; INCREMENT IF NECESSARY"
     },
     {
         "type":"newline",
@@ -2952,32 +1744,8 @@
         "value":"                     "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"FIX"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"TO"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"DECIMAL"
+        "type":"comment",
+        "value":"; FIX TO DECIMAL"
     },
     {
         "type":"newline",
@@ -2996,36 +1764,8 @@
         "value":"                     "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"TIME"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"TO"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"CLEAR"
-    },
-    {
-        "type":"operator",
-        "value":"?"
+        "type":"comment",
+        "value":"; TIME TO CLEAR?"
     },
     {
         "type":"newline",
@@ -3052,16 +1792,8 @@
         "value":"           "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"NO"
+        "type":"comment",
+        "value":"; NO"
     },
     {
         "type":"newline",
@@ -3112,32 +1844,8 @@
         "value":"             "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"STORE"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"NEW"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"TIME"
+        "type":"comment",
+        "value":"; STORE NEW TIME"
     },
     {
         "type":"newline",
@@ -3156,32 +1864,8 @@
         "value":"                     "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"GET"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"NEXT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"TIME"
+        "type":"comment",
+        "value":"; GET NEXT TIME"
     },
     {
         "type":"newline",
@@ -3224,32 +1908,8 @@
         "value":"              "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"COMPLEMENT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"CARRY"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"BIT"
+        "type":"comment",
+        "value":"; COMPLEMENT CARRY BIT"
     },
     {
         "type":"newline",
@@ -3308,44 +1968,8 @@
         "value":"           "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"WHAT"
-    },
-    {
-        "type":"operator",
-        "value":"'"
-    },
-    {
-        "type":"identifier",
-        "value":"S"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"IN"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"HOURS"
-    },
-    {
-        "type":"operator",
-        "value":"?"
+        "type":"comment",
+        "value":"; WHAT'S IN HOURS?"
     },
     {
         "type":"newline",
@@ -3372,32 +1996,8 @@
         "value":"          "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"IF"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"NOT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"ZERO"
+        "type":"comment",
+        "value":"; IF NOT ZERO"
     },
     {
         "type":"newline",
@@ -3424,32 +2024,8 @@
         "value":"           "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"MAKE"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"HOURS"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"ONE"
+        "type":"comment",
+        "value":"; MAKE HOURS ONE"
     },
     {
         "type":"newline",
@@ -3472,40 +2048,8 @@
         "value":"                     "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"POINT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"X"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"AT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"HOURS"
+        "type":"comment",
+        "value":"; POINT X AT HOURS"
     },
     {
         "type":"newline",
@@ -3532,35 +2076,15 @@
         "value":"          "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"OUTPUT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"TO"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"DISPLAYS"
+        "type":"comment",
+        "value":"; OUTPUT TO DISPLAYS"
     },
     {
         "type":"newline",
         "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
     }
 ]
