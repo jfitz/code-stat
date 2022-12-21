@@ -644,7 +644,7 @@ def route_override():
 
 @app.route('/detab', methods=['POST'])
 def route_detab():
-  _, _, tab_size, _, _ = extract_params(request.args)
+  _, _, tab_size, _ = extract_params(request.args)
 
   request_bytes = request.get_data()
 
@@ -682,7 +682,7 @@ def route_truncate():
 
 @app.route('/unwrap', methods=['POST'])
 def route_unwrap():
-  languages, _, _, _, _ = extract_params(request.args)
+  languages, _, _, _ = extract_params(request.args)
 
   if len(languages) > 0:
     language = languages[0]
@@ -707,7 +707,7 @@ def route_unwrap():
 
 @app.route('/detect', methods=['POST'])
 def route_detect():
-  languages, _, tab_size, comment = extract_params(request.args)
+  languages, comment, tab_size, _ = extract_params(request.args)
 
   if len(languages) == 0:
     languages = list(codes_and_names.keys())
@@ -782,7 +782,8 @@ def route_tokens():
 
 @app.route('/confidence', methods=['POST'])
 def route_confidence():
-  languages, comment, tab_size, get_errors = extract_params(request.args)
+  languages, comment, tab_size, _ = extract_params(request.args)
+  get_errors = False
 
   if len(languages) == 0:
     languages = list(codes_and_names.keys())
@@ -822,7 +823,7 @@ def route_confidence():
 
 @app.route('/confidence-errors', methods=['POST'])
 def route_confidence_errors():
-  languages, comment, tab_size, get_errors = extract_params(request.args)
+  languages, comment, tab_size, _ = extract_params(request.args)
   get_errors = True
 
   if len(languages) == 0:
