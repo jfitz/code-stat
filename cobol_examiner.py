@@ -61,7 +61,7 @@ class CobolExaminer(Examiner):
     return 'Escape ?Z'
 
 
-  def __init__(self, code, year, extension, tab_size):
+  def __init__(self, code, year, extension, tab_size, format):
     super().__init__()
 
     if year is not None and year not in ['68', '1968', '74', '1974', '85', '1985', '2002', '2014']:

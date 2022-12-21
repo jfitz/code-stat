@@ -48,7 +48,7 @@ class FortranExaminer(Examiner):
     return 'Escape ?Z'
 
 
-  def __init__(self, code, year, tab_size):
+  def __init__(self, code, year, tab_size, format):
     super().__init__()
     self.newlines_important = 'always'
 

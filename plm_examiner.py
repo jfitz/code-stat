@@ -41,7 +41,7 @@ class PLMExaminer(Examiner):
     return 'Escape ?Z'
 
 
-  def __init__(self, code, tab_size):
+  def __init__(self, code, tab_size, format):
     super().__init__()
 
     operand_types = []

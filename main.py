@@ -165,9 +165,11 @@ def extract_params(request_args):
   except ValueError:
     tab_size = 8
 
-  get_errors = 'errors' in request_args
+  source_format = 'better'
+  if 'format' in request_args:
+    source_format = request_args['format']
 
-  return languages, comment, tab_size, get_errors
+  return languages, comment, tab_size, source_format
 
 
 def find_winners(text, tab_size, comment, block_comment_limit, languages):
@@ -707,7 +709,7 @@ def route_unwrap():
 
 @app.route('/detect', methods=['POST'])
 def route_detect():
-  languages, comment, tab_size, _ = extract_params(request.args)
+  languages, comment, tab_size, source_format = extract_params(request.args)
 
   if len(languages) == 0:
     languages = list(codes_and_names.keys())
@@ -746,7 +748,7 @@ def route_detect():
 
 @app.route('/tokens', methods=['POST'])
 def route_tokens():
-  languages, comment, tab_size, _ = extract_params(request.args)
+  languages, comment, tab_size, source_format = extract_params(request.args)
 
   if len(languages) == 0:
     languages = list(codes_and_names.keys())
@@ -782,7 +784,7 @@ def route_tokens():
 
 @app.route('/confidence', methods=['POST'])
 def route_confidence():
-  languages, comment, tab_size, _ = extract_params(request.args)
+  languages, comment, tab_size, source_format = extract_params(request.args)
   get_errors = False
 
   if len(languages) == 0:
@@ -823,7 +825,7 @@ def route_confidence():
 
 @app.route('/confidence-errors', methods=['POST'])
 def route_confidence_errors():
-  languages, comment, tab_size, _ = extract_params(request.args)
+  languages, comment, tab_size, source_format = extract_params(request.args)
   get_errors = True
 
   if len(languages) == 0:
@@ -864,7 +866,7 @@ def route_confidence_errors():
 
 @app.route('/statistics', methods=['POST'])
 def route_statistics():
-  languages, comment, tab_size, _ = extract_params(request.args)
+  languages, comment, tab_size, source_format = extract_params(request.args)
 
   if len(languages) == 0:
     languages = list(codes_and_names.keys())
@@ -1234,6 +1236,7 @@ def make_one_examiner(language, code, tab_size, comment, block_comment_limit):
 
 
 def make_multiple_examiners(code, tab_size, comment, block_comment_limit, languages):
+  format = 'better'
   examiners = {}
 
   if 'generic' in languages:
@@ -1255,16 +1258,16 @@ def make_multiple_examiners(code, tab_size, comment, block_comment_limit, langua
     examiners['assembly'] = AssemblyGenericExaminer(code, tab_size)
 
   if 'asm-360' in languages:
-    examiners['asm-360'] = AssemblyIBMExaminer(code, tab_size, '360')
+    examiners['asm-360'] = AssemblyIBMExaminer(code, tab_size, '360', format)
 
   if 'asm-370' in languages:
-    examiners['asm-370'] = AssemblyIBMExaminer(code, tab_size, '370')
+    examiners['asm-370'] = AssemblyIBMExaminer(code, tab_size, '370', format)
 
   if 'asm-390' in languages:
-    examiners['asm-390'] = AssemblyIBMExaminer(code, tab_size, 'system-z')
+    examiners['asm-390'] = AssemblyIBMExaminer(code, tab_size, 'system-z', format)
 
   if 'asm-system-z' in languages:
-    examiners['asm-system-z'] = AssemblyIBMExaminer(code, tab_size, 'system-z')
+    examiners['asm-system-z'] = AssemblyIBMExaminer(code, tab_size, 'system-z', format)
 
   if 'asm-1802' in languages:
     examiners['asm-1802'] = AssemblyExaminer(code, tab_size, '1802')
@@ -1336,28 +1339,28 @@ def make_multiple_examiners(code, tab_size, comment, block_comment_limit, langua
     examiners['csharp'] = CsharpExaminer(code)
 
   if 'cobol-68' in languages or 'cobol' in languages:
-    examiners['cobol-68'] = CobolExaminer(code, '68', '', tab_size)
+    examiners['cobol-68'] = CobolExaminer(code, '68', '', tab_size, format)
 
   if 'cobol-74' in languages or 'cobol' in languages:
-    examiners['cobol-74'] = CobolExaminer(code, '74', '', tab_size)
+    examiners['cobol-74'] = CobolExaminer(code, '74', '', tab_size, format)
 
   if 'cobol-85' in languages or 'cobol' in languages:
-    examiners['cobol-85'] = CobolExaminer(code, '85', '', tab_size)
+    examiners['cobol-85'] = CobolExaminer(code, '85', '', tab_size, format)
 
   if 'cobol-2002' in languages or 'cobol' in languages:
-    examiners['cobol-2002'] = CobolExaminer(code, '2002', '', tab_size)
+    examiners['cobol-2002'] = CobolExaminer(code, '2002', '', tab_size, format)
 
   if 'cobol-2014' in languages or 'cobol' in languages or 'cob' in languages:
-    examiners['cobol-2014'] = CobolExaminer(code, '2014', '', tab_size)
+    examiners['cobol-2014'] = CobolExaminer(code, '2014', '', tab_size, format)
 
   if 'cobol-2014-acu' in languages or 'cobol' in languages:
-    examiners['cobol-2014-acu'] = CobolExaminer(code, '2014', 'acu', tab_size)
+    examiners['cobol-2014-acu'] = CobolExaminer(code, '2014', 'acu', tab_size, format)
 
   if 'cobol-2014-ibm' in languages or 'cobol' in languages:
-    examiners['cobol-2014-ibm'] = CobolExaminer(code, '2014', 'ibm', tab_size)
+    examiners['cobol-2014-ibm'] = CobolExaminer(code, '2014', 'ibm', tab_size, format)
 
   if 'cobol-2014-gnu' in languages or 'cobol' in languages:
-    examiners['cobol-2014-gnu'] = CobolExaminer(code, '2014', 'gnu', tab_size)
+    examiners['cobol-2014-gnu'] = CobolExaminer(code, '2014', 'gnu', tab_size, format)
 
   if 'coffeescript' in languages or 'coffee' in languages:
     examiners['coffeescript'] = CoffeeScriptExaminer(code)
@@ -1390,22 +1393,22 @@ def make_multiple_examiners(code, tab_size, comment, block_comment_limit, langua
     examiners['flowmatic'] = FlowmaticExaminer(code)
 
   if 'fortran-66' in languages or 'fortran' in languages or 'f66' in languages:
-    examiners['fortran-66'] = FortranExaminer(code, '66', tab_size)
+    examiners['fortran-66'] = FortranExaminer(code, '66', tab_size, format)
 
   if 'fortran-77' in languages or 'fortran' in languages or 'f77' in languages:
-    examiners['fortran-77'] = FortranExaminer(code, '77', tab_size)
+    examiners['fortran-77'] = FortranExaminer(code, '77', tab_size, format)
 
   if 'fortran-90' in languages or 'fortran' in languages or'f90' in languages:
-    examiners['fortran-90'] = FortranExaminer(code, '90', tab_size)
+    examiners['fortran-90'] = FortranExaminer(code, '90', tab_size, format)
 
   if 'fortran-95' in languages or 'fortran' in languages or 'f95' in languages:
-    examiners['fortran-95'] = FortranExaminer(code, '95', tab_size)
+    examiners['fortran-95'] = FortranExaminer(code, '95', tab_size, format)
 
   if 'fortran-2003' in languages or 'fortran' in languages or 'f03' in languages:
-    examiners['fortran-2003'] = FortranExaminer(code, '2003', tab_size)
+    examiners['fortran-2003'] = FortranExaminer(code, '2003', tab_size, format)
 
   if 'fortran-2008' in languages or 'fortran' in languages:
-    examiners['fortran-2008'] = FortranExaminer(code, '2008', tab_size)
+    examiners['fortran-2008'] = FortranExaminer(code, '2008', tab_size, format)
 
   if 'fsharp' in languages or 'fs' in languages or 'f#' in languages:
     examiners['fsharp'] = MlExaminer(code, 'fsharp')
@@ -1465,10 +1468,10 @@ def make_multiple_examiners(code, tab_size, comment, block_comment_limit, langua
     examiners['perl'] = PerlExaminer(code)
 
   if 'pl1' in languages:
-    examiners['pl1'] = PL1Examiner(code, tab_size)
+    examiners['pl1'] = PL1Examiner(code, tab_size, format)
 
   if 'plm' in languages:
-    examiners['plm'] = PLMExaminer(code, tab_size)
+    examiners['plm'] = PLMExaminer(code, tab_size, format)
 
   if 'prolog' in languages:
     examiners['prolog'] = PrologExaminer(code)

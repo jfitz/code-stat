@@ -41,7 +41,7 @@ class AssemblyIBMExaminer(Examiner):
     return 'Escape ?Z'
 
 
-  def __init__(self, code, tab_size, processor):
+  def __init__(self, code, tab_size, processor, format):
     super().__init__()
 
     self.newlines_important = 'always'
