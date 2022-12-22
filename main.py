@@ -165,18 +165,18 @@ def extract_params(request_args):
   except ValueError:
     tab_size = 8
 
-  source_format = 'better'
+  format = 'better'
   if 'format' in request_args:
-    source_format = request_args['format']
+    format = request_args['format']
 
-  return languages, comment, tab_size, source_format
+  return languages, comment, tab_size, format
 
 
-def find_winners(text, tab_size, comment, block_comment_limit, languages):
+def find_winners(text, tab_size, comment, block_comment_limit, languages, format):
   tiebreak_keywords = False
   tiebreak_tokens = False
   tiebreak_simple = False
-  detected_languages, examiners = identify_language(text, tab_size, comment, block_comment_limit, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages)
+  detected_languages, examiners = identify_language(text, format, tab_size, comment, block_comment_limit, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages)
 
   # find the highest value
   high_value = 0
@@ -194,12 +194,12 @@ def find_winners(text, tab_size, comment, block_comment_limit, languages):
   return winning_languages, examiners
 
 
-def build_language_list(languages, text, tab_size, comment, block_comment_limit):
+def build_language_list(languages, text, format, tab_size, comment, block_comment_limit):
   examiners = None
 
   if len(languages) > 0:
     # detect for specified languages, pick the most confident
-    winning_languages, examiners = find_winners(text, tab_size, comment, block_comment_limit, languages)
+    winning_languages, examiners = find_winners(text, tab_size, comment, block_comment_limit, languages, format)
   else:
     # tokenize as generic
     winning_languages = ['generic']
@@ -730,7 +730,8 @@ def route_detect():
   http_status = 200
   try:
     text = decode_bytes(request_bytes)
-    detected_languages, _ = identify_language(text, tab_size, comment, block_comment_limit, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages)
+    format = 'better'
+    detected_languages, _ = identify_language(text, format, tab_size, comment, block_comment_limit, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages)
 
     mydict = {}
     for key in detected_languages:
@@ -748,7 +749,7 @@ def route_detect():
 
 @app.route('/tokens', methods=['POST'])
 def route_tokens():
-  languages, comment, tab_size, source_format = extract_params(request.args)
+  languages, comment, tab_size, format = extract_params(request.args)
 
   if len(languages) == 0:
     languages = list(codes_and_names.keys())
@@ -760,7 +761,7 @@ def route_tokens():
   http_status = 200
   try:
     text = decode_bytes(request_bytes)
-    winning_languages, examiners = build_language_list(languages, text, tab_size, comment, block_comment_limit)
+    winning_languages, examiners = build_language_list(languages, text, format, tab_size, comment, block_comment_limit)
 
     list_of_dicts = []
 
@@ -784,7 +785,7 @@ def route_tokens():
 
 @app.route('/confidence', methods=['POST'])
 def route_confidence():
-  languages, comment, tab_size, source_format = extract_params(request.args)
+  languages, comment, tab_size, format = extract_params(request.args)
   get_errors = False
 
   if len(languages) == 0:
@@ -797,7 +798,7 @@ def route_confidence():
   http_status = 200
   try:
     text = decode_bytes(request_bytes)
-    winning_languages, examiners = build_language_list(languages, text, tab_size, comment, block_comment_limit)
+    winning_languages, examiners = build_language_list(languages, text, format, tab_size, comment, block_comment_limit)
 
     operation = ''
     list_of_dicts = []
@@ -825,7 +826,7 @@ def route_confidence():
 
 @app.route('/confidence-errors', methods=['POST'])
 def route_confidence_errors():
-  languages, comment, tab_size, source_format = extract_params(request.args)
+  languages, comment, tab_size, format = extract_params(request.args)
   get_errors = True
 
   if len(languages) == 0:
@@ -838,7 +839,7 @@ def route_confidence_errors():
   http_status = 200
   try:
     text = decode_bytes(request_bytes)
-    winning_languages, examiners = build_language_list(languages, text, tab_size, comment, block_comment_limit)
+    winning_languages, examiners = build_language_list(languages, text, format, tab_size, comment, block_comment_limit)
 
     operation = ''
     list_of_dicts = []
@@ -866,7 +867,7 @@ def route_confidence_errors():
 
 @app.route('/statistics', methods=['POST'])
 def route_statistics():
-  languages, comment, tab_size, source_format = extract_params(request.args)
+  languages, comment, tab_size, format = extract_params(request.args)
 
   if len(languages) == 0:
     languages = list(codes_and_names.keys())
@@ -878,7 +879,7 @@ def route_statistics():
   http_status = 200
   try:
     text = decode_bytes(request_bytes)
-    winning_languages, examiners = build_language_list(languages, text, tab_size, comment, block_comment_limit)
+    winning_languages, examiners = build_language_list(languages, text, format, tab_size, comment, block_comment_limit)
 
     list_of_dicts = []
 
@@ -1235,8 +1236,7 @@ def make_one_examiner(language, code, tab_size, comment, block_comment_limit):
   return examiner
 
 
-def make_multiple_examiners(code, tab_size, comment, block_comment_limit, languages):
-  format = 'better'
+def make_multiple_examiners(code, format, tab_size, comment, block_comment_limit, languages):
   examiners = {}
 
   if 'generic' in languages:
@@ -1515,9 +1515,9 @@ def make_multiple_examiners(code, tab_size, comment, block_comment_limit, langua
   return examiners
 
 
-def identify_language(code, tab_size, comment, block_comment_limit, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages):
+def identify_language(code, format, tab_size, comment, block_comment_limit, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages):
   tiebreak_override = True
-  examiners = make_multiple_examiners(code, tab_size, comment, block_comment_limit, languages)
+  examiners = make_multiple_examiners(code, format, tab_size, comment, block_comment_limit, languages)
 
   # get confidence values
   retval = {}
@@ -1764,6 +1764,7 @@ if __name__ == '__main__':
         comment = ''
         block_comment_limit = 2048
         languages = list(codes_and_names.keys())
-        cProfile.run('identify_language(code, tab_size, comment, block_comment_limit, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages)')
+        format = 'better'
+        cProfile.run('identify_language(code, format, tab_size, comment, block_comment_limit, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages)')
       else:
         app.run()
