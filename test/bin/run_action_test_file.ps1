@@ -5,7 +5,7 @@ Param
     [string]$comment,
     [switch]$wide,
     [string]$action,
-    [switch]$errors,
+    [switch]$format,
     [string]$inputfile,
     [string]$expected,
     [switch]$json,
@@ -56,8 +56,8 @@ if ($PSBoundParameters.ContainsKey('tabsize')) {
     $params += "tabsize=$tabsize"
 }
 
-if ($errors) {
-    $params += "errors"
+if ($PSBoundParameters.ContainsKey('format')) {
+    $params += "format=$format"
 }
 
 if ($notiebreak) {

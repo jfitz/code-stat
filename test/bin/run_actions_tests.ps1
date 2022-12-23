@@ -37,133 +37,133 @@ if (-Not ($valid_actions.Contains($action))) {
 # generic assembly
 
 # Assembly for IBM, DEC, Intel, and more
-test\bin\run_action_tests_language.ps1 -language "Assembly" -variants ("ASM-360", "ASM-370", "ASM-390", "ASM-1802", "ASM-6502", "ASM-6800", "ASM-68000", "ASM-8080", "ASM-Z-80", "ASM-8086", "ASM-80386", "ASM-PDP-8", "ASM-PDP-11")
+test\bin\run_action_tests_language.ps1 -language "Assembly" -variants ("ASM-360", "ASM-370", "ASM-390", "ASM-1802", "ASM-6502", "ASM-6800", "ASM-68000", "ASM-8080", "ASM-Z-80", "ASM-8086", "ASM-80386", "ASM-PDP-8", "ASM-PDP-11") -format "better"
 
 # Ada 83, Ada 95
-test\bin\run_action_tests_language.ps1 -language "Ada" -variants ("Ada-83", "Ada-95")
+test\bin\run_action_tests_language.ps1 -language "Ada" -variants ("Ada-83", "Ada-95") -format "better"
 
 # Awk
-test\bin\run_action_tests_language.ps1 -language "Awk" -variants ("Awk", "gawk")
+test\bin\run_action_tests_language.ps1 -language "Awk" -variants ("Awk", "gawk") -format "better"
 
 # BASIC
-test\bin\run_action_tests_language.ps1 -language "BASIC" -variants ("BASIC", "BASIC-80", "BASICA")
+test\bin\run_action_tests_language.ps1 -language "BASIC" -variants ("BASIC", "BASIC-80", "BASICA") -format "better"
 
 # C and Objective-C
-test\bin\run_action_tests_language.ps1 -language "C" -variants ("C-78", "C-89", "C-99", "Objective-C")
+test\bin\run_action_tests_language.ps1 -language "C" -variants ("C-78", "C-89", "C-99", "Objective-C") -format "better"
 
 # CBASIC
-test\bin\run_action_tests_language.ps1 -language "CBASIC" -variants ("CBASIC")
+test\bin\run_action_tests_language.ps1 -language "CBASIC" -variants ("CBASIC") -format "better"
 
 # COBOL
-test\bin\run_action_tests_language.ps1 -language "COBOL" -variants ("COBOL-68", "COBOL-74", "COBOL-85", "COBOL-2002", "COBOL-2014", "COBOL-2014-ACU", "COBOL-2014-GNU", "COBOL-2014-IBM")
+test\bin\run_action_tests_language.ps1 -language "COBOL" -variants ("COBOL-68", "COBOL-74", "COBOL-85", "COBOL-2002", "COBOL-2014", "COBOL-2014-ACU", "COBOL-2014-GNU", "COBOL-2014-IBM") -format "better"
 
 # C++
-test\bin\run_action_tests_language.ps1 -language "Cplusplus" -variants ("Cplusplus")
+test\bin\run_action_tests_language.ps1 -language "Cplusplus" -variants ("Cplusplus") -format "better"
 
 # C#
-test\bin\run_action_tests_language.ps1 -language "Csharp" -variants ("Csharp")
+test\bin\run_action_tests_language.ps1 -language "Csharp" -variants ("Csharp") -format "better"
 
 # D
-test\bin\run_action_tests_language.ps1 -language "D" -variants ("D")
+test\bin\run_action_tests_language.ps1 -language "D" -variants ("D") -format "better"
 
 # Dart
-test\bin\run_action_tests_language.ps1 -language "Dart" -variants ("Dart")
+test\bin\run_action_tests_language.ps1 -language "Dart" -variants ("Dart") -format "better"
 
 # dbase
-test\bin\run_action_tests_language.ps1 -language "dbase" -variants ("dbase-ii", "dbase-iii")
+test\bin\run_action_tests_language.ps1 -language "dbase" -variants ("dbase-ii", "dbase-iii") -format "better"
 
 # Dibol
-test\bin\run_action_tests_language.ps1 -language "Dibol" -variants ("Dibol")
+test\bin\run_action_tests_language.ps1 -language "Dibol" -variants ("Dibol") -format "better"
 
 # Eiffel
-test\bin\run_action_tests_language.ps1 -language "Eiffel" -variants ("Eiffel")
+test\bin\run_action_tests_language.ps1 -language "Eiffel" -variants ("Eiffel") -format "better"
 
 # Erlang
-test\bin\run_action_tests_language.ps1 -language "Erlang" -variants ("Erlang")
+test\bin\run_action_tests_language.ps1 -language "Erlang" -variants ("Erlang") -format "better"
 
 # Flowmatic
-test\bin\run_action_tests_language.ps1 -language "Flowmatic" -variants ("Flowmatic")
+test\bin\run_action_tests_language.ps1 -language "Flowmatic" -variants ("Flowmatic") -format "better"
 
 # FORTRAN
-test\bin\run_action_tests_language.ps1 -language "FORTRAN" -variants ("FORTRAN-66", "FORTRAN-77", "Fortran-90", "Fortran-95", "Fortran-2003", "Fortran-2008")
+test\bin\run_action_tests_language.ps1 -language "FORTRAN" -variants ("FORTRAN-66", "FORTRAN-77", "Fortran-90", "Fortran-95", "Fortran-2003", "Fortran-2008") -format "better"
 
 # F#
-test\bin\run_action_tests_language.ps1 -language "Fsharp" -variants ("Fsharp")
+test\bin\run_action_tests_language.ps1 -language "Fsharp" -variants ("Fsharp") -format "better"
 
 # Go
-test\bin\run_action_tests_language.ps1 -language "Go" -variants ("Go")
+test\bin\run_action_tests_language.ps1 -language "Go" -variants ("Go") -format "better"
 
 # Groovy
-test\bin\run_action_tests_language.ps1 -language "Groovy" -variants ("Groovy")
+test\bin\run_action_tests_language.ps1 -language "Groovy" -variants ("Groovy") -format "better"
 
 # Haskell
-test\bin\run_action_tests_language.ps1 -language "Haskell" -variants ("Haskell")
+test\bin\run_action_tests_language.ps1 -language "Haskell" -variants ("Haskell") -format "better"
 
 # HTML
-test\bin\run_action_tests_language.ps1 -language "HTML" -variants ("HTML")
+test\bin\run_action_tests_language.ps1 -language "HTML" -variants ("HTML") -format "better"
 
 # Intercal
-test\bin\run_action_tests_language.ps1 -language "Intercal" -variants ("Intercal")
+test\bin\run_action_tests_language.ps1 -language "Intercal" -variants ("Intercal") -format "better"
 
 # Java
-test\bin\run_action_tests_language.ps1 -language "Java" -variants ("Java")
+test\bin\run_action_tests_language.ps1 -language "Java" -variants ("Java") -format "better"
 
 # JavaScript and TypeScript and CoffeeScript
-test\bin\run_action_tests_language.ps1 -language "JavaScript" -variants ("JavaScript", "TypeScript", "CoffeeScript")
+test\bin\run_action_tests_language.ps1 -language "JavaScript" -variants ("JavaScript", "TypeScript", "CoffeeScript") -format "better"
 
 # Julia
-test\bin\run_action_tests_language.ps1 -language "Julia" -variants ("Julia")
+test\bin\run_action_tests_language.ps1 -language "Julia" -variants ("Julia") -format "better"
 
 # Kotlin
-test\bin\run_action_tests_language.ps1 -language "Kotlin" -variants ("Kotlin")
+test\bin\run_action_tests_language.ps1 -language "Kotlin" -variants ("Kotlin") -format "better"
 
 # Latino
-test\bin\run_action_tests_language.ps1 -language "Latino" -variants ("Latino")
+test\bin\run_action_tests_language.ps1 -language "Latino" -variants ("Latino") -format "better"
 
 # Lua
-test\bin\run_action_tests_language.ps1 -language "Lua" -variants ("Lua")
+test\bin\run_action_tests_language.ps1 -language "Lua" -variants ("Lua") -format "better"
 
 # Matlab and Octave
-test\bin\run_action_tests_language.ps1 -language "Matlab" -variants ("Matlab", "Octave")
+test\bin\run_action_tests_language.ps1 -language "Matlab" -variants ("Matlab", "Octave") -format "better"
 
 # OCaml
-test\bin\run_action_tests_language.ps1 -language "ML" -variants ("OCaml")
+test\bin\run_action_tests_language.ps1 -language "ML" -variants ("OCaml") -format "better"
 
 # Pascal and Delphi and Modula-2
-test\bin\run_action_tests_language.ps1 -language "Pascal" -variants ("Pascal", "Delphi", "Modula-2")
+test\bin\run_action_tests_language.ps1 -language "Pascal" -variants ("Pascal", "Delphi", "Modula-2") -format "better"
 
 # Perl
-test\bin\run_action_tests_language.ps1 -language "Perl" -variants ("Perl")
+test\bin\run_action_tests_language.ps1 -language "Perl" -variants ("Perl") -format "better"
 
 # PL/1 and PL/M
-test\bin\run_action_tests_language.ps1 -language "PL1" -variants ("PL1", "PLM")
+test\bin\run_action_tests_language.ps1 -language "PL1" -variants ("PL1", "PLM") -format "better"
 
 # Prolog
-test\bin\run_action_tests_language.ps1 -language "Prolog" -variants ("Prolog")
+test\bin\run_action_tests_language.ps1 -language "Prolog" -variants ("Prolog") -format "better"
 
 # Python
-test\bin\run_action_tests_language.ps1 -language "Python" -variants ("Python")
+test\bin\run_action_tests_language.ps1 -language "Python" -variants ("Python") -format "better"
 
 # R
-test\bin\run_action_tests_language.ps1 -language "R" -variants ("R")
+test\bin\run_action_tests_language.ps1 -language "R" -variants ("R") -format "better"
 
 # Ruby
-test\bin\run_action_tests_language.ps1 -language "Ruby" -variants ("Ruby")
+test\bin\run_action_tests_language.ps1 -language "Ruby" -variants ("Ruby") -format "better"
 
 # Rust
-test\bin\run_action_tests_language.ps1 -language "Rust" -variants ("Rust")
+test\bin\run_action_tests_language.ps1 -language "Rust" -variants ("Rust") -format "better"
 
 # Scala
-test\bin\run_action_tests_language.ps1 -language "Scala" -variants ("Scala")
+test\bin\run_action_tests_language.ps1 -language "Scala" -variants ("Scala") -format "better"
 
 # SQL, PL/SQL, and T-SQL
-test\bin\run_action_tests_language.ps1 -language "SQL" -variants ("SQL", "PL-SQL", "T-SQL")
+test\bin\run_action_tests_language.ps1 -language "SQL" -variants ("SQL", "PL-SQL", "T-SQL") -format "better"
 
 # Swift
-test\bin\run_action_tests_language.ps1 -language "Swift" -variants ("Swift")
+test\bin\run_action_tests_language.ps1 -language "Swift" -variants ("Swift") -format "better"
 
 # Visual Basic
-test\bin\run_action_tests_language.ps1 -language "VisualBasic" -variants ("VisualBasic-6", "VisualBasic-NET")
+test\bin\run_action_tests_language.ps1 -language "VisualBasic" -variants ("VisualBasic-6", "VisualBasic-NET") -format "better"
 
 # Polyglot programs
 # test\bin\run_test.ps1 -json -name polyglot-c-78 -action $action -language C-78 -inputfile ".\test\data\multiple\polyglot.txt" -expected ".\test\ref\$action\C-78\polyglot.txt"

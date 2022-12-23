@@ -1,7 +1,8 @@
 Param
 (
     [string]$language,
-    [string]$variant
+    [string]$variant,
+    [string]$format
 )
 
 if (Test-Path -Path ".\test\ref\$action\$language\$variant") {
@@ -11,5 +12,5 @@ if (Test-Path -Path ".\test\ref\$action\$language\$variant") {
 
 Get-ChildItem ".\test\data\$language" | ForEach-Object {
     $filename = $_.BaseName + $_.Extension
-    test\bin\run_action_test_file.ps1 -json -name $filename-$language-$variant -action $action -language $variant -inputfile ".\test\data\$language\$filename" -expected ".\test\ref\$action\$language\$variant\$filename.txt"
+    test\bin\run_action_test_file.ps1 -json -name $filename-$language-$variant -action $action -language $variant -inputfile ".\test\data\$language\$filename" -expected ".\test\ref\$action\$language\$variant\$filename.txt" -format $format
 }
