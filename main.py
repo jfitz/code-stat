@@ -172,7 +172,7 @@ def extract_params(request_args):
   return languages, comment, tab_size, format
 
 
-def find_winners(text, tab_size, comment, block_comment_limit, languages, format):
+def find_winners(text, format, tab_size, comment, block_comment_limit, languages):
   tiebreak_keywords = False
   tiebreak_tokens = False
   tiebreak_simple = False
@@ -199,12 +199,12 @@ def build_language_list(languages, text, format, tab_size, comment, block_commen
 
   if len(languages) > 0:
     # detect for specified languages, pick the most confident
-    winning_languages, examiners = find_winners(text, tab_size, comment, block_comment_limit, languages, format)
+    winning_languages, examiners = find_winners(text, format, tab_size, comment, block_comment_limit, languages)
   else:
     # tokenize as generic
     winning_languages = ['generic']
     examiners = {}
-    examiner = make_one_examiner('generic', text, tab_size, comment, block_comment_limit)
+    examiner = make_one_examiner('generic', text, format, tab_size, comment, block_comment_limit)
     examiners['generic'] = examiner
 
   return winning_languages, examiners
@@ -709,7 +709,7 @@ def route_unwrap():
 
 @app.route('/detect', methods=['POST'])
 def route_detect():
-  languages, comment, tab_size, source_format = extract_params(request.args)
+  languages, comment, tab_size, format = extract_params(request.args)
 
   if len(languages) == 0:
     languages = list(codes_and_names.keys())
@@ -954,7 +954,7 @@ def truncate_lines(text, width):
   return truncated_lines
 
 
-def make_one_examiner(language, code, tab_size, comment, block_comment_limit):
+def make_one_examiner(language, code, format, tab_size, comment, block_comment_limit):
   examiner = None
 
   if language in ['generic']:
@@ -988,40 +988,40 @@ def make_one_examiner(language, code, tab_size, comment, block_comment_limit):
     examiner = AssemblyIBMExaminer(code, tab_size, 'system-z')
 
   if language in ['asm-1802']:
-    examiner = AssemblyExaminer(code, tab_size, '1802')
+    examiner = AssemblyExaminer(code, tab_size, '1802', format)
 
   if language in ['asm-6502']:
-    examiner = AssemblyExaminer(code, tab_size, '6502')
+    examiner = AssemblyExaminer(code, tab_size, '6502', format)
 
   if language in ['asm-6800']:
-    examiner = AssemblyExaminer(code, tab_size, '6800')
+    examiner = AssemblyExaminer(code, tab_size, '6800', format)
 
   if language in ['asm-68000']:
-    examiner = AssemblyExaminer(code, tab_size, '68000')
+    examiner = AssemblyExaminer(code, tab_size, '68000', format)
 
   if language in ['asm-8080']:
-    examiner = AssemblyExaminer(code, tab_size, '8080')
+    examiner = AssemblyExaminer(code, tab_size, '8080', format)
 
   if language in ['asm-z-80']:
-    examiner = AssemblyExaminer(code, tab_size, 'z80')
+    examiner = AssemblyExaminer(code, tab_size, 'z80', format)
 
   if language in ['asm-8086', 'asm-8088']:
-    examiner = AssemblyExaminer(code, tab_size, '8086')
+    examiner = AssemblyExaminer(code, tab_size, '8086', format)
 
   if language in ['asm-80286']:
-    examiner = AssemblyExaminer(code, tab_size, '80286')
+    examiner = AssemblyExaminer(code, tab_size, '80286', format)
 
   if language in ['asm-80386', '80388']:
-    examiner = AssemblyExaminer(code, tab_size, '80386')
+    examiner = AssemblyExaminer(code, tab_size, '80386', format)
 
   if language in ['asm-80486', 'asm-80488']:
-    examiner = AssemblyExaminer(code, tab_size, '80486')
+    examiner = AssemblyExaminer(code, tab_size, '80486', format)
 
   if language in ['asm-pdp-8']:
-    examiner = AssemblyExaminer(code, tab_size, 'pdp-8')
+    examiner = AssemblyExaminer(code, tab_size, 'pdp-8', format)
 
   if language in ['asm-pdp-11']:
-    examiner = AssemblyExaminer(code, tab_size, 'pdp-11')
+    examiner = AssemblyExaminer(code, tab_size, 'pdp-11', format)
 
   if language in ['awk']:
     examiner = AwkExaminer(code, '')
@@ -1270,40 +1270,40 @@ def make_multiple_examiners(code, format, tab_size, comment, block_comment_limit
     examiners['asm-system-z'] = AssemblyIBMExaminer(code, tab_size, 'system-z', format)
 
   if 'asm-1802' in languages:
-    examiners['asm-1802'] = AssemblyExaminer(code, tab_size, '1802')
+    examiners['asm-1802'] = AssemblyExaminer(code, tab_size, '1802', format)
 
   if 'asm-6502' in languages:
-    examiners['asm-6502'] = AssemblyExaminer(code, tab_size, '6502')
+    examiners['asm-6502'] = AssemblyExaminer(code, tab_size, '6502', format)
 
   if 'asm-6800' in languages:
-    examiners['asm-6800'] = AssemblyExaminer(code, tab_size, '6800')
+    examiners['asm-6800'] = AssemblyExaminer(code, tab_size, '6800', format)
 
   if 'asm-68000' in languages:
-    examiners['asm-68000'] = AssemblyExaminer(code, tab_size, '68000')
+    examiners['asm-68000'] = AssemblyExaminer(code, tab_size, '68000', format)
 
   if 'asm-8080' in languages:
-    examiners['asm-8080'] = AssemblyExaminer(code, tab_size, '8080')
+    examiners['asm-8080'] = AssemblyExaminer(code, tab_size, '8080', format)
 
   if 'asm-z-80' in languages:
-    examiners['asm-z-80'] = AssemblyExaminer(code, tab_size, 'z80')
+    examiners['asm-z-80'] = AssemblyExaminer(code, tab_size, 'z80', format)
 
   if 'asm-8086' in languages or 'asm-8088' in languages:
-    examiners['asm-8086'] = AssemblyExaminer(code, tab_size, '8086')
+    examiners['asm-8086'] = AssemblyExaminer(code, tab_size, '8086', format)
 
   if 'asm-80286' in languages:
-    examiners['asm-80286'] = AssemblyExaminer(code, tab_size, '80286')
+    examiners['asm-80286'] = AssemblyExaminer(code, tab_size, '80286', format)
 
   if 'asm-80386' in languages or 'asm-80388' in languages:
-    examiners['asm-80386'] = AssemblyExaminer(code, tab_size, '80386')
+    examiners['asm-80386'] = AssemblyExaminer(code, tab_size, '80386', format)
 
   if 'asm-80486' in languages or 'asm-80488' in languages:
-    examiners['asm-80486'] = AssemblyExaminer(code, tab_size, '80486')
+    examiners['asm-80486'] = AssemblyExaminer(code, tab_size, '80486', format)
 
   if 'asm-pdp-8' in languages:
-    examiners['asm-pdp-8'] = AssemblyExaminer(code, tab_size, 'pdp-8')
+    examiners['asm-pdp-8'] = AssemblyExaminer(code, tab_size, 'pdp-8', format)
 
   if 'asm-pdp-11' in languages:
-    examiners['asm-pdp-11'] = AssemblyExaminer(code, tab_size, 'pdp-11')
+    examiners['asm-pdp-11'] = AssemblyExaminer(code, tab_size, 'pdp-11', format)
 
   if 'awk' in languages:
     examiners['awk'] = AwkExaminer(code, '')
@@ -1686,10 +1686,10 @@ def unwrap_lines(text, language):
   return unwrapped_text
 
 
-def tokenize(code, language, tab_size, comment, block_comment_limit):
+def tokenize(code, format, language, tab_size, comment, block_comment_limit):
   retval = []
 
-  examiner = make_one_examiner(language, code, tab_size, comment, block_comment_limit)
+  examiner = make_one_examiner(language, code, format, tab_size, comment, block_comment_limit)
 
   if examiner is not None:
     retval = examiner.tokens
@@ -1697,10 +1697,10 @@ def tokenize(code, language, tab_size, comment, block_comment_limit):
   return retval
 
 
-def tokenize_confidence(code, language, tab_size, get_errors, comment, block_comment_limit):
+def tokenize_confidence(code, format, language, tab_size, get_errors, comment, block_comment_limit):
   retval = []
 
-  examiner = make_one_examiner(language, code, tab_size, comment, block_comment_limit)
+  examiner = make_one_examiner(language, code, format, tab_size, comment, block_comment_limit)
 
   if examiner is not None:
     if get_errors:
@@ -1711,10 +1711,10 @@ def tokenize_confidence(code, language, tab_size, get_errors, comment, block_com
   return retval
 
 
-def tokenize_statistics(code, language, tab_size, comment, block_comment_limit):
+def tokenize_statistics(code, format, language, tab_size, comment, block_comment_limit):
   retval = []
 
-  examiner = make_one_examiner(language, code, tab_size, comment, block_comment_limit)
+  examiner = make_one_examiner(language, code, format, tab_size, comment, block_comment_limit)
 
   if examiner is not None:
     retval = examiner.statistics
@@ -1738,8 +1738,8 @@ if __name__ == '__main__':
     tab_size = 4
     comment = ''
     block_comment_limit = 2048
-    # tokenize(code, language, tab_size, comment, block_comment_limit)
-    cProfile.run("tokenize(code, language, tab_size, comment, block_comment_limit)")
+    # tokenize(code, format, language, tab_size, comment, block_comment_limit)
+    cProfile.run("tokenize(code, format, language, tab_size, comment, block_comment_limit)")
   else:
     if args.confidence is not None:
       print('Confidencing file ' + args.confidence)
@@ -1750,7 +1750,7 @@ if __name__ == '__main__':
       tab_size = 4
       comment = ''
       block_comment_limit = 2048
-      cProfile.run("tokenize_confidence(code, language, False, tab_size, comment, block_comment_limit)")
+      cProfile.run("tokenize_confidence(code, format, language, False, tab_size, comment, block_comment_limit)")
     else:
       if args.detect is not None:
         print('Detecting file ' + args.detect)

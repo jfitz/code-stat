@@ -414,13 +414,28 @@ class FortranExaminer(Examiner):
         factor = confidences_fixed[key]
         confidence_fixed *= factor
 
-    # select the better of free-format and spaced-format
-    if confidence_fixed > confidence_free:
+    if format == 'better':
+      # select the better of free-format and spaced-format
+      if confidence_fixed > confidence_free:
+        self.tokens = tokens_fixed
+        self.statistics = statistics_fixed
+        self.confidences = confidences_fixed
+        self.errors = errors_fixed
+      else:
+        self.tokens = tokens_free
+        self.statistics = statistics_free
+        self.confidences = confidences_free
+        self.errors = errors_free
+
+    if format == 'fixed':
+      # select the fixed-format values
       self.tokens = tokens_fixed
       self.statistics = statistics_fixed
       self.confidences = confidences_fixed
       self.errors = errors_fixed
-    else:
+
+    if format == 'free':
+      # select the free-format values
       self.tokens = tokens_free
       self.statistics = statistics_free
       self.confidences = confidences_free

@@ -42,7 +42,7 @@ class AssemblyGenericExaminer(Examiner):
     return 'Escape ?Z'
 
 
-  def __init__(self, code, tab_size):
+  def __init__(self, code, tab_size, format):
     super().__init__()
 
     operand_types = []
@@ -222,7 +222,6 @@ class AssemblyGenericExaminer(Examiner):
     errors_space = self.errors
     self.errors = []
 
-    # select the better of free-format and spaced-format
     confidence_free = 1.0
     for key in confidences_free:
       factor = confidences_free[key]
@@ -233,12 +232,28 @@ class AssemblyGenericExaminer(Examiner):
       factor = confidences_space[key]
       confidence_space *= factor
 
-    if confidence_space > confidence_free:
+    if format == 'better':
+      # select the better of free-format and spaced-format
+      if confidence_space > confidence_free:
+        self.tokens = tokens_space
+        self.statistics = statistics_space
+        self.confidences = confidences_space
+        self.errors = errors_space
+      else:
+        self.tokens = tokens_free
+        self.statistics = statistics_free
+        self.confidences = confidences_free
+        self.errors = errors_free
+
+    if format == 'fixed':
+      # select the fixed-format values
       self.tokens = tokens_space
       self.statistics = statistics_space
       self.confidences = confidences_space
       self.errors = errors_space
-    else:
+
+    if format == 'free':
+      # select the free-format values
       self.tokens = tokens_free
       self.statistics = statistics_free
       self.confidences = confidences_free

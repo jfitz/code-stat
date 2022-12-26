@@ -392,7 +392,7 @@ class AssemblyIBMExaminer(Examiner):
     self.convert_asm_keywords_to_identifiers()
 
     self.calc_statistics()
-    statistics1 = self.statistics
+    statistics_free = self.statistics
     self.statistics = {}
 
     self.calc_confidences(operand_types, group_starts, group_mids, group_ends, None)
@@ -424,7 +424,7 @@ class AssemblyIBMExaminer(Examiner):
     self.convert_asm_keywords_to_identifiers()
 
     self.calc_statistics()
-    statistics2 = self.statistics
+    statistics_space = self.statistics
     self.statistics = {}
 
     self.calc_confidences(operand_types, group_starts, group_mids, group_ends, indents)
@@ -447,14 +447,30 @@ class AssemblyIBMExaminer(Examiner):
       factor = confidences_space[key]
       confidence_space *= factor
 
-    if confidence_space > confidence_free:
+    if format == 'better':
+      # select the better of free-format and spaced-format
+      if confidence_space > confidence_free:
+        self.tokens = tokens_space
+        self.statistics = statistics_space
+        self.confidences = confidences_space
+        self.errors = errors_space
+      else:
+        self.tokens = tokens_free
+        self.statistics = statistics_free
+        self.confidences = confidences_free
+        self.errors = errors_free
+
+    if format == 'fixed':
+      # select the fixed-format values
       self.tokens = tokens_space
-      self.statistics = statistics2
+      self.statistics = statistics_space
       self.confidences = confidences_space
       self.errors = errors_space
-    else:
+
+    if format == 'free':
+      # select the free-format values
       self.tokens = tokens_free
-      self.statistics = statistics1
+      self.statistics = statistics_free
       self.confidences = confidences_free
       self.errors = errors_free
 
