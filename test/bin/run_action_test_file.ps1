@@ -5,7 +5,7 @@ Param
     [string]$comment,
     [switch]$wide,
     [string]$action,
-    [switch]$format,
+    [string]$format,
     [string]$inputfile,
     [string]$expected,
     [switch]$json,

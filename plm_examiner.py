@@ -358,6 +358,8 @@ class PLMExaminer(Examiner):
     self.tokens = tokens_free
 
     self.calc_statistics()
+    self.statistics['format'] = 'free'
+    statistics_free = self.statistics.copy()
 
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
@@ -384,12 +386,9 @@ class PLMExaminer(Examiner):
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_line_length_confidence(code, self.max_expected_line)
 
-    statistics_free = self.statistics
-    self.statistics = {}
-
-    confidences_free = self.confidences
+    confidences_free = self.confidences.copy()
     self.confidences = {}
-    errors_free = self.errors
+    errors_free = self.errors.copy()
     self.errors = []
 
     # tokenize as fixed-format
@@ -451,6 +450,8 @@ class PLMExaminer(Examiner):
     self.tokens = tokens_fixed
 
     self.calc_statistics()
+    self.statistics['format'] = 'fixed'
+    statistics_fixed = self.statistics.copy()
 
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
@@ -478,12 +479,9 @@ class PLMExaminer(Examiner):
     self.calc_line_length_confidence(code, self.max_expected_line)
     self.calc_line_description_confidence()
 
-    statistics_fixed = self.statistics
-    self.statistics = {}
-
-    confidences_fixed = self.confidences
+    confidences_fixed = self.confidences.copy()
     self.confidences = {}
-    errors_fixed = self.errors
+    errors_fixed = self.errors.copy()
     self.errors = []
 
     # compute confidence for free-format and fixed-format

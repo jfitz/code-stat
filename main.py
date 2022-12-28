@@ -973,19 +973,19 @@ def make_one_examiner(language, code, format, tab_size, comment, block_comment_l
     examiner = AdaExaminer(code, '2012')
 
   if language in ['assembly']:
-    examiner = AssemblyGenericExaminer(code, tab_size)
+    examiner = AssemblyGenericExaminer(code, tab_size, format)
 
   if language in ['asm-360']:
-    examiner = AssemblyIBMExaminer(code, tab_size, '360')
+    examiner = AssemblyIBMExaminer(code, tab_size, '360', format)
 
   if language in ['asm-370']:
-    examiner = AssemblyIBMExaminer(code, tab_size, '370')
+    examiner = AssemblyIBMExaminer(code, tab_size, '370', format)
 
   if language in ['asm-390']:
-    examiner = AssemblyIBMExaminer(code, tab_size, '390')
+    examiner = AssemblyIBMExaminer(code, tab_size, '390', format)
 
   if language in ['asm-system-z']:
-    examiner = AssemblyIBMExaminer(code, tab_size, 'system-z')
+    examiner = AssemblyIBMExaminer(code, tab_size, 'system-z', format)
 
   if language in ['asm-1802']:
     examiner = AssemblyExaminer(code, tab_size, '1802', format)
@@ -1057,28 +1057,28 @@ def make_one_examiner(language, code, format, tab_size, comment, block_comment_l
     examiner = CBasicExaminer(code)
 
   if language in ['cobol-68']:
-    examiner = CobolExaminer(code, '68', '', tab_size)
+    examiner = CobolExaminer(code, '68', '', tab_size, format)
 
   if language in ['cobol-74']:
-    examiner = CobolExaminer(code, '74', '', tab_size)
+    examiner = CobolExaminer(code, '74', '', tab_size, format)
 
   if language in ['cobol-85']:
-    examiner = CobolExaminer(code, '85', '', tab_size)
+    examiner = CobolExaminer(code, '85', '', tab_size, format)
 
   if language in ['cobol-2002']:
-    examiner = CobolExaminer(code, '2002', '', tab_size)
+    examiner = CobolExaminer(code, '2002', '', tab_size, format)
 
   if language in ['cobol-2014', 'cobol']:
-    examiner = CobolExaminer(code, '2014', '', tab_size)
+    examiner = CobolExaminer(code, '2014', '', tab_size, format)
 
   if language in ['cobol-2014-acu']:
-    examiner = CobolExaminer(code, '2014', 'acu', tab_size)
+    examiner = CobolExaminer(code, '2014', 'acu', tab_size, format)
 
   if language in ['cobol-2014-ibm']:
-    examiner = CobolExaminer(code, '2014', 'ibm', tab_size)
+    examiner = CobolExaminer(code, '2014', 'ibm', tab_size, format)
 
   if language in ['cobol-2014-gnu']:
-    examiner = CobolExaminer(code, '2014', 'gnu', tab_size)
+    examiner = CobolExaminer(code, '2014', 'gnu', tab_size, format)
 
   if language in ['coffeescript', 'coffee']:
     examiner = CoffeeScriptExaminer(code)
@@ -1111,22 +1111,22 @@ def make_one_examiner(language, code, format, tab_size, comment, block_comment_l
     examiner = FlowmaticExaminer(code)
 
   if language in ['fortran-66']:
-    examiner = FortranExaminer(code, '66', tab_size)
+    examiner = FortranExaminer(code, '66', tab_size, format)
 
   if language in ['fortran-77', 'f77']:
-    examiner = FortranExaminer(code, '77', tab_size)
+    examiner = FortranExaminer(code, '77', tab_size, format)
 
   if language in ['fortran-90', 'f90']:
-    examiner = FortranExaminer(code, '90', tab_size)
+    examiner = FortranExaminer(code, '90', tab_size, format)
 
   if language in ['fortran-95', 'f95']:
-    examiner = FortranExaminer(code, '95', tab_size)
+    examiner = FortranExaminer(code, '95', tab_size, format)
 
   if language in ['fortran-2003', 'fortran', 'f03']:
-    examiner = FortranExaminer(code, '2003', tab_size)
+    examiner = FortranExaminer(code, '2003', tab_size, format)
 
   if language in ['fortran-2008', 'fortran', 'f08', 'for', 'ftn']:
-    examiner = FortranExaminer(code, '2008', tab_size)
+    examiner = FortranExaminer(code, '2008', tab_size, format)
 
   if language in ['fsharp', 'fs']:
     examiner = MlExaminer(code, 'fsharp')
@@ -1186,10 +1186,10 @@ def make_one_examiner(language, code, format, tab_size, comment, block_comment_l
     examiner = PerlExaminer(code)
 
   if language in ['pl1']:
-    examiner = PL1Examiner(code, tab_size)
+    examiner = PL1Examiner(code, tab_size, format)
 
   if language in ['plm']:
-    examiner = PLMExaminer(code, tab_size)
+    examiner = PLMExaminer(code, tab_size, format)
 
   if language in ['prolog']:
     examiner = PrologExaminer(code)
@@ -1255,7 +1255,7 @@ def make_multiple_examiners(code, format, tab_size, comment, block_comment_limit
     examiners['ada-2012'] = AdaExaminer(code, '2012')
 
   if 'assembly' in languages:
-    examiners['assembly'] = AssemblyGenericExaminer(code, tab_size)
+    examiners['assembly'] = AssemblyGenericExaminer(code, tab_size, format)
 
   if 'asm-360' in languages:
     examiners['asm-360'] = AssemblyIBMExaminer(code, tab_size, '360', format)
@@ -1638,6 +1638,7 @@ def identify_language(code, format, tab_size, comment, block_comment_limit, tieb
 
 def unwrap_lines(text, language):
   # only the fixed-format versions can be unwrapped
+  format = 'fixed'
   cobol_names = ['cobol', 'cobol-68', 'cobol-74', 'cobol-85']
   fortran_names = ['fortran', 'fortran-66', 'fortran-77']
   pl1_names = ['pl1']
@@ -1645,17 +1646,17 @@ def unwrap_lines(text, language):
   unwrapped_text = text
 
   if language in fortran_names:
-    examiner = FortranExaminer(text, '77', 8, False)
+    examiner = FortranExaminer(text, '77', 8, False, format)
     lines = split_lines(text)
     unwrapped_text = examiner.unwrapped_code(lines)
 
   if language in cobol_names:
-    examiner = CobolExaminer(text, '85', '', 8, False)
+    examiner = CobolExaminer(text, '85', '', 8, False, format)
     lines = split_lines(text)
     unwrapped_text = examiner.unwrapped_code(lines)
 
   if language in pl1_names:
-    examiner = PL1Examiner(text, 8, False)
+    examiner = PL1Examiner(text, 8, False, format)
     lines = split_lines(text)
     unwrapped_text = examiner.unwrapped_code(lines)
 

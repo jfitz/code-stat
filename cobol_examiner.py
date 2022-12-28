@@ -489,6 +489,8 @@ class CobolExaminer(Examiner):
     self.convert_numbers_to_levels()
 
     self.calc_statistics()
+    self.statistics['format'] = 'free'
+    statistics_free = self.statistics.copy()
 
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
@@ -516,12 +518,9 @@ class CobolExaminer(Examiner):
     expected_keyword_confidence = self.check_expected_keywords()
     self.confidences['expected_keywords'] = expected_keyword_confidence
 
-    statistics_free = self.statistics
-    self.statistics = {}
-
-    confidences_free = self.confidences
+    confidences_free = self.confidences.copy()
     self.confidences = {}
-    errors_free = self.errors
+    errors_free = self.errors.copy()
     self.errors = []
 
     tokenbuilders_fixed = [
@@ -565,6 +564,8 @@ class CobolExaminer(Examiner):
     self.convert_numbers_to_levels()
 
     self.calc_statistics()
+    self.statistics['format'] = 'fixed'
+    statistics_fixed = self.statistics.copy()
 
     tokens = self.source_tokens()
     tokens = Examiner.join_all_lines(tokens)
@@ -593,12 +594,9 @@ class CobolExaminer(Examiner):
     expected_keyword_confidence = self.check_expected_keywords()
     self.confidences['expected_keywords'] = expected_keyword_confidence
 
-    statistics_fixed = self.statistics
-    self.statistics = {}
-
-    confidences_fixed = self.confidences
+    confidences_fixed = self.confidences.copy()
     self.confidences = {}
-    errors_fixed = self.errors
+    errors_fixed = self.errors.copy()
     self.errors = []
 
     # compute confidence for free-format and fixed-format

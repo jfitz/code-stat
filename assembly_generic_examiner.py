@@ -182,15 +182,15 @@ class AssemblyGenericExaminer(Examiner):
     self.convert_asm_identifiers_to_labels()
 
     self.calc_statistics()
-    statistics_free = self.statistics
-    self.statistics = {}
+    self.statistics['format'] = 'free'
+    statistics_free = self.statistics.copy()
 
     self.calc_confidences(operand_types, group_starts, group_mids, group_ends, None)
     self.calc_line_length_confidence(code, self.max_expected_line)
 
-    confidences_free = self.confidences
+    confidences_free = self.confidences.copy()
     self.confidences = {}
-    errors_free = self.errors
+    errors_free = self.errors.copy()
     self.errors = []
 
     # tokenize as space-format
@@ -211,15 +211,15 @@ class AssemblyGenericExaminer(Examiner):
     self.convert_asm_identifiers_to_labels()
 
     self.calc_statistics()
-    statistics_space = self.statistics
-    self.statistics = {}
+    self.statistics['format'] = 'space'
+    statistics_space = self.statistics.copy()
 
     self.calc_confidences(operand_types, group_starts, group_mids, group_ends, indents)
     self.calc_line_length_confidence(code, self.max_expected_line)
 
-    confidences_space = self.confidences
+    confidences_space = self.confidences.copy()
     self.confidences = {}
-    errors_space = self.errors
+    errors_space = self.errors.copy()
     self.errors = []
 
     confidence_free = 1.0
