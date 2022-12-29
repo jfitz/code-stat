@@ -5,7 +5,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"jcl",
@@ -13,7 +13,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"jcl",
@@ -21,39 +21,15 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"PROCESS"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"NOOPT"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"identifier",
-        "value":"STMT"
+        "type":"comment",
+        "value":"* PROCESS NOOPT,STMT"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -97,15 +73,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                       "
+        "value":"                                    "
     },
     {
-        "type":"number",
-        "value":"0102"
+        "type":"line identification",
+        "value":"   0102"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -113,19 +89,143 @@
     },
     {
         "type":"comment",
-        "value":"/*       THE FOLLOWING DECLARE STATEMENT IS IMPLEMENTATION      0103\r\n           DEPENDENT.  THIS PARTICULAR SYNTHETIC JOB IS A SEQUENTIAL       0104\r\n           TAPE UPDATE OF MASTER RECORDS FROM DETAIL TRANSACTIONS.         0105\r\n           THE PROGRAM IS SELF-TIMING AND ITS PROPERTIES (I/O              0106\r\n           & COMPUTE FUNCTIONS) CAN BE VARIED SINCE THEY ARE PARAMETER-    0107\r\n           IZED TO ALLOW PERFORMANCE MEASUREMENT UNDER CONTROLLED COND-    0108\r\n           ITIONS.                                                         0109\r\n                    IF SPECIFIED, THE PROGRAM WILL GENERATE THE MASTER     0110\r\n           AND DETAIL TAPES TO BE USED IN THE SIMULATION.             */"
+        "value":"/*       THE FOLLOWING DECLARE STATEMENT IS IMPLEMENTATION   "
     },
     {
-        "type":"whitespace",
-        "value":"   "
-    },
-    {
-        "type":"number",
-        "value":"0111"
+        "type":"line identification",
+        "value":"   0103"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"          DEPENDENT.  THIS PARTICULAR SYNTHETIC JOB IS A SEQUENTIAL    "
+    },
+    {
+        "type":"line identification",
+        "value":"   0104"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"          TAPE UPDATE OF MASTER RECORDS FROM DETAIL TRANSACTIONS.      "
+    },
+    {
+        "type":"line identification",
+        "value":"   0105"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"          THE PROGRAM IS SELF-TIMING AND ITS PROPERTIES (I/O           "
+    },
+    {
+        "type":"line identification",
+        "value":"   0106"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"          & COMPUTE FUNCTIONS) CAN BE VARIED SINCE THEY ARE PARAMETER- "
+    },
+    {
+        "type":"line identification",
+        "value":"   0107"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"          IZED TO ALLOW PERFORMANCE MEASUREMENT UNDER CONTROLLED COND- "
+    },
+    {
+        "type":"line identification",
+        "value":"   0108"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"          ITIONS.                                                      "
+    },
+    {
+        "type":"line identification",
+        "value":"   0109"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"                   IF SPECIFIED, THE PROGRAM WILL GENERATE THE MASTER  "
+    },
+    {
+        "type":"line identification",
+        "value":"   0110"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"          AND DETAIL TAPES TO BE USED IN THE SIMULATION.             */"
+    },
+    {
+        "type":"line identification",
+        "value":"   0111"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -137,15 +237,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                                         "
+        "value":"                                                      "
     },
     {
-        "type":"number",
-        "value":"0112"
+        "type":"line identification",
+        "value":"   0112"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -173,7 +273,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -253,7 +353,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -289,15 +389,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                     "
+        "value":"                                  "
     },
     {
-        "type":"number",
-        "value":"0114"
+        "type":"line identification",
+        "value":"   0114"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -377,15 +477,15 @@
     },
     {
         "type":"whitespace",
-        "value":"           "
+        "value":"        "
     },
     {
-        "type":"number",
-        "value":"0114"
+        "type":"line identification",
+        "value":"   0114"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -421,15 +521,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                     "
+        "value":"                                  "
     },
     {
-        "type":"number",
-        "value":"0115"
+        "type":"line identification",
+        "value":"   0115"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -509,7 +609,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -545,15 +645,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                    "
+        "value":"                                 "
     },
     {
-        "type":"number",
-        "value":"0116"
+        "type":"line identification",
+        "value":"   0116"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -633,15 +733,15 @@
     },
     {
         "type":"whitespace",
-        "value":"          "
+        "value":"        "
     },
     {
-        "type":"number",
-        "value":"01"
+        "type":"line identification",
+        "value":"  01"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -677,15 +777,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                    "
+        "value":"                                 "
     },
     {
-        "type":"number",
-        "value":"0117"
+        "type":"line identification",
+        "value":"   0117"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -765,15 +865,15 @@
     },
     {
         "type":"whitespace",
-        "value":"           "
+        "value":"        "
     },
     {
-        "type":"number",
-        "value":"0114"
+        "type":"line identification",
+        "value":"   0114"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -809,15 +909,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                    "
+        "value":"                                 "
     },
     {
-        "type":"number",
-        "value":"0118"
+        "type":"line identification",
+        "value":"   0118"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -893,15 +993,15 @@
     },
     {
         "type":"whitespace",
-        "value":"            "
+        "value":"         "
     },
     {
-        "type":"number",
-        "value":"0114"
+        "type":"line identification",
+        "value":"   0114"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -937,15 +1037,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                    "
+        "value":"                                 "
     },
     {
-        "type":"number",
-        "value":"011"
+        "type":"line identification",
+        "value":"   011"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -1025,15 +1125,15 @@
     },
     {
         "type":"whitespace",
-        "value":"           "
+        "value":"        "
     },
     {
-        "type":"number",
-        "value":"0114"
+        "type":"line identification",
+        "value":"   0114"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -1044,16 +1144,12 @@
         "value":"/*       NEXT DECLARE DEFINES TYPE OF KERNEL ARITHMETIC.   */"
     },
     {
-        "type":"whitespace",
-        "value":"   "
-    },
-    {
-        "type":"number",
-        "value":"0120"
+        "type":"line identification",
+        "value":"   0120"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -1065,15 +1161,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                                         "
+        "value":"                                                      "
     },
     {
-        "type":"number",
-        "value":"0121"
+        "type":"line identification",
+        "value":"   0121"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -1161,15 +1257,15 @@
     },
     {
         "type":"whitespace",
-        "value":"             "
+        "value":"          "
     },
     {
-        "type":"number",
-        "value":"0122"
+        "type":"line identification",
+        "value":"   0122"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -1181,15 +1277,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                                         "
+        "value":"                                                      "
     },
     {
-        "type":"number",
-        "value":"0123"
+        "type":"line identification",
+        "value":"   0123"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -1309,15 +1405,15 @@
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"  "
     },
     {
-        "type":"number",
-        "value":"0124"
+        "type":"line identification",
+        "value":"   0124"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -1409,15 +1505,15 @@
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"  "
     },
     {
-        "type":"number",
-        "value":"0125"
+        "type":"line identification",
+        "value":"   0125"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -1433,15 +1529,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                                     "
+        "value":"                                                  "
     },
     {
-        "type":"number",
-        "value":"0126"
+        "type":"line identification",
+        "value":"   0126"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -1489,15 +1585,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                         "
+        "value":"                      "
     },
     {
-        "type":"number",
-        "value":"0127"
+        "type":"line identification",
+        "value":"   0127"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -1561,15 +1657,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                 "
+        "value":"              "
     },
     {
-        "type":"number",
-        "value":"0128"
+        "type":"line identification",
+        "value":"   0128"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -1609,15 +1705,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                 "
+        "value":"                              "
     },
     {
-        "type":"number",
-        "value":"0201"
+        "type":"line identification",
+        "value":"   0201"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -1661,15 +1757,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                               "
+        "value":"                            "
     },
     {
-        "type":"number",
-        "value":"0202"
+        "type":"line identification",
+        "value":"   0202"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -1721,15 +1817,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                          "
+        "value":"                       "
     },
     {
-        "type":"number",
-        "value":"0203"
+        "type":"line identification",
+        "value":"   0203"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -1781,15 +1877,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                          "
+        "value":"                       "
     },
     {
-        "type":"number",
-        "value":"0204"
+        "type":"line identification",
+        "value":"   0204"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -1849,15 +1945,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                         "
+        "value":"                      "
     },
     {
-        "type":"number",
-        "value":"0205"
+        "type":"line identification",
+        "value":"   0205"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -1897,15 +1993,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                 "
+        "value":"                              "
     },
     {
-        "type":"number",
-        "value":"0206"
+        "type":"line identification",
+        "value":"   0206"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -1949,15 +2045,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                               "
+        "value":"                            "
     },
     {
-        "type":"number",
-        "value":"0207"
+        "type":"line identification",
+        "value":"   0207"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -2009,15 +2105,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                          "
+        "value":"                       "
     },
     {
-        "type":"number",
-        "value":"0208"
+        "type":"line identification",
+        "value":"   0208"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -2069,15 +2165,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                          "
+        "value":"                       "
     },
     {
-        "type":"number",
-        "value":"0209"
+        "type":"line identification",
+        "value":"   0209"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -2137,15 +2233,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                         "
+        "value":"                      "
     },
     {
-        "type":"number",
-        "value":"0210"
+        "type":"line identification",
+        "value":"   0210"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -2177,7 +2273,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -2213,15 +2309,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                     "
+        "value":"                                  "
     },
     {
-        "type":"number",
-        "value":"0211"
+        "type":"line identification",
+        "value":"   0211"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -2273,15 +2369,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                           "
+        "value":"                        "
     },
     {
-        "type":"number",
-        "value":"0212"
+        "type":"line identification",
+        "value":"   0212"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -2313,15 +2409,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                                "
+        "value":"                                             "
     },
     {
-        "type":"number",
-        "value":"0213"
+        "type":"line identification",
+        "value":"   0213"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -2353,15 +2449,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                           "
+        "value":"                                        "
     },
     {
-        "type":"number",
-        "value":"0214"
+        "type":"line identification",
+        "value":"   0214"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -2393,15 +2489,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                              "
+        "value":"                                           "
     },
     {
-        "type":"number",
-        "value":"0215"
+        "type":"line identification",
+        "value":"   0215"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -2433,15 +2529,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                              "
+        "value":"                                           "
     },
     {
-        "type":"number",
-        "value":"0216"
+        "type":"line identification",
+        "value":"   0216"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -2505,15 +2601,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                      "
+        "value":"                                   "
     },
     {
-        "type":"number",
-        "value":"0217"
+        "type":"line identification",
+        "value":"   0217"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -2589,15 +2685,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                           "
+        "value":"                        "
     },
     {
-        "type":"number",
-        "value":"0218"
+        "type":"line identification",
+        "value":"   0218"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -2613,39 +2709,35 @@
     },
     {
         "type":"whitespace",
-        "value":"                                                   "
+        "value":"                                                "
     },
     {
-        "type":"number",
-        "value":"0219"
+        "type":"line identification",
+        "value":"   0219"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
         "value":"           "
     },
     {
-        "type":"identifier",
-        "value":"START_PASS"
-    },
-    {
-        "type":"operator",
-        "value":":"
+        "type":"label",
+        "value":"START_PASS:"
     },
     {
         "type":"whitespace",
-        "value":"                                                     "
+        "value":"                                                  "
     },
     {
-        "type":"number",
-        "value":"0222"
+        "type":"line identification",
+        "value":"   0222"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -2733,15 +2825,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                  "
+        "value":"               "
     },
     {
-        "type":"number",
-        "value":"0223"
+        "type":"line identification",
+        "value":"   0223"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -2829,15 +2921,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                       "
+        "value":"                    "
     },
     {
-        "type":"number",
-        "value":"0224"
+        "type":"line identification",
+        "value":"   0224"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -2901,15 +2993,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                        "
+        "value":"                     "
     },
     {
-        "type":"number",
-        "value":"0225"
+        "type":"line identification",
+        "value":"   0225"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -2941,15 +3033,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                             "
+        "value":"                          "
     },
     {
-        "type":"number",
-        "value":"0226"
+        "type":"line identification",
+        "value":"   0226"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -3025,15 +3117,15 @@
     },
     {
         "type":"whitespace",
-        "value":"              "
+        "value":"           "
     },
     {
-        "type":"number",
-        "value":"0227"
+        "type":"line identification",
+        "value":"   0227"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -3121,15 +3213,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                               "
+        "value":"                            "
     },
     {
-        "type":"number",
-        "value":"0228"
+        "type":"line identification",
+        "value":"   0228"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -3193,15 +3285,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                    "
+        "value":"                 "
     },
     {
-        "type":"number",
-        "value":"0301"
+        "type":"line identification",
+        "value":"   0301"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -3233,15 +3325,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                             "
+        "value":"                                          "
     },
     {
-        "type":"number",
-        "value":"0302"
+        "type":"line identification",
+        "value":"   0302"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -3273,15 +3365,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                             "
+        "value":"                                          "
     },
     {
-        "type":"number",
-        "value":"0303"
+        "type":"line identification",
+        "value":"   0303"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -3292,16 +3384,12 @@
         "value":"/*MASTER FILE GENERATION ROUTINE.                          */"
     },
     {
-        "type":"whitespace",
-        "value":"   "
-    },
-    {
-        "type":"number",
-        "value":"0305"
+        "type":"line identification",
+        "value":"   0305"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -3369,15 +3457,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                           "
+        "value":"                        "
     },
     {
-        "type":"number",
-        "value":"0306"
+        "type":"line identification",
+        "value":"   0306"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -3409,15 +3497,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                      "
+        "value":"                   "
     },
     {
-        "type":"number",
-        "value":"0307"
+        "type":"line identification",
+        "value":"   0307"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -3449,15 +3537,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                          "
+        "value":"                                       "
     },
     {
-        "type":"number",
-        "value":"0308"
+        "type":"line identification",
+        "value":"   0308"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -3489,15 +3577,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                      "
+        "value":"                                   "
     },
     {
-        "type":"number",
-        "value":"0309"
+        "type":"line identification",
+        "value":"   0309"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -3553,15 +3641,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                      "
+        "value":"                                   "
     },
     {
-        "type":"number",
-        "value":"0310"
+        "type":"line identification",
+        "value":"   0310"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -3593,15 +3681,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                     "
+        "value":"                                  "
     },
     {
-        "type":"number",
-        "value":"0311"
+        "type":"line identification",
+        "value":"   0311"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -3633,15 +3721,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                         "
+        "value":"                                      "
     },
     {
-        "type":"number",
-        "value":"0312"
+        "type":"line identification",
+        "value":"   0312"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -3685,15 +3773,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                      "
+        "value":"                   "
     },
     {
-        "type":"number",
-        "value":"0313"
+        "type":"line identification",
+        "value":"   0313"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -3741,15 +3829,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                  "
+        "value":"                               "
     },
     {
-        "type":"number",
-        "value":"0314"
+        "type":"line identification",
+        "value":"   0314"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -3781,15 +3869,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                               "
+        "value":"                            "
     },
     {
-        "type":"number",
-        "value":"0315"
+        "type":"line identification",
+        "value":"   0315"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -3821,15 +3909,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                     "
+        "value":"                                  "
     },
     {
-        "type":"number",
-        "value":"0316"
+        "type":"line identification",
+        "value":"   0316"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -3877,15 +3965,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                    "
+        "value":"                 "
     },
     {
-        "type":"number",
-        "value":"0317"
+        "type":"line identification",
+        "value":"   0317"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -3945,15 +4033,15 @@
     },
     {
         "type":"whitespace",
-        "value":"               "
+        "value":"            "
     },
     {
-        "type":"number",
-        "value":"0318"
+        "type":"line identification",
+        "value":"   0318"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -3969,15 +4057,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                                   "
+        "value":"                                                "
     },
     {
-        "type":"number",
-        "value":"0319"
+        "type":"line identification",
+        "value":"   0319"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -4013,15 +4101,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                    "
+        "value":"                                 "
     },
     {
-        "type":"number",
-        "value":"0320"
+        "type":"line identification",
+        "value":"   0320"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -4053,15 +4141,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                             "
+        "value":"                                          "
     },
     {
-        "type":"number",
-        "value":"0321"
+        "type":"line identification",
+        "value":"   0321"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -4072,40 +4160,32 @@
         "value":"/* DETAIL FILE GENERATION ROUTINE.                         */"
     },
     {
-        "type":"whitespace",
-        "value":"   "
-    },
-    {
-        "type":"number",
-        "value":"0323"
+        "type":"line identification",
+        "value":"   0323"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
         "value":"           "
     },
     {
-        "type":"identifier",
-        "value":"DETAIL_GENERATION"
-    },
-    {
-        "type":"operator",
-        "value":":"
+        "type":"label",
+        "value":"DETAIL_GENERATION:"
     },
     {
         "type":"whitespace",
-        "value":"                                              "
+        "value":"                                           "
     },
     {
-        "type":"number",
-        "value":"0323"
+        "type":"line identification",
+        "value":"   0323"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -4173,15 +4253,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                           "
+        "value":"                        "
     },
     {
-        "type":"number",
-        "value":"0324"
+        "type":"line identification",
+        "value":"   0324"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -4213,15 +4293,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                              "
+        "value":"                           "
     },
     {
-        "type":"number",
-        "value":"0325"
+        "type":"line identification",
+        "value":"   0325"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -4261,15 +4341,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                              "
+        "value":"                           "
     },
     {
-        "type":"number",
-        "value":"0326"
+        "type":"line identification",
+        "value":"   0326"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -4317,15 +4397,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                   "
+        "value":"                                "
     },
     {
-        "type":"number",
-        "value":"0327"
+        "type":"line identification",
+        "value":"   0327"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -4361,15 +4441,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                     "
+        "value":"                                  "
     },
     {
-        "type":"number",
-        "value":"0401"
+        "type":"line identification",
+        "value":"   0401"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -4441,15 +4521,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                         "
+        "value":"                      "
     },
     {
-        "type":"number",
-        "value":"0402"
+        "type":"line identification",
+        "value":"   0402"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -4481,15 +4561,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                     "
+        "value":"                                  "
     },
     {
-        "type":"number",
-        "value":"0403"
+        "type":"line identification",
+        "value":"   0403"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -4521,15 +4601,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                         "
+        "value":"                                      "
     },
     {
-        "type":"number",
-        "value":"0404"
+        "type":"line identification",
+        "value":"   0404"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -4577,15 +4657,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                    "
+        "value":"                 "
     },
     {
-        "type":"number",
-        "value":"0404"
+        "type":"line identification",
+        "value":"   0404"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -4633,15 +4713,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                  "
+        "value":"                               "
     },
     {
-        "type":"number",
-        "value":"0404"
+        "type":"line identification",
+        "value":"   0404"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -4673,15 +4753,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                               "
+        "value":"                            "
     },
     {
-        "type":"number",
-        "value":"0405"
+        "type":"line identification",
+        "value":"   0405"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -4713,15 +4793,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                     "
+        "value":"                                  "
     },
     {
-        "type":"number",
-        "value":"0406"
+        "type":"line identification",
+        "value":"   0406"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -4769,15 +4849,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                    "
+        "value":"                 "
     },
     {
-        "type":"number",
-        "value":"0407"
+        "type":"line identification",
+        "value":"   0407"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -4837,15 +4917,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                  "
+        "value":"               "
     },
     {
-        "type":"number",
-        "value":"0408"
+        "type":"line identification",
+        "value":"   0408"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -4861,15 +4941,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                                   "
+        "value":"                                                "
     },
     {
-        "type":"number",
-        "value":"0409"
+        "type":"line identification",
+        "value":"   0409"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -4905,15 +4985,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                    "
+        "value":"                                 "
     },
     {
-        "type":"number",
-        "value":"0410"
+        "type":"line identification",
+        "value":"   0410"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -4945,39 +5025,35 @@
     },
     {
         "type":"whitespace",
-        "value":"                                             "
+        "value":"                                          "
     },
     {
-        "type":"number",
-        "value":"0411"
+        "type":"line identification",
+        "value":"   0411"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
         "value":"           "
     },
     {
-        "type":"identifier",
-        "value":"TAPE_PASS"
-    },
-    {
-        "type":"operator",
-        "value":":"
+        "type":"label",
+        "value":"TAPE_PASS:"
     },
     {
         "type":"whitespace",
-        "value":"                                                      "
+        "value":"                                                   "
     },
     {
-        "type":"number",
-        "value":"0413"
+        "type":"line identification",
+        "value":"   0413"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -5013,15 +5089,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                            "
+        "value":"                                         "
     },
     {
-        "type":"number",
-        "value":"0414"
+        "type":"line identification",
+        "value":"   0414"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -5053,15 +5129,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                             "
+        "value":"                          "
     },
     {
-        "type":"number",
-        "value":"0415"
+        "type":"line identification",
+        "value":"   0415"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -5129,15 +5205,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                             "
+        "value":"                          "
     },
     {
-        "type":"number",
-        "value":"0416"
+        "type":"line identification",
+        "value":"   0416"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -5169,15 +5245,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                           "
+        "value":"                        "
     },
     {
-        "type":"number",
-        "value":"0417"
+        "type":"line identification",
+        "value":"   0417"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -5209,15 +5285,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                "
+        "value":"                             "
     },
     {
-        "type":"number",
-        "value":"0418"
+        "type":"line identification",
+        "value":"   0418"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -5277,15 +5353,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                       "
+        "value":"                    "
     },
     {
-        "type":"number",
-        "value":"0419"
+        "type":"line identification",
+        "value":"   0419"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -5337,15 +5413,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                       "
+        "value":"                    "
     },
     {
-        "type":"number",
-        "value":"0420"
+        "type":"line identification",
+        "value":"   0420"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -5397,15 +5473,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                    "
+        "value":"                 "
     },
     {
-        "type":"number",
-        "value":"0421"
+        "type":"line identification",
+        "value":"   0421"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -5457,15 +5533,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                       "
+        "value":"                    "
     },
     {
-        "type":"number",
-        "value":"0422"
+        "type":"line identification",
+        "value":"   0422"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -5525,15 +5601,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                   "
+        "value":"                "
     },
     {
-        "type":"number",
-        "value":"0423"
+        "type":"line identification",
+        "value":"   0423"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -5593,15 +5669,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                   "
+        "value":"                "
     },
     {
-        "type":"number",
-        "value":"0424"
+        "type":"line identification",
+        "value":"   0424"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -5633,39 +5709,35 @@
     },
     {
         "type":"whitespace",
-        "value":"                                     "
+        "value":"                                  "
     },
     {
-        "type":"number",
-        "value":"0425"
+        "type":"line identification",
+        "value":"   0425"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
         "value":"           "
     },
     {
-        "type":"identifier",
-        "value":"KEY_TEST"
-    },
-    {
-        "type":"operator",
-        "value":":"
+        "type":"label",
+        "value":"KEY_TEST:"
     },
     {
         "type":"whitespace",
-        "value":"                                                       "
+        "value":"                                                    "
     },
     {
-        "type":"number",
-        "value":"0426"
+        "type":"line identification",
+        "value":"   0426"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -5701,15 +5773,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                             "
+        "value":"                          "
     },
     {
-        "type":"number",
-        "value":"0502"
+        "type":"line identification",
+        "value":"   0502"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -5741,15 +5813,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                           "
+        "value":"                        "
     },
     {
-        "type":"number",
-        "value":"0503"
+        "type":"line identification",
+        "value":"   0503"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -5785,15 +5857,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                             "
+        "value":"                          "
     },
     {
-        "type":"number",
-        "value":"0504"
+        "type":"line identification",
+        "value":"   0504"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -5817,15 +5889,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                           "
+        "value":"                                        "
     },
     {
-        "type":"number",
-        "value":"0505"
+        "type":"line identification",
+        "value":"   0505"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -5845,15 +5917,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                   "
+        "value":"                                "
     },
     {
-        "type":"number",
-        "value":"0506"
+        "type":"line identification",
+        "value":"   0506"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -5897,15 +5969,15 @@
     },
     {
         "type":"whitespace",
-        "value":"    "
+        "value":" "
     },
     {
-        "type":"number",
-        "value":"0507"
+        "type":"line identification",
+        "value":"   0507"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -5929,15 +6001,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                         "
+        "value":"                      "
     },
     {
-        "type":"number",
-        "value":"0508"
+        "type":"line identification",
+        "value":"   0508"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -5953,15 +6025,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                          "
+        "value":"                                       "
     },
     {
-        "type":"number",
-        "value":"0509"
+        "type":"line identification",
+        "value":"   0509"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -5973,15 +6045,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                                         "
+        "value":"                                                      "
     },
     {
-        "type":"number",
-        "value":"0511"
+        "type":"line identification",
+        "value":"   0511"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -5989,19 +6061,63 @@
     },
     {
         "type":"comment",
-        "value":"/* KERNEL SUMS N INTEGERS FROM A TABLE OF N**3 CONSECUTIVE      0512\r\n           INTEGERS BEGINNING WITH 'START'.  THE K-TH INTEGER SUMMED       0513\r\n           IS 'START - 1 + K**3'.  SUM IS CHECKED ALGEBRAICALLY. KERNEL    0514\r\n           IS REPEATED 'NREP' TIMES.                                  */"
+        "value":"/* KERNEL SUMS N INTEGERS FROM A TABLE OF N**3 CONSECUTIVE   "
     },
     {
-        "type":"whitespace",
-        "value":"   "
-    },
-    {
-        "type":"number",
-        "value":"0515"
+        "type":"line identification",
+        "value":"   0512"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"          INTEGERS BEGINNING WITH 'START'.  THE K-TH INTEGER SUMMED    "
+    },
+    {
+        "type":"line identification",
+        "value":"   0513"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"          IS 'START - 1 + K**3'.  SUM IS CHECKED ALGEBRAICALLY. KERNEL "
+    },
+    {
+        "type":"line identification",
+        "value":"   0514"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"          IS REPEATED 'NREP' TIMES.                                  */"
+    },
+    {
+        "type":"line identification",
+        "value":"   0515"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -6057,15 +6173,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                      "
+        "value":"                                   "
     },
     {
-        "type":"number",
-        "value":"0516"
+        "type":"line identification",
+        "value":"   0516"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -6097,15 +6213,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                            "
+        "value":"                                         "
     },
     {
-        "type":"number",
-        "value":"0517"
+        "type":"line identification",
+        "value":"   0517"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -6137,15 +6253,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                              "
+        "value":"                                           "
     },
     {
-        "type":"number",
-        "value":"0518"
+        "type":"line identification",
+        "value":"   0518"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -6177,15 +6293,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                              "
+        "value":"                                           "
     },
     {
-        "type":"number",
-        "value":"0519"
+        "type":"line identification",
+        "value":"   0519"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -6241,15 +6357,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                      "
+        "value":"                                   "
     },
     {
-        "type":"number",
-        "value":"0520"
+        "type":"line identification",
+        "value":"   0520"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -6329,15 +6445,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                               "
+        "value":"                            "
     },
     {
-        "type":"number",
-        "value":"0521"
+        "type":"line identification",
+        "value":"   0521"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -6393,15 +6509,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                            "
+        "value":"                         "
     },
     {
-        "type":"number",
-        "value":"0522"
+        "type":"line identification",
+        "value":"   0522"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -6449,15 +6565,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                       "
+        "value":"                                    "
     },
     {
-        "type":"number",
-        "value":"0523"
+        "type":"line identification",
+        "value":"   0523"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -6473,15 +6589,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                                "
+        "value":"                                             "
     },
     {
-        "type":"number",
-        "value":"0524"
+        "type":"line identification",
+        "value":"   0524"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -6573,15 +6689,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                              "
+        "value":"                           "
     },
     {
-        "type":"number",
-        "value":"0525"
+        "type":"line identification",
+        "value":"   0525"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -6689,15 +6805,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                "
+        "value":"             "
     },
     {
-        "type":"number",
-        "value":"0526"
+        "type":"line identification",
+        "value":"   0526"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -6721,15 +6837,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                           "
+        "value":"                                        "
     },
     {
-        "type":"number",
-        "value":"0527"
+        "type":"line identification",
+        "value":"   0527"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -6749,15 +6865,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                   "
+        "value":"                                "
     },
     {
-        "type":"number",
-        "value":"0528"
+        "type":"line identification",
+        "value":"   0528"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -6801,15 +6917,15 @@
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"  "
     },
     {
-        "type":"number",
-        "value":"0529"
+        "type":"line identification",
+        "value":"   0529"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -6833,15 +6949,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                           "
+        "value":"                        "
     },
     {
-        "type":"number",
-        "value":"0530"
+        "type":"line identification",
+        "value":"   0530"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -6857,15 +6973,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                          "
+        "value":"                                       "
     },
     {
-        "type":"number",
-        "value":"0601"
+        "type":"line identification",
+        "value":"   0601"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -6881,15 +6997,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                                   "
+        "value":"                                                "
     },
     {
-        "type":"number",
-        "value":"0602"
+        "type":"line identification",
+        "value":"   0602"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -6913,15 +7029,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                         "
+        "value":"                                      "
     },
     {
-        "type":"number",
-        "value":"0603"
+        "type":"line identification",
+        "value":"   0603"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -6929,43 +7045,51 @@
     },
     {
         "type":"comment",
-        "value":"/* KRETURN IS EITHER WRITE_DETAIL OR         0604\r\n                                  CRETURN                             */"
+        "value":"/* KRETURN IS EITHER WRITE_DETAIL OR      "
     },
     {
-        "type":"whitespace",
-        "value":"   "
-    },
-    {
-        "type":"number",
-        "value":"0605"
+        "type":"line identification",
+        "value":"   0604"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"comment",
+        "value":"                                 CRETURN                             */"
+    },
+    {
+        "type":"line identification",
+        "value":"   0605"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
     },
     {
         "type":"whitespace",
         "value":"           "
     },
     {
-        "type":"identifier",
-        "value":"WRITE_DETAIL"
-    },
-    {
-        "type":"operator",
-        "value":":"
+        "type":"label",
+        "value":"WRITE_DETAIL:"
     },
     {
         "type":"whitespace",
-        "value":"                                                   "
+        "value":"                                                "
     },
     {
-        "type":"number",
-        "value":"0607"
+        "type":"line identification",
+        "value":"   0607"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -6997,15 +7121,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                      "
+        "value":"                                   "
     },
     {
-        "type":"number",
-        "value":"0608"
+        "type":"line identification",
+        "value":"   0608"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -7037,15 +7161,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                      "
+        "value":"                                   "
     },
     {
-        "type":"number",
-        "value":"060"
+        "type":"line identification",
+        "value":"   060"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -7077,15 +7201,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                  "
+        "value":"                               "
     },
     {
-        "type":"number",
-        "value":"0610"
+        "type":"line identification",
+        "value":"   0610"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -7133,15 +7257,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                     "
+        "value":"                                  "
     },
     {
-        "type":"number",
-        "value":"0611"
+        "type":"line identification",
+        "value":"   0611"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -7201,15 +7325,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                  "
+        "value":"               "
     },
     {
-        "type":"number",
-        "value":"0612"
+        "type":"line identification",
+        "value":"   0612"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -7269,39 +7393,35 @@
     },
     {
         "type":"whitespace",
-        "value":"                  "
+        "value":"               "
     },
     {
-        "type":"number",
-        "value":"0613"
+        "type":"line identification",
+        "value":"   0613"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
         "value":"           "
     },
     {
-        "type":"identifier",
-        "value":"WRITE_MASTER"
-    },
-    {
-        "type":"operator",
-        "value":":"
+        "type":"label",
+        "value":"WRITE_MASTER:"
     },
     {
         "type":"whitespace",
-        "value":"                                                   "
+        "value":"                                                "
     },
     {
-        "type":"number",
-        "value":"0615"
+        "type":"line identification",
+        "value":"   0615"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -7361,15 +7481,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                  "
+        "value":"               "
     },
     {
-        "type":"number",
-        "value":"0616"
+        "type":"line identification",
+        "value":"   0616"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -7429,15 +7549,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                  "
+        "value":"               "
     },
     {
-        "type":"number",
-        "value":"0617"
+        "type":"line identification",
+        "value":"   0617"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -7461,15 +7581,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                        "
+        "value":"                                     "
     },
     {
-        "type":"number",
-        "value":"0618"
+        "type":"line identification",
+        "value":"   0618"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -7481,15 +7601,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                                         "
+        "value":"                                                      "
     },
     {
-        "type":"number",
-        "value":"0619"
+        "type":"line identification",
+        "value":"   0619"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -7533,15 +7653,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                 "
+        "value":"                              "
     },
     {
-        "type":"number",
-        "value":"0620"
+        "type":"line identification",
+        "value":"   0620"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -7565,39 +7685,35 @@
     },
     {
         "type":"whitespace",
-        "value":"                                    "
+        "value":"                                 "
     },
     {
-        "type":"number",
-        "value":"0621"
+        "type":"line identification",
+        "value":"   0621"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
         "value":"           "
     },
     {
-        "type":"identifier",
-        "value":"END_TPASS"
-    },
-    {
-        "type":"operator",
-        "value":":"
+        "type":"label",
+        "value":"END_TPASS:"
     },
     {
         "type":"whitespace",
-        "value":"                                                      "
+        "value":"                                                   "
     },
     {
-        "type":"number",
-        "value":"0623"
+        "type":"line identification",
+        "value":"   0623"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -7629,15 +7745,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                         "
+        "value":"                                      "
     },
     {
-        "type":"number",
-        "value":"0624"
+        "type":"line identification",
+        "value":"   0624"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -7753,15 +7869,15 @@
     },
     {
         "type":"whitespace",
-        "value":"             "
+        "value":"          "
     },
     {
-        "type":"number",
-        "value":"0625"
+        "type":"line identification",
+        "value":"   0625"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -7793,15 +7909,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                              "
+        "value":"                           "
     },
     {
-        "type":"number",
-        "value":"0626"
+        "type":"line identification",
+        "value":"   0626"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -7861,39 +7977,35 @@
     },
     {
         "type":"whitespace",
-        "value":"           "
+        "value":"        "
     },
     {
-        "type":"number",
-        "value":"0627"
+        "type":"line identification",
+        "value":"   0627"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
         "value":"           "
     },
     {
-        "type":"identifier",
-        "value":"CLOSE_FILES"
-    },
-    {
-        "type":"operator",
-        "value":":"
+        "type":"label",
+        "value":"CLOSE_FILES:"
     },
     {
         "type":"whitespace",
-        "value":"                                                    "
+        "value":"                                                 "
     },
     {
-        "type":"number",
-        "value":"0628"
+        "type":"line identification",
+        "value":"   0628"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -7969,15 +8081,15 @@
     },
     {
         "type":"whitespace",
-        "value":"             "
+        "value":"          "
     },
     {
-        "type":"number",
-        "value":"0629"
+        "type":"line identification",
+        "value":"   0629"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -8005,15 +8117,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                    "
+        "value":"                                 "
     },
     {
-        "type":"number",
-        "value":"0630"
+        "type":"line identification",
+        "value":"   0630"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -8025,7 +8137,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -8101,7 +8213,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -8173,7 +8285,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -8253,7 +8365,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -8329,7 +8441,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -8401,7 +8513,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -8477,15 +8589,15 @@
     },
     {
         "type":"whitespace",
-        "value":"        "
+        "value":"     "
     },
     {
-        "type":"number",
-        "value":"07070"
+        "type":"line identification",
+        "value":"   07070"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -8509,15 +8621,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                             "
+        "value":"                                          "
     },
     {
-        "type":"number",
-        "value":"0708"
+        "type":"line identification",
+        "value":"   0708"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -8569,15 +8681,15 @@
     },
     {
         "type":"whitespace",
-        "value":"    "
+        "value":" "
     },
     {
-        "type":"number",
-        "value":"0709"
+        "type":"line identification",
+        "value":"   0709"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -8645,15 +8757,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                  "
+        "value":"                               "
     },
     {
-        "type":"number",
-        "value":"0710"
+        "type":"line identification",
+        "value":"   0710"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -8701,7 +8813,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -8753,15 +8865,15 @@
     },
     {
         "type":"whitespace",
-        "value":"           "
+        "value":"        "
     },
     {
-        "type":"number",
-        "value":"0711"
+        "type":"line identification",
+        "value":"   0711"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -8793,15 +8905,15 @@
     },
     {
         "type":"whitespace",
-        "value":"         "
+        "value":"      "
     },
     {
-        "type":"number",
-        "value":"0712"
+        "type":"line identification",
+        "value":"   0712"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -8833,15 +8945,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                  "
+        "value":"               "
     },
     {
-        "type":"number",
-        "value":"0713"
+        "type":"line identification",
+        "value":"   0713"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -8933,15 +9045,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                            "
+        "value":"                         "
     },
     {
-        "type":"number",
-        "value":"0714"
+        "type":"line identification",
+        "value":"   0714"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -8965,39 +9077,35 @@
     },
     {
         "type":"whitespace",
-        "value":"                                       "
+        "value":"                                    "
     },
     {
-        "type":"number",
-        "value":"0715"
+        "type":"line identification",
+        "value":"   0715"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
         "value":"           "
     },
     {
-        "type":"identifier",
-        "value":"COMPUTE_PASS"
-    },
-    {
-        "type":"operator",
-        "value":":"
+        "type":"label",
+        "value":"COMPUTE_PASS:"
     },
     {
         "type":"whitespace",
-        "value":"                                                   "
+        "value":"                                                "
     },
     {
-        "type":"number",
-        "value":"0715"
+        "type":"line identification",
+        "value":"   0715"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -9025,15 +9133,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                       "
+        "value":"                                    "
     },
     {
-        "type":"number",
-        "value":"0716"
+        "type":"line identification",
+        "value":"   0716"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -9065,15 +9173,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                      "
+        "value":"                                   "
     },
     {
-        "type":"number",
-        "value":"0717"
+        "type":"line identification",
+        "value":"   0717"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -9097,15 +9205,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                           "
+        "value":"                                        "
     },
     {
-        "type":"number",
-        "value":"0718"
+        "type":"line identification",
+        "value":"   0718"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -9117,15 +9225,15 @@
     },
     {
         "type":"whitespace",
-        "value":"                                                        "
+        "value":"                                                     "
     },
     {
-        "type":"number",
-        "value":"0718"
+        "type":"line identification",
+        "value":"   0718"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -9157,7 +9265,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -9181,7 +9289,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -9193,7 +9301,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -9229,7 +9337,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -9281,7 +9389,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -9349,7 +9457,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -9373,19 +9481,15 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"*"
+        "type":"jcl",
+        "value":"/*"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"jcl",
@@ -9393,7 +9497,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"jcl",
@@ -9401,7 +9505,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"jcl",
@@ -9409,7 +9513,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"jcl",
@@ -9417,7 +9521,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"jcl",
@@ -9425,7 +9529,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"jcl",
@@ -9433,7 +9537,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"jcl",
@@ -9441,7 +9545,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"jcl",
@@ -9449,7 +9553,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"jcl",
@@ -9457,7 +9561,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"jcl",
@@ -9465,7 +9569,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"jcl",
@@ -9473,7 +9577,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"jcl",
@@ -9481,7 +9585,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"jcl",
@@ -9489,7 +9593,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -9569,7 +9673,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -9649,7 +9753,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -9729,7 +9833,7 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -9809,22 +9913,18 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"operator",
-        "value":"*"
+        "type":"jcl",
+        "value":"/*"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
-        "type":"operator",
+        "type":"invalid",
         "value":"/"
     },
     {
@@ -9833,6 +9933,14 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"newline",
+        "value":"\n"
     }
 ]

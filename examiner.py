@@ -599,7 +599,7 @@ class Examiner:
     num_valid_line_descrips = self.statistics['valid line identification']
 
     if num_line_descrips > 0:
-      line_des_confidence = 1.0 - num_valid_line_descrips / num_line_descrips
+      line_des_confidence = num_valid_line_descrips / num_line_descrips
 
       # add this confidence only when there are some line identifications
       self.confidences['line_description'] = line_des_confidence

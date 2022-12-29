@@ -12,6 +12,7 @@ class PL1LabelTokenBuilder(TokenBuilder):
   def __init__(self):
     self.text = None
 
+
   def get_tokens(self):
     if self.text is None:
       return None
@@ -20,13 +21,23 @@ class PL1LabelTokenBuilder(TokenBuilder):
 
 
   def accept(self, candidate, c):
-    if len(candidate) > 1 and candidate[-1] == ':':
+    if len(candidate) == 0:
+      return c.isalpha() or c == '_'
+
+    if candidate[-1] == ':':
       return False
 
-    if len(candidate) > 1:
-      return c.isalpha() or c.isdigit() or c == ':'
+    return c.isalpha() or c.isdigit() or c in ':_'
 
-    return c.isalpha()
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if self.text.endswith(':'):
+      return len(self.text)
+
+    return 0
 
 
 # token reader for start comment

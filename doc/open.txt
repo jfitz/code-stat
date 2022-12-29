@@ -51,11 +51,14 @@ TokenBuilders
 - directive2 - keyword at start of line (no tokens before) to end of line
 
 examiners for:
+ Wing,
  HCL (from Hashicorp), Polar (from Oso),
  ZZ, Elm, Mint,
  Futhark (futhark-lang.org),
  Haxe, Pharo, Nim, Racket,
- SmallTalk, Chaos, Occam, V (vlang.io), Caml, Ml,
+ SmallTalk, Chaos, Occam,
+ V (vlang.io),
+ Caml, ML,
  HTML with PHP, plain PHP, Elena,
  Idris (idris-lang.org/),
  Hume (macs.hw.ac.uk/~greg/hume/),
@@ -462,7 +465,7 @@ PL/I
 + tokenize EXEC block
 ? 'example' has issues (plain text in source)
 + bit string constant is string with suffix B
-- use LabelTokenBuilder class
+- identifier followed by colon is label
 
 PL/M
 + .B (and .W and .D ?)
