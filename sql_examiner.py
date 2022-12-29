@@ -298,7 +298,18 @@ class SqlExaminer(Examiner):
     ]
 
     types_plsql = [
+      'BOOLEAN',
+      'BINARY_DOUBLE', 'BINARY_FLOAT', 'BINARY_INTEGER',
+      'DEC', 'INT',
+      'NATURAL', 'NATURALN', 'NUMBER', 'NUMERIC',
+      'PLS_INTEGER', 'POSITIVE', 'POSITIVEN',
+      'SIGNTYPE',
+      'LONG', 'RAW', 'NVARCHAR2', 'VARCHAR2',
+      'RAW', 'ROWID',
+      'STRING',
+      'UROWID',
       'VARCHAR2'
+      'TIMESTAMP', 'TIMEZONE', 'INTERVAL'
     ]
 
     if extension in ['microsoft', 't-sql']:
