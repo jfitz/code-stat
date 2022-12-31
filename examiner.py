@@ -266,8 +266,25 @@ class Examiner:
         prev_token = token
 
 
+  # convert identifiers to labels
+  def convert_identifiers_before_colon_to_labels(self, starters):
+    prev_prev_token = Token('\n', 'newline', False)
+    prev_token = Token('\n', 'newline', False)
+
+    for token in self.tokens:
+      if token.group == 'group' and token.text == ':' and \
+        prev_token.group == 'identifier' and \
+        prev_prev_token.text in starters:
+        prev_token.group = 'label'
+        prev_token.is_operand = False
+
+      if token.group not in ['whitespace', 'comment', 'newline', 'line identification']:
+        prev_prev_token = prev_token
+        prev_token = token
+
+
   # convert identifiers after 'goto' to labels
-  def convert_identifiers_to_labels(self):
+  def convert_identifiers_after_goto_to_labels(self):
     prev_token = Token('\n', 'newline', False)
 
     for token in self.tokens:

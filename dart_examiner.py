@@ -205,7 +205,7 @@ class DartExaminer(Examiner):
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     tokens = Examiner.combine_identifier_colon(tokens, ['statement terminator', 'newline'], ['{'], ['whitespace', 'comment'])
     self.tokens = tokens
-    self.convert_identifiers_to_labels()
+    self.convert_identifiers_after_goto_to_labels()
 
     self.calc_statistics()
 

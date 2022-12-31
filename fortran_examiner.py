@@ -289,7 +289,7 @@ class FortranExaminer(Examiner):
     tokens_free = Examiner.combine_identifier_colon(tokens_free, ['newline'], [], ['whitespace', 'comment', 'line identification'])
     self.tokens = tokens_free
 
-    self.convert_identifiers_to_labels()
+    self.convert_identifiers_after_goto_to_labels()
     self.convert_numbers_to_line_numbers()
     self.convert_stars_to_io_channels()
 
@@ -359,7 +359,7 @@ class FortranExaminer(Examiner):
 
     self.tokens = tokens_fixed
 
-    self.convert_identifiers_to_labels()
+    self.convert_identifiers_after_goto_to_labels()
     self.convert_numbers_to_line_numbers()
     self.convert_stars_to_io_channels()
 

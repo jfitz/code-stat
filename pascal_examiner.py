@@ -174,7 +174,7 @@ class PascalExaminer(Examiner):
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     tokens = self.combine_identifier_colon(tokens, ['statement separator'], ['begin'], ['whitespace', 'comment', 'newline'])
     self.tokens = tokens
-    self.convert_identifiers_to_labels()
+    self.convert_identifiers_after_goto_to_labels()
     self.convert_identifiers_to_labels_2()
 
     self.calc_statistics()

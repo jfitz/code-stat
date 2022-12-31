@@ -149,7 +149,7 @@ class DibolExaminer(Examiner):
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     tokens = Examiner.combine_identifier_colon(tokens, ['statement terminator', 'newline'], ['{'], ['whitespace', 'comment'])
     self.tokens = tokens
-    self.convert_identifiers_to_labels()
+    self.convert_identifiers_after_goto_to_labels()
 
     self.calc_statistics()
 
@@ -180,7 +180,7 @@ class DibolExaminer(Examiner):
 
 
   # convert identifiers after 'goto' to labels
-  def convert_identifiers_to_labels(self):
+  def convert_identifiers_after_goto_to_labels(self):
     prev_2_token = Token('\n', 'newline', False)
     prev_token = Token('\n', 'newline', False)
 
