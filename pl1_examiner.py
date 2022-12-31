@@ -26,9 +26,7 @@ from cx_token_builders import (
 from pl1_token_builders import (
   PL1CommentStartTokenBuilder,
   PL1CommentMiddleTokenBuilder,
-  PL1CommentEndTokenBuilder,
-  PL1LabelTokenBuilder,
-  PL1NumericLabelTokenBuilder
+  PL1CommentEndTokenBuilder
 )
 from jcl_token_builders import (
   JCLTokenBuilder
@@ -41,8 +39,6 @@ class PL1Examiner(Examiner):
     PL1CommentStartTokenBuilder.__escape_z__()
     PL1CommentMiddleTokenBuilder.__escape_z__()
     PL1CommentEndTokenBuilder.__escape_z__()
-    PL1LabelTokenBuilder.__escape_z__()
-    PL1NumericLabelTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
@@ -70,10 +66,6 @@ class PL1Examiner(Examiner):
     quotes = ['"', "'"]
     string_tb = EscapedStringTokenBuilder(quotes, 0)
     operand_types.append('string')
-
-    label_tb = PL1LabelTokenBuilder()
-    numeric_label_tb = PL1NumericLabelTokenBuilder()
-    operand_types.append('label')
 
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
 
@@ -110,8 +102,7 @@ class PL1Examiner(Examiner):
       '~>', '~<', '~=', '~', '¬',
       '&', '&:',
       '|', '|:', '||',
-      '!', '!:', '!!',
-      ':'
+      '!', '!:', '!!'
     ]
 
     self.unary_operators = [
@@ -121,7 +112,7 @@ class PL1Examiner(Examiner):
     self.postfix_operators = [
     ]
 
-    groupers = ['(', ')', ',', '[', ']', '{', '}']
+    groupers = ['(', ')', ',', '[', ']', '{', '}', ':']
     group_starts = ['(', '[', ',', '{']
     group_mids = [',']
     group_ends = [')', ']', '}']
@@ -318,8 +309,6 @@ class PL1Examiner(Examiner):
       known_operator_tb,
       identifier_tb,
       string_tb,
-      label_tb,
-      numeric_label_tb,
       slash_star_comment_tb,
       preprocessor_tb,
       title_tb,
@@ -342,6 +331,8 @@ class PL1Examiner(Examiner):
     tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid')
 
     self.tokens = tokens_free
+    self.convert_identifiers_before_colon_to_labels(';')
+    self.convert_identifiers_after_goto_to_labels()
 
     self.calc_statistics()
     self.statistics['format'] = 'free'
@@ -400,8 +391,6 @@ class PL1Examiner(Examiner):
       known_operator_tb,
       identifier_tb,
       string_tb,
-      label_tb,
-      numeric_label_tb,
       slash_star_comment_tb,
       preprocessor_tb,
       title_tb,
@@ -434,6 +423,8 @@ class PL1Examiner(Examiner):
     tokens_fixed = self.convert_broken_comments_to_comments(tokens_fixed)
 
     self.tokens = tokens_fixed
+    self.convert_identifiers_before_colon_to_labels(';')
+    self.convert_identifiers_after_goto_to_labels()
 
     self.calc_statistics()
     self.statistics['format'] = 'fixed'

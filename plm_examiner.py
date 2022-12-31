@@ -26,9 +26,7 @@ from cx_token_builders import (
 from pl1_token_builders import (
   PL1CommentStartTokenBuilder,
   PL1CommentMiddleTokenBuilder,
-  PL1CommentEndTokenBuilder,
-  PL1LabelTokenBuilder,
-  PL1NumericLabelTokenBuilder
+  PL1CommentEndTokenBuilder
 )
 from examiner import Examiner
 
@@ -38,8 +36,6 @@ class PLMExaminer(Examiner):
     PL1CommentStartTokenBuilder.__escape_z__()
     PL1CommentMiddleTokenBuilder.__escape_z__()
     PL1CommentEndTokenBuilder.__escape_z__()
-    PL1LabelTokenBuilder.__escape_z__()
-    PL1NumericLabelTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
@@ -70,10 +66,6 @@ class PLMExaminer(Examiner):
     quotes = ['"', "'"]
     string_tb = EscapedStringTokenBuilder(quotes, 0)
     operand_types.append('string')
-
-    label_tb = PL1LabelTokenBuilder()
-    numeric_label_tb = PL1NumericLabelTokenBuilder()
-    operand_types.append('label')
 
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
 
@@ -108,7 +100,7 @@ class PLMExaminer(Examiner):
       '&', '&:', ':=',
       '|', '|:', '||',
       '!', '!:', '!!',
-      ':', '@',
+      '@',
       'NOT', 'AND', 'OR', 'XOR', 'MINUS', 'PLUS', 'MOD'
     ]
 
@@ -119,7 +111,7 @@ class PLMExaminer(Examiner):
     self.postfix_operators = [
     ]
 
-    groupers = ['(', ')', ',', '[', ']', '{', '}']
+    groupers = ['(', ')', ',', '[', ']', '{', '}', ':']
     group_starts = ['(', '[', ',', '{']
     group_mids = [',']
     group_ends = [')', ']', '}']
@@ -342,8 +334,6 @@ class PLMExaminer(Examiner):
       known_operator_tb,
       identifier_tb,
       string_tb,
-      label_tb,
-      numeric_label_tb,
       slash_star_comment_tb,
       preprocessor_tb,
       title_tb,
@@ -359,7 +349,10 @@ class PLMExaminer(Examiner):
     tokens_free = tokenizer_free.tokenize(code)
     tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid operator')
     tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid')
+
     self.tokens = tokens_free
+    self.convert_identifiers_before_colon_to_labels(';')
+    self.convert_identifiers_after_goto_to_labels()
 
     self.calc_statistics()
     self.statistics['format'] = 'free'
@@ -422,8 +415,6 @@ class PLMExaminer(Examiner):
       known_operator_tb,
       identifier_tb,
       string_tb,
-      label_tb,
-      numeric_label_tb,
       slash_star_comment_tb,
       preprocessor_tb,
       title_tb,
@@ -452,7 +443,10 @@ class PLMExaminer(Examiner):
     tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid')
     tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'whitespace')
     tokens_fixed = self.convert_broken_comments_to_comments(tokens_fixed)
+
     self.tokens = tokens_fixed
+    self.convert_identifiers_before_colon_to_labels(';')
+    self.convert_identifiers_after_goto_to_labels()
 
     self.calc_statistics()
     self.statistics['format'] = 'fixed'

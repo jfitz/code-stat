@@ -254,15 +254,9 @@ C++:
 + raw strings R LR u8R uR UR with "abc()abc" with 'abc' as delimiter and paired but not nested () and possible " within () and may have trailing 's' and may contain newline
 + strings prefix u8 L u U
 + allow adjacent string literals
-+ operators 'and', 'and_eq', 'bitand', 'bitor', 'compl', 'not', 'not_eq', 'or', 'or_eq', 'xor', 'xor_eq' ]
-+ unary 'compl', 'not'
 + groupers '<%', '%>', '<:' not followed by ':', ':>', '%:', '%:%:'
-+ operator '#', '##', '<=>', '<<=', '>>='
 
 C#:
-+ operator ..
-+ unary operator ^
-* 'calculator1' identifies as C++
 
 CBASIC
 + colon as part of GRAPHIC PRINT statement
@@ -462,15 +456,12 @@ Pick Basic
 - constants in form PB_xxx
 
 PL/I
-- empty file has too high confidence
 + Embedded SQL (EXEC ;)
 + tokenize EXEC block
 + bit string constant is string with suffix B
-- labels may be all digits (and colon)
 
 PL/M
 + .B (and .W and .D ?)
-- labels may be all digits (and colon)
 
 Prolog
 - empty file has too high confidence

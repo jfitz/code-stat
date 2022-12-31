@@ -272,13 +272,18 @@ class Examiner:
     prev_token = Token('\n', 'newline', False)
 
     for token in self.tokens:
+      if starters == '' or prev_prev_token.group == 'newline':
+        in_starters = True
+      else:
+        in_starters = prev_prev_token.text in starters
+
       if token.group == 'group' and token.text == ':' and \
         prev_token.group == 'identifier' and \
-        prev_prev_token.text in starters:
+        in_starters:
         prev_token.group = 'label'
         prev_token.is_operand = False
 
-      if token.group not in ['whitespace', 'comment', 'newline', 'line identification']:
+      if token.group not in ['whitespace', 'comment', 'line identification']:
         prev_prev_token = prev_token
         prev_token = token
 
