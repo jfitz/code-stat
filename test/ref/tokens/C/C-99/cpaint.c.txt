@@ -800,8 +800,32 @@
         "value":"y"
     },
     {
-        "type":"type",
-        "value":"<0 or y>"
+        "type":"operator",
+        "value":"<"
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"or"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"y"
+    },
+    {
+        "type":"operator",
+        "value":">"
     },
     {
         "type":"identifier",
@@ -832,8 +856,32 @@
         "value":"x"
     },
     {
-        "type":"type",
-        "value":"<0 or x>"
+        "type":"operator",
+        "value":"<"
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"or"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"x"
+    },
+    {
+        "type":"operator",
+        "value":">"
     },
     {
         "type":"identifier",
@@ -900,8 +948,12 @@
         "value":" "
     },
     {
-        "type":"type",
-        "value":"<>"
+        "type":"operator",
+        "value":"<"
+    },
+    {
+        "type":"operator",
+        "value":">"
     },
     {
         "type":"whitespace",

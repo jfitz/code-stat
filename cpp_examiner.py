@@ -24,7 +24,8 @@ from token_builders import (
 from cx_token_builders import (
   SlashSlashCommentTokenBuilder,
   SlashStarCommentTokenBuilder,
-  ClassTypeTokenBuilder
+  ClassTypeTokenBuilder,
+  IncludeNameTokenBuilder
 )
 from examiner import Examiner
 
@@ -50,6 +51,7 @@ class CppExaminer(Examiner):
     SlashSlashCommentTokenBuilder.__escape_z__()
     SlashStarCommentTokenBuilder.__escape_z__()
     ClassTypeTokenBuilder.__escape_z__()
+    IncludeNameTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
@@ -96,6 +98,7 @@ class CppExaminer(Examiner):
     c_preprocessor_tb = CaseSensitiveListTokenBuilder(directives, 'preprocessor', False)
     c_warning_tb = LeadToEndOfLineTokenBuilder('#warning', True, 'preprocessor')
     c_error_tb = LeadToEndOfLineTokenBuilder('#error', True, 'preprocessor')
+    include_name_tb = IncludeNameTokenBuilder('#include')
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)
 
     known_operators = [
@@ -197,13 +200,14 @@ class CppExaminer(Examiner):
       known_operator_tb,
       groupers_tb,
       identifier_tb,
-      class_type_tb,
       string_tb,
       slash_slash_comment_tb,
       slash_star_comment_tb,
       c_preprocessor_tb,
       c_error_tb,
       c_warning_tb,
+      include_name_tb,
+      class_type_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]

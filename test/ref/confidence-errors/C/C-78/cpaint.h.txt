@@ -10,6 +10,16 @@
         "SECOND":"=="
     },
     {
+        "TYPE":"OPERATOR2",
+        "FIRST":"<",
+        "SECOND":">"
+    },
+    {
+        "TYPE":"OPERATOR2",
+        "FIRST":">",
+        "SECOND":"!="
+    },
+    {
         "TYPE":"OPERATOR3",
         "FIRST":":",
         "SECOND":"="
@@ -28,6 +38,21 @@
         "TYPE":"OPERATOR3",
         "FIRST":"=",
         "SECOND":"=="
+    },
+    {
+        "TYPE":"OPERATOR3",
+        "FIRST":"#define",
+        "SECOND":"<"
+    },
+    {
+        "TYPE":"OPERATOR3",
+        "FIRST":"<",
+        "SECOND":">"
+    },
+    {
+        "TYPE":"OPERATOR3",
+        "FIRST":">",
+        "SECOND":"!="
     },
     {
         "TYPE":"OPERATOR3",
@@ -68,6 +93,16 @@
         "TYPE":"OPERATOR4",
         "FIRST":"||",
         "SECOND":"#define"
+    },
+    {
+        "TYPE":"OPERATOR4",
+        "FIRST":"<",
+        "SECOND":">"
+    },
+    {
+        "TYPE":"OPERATOR4",
+        "FIRST":">",
+        "SECOND":"!="
     },
     {
         "TYPE":"OPERATOR4",

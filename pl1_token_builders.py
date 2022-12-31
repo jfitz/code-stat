@@ -40,6 +40,45 @@ class PL1LabelTokenBuilder(TokenBuilder):
     return 0
 
 
+# token reader for label
+class PL1NumericLabelTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self):
+    self.text = None
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'label', False)]
+
+
+  def accept(self, candidate, c):
+    if len(candidate) == 0:
+      return c.isdigit()
+
+    if candidate[-1] == ':':
+      return False
+
+    return c.isdigit() or c in ':_'
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if self.text.endswith(':'):
+      return len(self.text)
+
+    return 0
+
+
 # token reader for start comment
 class PL1CommentStartTokenBuilder(TokenBuilder):
   @staticmethod

@@ -242,6 +242,7 @@ C
 * C89 source (has void but not bool, // comment)
 + Embedded SQL (EXEC ;)
 + tokenize EXEC block
+- c-decl.c moves to C++ data
 
 C++:
 + Embedded SQL (EXEC ;)
@@ -482,7 +483,7 @@ Python
 + 3.7:? await
 + 3.6: 0_0 (underscore)
 + 3.5: @ operator
-+ 3.3: yield from [] 
++ 3.3: yield from []
 
 R
 ? 'basketball' has issues (no keywords, few tokens)

@@ -100,7 +100,7 @@
         "value":" "
     },
     {
-        "type":"type",
+        "type":"string",
         "value":"<stdio.h>"
     },
     {
@@ -116,7 +116,7 @@
         "value":" "
     },
     {
-        "type":"type",
+        "type":"string",
         "value":"<stdlib.h>"
     },
     {
@@ -132,7 +132,7 @@
         "value":" "
     },
     {
-        "type":"type",
+        "type":"string",
         "value":"<stdint.h>"
     },
     {
@@ -148,7 +148,7 @@
         "value":" "
     },
     {
-        "type":"type",
+        "type":"string",
         "value":"<string.h>"
     },
     {
@@ -164,7 +164,7 @@
         "value":" "
     },
     {
-        "type":"type",
+        "type":"string",
         "value":"<assert.h>"
     },
     {
@@ -180,7 +180,7 @@
         "value":" "
     },
     {
-        "type":"type",
+        "type":"string",
         "value":"<sys/errno.h>"
     },
     {
@@ -196,7 +196,7 @@
         "value":" "
     },
     {
-        "type":"type",
+        "type":"string",
         "value":"<math.h>"
     },
     {
@@ -212,7 +212,7 @@
         "value":" "
     },
     {
-        "type":"type",
+        "type":"string",
         "value":"<limits.h>"
     },
     {
@@ -228,7 +228,7 @@
         "value":" "
     },
     {
-        "type":"type",
+        "type":"string",
         "value":"<objc/runtime.h>"
     },
     {
@@ -280,7 +280,7 @@
         "value":" "
     },
     {
-        "type":"type",
+        "type":"string",
         "value":"<CoreFoundation/CFString.h>"
     },
     {
@@ -296,7 +296,7 @@
         "value":" "
     },
     {
-        "type":"type",
+        "type":"string",
         "value":"<CoreFoundation/CFArray.h>"
     },
     {
@@ -312,7 +312,7 @@
         "value":" "
     },
     {
-        "type":"type",
+        "type":"string",
         "value":"<CoreFoundation/CFDictionary.h>"
     },
     {
@@ -328,7 +328,7 @@
         "value":" "
     },
     {
-        "type":"type",
+        "type":"string",
         "value":"<CoreFoundation/CFNumber.h>"
     },
     {
@@ -360,8 +360,32 @@
         "value":" "
     },
     {
-        "type":"type",
-        "value":"<Foundation/NSArray.h>"
+        "type":"operator",
+        "value":"<"
+    },
+    {
+        "type":"identifier",
+        "value":"Foundation"
+    },
+    {
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"identifier",
+        "value":"NSArray"
+    },
+    {
+        "type":"operator",
+        "value":"."
+    },
+    {
+        "type":"identifier",
+        "value":"h"
+    },
+    {
+        "type":"operator",
+        "value":">"
     },
     {
         "type":"newline",
@@ -380,8 +404,32 @@
         "value":" "
     },
     {
-        "type":"type",
-        "value":"<Foundation/NSAutoreleasePool.h>"
+        "type":"operator",
+        "value":"<"
+    },
+    {
+        "type":"identifier",
+        "value":"Foundation"
+    },
+    {
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"identifier",
+        "value":"NSAutoreleasePool"
+    },
+    {
+        "type":"operator",
+        "value":"."
+    },
+    {
+        "type":"identifier",
+        "value":"h"
+    },
+    {
+        "type":"operator",
+        "value":">"
     },
     {
         "type":"newline",
@@ -400,8 +448,32 @@
         "value":" "
     },
     {
-        "type":"type",
-        "value":"<Foundation/NSData.h>"
+        "type":"operator",
+        "value":"<"
+    },
+    {
+        "type":"identifier",
+        "value":"Foundation"
+    },
+    {
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"identifier",
+        "value":"NSData"
+    },
+    {
+        "type":"operator",
+        "value":"."
+    },
+    {
+        "type":"identifier",
+        "value":"h"
+    },
+    {
+        "type":"operator",
+        "value":">"
     },
     {
         "type":"newline",
@@ -420,8 +492,32 @@
         "value":" "
     },
     {
-        "type":"type",
-        "value":"<Foundation/NSDictionary.h>"
+        "type":"operator",
+        "value":"<"
+    },
+    {
+        "type":"identifier",
+        "value":"Foundation"
+    },
+    {
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"identifier",
+        "value":"NSDictionary"
+    },
+    {
+        "type":"operator",
+        "value":"."
+    },
+    {
+        "type":"identifier",
+        "value":"h"
+    },
+    {
+        "type":"operator",
+        "value":">"
     },
     {
         "type":"newline",
@@ -440,8 +536,32 @@
         "value":" "
     },
     {
-        "type":"type",
-        "value":"<Foundation/NSException.h>"
+        "type":"operator",
+        "value":"<"
+    },
+    {
+        "type":"identifier",
+        "value":"Foundation"
+    },
+    {
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"identifier",
+        "value":"NSException"
+    },
+    {
+        "type":"operator",
+        "value":"."
+    },
+    {
+        "type":"identifier",
+        "value":"h"
+    },
+    {
+        "type":"operator",
+        "value":">"
     },
     {
         "type":"newline",
@@ -460,8 +580,32 @@
         "value":" "
     },
     {
-        "type":"type",
-        "value":"<Foundation/NSNull.h>"
+        "type":"operator",
+        "value":"<"
+    },
+    {
+        "type":"identifier",
+        "value":"Foundation"
+    },
+    {
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"identifier",
+        "value":"NSNull"
+    },
+    {
+        "type":"operator",
+        "value":"."
+    },
+    {
+        "type":"identifier",
+        "value":"h"
+    },
+    {
+        "type":"operator",
+        "value":">"
     },
     {
         "type":"newline",
@@ -480,8 +624,32 @@
         "value":" "
     },
     {
-        "type":"type",
-        "value":"<Foundation/NSObjCRuntime.h>"
+        "type":"operator",
+        "value":"<"
+    },
+    {
+        "type":"identifier",
+        "value":"Foundation"
+    },
+    {
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"identifier",
+        "value":"NSObjCRuntime"
+    },
+    {
+        "type":"operator",
+        "value":"."
+    },
+    {
+        "type":"identifier",
+        "value":"h"
+    },
+    {
+        "type":"operator",
+        "value":">"
     },
     {
         "type":"newline",
@@ -20468,8 +20636,40 @@
         "value":" "
     },
     {
-        "type":"type",
-        "value":"<NSCopying, NSMutableCopying, NSFastEnumeration>"
+        "type":"operator",
+        "value":"<"
+    },
+    {
+        "type":"identifier",
+        "value":"NSCopying"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NSMutableCopying"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NSFastEnumeration"
+    },
+    {
+        "type":"operator",
+        "value":">"
     },
     {
         "type":"whitespace",
@@ -34244,8 +34444,40 @@
         "value":" "
     },
     {
-        "type":"type",
-        "value":"<NSCopying, NSMutableCopying, NSFastEnumeration>"
+        "type":"operator",
+        "value":"<"
+    },
+    {
+        "type":"identifier",
+        "value":"NSCopying"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NSMutableCopying"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"NSFastEnumeration"
+    },
+    {
+        "type":"operator",
+        "value":">"
     },
     {
         "type":"whitespace",

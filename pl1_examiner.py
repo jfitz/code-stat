@@ -27,7 +27,8 @@ from pl1_token_builders import (
   PL1CommentStartTokenBuilder,
   PL1CommentMiddleTokenBuilder,
   PL1CommentEndTokenBuilder,
-  PL1LabelTokenBuilder
+  PL1LabelTokenBuilder,
+  PL1NumericLabelTokenBuilder
 )
 from jcl_token_builders import (
   JCLTokenBuilder
@@ -41,6 +42,7 @@ class PL1Examiner(Examiner):
     PL1CommentMiddleTokenBuilder.__escape_z__()
     PL1CommentEndTokenBuilder.__escape_z__()
     PL1LabelTokenBuilder.__escape_z__()
+    PL1NumericLabelTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
@@ -70,6 +72,7 @@ class PL1Examiner(Examiner):
     operand_types.append('string')
 
     label_tb = PL1LabelTokenBuilder()
+    numeric_label_tb = PL1NumericLabelTokenBuilder()
     operand_types.append('label')
 
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
@@ -316,6 +319,7 @@ class PL1Examiner(Examiner):
       identifier_tb,
       string_tb,
       label_tb,
+      numeric_label_tb,
       slash_star_comment_tb,
       preprocessor_tb,
       title_tb,
@@ -397,6 +401,7 @@ class PL1Examiner(Examiner):
       identifier_tb,
       string_tb,
       label_tb,
+      numeric_label_tb,
       slash_star_comment_tb,
       preprocessor_tb,
       title_tb,

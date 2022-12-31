@@ -22,7 +22,8 @@ from token_builders import (
 from cx_token_builders import (
   SlashSlashCommentTokenBuilder,
   SlashStarCommentTokenBuilder,
-  ClassTypeTokenBuilder
+  ClassTypeTokenBuilder,
+  IncludeNameTokenBuilder
 )
 from objectivec_token_builders import (
   DirectiveTokenBuilder
@@ -49,6 +50,7 @@ class ObjectiveCExaminer(Examiner):
     SlashSlashCommentTokenBuilder.__escape_z__()
     SlashStarCommentTokenBuilder.__escape_z__()
     ClassTypeTokenBuilder.__escape_z__()
+    IncludeNameTokenBuilder.__escape_z__()
     DirectiveTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
@@ -96,6 +98,8 @@ class ObjectiveCExaminer(Examiner):
     c_warning_tb = LeadToEndOfLineTokenBuilder('#warning', True, 'preprocessor')
     c_error_tb = LeadToEndOfLineTokenBuilder('#error', True, 'preprocessor')
     c_pragma_tb = LeadToEndOfLineTokenBuilder('#pragma', True, 'preprocessor')
+    include_name_tb = IncludeNameTokenBuilder('#include')
+    import_name_tb = IncludeNameTokenBuilder('#import')
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)
 
     known_operators = [
@@ -196,7 +200,6 @@ class ObjectiveCExaminer(Examiner):
       known_operator_tb,
       directive_tb,
       identifier_tb,
-      class_type_tb,
       string_tb,
       prefixed_string_tb,
       slash_slash_comment_tb,
@@ -205,6 +208,9 @@ class ObjectiveCExaminer(Examiner):
       c_warning_tb,
       c_error_tb,
       c_pragma_tb,
+      include_name_tb,
+      import_name_tb,
+      class_type_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]
@@ -250,7 +256,7 @@ class ObjectiveCExaminer(Examiner):
     self.calc_line_length_confidence(code, self.max_expected_line)
 
 
-  # convert identifiers after 'goto' to labels
+  # convert values to operators
   def convert_values_to_operators(self):
     prev_token = Token('\n', 'newline', False)
 

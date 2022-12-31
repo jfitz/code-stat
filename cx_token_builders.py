@@ -187,3 +187,54 @@ class ClassTypeTokenBuilder(TokenBuilder):
       return len(self.text)
     
     return 0
+
+
+# token reader for #include <name>
+class IncludeNameTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self, previous):
+    self.text = ''
+    self.previous = previous
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'string', True)]
+
+
+  def accept(self, candidate, c):
+    if len(candidate) == 0:
+      return c == '<'
+
+    if candidate[-1] == '>':
+      return False
+
+    return c.isalpha() or c.isdigit() or c in ">/\\ ,_.:"
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if self.text[-1] != '>':
+      return 0
+
+    if len(line_printable_tokens) != 1:
+      return 0
+
+    prev_token = line_printable_tokens[0]
+
+    if prev_token.group != 'preprocessor':
+      return 0
+
+    if prev_token.text != self.previous:
+      return 0
+
+    return len(self.text)

@@ -19,12 +19,13 @@ from token_builders import (
   CaseInsensitiveListTokenBuilder,
   CaseSensitiveListTokenBuilder,
   SingleCharacterTokenBuilder,
-  LeadToEndOfLineTokenBuilder
+  LeadToEndOfLineTokenBuilder,
+  NullTokenBuilder
 )
 from cx_token_builders import (
   SlashSlashCommentTokenBuilder,
   SlashStarCommentTokenBuilder,
-  ClassTypeTokenBuilder
+  IncludeNameTokenBuilder
 )
 from examiner import Examiner
 
@@ -45,11 +46,12 @@ class CExaminer(Examiner):
     IdentifierTokenBuilder.__escape_z__()
     CaseInsensitiveListTokenBuilder.__escape_z__()
     CaseSensitiveListTokenBuilder.__escape_z__()
+    NullTokenBuilder.__escape_z__()
     SingleCharacterTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
     SlashSlashCommentTokenBuilder.__escape_z__()
     SlashStarCommentTokenBuilder.__escape_z__()
-    ClassTypeTokenBuilder.__escape_z__()
+    IncludeNameTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
@@ -80,10 +82,11 @@ class CExaminer(Examiner):
     string_tb = EscapedStringTokenBuilder(quotes, 0)
     operand_types.append('string')
 
-    class_type_tb = ClassTypeTokenBuilder()
-    operand_types.append('class')
+    if year in['99']:
+      slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
+    else:
+      slash_slash_comment_tb = NullTokenBuilder()
 
-    slash_slash_comment_tb = SlashSlashCommentTokenBuilder()
     slash_star_comment_tb = SlashStarCommentTokenBuilder()
 
     directives = [
@@ -96,6 +99,7 @@ class CExaminer(Examiner):
     c_preprocessor_tb = CaseSensitiveListTokenBuilder(directives, 'preprocessor', False)
     c_warning_tb = LeadToEndOfLineTokenBuilder('#warning', True, 'preprocessor')
     c_error_tb = LeadToEndOfLineTokenBuilder('#error', True, 'preprocessor')
+    include_name_tb = IncludeNameTokenBuilder('#include')
     terminators_tb = SingleCharacterTokenBuilder(';', 'statement terminator', False)
 
     known_operators = [
@@ -208,20 +212,13 @@ class CExaminer(Examiner):
       groupers_tb,
       known_operator_tb,
       identifier_tb,
-      class_type_tb,
       string_tb,
-    ]
-
-    if year in['99']:
-      tokenbuilders += [
-        slash_slash_comment_tb,
-      ]
-
-    tokenbuilders += [
+      slash_slash_comment_tb,
       slash_star_comment_tb,
       c_preprocessor_tb,
       c_error_tb,
       c_warning_tb,
+      include_name_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]
