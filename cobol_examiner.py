@@ -487,6 +487,8 @@ class CobolExaminer(Examiner):
 
     self.convert_numbers_to_pictures()
     self.convert_numbers_to_levels()
+    self.convert_identifiers_before_period_to_labels()
+    self.convert_identifiers_after_perform_or_through_to_labels()
 
     self.calc_statistics()
     self.statistics['format'] = 'free'
@@ -562,6 +564,8 @@ class CobolExaminer(Examiner):
 
     self.convert_numbers_to_pictures()
     self.convert_numbers_to_levels()
+    self.convert_identifiers_before_period_to_labels()
+    self.convert_identifiers_after_perform_or_through_to_labels()
 
     self.calc_statistics()
     self.statistics['format'] = 'fixed'
@@ -818,6 +822,37 @@ class CobolExaminer(Examiner):
         token.group = 'level'
 
       if token.group not in ['whitespace', 'line number', 'line identification']:
+        prev_token = token
+
+
+  # convert identifiers after and before periods to labels
+  def convert_identifiers_before_period_to_labels(self):
+    prev_prev_token = Token('\n', 'newline', False)
+    prev_token = Token('\n', 'newline', False)
+
+    for token in self.tokens:
+      if token.group == 'statement terminator' and token.text == '.' and \
+        prev_token.group == 'identifier' and \
+        prev_prev_token.group == 'statement terminator' and prev_prev_token.text == '.':
+        prev_token.group = 'label'
+        prev_token.is_operand = False
+
+      if token.group not in ['whitespace', 'comment', 'newline', 'line identification']:
+        prev_prev_token = prev_token
+        prev_token = token
+
+
+  # convert identifiers after 'perform' or 'through' to labels
+  def convert_identifiers_after_perform_or_through_to_labels(self):
+    prev_token = Token('\n', 'newline', False)
+
+    for token in self.tokens:
+      if token.group == 'identifier' and \
+        prev_token.group == 'keyword' and prev_token.text.lower() in ['perform', 'through']:
+        token.group = 'label'
+        token.is_operand = False
+
+      if token.group not in ['whitespace', 'comment', 'newline', 'line identification']:
         prev_token = token
 
 
