@@ -232,13 +232,13 @@ class DbaseExaminer(Examiner):
     if version == 'ii':
       values = [
         'ALL', 'BLANK', 'BLAN', 'BOTTOM', 'BOTT', 'EOF', 'OFF', 'ON', 'TOP',
-        '.T.', '.F.'
+        '.T.', '.F.', '.Y.', '.N.'
       ]
 
     if version == 'iii':
       values = [
         'ALL', 'BLANK', 'BLAN', 'BOTTOM', 'BOTT', 'EOF', 'OFF', 'ON', 'TOP',
-        '.T.', '.F.',
+        '.T.', '.F.', '.Y.', '.N.',
         'AMERICAN', 'ANSI', 'BRITISH', 'ITALIAN', 'FRENCH', 'GERMAN',
       ]
 

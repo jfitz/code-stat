@@ -285,9 +285,12 @@ D
 Dart
 
 dBase II
-- lines and strings continued when they end with ;
 - derive TextBlockTokenBuilder from BlockTokenBuilder
-- parse FMT files
+- parse FRM files
+-- first line m=nn[,w=nn]
+-- lines with y n are options
+-- lines with text (only one at a time, other lines precede and follow)
+-- lines starting with : > < contain number , expression
 
 dBase III
 
