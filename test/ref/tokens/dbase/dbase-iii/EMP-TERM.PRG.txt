@@ -780,152 +780,28 @@
         "value":"e"
     },
     {
+        "type":"string",
+        "value":"'bynmbr\r\n    *    have to make the search string 3 characters for the find\r\n    *      because the index key is STR(emp:name,3)\r\n    STORE STR(VAL(Met:srch),3) TO Met:srch\r\n    *   have to put the macro within quotes because of leading spaces...\r\n    FIND '"
+    },
+    {
+        "type":"operator",
+        "value":"&"
+    },
+    {
+        "type":"identifier",
+        "value":"Met"
+    },
+    {
+        "type":"invalid operator",
+        "value":":"
+    },
+    {
+        "type":"identifier",
+        "value":"srch"
+    },
+    {
         "type":"invalid",
         "value":"'"
-    },
-    {
-        "type":"identifier",
-        "value":"bynmbr"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"comment",
-        "value":"*    have to make the search string 3 characters for the find"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"comment",
-        "value":"*      because the index key is STR(emp:name,3)"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"keyword",
-        "value":"STORE"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"function",
-        "value":"STR"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"function",
-        "value":"VAL"
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"Met"
-    },
-    {
-        "type":"invalid operator",
-        "value":":"
-    },
-    {
-        "type":"identifier",
-        "value":"srch"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"number",
-        "value":"3"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"keyword",
-        "value":"TO"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"Met"
-    },
-    {
-        "type":"invalid operator",
-        "value":":"
-    },
-    {
-        "type":"identifier",
-        "value":"srch"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"comment",
-        "value":"*   have to put the macro within quotes because of leading spaces..."
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"keyword",
-        "value":"FIND"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"string",
-        "value":"'&Met:srch'"
     },
     {
         "type":"newline",
@@ -1152,128 +1028,68 @@
         "value":"e"
     },
     {
+        "type":"string",
+        "value":"'byname\r\n    FIND &Met:srch\r\n    IF #=0\r\n      *   must not be anybody on the file with the name used for the search\r\n      @ 20,5 SAY '"
+    },
+    {
+        "type":"identifier",
+        "value":"Employee"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"name"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"is"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"not"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"on"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"the"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"function",
+        "value":"file"
+    },
+    {
+        "type":"operator",
+        "value":"."
+    },
+    {
         "type":"invalid",
         "value":"'"
-    },
-    {
-        "type":"identifier",
-        "value":"byname"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"keyword",
-        "value":"FIND"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"&"
-    },
-    {
-        "type":"identifier",
-        "value":"Met"
-    },
-    {
-        "type":"invalid operator",
-        "value":":"
-    },
-    {
-        "type":"identifier",
-        "value":"srch"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"keyword",
-        "value":"IF"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"#"
-    },
-    {
-        "type":"operator",
-        "value":"="
-    },
-    {
-        "type":"number",
-        "value":"0"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"      "
-    },
-    {
-        "type":"comment",
-        "value":"*   must not be anybody on the file with the name used for the search"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"      "
-    },
-    {
-        "type":"keyword",
-        "value":"@"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"20"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"number",
-        "value":"5"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"keyword",
-        "value":"SAY"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"string",
-        "value":"'Employee name is not on the file.'"
     },
     {
         "type":"newline",

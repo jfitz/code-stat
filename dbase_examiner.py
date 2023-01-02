@@ -5,10 +5,10 @@ from codestat_token import Token
 from codestat_tokenizer import Tokenizer
 from token_builders import (
   InvalidTokenBuilder,
+  NullTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
   IdentifierTokenBuilder,
-  EscapedStringTokenBuilder,
   IntegerTokenBuilder,
   IntegerExponentTokenBuilder,
   RealTokenBuilder,
@@ -20,12 +20,13 @@ from token_builders import (
 )
 from cobol_token_builders import AsteriskCommentTokenBuilder
 from dbase_token_builders import (
+  DbaseStringTokenBuilder,
   DbaseFilenameTokenBuilder,
   WildCardIdentifierTokenBuilder,
   BracketedStringTokenBuilder,
   SetCaseInsensitiveListTokenBuilder,
   KeywordCommentTokenBuilder,
-  KeywordComment2TokenBuilder,
+  KeywordDoCaseCommentTokenBuilder,
   TextBlockTokenBuilder
 )
 from examiner import Examiner
@@ -34,10 +35,10 @@ class DbaseExaminer(Examiner):
   @staticmethod
   def __escape_z__():
     InvalidTokenBuilder.__escape_z__()
+    NullTokenBuilder.__escape_z__()
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
     IdentifierTokenBuilder.__escape_z__()
-    EscapedStringTokenBuilder.__escape_z__()
     IntegerTokenBuilder.__escape_z__()
     IntegerExponentTokenBuilder.__escape_z__()
     RealTokenBuilder.__escape_z__()
@@ -47,12 +48,13 @@ class DbaseExaminer(Examiner):
     SingleCharacterTokenBuilder.__escape_z__()
     LeadToEndOfLineTokenBuilder.__escape_z__()
     AsteriskCommentTokenBuilder.__escape_z__()
+    DbaseStringTokenBuilder.__escape_z__()
     DbaseFilenameTokenBuilder.__escape_z__()
     WildCardIdentifierTokenBuilder.__escape_z__()
     BracketedStringTokenBuilder.__escape_z__()
     SetCaseInsensitiveListTokenBuilder.__escape_z__()
     KeywordCommentTokenBuilder.__escape_z__()
-    KeywordComment2TokenBuilder.__escape_z__()
+    KeywordDoCaseCommentTokenBuilder.__escape_z__()
     TextBlockTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
@@ -84,7 +86,7 @@ class DbaseExaminer(Examiner):
     operand_types.append('identifier')
 
     quotes = ['"', "'"]
-    string_tb = EscapedStringTokenBuilder(quotes, 0)
+    string_tb = DbaseStringTokenBuilder(quotes)
     bracket_string_tb = BracketedStringTokenBuilder()
     text_string_tb = TextBlockTokenBuilder('TEXT', 'ENDTEXT')
     operand_types.append('string')
@@ -92,7 +94,11 @@ class DbaseExaminer(Examiner):
     line_continuation_tb = SingleCharacterTokenBuilder(';', 'line continuation', False)
 
     comment_tb = AsteriskCommentTokenBuilder()
-    line_comment_tb = LeadToEndOfLineTokenBuilder('&&', True, 'comment')
+
+    if version == 'ii':
+      line_comment_tb = NullTokenBuilder()
+    else:
+      line_comment_tb = LeadToEndOfLineTokenBuilder('&&', True, 'comment')
 
     if version == 'ii':
       known_operators = [
@@ -207,16 +213,19 @@ class DbaseExaminer(Examiner):
 
     # keyword comments are keywords that also start a comment
     # any text after the keyword is a comment
-    keyword_comments = []
+    keyword_do_case_comment_tb = KeywordDoCaseCommentTokenBuilder(False)
+
+    # dbase II allowed comments after certain keywords
+    # later versions allowed comments after fewer
     if version == 'ii':
       keyword_comments = [
-        'ELSE', 'ENDCASE', 'ENDC', 'ENDDO', 'ENDD', 'ENDIF', 'ENDI', 'ENDWHILE', 'ENDW',
-        'NOTE', 'REMARK', 'REMA'
+        'ELSE', 'ENDCASE', 'ENDC', 'ENDDO', 'ENDD', 'ENDIF', 'ENDI',
+        'ENDWHILE', 'ENDW', 'NOTE', 'REMARK', 'REMA'
       ]
+    else:
+      keyword_comments = ['NOTE', 'REMARK', 'REMA']
 
-    keyword_comment_tb = KeywordCommentTokenBuilder(keyword_comments, False)
-
-    keyword_comment2_tb = KeywordComment2TokenBuilder(['DO', 'CASE'], False)
+    keyword_comment_ii = KeywordCommentTokenBuilder(keyword_comments, False)
 
     values = []
 
@@ -325,7 +334,7 @@ class DbaseExaminer(Examiner):
 
     invalid_token_builder = InvalidTokenBuilder()
 
-    tokenbuilders1 = [
+    tokenbuilders = [
       newline_tb,
       whitespace_tb,
       line_continuation_tb,
@@ -335,8 +344,8 @@ class DbaseExaminer(Examiner):
       real_exponent_tb,
       keyword_tb,
       set_keyword_tb,
-      keyword_comment_tb, # after keyword, because these are longer
-      keyword_comment2_tb,
+      keyword_comment_ii, # after keyword, because these are longer
+      keyword_do_case_comment_tb,
       values_tb,
       groupers_tb,
       comment_tb,         # before operators, to catch single asterisk on line
@@ -345,33 +354,13 @@ class DbaseExaminer(Examiner):
       filename_tb,        # before identifier
       identifier_tb,
       string_tb,
-      text_string_tb
-    ]
-
-    tokenbuilders_ii = [
-      bracket_string_tb
-    ]
-
-    tokenbuilders_iii = [
+      text_string_tb,
       bracket_string_tb,
-      line_comment_tb
-    ]
-
-    tokenbuilders2 = [
+      line_comment_tb,
       wild_card_identifier_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]
-
-    tokenbuilders = tokenbuilders1
-
-    if version == 'ii':
-      tokenbuilders += tokenbuilders_ii
-
-    if version == 'iii':
-      tokenbuilders += tokenbuilders_iii
-
-    tokenbuilders += tokenbuilders2
 
     tokenizer = Tokenizer(tokenbuilders)
 

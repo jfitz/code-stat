@@ -7,6 +7,53 @@ from token_builders import (
   BlockTokenBuilder
 )
 
+# token reader for text literal (string)
+class DbaseStringTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self, quotes):
+    self.quotes = quotes
+    self.text = ''
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'string', True)]
+
+
+  def accept(self, candidate, c):
+    # newline breaks a string
+    if len(candidate) == 0:
+      return c in self.quotes
+
+    if len(candidate) > 1:
+      return candidate[-1] != candidate[0]
+
+    if c in ['\n', '\r']:
+      return candidate.strip()[-1] == ';'
+
+    return True
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(self.text) < 2:
+      return 0
+
+    if self.text[-1] != self.text[0]:
+      return 0
+
+    return len(self.text)
+
+
 # token reader for identifier
 class DbaseFilenameTokenBuilder(TokenBuilder):
   @staticmethod
@@ -302,19 +349,14 @@ class KeywordCommentTokenBuilder(TokenBuilder):
 
 
 # accept characters to match item in list
-class KeywordComment2TokenBuilder(TokenBuilder):
+class KeywordDoCaseCommentTokenBuilder(TokenBuilder):
   @staticmethod
   def __escape_z__():
     Token.__escape_z__()
     return 'Escape ?Z'
 
 
-  def __init__(self, legals, case_sensitive):
-    if case_sensitive:
-      self.legals = legals
-    else:
-      self.legals = list(map(str.lower, legals))
-
+  def __init__(self,  case_sensitive):
     self.case_sensitive = case_sensitive
 
     if case_sensitive:
