@@ -832,16 +832,32 @@
         "value":"e"
     },
     {
-        "type":"string",
-        "value":"'byname\r\n    ?? \"E'"
+        "type":"invalid",
+        "value":"'"
     },
     {
         "type":"identifier",
-        "value":"BYNAME"
+        "value":"byname"
     },
     {
-        "type":"invalid",
-        "value":"\""
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"keyword",
+        "value":"??"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"E'BYNAME\""
     },
     {
         "type":"newline",
@@ -904,16 +920,32 @@
         "value":"e"
     },
     {
-        "type":"string",
-        "value":"'bynmbr\r\n    ?? \"E'"
+        "type":"invalid",
+        "value":"'"
     },
     {
         "type":"identifier",
-        "value":"BYNMBR"
+        "value":"bynmbr"
     },
     {
-        "type":"invalid",
-        "value":"\""
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
+    },
+    {
+        "type":"keyword",
+        "value":"??"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"E'BYNMBR\""
     },
     {
         "type":"newline",

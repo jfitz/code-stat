@@ -1,6 +1,24 @@
 [
     {
         "TYPE":"TOKEN",
+        "INVALID":"\"",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"\"",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "REPEATED":"&",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
         "REPEATED":"&",
         "FIRST":"",
         "SECOND":""
@@ -164,37 +182,7 @@
     {
         "TYPE":"OPERATOR4",
         "FIRST":"=",
-        "SECOND":"set"
-    },
-    {
-        "TYPE":"OPERATOR4",
-        "FIRST":"=",
-        "SECOND":"set"
-    },
-    {
-        "TYPE":"OPERATOR4",
-        "FIRST":"=",
-        "SECOND":"set"
-    },
-    {
-        "TYPE":"OPERATOR4",
-        "FIRST":"=",
-        "SECOND":"set"
-    },
-    {
-        "TYPE":"OPERATOR4",
-        "FIRST":"&",
-        "SECOND":"create"
-    },
-    {
-        "TYPE":"OPERATOR4",
-        "FIRST":"=",
         "SECOND":"{"
-    },
-    {
-        "TYPE":"OPERATOR4",
-        "FIRST":"!",
-        "SECOND":"Note"
     },
     {
         "TYPE":"LINE FORMAT",
@@ -245,6 +233,11 @@
         "TYPE":"LINE FORMAT",
         "FIRST":"identifier",
         "SECOND":"fMain"
+    },
+    {
+        "TYPE":"LINE FORMAT",
+        "FIRST":"operator",
+        "SECOND":"&"
     },
     {
         "TYPE":"LINE FORMAT",

@@ -48,7 +48,7 @@
         "value":" "
     },
     {
-        "type":"keyword",
+        "type":"function",
         "value":"set"
     },
     {
@@ -108,7 +108,7 @@
         "value":" "
     },
     {
-        "type":"keyword",
+        "type":"function",
         "value":"set"
     },
     {
@@ -168,7 +168,7 @@
         "value":" "
     },
     {
-        "type":"keyword",
+        "type":"function",
         "value":"set"
     },
     {
@@ -228,7 +228,7 @@
         "value":" "
     },
     {
-        "type":"keyword",
+        "type":"function",
         "value":"set"
     },
     {
@@ -308,7 +308,7 @@
         "value":" "
     },
     {
-        "type":"keyword",
+        "type":"function",
         "value":"form"
     },
     {
@@ -336,7 +336,7 @@
         "value":" "
     },
     {
-        "type":"keyword",
+        "type":"identifier",
         "value":"create"
     },
     {
@@ -656,8 +656,48 @@
         "value":" "
     },
     {
-        "type":"string",
-        "value":"\"Multiple Document\r\n                           && Interface\""
+        "type":"invalid",
+        "value":"\""
+    },
+    {
+        "type":"identifier",
+        "value":"Multiple"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Document"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"                           "
+    },
+    {
+        "type":"operator",
+        "value":"&"
+    },
+    {
+        "type":"operator",
+        "value":"&"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Interface"
+    },
+    {
+        "type":"invalid",
+        "value":"\""
     },
     {
         "type":"whitespace",
@@ -824,7 +864,7 @@
         "value":"form"
     },
     {
-        "type":"operator",
+        "type":"function",
         "value":"!"
     },
     {

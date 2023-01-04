@@ -536,32 +536,44 @@
         "value":"i"
     },
     {
-        "type":"string",
-        "value":"'bynmbr\r\nSET heading TO '"
-    },
-    {
-        "type":"identifier",
-        "value":"by"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"item"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"number"
-    },
-    {
         "type":"invalid",
         "value":"'"
+    },
+    {
+        "type":"identifier",
+        "value":"bynmbr"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"SET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"heading"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'by item number'"
     },
     {
         "type":"newline",
@@ -640,32 +652,48 @@
         "value":"i"
     },
     {
-        "type":"string",
-        "value":"'bydesc\r\n   SET heading TO '"
-    },
-    {
-        "type":"identifier",
-        "value":"by"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"item"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"description"
-    },
-    {
         "type":"invalid",
         "value":"'"
+    },
+    {
+        "type":"identifier",
+        "value":"bydesc"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"keyword",
+        "value":"SET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"heading"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"'by item description'"
     },
     {
         "type":"newline",
@@ -1008,8 +1036,68 @@
         "value":"inv"
     },
     {
-        "type":"string",
-        "value":"'prtr TO print\r\nELSE\r\n  REPORT FORM inv'"
+        "type":"invalid",
+        "value":"'"
+    },
+    {
+        "type":"identifier",
+        "value":"prtr"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"print"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"ELSE"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"keyword",
+        "value":"REPORT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"FORM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"inv"
+    },
+    {
+        "type":"invalid",
+        "value":"'"
     },
     {
         "type":"identifier",

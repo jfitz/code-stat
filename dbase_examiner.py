@@ -102,37 +102,31 @@ class DbaseExaminer(Examiner):
 
     if version == 'ii':
       known_operators = [
+        '#',
         '+', '-', '*', '/', '**', '^',
-        '=', '<>', '#', '>', '>=', '<', '<=',
+        '=', '<>', '>', '>=', '<', '<=',
         '$',
         '.NOT.', '.AND.', '.OR.',
-        '&', '$', '!'
+        '&'
       ]
 
     if version == 'iii':
       known_operators = [
+        '#',
         '+', '-', '*', '/', '**', '^',
-        '=', '<>', '#', '>', '>=', '<', '<=', '!=',
-        '$', '->',
+        '=', '<>', '>', '>=', '<', '<=', '!=',
+        '$', '!', '->',
         '.NOT.', '.AND.', '.OR.',
-        '&', '$', '!', '.'
+        '&', '.'
       ]
 
     known_operator_tb = CaseInsensitiveListTokenBuilder(known_operators, 'operator', False)
 
-    if version == 'ii':
-      self.unary_operators = [
-        '+', '-',
-        '.NOT.',
-        '&', '$', '!'
-      ]
-
-    if version == 'iii':
-      self.unary_operators = [
-        '+', '-',
-        '.NOT.',
-        '&', '$', '!'
-      ]
+    self.unary_operators = [
+      '+', '-',
+      '.NOT.',
+      '&', '$', '!'
+    ]
 
     self.postfix_operators = []
 
@@ -151,23 +145,29 @@ class DbaseExaminer(Examiner):
     if version == 'ii':
       keywords = [
         'ACCEPT', 'ACCE', 'APPEND', 'APPE',
-        'CASE', 'CLEAR', 'CLEA', 'COPY', 'COUNT', 'COUN', 'CREATE', 'CREA',
+        'BROWSE', 'BROW',
+        'CANCEL', 'CANC', 'CASE', 'CHANGE', 'CHAN', 'CLEAR', 'CLEA',
+        'COMMAND', 'CONTINUE', 'COPY', 'COUNT', 'COUN', 'CREATE', 'CREA',
         'DELETE', 'DELE', 'DISPLAY', 'DISP', 'DO',
         'EDIT', 'EJECT', 'EJEC', 'ELSE', 'ENDCASE', 'ENDC', 'ENDDO', 'ENDD',
         'ENDIF', 'ENDI', 'ENDWHILE', 'ENDW', 'ERASE', 'ERAS',
-        'FIND', 'FOR', 'FORMAT', 'FORM',
+        'FILE', 'FIND', 'FOR', 'FORMAT', 'FORM',
         'GET', 'GO', 'GOTO',
         'IF', 'INDEX', 'INDE', 'INPUT', 'INPU',
+        'INSERT', 'INSE',
+        'JOIN',
         'LIKE', 'LIST', 'LOCATE', 'LOCA', 'LOOP',
+        'MEMORY', 'MEMO', 'MODIFY', 'MODI',
         'OTHERWISE', 'OTHE',
         'PACK', 'PICTURE', 'PICT',
         'QUIT',
-        'READ', 'RECALL', 'RECA', 'RELEASE', 'RELE', 'REPLACE', 'REPL',
-        'REPORT', 'REPO', 'RESTORE', 'REST', 'RETURN', 'RETU',
+        'READ', 'RECALL', 'RECA', 'RELEASE', 'RELE', 'RENAME', 'RENA',
+        'REPLACE', 'REPL', 'REPORT', 'REPO', 'RESTORE', 'REST',
+        'RETURN', 'RETU',
         'SAVE', 'SAY', 'SELECT', 'SELE', 'SET', 'SKIP', 'SORT',
-        'STORE', 'STOR', 'SUM',
-        'TO',
-        'USE', 'USING', 'USIN',
+        'STORE', 'STOR', 'STRUCTURE', 'SUM',
+        'TO', 'TOTAL', 'TOTA', 'TYPE',
+        'UPDATE', 'UPDA', 'USE', 'USING', 'USIN',
         'WAIT', 'WHILE', 'WHIL', 'WITH',
         '@', '?', '??'
       ]
@@ -177,13 +177,13 @@ class DbaseExaminer(Examiner):
         'ACCEPT', 'ACCE', 'APPEND', 'APPE', 'ASSIST', 'ASSI', 'AVERAGE', 'AVER',
         'BROWSE', 'BROW',
         'CALL', 'CANCEL', 'CANC', 'CASE', 'CHANGE', 'CHAN', 'CLEAR', 'CLEA',
-        'CLOSE', 'CLOS', 'CONTINUE', 'CONT',
+        'CLOSE', 'CLOS', 'COMMAND,' 'CONTINUE', 'CONT',
         'COPY', 'COUNT', 'COUN', 'CREATE', 'CREA',
         'DELETE', 'DELE', 'DIR', 'DISPLAY', 'DISP', 'DO',
         'EDIT', 'ELSE', 'ELSEIF', 'ENDCASE', 'ENDC', 'ENDDO', 'ENDD',
         'ENDIF', 'ENDI', 'ENDWHILE', 'ENDW', 'ERASE', 'ERAS', 'EXIT',
         'EXPORT', 'EXPO',
-        'FIND', 'FOR', 'FROM', 'FUNCTION', 'FUNC',
+        'FILE', 'FIND', 'FOR', 'FROM', 'FUNCTION', 'FUNC',
         'GET', 'GO', 'GOTO',
         'HELP',
         'IF', 'IMPORT', 'IMPO', 'INDEX', 'INDE', 'INPUT', 'INPU',
@@ -191,19 +191,20 @@ class DbaseExaminer(Examiner):
         'JOIN',
         'KEYBOARD', 'KEYB',
         'LABEL', 'LABE', 'LIKE', 'LIST', 'LOAD', 'LOCATE', 'LOCA', 'LOOP',
-        'MODIFY', 'MODI',
+        'MEMORY', 'MEMO', 'MODIFY', 'MODI',
         'NEXT',
         'OTHERWISE', 'OTHE',
         'PACK', 'PARAMETERS', 'PARA', 'PICTURE', 'PICT', 'PRIVATE', 'PRIV',
         'PROCEDURE', 'PROC', 'PUBLIC', 'PUBL',
         'QUIT',
-        'READ', 'RECALL', 'RECA', 'RELEASE', 'RELE', 'REPLACE', 'REPL',
-        'REPORT', 'REPO', 'RESTORE', 'REST', 'RESUME', 'RESU', 'RETURN', 'RETU',
+        'READ', 'RECALL', 'RECA', 'RELEASE', 'RELE', 'RENAME', 'RENA',
+        'REPLACE', 'REPL', 'REPORT', 'REPO', 'RESTORE', 'REST',
+        'RESUME', 'RESU', 'RETURN', 'RETU',
         'RETRY', 'RETR', 'RUN',
         'SAVE', 'SAY', 'SELECT', 'SELE', 'SEEK', 'SET', 'SKIP', 'SORT',
-        'STORE', 'STOR', 'SUM', 'SUSPEND', 'SUSP',
+        'STORE', 'STOR', 'STRUCTURE', 'SUM', 'SUSPEND', 'SUSP',
         'TO', 'TOTAL', 'TOTA', 'TYPE',
-        'UPDATE', 'UPDA', 'USE',
+        'UPDATE', 'UPDA', 'USE', 'USING', 'USIN',
         'WHILE', 'WHIL', 'WITH',
         'ZAP',
         '@', '?', '??'
@@ -287,16 +288,17 @@ class DbaseExaminer(Examiner):
 
     if version == 'ii':
       functions = [
+        '!', '#', '$',
         'ALLTRIM',
         'CHR', 'CTOD',
         'DATE', 'DATETIME', 'DAY', 'DELETED', 'DESCEND', 'DESC', 'DTOC', 'DTOS',
-        'IIF',
-        'LEFT', 'LTRIM',
+        'INT', 'IIF',
+        'LEFT', 'LEN', 'LTRIM',
         'MONTH',
-        'PAGENO',
+        'PAGENO', 'PEEK',
         'RECCOUNT', 'RECNO', 'RIGHT',
         'STOD', 'STR', 'SUBSTR',
-        'TIME', 'TRIM',
+        'TEST', 'TIME', 'TRIM', 'TYPE',
         'UPPER',
         'VAL',
         'YEAR'
@@ -316,12 +318,11 @@ class DbaseExaminer(Examiner):
         'MAX', 'MESSAGE', 'MIN', 'MOD', 'MONTH',
         'NDX',
         'OS',
-        'PCOL', 'PROW',
+        'PCOL', 'PEEK', 'PROW',
         'READKEY', 'RECCOUNT', 'RECNO', 'RECSIZE', 'REPLICATE', 'RIGHT',
         'RTRIM', 'ROUND', 'ROW',
-        'TIME', 'TYPE',
         'SPACE', 'STUFF', 'SQRT', 'STR', 'SUBSTR',
-        'TRANSFORM', 'TRIM',
+        'TEST', 'TIME', 'TRANSFORM', 'TRIM', 'TYPE',
         'UPPER',
         'VAL', 'VERSION',
         'YEAR'
@@ -372,12 +373,9 @@ class DbaseExaminer(Examiner):
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     self.tokens = tokens
 
-    if version == 'ii':
-      self.convert_specials_to_functions(group_starts, group_mids)
-
-    if version == 'iii':
-      self.convert_keywords_to_identifiers()
-
+    self.convert_specials_to_functions(group_starts, group_mids)
+    self.convert_keywords_to_functions()
+    self.convert_keywords_to_identifiers()
     self.convert_dollar_to_value()
 
     self.calc_statistics()
@@ -464,6 +462,23 @@ class DbaseExaminer(Examiner):
         prev_token = token
 
 
+  # convert keywords before parens to functions
+  def convert_keywords_to_functions(self):
+    prev_prev_token = Token('\n', 'newline', False)
+    prev_token = Token('\n', 'newline', False)
+
+    for token in self.tokens:
+      if token.group == 'group' and token.text == '(' and \
+        prev_token.group == 'keyword' and \
+        prev_prev_token.group != 'newline':
+        prev_token.group = 'function'
+        prev_token.is_operand = True
+
+      if token.group not in ['whitespace', 'comment']:
+        prev_prev_token = prev_token
+        prev_token = token
+
+
   # convert certain keywords to identifiers
   def convert_keywords_to_identifiers(self):
     prev_token = Token('\n', 'newline', False)
@@ -478,7 +493,8 @@ class DbaseExaminer(Examiner):
 
       # operator keyword
       #  => change keyword to identifier
-      if prev_token.group == 'operator' and token.group == 'keyword':
+      if token.group == 'keyword' and \
+        prev_token.group == 'operator':
         token.group = 'identifier'
         token.is_operand = True
 

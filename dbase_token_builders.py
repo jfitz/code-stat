@@ -32,13 +32,16 @@ class DbaseStringTokenBuilder(TokenBuilder):
     if len(candidate) == 0:
       return c in self.quotes
 
-    if len(candidate) > 1:
-      return candidate[-1] != candidate[0]
-
-    if c in ['\n', '\r']:
+    if c == '\r':
       return candidate.strip()[-1] == ';'
 
-    return True
+    if c == '\n':
+      return candidate.strip()[-1] == ';' or candidate[-1] == '\r'
+
+    if len(candidate) == 1:
+      return True
+
+    return candidate[-1] != candidate[0]
 
 
   def get_score(self, line_printable_tokens):

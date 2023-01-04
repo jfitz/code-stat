@@ -262,7 +262,6 @@ CBASIC
 
 COBOL
 + tokenize EXEC block
-- paragraph name is a single identifier followed by period
 - expected keyword confidence assigns value
 + unclosed quoted strings on continuation extend to column 72
 + extensions: https://www.ibm.com/support/knowledgecenter/SS6SGM_5.1.0/com.ibm.cobol51.aix.doc/PGandLR/ref/rlext.html
@@ -271,8 +270,6 @@ COBOL
 * source for COBOL-85, COBOL-74 Acucobol, IBM, GNU, MF extensions
 + keywords for GNU
 - block comment *><[ to *><] (OpenCobol)
-- combine LineCommentTokenBuilder with AssemblyCommentTokenBuilder
-- fixed-format tokenizes AsteriskCommentTokenBuilder
 
 CoffeeScript
 - block comment ### / ###
