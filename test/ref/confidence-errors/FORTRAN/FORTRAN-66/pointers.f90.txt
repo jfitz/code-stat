@@ -1,44 +1,25 @@
 [
     {
-        "TYPE":"LINE DESCRIPTION",
-        "FIRST":"\"\"]\"\" / 5x), \"\"]\"\" )\")') m, n",
-        "SECOND":""
-    },
-    {
-        "TYPE":"LINE DESCRIPTION",
-        "FIRST":" 1, size(A, 1))",
-        "SECOND":""
-    },
-    {
-        "TYPE":"LINE DESCRIPTION",
-        "FIRST":", i = 1, size(A, 1))",
-        "SECOND":""
-    },
-    {
-        "TYPE":"LINE DESCRIPTION",
-        "FIRST":", i = 1, size(A, 1))",
-        "SECOND":""
-    },
-    {
-        "TYPE":"LINE DESCRIPTION",
-        "FIRST":" = 1, size(p))",
-        "SECOND":""
-    },
-    {
         "TYPE":"TOKEN",
-        "INVALID":"module SomeModule",
+        "INVALID":"module",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  im",
+        "INVALID":"ome",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"licit",
+        "INVALID":"odule",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"implicit",
         "FIRST":"",
         "SECOND":""
     },
@@ -50,25 +31,13 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"cont",
+        "INVALID":"contains",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"ins",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"   e",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"emental",
+        "INVALID":"elemental",
         "FIRST":"",
         "SECOND":""
     },
@@ -140,13 +109,7 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"   e",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"d",
+        "INVALID":"end",
         "FIRST":"",
         "SECOND":""
     },
@@ -158,19 +121,43 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"end module SomeModule",
+        "INVALID":"end",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"program Test",
+        "INVALID":"module",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  us",
+        "INVALID":"ome",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"odule",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"program",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"est",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"use",
         "FIRST":"",
         "SECOND":""
     },
@@ -200,13 +187,7 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  im",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"licit",
+        "INVALID":"implicit",
         "FIRST":"",
         "SECOND":""
     },
@@ -218,13 +199,7 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  !D",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"clare",
+        "INVALID":"eclare",
         "FIRST":"",
         "SECOND":""
     },
@@ -236,13 +211,7 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  in",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"eger",
+        "INVALID":"integer",
         "FIRST":"",
         "SECOND":""
     },
@@ -266,13 +235,7 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  in",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"eger",
+        "INVALID":"integer",
         "FIRST":"",
         "SECOND":""
     },
@@ -308,13 +271,7 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  in",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"eger",
+        "INVALID":"integer",
         "FIRST":"",
         "SECOND":""
     },
@@ -332,13 +289,7 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  in",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"eger",
+        "INVALID":"integer",
         "FIRST":"",
         "SECOND":""
     },
@@ -362,13 +313,7 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  ch",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"racter",
+        "INVALID":"character",
         "FIRST":"",
         "SECOND":""
     },
@@ -380,25 +325,103 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!  Write format string for matrices",
+        "INVALID":"rite",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!  (/ A / A, \" = [\", 3( \"[\",3(i2, 1x), \"]\" / 5x), \"]\" )",
+        "INVALID":"format",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  wr",
+        "INVALID":"string",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"te",
+        "INVALID":"for",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"matrices",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"\"",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"\"",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"\"",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"\"",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"i",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"x",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"\"",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"\"",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"x",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"\"",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"\"",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"write",
         "FIRST":"",
         "SECOND":""
     },
@@ -494,13 +517,61 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  al",
+        "INVALID":"\"\"",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"ocate",
+        "INVALID":"\"\"",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"x",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"\"\"",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"\"\"",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"\"",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"'",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"m",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"n",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"allocate",
         "FIRST":"",
         "SECOND":""
     },
@@ -548,7 +619,7 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  if",
+        "INVALID":"if",
         "FIRST":"",
         "SECOND":""
     },
@@ -608,37 +679,13 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!  Matrix A is:",
+        "INVALID":"atrix",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!  A = [[ 1  4  7 ]",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"!       [ 2  5  8 ]",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"!       [ 3  6  9 ]",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"!       ]",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"  A ",
+        "INVALID":"is",
         "FIRST":"",
         "SECOND":""
     },
@@ -674,19 +721,13 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  q ",
+        "INVALID":"q",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  wr",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"te",
+        "INVALID":"write",
         "FIRST":"",
         "SECOND":""
     },
@@ -764,25 +805,7 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!  p will be associated with the first column of A",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"  p ",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"!  This operation on p has a direct effect on matrix A",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"  p ",
+        "INVALID":"size",
         "FIRST":"",
         "SECOND":""
     },
@@ -794,19 +817,49 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!  This will end the association between p and the first column of A",
+        "INVALID":"will",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  nu",
+        "INVALID":"be",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"lify",
+        "INVALID":"associated",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"with",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"the",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"first",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"column",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"of",
         "FIRST":"",
         "SECOND":""
     },
@@ -818,43 +871,175 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!  Matrix A becomes:",
+        "INVALID":"his",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!  A = [[ 1  4  7 ]",
+        "INVALID":"operation",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!       [ 4  5  8 ]",
+        "INVALID":"on",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!       [ 9  6  9 ]",
+        "INVALID":"p",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!       ]",
+        "INVALID":"has",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  wr",
+        "INVALID":"a",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"te",
+        "INVALID":"direct",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"effect",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"on",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"matrix",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"p",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"p",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"his",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"will",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"end",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"the",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"association",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"between",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"p",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"and",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"the",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"first",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"column",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"of",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"nullify",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"p",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"atrix",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"becomes",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"write",
         "FIRST":"",
         "SECOND":""
     },
@@ -926,13 +1111,37 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!  Perform some array operation",
+        "INVALID":"i",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  q ",
+        "INVALID":"size",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"erform",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"some",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"array",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"operation",
         "FIRST":"",
         "SECOND":""
     },
@@ -944,43 +1153,37 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!  Matrix q becomes:",
+        "INVALID":"q",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!  q = [[ 2  8 14 ]",
+        "INVALID":"atrix",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!       [ 6 10 16 ]",
+        "INVALID":"q",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!       [12 12 18 ]",
+        "INVALID":"becomes",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!       ]",
+        "INVALID":"q",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  wr",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"te",
+        "INVALID":"write",
         "FIRST":"",
         "SECOND":""
     },
@@ -1058,19 +1261,55 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!  Use p as an ordinary array",
+        "INVALID":"i",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  al",
+        "INVALID":"size",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"ocate",
+        "INVALID":"se",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"p",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"as",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"an",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"ordinary",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"array",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"allocate",
         "FIRST":"",
         "SECOND":""
     },
@@ -1106,7 +1345,7 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  if",
+        "INVALID":"if",
         "FIRST":"",
         "SECOND":""
     },
@@ -1160,13 +1399,31 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!  Perform some array operation",
+        "INVALID":"erform",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  p ",
+        "INVALID":"some",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"array",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"operation",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"p",
         "FIRST":"",
         "SECOND":""
     },
@@ -1202,73 +1459,73 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!  Array operation:",
+        "INVALID":"rray",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!      p(1) = 3",
+        "INVALID":"operation",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!      p(2) = 21",
+        "INVALID":"p",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!      p(3) = 91",
+        "INVALID":"p",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!      p(4) = 21",
+        "INVALID":"p",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!      p(5) = 31",
+        "INVALID":"p",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!      p(6) = 43",
+        "INVALID":"p",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!      p(7) = 57",
+        "INVALID":"p",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!      p(8) = 73",
+        "INVALID":"p",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!      p(9) = 91",
+        "INVALID":"p",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  wr",
+        "INVALID":"p",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"te",
+        "INVALID":"write",
         "FIRST":"",
         "SECOND":""
     },
@@ -1376,13 +1633,19 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  de",
+        "INVALID":"size",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"llocate",
+        "INVALID":"p",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"deallocate",
         "FIRST":"",
         "SECOND":""
     },
@@ -1412,7 +1675,7 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  if",
+        "INVALID":"if",
         "FIRST":"",
         "SECOND":""
     },
@@ -1454,7 +1717,19 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"end program Test",
+        "INVALID":"end",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"program",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"est",
         "FIRST":"",
         "SECOND":""
     },
@@ -1478,6 +1753,12 @@
     },
     {
         "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
         "INVALID":"::",
         "FIRST":"",
         "SECOND":""
@@ -1550,7 +1831,13 @@
     },
     {
         "TYPE":"OPERATOR",
-        "INVALID":"[",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
         "FIRST":"",
         "SECOND":""
     },
@@ -1574,7 +1861,133 @@
     },
     {
         "TYPE":"OPERATOR",
+        "INVALID":"]",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"[",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"[",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"]",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"]",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
         "INVALID":":",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"[[",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"]",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"[",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"]",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"[",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"]",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"]",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"[",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"]",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":":",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
         "FIRST":"",
         "SECOND":""
     },
@@ -1592,7 +2005,19 @@
     },
     {
         "TYPE":"OPERATOR",
-        "INVALID":":",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
         "FIRST":"",
         "SECOND":""
     },
@@ -1604,7 +2029,247 @@
     },
     {
         "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"[[",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"]",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"[",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"]",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"[",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"]",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"]",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
         "INVALID":":",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":":",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"[[",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"]",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"[",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"]",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"[",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"]",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"]",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":":",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":":",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":":",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
         "FIRST":"",
         "SECOND":""
     },
@@ -1628,6 +2293,51 @@
         "TYPE":"OPERATOR2",
         "FIRST":"/",
         "SECOND":"="
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"4",
+        "SECOND":"7"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"5",
+        "SECOND":"8"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"6",
+        "SECOND":"9"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"4",
+        "SECOND":"7"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"5",
+        "SECOND":"8"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"6",
+        "SECOND":"9"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"8",
+        "SECOND":"14"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"10",
+        "SECOND":"16"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"12",
+        "SECOND":"18"
     },
     {
         "TYPE":"KEYWORDS",

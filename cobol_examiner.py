@@ -892,7 +892,7 @@ class CobolExaminer(Examiner):
       })
 
     if counts['ENVIRONMENT'] != 1:
-      expected_keyword_confidence != 0.01
+      expected_keyword_confidence -= 0.01
       self.errors.append({
         'TYPE': 'EXPECTED KEYWORD',
         'MISSING': 'ENVIRONMENT DIVISION'

@@ -142,9 +142,9 @@ class Examiner:
     prev_token = Token('\n', 'newline', False)
 
     for token in self.tokens:
-      if token.group == 'identifier' and\
-        prev_token.group == 'group' and prev_token.text == '(':
-        token.group = 'function'
+      if token.group == 'group' and token.text == '(' and \
+        prev_token.group == 'identifier':
+        prev_token.group = 'function'
 
       if token.group not in ['whitespace', 'comment', 'newline', 'line identification']:
         prev_token = token

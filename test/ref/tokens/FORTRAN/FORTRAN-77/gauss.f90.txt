@@ -1,43 +1,303 @@
 [
     {
+        "type":"keyword",
+        "value":"function"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"gauss"
+    },
+    {
         "type":"invalid",
-        "value":"function gauss_sparse(num_iter, tol, b, A, x, actual_iter) result(tol_max)"
+        "value":"_"
     },
     {
-        "type":"newline",
-        "value":"\n"
+        "type":"identifier",
+        "value":"sparse"
     },
     {
-        "type":"newline",
-        "value":"\n"
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"num"
     },
     {
         "type":"invalid",
-        "value":"!  This function solves a system of equations (Ax = b) by using the Gauss-Seidel Method"
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"iter"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"tol"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"b"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"x"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"actual"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"iter"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"result"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"tol"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"max"
+    },
+    {
+        "type":"group",
+        "value":")"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  im"
+        "type":"identifier",
+        "value":"This"
     },
     {
-        "type":"line continuation",
-        "value":"p"
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"function"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"identifier",
-        "value":"licit"
+        "value":"solves"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"a"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"system"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"of"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"equations"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"Ax"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"b"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"by"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"using"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"the"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Gauss"
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"identifier",
+        "value":"Seidel"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"Method"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"keyword",
+        "value":"implicit"
     },
     {
         "type":"whitespace",
@@ -49,27 +309,19 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"  re"
-    },
-    {
-        "type":"line continuation",
-        "value":"a"
-    },
-    {
-        "type":"identifier",
-        "value":"l"
+        "type":"type",
+        "value":"real"
     },
     {
         "type":"whitespace",
@@ -97,35 +349,111 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!  Input: its value cannot be modified from within the function"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  in"
+        "type":"identifier",
+        "value":"Input"
     },
     {
-        "type":"line continuation",
-        "value":"t"
+        "type":"invalid operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"identifier",
-        "value":"eger"
+        "value":"its"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"value"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"cannot"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"be"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"modified"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"from"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"within"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"the"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"function"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"type",
+        "value":"integer"
     },
     {
         "type":"group",
@@ -177,23 +505,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"  re"
-    },
-    {
-        "type":"line continuation",
-        "value":"a"
-    },
-    {
-        "type":"identifier",
-        "value":"l"
+        "type":"type",
+        "value":"real"
     },
     {
         "type":"group",
@@ -237,23 +557,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"  re"
-    },
-    {
-        "type":"line continuation",
-        "value":"a"
-    },
-    {
-        "type":"identifier",
-        "value":"l"
+        "type":"type",
+        "value":"real"
     },
     {
         "type":"group",
@@ -353,35 +665,147 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!  Input/Output: its input value is used within the function, and can be modified"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  re"
+        "type":"identifier",
+        "value":"Input"
     },
     {
-        "type":"line continuation",
-        "value":"a"
+        "type":"operator",
+        "value":"/"
     },
     {
         "type":"identifier",
-        "value":"l"
+        "value":"Output"
+    },
+    {
+        "type":"invalid operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"its"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"input"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"value"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"is"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"used"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"within"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"the"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"function"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"and"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"can"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"be"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"modified"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"type",
+        "value":"real"
     },
     {
         "type":"group",
@@ -437,35 +861,155 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!  Output: its value is modified from within the function, only if the argument is required"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  in"
+        "type":"identifier",
+        "value":"Output"
     },
     {
-        "type":"line continuation",
-        "value":"t"
+        "type":"invalid operator",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"identifier",
-        "value":"eger"
+        "value":"its"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"value"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"is"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"modified"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"from"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"within"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"the"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"function"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"only"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"if"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"the"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"argument"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"is"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"required"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"type",
+        "value":"integer"
     },
     {
         "type":"group",
@@ -529,35 +1073,35 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!  Locals"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  in"
-    },
-    {
-        "type":"line continuation",
-        "value":"t"
-    },
-    {
         "type":"identifier",
-        "value":"eger"
+        "value":"Locals"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"type",
+        "value":"integer"
     },
     {
         "type":"whitespace",
@@ -601,23 +1145,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"  re"
-    },
-    {
-        "type":"line continuation",
-        "value":"a"
-    },
-    {
-        "type":"identifier",
-        "value":"l"
+        "type":"type",
+        "value":"real"
     },
     {
         "type":"whitespace",
@@ -637,34 +1173,50 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!  Initialize values"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  n "
+        "type":"identifier",
+        "value":"Initialize"
     },
     {
         "type":"whitespace",
         "value":" "
     },
     {
-        "type":"line continuation",
+        "type":"identifier",
+        "value":"values"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"identifier",
+        "value":"n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
         "value":"="
     },
     {
@@ -765,19 +1317,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"  to"
-    },
-    {
-        "type":"line continuation",
-        "value":"l"
+        "type":"identifier",
+        "value":"tol"
     },
     {
         "type":"invalid",
@@ -825,23 +1373,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
-    },
-    {
-        "type":"invalid",
-        "value":"  it"
-    },
-    {
-        "type":"line continuation",
-        "value":"e"
+        "value":"   "
     },
     {
         "type":"identifier",
-        "value":"r"
+        "value":"iter"
     },
     {
         "type":"whitespace",
@@ -861,35 +1401,59 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!  Compute solution until convergence"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  co"
+        "type":"identifier",
+        "value":"Compute"
     },
     {
-        "type":"line continuation",
-        "value":"n"
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"identifier",
-        "value":"vergence"
+        "value":"solution"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"until"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"convergence"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"identifier",
+        "value":"convergence"
     },
     {
         "type":"invalid",
@@ -1013,23 +1577,51 @@
     },
     {
         "type":"identifier",
-        "value":"it"
-    },
-    {
-        "type":"line identification",
-        "value":"er = iter + 1"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "value":"iter"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"iter"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
     },
     {
         "type":"identifier",
@@ -1109,23 +1701,79 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!     Compute solution for the k-th iteration"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"     "
+    },
+    {
+        "type":"identifier",
+        "value":"Compute"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"solution"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"for"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"the"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"k"
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"identifier",
+        "value":"th"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"iteration"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
     },
     {
         "type":"identifier",
@@ -1189,23 +1837,63 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!        Compute the current x-value"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"        "
+    },
+    {
+        "type":"identifier",
+        "value":"Compute"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"the"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"current"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"x"
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"identifier",
+        "value":"value"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
     },
     {
         "type":"identifier",
@@ -1392,36 +2080,236 @@
         "value":"i"
     },
     {
-        "type":"line identification",
-        "value":"+1:n),x(i+1:n))) / A(i, i)"
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"invalid operator",
+        "value":":"
+    },
+    {
+        "type":"identifier",
+        "value":"n"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"x"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"invalid operator",
+        "value":":"
+    },
+    {
+        "type":"identifier",
+        "value":"n"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":")"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!        Compute the error of the solution"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!        dot_product(a,v)=a'b"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"        "
+    },
+    {
+        "type":"identifier",
+        "value":"Compute"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"the"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"error"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"of"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"the"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"solution"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"        "
+    },
+    {
+        "type":"identifier",
+        "value":"dot"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"product"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"a"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"v"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"identifier",
+        "value":"a"
+    },
+    {
+        "type":"invalid",
+        "value":"'"
+    },
+    {
+        "type":"identifier",
+        "value":"b"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
     },
     {
         "type":"identifier",
@@ -1616,16 +2504,92 @@
         "value":")"
     },
     {
-        "type":"line identification",
-        "value":" * (x(i) - xk)), tol_max)"
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type":"newline",
-        "value":"\n"
+        "type":"operator",
+        "value":"*"
     },
     {
         "type":"whitespace",
-        "value":"        "
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"x"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"i"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"xk"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"tol"
+    },
+    {
+        "type":"invalid",
+        "value":"_"
+    },
+    {
+        "type":"identifier",
+        "value":"max"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"         "
     },
     {
         "type":"identifier",
@@ -1661,11 +2625,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"      "
     },
     {
         "type":"identifier",
@@ -1689,23 +2653,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"  en"
-    },
-    {
-        "type":"line continuation",
-        "value":"d"
-    },
-    {
-        "type":"keyword",
-        "value":"do"
+        "type":"identifier",
+        "value":"enddo"
     },
     {
         "type":"whitespace",
@@ -1725,19 +2681,19 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
-        "type":"invalid",
-        "value":"  if"
+        "type":"keyword",
+        "value":"if"
     },
     {
         "type":"whitespace",
@@ -1809,18 +2765,38 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
+    },
+    {
+        "type":"keyword",
+        "value":"end"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"function"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"gauss"
     },
     {
         "type":"invalid",
-        "value":"end function gauss_sparse"
+        "value":"_"
     },
     {
-        "type":"newline",
-        "value":"\n"
+        "type":"identifier",
+        "value":"sparse"
     }
 ]

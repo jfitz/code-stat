@@ -1,40 +1,7 @@
 [
     {
-        "TYPE":"LINE DESCRIPTION",
-        "FIRST":"er = iter + 1",
-        "SECOND":""
-    },
-    {
-        "TYPE":"LINE DESCRIPTION",
-        "FIRST":"+1:n),x(i+1:n))) / A(i, i)",
-        "SECOND":""
-    },
-    {
-        "TYPE":"LINE DESCRIPTION",
-        "FIRST":" * (x(i) - xk)), tol_max)",
-        "SECOND":""
-    },
-    {
         "TYPE":"TOKEN",
-        "INVALID":"function gauss_sparse(num_iter, tol, b, A, x, actual_iter) result(tol_max)",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"!  This function solves a system of equations (Ax = b) by using the Gauss-Seidel Method",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"  im",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"  re",
+        "INVALID":"_",
         "FIRST":"",
         "SECOND":""
     },
@@ -46,121 +13,13 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!  Input: its value cannot be modified from within the function",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"  in",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
         "INVALID":"_",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  re",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"  re",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"!  Input/Output: its input value is used within the function, and can be modified",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"  re",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"!  Output: its value is modified from within the function, only if the argument is required",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"  in",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
         "INVALID":"_",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"!  Locals",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"  in",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"  re",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"!  Initialize values",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"  n ",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"  to",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"_",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"  it",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"!  Compute solution until convergence",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"  co",
         "FIRST":"",
         "SECOND":""
     },
@@ -190,19 +49,7 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!     Compute solution for the k-th iteration",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
         "INVALID":"_",
-        "FIRST":"",
-        "SECOND":""
-    },
-    {
-        "TYPE":"TOKEN",
-        "INVALID":"!        Compute the current x-value",
         "FIRST":"",
         "SECOND":""
     },
@@ -220,13 +67,13 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!        Compute the error of the solution",
+        "INVALID":"_",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!        dot_product(a,v)=a'b",
+        "INVALID":"_",
         "FIRST":"",
         "SECOND":""
     },
@@ -244,7 +91,13 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  en",
+        "INVALID":"_",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"'",
         "FIRST":"",
         "SECOND":""
     },
@@ -256,7 +109,13 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"  if",
+        "INVALID":"_",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"_",
         "FIRST":"",
         "SECOND":""
     },
@@ -274,13 +133,37 @@
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"end function gauss_sparse",
+        "INVALID":"_",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"_",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"OPERATOR",
         "INVALID":"::",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":":",
         "FIRST":"",
         "SECOND":""
     },
@@ -322,7 +205,7 @@
     },
     {
         "TYPE":"OPERATOR",
-        "INVALID":"::",
+        "INVALID":"!",
         "FIRST":"",
         "SECOND":""
     },
@@ -335,6 +218,36 @@
     {
         "TYPE":"OPERATOR",
         "INVALID":"::",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":":",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":":",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"::",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
         "FIRST":"",
         "SECOND":""
     },
@@ -358,7 +271,19 @@
     },
     {
         "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
         "INVALID":".",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
         "FIRST":"",
         "SECOND":""
     },
@@ -400,6 +325,30 @@
     },
     {
         "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":":",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":":",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
         "INVALID":":",
         "FIRST":"",
         "SECOND":""
@@ -413,6 +362,18 @@
     {
         "TYPE":"OPERATOR",
         "INVALID":":",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"OPERATOR",
+        "INVALID":"!",
         "FIRST":"",
         "SECOND":""
     },
@@ -421,6 +382,131 @@
         "INVALID":".",
         "FIRST":"",
         "SECOND":""
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"a",
+        "SECOND":"system"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"system",
+        "SECOND":"of"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"of",
+        "SECOND":"equations"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"using",
+        "SECOND":"the"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"the",
+        "SECOND":"Gauss"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"value",
+        "SECOND":"cannot"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"cannot",
+        "SECOND":"be"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"be",
+        "SECOND":"modified"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"modified",
+        "SECOND":"from"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"from",
+        "SECOND":"within"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"within",
+        "SECOND":"the"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"input",
+        "SECOND":"value"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"value",
+        "SECOND":"is"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"is",
+        "SECOND":"used"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"used",
+        "SECOND":"within"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"within",
+        "SECOND":"the"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"can",
+        "SECOND":"be"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"be",
+        "SECOND":"modified"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"value",
+        "SECOND":"is"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"is",
+        "SECOND":"modified"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"modified",
+        "SECOND":"from"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"from",
+        "SECOND":"within"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"within",
+        "SECOND":"the"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"argument",
+        "SECOND":"is"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"is",
+        "SECOND":"required"
     },
     {
         "TYPE":"OPERAND_2",
@@ -434,6 +520,16 @@
     },
     {
         "TYPE":"OPERAND_2",
+        "FIRST":"solution",
+        "SECOND":"until"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"until",
+        "SECOND":"convergence"
+    },
+    {
+        "TYPE":"OPERAND_2",
         "FIRST":"the",
         "SECOND":"tolerance"
     },
@@ -441,5 +537,120 @@
         "TYPE":"OPERAND_2",
         "FIRST":"tolerance",
         "SECOND":"value"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"solution",
+        "SECOND":"for"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"for",
+        "SECOND":"the"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"the",
+        "SECOND":"k"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"the",
+        "SECOND":"current"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"current",
+        "SECOND":"x"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"the",
+        "SECOND":"error"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"error",
+        "SECOND":"of"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"of",
+        "SECOND":"the"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"the",
+        "SECOND":"solution"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"of",
+        "SECOND":"equations"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"be",
+        "SECOND":"modified"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"modified",
+        "SECOND":"from"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"from",
+        "SECOND":"within"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"within",
+        "SECOND":"the"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"is",
+        "SECOND":"used"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"used",
+        "SECOND":"within"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"within",
+        "SECOND":"the"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"modified",
+        "SECOND":"from"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"from",
+        "SECOND":"within"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"within",
+        "SECOND":"the"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"the",
+        "SECOND":"k"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"of",
+        "SECOND":"the"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"the",
+        "SECOND":"solution"
     }
 ]

@@ -1,27 +1,39 @@
 [
     {
         "type":"invalid",
-        "value":"module SomeModule"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "value":"module"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"S"
     },
     {
         "type":"invalid",
-        "value":"  im"
+        "value":"ome"
     },
     {
-        "type":"line continuation",
-        "value":"p"
+        "type":"identifier",
+        "value":"M"
     },
     {
         "type":"invalid",
-        "value":"licit"
+        "value":"odule"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"invalid",
+        "value":"implicit"
     },
     {
         "type":"whitespace",
@@ -33,39 +45,27 @@
     },
     {
         "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"cont"
-    },
-    {
-        "type":"line continuation",
-        "value":"a"
-    },
-    {
-        "type":"invalid",
-        "value":"ins"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"   "
+        "value":" "
     },
     {
         "type":"invalid",
-        "value":"   e"
+        "value":"contains"
     },
     {
-        "type":"line continuation",
-        "value":"l"
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"    "
     },
     {
         "type":"invalid",
-        "value":"emental"
+        "value":"elemental"
     },
     {
         "type":"whitespace",
@@ -117,11 +117,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"       "
+        "value":"        "
     },
     {
         "type":"invalid",
@@ -145,11 +145,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"       "
+        "value":"        "
     },
     {
         "type":"invalid",
@@ -197,11 +197,11 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"       "
+        "value":"        "
     },
     {
         "type":"invalid",
@@ -241,23 +241,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"   "
+        "value":"    "
     },
     {
         "type":"invalid",
-        "value":"   e"
-    },
-    {
-        "type":"line continuation",
-        "value":"n"
-    },
-    {
-        "type":"invalid",
-        "value":"d"
+        "value":"end"
     },
     {
         "type":"whitespace",
@@ -269,39 +261,75 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"invalid",
-        "value":"end module SomeModule"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"program Test"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "value":"end"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":" "
     },
     {
         "type":"invalid",
-        "value":"  us"
+        "value":"module"
     },
     {
-        "type":"line continuation",
-        "value":"e"
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"S"
+    },
+    {
+        "type":"invalid",
+        "value":"ome"
+    },
+    {
+        "type":"identifier",
+        "value":"M"
+    },
+    {
+        "type":"invalid",
+        "value":"odule"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid",
+        "value":"program"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"T"
+    },
+    {
+        "type":"invalid",
+        "value":"est"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"invalid",
+        "value":"use"
     },
     {
         "type":"whitespace",
@@ -369,23 +397,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
         "type":"invalid",
-        "value":"  im"
-    },
-    {
-        "type":"line continuation",
-        "value":"p"
-    },
-    {
-        "type":"invalid",
-        "value":"licit"
+        "value":"implicit"
     },
     {
         "type":"whitespace",
@@ -397,27 +417,27 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"identifier",
+        "value":"D"
     },
     {
         "type":"invalid",
-        "value":"  !D"
-    },
-    {
-        "type":"line continuation",
-        "value":"e"
-    },
-    {
-        "type":"invalid",
-        "value":"clare"
+        "value":"eclare"
     },
     {
         "type":"whitespace",
@@ -429,23 +449,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
         "type":"invalid",
-        "value":"  in"
-    },
-    {
-        "type":"line continuation",
-        "value":"t"
-    },
-    {
-        "type":"invalid",
-        "value":"eger"
+        "value":"integer"
     },
     {
         "type":"group",
@@ -521,23 +533,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
         "type":"invalid",
-        "value":"  in"
-    },
-    {
-        "type":"line continuation",
-        "value":"t"
-    },
-    {
-        "type":"invalid",
-        "value":"eger"
+        "value":"integer"
     },
     {
         "type":"group",
@@ -653,23 +657,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
         "type":"invalid",
-        "value":"  in"
-    },
-    {
-        "type":"line continuation",
-        "value":"t"
-    },
-    {
-        "type":"invalid",
-        "value":"eger"
+        "value":"integer"
     },
     {
         "type":"group",
@@ -733,23 +729,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
         "type":"invalid",
-        "value":"  in"
-    },
-    {
-        "type":"line continuation",
-        "value":"t"
-    },
-    {
-        "type":"invalid",
-        "value":"eger"
+        "value":"integer"
     },
     {
         "type":"whitespace",
@@ -809,23 +797,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
         "type":"invalid",
-        "value":"  ch"
-    },
-    {
-        "type":"line continuation",
-        "value":"a"
-    },
-    {
-        "type":"invalid",
-        "value":"racter"
+        "value":"character"
     },
     {
         "type":"group",
@@ -857,43 +837,291 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!  Write format string for matrices"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!  (/ A / A, \" = [\", 3( \"[\",3(i2, 1x), \"]\" / 5x), \"]\" )"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  wr"
+        "type":"identifier",
+        "value":"W"
     },
     {
-        "type":"line continuation",
+        "type":"invalid",
+        "value":"rite"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"format"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"string"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"for"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"matrices"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"\""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"["
+    },
+    {
+        "type":"invalid",
+        "value":"\""
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"3"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"\""
+    },
+    {
+        "type":"invalid operator",
+        "value":"["
+    },
+    {
+        "type":"invalid",
+        "value":"\""
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"number",
+        "value":"3"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"invalid",
         "value":"i"
     },
     {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
         "type":"invalid",
-        "value":"te"
+        "value":"x"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"\""
+    },
+    {
+        "type":"invalid operator",
+        "value":"]"
+    },
+    {
+        "type":"invalid",
+        "value":"\""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"5"
+    },
+    {
+        "type":"invalid",
+        "value":"x"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"\""
+    },
+    {
+        "type":"invalid operator",
+        "value":"]"
+    },
+    {
+        "type":"invalid",
+        "value":"\""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"invalid",
+        "value":"write"
     },
     {
         "type":"whitespace",
@@ -1128,32 +1356,124 @@
         "value":" "
     },
     {
-        "type":"line identification",
-        "value":"\"\"]\"\" / 5x), \"\"]\"\" )\")') m, n"
+        "type":"invalid",
+        "value":"\"\""
     },
     {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"]"
     },
     {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid",
+        "value":"\"\""
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"/"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"5"
     },
     {
         "type":"invalid",
-        "value":"  al"
+        "value":"x"
     },
     {
-        "type":"line continuation",
-        "value":"l"
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"invalid",
-        "value":"ocate"
+        "value":"\"\""
+    },
+    {
+        "type":"invalid operator",
+        "value":"]"
+    },
+    {
+        "type":"invalid",
+        "value":"\"\""
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"invalid",
+        "value":"\""
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"invalid",
+        "value":"'"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"m"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"n"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"invalid",
+        "value":"allocate"
     },
     {
         "type":"group",
@@ -1257,15 +1577,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
         "type":"invalid",
-        "value":"  if"
+        "value":"if"
     },
     {
         "type":"whitespace",
@@ -1377,66 +1697,246 @@
     },
     {
         "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!  Matrix A is:"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!  A = [[ 1  4  7 ]"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!       [ 2  5  8 ]"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!       [ 3  6  9 ]"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!       ]"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"  "
-    },
-    {
-        "type":"invalid",
-        "value":"  A "
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
         "value":" "
     },
     {
-        "type":"line continuation",
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"M"
+    },
+    {
+        "type":"invalid",
+        "value":"atrix"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"is"
+    },
+    {
+        "type":"invalid operator",
+        "value":":"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"[["
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"number",
+        "value":"4"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"number",
+        "value":"7"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"]"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"invalid operator",
+        "value":"["
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"number",
+        "value":"5"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"number",
+        "value":"8"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"]"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"invalid operator",
+        "value":"["
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"3"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"number",
+        "value":"6"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"number",
+        "value":"9"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"]"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"invalid operator",
+        "value":"]"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
         "value":"="
     },
     {
@@ -1553,22 +2053,22 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
         "type":"invalid",
-        "value":"  q "
+        "value":"q"
     },
     {
         "type":"whitespace",
         "value":" "
     },
     {
-        "type":"line continuation",
+        "type":"operator",
         "value":"="
     },
     {
@@ -1581,27 +2081,19 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
         "type":"invalid",
-        "value":"  wr"
-    },
-    {
-        "type":"line continuation",
-        "value":"i"
-    },
-    {
-        "type":"invalid",
-        "value":"te"
+        "value":"write"
     },
     {
         "type":"group",
@@ -1820,24 +2312,68 @@
         "value":"="
     },
     {
-        "type":"line identification",
-        "value":" 1, size(A, 1))"
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type":"newline",
-        "value":"\n"
+        "type":"number",
+        "value":"1"
     },
     {
-        "type":"newline",
-        "value":"\n"
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"invalid",
-        "value":"!  p will be associated with the first column of A"
+        "value":"size"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
@@ -1845,14 +2381,98 @@
     },
     {
         "type":"invalid",
-        "value":"  p "
+        "value":"p"
     },
     {
         "type":"whitespace",
         "value":" "
     },
     {
-        "type":"line continuation",
+        "type":"invalid",
+        "value":"will"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"be"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"associated"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"with"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"the"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"first"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"column"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"of"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"invalid",
+        "value":"p"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
         "value":"="
     },
     {
@@ -1893,34 +2513,130 @@
     },
     {
         "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!  This operation on p has a direct effect on matrix A"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"  "
-    },
-    {
-        "type":"invalid",
-        "value":"  p "
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
         "value":" "
     },
     {
-        "type":"line continuation",
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"T"
+    },
+    {
+        "type":"invalid",
+        "value":"his"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"operation"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"on"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"p"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"has"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"a"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"direct"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"effect"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"on"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"matrix"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"invalid",
+        "value":"p"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
         "value":"="
     },
     {
@@ -1949,35 +2665,139 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!  This will end the association between p and the first column of A"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  nu"
-    },
-    {
-        "type":"line continuation",
-        "value":"l"
+        "type":"identifier",
+        "value":"T"
     },
     {
         "type":"invalid",
-        "value":"lify"
+        "value":"his"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"will"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"end"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"the"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"association"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"between"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"p"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"and"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"the"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"first"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"column"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"of"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"invalid",
+        "value":"nullify"
     },
     {
         "type":"group",
@@ -1993,67 +2813,235 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!  Matrix A becomes:"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!  A = [[ 1  4  7 ]"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!       [ 4  5  8 ]"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!       [ 9  6  9 ]"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!       ]"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  wr"
-    },
-    {
-        "type":"line continuation",
-        "value":"i"
+        "type":"identifier",
+        "value":"M"
     },
     {
         "type":"invalid",
-        "value":"te"
+        "value":"atrix"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"becomes"
+    },
+    {
+        "type":"invalid operator",
+        "value":":"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"[["
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"number",
+        "value":"4"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"number",
+        "value":"7"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"]"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"invalid operator",
+        "value":"["
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"4"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"number",
+        "value":"5"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"number",
+        "value":"8"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"]"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"invalid operator",
+        "value":"["
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"9"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"number",
+        "value":"6"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"number",
+        "value":"9"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"]"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"invalid operator",
+        "value":"]"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"invalid",
+        "value":"write"
     },
     {
         "type":"group",
@@ -2252,39 +3240,143 @@
         "value":")"
     },
     {
-        "type":"line identification",
-        "value":", i = 1, size(A, 1))"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!  Perform some array operation"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"  "
-    },
-    {
-        "type":"invalid",
-        "value":"  q "
+        "type":"group",
+        "value":","
     },
     {
         "type":"whitespace",
         "value":" "
     },
     {
-        "type":"line continuation",
+        "type":"invalid",
+        "value":"i"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"size"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"P"
+    },
+    {
+        "type":"invalid",
+        "value":"erform"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"some"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"array"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"operation"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"invalid",
+        "value":"q"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
         "value":"="
     },
     {
@@ -2313,51 +3405,59 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"M"
     },
     {
         "type":"invalid",
-        "value":"!  Matrix q becomes:"
+        "value":"atrix"
     },
     {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!  q = [[ 2  8 14 ]"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"invalid",
-        "value":"!       [ 6 10 16 ]"
+        "value":"q"
     },
     {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!       [12 12 18 ]"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"invalid",
-        "value":"!       ]"
+        "value":"becomes"
+    },
+    {
+        "type":"invalid operator",
+        "value":":"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
@@ -2365,15 +3465,175 @@
     },
     {
         "type":"invalid",
-        "value":"  wr"
+        "value":"q"
     },
     {
-        "type":"line continuation",
-        "value":"i"
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"[["
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"number",
+        "value":"8"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"14"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"]"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"invalid operator",
+        "value":"["
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"6"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"16"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"]"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"invalid operator",
+        "value":"["
+    },
+    {
+        "type":"number",
+        "value":"12"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"12"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"18"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid operator",
+        "value":"]"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"       "
+    },
+    {
+        "type":"invalid operator",
+        "value":"]"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
     },
     {
         "type":"invalid",
-        "value":"te"
+        "value":"write"
     },
     {
         "type":"group",
@@ -2564,40 +3824,152 @@
         "value":")"
     },
     {
-        "type":"line identification",
-        "value":", i = 1, size(A, 1))"
+        "type":"group",
+        "value":","
     },
     {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"invalid",
-        "value":"!  Use p as an ordinary array"
+        "value":"i"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"size"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  al"
-    },
-    {
-        "type":"line continuation",
-        "value":"l"
+        "type":"identifier",
+        "value":"U"
     },
     {
         "type":"invalid",
-        "value":"ocate"
+        "value":"se"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"p"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"as"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"an"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"ordinary"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"array"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"invalid",
+        "value":"allocate"
     },
     {
         "type":"whitespace",
@@ -2673,15 +4045,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
         "type":"invalid",
-        "value":"  if"
+        "value":"if"
     },
     {
         "type":"whitespace",
@@ -2777,34 +4149,74 @@
     },
     {
         "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!  Perform some array operation"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"  "
-    },
-    {
-        "type":"invalid",
-        "value":"  p "
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
         "value":" "
     },
     {
-        "type":"line continuation",
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"identifier",
+        "value":"P"
+    },
+    {
+        "type":"invalid",
+        "value":"erform"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"some"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"array"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"operation"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"invalid",
+        "value":"p"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
         "value":"="
     },
     {
@@ -2909,107 +4321,451 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
-        "type":"invalid",
-        "value":"!  Array operation:"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!      p(1) = 3"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!      p(2) = 21"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!      p(3) = 91"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!      p(4) = 21"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!      p(5) = 31"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!      p(6) = 43"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!      p(7) = 57"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!      p(8) = 73"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"!      p(9) = 91"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"invalid operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"invalid",
-        "value":"  wr"
-    },
-    {
-        "type":"line continuation",
-        "value":"i"
+        "type":"identifier",
+        "value":"A"
     },
     {
         "type":"invalid",
-        "value":"te"
+        "value":"rray"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"operation"
+    },
+    {
+        "type":"invalid operator",
+        "value":":"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"invalid",
+        "value":"p"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"3"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"invalid",
+        "value":"p"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"2"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"21"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"invalid",
+        "value":"p"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"3"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"91"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"invalid",
+        "value":"p"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"4"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"21"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"invalid",
+        "value":"p"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"5"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"31"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"invalid",
+        "value":"p"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"6"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"43"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"invalid",
+        "value":"p"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"7"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"57"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"invalid",
+        "value":"p"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"8"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"73"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"invalid operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":"      "
+    },
+    {
+        "type":"invalid",
+        "value":"p"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"9"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"91"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"invalid",
+        "value":"write"
     },
     {
         "type":"group",
@@ -3220,32 +4976,68 @@
         "value":"i"
     },
     {
-        "type":"line identification",
-        "value":" = 1, size(p))"
+        "type":"whitespace",
+        "value":" "
     },
     {
-        "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "type":"operator",
+        "value":"="
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"invalid",
-        "value":"  de"
+        "value":"size"
     },
     {
-        "type":"line continuation",
-        "value":"a"
+        "type":"group",
+        "value":"("
     },
     {
         "type":"invalid",
-        "value":"llocate"
+        "value":"p"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"   "
+    },
+    {
+        "type":"invalid",
+        "value":"deallocate"
     },
     {
         "type":"group",
@@ -3313,15 +5105,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
         "type":"invalid",
-        "value":"  if"
+        "value":"if"
     },
     {
         "type":"whitespace",
@@ -3401,22 +5193,38 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"invalid",
-        "value":"end program Test"
+        "value":"end"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"invalid",
+        "value":"program"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"T"
+    },
+    {
+        "type":"invalid",
+        "value":"est"
     },
     {
         "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     }
 ]

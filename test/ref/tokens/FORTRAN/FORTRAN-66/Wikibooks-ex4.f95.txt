@@ -1,139 +1,31 @@
 [
     {
         "type":"invalid",
-        "value":"module"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"G"
-    },
-    {
-        "type":"invalid",
-        "value":"lobal"
-    },
-    {
-        "type":"identifier",
-        "value":"M"
-    },
-    {
-        "type":"invalid",
-        "value":"odule"
+        "value":"module GlobalModule"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"invalid operator",
-        "value":"!"
-    },
-    {
-        "type":"whitespace",
-        "value":"  "
-    },
-    {
-        "type":"identifier",
-        "value":"R"
+        "value":"\n"
     },
     {
         "type":"invalid",
-        "value":"eference"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"to"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"a"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"pair"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"of"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"procedures"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"included"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"in"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"a"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"previously"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"compiled"
+        "value":"!  Reference to a pair of procedures included in a previously compiled"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
-        "type":"invalid operator",
-        "value":"!"
+        "type":"invalid",
+        "value":"!  module named PortabilityLibrary"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -141,47 +33,11 @@
     },
     {
         "type":"invalid",
-        "value":"module"
+        "value":"  us"
     },
     {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"named"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"P"
-    },
-    {
-        "type":"invalid",
-        "value":"ortability"
-    },
-    {
-        "type":"identifier",
-        "value":"L"
-    },
-    {
-        "type":"invalid",
-        "value":"ibrary"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"   "
-    },
-    {
-        "type":"invalid",
-        "value":"use"
+        "type":"line continuation",
+        "value":"e"
     },
     {
         "type":"whitespace",
@@ -289,11 +145,11 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"                                 "
+        "value":"                                "
     },
     {
         "type":"identifier",
@@ -333,35 +189,31 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
-        "type":"invalid operator",
-        "value":"!"
+        "type":"invalid",
+        "value":"!  Constants"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"identifier",
-        "value":"C"
+        "type":"invalid",
+        "value":"  in"
+    },
+    {
+        "type":"line continuation",
+        "value":"t"
     },
     {
         "type":"invalid",
-        "value":"onstants"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"   "
-    },
-    {
-        "type":"invalid",
-        "value":"integer"
+        "value":"eger"
     },
     {
         "type":"group",
@@ -457,19 +309,31 @@
     },
     {
         "type":"invalid",
-        "value":"kind"
+        "value":"kin"
+    },
+    {
+        "type":"line identification",
+        "value":"d"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"   "
+        "value":"  "
     },
     {
         "type":"invalid",
-        "value":"real"
+        "value":"  re"
+    },
+    {
+        "type":"line continuation",
+        "value":"a"
+    },
+    {
+        "type":"invalid",
+        "value":"l"
     },
     {
         "type":"group",
@@ -529,15 +393,23 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"   "
+        "value":"  "
     },
     {
         "type":"invalid",
-        "value":"real"
+        "value":"  re"
+    },
+    {
+        "type":"line continuation",
+        "value":"a"
+    },
+    {
+        "type":"invalid",
+        "value":"l"
     },
     {
         "type":"group",
@@ -601,39 +473,35 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
-        "type":"invalid operator",
-        "value":"!"
+        "type":"invalid",
+        "value":"!  Variables"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"identifier",
-        "value":"V"
+        "type":"invalid",
+        "value":"  in"
+    },
+    {
+        "type":"line continuation",
+        "value":"t"
     },
     {
         "type":"invalid",
-        "value":"ariables"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"   "
-    },
-    {
-        "type":"invalid",
-        "value":"integer"
+        "value":"eger"
     },
     {
         "type":"whitespace",
@@ -677,15 +545,23 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"   "
+        "value":"  "
     },
     {
         "type":"invalid",
-        "value":"logical"
+        "value":"  lo"
+    },
+    {
+        "type":"line continuation",
+        "value":"g"
+    },
+    {
+        "type":"invalid",
+        "value":"ical"
     },
     {
         "type":"whitespace",
@@ -717,15 +593,23 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"   "
+        "value":"  "
     },
     {
         "type":"invalid",
-        "value":"character"
+        "value":"  ch"
+    },
+    {
+        "type":"line continuation",
+        "value":"a"
+    },
+    {
+        "type":"invalid",
+        "value":"racter"
     },
     {
         "type":"group",
@@ -769,39 +653,35 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
-        "type":"invalid operator",
-        "value":"!"
+        "type":"invalid",
+        "value":"!  Arrays"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"identifier",
-        "value":"A"
+        "type":"invalid",
+        "value":"  re"
+    },
+    {
+        "type":"line continuation",
+        "value":"a"
     },
     {
         "type":"invalid",
-        "value":"rrays"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"   "
-    },
-    {
-        "type":"invalid",
-        "value":"real"
+        "value":"l"
     },
     {
         "type":"group",
@@ -909,15 +789,23 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"   "
+        "value":"  "
     },
     {
         "type":"invalid",
-        "value":"complex"
+        "value":"  co"
+    },
+    {
+        "type":"line continuation",
+        "value":"m"
+    },
+    {
+        "type":"invalid",
+        "value":"plex"
     },
     {
         "type":"group",
@@ -985,55 +873,35 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
-        "type":"invalid operator",
-        "value":"!"
+        "type":"invalid",
+        "value":"!  Derived type definitions"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"identifier",
-        "value":"D"
+        "type":"invalid",
+        "value":"  ty"
+    },
+    {
+        "type":"line continuation",
+        "value":"p"
     },
     {
         "type":"invalid",
-        "value":"erived"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"type"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"definitions"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"   "
-    },
-    {
-        "type":"invalid",
-        "value":"type"
+        "value":"e"
     },
     {
         "type":"whitespace",
@@ -1045,11 +913,11 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"      "
+        "value":"     "
     },
     {
         "type":"invalid",
@@ -1073,11 +941,11 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"      "
+        "value":"     "
     },
     {
         "type":"invalid",
@@ -1101,11 +969,11 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"      "
+        "value":"     "
     },
     {
         "type":"invalid",
@@ -1129,15 +997,19 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"   "
+        "value":"  "
     },
     {
         "type":"invalid",
-        "value":"end"
+        "value":"  en"
+    },
+    {
+        "type":"line continuation",
+        "value":"d"
     },
     {
         "type":"whitespace",
@@ -1157,19 +1029,27 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"   "
+        "value":"  "
     },
     {
         "type":"invalid",
-        "value":"type"
+        "value":"  ty"
+    },
+    {
+        "type":"line continuation",
+        "value":"p"
+    },
+    {
+        "type":"invalid",
+        "value":"e"
     },
     {
         "type":"whitespace",
@@ -1181,15 +1061,19 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"    "
+    },
+    {
+        "type":"line continuation",
+        "value":"i"
     },
     {
         "type":"invalid",
-        "value":"integer"
+        "value":"nteger"
     },
     {
         "type":"whitespace",
@@ -1213,15 +1097,19 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"    "
+    },
+    {
+        "type":"line continuation",
+        "value":"r"
     },
     {
         "type":"invalid",
-        "value":"real"
+        "value":"eal"
     },
     {
         "type":"group",
@@ -1344,60 +1232,24 @@
         "value":"95"
     },
     {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"use"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"the"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"pointer"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"attribute"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"instead"
+        "type":"line identification",
+        "value":", use the pointer attribute instead"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"   "
+        "value":"  "
     },
     {
         "type":"invalid",
-        "value":"end"
+        "value":"  en"
+    },
+    {
+        "type":"line continuation",
+        "value":"d"
     },
     {
         "type":"whitespace",
@@ -1417,115 +1269,27 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"invalid operator",
-        "value":"!"
-    },
-    {
-        "type":"whitespace",
-        "value":"  "
-    },
-    {
-        "type":"identifier",
-        "value":"A"
+        "value":"\n"
     },
     {
         "type":"invalid",
-        "value":"ll"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"the"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"variables"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"and"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"procedures"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"from"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"this"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"module"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"can"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"be"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"accessed"
+        "value":"!  All the variables and procedures from this module can be accessed"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
-        "type":"invalid operator",
-        "value":"!"
+        "type":"invalid",
+        "value":"!  by other program units, except for AppName"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
     },
     {
         "type":"whitespace",
@@ -1533,95 +1297,35 @@
     },
     {
         "type":"invalid",
-        "value":"by"
+        "value":"  pu"
     },
     {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"other"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
+        "type":"line continuation",
+        "value":"b"
     },
     {
         "type":"invalid",
-        "value":"program"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"units"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"except"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"for"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"invalid",
-        "value":"pp"
-    },
-    {
-        "type":"identifier",
-        "value":"N"
-    },
-    {
-        "type":"invalid",
-        "value":"ame"
+        "value":"lic"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"   "
+        "value":"  "
     },
     {
         "type":"invalid",
-        "value":"public"
+        "value":"  pr"
     },
     {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"   "
+        "type":"line continuation",
+        "value":"i"
     },
     {
         "type":"invalid",
-        "value":"private"
+        "value":"vate"
     },
     {
         "type":"whitespace",
@@ -1653,55 +1357,35 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
-        "type":"invalid operator",
-        "value":"!"
+        "type":"invalid",
+        "value":"!  Generic procedure swap"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"identifier",
-        "value":"G"
+        "type":"invalid",
+        "value":"  in"
+    },
+    {
+        "type":"line continuation",
+        "value":"t"
     },
     {
         "type":"invalid",
-        "value":"eneric"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"procedure"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"swap"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"   "
-    },
-    {
-        "type":"invalid",
-        "value":"interface"
+        "value":"erface"
     },
     {
         "type":"whitespace",
@@ -1713,11 +1397,11 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"      "
+        "value":"     "
     },
     {
         "type":"invalid",
@@ -1753,15 +1437,19 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"   "
+        "value":"  "
     },
     {
         "type":"invalid",
-        "value":"end"
+        "value":"  en"
+    },
+    {
+        "type":"line continuation",
+        "value":"d"
     },
     {
         "type":"whitespace",
@@ -1781,19 +1469,27 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"   "
+        "value":"  "
     },
     {
         "type":"invalid",
-        "value":"interface"
+        "value":"  in"
+    },
+    {
+        "type":"line continuation",
+        "value":"t"
+    },
+    {
+        "type":"invalid",
+        "value":"erface"
     },
     {
         "type":"whitespace",
@@ -1901,15 +1597,19 @@
     },
     {
         "type":"invalid",
-        "value":"the"
+        "value":"th"
+    },
+    {
+        "type":"line identification",
+        "value":"e"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"                           "
+        "value":"                          "
     },
     {
         "type":"invalid operator",
@@ -1961,11 +1661,11 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"      "
+        "value":"     "
     },
     {
         "type":"invalid",
@@ -2025,15 +1725,19 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"   "
+        "value":"  "
     },
     {
         "type":"invalid",
-        "value":"end"
+        "value":"  en"
+    },
+    {
+        "type":"line continuation",
+        "value":"d"
     },
     {
         "type":"whitespace",
@@ -2073,47 +1777,35 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
-        "type":"invalid operator",
-        "value":"!"
+        "type":"invalid",
+        "value":"!  Operator overloading"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"identifier",
-        "value":"O"
+        "type":"invalid",
+        "value":"  in"
+    },
+    {
+        "type":"line continuation",
+        "value":"t"
     },
     {
         "type":"invalid",
-        "value":"perator"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"overloading"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"   "
-    },
-    {
-        "type":"invalid",
-        "value":"interface"
+        "value":"erface"
     },
     {
         "type":"whitespace",
@@ -2137,11 +1829,11 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"      "
+        "value":"     "
     },
     {
         "type":"invalid",
@@ -2165,79 +1857,23 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"   "
-    },
-    {
-        "type":"invalid",
-        "value":"end"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"interface"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"invalid operator",
-        "value":"!"
+        "value":"\n"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"identifier",
-        "value":"P"
+        "type":"invalid",
+        "value":"  en"
     },
     {
-        "type":"invalid",
-        "value":"rototype"
+        "type":"line continuation",
+        "value":"d"
     },
     {
         "type":"whitespace",
         "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"for"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"external"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"procedure"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"   "
     },
     {
         "type":"invalid",
@@ -2245,11 +1881,43 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"invalid",
+        "value":"!  Prototype for external procedure"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"      "
+        "value":"  "
+    },
+    {
+        "type":"invalid",
+        "value":"  in"
+    },
+    {
+        "type":"line continuation",
+        "value":"t"
+    },
+    {
+        "type":"invalid",
+        "value":"erface"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"     "
     },
     {
         "type":"invalid",
@@ -2348,20 +2016,16 @@
         "value":"("
     },
     {
-        "type":"invalid",
-        "value":"tol_max"
-    },
-    {
-        "type":"group",
-        "value":")"
+        "type":"line identification",
+        "value":"tol_max)"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"         "
+        "value":"        "
     },
     {
         "type":"invalid",
@@ -2385,11 +2049,11 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"         "
+        "value":"        "
     },
     {
         "type":"invalid",
@@ -2437,11 +2101,11 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"         "
+        "value":"        "
     },
     {
         "type":"invalid",
@@ -2489,11 +2153,11 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"         "
+        "value":"        "
     },
     {
         "type":"invalid",
@@ -2597,11 +2261,11 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"         "
+        "value":"        "
     },
     {
         "type":"invalid",
@@ -2661,11 +2325,11 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"         "
+        "value":"        "
     },
     {
         "type":"invalid",
@@ -2725,11 +2389,11 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"      "
+        "value":"     "
     },
     {
         "type":"invalid",
@@ -2753,15 +2417,19 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"   "
+        "value":"  "
     },
     {
         "type":"invalid",
-        "value":"end"
+        "value":"  en"
+    },
+    {
+        "type":"line continuation",
+        "value":"d"
     },
     {
         "type":"whitespace",
@@ -2773,115 +2441,67 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
-        "type":"invalid operator",
-        "value":"!"
+        "type":"invalid",
+        "value":"!  Procedures included in the module"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"identifier",
-        "value":"P"
+        "type":"invalid",
+        "value":"  co"
+    },
+    {
+        "type":"line continuation",
+        "value":"n"
     },
     {
         "type":"invalid",
-        "value":"rocedures"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"included"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"in"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"the"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"module"
+        "value":"tains"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
-        "type":"whitespace",
-        "value":"   "
+        "type":"newline",
+        "value":"\n"
     },
     {
         "type":"invalid",
-        "value":"contains"
+        "value":"!  Internal function"
     },
     {
         "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"invalid operator",
-        "value":"!"
+        "value":"\n"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"identifier",
-        "value":"I"
+        "type":"invalid",
+        "value":"  fu"
+    },
+    {
+        "type":"line continuation",
+        "value":"n"
     },
     {
         "type":"invalid",
-        "value":"nternal"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"function"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"   "
-    },
-    {
-        "type":"invalid",
-        "value":"function"
+        "value":"ction"
     },
     {
         "type":"whitespace",
@@ -2925,15 +2545,19 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"    "
+    },
+    {
+        "type":"line continuation",
+        "value":"t"
     },
     {
         "type":"invalid",
-        "value":"type"
+        "value":"ype"
     },
     {
         "type":"group",
@@ -2989,15 +2613,19 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"    "
+    },
+    {
+        "type":"line continuation",
+        "value":"i"
     },
     {
         "type":"invalid",
-        "value":"intent"
+        "value":"ntent"
     },
     {
         "type":"group",
@@ -3049,15 +2677,19 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"     "
+        "value":"    "
+    },
+    {
+        "type":"line continuation",
+        "value":"a"
     },
     {
         "type":"invalid",
-        "value":"add_ijk"
+        "value":"dd_ijk"
     },
     {
         "type":"whitespace",
@@ -3220,28 +2852,24 @@
         "value":"2"
     },
     {
-        "type":"invalid operator",
-        "value":"%"
-    },
-    {
-        "type":"invalid",
-        "value":"k"
-    },
-    {
-        "type":"group",
-        "value":")"
+        "type":"line identification",
+        "value":"%k)"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"   "
+        "value":"  "
     },
     {
         "type":"invalid",
-        "value":"end"
+        "value":"  en"
+    },
+    {
+        "type":"line continuation",
+        "value":"d"
     },
     {
         "type":"whitespace",
@@ -3261,55 +2889,35 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
-        "type":"invalid operator",
-        "value":"!"
+        "type":"invalid",
+        "value":"!  Include external files"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"identifier",
-        "value":"I"
+        "type":"invalid",
+        "value":"  in"
+    },
+    {
+        "type":"line continuation",
+        "value":"c"
     },
     {
         "type":"invalid",
-        "value":"nclude"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"external"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"files"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"   "
-    },
-    {
-        "type":"invalid",
-        "value":"include"
+        "value":"lude"
     },
     {
         "type":"whitespace",
@@ -3409,19 +3017,31 @@
     },
     {
         "type":"invalid",
-        "value":"lines"
+        "value":"l"
+    },
+    {
+        "type":"line identification",
+        "value":"ines"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"whitespace",
-        "value":"   "
+        "value":"  "
     },
     {
         "type":"invalid",
-        "value":"include"
+        "value":"  in"
+    },
+    {
+        "type":"line continuation",
+        "value":"c"
+    },
+    {
+        "type":"invalid",
+        "value":"lude"
     },
     {
         "type":"whitespace",
@@ -3449,42 +3069,18 @@
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
     },
     {
         "type":"invalid",
-        "value":"end"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"invalid",
-        "value":"module"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"G"
-    },
-    {
-        "type":"invalid",
-        "value":"lobal"
-    },
-    {
-        "type":"identifier",
-        "value":"M"
-    },
-    {
-        "type":"invalid",
-        "value":"odule"
+        "value":"end module GlobalModule"
     },
     {
         "type":"newline",
-        "value":"\r\n"
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
     }
 ]
