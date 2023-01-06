@@ -1,0 +1,514 @@
+BEGIN
+
+   TYPE INPUTHEADER
+      COMS_IN_TYPE (ARRAY CONVERSATION[0:59]);
+
+   COMS_IN_TYPE
+      COMS_IN;
+
+   OUTPUTHEADER
+      COMS_OUT;
+
+   EBCDIC ARRAY
+      MSG[0:79];
+
+   INTEGER
+      COMS_STATUS;
+
+   DEFINE
+      COMMA = , #,
+      SHOW (MSGTEXT) =
+      BEGIN
+         REPLACE MSG[0] BY " " FOR 80;
+         REPLACE MSG[0] BY MSGTEXT;
+         COMS_OUT.DESTCOUNT := 1;
+         COMS_OUT.STATUSVALUE := 0;
+         COMS_OUT.TEXTLENGTH := 80;
+         COMS_STATUS := SEND(COMS_OUT,*,MSG);
+         IF COMS_STATUS NEQ 0 THEN
+            DISPLAY("SQL: COMS SEND error: " CAT STRING(COMS_STATUS,*));
+      END #;
+
+   REAL
+      SALARY,
+      MIN_SALARY,
+      TOT_SALARY,
+      BONUS;
+   INTEGER
+      PROJ_NUM,
+      DEPT_NO,
+      MGR_ID,
+      ZIPCODE,
+      CITY_INDIC,
+      BONUS_INDIC,
+      SP,
+      RATING,
+      SQLCODE,
+      TRANSACTION_NO;
+
+   BOOLEAN
+      DONE;
+
+   STRING
+      PROJ_TITLE,
+      CITY,
+      NAME;
+
+   ARRAY
+      ERRMSG [0:23];
+
+   DEFINE
+      EOJ      = 99#;
+
+   LIBRARY
+      MDL (LIBACCESS        = BYTITLE,
+           TITLE            = "OBJECT/MODLIB/EXDB/ML/ALGOL.");
+
+   PROCEDURE OPEN_C1 (COMS_IN, NAME, SQLCODE);
+%            =======
+      COMS_IN_TYPE
+         COMS_IN;
+      STRING
+         NAME;
+      INTEGER
+         SQLCODE;
+    LIBRARY MDL;
+
+   PROCEDURE FETCH_C1 (COMS_IN, SALARY, SQLCODE);
+%            ========
+      COMS_IN_TYPE
+         COMS_IN;
+      REAL
+         SALARY;
+      INTEGER
+         SQLCODE;
+    LIBRARY MDL;
+
+   PROCEDURE CLOSE_C1 (COMS_IN, SQLCODE);
+%            ========
+      COMS_IN_TYPE
+         COMS_IN;
+      INTEGER
+         SQLCODE;
+    LIBRARY MDL;
+
+   PROCEDURE OPEN_C2 (COMS_IN, RATING, SQLCODE);
+%            =======
+      COMS_IN_TYPE
+         COMS_IN;
+      INTEGER
+         RATING;
+      INTEGER
+         SQLCODE;
+    LIBRARY MDL;
+
+   PROCEDURE FETCH_C2 (COMS_IN, RATING, SQLCODE);
+%            ========
+      COMS_IN_TYPE
+         COMS_IN;
+      INTEGER
+         RATING;
+      INTEGER
+         SQLCODE;
+    LIBRARY MDL;
+
+   PROCEDURE CLOSE_C2 (COMS_IN, SQLCODE);
+%            ========
+      COMS_IN_TYPE
+         COMS_IN;
+      INTEGER
+         SQLCODE;
+    LIBRARY MDL;
+
+   PROCEDURE SELECT_INTO (COMS_IN, SQLCODE, CITY, BONUS, SALARY);
+%            ===========
+      COMS_IN_TYPE
+         COMS_IN;
+      INTEGER
+         SQLCODE;
+      STRING
+         CITY;
+      REAL
+         BONUS, SALARY;
+    LIBRARY MDL;
+
+   PROCEDURE SELECT_INTO_INDIC
+%            ===========
+    (COMS_IN, CITY, BONUS, SALARY, BONUS_INDIC, CITY_INDIC, SQLCODE);
+      COMS_IN_TYPE
+         COMS_IN;
+      STRING
+         CITY;
+      REAL
+         BONUS, SALARY;
+      INTEGER
+         BONUS_INDIC, CITY_INDIC;
+      INTEGER
+         SQLCODE;
+    LIBRARY MDL;
+
+   PROCEDURE DELETE_FROM (COMS_IN, PROJECT_TITLE, SQLCODE);
+%            ===========
+      COMS_IN_TYPE
+         COMS_IN;
+      STRING
+         PROJECT_TITLE;
+      INTEGER
+         SQLCODE;
+    LIBRARY MDL;
+
+   PROCEDURE INSERT_INTO
+%            ===========
+    (COMS_IN, PNUM, PROJ_TITLE, DEPT_NO, MGR_ID, SQLCODE);
+      COMS_IN_TYPE
+         COMS_IN;
+      STRING
+         PROJ_TITLE;
+      INTEGER
+         PNUM, DEPT_NO, MGR_ID;
+      INTEGER
+         SQLCODE;
+    LIBRARY MDL;
+
+   PROCEDURE ABORT (COMS_OUT, SQLCODE);
+%            =====
+      OUTPUTHEADER
+         COMS_OUT;
+      INTEGER
+         SQLCODE;
+    LIBRARY MDL;
+
+   PROCEDURE INSERT_FROM_SELECT (COMS_IN, NAME, SQLCODE);
+%            ==================
+      COMS_IN_TYPE
+        COMS_IN;
+      STRING
+        NAME;
+      INTEGER
+        SQLCODE;
+    LIBRARY MDL;
+
+   PROCEDURE FIND_TOTAL_SALARY (COMS_IN, TOT_SALARY, SQLCODE);
+%            =================
+      COMS_IN_TYPE
+        COMS_IN;
+      REAL
+        TOT_SALARY;
+      INTEGER
+        SQLCODE;
+    LIBRARY MDL;
+
+   PROCEDURE UPDATE_SEARCHED (COMS_IN, ZIPCODE, CITY, NAME, SQLCODE);
+%            ===============
+      COMS_IN_TYPE
+        COMS_IN;
+      STRING
+        CITY, NAME;
+      INTEGER
+        ZIPCODE;
+      INTEGER
+        SQLCODE;
+    LIBRARY MDL;
+
+   PROCEDURE UPDATE_POSITIONED (COMS_IN, SALARY, SQLCODE);
+%            =================
+      COMS_IN_TYPE
+        COMS_IN;
+      INTEGER
+        SALARY;
+      INTEGER
+        SQLCODE;
+    LIBRARY MDL;
+
+   PROCEDURE ENDTRAN (COMS_OUT, SQLCODE);
+%            =======
+      OUTPUTHEADER
+         COMS_OUT;
+      INTEGER
+         SQLCODE;
+    LIBRARY MDL;
+
+   PROCEDURE SET_SAVEPOINT (COMS_IN, SQLCODE, SP);
+%            =============
+      COMS_IN_TYPE
+         COMS_IN;
+      INTEGER
+         SQLCODE,SP;
+    LIBRARY MDL;
+
+   PROCEDURE CANCEL_TO_SAVEPT (COMS_IN, SQLCODE, SP);
+%            ================
+      COMS_IN_TYPE
+         COMS_IN;
+      INTEGER
+         SQLCODE,SP;
+    LIBRARY MDL;
+
+   PROCEDURE RETURN_ERROR_MESSAGE  (ERRMSG);
+%            ====================
+      ARRAY ERRMSG[0];
+    LIBRARY MDL;
+
+   DEFINE
+      SEND_ERROR_MESSAGE =
+      BEGIN
+         RETURN_ERROR_MESSAGE(ERRMSG);
+         IF ERRMSG[0] GTR 80 THEN
+         BEGIN
+            SHOW(POINTER(ERRMSG[1]) FOR 80);
+            SHOW(POINTER(ERRMSG[14])+2 FOR (ERRMSG[0]-80));
+         END
+          ELSE
+         SHOW(POINTER(ERRMSG[1]) FOR ERRMSG[0]);
+      END#;
+
+   PROCEDURE GET_C1;
+%            ======
+   BEGIN
+      INTEGER
+         SQLCODE_C1;
+      FETCH_C1(COMS_IN,SALARY,SQLCODE);
+      IF SQLCODE = 0 THEN
+      BEGIN
+         SHOW(NAME COMMA ": Salary = " COMMA SALARY FOR * NUMERIC);
+         IF SALARY < MIN_SALARY THEN
+         BEGIN
+            SET_SAVEPOINT(COMS_IN,SQLCODE,SP);
+            SHOW("Updating salary for " COMMA NAME);
+            UPDATE_POSITIONED(COMS_IN,SQLCODE_C1,MIN_SALARY);
+            IF SQLCODE_C1 < 0 THEN
+               SHOW("Update failed: SQLCODE=" COMMA
+              SQLCODE FOR * NUMERIC)
+             ELSE
+            BEGIN
+               FIND_TOTAL_SALARY(COMS_IN,SQLCODE,TOT_SALARY);
+               IF TOT_SALARY > 1000000 THEN
+               BEGIN
+                  SHOW("Total salary exceeded, canceling update");
+                  CANCEL_TO_SAVEPT(COMS_IN,SQLCODE,SP);
+               END;
+            END;
+         END;
+      END
+       ELSE
+      BEGIN
+         IF SQLCODE NEQ 100 THEN
+            SEND_ERROR_MESSAGE
+          ELSE
+            SHOW("No data for FETCH: Cursor C1");
+      END;
+   END GET_C1;
+
+   PROCEDURE GET_C2;
+%            ======
+   BEGIN
+      FETCH_C2(COMS_IN,RATING,SQLCODE);
+      IF SQLCODE = 0 THEN
+         SHOW("Rating * 2 = " COMMA RATING FOR * DIGITS)
+       ELSE
+      BEGIN
+         IF SQLCODE = 100 THEN
+            SHOW("No data for FETCH: Cursor C2")
+          ELSE
+            SEND_ERROR_MESSAGE;
+      END;
+   END GET_C2;
+
+   PROCEDURE UPDATE_SALARY;
+%            =============
+   BEGIN
+      SHOW("Update salary");
+      MIN_SALARY := 100000;
+      NAME := HEAD(STRING(MSG[0],80),NOT " ");
+      OPEN_C1(COMS_IN,NAME,SQLCODE);
+      IF SQLCODE < 0 THEN
+         SEND_ERROR_MESSAGE
+       ELSE
+      BEGIN
+         SHOW("Cursor C1 open");
+         WHILE SQLCODE = 0 DO
+            GET_C1;
+         IF SQLCODE < 0 THEN
+            SEND_ERROR_MESSAGE;
+         CLOSE_C1(COMS_IN,SQLCODE);
+      END;
+   END UPDATE_SALARY;
+
+   PROCEDURE RETRIEVE_RATING;
+%            ===============
+   BEGIN
+      SHOW("Retrieve rating");
+      RATING := 2;
+      OPEN_C2(COMS_IN,RATING,SQLCODE);
+      IF SQLCODE < 0 THEN
+         SEND_ERROR_MESSAGE
+       ELSE
+      BEGIN
+         SHOW("Cursor C2 open");
+         WHILE SQLCODE = 0 DO
+            GET_C2;
+         IF SQLCODE < 0 THEN
+            SEND_ERROR_MESSAGE;
+         CLOSE_C2(COMS_IN,SQLCODE);
+      END;
+   END RETRIEVE_RATING;
+
+   PROCEDURE RETRIEVE_CITY_AND_BONUS;
+%            =======================
+   BEGIN
+      SHOW("Retrieve city and bonus");
+      SALARY := 43000;
+      SELECT_INTO(COMS_IN,SQLCODE,CITY,BONUS,SALARY);
+      IF SQLCODE=0 THEN
+         SHOW("City = " COMMA CITY COMMA
+                    ",Bonus = " COMMA BONUS FOR * NUMERIC)
+       ELSE
+      IF SQLCODE < 0 THEN
+         SEND_ERROR_MESSAGE
+      ELSE
+         SHOW("SQLCODE = " COMMA SQLCODE FOR * NUMERIC);
+   END RETRIEVE_CITY_AND_BONUS;
+
+   PROCEDURE RETRIEVE_CITY_AND_BONUS_WITH_INDICATOR;
+%            ======================================
+   BEGIN
+      SHOW("Retrieve city and bonus with indicator");
+      SALARY := 49000;
+      SELECT_INTO_INDIC
+         (COMS_IN,CITY,BONUS,SALARY,BONUS_INDIC,CITY_INDIC,SQLCODE);
+      IF SQLCODE=0 THEN
+      BEGIN
+         IF BONUS_INDIC GEQ 0 THEN
+            SHOW("Bonus = " COMMA BONUS FOR * NUMERIC)
+          ELSE
+            SHOW("Bonus = <null>");
+         IF CITY_INDIC GEQ 0 THEN
+            SHOW("City = " COMMA CITY)
+          ELSE
+            SHOW("City = <null>");
+      END
+      ELSE
+      IF SQLCODE < 0 THEN
+         SEND_ERROR_MESSAGE
+       ELSE
+         SHOW("SQLCODE = " COMMA SQLCODE FOR * NUMERIC);
+   END RETRIEVE_CITY_AND_BONUS_WITH_INDICATOR;
+
+   PROCEDURE DELETE_AND_CREATE_PROJECT;
+  %          =========================
+   BEGIN
+      SHOW("Delete and create PROJECT");
+      PROJ_TITLE := "Quality Assessment";
+      DELETE_FROM(COMS_IN,PROJ_TITLE,SQLCODE);
+      IF SQLCODE NEQ 0 THEN
+         IF SQLCODE < 0 THEN
+            SEND_ERROR_MESSAGE
+           ELSE
+             SHOW("No PROJECTs found")
+       ELSE
+         SHOW("PROJECT deleted");
+      PROJ_NUM := 11;
+      PROJ_TITLE:= "Quality Assessment";
+      DEPT_NO := 5;
+      MGR_ID := 45873;
+      INSERT_INTO(COMS_IN,PROJ_NUM,PROJ_TITLE,DEPT_NO,MGR_ID,SQLCODE);
+      IF SQLCODE < 0 THEN
+      BEGIN
+         SEND_ERROR_MESSAGE;
+         SHOW("Rolling back transaction");
+         ABORT(COMS_OUT,SQLCODE);
+         IF SQLCODE < 0 THEN
+            SEND_ERROR_MESSAGE
+          ELSE
+            SHOW("Transaction rolled back");
+      END
+       ELSE
+         SHOW("PROJECT row added");
+   END DELETE_AND_CREATE_PROJECT;
+
+   PROCEDURE INSERT_ASSIGNMENT;
+  %          =================
+   BEGIN
+      SHOW("Insert assignment");
+      NAME :="Granger";
+      INSERT_FROM_SELECT(COMS_IN,NAME,SQLCODE);
+      IF SQLCODE NEQ 0 THEN
+         IF SQLCODE < 0 THEN
+            SEND_ERROR_MESSAGE
+           ELSE
+            SHOW("No entities selected for insertion")
+       ELSE
+         SHOW("Insert completed");
+   END INSERT_ASSIGNMENT;
+
+   PROCEDURE UPDATE_CITY_AND_COMMIT;
+   BEGIN
+      SHOW("Update CITY and commit");
+      CITY := "Irvine";
+      ZIPCODE := 927182005;
+      NAME := "Jones";
+      UPDATE_SEARCHED(COMS_IN,ZIPCODE,CITY,NAME,SQLCODE);
+      IF SQLCODE < 0 THEN
+         SEND_ERROR_MESSAGE
+       ELSE
+      BEGIN
+         SHOW("PERSON updated, committing transaction");
+         ENDTRAN(COMS_OUT,SQLCODE);
+         IF SQLCODE < 0 THEN
+            SEND_ERROR_MESSAGE
+          ELSE
+            SHOW("Transaction committed");
+      END
+   END UPDATE_CITY_AND_COMMIT;
+
+   PROCEDURE PROCESS_COMS_INPUT;
+%            ==================
+   BEGIN
+      REPLACE MSG[0] BY " " FOR 80;
+      COMS_STATUS := RECEIVE(COMS_IN,MSG);
+      IF COMS_STATUS NEQ EOJ THEN
+      BEGIN
+         IF COMS_STATUS = 0 OR
+            COMS_STATUS = 92 OR
+            COMS_STATUS = 93 THEN
+         BEGIN
+            IF COMS_STATUS NEQ 0 THEN
+               SHOW("Transaction resubmitted: Status " COMMA
+   COMS_STATUS FOR * DIGITS);
+            CASE COMS_IN.FUNCTIONSTATUS OF
+            BEGIN
+             0:
+               CASE TRANSACTION_NO OF
+               BEGIN
+                0: UPDATE_SALARY;
+                1:  RETRIEVE_RATING;
+                2:  RETRIEVE_CITY_AND_BONUS;
+                3:  RETRIEVE_CITY_AND_BONUS_WITH_INDICATOR;
+                4:  DELETE_AND_CREATE_PROJECT;
+                5: INSERT_ASSIGNMENT;
+                6:  UPDATE_CITY_AND_COMMIT;
+                ELSE:
+                    SHOW("Invalid transaction number" COMMA
+                          TRANSACTION_NO FOR * DIGITS);
+               END CASE;
+               TRANSACTION_NO := * + 1;
+             ELSE:
+               SHOW("STATUS " COMMA
+                     COMS_IN.FUNCTIONSTATUS FOR * NUMERIC COMMA
+                     " received");
+            END CASE;
+         END GOOD INPUT;
+      END NOT EOJ
+       ELSE
+         DONE := TRUE;
+   END PROCESS_COMS_INPUT;
+
+   ENABLE (COMS_IN,"ONLINE");
+
+   SP := 0;
+
+   DO
+      PROCESS_COMS_INPUT
+   UNTIL DONE;
+
+END.

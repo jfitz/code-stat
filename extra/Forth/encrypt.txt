@@ -1,0 +1,17 @@
+\ arcfour implementation
+needs core-ext
+
+decimal
+: carray ( n "name" -- )
+  create  chars allot
+  does> ( n -- addr )  swap chars + ;
+
+256 carray S
+
+0 value j
+: j+! ( n -- )  j +  255 and  to j ;
+
+: init-S ( -- )  256 0 do  i dup S c!  loop ;
+
+: mix-S ( K-addr length -- )
+  25

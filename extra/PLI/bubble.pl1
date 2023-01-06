@@ -1,0 +1,30 @@
+SHELL:   PROCEDURE OPTIONS (MAIN);
+         DECLARE
+           ARRAY(50) FIXED BIN(15),
+           (K,N) FIXED BIN(15);
+
+         GET LIST(N);
+         GET EDIT((ARRAY(K) DO K = 1 TO N));
+         PUT EDIT((ARRAY(K) DO K = 1 TO N));
+         CALL BUBBLE(ARRAY,N);
+
+END BUBBLE;
+
+BUBBLE:   PROCEDURE(ARRAY,N); /* BUBBLE SORT*/
+          DECLARE (I,J) FIXED BIN(15);
+          DECLARE S BIT(1);        /* SWITCH */
+          DECLARE Y FIXED BIN(15); /* TEMPO */
+          DO I = N-1 BY -1 TO 1;
+            S = '1'B;
+            DO J = 1 TO I;
+              IF X(J)>X(J+1) THEN DO;
+                S = '0'B;
+                Y = X(J);
+                X(J) = X(J+1);
+                X(J+1) = Y;
+                END;
+              END;
+            IF S THEN RETURN;
+            END;
+          RETURN;
+          END SRT;

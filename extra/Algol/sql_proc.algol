@@ -1,0 +1,286 @@
+BEGIN
+
+    FILE TERM(KIND=REMOTE, MYUSE=IO, FRAMESIZE=8, MAXRECSIZE=80);
+	
+    LIBRARY MDL(LIBACCESS=BYTITLE,
+                TITLE="OBJECT/MODLIB/ALGOLAPP.");
+				
+    PROCEDURE OPEN_C1(NAME, SQLCODE);
+        INTEGER SQLCODE;
+        STRING NAME;
+        LIBRARY MDL;
+		
+    PROCEDURE FETCH_C1(SALARY, SQLCODE);
+        REAL SALARY;
+        INTEGER SQLCODE;
+        LIBRARY MDL;
+		
+    PROCEDURE CLOSE_C1(SQLCODE);
+        INTEGER SQLCODE;
+        LIBRARY MDL;
+		
+    PROCEDURE OPEN_C2(RATING, SQLCODE);
+        INTEGER RATING;
+        INTEGER SQLCODE;
+        LIBRARY MDL;
+		
+    PROCEDURE FETCH_C2(RATING, SQLCODE);
+        INTEGER RATING;
+        INTEGER SQLCODE;
+        LIBRARY MDL;
+		
+    PROCEDURE CLOSE_C2(SQLCODE);
+        INTEGER SQLCODE;
+        LIBRARY MDL;
+		
+    PROCEDURE SELECT_INTO(SQLCODE, CITY, BONUS, SALARY);
+        INTEGER SQLCODE;
+        STRING CITY;
+        REAL BONUS, SALARY;
+        LIBRARY MDL;
+		
+    PROCEDURE SELECT_INTO_INDIC(CITY, BONUS, SALARY,
+                                BONUS_INDIC, CITY_INDIC, SQLCODE);
+        INTEGER SQLCODE, BONUS_INDIC, CITY_INDIC;
+        STRING CITY;
+        REAL BONUS, SALARY;
+        LIBRARY MDL;
+		
+    PROCEDURE DELETE_FROM(PROJ_TITLE, SQLCODE);
+        INTEGER SQLCODE;
+        STRING PROJ_TITLE;
+        LIBRARY MDL;
+		
+    PROCEDURE INSERT_INTO(PNUM, PROJ_TITLE, DEPT_NO, MGR_ID, SQLCODE);
+        INTEGER SQLCODE, PNUM, DEPT_NO, MGR_ID;
+        STRING PROJ_TITLE;
+        LIBRARY MDL;
+		
+    PROCEDURE ABORT(SQLCODE);
+        INTEGER SQLCODE;
+        LIBRARY MDL;
+		
+    PROCEDURE INSERT_FROM_SELECT(NAME, SQLCODE);
+        INTEGER SQLCODE;
+        STRING NAME;
+        LIBRARY MDL;
+		
+    PROCEDURE FIND_TOTAL_SALARY(TOT_SALARY, SQLCODE);
+        INTEGER SQLCODE;
+        REAL TOT_SALARY;
+        LIBRARY MDL;
+		
+    PROCEDURE UPDATE_SEARCHED(ZIPCODE, CITY, NAME, SQLCODE);
+        INTEGER SQLCODE, ZIPCODE;
+        STRING CITY, NAME;
+        LIBRARY MDL;
+		
+    PROCEDURE UPDATE_POSITIONED(SALARY, SQLCODE);
+        INTEGER SQLCODE, SALARY;
+        LIBRARY MDL;
+		
+    PROCEDURE ENDTRAN(SQLCODE);
+        INTEGER SQLCODE;
+        LIBRARY MDL;
+		
+    PROCEDURE SET_SAVEPOINT(SQLCODE,SP);
+        INTEGER SQLCODE, SP;
+        LIBRARY MDL;
+		
+    PROCEDURE CANCEL_TO_SAVEPT(SQLCODE,SP);
+        INTEGER SQLCODE, SP;
+        LIBRARY MDL;
+		
+    PROCEDURE RETURN_ERROR_MESSAGE(EMSG);
+        REAL ARRAY EMSG[0];
+        LIBRARY MDL;
+		
+    INTEGER
+        SQLCODE,
+        SQLCODE_C1,
+        RATING,
+        CITY_INDIC,
+        BONUS_INDIC,
+        PNUM,
+        DEPT_NO,
+        MGR_ID,
+        ZIPCODE,
+        SP;		
+    REAL
+        SALARY,
+        BONUS,
+        MIN_SALARY,
+        TOT_SAL;		
+    STRING
+        NAME,
+        CITY,
+        PROJ_TITLE;
+    REAL ARRAY
+        EMSG[0:30];
+		
+  % After each salary increase, cancel the change if it causes the
+  % maximum allowed salary to be exceeded.
+  
+PROCEDURE GET_C1;
+BEGIN
+    FETCH_C1(SALARY, SQLCODE);
+    IF SQLCODE = 0 THEN
+        BEGIN
+        WRITE(TERM, *//, SALARY);
+        IF SALARY < MIN_SALARY THEN
+            BEGIN
+            SET_SAVEPOINT(SQLCODE,SP);
+            UPDATE_POSITIONED(MIN_SALARY, SQLCODE_C1);
+            IF SQLCODE_C1 < 0 THEN
+               WRITE(TERM,//,"ERROR IN POSITIONED UPDATE OF PERSON -- ",
+                                    SQLCODE_C1)
+            ELSE
+                 BEGIN
+                 FIND_TOTAL_SALARY(SQLCODE,TOT_SAL);
+                 IF TOT_SAL > 1000000 THEN
+                    CANCEL_TO_SAVEPT(SQLCODE,SP);
+                 END;
+            END;
+        END
+    ELSE IF SQLCODE ^= 100 THEN
+        BEGIN
+        RETURN_ERROR_MESSAGE(EMSG);
+        WRITE(TERM, EMSG[0], POINTER(EMSG[1]));
+        END;
+END OF GET_C1;
+
+PROCEDURE GET_C2;
+BEGIN
+    FETCH_C2(RATING, SQLCODE);
+    IF SQLCODE = 0 THEN
+        WRITE(TERM, //, "RATING * 2 = ", RATING)
+    ELSE IF SQLCODE ^= 100 THEN
+        WRITE(TERM, //, "ERROR FETCHING FROM C2 -- SQLCODE = ",SQLCODE);
+END OF GET_C2;
+
+      % Retrieve the salary of anyone named Jones, and update it to the
+      % minimum salary if it is currently less than that minimum.
+      %
+         SP := 0;
+         MIN_SALARY := 10000;
+         NAME := "Jones";
+         OPEN_C1(NAME, SQLCODE);
+         IF SQLCODE < 0 THEN
+            WRITE(TERM, //, "COULDN'T OPEN CURSOR C1 -- ", SQLCODE)
+         ELSE
+            WHILE SQLCODE  = 0 DO
+                GET_C1;
+         IF SQLCODE < 0 THEN
+            WRITE(TERM,//,"ERROR FETCHING FROM CURSOR C1 -- ", SQLCODE);
+         CLOSE_C1(SQLCODE);
+
+      % Use a cursor to find anyone with a rating of 2, and retrieve
+      % their rating doubled.
+      %
+         RATING := 2;
+         OPEN_C2(RATING, SQLCODE);
+         IF SQLCODE < 0 THEN
+            WRITE(TERM, //, "COULDN'T OPEN CURSOR C2 -- ", SQLCODE)
+         ELSE
+            WHILE SQLCODE = 0 DO
+                GET_C2;
+         IF SQLCODE < 0 THEN
+            WRITE(TERM,//,"ERROR FETCHING FROM CURSOR C2 -- ", SQLCODE);
+         CLOSE_C2(SQLCODE);
+		 
+      % Retrieve the city and the bonus for the employee
+      % whose salary is $44,000.  Since a single row SELECT statement
+      % is used instead of a cursor, there must be only one or no
+      % such employee, or an error occurs.
+      %
+         SALARY := 44000;
+         SELECT_INTO(SQLCODE, CITY, BONUS, SALARY);
+         IF SQLCODE < 0 THEN
+            WRITE(TERM, //, "ERROR PERFORMING SINGLETON SELECT -- ",
+                                            SQLCODE)
+         ELSE
+            BEGIN
+            WRITE(TERM, *//, BONUS);
+            WRITE(TERM, *//, CITY);
+            END;
+			
+      % Repeat the previous query using indicator variables for both
+      % the select targets.
+      %
+         SALARY := 44000;
+         SELECT_INTO_INDIC(CITY, BONUS, SALARY,
+                           BONUS_INDIC, CITY_INDIC, SQLCODE);
+         IF SQLCODE < 0 THEN
+            WRITE(TERM,//,"ERROR IN SINGLETON SELECT WITH INDICATORS -",
+                        SQLCODE)
+         ELSE
+            BEGIN
+            IF BONUS_INDIC >= 0 THEN
+               WRITE(TERM, *//, BONUS)
+            ELSE
+               WRITE(TERM, //, "BONUS = <null>");
+            IF CITY_INDIC >= 0 THEN
+               WRITE(TERM, *//, CITY)
+            ELSE
+               WRITE(TERM, //, "CITY  = <null>");
+            END;
+			
+      % Use a searched DELETE statement to remove the "Quality
+      % Assessment" project.  Then, insert a different project with
+      % the same name. If the insertion fails, roll back the transaction
+      % so that the original project remains.
+      %
+         PROJ_TITLE :="Quality Assessment";
+         DELETE_FROM(PROJ_TITLE, SQLCODE);
+         IF SQLCODE < 0 THEN
+            WRITE(TERM, //, "ERROR DELETING FROM PROJECT -- ", SQLCODE)
+         ELSE IF SQLCODE = 100 THEN
+            WRITE(TERM, //, "NO PROJECT ENTITIES WERE DELETED");
+         PNUM := 11;
+         PROJ_TITLE := "Quality Assessment";
+         DEPT_NO := 5;
+         MGR_ID := 45873;
+         INSERT_INTO(PNUM, PROJ_TITLE, DEPT_NO, MGR_ID, SQLCODE);
+         IF SQLCODE < 0 THEN
+            BEGIN
+            WRITE(TERM, //, "ERROR INSERTING NEW PROJECT -- ", SQLCODE);
+            WRITE(TERM, //, "ROLLING BACK TRANSACTION");
+            ABORT(SQLCODE);
+            IF SQLCODE < 0 THEN
+               WRITE(TERM,//,"ATTEMPTED ROLLBACK FAILED -- ", SQLCODE);
+            END
+         ELSE
+            WRITE(TERM, //, "ROW INSERTED INTO PROJECT TABLE");
+			
+      % Insert a row into the ASSIGNMENT table and use values
+      % selected from the EMPLOYEE table.
+      %
+         NAME :=  "Granger";
+         INSERT_FROM_SELECT(NAME, SQLCODE);
+         IF SQLCODE < 0 THEN
+            WRITE(TERM, //, "ERROR INSERTING FROM SELECT STATEMENT -- ",
+                                      SQLCODE)
+         ELSE IF SQLCODE = 100 THEN
+            WRITE(TERM,//,"NO ENTITIES SELECTED BY QUERY FOR INSERTION")
+         ELSE
+            WRITE(TERM, //, "INSERT FROM SELECT STATEMENT COMPLETED");
+			
+      % Use a searched UPDATE statement to change Jones' city and postal
+      % code. Upon successful completion, apply all changes made within
+      % the transaction.
+      %
+         CITY := "Irvine";
+         ZIPCODE :=  927182005;
+         NAME := "Jones";
+         UPDATE_SEARCHED(ZIPCODE, CITY, NAME, SQLCODE);
+         IF SQLCODE < 0 THEN
+            WRITE(TERM, //, "ERROR UPDATING PERSON -- ", SQLCODE)
+         ELSE
+            BEGIN
+            WRITE(TERM, //, "PERSON UPDATED -- COMMITTING CHANGES" );
+            ENDTRAN(SQLCODE);
+            IF SQLCODE < 0 THEN
+               WRITE(TERM, //, "COMMIT FAILED -- ", SQLCODE);
+            END;
+			
+END.

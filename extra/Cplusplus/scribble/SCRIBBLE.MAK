@@ -1,0 +1,143 @@
+# Microsoft Visual C++ generated build script - Do not modify
+
+PROJ = SCRIBBLE
+DEBUG = 1
+PROGTYPE = 0
+CALLER = 
+ARGS = 
+DLLS = 
+D_RCDEFINES = /d_DEBUG
+R_RCDEFINES = /dNDEBUG
+ORIGIN = MSVC
+ORIGIN_VER = 1.00
+PROJPATH = C:\MSVC\BIN\MYSCRIB\
+USEMFC = 1
+CC = cl
+CPP = cl
+CXX = cl
+CCREATEPCHFLAG = 
+CPPCREATEPCHFLAG = /YcSTDAFX.H
+CUSEPCHFLAG = 
+CPPUSEPCHFLAG = /YuSTDAFX.H
+FIRSTC =             
+FIRSTCPP = STDAFX.CPP  
+RC = rc
+CFLAGS_D_WEXE = /nologo /G2 /W3 /Zi /AM /Od /D "_DEBUG" /FR /GA /Fd"SCRIBBLE.PDB"
+CFLAGS_R_WEXE = /nologo /Gs /G2 /W3 /AM /O1 /D "NDEBUG" /FR /GA
+LFLAGS_D_WEXE = /NOLOGO /NOD /PACKC:61440 /STACK:10240 /ALIGN:16 /ONERROR:NOEXE /CO
+LFLAGS_R_WEXE = /NOLOGO /NOD /PACKC:61440 /STACK:10240 /ALIGN:16 /ONERROR:NOEXE
+LIBS_D_WEXE = mafxcwd oldnames libw mlibcew commdlg shell 
+LIBS_R_WEXE = mafxcw oldnames libw mlibcew commdlg shell 
+RCFLAGS = /nologo /z
+RESFLAGS = /nologo /t
+RUNFLAGS = 
+DEFFILE = SCRIBBLE.DEF
+OBJS_EXT = 
+LIBS_EXT = 
+!if "$(DEBUG)" == "1"
+CFLAGS = $(CFLAGS_D_WEXE)
+LFLAGS = $(LFLAGS_D_WEXE)
+LIBS = $(LIBS_D_WEXE)
+MAPFILE = nul
+RCDEFINES = $(D_RCDEFINES)
+!else
+CFLAGS = $(CFLAGS_R_WEXE)
+LFLAGS = $(LFLAGS_R_WEXE)
+LIBS = $(LIBS_R_WEXE)
+MAPFILE = nul
+RCDEFINES = $(R_RCDEFINES)
+!endif
+!if [if exist MSVC.BND del MSVC.BND]
+!endif
+SBRS = STDAFX.SBR \
+		SCRIBBLE.SBR \
+		MAINFRM.SBR \
+		SCRIBDOC.SBR \
+		SCRIBVW.SBR
+
+
+SCRIBBLE_RCDEP = c:\msvc\bin\myscrib\res\scribble.ico \
+	c:\msvc\bin\myscrib\res\scribdoc.ico \
+	c:\msvc\bin\myscrib\res\toolbar.bmp \
+	c:\msvc\bin\myscrib\res\scribble.rc2
+
+
+STDAFX_DEP = c:\msvc\bin\myscrib\stdafx.h
+
+
+SCRIBBLE_DEP = c:\msvc\bin\myscrib\stdafx.h \
+	c:\msvc\bin\myscrib\scribble.h \
+	c:\msvc\bin\myscrib\mainfrm.h \
+	c:\msvc\bin\myscrib\scribdoc.h \
+	c:\msvc\bin\myscrib\scribvw.h
+
+
+MAINFRM_DEP = c:\msvc\bin\myscrib\stdafx.h \
+	c:\msvc\bin\myscrib\scribble.h \
+	c:\msvc\bin\myscrib\mainfrm.h
+
+
+SCRIBDOC_DEP = c:\msvc\bin\myscrib\stdafx.h \
+	c:\msvc\bin\myscrib\scribble.h \
+	c:\msvc\bin\myscrib\scribdoc.h
+
+
+SCRIBVW_DEP = c:\msvc\bin\myscrib\stdafx.h \
+	c:\msvc\bin\myscrib\scribble.h \
+	c:\msvc\bin\myscrib\scribdoc.h \
+	c:\msvc\bin\myscrib\scribvw.h
+
+
+all:	$(PROJ).EXE $(PROJ).BSC
+
+SCRIBBLE.RES:	SCRIBBLE.RC $(SCRIBBLE_RCDEP)
+	$(RC) $(RCFLAGS) $(RCDEFINES) -r SCRIBBLE.RC
+
+STDAFX.OBJ:	STDAFX.CPP $(STDAFX_DEP)
+	$(CPP) $(CFLAGS) $(CPPCREATEPCHFLAG) /c STDAFX.CPP
+
+SCRIBBLE.OBJ:	SCRIBBLE.CPP $(SCRIBBLE_DEP)
+	$(CPP) $(CFLAGS) $(CPPUSEPCHFLAG) /c SCRIBBLE.CPP
+
+MAINFRM.OBJ:	MAINFRM.CPP $(MAINFRM_DEP)
+	$(CPP) $(CFLAGS) $(CPPUSEPCHFLAG) /c MAINFRM.CPP
+
+SCRIBDOC.OBJ:	SCRIBDOC.CPP $(SCRIBDOC_DEP)
+	$(CPP) $(CFLAGS) $(CPPUSEPCHFLAG) /c SCRIBDOC.CPP
+
+SCRIBVW.OBJ:	SCRIBVW.CPP $(SCRIBVW_DEP)
+	$(CPP) $(CFLAGS) $(CPPUSEPCHFLAG) /c SCRIBVW.CPP
+
+
+$(PROJ).EXE::	SCRIBBLE.RES
+
+$(PROJ).EXE::	STDAFX.OBJ SCRIBBLE.OBJ MAINFRM.OBJ SCRIBDOC.OBJ SCRIBVW.OBJ $(OBJS_EXT) $(DEFFILE)
+	echo >NUL @<<$(PROJ).CRF
+STDAFX.OBJ +
+SCRIBBLE.OBJ +
+MAINFRM.OBJ +
+SCRIBDOC.OBJ +
+SCRIBVW.OBJ +
+$(OBJS_EXT)
+$(PROJ).EXE
+$(MAPFILE)
+c:\msvc\lib\+
+c:\msvc\mfc\lib\+
+$(LIBS)
+$(DEFFILE);
+<<
+	link $(LFLAGS) @$(PROJ).CRF
+	$(RC) $(RESFLAGS) SCRIBBLE.RES $@
+	@copy $(PROJ).CRF MSVC.BND
+
+$(PROJ).EXE::	SCRIBBLE.RES
+	if not exist MSVC.BND 	$(RC) $(RESFLAGS) SCRIBBLE.RES $@
+
+run: $(PROJ).EXE
+	$(PROJ) $(RUNFLAGS)
+
+
+$(PROJ).BSC: $(SBRS)
+	bscmake @<<
+/o$@ $(SBRS)
+<<

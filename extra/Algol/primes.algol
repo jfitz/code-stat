@@ -1,0 +1,26 @@
+GARETH 1'
+
+BEGIN INTEGER A,B,D'
+BOOLEAN C'
+    DIGITS(4)'
+    D := 1'
+    PRINT 2'
+    FOR A := 3 STEP 2 UNTIL 999 DO
+    BEGIN
+        C := TRUE'
+        B := 2'
+        FOR B := B + 1 WHILE B LESS SQRT(A)+1 AND C DO
+            IF A = (A DIV B)*B THEN C := FALSE'
+        IF C THEN
+        BEGIN
+            IF D LESS 13 THEN PRINT SAMELINE,A'
+            IF D = 13 THEN
+            BEGIN
+                PRINT A'
+                D := 0'
+            END'
+            D := D+1'
+        END'
+    END'
+END'
+

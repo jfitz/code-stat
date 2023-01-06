@@ -1,0 +1,24 @@
+// the main program (this is a comment)
+
+begin
+  integer N;
+  Read Int(N);
+
+  begin
+    real array Data[1:N];
+    real sum, avg;
+    integer i;
+    sum:=0;
+
+    for i:=1 step 1 until N do
+      begin real val;
+        Read Real(val);
+        Data[i]:=if val<0 then -val else val
+      end;
+
+    for i:=1 step 1 until N do
+      sum:=sum + Data[i];
+    avg:=sum/N;
+    Print Real(avg)
+  end
+end
