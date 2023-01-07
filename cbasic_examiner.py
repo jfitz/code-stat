@@ -85,13 +85,15 @@ class CBasicExaminer(Examiner):
       '+', '-', '*', '/', '^',
       '=', '>', '>=', '<', '<=', '<>',
       '#', 'NOT',
-      'AND', 'EQ', 'GE', 'GT', 'LE', 'LT', 'NE', 'OR', 'XOR'
+      'AND', 'EQ', 'GE', 'GT', 'LE', 'LT', 'NE', 'OR', 'XOR',
+      '?'
     ]
 
     known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     self.unary_operators = [
-      '+', '-', '#', 'NOT'
+      '+', '-', '#', 'NOT',
+      '?'
     ]
 
     groupers = ['(', ')', ',', ';']

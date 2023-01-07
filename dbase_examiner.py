@@ -107,7 +107,7 @@ class DbaseExaminer(Examiner):
         '=', '<>', '>', '>=', '<', '<=',
         '$',
         '.NOT.', '.AND.', '.OR.',
-        '&'
+        '&', 'P.', 'S.'
       ]
 
     if version == 'iii':
@@ -122,11 +122,20 @@ class DbaseExaminer(Examiner):
 
     known_operator_tb = CaseInsensitiveListTokenBuilder(known_operators, 'operator', False)
 
-    self.unary_operators = [
-      '+', '-',
-      '.NOT.',
-      '&', '$', '!'
-    ]
+    if version == 'ii':
+      self.unary_operators = [
+        '+', '-',
+        '.NOT.',
+        '&', '$', '!',
+        'P.', 'S.'
+      ]
+
+    if version == 'iii':
+      self.unary_operators = [
+        '+', '-',
+        '.NOT.',
+        '&', '$', '!'
+      ]
 
     self.postfix_operators = []
 

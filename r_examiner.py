@@ -1,6 +1,4 @@
-import string
-import math
-
+from codestat_token import Token
 from codestat_tokenizer import Tokenizer
 from token_builders import (
   InvalidTokenBuilder,
@@ -148,6 +146,40 @@ class RExaminer(Examiner):
     self.convert_keywords_to_identifiers(['<-', '.', '='])
     self.convert_identifiers_to_functions()
 
+    recognizeds = [
+      'add_variable', 'add_constraint', 'set_objective', 'get_solution',
+      'solver_status', 'solve_model','objective_value', 'list', 'paste',
+      'mean', 'sd', 'median', 'sum', 'min', 'max', 'is.na',
+      'abline', 'abs', 'addmargins', 'addNA', 'aggregate', 'alist',
+      'alt.equal', 'all', 'anti_join', 'any', 'apply', 'approx', 'approxfun',
+      'apropos', 'arrange', 'as.data_frame', 'as.Date', 'as.double', 'as.factor',
+      'as.function', 'as.name', 'as.ordered', 'as.single', 'attach', 'attr',
+      'ave', 'axis', 'barplot', 'beep', 'between', 'bind_cols', 'bind_rows',
+      'body', 'box', 'boxplot', 'call', 'c', 'case_when', 'casefold',
+      'cat', 'cbind', 'ceiling', 'charmatch', 'chartr', 'chol', 'choose_files',
+      'clip', 'coalesce', 'colMeans', 'colMedians', 'colnames', 'colSums',
+      'combine', 'combo', 'comment', 'cor', 'crossprod', 'cumall', 'cumany',
+      'cum_dist', 'cummax', 'cummean', 'cumsum', 'cut', 'data.frame',
+      'date', 'dbern', 'dbeta', 'dbinom', 'dcast', 'dcauchy', 'dchisq',
+      'dense_rank', 'density', 'deparse', 'deriv', 'det', 'determinant',
+      'dexp', 'df', 'dgamma', 'dgeom', 'dhyper', 'diag', 'diff', 'dim',
+      'dimnames', 'dist', 'distinct', 'dlnorm', 'dlogis', 'dnbinom', 'dpois',
+      'drop', 'droplevels', 'dsignrank', 'dt', 'dunif', 'duplicated',
+      'dweibull', 'dwilcox', 'eval', 'everything', 'exists', 'exp',
+      'expression', 'extract', 'filter', 'find', 'first', 'fivenum',
+      'floor', 'format', 'formatC', 'full_join', 'gather', 'gc', 'geom_bar',
+      'get', 'gl', 'gregexp', 'grid', 'hasName', 'heatmap', 'hist',
+      'identical', 'inner_join', 'integrate', 'intersect', 'is.nan', 'is.null',
+      'isprime', 'lag', 'lapply', 'last', 'last_col', 'layout', 'left_join',
+      'log', 'log10', 'log2', 'mapply', 'match', 'merge', 'names', 'norm',
+      'matrix', 'order', 'range', 'rank', 'replace', 'replicate', 'rev',
+      'sample', 'sapply', 'scale', 'sd', 'solve', 'sort', 'split', 'sqrt',
+      'sum_expr', 't',
+      'get_row-duals', 'get_col_duals', 'nrows', 'ncols'
+    ]
+
+    self.convert_functions_to_unrec_functions(recognizeds)
+
     self.calc_statistics()
 
     tokens = self.source_tokens()
@@ -174,3 +206,14 @@ class RExaminer(Examiner):
     self.calc_keyword_confidence()
 
     self.calc_line_length_confidence(code, self.max_expected_line)
+
+
+  def convert_functions_to_unrec_functions(self, recognizeds):
+    prev_token = Token('\n', 'newline', False)
+
+    for token in self.tokens:
+      if token.group == 'function' and token.text not in recognizeds:
+        token.group = 'unrecog function'
+
+      if token.group not in ['whitespace', 'comment', 'newline', 'line identification']:
+        prev_token = token
