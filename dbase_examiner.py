@@ -59,7 +59,7 @@ class DbaseExaminer(Examiner):
     return 'Escape ?Z'
 
 
-  def __init__(self, code, version):
+  def __init__(self, code, version, format):
     super().__init__()
 
     self.newlines_important = 'always'
@@ -242,13 +242,13 @@ class DbaseExaminer(Examiner):
     if version == 'ii':
       values = [
         'ALL', 'BLANK', 'BLAN', 'BOTTOM', 'BOTT', 'EOF', 'OFF', 'ON', 'TOP',
-        '.T.', '.F.', '.Y.', '.N.'
+        '.T.', '.F.', '.Y.', '.N.','T', 'F', 'Y', 'N'
       ]
 
     if version == 'iii':
       values = [
         'ALL', 'BLANK', 'BLAN', 'BOTTOM', 'BOTT', 'EOF', 'OFF', 'ON', 'TOP',
-        '.T.', '.F.', '.Y.', '.N.',
+        '.T.', '.F.', '.Y.', '.N.','T', 'F', 'Y', 'N',
         'AMERICAN', 'ANSI', 'BRITISH', 'ITALIAN', 'FRENCH', 'GERMAN',
       ]
 
@@ -381,6 +381,9 @@ class DbaseExaminer(Examiner):
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     self.tokens = tokens
+    tokens_prg = tokens.copy()
+    tokens_fmt = tokens.copy()
+    tokens_frm = tokens.copy()
 
     self.convert_specials_to_functions(group_starts, group_mids)
     self.convert_keywords_to_functions()
@@ -388,9 +391,16 @@ class DbaseExaminer(Examiner):
     self.convert_dollar_to_value()
 
     self.calc_statistics()
+    statistics_prg = self.statistics.copy()
+    statistics_prg['format'] = 'program'
+    statistics_fmt = self.statistics.copy()
+    statistics_fmt['format'] = 'screen'
+    statistics_frm = self.statistics.copy()
+    statistics_frm['format'] = 'report'
 
     tokens = self.source_tokens()
 
+    # calculate confidence for dbase PRG file
     self.calc_token_confidence()
     self.calc_token_2_confidence()
 
@@ -413,6 +423,93 @@ class DbaseExaminer(Examiner):
       self.calc_line_format_confidence_ii()
 
     self.calc_line_length_confidence(code, self.max_expected_line)
+
+    confidences_prg = self.confidences.copy()
+    self.confidences = {}
+    errors_prg = self.errors.copy()
+    self.errors = []
+
+    # calculate confidence for dbase FMT file
+    self.calc_token_confidence()
+    self.calc_fmt_line_confidence()
+
+    confidences_fmt = self.confidences.copy()
+    self.confidences = {}
+    errors_fmt = self.errors.copy()
+    self.errors = []
+
+    # calculate confidence for dbase FRM file
+    self.calc_token_confidence()
+    self.calc_yes_no_line_confidence()
+
+    confidences_frm = self.confidences.copy()
+    self.confidences = {}
+    errors_frm = self.errors.copy()
+    self.errors = []
+
+    # pick the format (PRG or FRM) with the higher confidence
+    if len(confidences_prg) == 0:
+      confidence_prg = 0.0
+    else:
+      confidence_prg = 1.0
+
+      for key in confidences_prg:
+        factor = confidences_prg[key]
+        confidence_prg *= factor
+
+    if len(confidences_fmt) == 0:
+      confidence_fmt = 0.0
+    else:
+      confidence_fmt = 1.0
+
+      for key in confidences_fmt:
+        factor = confidences_fmt[key]
+        confidence_fmt *= factor
+
+    if len(confidences_frm) == 0:
+      confidence_frm = 0.0
+    else:
+      confidence_frm = 1.0
+
+      for key in confidences_frm:
+        factor = confidences_frm[key]
+        confidence_frm *= factor
+
+    if format == 'better':
+      # select the better of free-format and spaced-format
+      if confidence_prg > confidence_fmt and confidence_prg > confidence_frm:
+        self.tokens = tokens_prg
+        self.statistics = statistics_prg
+        self.confidences = confidences_prg
+        self.errors = errors_prg
+      elif confidence_fmt > confidence_frm:
+        self.tokens = tokens_fmt
+        self.statistics = statistics_fmt
+        self.confidences = confidences_fmt
+        self.errors = errors_fmt
+      else:
+        self.tokens = tokens_frm
+        self.statistics = statistics_frm
+        self.confidences = confidences_frm
+        self.errors = errors_frm
+
+    if format == 'program':
+      self.tokens = tokens_prg
+      self.statistics = statistics_prg
+      self.confidences = confidences_prg
+      self.errors = errors_prg
+
+    if format == 'screen':
+      self.tokens = tokens_fmt
+      self.statistics = statistics_fmt
+      self.confidences = confidences_fmt
+      self.errors = errors_fmt
+
+    if format == 'report':
+      self.tokens = tokens_frm
+      self.statistics = statistics_frm
+      self.confidences = confidences_frm
+      self.errors = errors_frm
 
 
   def calc_line_format_confidence_ii(self):
@@ -448,8 +545,6 @@ class DbaseExaminer(Examiner):
       line_format_confidence = num_lines_correct / num_lines
 
     self.confidences['line format'] = line_format_confidence
-
-    return tokens
 
 
   # convert star and hash to function
@@ -533,3 +628,46 @@ class DbaseExaminer(Examiner):
 
       if token.group not in ['whitespace', 'comment', 'newline']:
         prev_token = token
+
+
+  def calc_fmt_line_confidence(self):
+    # remove tokens we don't care about
+    drop_types = ['whitespace', 'comment']
+    tokens = Examiner.drop_tokens(self.tokens, drop_types)
+
+    # split tokens by lines
+    lines = self.split_tokens_into_lines(tokens)
+
+    # check that lines begin with '@'
+    num_screen_lines = 0
+
+    for line in lines:
+      if len(line) > 0 and line[0].text == '@':
+        num_screen_lines += 1
+
+    line_screen_confidence = 0.0
+    if len(lines) > 0:
+      line_screen_confidence = num_screen_lines / len(lines)
+
+    self.confidences['line screen format'] = line_screen_confidence
+
+  def calc_yes_no_line_confidence(self):
+    # remove tokens we don't care about
+    drop_types = ['whitespace']
+    tokens = Examiner.drop_tokens(self.tokens, drop_types)
+
+    # split tokens by lines
+    lines = self.split_tokens_into_lines(tokens)
+
+    # check that at least 3 lines contain single y/n value and nothing else
+    num_y_n_lines = 0
+
+    for line in lines:
+      if len(line) == 1 and line[0].group == 'value':
+        num_y_n_lines += 1
+
+    line_y_n_confidence = 0.0
+    if num_y_n_lines > 2:
+      line_y_n_confidence = 1.0
+
+    self.confidences['line yn format'] = line_y_n_confidence

@@ -1090,10 +1090,10 @@ def make_one_examiner(language, code, format, tab_size, comment, block_comment_l
     examiner = DartExaminer(code)
 
   if language in ['dbase-ii', 'dbase', 'prg']:
-    examiner = DbaseExaminer(code, 'ii')
+    examiner = DbaseExaminer(code, 'ii', format)
 
   if language in ['dbase-iii', 'dbase', 'prg']:
-    examiner = DbaseExaminer(code, 'iii')
+    examiner = DbaseExaminer(code, 'iii', format)
 
   if language in ['delphi']:
     examiner = DelphiExaminer(code)
@@ -1372,10 +1372,10 @@ def make_multiple_examiners(code, format, tab_size, comment, block_comment_limit
     examiners['dart'] = DartExaminer(code)
 
   if 'dbase-ii' in languages or 'dbase' in languages or 'prg' in languages:
-    examiners['dbase-ii'] = DbaseExaminer(code, 'ii')
+    examiners['dbase-ii'] = DbaseExaminer(code, 'ii', format)
 
   if 'dbase-iii' in languages or 'dbase' in languages or 'prg' in languages:
-    examiners['dbase-iii'] = DbaseExaminer(code, 'iii')
+    examiners['dbase-iii'] = DbaseExaminer(code, 'iii', format)
 
   if 'delphi' in languages:
     examiners['delphi'] = DelphiExaminer(code)
