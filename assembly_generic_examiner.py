@@ -45,6 +45,9 @@ class AssemblyGenericExaminer(Examiner):
   def __init__(self, code, tab_size, format):
     super().__init__()
 
+    if format not in ['better', 'space', 'free']:
+      format = 'better'
+
     operand_types = []
 
     whitespace_tb = WhitespaceTokenBuilder()
@@ -245,8 +248,8 @@ class AssemblyGenericExaminer(Examiner):
         self.confidences = confidences_free
         self.errors = errors_free
 
-    if format == 'fixed':
-      # select the fixed-format values
+    if format == 'space':
+      # select the space-format values
       self.tokens = tokens_space
       self.statistics = statistics_space
       self.confidences = confidences_space

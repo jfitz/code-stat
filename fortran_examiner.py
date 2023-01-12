@@ -50,7 +50,11 @@ class FortranExaminer(Examiner):
 
   def __init__(self, code, year, tab_size, format):
     super().__init__()
+
     self.newlines_important = 'always'
+
+    if format not in ['better', 'fixed', 'free']:
+      format = 'better'
 
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()

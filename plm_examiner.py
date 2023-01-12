@@ -42,6 +42,9 @@ class PLMExaminer(Examiner):
   def __init__(self, code, tab_size, format):
     super().__init__()
 
+    if format not in ['better', 'fixed', 'free']:
+      format = 'better'
+
     operand_types = []
 
     whitespace_tb = WhitespaceTokenBuilder()
@@ -501,7 +504,7 @@ class PLMExaminer(Examiner):
         confidence_fixed *= factor
 
     if format == 'better':
-      # select the better of free-format and spaced-format
+      # select the better of free-format and fixed-format
       if confidence_fixed > confidence_free:
         self.tokens = tokens_fixed
         self.statistics = statistics_fixed

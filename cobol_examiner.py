@@ -67,6 +67,9 @@ class CobolExaminer(Examiner):
     if year is not None and year not in ['68', '1968', '74', '1974', '85', '1985', '2002', '2014']:
       raise CodeStatException('Unknown year for language')
 
+    if format not in ['better', 'fixed', 'free']:
+      format = 'better'
+
     operand_types = []
 
     invalid_token_builder = InvalidTokenBuilder()
@@ -621,7 +624,7 @@ class CobolExaminer(Examiner):
         confidence_fixed *= factor
 
     if format == 'better':
-      # select the better of free-format and spaced-format
+      # select the better of free-format and fixed-format
       if confidence_fixed > confidence_free:
         self.tokens = tokens_fixed
         self.statistics = statistics_fixed
