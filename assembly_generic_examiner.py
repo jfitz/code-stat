@@ -169,74 +169,86 @@ class AssemblyGenericExaminer(Examiner):
       invalid_token_builder
     ]
 
-    tokenizer = Tokenizer(tokenbuilders)
-    opcode_tokenizer = Tokenizer(opcode_tokenbuilders)
-    args_tokenizer = Tokenizer(args_tokenbuilders)
-
-    # tokenize as free-format
     code = self.TrimCtrlZText(code)
     ascii_code = self.convert_to_ascii(code)
-    tokens_free = tokenizer.tokenize(ascii_code)
 
-    tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid operator')
-    tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid')
-    tokens_free = Examiner.convert_values_to_operators(tokens_free, known_operators)
-    self.tokens = tokens_free
-    self.convert_asm_identifiers_to_labels()
+    if format in ['better', 'free']:
+      tokenizer = Tokenizer(tokenbuilders)
+      opcode_tokenizer = Tokenizer(opcode_tokenbuilders)
+      args_tokenizer = Tokenizer(args_tokenbuilders)
 
-    self.calc_statistics()
-    self.statistics['format'] = 'free'
-    statistics_free = self.statistics.copy()
+      tokens_free = tokenizer.tokenize(ascii_code)
 
-    self.calc_confidences(operand_types, group_starts, group_mids, group_ends, None)
-    self.calc_line_length_confidence(code, self.max_expected_line)
+      tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid operator')
+      tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid')
+      tokens_free = Examiner.convert_values_to_operators(tokens_free, known_operators)
+      self.tokens = tokens_free
+      self.convert_asm_identifiers_to_labels()
 
-    confidences_free = self.confidences.copy()
-    self.confidences = {}
-    errors_free = self.errors.copy()
-    self.errors = []
+      self.calc_statistics()
+      self.statistics['format'] = 'free'
+      statistics_free = self.statistics.copy()
 
-    # tokenize as space-format
-    opcode_extras = '.&=,()+-*/'
-    label_leads = '.&$@'
-    label_mids = '.&$#@'
-    label_ends = ':,'
-    comment_leads = '*;!'
-    line_comment_leads = ''
-    use_line_id = False
-    tokens_space, indents = Tokenizer.tokenize_asm_code(code, tab_size, opcode_tokenizer, opcode_extras, args_tokenizer, label_leads, label_mids, label_ends, comment_leads, line_comment_leads, use_line_id)
-    tokens_space = Examiner.combine_adjacent_identical_tokens(tokens_space, 'invalid operator')
-    tokens_space = Examiner.combine_adjacent_identical_tokens(tokens_space, 'invalid')
-    tokens_space = Examiner.combine_identifier_colon(tokens_space, ['newline'], [], [])
-    tokens_space = Tokenizer.combine_number_and_adjacent_identifier(tokens_space)
-    tokens_space = Examiner.convert_values_to_operators(tokens_space, known_operators)
-    self.tokens = tokens_space
-    self.convert_asm_identifiers_to_labels()
+      self.calc_confidences(operand_types, group_starts, group_mids, group_ends, None)
+      self.calc_line_length_confidence(code, self.max_expected_line)
 
-    self.calc_statistics()
-    self.statistics['format'] = 'space'
-    statistics_space = self.statistics.copy()
+      confidences_free = self.confidences.copy()
+      self.confidences = {}
+      errors_free = self.errors.copy()
+      self.errors = []
 
-    self.calc_confidences(operand_types, group_starts, group_mids, group_ends, indents)
-    self.calc_line_length_confidence(code, self.max_expected_line)
+      confidence_free = 1.0
+      for key in confidences_free:
+        factor = confidences_free[key]
+        confidence_free *= factor
 
-    confidences_space = self.confidences.copy()
-    self.confidences = {}
-    errors_space = self.errors.copy()
-    self.errors = []
+      if format == 'free':
+        self.tokens = tokens_free
+        self.statistics = statistics_free
+        self.confidences = confidences_free
+        self.errors = errors_free
 
-    confidence_free = 1.0
-    for key in confidences_free:
-      factor = confidences_free[key]
-      confidence_free *= factor
+    if format in ['better', 'space']:
+      opcode_extras = '.&=,()+-*/'
+      label_leads = '.&$@'
+      label_mids = '.&$#@'
+      label_ends = ':,'
+      comment_leads = '*;!'
+      line_comment_leads = ''
+      use_line_id = False
+      tokens_space, indents = Tokenizer.tokenize_asm_code(code, tab_size, opcode_tokenizer, opcode_extras, args_tokenizer, label_leads, label_mids, label_ends, comment_leads, line_comment_leads, use_line_id)
+      tokens_space = Examiner.combine_adjacent_identical_tokens(tokens_space, 'invalid operator')
+      tokens_space = Examiner.combine_adjacent_identical_tokens(tokens_space, 'invalid')
+      tokens_space = Examiner.combine_identifier_colon(tokens_space, ['newline'], [], [])
+      tokens_space = Tokenizer.combine_number_and_adjacent_identifier(tokens_space)
+      tokens_space = Examiner.convert_values_to_operators(tokens_space, known_operators)
+      self.tokens = tokens_space
+      self.convert_asm_identifiers_to_labels()
 
-    confidence_space = 1.0
-    for key in confidences_space:
-      factor = confidences_space[key]
-      confidence_space *= factor
+      self.calc_statistics()
+      self.statistics['format'] = 'space'
+      statistics_space = self.statistics.copy()
+
+      self.calc_confidences(operand_types, group_starts, group_mids, group_ends, indents)
+      self.calc_line_length_confidence(code, self.max_expected_line)
+
+      confidences_space = self.confidences.copy()
+      self.confidences = {}
+      errors_space = self.errors.copy()
+      self.errors = []
+
+      confidence_space = 1.0
+      for key in confidences_space:
+        factor = confidences_space[key]
+        confidence_space *= factor
+
+      if format == 'space':
+        self.tokens = tokens_space
+        self.statistics = statistics_space
+        self.confidences = confidences_space
+        self.errors = errors_space
 
     if format == 'better':
-      # select the better of free-format and spaced-format
       if confidence_space > confidence_free:
         self.tokens = tokens_space
         self.statistics = statistics_space
@@ -247,20 +259,6 @@ class AssemblyGenericExaminer(Examiner):
         self.statistics = statistics_free
         self.confidences = confidences_free
         self.errors = errors_free
-
-    if format == 'space':
-      # select the space-format values
-      self.tokens = tokens_space
-      self.statistics = statistics_space
-      self.confidences = confidences_space
-      self.errors = errors_space
-
-    if format == 'free':
-      # select the free-format values
-      self.tokens = tokens_free
-      self.statistics = statistics_free
-      self.confidences = confidences_free
-      self.errors = errors_free
 
 
   def calc_confidences(self, operand_types, group_starts, group_mids, group_ends, indents):

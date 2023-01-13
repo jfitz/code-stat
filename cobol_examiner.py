@@ -452,176 +452,187 @@ class CobolExaminer(Examiner):
 
     exec_tb = BlockTokenBuilder('EXEC', 'END-EXEC', 'exec block')
 
-    tokenbuilders_free = [
-      newline_tb,
-      whitespace_tb,
-      terminators_tb,
-      integer_tb,
-      integer_exponent_tb,
-      real_tb,
-      real_exponent_tb,
-      picture_tb,
-      cr_picture_tb,
-      keyword_tb,
-      star_comment_tb,  # before operator, to catch single star as comment
-      known_operator_tb,
-      groupers_tb,
-      value_tb,
-      identifier_tb,
-      string_tb,
-      n_string_tb,
-      nx_string_tb,
-      inline_comment_tb,
-      cobol_preprocessor_tb,
-      exec_tb,
-      self.unknown_operator_tb,
-      invalid_token_builder
-    ]
-
-    tokenizer_free = Tokenizer(tokenbuilders_free)
-
     code = self.TrimCtrlZText(code)
     ascii_code = self.convert_to_ascii(code)
-    tokens_free = tokenizer_free.tokenize(ascii_code)
 
-    tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid operator')
-    tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid')
-    self.tokens = tokens_free
+    if format in ['better', 'free']:
+      tokenbuilders_free = [
+        newline_tb,
+        whitespace_tb,
+        terminators_tb,
+        integer_tb,
+        integer_exponent_tb,
+        real_tb,
+        real_exponent_tb,
+        picture_tb,
+        cr_picture_tb,
+        keyword_tb,
+        star_comment_tb,  # before operator, to catch single star as comment
+        known_operator_tb,
+        groupers_tb,
+        value_tb,
+        identifier_tb,
+        string_tb,
+        n_string_tb,
+        nx_string_tb,
+        inline_comment_tb,
+        cobol_preprocessor_tb,
+        exec_tb,
+        self.unknown_operator_tb,
+        invalid_token_builder
+      ]
 
-    self.convert_numbers_to_pictures()
-    self.convert_numbers_to_levels()
-    self.convert_identifiers_before_period_to_labels()
-    self.convert_identifiers_after_perform_or_through_to_labels()
+      tokenizer_free = Tokenizer(tokenbuilders_free)
+      tokens_free = tokenizer_free.tokenize(ascii_code)
 
-    self.calc_statistics()
-    self.statistics['format'] = 'free'
-    statistics_free = self.statistics.copy()
+      tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid operator')
+      tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid')
+      self.tokens = tokens_free
 
-    tokens = self.source_tokens()
-    tokens = Examiner.join_all_lines(tokens)
+      self.convert_numbers_to_pictures()
+      self.convert_numbers_to_levels()
+      self.convert_identifiers_before_period_to_labels()
+      self.convert_identifiers_after_perform_or_through_to_labels()
 
-    self.calc_token_confidence()
-    self.calc_token_2_confidence()
+      self.calc_statistics()
+      self.statistics['format'] = 'free'
+      statistics_free = self.statistics.copy()
 
-    num_operators = self.count_my_tokens(['operator', 'invalid operator'])
-    if num_operators > 0:
-      self.calc_operator_confidence(num_operators)
-      allow_pairs = []
-      self.calc_operator_2_confidence(tokens, num_operators, allow_pairs)
-      # self.calc_operator_3_confidence(tokens, num_operators, group_ends, allow_pairs)
-      self.calc_operator_4_confidence(tokens, num_operators, group_starts, allow_pairs)
+      tokens = self.source_tokens()
+      tokens = Examiner.join_all_lines(tokens)
 
-    self.calc_group_confidence(tokens, group_mids)
+      self.calc_token_confidence()
+      self.calc_token_2_confidence()
 
-    # self.calc_operand_n_confidence(tokens, operand_types, 2)
-    # self.calc_operand_n_confidence(tokens, operand_types, 4)
+      num_operators = self.count_my_tokens(['operator', 'invalid operator'])
+      if num_operators > 0:
+        self.calc_operator_confidence(num_operators)
+        allow_pairs = []
+        self.calc_operator_2_confidence(tokens, num_operators, allow_pairs)
+        # self.calc_operator_3_confidence(tokens, num_operators, group_ends, allow_pairs)
+        self.calc_operator_4_confidence(tokens, num_operators, group_starts, allow_pairs)
 
-    self.calc_keyword_confidence()
-    self.calc_picture_confidence()
-    self.calc_line_length_confidence(code, self.max_expected_line)
+      self.calc_group_confidence(tokens, group_mids)
 
-    expected_keyword_confidence = self.check_expected_keywords()
-    self.confidences['expected_keywords'] = expected_keyword_confidence
+      # self.calc_operand_n_confidence(tokens, operand_types, 2)
+      # self.calc_operand_n_confidence(tokens, operand_types, 4)
 
-    confidences_free = self.confidences.copy()
-    self.confidences = {}
-    errors_free = self.errors.copy()
-    self.errors = []
+      self.calc_keyword_confidence()
+      self.calc_picture_confidence()
+      self.calc_line_length_confidence(code, self.max_expected_line)
 
-    tokenbuilders_fixed = [
-      newline_tb,
-      whitespace_tb,
-      terminators_tb,
-      integer_tb,
-      integer_exponent_tb,
-      real_tb,
-      real_exponent_tb,
-      picture_tb,
-      cr_picture_tb,
-      keyword_tb,
-      star_comment_tb,  # before operator, to catch single star as comment
-      known_operator_tb,
-      groupers_tb,
-      value_tb,
-      identifier_tb,
-      string_tb,
-      n_string_tb,
-      nx_string_tb,
-      inline_comment_tb,
-      cobol_preprocessor_tb,
-      exec_tb,
-      self.unknown_operator_tb,
-      invalid_token_builder
-    ]
+      expected_keyword_confidence = self.check_expected_keywords()
+      self.confidences['expected_keywords'] = expected_keyword_confidence
 
-    tokenizer_fixed = Tokenizer(tokenbuilders_fixed)
+      confidences_free = self.confidences.copy()
+      self.confidences = {}
+      errors_free = self.errors.copy()
+      self.errors = []
 
-    code = self.TrimCtrlZText(code)
-    ascii_code = self.convert_to_ascii(code)
-    tokens_fixed = self.tokenize_code(ascii_code, tab_size, tokenizer_fixed)
+      # compute confidence for free-format and fixed-format
+      confidence_free = 1.0
+      if len(confidences_free) == 0:
+        confidence_free = 0.0
+      else:
+        for key in confidences_free:
+          factor = confidences_free[key]
+          confidence_free *= factor
 
-    tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid operator')
-    tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid')
-    tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'whitespace')
-    self.tokens = tokens_fixed
+      if format == 'free':
+        self.tokens = tokens_free
+        self.statistics = statistics_free
+        self.confidences = confidences_free
+        self.errors = errors_free
 
-    self.convert_numbers_to_pictures()
-    self.convert_numbers_to_levels()
-    self.convert_identifiers_before_period_to_labels()
-    self.convert_identifiers_after_perform_or_through_to_labels()
+    if format in ['better', 'fixed']:
+      tokenbuilders_fixed = [
+        newline_tb,
+        whitespace_tb,
+        terminators_tb,
+        integer_tb,
+        integer_exponent_tb,
+        real_tb,
+        real_exponent_tb,
+        picture_tb,
+        cr_picture_tb,
+        keyword_tb,
+        star_comment_tb,  # before operator, to catch single star as comment
+        known_operator_tb,
+        groupers_tb,
+        value_tb,
+        identifier_tb,
+        string_tb,
+        n_string_tb,
+        nx_string_tb,
+        inline_comment_tb,
+        cobol_preprocessor_tb,
+        exec_tb,
+        self.unknown_operator_tb,
+        invalid_token_builder
+      ]
 
-    self.calc_statistics()
-    self.statistics['format'] = 'fixed'
-    statistics_fixed = self.statistics.copy()
+      tokenizer_fixed = Tokenizer(tokenbuilders_fixed)
+      tokens_fixed = self.tokenize_code(ascii_code, tab_size, tokenizer_fixed)
 
-    tokens = self.source_tokens()
-    tokens = Examiner.join_all_lines(tokens)
+      tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid operator')
+      tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid')
+      tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'whitespace')
+      self.tokens = tokens_fixed
 
-    self.calc_token_confidence()
-    self.calc_token_2_confidence()
+      self.convert_numbers_to_pictures()
+      self.convert_numbers_to_levels()
+      self.convert_identifiers_before_period_to_labels()
+      self.convert_identifiers_after_perform_or_through_to_labels()
 
-    num_operators = self.count_my_tokens(['operator', 'invalid operator'])
-    if num_operators > 0:
-      self.calc_operator_confidence(num_operators)
-      allow_pairs = []
-      self.calc_operator_2_confidence(tokens, num_operators, allow_pairs)
-      # self.calc_operator_3_confidence(tokens, num_operators, group_ends, allow_pairs)
-      self.calc_operator_4_confidence(tokens, num_operators, group_starts, allow_pairs)
+      self.calc_statistics()
+      self.statistics['format'] = 'fixed'
+      statistics_fixed = self.statistics.copy()
 
-    self.calc_group_confidence(tokens, group_mids)
+      tokens = self.source_tokens()
+      tokens = Examiner.join_all_lines(tokens)
 
-    # self.calc_operand_n_confidence(tokens, operand_types, 2)
-    # self.calc_operand_n_confidence(tokens, operand_types, 4)
+      self.calc_token_confidence()
+      self.calc_token_2_confidence()
 
-    self.calc_keyword_confidence()
-    self.calc_picture_confidence()
-    self.calc_line_length_confidence(code, self.max_expected_line)
-    self.calc_line_description_confidence()
+      num_operators = self.count_my_tokens(['operator', 'invalid operator'])
+      if num_operators > 0:
+        self.calc_operator_confidence(num_operators)
+        allow_pairs = []
+        self.calc_operator_2_confidence(tokens, num_operators, allow_pairs)
+        # self.calc_operator_3_confidence(tokens, num_operators, group_ends, allow_pairs)
+        self.calc_operator_4_confidence(tokens, num_operators, group_starts, allow_pairs)
 
-    expected_keyword_confidence = self.check_expected_keywords()
-    self.confidences['expected_keywords'] = expected_keyword_confidence
+      self.calc_group_confidence(tokens, group_mids)
 
-    confidences_fixed = self.confidences.copy()
-    self.confidences = {}
-    errors_fixed = self.errors.copy()
-    self.errors = []
+      # self.calc_operand_n_confidence(tokens, operand_types, 2)
+      # self.calc_operand_n_confidence(tokens, operand_types, 4)
 
-    # compute confidence for free-format and fixed-format
-    confidence_free = 1.0
-    if len(confidences_free) == 0:
-      confidence_free = 0.0
-    else:
-      for key in confidences_free:
-        factor = confidences_free[key]
-        confidence_free *= factor
+      self.calc_keyword_confidence()
+      self.calc_picture_confidence()
+      self.calc_line_length_confidence(code, self.max_expected_line)
+      self.calc_line_description_confidence()
 
-    confidence_fixed = 1.0
-    if len(confidences_fixed) == 0:
-      confidence_fixed = 0.0
-    else:
-      for key in confidences_fixed:
-        factor = confidences_fixed[key]
-        confidence_fixed *= factor
+      expected_keyword_confidence = self.check_expected_keywords()
+      self.confidences['expected_keywords'] = expected_keyword_confidence
+
+      confidences_fixed = self.confidences.copy()
+      self.confidences = {}
+      errors_fixed = self.errors.copy()
+      self.errors = []
+
+      confidence_fixed = 1.0
+      if len(confidences_fixed) == 0:
+        confidence_fixed = 0.0
+      else:
+        for key in confidences_fixed:
+          factor = confidences_fixed[key]
+          confidence_fixed *= factor
+
+      if format == 'fixed':
+        self.tokens = tokens_fixed
+        self.statistics = statistics_fixed
+        self.confidences = confidences_fixed
+        self.errors = errors_fixed
 
     if format == 'better':
       # select the better of free-format and fixed-format
@@ -635,20 +646,6 @@ class CobolExaminer(Examiner):
         self.statistics = statistics_free
         self.confidences = confidences_free
         self.errors = errors_free
-
-    if format == 'fixed':
-      # select the fixed-format values
-      self.tokens = tokens_fixed
-      self.statistics = statistics_fixed
-      self.confidences = confidences_fixed
-      self.errors = errors_fixed
-
-    if format == 'free':
-      # select the free-format values
-      self.tokens = tokens_free
-      self.statistics = statistics_free
-      self.confidences = confidences_free
-      self.errors = errors_free
 
   def tokenize_line_number(self, line_number):
     token = None

@@ -380,78 +380,90 @@ class AssemblyIBMExaminer(Examiner):
       invalid_token_builder
     ]
 
+    code = self.TrimCtrlZText(code)
+    ascii_code = self.convert_to_ascii(code)
+
     tokenizer = Tokenizer(tokenbuilders)
     opcode_tokenizer = Tokenizer(opcode_tokenbuilders)
     args_tokenizer = Tokenizer(args_tokenbuilders)
 
-    # tokenize as free-format
-    tokens_free = tokenizer.tokenize(code)
-    tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid operator')
-    tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid')
-    tokens_free = AssemblyIBMExaminer.convert_keywords_to_identifiers(tokens_free)
-    tokens_free = Examiner.convert_values_to_operators(tokens_free, known_operators)
-    self.tokens = tokens_free
-    self.convert_asm_identifiers_to_labels()
-    self.convert_asm_keywords_to_identifiers()
+    if format in ['better', 'free']:
+      tokens_free = tokenizer.tokenize(ascii_code)
+      tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid operator')
+      tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid')
+      tokens_free = AssemblyIBMExaminer.convert_keywords_to_identifiers(tokens_free)
+      tokens_free = Examiner.convert_values_to_operators(tokens_free, known_operators)
+      self.tokens = tokens_free
+      self.convert_asm_identifiers_to_labels()
+      self.convert_asm_keywords_to_identifiers()
 
-    self.calc_statistics()
-    self.statistics['format'] = 'free'
-    statistics_free = self.statistics.copy()
+      self.calc_statistics()
+      self.statistics['format'] = 'free'
+      statistics_free = self.statistics.copy()
 
-    self.calc_confidences(operand_types, group_starts, group_mids, group_ends, None)
-    self.calc_line_length_confidence(code, self.max_expected_line)
+      self.calc_confidences(operand_types, group_starts, group_mids, group_ends, None)
+      self.calc_line_length_confidence(ascii_code, self.max_expected_line)
 
-    confidences_free = self.confidences.copy()
-    self.confidences = {}
-    errors_free = self.errors.copy()
-    self.errors = []
+      confidences_free = self.confidences.copy()
+      self.confidences = {}
+      errors_free = self.errors.copy()
+      self.errors = []
 
-    # tokenize as space-format
-    opcode_extras = '.&=,()+-*/'
-    label_leads = '.&$@'
-    label_mids = '.&$#@'
-    label_ends = ':,'
-    comment_leads = '!'
-    line_comment_leads = '*'
-    use_line_id = True
-    tokens_space, indents = Tokenizer.tokenize_asm_code(code, tab_size, opcode_tokenizer, opcode_extras, args_tokenizer, label_leads, label_mids, label_ends, comment_leads, line_comment_leads, use_line_id)
-    tokens_space = Examiner.combine_adjacent_identical_tokens(tokens_space, 'invalid operator')
-    tokens_space = Examiner.combine_adjacent_identical_tokens(tokens_space, 'invalid')
-    tokens_space = Examiner.combine_identifier_colon(tokens_space, ['newline'], [], [])
-    tokens_space = Tokenizer.combine_number_and_adjacent_identifier(tokens_space)
-    tokens_space = AssemblyIBMExaminer.convert_opcodes_to_keywords(tokens_space, keywords)
-    tokens_space = AssemblyIBMExaminer.convert_keywords_to_identifiers(tokens_space)
-    tokens_space = Examiner.convert_values_to_operators(tokens_space, known_operators)
-    self.tokens = tokens_space
-    self.convert_asm_identifiers_to_labels()
-    self.convert_asm_keywords_to_identifiers()
+      confidence_free = 1.0
+      for key in confidences_free:
+        factor = confidences_free[key]
+        confidence_free *= factor
 
-    self.calc_statistics()
-    self.statistics['format'] = 'space'
-    statistics_space = self.statistics.copy()
+      if format == 'free':
+        self.tokens = tokens_free
+        self.statistics = statistics_free
+        self.confidences = confidences_free
+        self.errors = errors_free
 
-    self.calc_confidences(operand_types, group_starts, group_mids, group_ends, indents)
-    self.calc_line_length_confidence(code, self.max_expected_line)
+    if format in ['better', 'space']:
+      opcode_extras = '.&=,()+-*/'
+      label_leads = '.&$@'
+      label_mids = '.&$#@'
+      label_ends = ':,'
+      comment_leads = '!'
+      line_comment_leads = '*'
+      use_line_id = True
+      tokens_space, indents = Tokenizer.tokenize_asm_code(ascii_code, tab_size, opcode_tokenizer, opcode_extras, args_tokenizer, label_leads, label_mids, label_ends, comment_leads, line_comment_leads, use_line_id)
+      tokens_space = Examiner.combine_adjacent_identical_tokens(tokens_space, 'invalid operator')
+      tokens_space = Examiner.combine_adjacent_identical_tokens(tokens_space, 'invalid')
+      tokens_space = Examiner.combine_identifier_colon(tokens_space, ['newline'], [], [])
+      tokens_space = Tokenizer.combine_number_and_adjacent_identifier(tokens_space)
+      tokens_space = AssemblyIBMExaminer.convert_opcodes_to_keywords(tokens_space, keywords)
+      tokens_space = AssemblyIBMExaminer.convert_keywords_to_identifiers(tokens_space)
+      tokens_space = Examiner.convert_values_to_operators(tokens_space, known_operators)
+      self.tokens = tokens_space
+      self.convert_asm_identifiers_to_labels()
+      self.convert_asm_keywords_to_identifiers()
 
-    confidences_space = self.confidences.copy()
-    self.confidences = {}
-    errors_space = self.errors.copy()
-    self.errors = []
+      self.calc_statistics()
+      self.statistics['format'] = 'space'
+      statistics_space = self.statistics.copy()
 
-    # select the better of free-format and spaced-format
+      self.calc_confidences(operand_types, group_starts, group_mids, group_ends, indents)
+      self.calc_line_length_confidence(ascii_code, self.max_expected_line)
 
-    confidence_free = 1.0
-    for key in confidences_free:
-      factor = confidences_free[key]
-      confidence_free *= factor
+      confidences_space = self.confidences.copy()
+      self.confidences = {}
+      errors_space = self.errors.copy()
+      self.errors = []
 
-    confidence_space = 1.0
-    for key in confidences_space:
-      factor = confidences_space[key]
-      confidence_space *= factor
+      confidence_space = 1.0
+      for key in confidences_space:
+        factor = confidences_space[key]
+        confidence_space *= factor
+
+      if format == 'space':
+        self.tokens = tokens_space
+        self.statistics = statistics_space
+        self.confidences = confidences_space
+        self.errors = errors_space
 
     if format == 'better':
-      # select the better of free-format and spaced-format
       if confidence_space > confidence_free:
         self.tokens = tokens_space
         self.statistics = statistics_space
@@ -462,20 +474,6 @@ class AssemblyIBMExaminer(Examiner):
         self.statistics = statistics_free
         self.confidences = confidences_free
         self.errors = errors_free
-
-    if format == 'space':
-      # select the space-format values
-      self.tokens = tokens_space
-      self.statistics = statistics_space
-      self.confidences = confidences_space
-      self.errors = errors_space
-
-    if format == 'free':
-      # select the free-format values
-      self.tokens = tokens_free
-      self.statistics = statistics_free
-      self.confidences = confidences_free
-      self.errors = errors_free
 
 
   # convert keywords in expressions to identifiers

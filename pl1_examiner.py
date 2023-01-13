@@ -288,200 +288,211 @@ class PL1Examiner(Examiner):
 
     invalid_token_builder = InvalidTokenBuilder()
 
-    # tokenize as free-format
-    tokenbuilders_free = [
-      newline_tb,
-      whitespace_tb,
-      line_continuation_tb,
-      terminators_tb,
-      integer_tb,
-      integer_exponent_tb,
-      binary_integer_tb,
-      real_tb,
-      real_exponent_tb,
-      binary_real_tb,
-      keyword_tb,
-      function_tb,
-      attributes_tb,
-      options_tb,
-      conditions_tb,
-      subroutines_tb,
-      types_tb,
-      values_tb,
-      groupers_tb,
-      known_operator_tb,
-      identifier_tb,
-      string_tb,
-      slash_star_comment_tb,
-      preprocessor_tb,
-      title_tb,
-      subtitle_tb,
-      error_tb,
-      warn_tb,
-      inform_tb,
-      jcl_tb,
-      self.unknown_operator_tb,
-      invalid_token_builder
-    ]
-
-    tokenizer_free = Tokenizer(tokenbuilders_free)
-
     code = self.TrimCtrlZText(code)
     ascii_code = self.convert_to_ascii(code)
-    tokens_free = tokenizer_free.tokenize(ascii_code)
 
-    tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid operator')
-    tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid')
+    if format in ['better', 'free']:
+      tokenbuilders_free = [
+        newline_tb,
+        whitespace_tb,
+        line_continuation_tb,
+        terminators_tb,
+        integer_tb,
+        integer_exponent_tb,
+        binary_integer_tb,
+        real_tb,
+        real_exponent_tb,
+        binary_real_tb,
+        keyword_tb,
+        function_tb,
+        attributes_tb,
+        options_tb,
+        conditions_tb,
+        subroutines_tb,
+        types_tb,
+        values_tb,
+        groupers_tb,
+        known_operator_tb,
+        identifier_tb,
+        string_tb,
+        slash_star_comment_tb,
+        preprocessor_tb,
+        title_tb,
+        subtitle_tb,
+        error_tb,
+        warn_tb,
+        inform_tb,
+        jcl_tb,
+        self.unknown_operator_tb,
+        invalid_token_builder
+      ]
 
-    self.tokens = tokens_free
-    self.convert_identifiers_before_colon_to_labels(';')
-    self.convert_identifiers_after_goto_to_labels()
+      tokenizer_free = Tokenizer(tokenbuilders_free)
+      tokens_free = tokenizer_free.tokenize(ascii_code)
 
-    self.calc_statistics()
-    self.statistics['format'] = 'free'
-    statistics_free = self.statistics.copy()
+      tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid operator')
+      tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid')
 
-    tokens = self.source_tokens()
-    tokens = Examiner.join_all_lines(tokens)
+      self.tokens = tokens_free
+      self.convert_identifiers_before_colon_to_labels(';')
+      self.convert_identifiers_after_goto_to_labels()
 
-    self.calc_token_confidence()
-    self.calc_token_2_confidence()
+      self.calc_statistics()
+      self.statistics['format'] = 'free'
+      statistics_free = self.statistics.copy()
 
-    num_operators = self.count_my_tokens(['operator', 'invalid operator'])
-    if num_operators > 0:
-      self.calc_operator_confidence(num_operators)
-      allow_pairs = []
-      self.calc_operator_2_confidence(tokens, num_operators, allow_pairs)
-      self.calc_operator_3_confidence(tokens, num_operators, group_ends, allow_pairs)
-      self.calc_operator_4_confidence(tokens, num_operators, group_starts, allow_pairs)
+      tokens = self.source_tokens()
+      tokens = Examiner.join_all_lines(tokens)
 
-    self.calc_group_confidence(tokens, group_mids)
+      self.calc_token_confidence()
+      self.calc_token_2_confidence()
 
-    operand_types_2 = ['number', 'symbol']
-    # self.calc_operand_n_confidence(tokens, operand_types_2, 2)
-    self.calc_operand_n_confidence(tokens, operand_types, 2)
+      num_operators = self.count_my_tokens(['operator', 'invalid operator'])
+      if num_operators > 0:
+        self.calc_operator_confidence(num_operators)
+        allow_pairs = []
+        self.calc_operator_2_confidence(tokens, num_operators, allow_pairs)
+        self.calc_operator_3_confidence(tokens, num_operators, group_ends, allow_pairs)
+        self.calc_operator_4_confidence(tokens, num_operators, group_starts, allow_pairs)
 
-    self.calc_keyword_confidence()
-    self.calc_paired_blockers_confidence(['{'], ['}'])
-    self.calc_line_length_confidence(code, self.max_expected_line)
+      self.calc_group_confidence(tokens, group_mids)
 
-    confidences_free = self.confidences.copy()
-    self.confidences = {}
-    errors_free = self.errors.copy()
-    self.errors = []
+      operand_types_2 = ['number', 'symbol']
+      # self.calc_operand_n_confidence(tokens, operand_types_2, 2)
+      self.calc_operand_n_confidence(tokens, operand_types, 2)
 
-    # tokenize as fixed-format
-    tokenbuilders_fixed = [
-      newline_tb,
-      whitespace_tb,
-      line_continuation_tb,
-      terminators_tb,
-      integer_tb,
-      integer_exponent_tb,
-      binary_integer_tb,
-      real_tb,
-      real_exponent_tb,
-      binary_real_tb,
-      keyword_tb,
-      function_tb,
-      attributes_tb,
-      options_tb,
-      conditions_tb,
-      subroutines_tb,
-      types_tb,
-      values_tb,
-      groupers_tb,
-      known_operator_tb,
-      identifier_tb,
-      string_tb,
-      slash_star_comment_tb,
-      preprocessor_tb,
-      title_tb,
-      subtitle_tb,
-      error_tb,
-      warn_tb,
-      inform_tb,
-      jcl_tb,
-      self.unknown_operator_tb,
-      invalid_token_builder
-    ]
+      self.calc_keyword_confidence()
+      self.calc_paired_blockers_confidence(['{'], ['}'])
+      self.calc_line_length_confidence(ascii_code, self.max_expected_line)
 
-    comment_start_tb = PL1CommentStartTokenBuilder()
-    comment_middle_tb = PL1CommentMiddleTokenBuilder()
-    comment_end_tb = PL1CommentEndTokenBuilder()
+      confidences_free = self.confidences.copy()
+      self.confidences = {}
+      errors_free = self.errors.copy()
+      self.errors = []
 
-    type1_tokenbuilders = [comment_start_tb]
-    tokenbuilders_fixed_1 = tokenbuilders_fixed + type1_tokenbuilders + [invalid_token_builder]
-    tokenizer_fixed_1 = Tokenizer(tokenbuilders_fixed_1)
+      confidence_free = 1.0
+      if len(confidences_free) == 0:
+        confidence_free = 0.0
+      else:
+        for key in confidences_free:
+          factor = confidences_free[key]
+          confidence_free *= factor
 
-    type2_tokenbuilders = [comment_start_tb, comment_middle_tb, comment_end_tb]
-    tokenbuilders_fixed_2 = tokenbuilders_fixed + type2_tokenbuilders + [invalid_token_builder]
-    tokenizer_fixed_2 = Tokenizer(tokenbuilders_fixed_2)
+      if format == 'free':
+        # select the free-format values
+        self.tokens = tokens_free
+        self.statistics = statistics_free
+        self.confidences = confidences_free
+        self.errors = errors_free
 
-    tokens_fixed = self.tokenize_code(ascii_code, tab_size, tokenizer_fixed_1, tokenizer_fixed_2)
+    if format in ['better', 'fixed']:
+      tokenbuilders_fixed = [
+        newline_tb,
+        whitespace_tb,
+        line_continuation_tb,
+        terminators_tb,
+        integer_tb,
+        integer_exponent_tb,
+        binary_integer_tb,
+        real_tb,
+        real_exponent_tb,
+        binary_real_tb,
+        keyword_tb,
+        function_tb,
+        attributes_tb,
+        options_tb,
+        conditions_tb,
+        subroutines_tb,
+        types_tb,
+        values_tb,
+        groupers_tb,
+        known_operator_tb,
+        identifier_tb,
+        string_tb,
+        slash_star_comment_tb,
+        preprocessor_tb,
+        title_tb,
+        subtitle_tb,
+        error_tb,
+        warn_tb,
+        inform_tb,
+        jcl_tb,
+        self.unknown_operator_tb,
+        invalid_token_builder
+      ]
 
-    tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid operator')
-    tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid')
-    tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'whitespace')
-    tokens_fixed = self.convert_broken_comments_to_comments(tokens_fixed)
+      comment_start_tb = PL1CommentStartTokenBuilder()
+      comment_middle_tb = PL1CommentMiddleTokenBuilder()
+      comment_end_tb = PL1CommentEndTokenBuilder()
 
-    self.tokens = tokens_fixed
-    self.convert_identifiers_before_colon_to_labels(';')
-    self.convert_identifiers_after_goto_to_labels()
+      type1_tokenbuilders = [comment_start_tb]
+      tokenbuilders_fixed_1 = tokenbuilders_fixed + type1_tokenbuilders + [invalid_token_builder]
+      tokenizer_fixed_1 = Tokenizer(tokenbuilders_fixed_1)
 
-    self.calc_statistics()
-    self.statistics['format'] = 'fixed'
-    statistics_fixed = self.statistics.copy()
+      type2_tokenbuilders = [comment_start_tb, comment_middle_tb, comment_end_tb]
+      tokenbuilders_fixed_2 = tokenbuilders_fixed + type2_tokenbuilders + [invalid_token_builder]
+      tokenizer_fixed_2 = Tokenizer(tokenbuilders_fixed_2)
 
-    tokens = self.source_tokens()
-    tokens = Examiner.join_all_lines(tokens)
+      tokens_fixed = self.tokenize_code(ascii_code, tab_size, tokenizer_fixed_1, tokenizer_fixed_2)
 
-    self.calc_token_confidence()
-    self.calc_token_2_confidence()
+      tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid operator')
+      tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid')
+      tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'whitespace')
+      tokens_fixed = self.convert_broken_comments_to_comments(tokens_fixed)
 
-    num_operators = self.count_my_tokens(['operator', 'invalid operator'])
-    if num_operators > 0:
-      self.calc_operator_confidence(num_operators)
-      allow_pairs = []
-      self.calc_operator_2_confidence(tokens, num_operators, allow_pairs)
-      self.calc_operator_3_confidence(tokens, num_operators, group_ends, allow_pairs)
-      self.calc_operator_4_confidence(tokens, num_operators, group_starts, allow_pairs)
+      self.tokens = tokens_fixed
+      self.convert_identifiers_before_colon_to_labels(';')
+      self.convert_identifiers_after_goto_to_labels()
 
-    self.calc_group_confidence(tokens, group_mids)
+      self.calc_statistics()
+      self.statistics['format'] = 'fixed'
+      statistics_fixed = self.statistics.copy()
 
-    operand_types_2 = ['number', 'symbol']
-    # self.calc_operand_n_confidence(tokens, operand_types_2, 2)
-    self.calc_operand_n_confidence(tokens, operand_types, 2)
+      tokens = self.source_tokens()
+      tokens = Examiner.join_all_lines(tokens)
 
-    self.calc_keyword_confidence()
-    self.calc_paired_blockers_confidence(['{'], ['}'])
-    self.calc_line_length_confidence(code, self.max_expected_line)
-    self.calc_line_description_confidence()
+      self.calc_token_confidence()
+      self.calc_token_2_confidence()
 
-    confidences_fixed = self.confidences.copy()
-    self.confidences = {}
-    errors_fixed = self.errors.copy()
-    self.errors = []
+      num_operators = self.count_my_tokens(['operator', 'invalid operator'])
+      if num_operators > 0:
+        self.calc_operator_confidence(num_operators)
+        allow_pairs = []
+        self.calc_operator_2_confidence(tokens, num_operators, allow_pairs)
+        self.calc_operator_3_confidence(tokens, num_operators, group_ends, allow_pairs)
+        self.calc_operator_4_confidence(tokens, num_operators, group_starts, allow_pairs)
 
-    # compute confidence for free-format and fixed-format
-    confidence_free = 1.0
-    if len(confidences_free) == 0:
-      confidence_free = 0.0
-    else:
-      for key in confidences_free:
-        factor = confidences_free[key]
-        confidence_free *= factor
+      self.calc_group_confidence(tokens, group_mids)
 
-    confidence_fixed = 1.0
-    if len(confidences_fixed) == 0:
-      confidence_fixed = 0.0
-    else:
-      for key in confidences_fixed:
-        factor = confidences_fixed[key]
-        confidence_fixed *= factor
+      operand_types_2 = ['number', 'symbol']
+      # self.calc_operand_n_confidence(tokens, operand_types_2, 2)
+      self.calc_operand_n_confidence(tokens, operand_types, 2)
+
+      self.calc_keyword_confidence()
+      self.calc_paired_blockers_confidence(['{'], ['}'])
+      self.calc_line_length_confidence(code, self.max_expected_line)
+      self.calc_line_description_confidence()
+
+      confidences_fixed = self.confidences.copy()
+      self.confidences = {}
+      errors_fixed = self.errors.copy()
+      self.errors = []
+
+      confidence_fixed = 1.0
+      if len(confidences_fixed) == 0:
+        confidence_fixed = 0.0
+      else:
+        for key in confidences_fixed:
+          factor = confidences_fixed[key]
+          confidence_fixed *= factor
+
+      if format == 'fixed':
+        self.tokens = tokens_fixed
+        self.statistics = statistics_fixed
+        self.confidences = confidences_fixed
+        self.errors = errors_fixed
 
     if format == 'better':
-      # select the better of free-format and fixed-format
       if confidence_fixed > confidence_free:
         self.tokens = tokens_fixed
         self.statistics = statistics_fixed
@@ -492,20 +503,6 @@ class PL1Examiner(Examiner):
         self.statistics = statistics_free
         self.confidences = confidences_free
         self.errors = errors_free
-
-    if format == 'fixed':
-      # select the fixed-format values
-      self.tokens = tokens_fixed
-      self.statistics = statistics_fixed
-      self.confidences = confidences_fixed
-      self.errors = errors_fixed
-
-    if format == 'free':
-      # select the free-format values
-      self.tokens = tokens_free
-      self.statistics = statistics_free
-      self.confidences = confidences_free
-      self.errors = errors_free
 
 
   def tokenize_line(self, line, tokenizer):
