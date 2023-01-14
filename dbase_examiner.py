@@ -76,10 +76,11 @@ class DbaseExaminer(Examiner):
     operand_types.append('number')
 
     leads = '_'
-    extras = '_'
 
     if version == 'ii':
       extras = ":_'-"
+    else:
+      extras = '_'
 
     identifier_tb = IdentifierTokenBuilder(leads, extras)
     wild_card_identifier_tb = WildCardIdentifierTokenBuilder('*?', '*?:')
@@ -109,8 +110,7 @@ class DbaseExaminer(Examiner):
         '.NOT.', '.AND.', '.OR.',
         '&', 'P.', 'S.'
       ]
-
-    if version == 'iii':
+    else:
       known_operators = [
         '#',
         '+', '-', '*', '/', '**', '^',
@@ -129,8 +129,7 @@ class DbaseExaminer(Examiner):
         '&', '$', '!',
         'P.', 'S.'
       ]
-
-    if version == 'iii':
+    else:
       self.unary_operators = [
         '+', '-',
         '.NOT.',
@@ -139,14 +138,15 @@ class DbaseExaminer(Examiner):
 
     self.postfix_operators = []
 
-    groupers = ['(', ')', ',']
-    group_starts = ['(']
-    group_mids = [',']
-    group_ends = [')']
-
-    if version == 'iii':
+    if version == 'ii':
+      groupers = ['(', ')', ',']
+      group_starts = ['(']
+      group_mids = [',']
+      group_ends = [')']
+    else:
       groupers = ['(', ')', ',', '[', ']']
       group_starts = ['(', '[']
+      group_mids = [',']
       group_ends = [')', ']']
 
     groupers_tb = CaseSensitiveListTokenBuilder(groupers, 'group', False)
@@ -221,8 +221,7 @@ class DbaseExaminer(Examiner):
 
     keyword_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
 
-    # keyword comments are keywords that also start a comment
-    # any text after the keyword is a comment
+    # DO CASE statement may have comments
     keyword_do_case_comment_tb = KeywordDoCaseCommentTokenBuilder(False)
 
     # dbase II allowed comments after certain keywords
@@ -244,8 +243,7 @@ class DbaseExaminer(Examiner):
         'ALL', 'BLANK', 'BLAN', 'BOTTOM', 'BOTT', 'EOF', 'OFF', 'ON', 'TOP',
         '.T.', '.F.', '.Y.', '.N.','T', 'F', 'Y', 'N'
       ]
-
-    if version == 'iii':
+    else:
       values = [
         'ALL', 'BLANK', 'BLAN', 'BOTTOM', 'BOTT', 'EOF', 'OFF', 'ON', 'TOP',
         '.T.', '.F.', '.Y.', '.N.','T', 'F', 'Y', 'N',
