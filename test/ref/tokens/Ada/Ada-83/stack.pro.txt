@@ -1,0 +1,538 @@
+[
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-------- SIMTEL20 Ada Software Repository Prologue ------------"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"--                                                           -*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- Unit name    : stack_package"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- Version      : 1.0"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- Author       : Tom Duke"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"--              : TI Ada Technology Branch"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"--              : PO Box 801, MS 8007"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"--              : McKinney, TX  75069"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- DDN Address  : DUKE%TI-EG at CSNET-RELAY"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- Copyright    : (c) N/A "
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- Date created : 16 Apr 85 "
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- Release date : 16 Apr 85 "
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- Last update  : 16 Apr 85 "
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- Machine/System Compiled/Run on :DG MV 10000, ROLM ADE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"--                                                           -*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"---------------------------------------------------------------"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"--                                                           -*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- Keywords     : stack, generic stack "
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"----------------:"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"--"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- Abstract     : This is a generic package that provides the types,"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"----------------: procedures, and exceptions to define an abstract stack"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"----------------: and its corresponding operations.  Using an"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"----------------: instantiation of this generic package, one can declare"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"----------------: multiple versions of a stack of type GENERIC_STACK."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"----------------: The stack operations provided include:"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"----------------: 1. clear the stack,"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"----------------: 2. pop the stack,"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"----------------: 3. push an element onto the stack, and"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"----------------: 4. access the top element on the stack."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"----------------:  "
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"--                                                           -*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"------------------ Revision history ---------------------------"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"--                                                           -*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- DATE         VERSION\tAUTHOR                  HISTORY"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- 4/16/85\t1.0\tTom Duke\t\tInitial Release"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"--                                                           -*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"------------------ Distribution and Copyright -----------------"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"--                                                           -*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- This prologue must be included in all copies of this software."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"--"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- This software is released to the Ada community."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- This software is released to the Public Domain (note:"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"--   software released to the Public Domain is not subject"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"--   to copyright protection)."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- Restrictions on use or distribution:  NONE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"--                                                           -*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"------------------ Disclaimer ---------------------------------"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"--                                                           -*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- This software and its documentation are provided \"AS IS\" and"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- without any expressed or implied warranties whatsoever."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- No warranties as to performance, merchantability, or fitness"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- for a particular purpose exist."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"--"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- Because of the diversity of conditions and hardware under"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- which this software may be used, no warranty of fitness for"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- a particular purpose is offered.  The user is advised to"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- test the software thoroughly before relying on it.  The user"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- must assume the entire risk and liability of using this"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- software."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"--"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- In no event shall any person or organization of people be"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- held responsible for any direct, indirect, consequential"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-- or inconsequential damages or lost profits."
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"--                                                           -*"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"comment",
+        "value":"-------------------END-PROLOGUE--------------------------------"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    }
+]
