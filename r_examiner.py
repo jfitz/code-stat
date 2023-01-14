@@ -146,7 +146,7 @@ class RExaminer(Examiner):
     self.convert_keywords_to_identifiers(['<-', '.', '='])
     self.convert_identifiers_to_functions()
 
-    recognizeds = [
+    known_functions = [
       'add_variable', 'add_constraint', 'set_objective', 'get_solution',
       'solver_status', 'solve_model','objective_value', 'list', 'paste',
       'mean', 'sd', 'median', 'sum', 'min', 'max', 'is.na',
@@ -178,7 +178,7 @@ class RExaminer(Examiner):
       'get_row-duals', 'get_col_duals', 'nrows', 'ncols'
     ]
 
-    self.convert_functions_to_unrec_functions(recognizeds)
+    self.convert_functions_to_unrec_functions(known_functions)
 
     self.calc_statistics()
 

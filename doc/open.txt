@@ -39,9 +39,6 @@ main
 + respond 'undetermined' if all examiners report low values (how low?)
 
 TokenBuilders
-- remove result
-- return direct value
-
 - PrefixedStringTokenBuilder: options for quote stuffing, escaped quotes
 - IntegerTokenBuilder (et al): don't allow underscore as final character
 - StringTokenBuilder: split newline into MultilineStringTokenBuilder
@@ -115,7 +112,7 @@ main.py:decode_bytes() and run_detect_test.py
 run_detect_test.py
 - handle BOM
 
-Deployment
+Deployment to Azure
 - Python 3.7
 - Remove test files
 - Daily test of azure web site (/languages, /tokens, /detect)
@@ -138,13 +135,13 @@ generic
 
 generic ASM
 - allow [:,] as ending for label
-- allow space in args, comment only after marker (PDP-11)
 - first item is label if colon, opcode if no colon (PDP-11, 8080, 8086)
 - values on the left (listing) (xxxx xx xx xx or ooo.ooo ooo ooo ooo)
 
 ASM-PDP-8
 
 ASM-PDP-11
+- allow space in args, comment only after marker
 
 ASM-390
 
@@ -286,12 +283,6 @@ D
 Dart
 
 dBase II
-- derive TextBlockTokenBuilder from BlockTokenBuilder
-- parse FRM files
--- first line m=nn[,w=nn]
--- lines with y n are options
--- lines with text (only one at a time, other lines precede and follow)
--- lines starting with : > < contain number , expression
 
 dBase III
 - if ! not operator but is function, examiner reports as invalid operator
@@ -405,24 +396,6 @@ Lua
 Matlab
 
 Modula-2
-- common functions [
-      'ABS',
-      'CHR', 'CMPLX',
-      'DEC', 'DISPOSE',
-      'EXCL',
-      'FLOAT',
-      'HALT', 'HIGH',
-      'IN', 'INC', 'INCL', 'INT',
-      'LENGTH', 'LFLOAT',
-      'MAX', 'MIN',
-      'NEW',
-      'ODD', 'ORD',
-      'RE',
-      'SIZE',
-      'TRUNC',
-      'VAL',
-      'WriteString', 'WriteCard', 'WriteLn', 'WriteReal'
-]
 
 Objective-C
 - ... after value is operator
@@ -501,7 +474,6 @@ Raku
 - unary operator :
 - s/// and m// take parameters in colons before first /
 - qr// replaced by rx// or regex{}
-
 
 Ruby
 + tokenize regex (which may contain #{} expressions, which may contain '/' characters)

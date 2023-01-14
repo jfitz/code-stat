@@ -329,8 +329,14 @@ class BasicExaminer(Examiner):
   def convert_numbers_to_line_numbers(tokens):
     prev_token = Token('\n', 'newline', False)
 
+    kwds = ['goto', 'gosub', 'then']
+
     for token in tokens:
       if token.group == 'number' and prev_token.group == 'newline':
+        token.group = 'line number'
+
+      if token.group == 'number' and \
+        prev_token.group == 'keyword' and prev_token.text.lower() in kwds:
         token.group = 'line number'
 
       if token.group not in ['whitespace', 'comment']:

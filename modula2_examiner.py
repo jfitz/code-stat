@@ -125,6 +125,27 @@ class Modula2Examiner(Examiner):
     types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
     operand_types.append('type')
 
+    functions = [
+      'ABS',
+      'CHR', 'CMPLX',
+      'DEC', 'DISPOSE',
+      'EXCL',
+      'FLOAT',
+      'HALT', 'HIGH',
+      'IN', 'INC', 'INCL', 'INT',
+      'LENGTH', 'LFLOAT',
+      'MAX', 'MIN',
+      'NEW',
+      'ODD', 'ORD',
+      'RE',
+      'SIZE',
+      'TRUNC',
+      'VAL',
+      'WriteString', 'WriteCard', 'WriteLn', 'WriteReal'
+    ]
+
+    function_tb = CaseSensitiveListTokenBuilder(functions, 'function', True)
+
     values = [
       'FALSE', 'NIL', 'TRUE'
     ]
@@ -150,6 +171,7 @@ class Modula2Examiner(Examiner):
       values_tb,
       known_operator_tb,
       groupers_tb,
+      function_tb,
       identifier_tb,
       string_tb,
       paren_star_comment_tb,
