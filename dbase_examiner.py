@@ -344,6 +344,9 @@ class DbaseExaminer(Examiner):
 
     invalid_token_builder = InvalidTokenBuilder()
 
+    code = self.TrimCtrlZText(code)
+    ascii_code = self.convert_to_ascii(code)
+
     tokenbuilders = [
       newline_tb,
       whitespace_tb,
@@ -373,9 +376,6 @@ class DbaseExaminer(Examiner):
     ]
 
     tokenizer = Tokenizer(tokenbuilders)
-
-    code = self.TrimCtrlZText(code)
-    ascii_code = self.convert_to_ascii(code)
     tokens = tokenizer.tokenize(ascii_code)
 
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
@@ -400,80 +400,97 @@ class DbaseExaminer(Examiner):
 
     tokens = self.source_tokens()
 
-    # calculate confidence for dbase PRG file
-    self.calc_token_confidence()
-    self.calc_token_2_confidence()
+    if format in ['better', 'program']:
+      self.calc_token_confidence()
+      self.calc_token_2_confidence()
 
-    num_operators = self.count_my_tokens(['operator', 'invalid operator'])
-    if num_operators > 0:
-      self.calc_operator_confidence(num_operators)
-      allow_pairs = []
-      self.calc_operator_2_confidence(tokens, num_operators, allow_pairs)
-      self.calc_operator_3_confidence(tokens, num_operators, group_ends, allow_pairs)
-      self.calc_operator_4_confidence(tokens, num_operators, group_starts, allow_pairs)
+      num_operators = self.count_my_tokens(['operator', 'invalid operator'])
+      if num_operators > 0:
+        self.calc_operator_confidence(num_operators)
+        allow_pairs = []
+        self.calc_operator_2_confidence(tokens, num_operators, allow_pairs)
+        self.calc_operator_3_confidence(tokens, num_operators, group_ends, allow_pairs)
+        self.calc_operator_4_confidence(tokens, num_operators, group_starts, allow_pairs)
 
-    self.calc_group_confidence(tokens, group_mids)
+      self.calc_group_confidence(tokens, group_mids)
 
-    operand_types_2 = ['number', 'number', 'function', 'value', 'string', 'filename']
-    self.calc_operand_n_confidence(tokens, operand_types_2, 2)
+      operand_types_2 = ['number', 'number', 'function', 'value', 'string', 'filename']
+      self.calc_operand_n_confidence(tokens, operand_types_2, 2)
 
-    self.calc_keyword_confidence()
+      self.calc_keyword_confidence()
 
-    if version == 'ii':
-      self.calc_line_format_confidence_ii()
+      if version == 'ii':
+        self.calc_line_format_confidence_ii()
 
-    self.calc_line_length_confidence(code, self.max_expected_line)
+      self.calc_line_length_confidence(code, self.max_expected_line)
 
-    confidences_prg = self.confidences.copy()
-    self.confidences = {}
-    errors_prg = self.errors.copy()
-    self.errors = []
+      confidences_prg = self.confidences.copy()
+      self.confidences = {}
+      errors_prg = self.errors.copy()
+      self.errors = []
 
-    # calculate confidence for dbase FMT file
-    self.calc_token_confidence()
-    self.calc_fmt_line_confidence()
+      if len(confidences_prg) == 0:
+        confidence_prg = 0.0
+      else:
+        confidence_prg = 1.0
 
-    confidences_fmt = self.confidences.copy()
-    self.confidences = {}
-    errors_fmt = self.errors.copy()
-    self.errors = []
+        for key in confidences_prg:
+          factor = confidences_prg[key]
+          confidence_prg *= factor
 
-    # calculate confidence for dbase FRM file
-    self.calc_token_confidence()
-    self.calc_yes_no_line_confidence()
+      if format == 'program':
+        self.tokens = tokens_prg
+        self.statistics = statistics_prg
+        self.confidences = confidences_prg
+        self.errors = errors_prg
 
-    confidences_frm = self.confidences.copy()
-    self.confidences = {}
-    errors_frm = self.errors.copy()
-    self.errors = []
+    if format in ['better', 'screen']:
+      self.calc_token_confidence()
+      self.calc_fmt_line_confidence()
 
-    # pick the format (PRG or FRM) with the higher confidence
-    if len(confidences_prg) == 0:
-      confidence_prg = 0.0
-    else:
-      confidence_prg = 1.0
+      confidences_fmt = self.confidences.copy()
+      self.confidences = {}
+      errors_fmt = self.errors.copy()
+      self.errors = []
 
-      for key in confidences_prg:
-        factor = confidences_prg[key]
-        confidence_prg *= factor
+      if len(confidences_fmt) == 0:
+        confidence_fmt = 0.0
+      else:
+        confidence_fmt = 1.0
 
-    if len(confidences_fmt) == 0:
-      confidence_fmt = 0.0
-    else:
-      confidence_fmt = 1.0
+        for key in confidences_fmt:
+          factor = confidences_fmt[key]
+          confidence_fmt *= factor
 
-      for key in confidences_fmt:
-        factor = confidences_fmt[key]
-        confidence_fmt *= factor
+      if format == 'screen':
+        self.tokens = tokens_fmt
+        self.statistics = statistics_fmt
+        self.confidences = confidences_fmt
+        self.errors = errors_fmt
 
-    if len(confidences_frm) == 0:
-      confidence_frm = 0.0
-    else:
-      confidence_frm = 1.0
+    if format in ['better', 'report']:
+      self.calc_token_confidence()
+      self.calc_yes_no_line_confidence()
 
-      for key in confidences_frm:
-        factor = confidences_frm[key]
-        confidence_frm *= factor
+      confidences_frm = self.confidences.copy()
+      self.confidences = {}
+      errors_frm = self.errors.copy()
+      self.errors = []
+
+      if len(confidences_frm) == 0:
+        confidence_frm = 0.0
+      else:
+        confidence_frm = 1.0
+
+        for key in confidences_frm:
+          factor = confidences_frm[key]
+          confidence_frm *= factor
+
+      if format == 'report':
+        self.tokens = tokens_frm
+        self.statistics = statistics_frm
+        self.confidences = confidences_frm
+        self.errors = errors_frm
 
     if format == 'better':
       # select the better of free-format and spaced-format
@@ -492,24 +509,6 @@ class DbaseExaminer(Examiner):
         self.statistics = statistics_frm
         self.confidences = confidences_frm
         self.errors = errors_frm
-
-    if format == 'program':
-      self.tokens = tokens_prg
-      self.statistics = statistics_prg
-      self.confidences = confidences_prg
-      self.errors = errors_prg
-
-    if format == 'screen':
-      self.tokens = tokens_fmt
-      self.statistics = statistics_fmt
-      self.confidences = confidences_fmt
-      self.errors = errors_fmt
-
-    if format == 'report':
-      self.tokens = tokens_frm
-      self.statistics = statistics_frm
-      self.confidences = confidences_frm
-      self.errors = errors_frm
 
 
   def calc_line_format_confidence_ii(self):
