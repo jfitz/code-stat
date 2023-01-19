@@ -1,0 +1,1 @@
+/GET/ { total += $6; n++ } END { print total/n }

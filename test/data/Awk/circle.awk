@@ -1,0 +1,1 @@
+BEGIN { print area::pi, area::circle(10) }

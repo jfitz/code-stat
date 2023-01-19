@@ -5,6 +5,7 @@ from codestat_token import Token
 from codestat_tokenizer import Tokenizer
 from token_builders import (
   InvalidTokenBuilder,
+  NullTokenBuilder,
   WhitespaceTokenBuilder,
   NewlineTokenBuilder,
   EscapedStringTokenBuilder,
@@ -26,6 +27,7 @@ class AwkExaminer(Examiner):
   @staticmethod
   def __escape_z__():
     InvalidTokenBuilder.__escape_z__()
+    NullTokenBuilder.__escape_z__()
     WhitespaceTokenBuilder.__escape_z__()
     NewlineTokenBuilder.__escape_z__()
     EscapedStringTokenBuilder.__escape_z__()
@@ -77,6 +79,15 @@ class AwkExaminer(Examiner):
 
     variable_tb = CaseSensitiveListTokenBuilder(known_variables, 'variable', True)
 
+    directives = [
+      '@include', '@load', '@namespace'
+    ]
+
+    directive_tb = NullTokenBuilder()
+
+    if extension == 'gnu':
+      directive_tb = CaseSensitiveListTokenBuilder(directives, 'directive', False)
+
     regex_tb = RegexTokenBuilder()
     operand_types.append('regex')
 
@@ -103,6 +114,9 @@ class AwkExaminer(Examiner):
       '~', '!~'
     ]
 
+    if extension == 'gnu':
+      known_operators += ['::']
+
     self.unary_operators = [
       '+', '-',
       '!', '~',
@@ -124,12 +138,31 @@ class AwkExaminer(Examiner):
 
     keywords = [
       'BEGIN', 'END',
-      'if', 'else', 'while', 'do', 'for',
-      'break', 'continue', 'delete', 'next', 'nextfile',
-      'function', 'func', 'exit'
+      'break',
+      'continue',
+      'delete', 'do',
+      'else', 'exit',
+      'for', 'function', 'func',
+      'if', 'in',
+      'next', 'nextfile',
+      'return',
+      'while'
     ]
 
     keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
+
+    functions = [
+      'asort',
+      'getline', 'gsub',
+      'int',
+      'length',
+      'print',
+      'split', 'sqrt', 'sub', 'substr',
+      'tolower', 'toupper',
+      'cos', 'sin'
+    ]
+
+    function_tb = CaseSensitiveListTokenBuilder(functions, 'function', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -148,7 +181,9 @@ class AwkExaminer(Examiner):
       known_operator_tb,
       groupers_tb,
       regex_tb,
+      function_tb,
       identifier_tb,
+      directive_tb,
       string_tb,
       hash_comment_tb,
       self.unknown_operator_tb,
