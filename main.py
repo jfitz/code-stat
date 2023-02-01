@@ -13,6 +13,7 @@ from assembly_examiner import AssemblyExaminer
 from ada_examiner import AdaExaminer
 from awk_examiner import AwkExaminer
 from basic_examiner import BasicExaminer
+from basic_bbc_examiner import BasicBbcExaminer
 from cbasic_examiner import CBasicExaminer
 from c_examiner import CExaminer
 from cobol_examiner import CobolExaminer
@@ -66,6 +67,7 @@ AssemblyIBMExaminer.__escape_z__()
 AssemblyExaminer.__escape_z__()
 AwkExaminer.__escape_z__()
 BasicExaminer.__escape_z__()
+BasicBbcExaminer.__escape_z__()
 CBasicExaminer.__escape_z__()
 CExaminer.__escape_z__()
 CobolExaminer.__escape_z__()
@@ -254,6 +256,7 @@ codes_and_names = {
   'basic': 'BASIC',
   'basica': 'BASICA',
   'basic-80': 'BASIC-80',
+  'bbc-basic': 'BBC-Basic',
   'c-78': 'C-78',
   'c-89': 'C-89',
   'c-99': 'C-99',
@@ -348,6 +351,7 @@ codes_and_groups = {
   'basic': 'BASIC',
   'basica': 'BASIC',
   'basic-80': 'BASIC',
+  'bbc-basic': 'BASIC',
   'c-78': 'C',
   'c-89': 'C',
   'c-99': 'C',
@@ -442,6 +446,7 @@ codes_and_years = {
   'basic': 1965,
   'basica': 1982,
   'basic-80': 1980,
+  'bbc-basic': 1981,
   'c-78': 1978,
   'c-89': 1989,
   'c-99': 1999,
@@ -536,6 +541,7 @@ simpler_languages = {
   'basic': None,
   'basica': 'basic-80',
   'basic-80': 'basic',
+  'bbc-basic': 'basic-80',
   'c-78': None,
   'c-89': 'c-78',
   'c-99': 'c-89',
@@ -1038,6 +1044,9 @@ def make_one_examiner(language, code, format, tab_size, comment, block_comment_l
   if language in ['basica']:
     examiner = BasicExaminer(code, 'basica')
 
+  if language in ['bbc-basic']:
+    examiner = BasicBbcExaminer(code)
+
   if language in ['c-78', 'c', 'c-k&r']:
     examiner = CExaminer(code, '78')
 
@@ -1319,6 +1328,9 @@ def make_multiple_examiners(code, format, tab_size, comment, block_comment_limit
 
   if 'basica' in languages:
     examiners['basica'] = BasicExaminer(code, 'basica')
+
+  if 'bbc-basic' in languages:
+    examiners['bbc-basic'] = BasicBbcExaminer(code)
 
   if 'cbasic' in languages:
     examiners['cbasic'] = CBasicExaminer(code)

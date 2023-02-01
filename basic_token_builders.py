@@ -236,23 +236,78 @@ class LongUserFunctionTokenBuilder(TokenBuilder):
     if len(candidate) == 1:
       return c == 'N'
 
+    if len(candidate) == 2:
+      return c == '_'
+
     if candidate[-1] in self.suffixes:
       return False
 
-    if candidate[-1].isalpha():
-      return c.isalpha() or c.isdigit() or c in self.suffixes
-
-    return c.isdigit() or c in self.suffixes
+    return c.isalpha() or c.isdigit() or c in self.suffixes
 
 
   def get_score(self, line_printable_tokens):
     if self.text is None:
       return 0
 
-    if not self.text.startswith("FN"):
+    if not self.text.startswith("FN_"):
       return 0
 
-    if len(self.text) < 3:
+    if len(self.text) < 4:
+      return 0
+
+    return len(self.text)
+
+
+# token reader for user-defined function
+class LongProcNameTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self, suffixes):
+    self.suffixes = suffixes
+    self.text = ''
+
+
+  def get_tokens(self):
+    if self.text == None:
+      return None
+
+    return [Token(self.text, 'function', True)]
+
+
+  def accept(self, candidate, c):
+    if len(candidate) == 0:
+      return c == 'P'
+
+    if len(candidate) == 1:
+      return c == 'R'
+
+    if len(candidate) == 2:
+      return c == 'O'
+
+    if len(candidate) == 3:
+      return c == 'C'
+
+    if len(candidate) == 4:
+      return c == '_'
+
+    if candidate[-1] in self.suffixes:
+      return False
+
+    return c.isalpha() or c.isdigit() or c in self.suffixes
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if not self.text.startswith("PROC_"):
+      return 0
+
+    if len(self.text) < 6:
       return 0
 
     return len(self.text)

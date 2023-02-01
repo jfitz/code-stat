@@ -28,5 +28,5 @@ REPEAT
     PRINT TAB(0,1);Total$;
   ENDIF
   UNTIL Key%=13
-PRINT '"You entered: ";VAL(Total$)
+PRINT "You entered: ";VAL(Total$)
 END

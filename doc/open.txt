@@ -166,8 +166,7 @@ ADA
 Awk
 
 BASIC
-- identify line numbers after THEN, GOTO, ON GOSUB, ON ERROR
-- identify line numbers after GOSUB, ON GOTO
+- identify line numbers after ON ERROR (but not just ERROR)
 
 BASIC-80
 - 4K version: extract keywords from text
@@ -179,66 +178,9 @@ BASICA / GW-BASIC
 
 BBC BASIC
 - line numbers or no line numbers
-- operators [
-  *, **, *|, #, ', %, &, ~, [,
-  '*', '**', '*|', '#', '%', '~',
-  '>>', '?', '!', ']', '|', '$', '$$',
-  '>>>', '<<<',
-  'AND', 'DIV', 'MOD', 'OR',
-  'AND=', 'DIV=', 'MOD=', 'OR=',
-  'NOT'
-]
-- unary operators [
-  '?'. '!', ']', '|', '$', '$$', 'NOT', '+', '-'
-]
 - line continuation \
 - prefix for variable @
-- groupers () {}
-- keywords [
-  'BGET#', 'BPUT#',
-  'CALL', 'CASE', 'CHAIN', 'CIRCLE', 'CLEAR', 'CLG', 'CLOSE#', 'CLS', 'COLOR',
-  'COLOUR',
-  'DATA', 'DEF', 'DIM', 'DRAW',
-  'EDIT', 'ELLIPSE', 'ELSE', 'END', 'ENDCASE', 'ENDIF', 'ENDWHILE',
-  'ENDPROC', 'ENVELOPE', 'ERROR', 'EVAL',
-  'FILL', 'FOR',
-  'GCOL', 'GOSUB', 'GOTO',
-  'IF', 'INPUT', 'INPUT#',
-  'LET', 'LINE', 'LOCAL',
-  'MODE', 'MOUSE', 'MOVE',
-  'NEXT',
-  'OF', 'OPENIN', 'OPENOUT', 'OPENUP', 'OPT', 'ORIGIN', 'OSCLI', 'OTHERWISE',
-  'PAGE', 'PLOT', 'POINT', 'PRINT', 'PRINT#', 'PROC', 'PTR#',
-  'QUIT',
-  'RECTANGLE', 'READ', 'READ#', 'REM', 'REPEAT', 'REPORT', 'RESTORE',
-  'RETURN', 'RUN',
-  'SOUND', 'STEP', 'STOP', 'SUM', 'SWAP', 'SYS',
-  'THEN', 'TIME', 'TIME$', 'TO', 'TRACE',
-  'UNTIL', 'USR',
-  'VDU',
-  'WHEN', 'WHILE', 'WIDTH'
-]
-- functions [
-  'ABS',  'ASC', 'ATN', 'ACS', 'ADVAL', 'ASN',
-  'CHR$', 'COS', 'COUNT',
-  'DEG',
-  'EXP', 'EOR', 'EOF#', 'EXT#',
-  'GET', 'GET$',
-  'HIMEM',
-  'INKEY', 'INKEY$', 'INSTR', 'INT',
-  'LEFT$', 'LEN', 'LN', 'LOG', 'LOMEM',
-  'MID$',
-  'POS',
-  'RAD', 'RIGHT$', 'RND',
-  'SGN', 'SIN', 'SPC', 'SQR', 'STR$', 'STRING$',
-  'TAB', 'TAN', 'TINT', 'TOP',
-  'VAL', 'VPOS'
-]
-- values [
-  'ERL', 'ERR', 'FALSE', 'TRUE', 'OFF', 'ON', 'PI',
-]
 - variables '@%'
-- long user function names
 
 C
 * C89 source (has void but not bool, // comment)
@@ -285,7 +227,6 @@ Dart
 dBase II
 
 dBase III
-- if ! not operator but is function, examiner reports as invalid operator
 
 dBase IV
 + copy of dBase III

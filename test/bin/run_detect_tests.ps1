@@ -16,6 +16,9 @@ test\bin\run_detect_tests_language.ps1 -language "Awk"
 # BASIC
 test\bin\run_detect_tests_language.ps1 -language "BASIC"
 
+# BBC BASIC
+test\bin\run_detect_tests_language.ps1 -language "BBC-BASIC"
+
 # C and Objective-C
 test\bin\run_detect_tests_language.ps1 -language "C"
 

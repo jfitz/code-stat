@@ -48,6 +48,9 @@ test\bin\run_action_tests_language.ps1 -language "Awk" -variants ("Awk", "gawk")
 # BASIC
 test\bin\run_action_tests_language.ps1 -language "BASIC" -variants ("BASIC", "BASIC-80", "BASICA") -format "better"
 
+# BBC BASIC
+test\bin\run_action_tests_language.ps1 -language "BBC-BASIC" -variants ("BBC-BASIC") -format "better"
+
 # C and Objective-C
 test\bin\run_action_tests_language.ps1 -language "C" -variants ("C-78", "C-89", "C-99", "Objective-C") -format "better"
 
