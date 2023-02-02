@@ -217,7 +217,6 @@ class BasicBbcExaminer(Examiner):
 
     tokens = self.source_tokens()
 
-    self.calc_statistics()
     self.calc_token_confidence()
     self.calc_token_2_confidence()
 
@@ -231,8 +230,13 @@ class BasicBbcExaminer(Examiner):
 
     self.calc_group_confidence(tokens, group_mids)
 
+    operand_types_2 = ['number', 'string', 'symbol']
+    self.calc_operand_n_confidence(tokens, operand_types_2, 2)
+    self.calc_operand_n_confidence(tokens, operand_types, 4)
+
     self.calc_keyword_confidence()
 
+    # self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_line_length_confidence(code, self.max_expected_line)
 
 

@@ -505,6 +505,10 @@ class AssemblyIBMExaminer(Examiner):
 
   def calc_confidences(self, operand_types, group_starts, group_mids, group_ends, indents):
     tokens = self.source_tokens()
+
+    groupers = group_starts + group_mids + group_ends
+    self.calc_newline_group_confidence(tokens, groupers)
+
     tokens = Examiner.join_all_lines(tokens)
 
     self.calc_token_confidence()
@@ -530,3 +534,29 @@ class AssemblyIBMExaminer(Examiner):
       self.calc_indent_confidence(indents)
 
     self.calc_line_ident_confidence()
+
+
+  def calc_newline_group_confidence(self, tokens, groupers):
+    num_groupers = self.count_my_tokens(['group'])
+
+    grouper_confidence = 1.0
+
+    if num_groupers > 0:
+      errors = 0
+      prev_token = Token('\n', 'newline', False)
+
+      for token in tokens:
+        if token.group == 'group' and token.text in groupers and \
+          prev_token.group == 'newline':
+          errors += 1
+          self.errors.append({
+            'TYPE': 'GROUP2',
+            'FIRST': prev_token.text,
+            'SECOND': token.text
+            })
+
+        prev_token = token
+
+      grouper_confidence = 1.0 - errors / num_groupers
+
+    self.confidences['newline_grouper'] = grouper_confidence
