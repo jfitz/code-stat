@@ -162,7 +162,8 @@ class VisualBasic6Examiner(Examiner):
       'Val', 'Year'
     ]
 
-    function_tb = CaseSensitiveListTokenBuilder(functions, 'function', True)
+    function_tb = CaseSensitiveListTokenBuilder(functions, 'common function', True)
+    operand_types.append('common function')
     operand_types.append('function')
 
     types = [

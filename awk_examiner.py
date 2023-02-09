@@ -162,7 +162,7 @@ class AwkExaminer(Examiner):
       'cos', 'sin'
     ]
 
-    function_tb = CaseSensitiveListTokenBuilder(functions, 'function', True)
+    function_tb = CaseSensitiveListTokenBuilder(functions, 'common function', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 

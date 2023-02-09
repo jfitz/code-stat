@@ -165,10 +165,11 @@ class BasicBbcExaminer(Examiner):
       'VAL', 'VPOS'
     ]
 
-    function_tb = CaseInsensitiveListTokenBuilder(functions, 'function', True)
+    function_tb = CaseInsensitiveListTokenBuilder(functions, 'common function', True)
     user_function_tb = LongUserFunctionTokenBuilder('%#!$&')
     proc_name_tb = LongProcNameTokenBuilder('%#!$&')
 
+    operand_types.append('common function')
     operand_types.append('function')
 
     invalid_token_builder = InvalidTokenBuilder()
@@ -199,8 +200,6 @@ class BasicBbcExaminer(Examiner):
       self.unknown_operator_tb,
       invalid_token_builder
     ]
-
-    operand_types = ['number', 'string', 'symbol', 'identifier', 'variable', 'function']
 
     tokenizer = Tokenizer(tokenbuilders)
 

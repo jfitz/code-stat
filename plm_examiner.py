@@ -127,11 +127,11 @@ class PLMExaminer(Examiner):
       'ADDRESS', 'AT',
       'BASED', 'BY',
       'CALL', 'CASE', 'CLOSE',
-      'DATA', 'DECLARE', 'DISABLE', 'DO',
+      'DATA', 'DECLARE', 'DISABLE', 'DO', 'DEC', 'DOUBLE',
       'ELSE', 'ENABLE', 'END', 'EOF', 'EXTERNAL',
       'GO', 'GOTO',
       'HALT',
-      'IF', 'INITIAL', 'INTERRUPT',
+      'IF', 'INTERRUPT',
       'LABEL', 'LITERALLY',
       'OFFSET', 'ON', 'OPEN', 'OTHERWISE', 'OTHER',
       'PROCEDURE', 'PROC', 'PUBLIC',
@@ -170,21 +170,20 @@ class PLMExaminer(Examiner):
 
     functions = [
       'ABS', 'ADJUSTRPL',
-      'BLOCKINPUT', 'BLOCKINWORD', 'BLOCKINDWORD', 'BLOCKOUTPUT', 'BLOCKOUTWORD', 'BLOCKOUTDWORD', 'BUILDPTR',
-      'BYTESWAP',
-      'CMPD',
-      'CARRY', 'CAUSEINTERRUPT', 'CLEARTASKSWITCHEDFLAG', 'CMPB', 'CMPW', 'CONTROLREGISTER',
-      'DEC', 'DOUBLE', 'DEBUGREGISTER',
-      'FINDB', 'FINDD', 'FINDRD', 'FINDHW', 'FINDRB', 'FINDRHW', 'FINDRW', 'FINDW', 'FIX', 'FLAGS', 'FLOAT',
+      'BLOCKINPUT', 'BLOCKINWORD', 'BLOCKINDWORD', 'BLOCKOUTPUT', 'BLOCKOUTWORD',
+      'BLOCKOUTDWORD', 'BUILDPTR', 'BYTESWAP',
+      'CMPD', 'CARRY', 'CAUSEINTERRUPT', 'CLEARTASKSWITCHEDFLAG', 'CMPB', 'CMPW',
+      'CONTROLREGISTER',
+      'DEBUGREGISTER',
+      'FINDB', 'FINDD', 'FINDRD', 'FINDHW', 'FINDRB', 'FINDRHW', 'FINDRW',
+      'FINDW', 'FIX', 'FLAGS',
       'GETACCESSRIGHTS', 'GETREALERROR', 'GETSEGMENTLIMIT',
       'HIGH',
-      'IABS', 'INHWORD', 'INITREALMATHUNITSKIPRB', 'INPUT', 'INT SIZE', 'INWORD SIZE',
-      'INVALIDATEDATACACHE',
-      'INVALIDATETLBENTRY'
-      'INDWORD',
+      'IABS', 'INHWORD', 'INITREALMATHUNITSKIPRB', 'INPUT', 'INT SIZE',
+      'INWORD SIZE', 'INVALIDATEDATACACHE', 'INVALIDATETLBENTRY', 'INDWORD',
       'LAST', 'LENGTH', 'LOCALTABLE', 'LOCKSET', 'LOW',
-      'MACHINESTATUS', 'MOVB', 'MOVBIT', 'MOVD', 'MOVE', 'MOVHW', 'MOVRB', 'MOVRBIT'
-      'MOVRD', 'MOVRHW', 'MOVRW', 'MOVW',
+      'MACHINESTATUS', 'MOVB', 'MOVBIT', 'MOVD', 'MOVE', 'MOVHW', 'MOVRB',
+      'MOVRBIT', 'MOVRD', 'MOVRHW', 'MOVRW', 'MOVW',
       'NIL',
       'OFFSETOF', 'OUTDWORD', 'OUTHWORD', 'OUTPUT', 'OUTWORD',
       'PARITY',
@@ -193,7 +192,7 @@ class PLMExaminer(Examiner):
       'SAL', 'SAR', 'SAVEGLOBALTABLE', 'SAVEINTERRUPTTABLE', 'SAVEREALSTATUS',
       'SCANBIT', 'SCANRBIT', 'SCL', 'SCR', 'SEGMENTREADABLE', 'SEGMENTWRITABLE',
       'SELECTOROF', 'SETB', 'SETHW', 'SETREALMODE', 'SETW', 'SHL', 'SHLD', 'SHR', 'SHRD',
-      'SETD', 'SIGN', 'SIGNED', 'SKIPB', 'SKIPD', 'SKIPRD'
+      'SETD', 'SIGN', 'SIGNED', 'SKIPB', 'SKIPD', 'SKIPRD',
       'SKIPHW', 'SKIPRHW', 'SKIPRW', 'SKIPW',
       'STACKBASE', 'STACKPTR',
       'TASKREGISTER', 'TESTREGISTER', 'TIME',
@@ -203,7 +202,9 @@ class PLMExaminer(Examiner):
       'ZERO'
     ]
 
-    function_tb = CaseInsensitiveListTokenBuilder(functions, 'function', True)
+    function_tb = CaseInsensitiveListTokenBuilder(functions, 'common function', True)
+    operand_types.append('common function')
+    operand_types.append('function')
 
     format_items = [
       'A',
@@ -285,6 +286,7 @@ class PLMExaminer(Examiner):
       'BYTE',
       'CHARINT',
       'DWORD',
+      'FLOAT',
       'HWORD',
       'INTEGER',
       'LONGINT',
@@ -359,6 +361,7 @@ class PLMExaminer(Examiner):
       self.tokens = tokens_free
       self.convert_identifiers_before_colon_to_labels(';')
       self.convert_identifiers_after_goto_to_labels()
+      self.convert_keywords_to_functions()
 
       self.calc_statistics()
       self.statistics['format'] = 'free'
@@ -467,6 +470,7 @@ class PLMExaminer(Examiner):
       self.tokens = tokens_fixed
       self.convert_identifiers_before_colon_to_labels(';')
       self.convert_identifiers_after_goto_to_labels()
+      self.convert_keywords_to_functions()
 
       self.calc_statistics()
       self.statistics['format'] = 'fixed'

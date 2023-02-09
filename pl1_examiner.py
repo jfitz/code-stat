@@ -82,10 +82,12 @@ class PL1Examiner(Examiner):
       '%GOTO',
       '%IF', '%INCLUDE',
       '%LIST',
-      '%NOLIST',
-      '%PAGE', '%PROCEDURE', '%PROC',
+      '%NOLIST', '%NOPRINT', '%NOTE',
+      '%PAGE', '%POP', '%PROCEDURE', '%PROC', '%PROCESS', '%PUSH',
       '%REPLACE', '%RETURN',
-      '%THEN'
+      '%SKIP',
+      '%THEN',
+      '%XINCLUDE'
     ]
 
     line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation', False)
@@ -125,39 +127,41 @@ class PL1Examiner(Examiner):
     known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
 
     keywords = [
-      'ALLOCATE', 'ALLOC',
+      'ALLOCATE', 'ALLOC', 'ASSERT', 'ATTACH',
       'BEGIN',
-      'CALL', 'CLOSE',
-      'DECLARE', 'DCL', 'DO',
-      'ELSE', 'END',
-      'FORMAT', 'FREE',
-      'GET', 'GOTO', 'GO TO',
-      'IF',
-      'LEAVE',
+      'CALL', 'CANCEL', 'CLOSE',
+      'DECLARE', 'DCL', 'DEFAULT', 'DEFINE', 'DELAY', 'DELETE',
+      'DO',
+      'ELSE', 'END', 'ENTRY', 'EXIT',
+      'FETCH', 'FLUSH', 'FORMAT', 'FREE',
+      'GET', 'GOT', 'GOTO',
+      'IF', 'ITERATE',
+      'LEAVE', 'LOCATE',
       'ON', 'OPEN', 'OTHERWISE', 'OTHER',
-      'PROCEDURE', 'PROC', 'PUT',
-      'READ', 'RETURN', 'REVERT', 'REWRITE',
-      'SELECT', 'SIGNAL', 'STOP',
-      'THEN',
-      'WHEN', 'WRITE'
+      'PACKAGE', 'PROCEDURE', 'PROC', 'PUT',
+      'READ', 'REINIT', 'RELEASE', 'RESIGNAL', 'RETURN', 'REVERT', 'REWRITE',
+      'SELECT', 'SIGNAL', 'STOP', 'STRUCTURE',
+      'THEN', 'THREAD', 'TO',
+      'WAIT', 'WHEN', 'WRITE',
+      'XPROCEDURE'
      ]
 
     keyword_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
 
     attributes = [
       'ALIGNED', 'ANY', 'AREA',
-      'BASED', 'BUILTIN',
-      'CONDITION', 'COND', 'CONTROLLED', 'CTL',
-      'DEFINED', 'DEF', 'DIRECT',
+      'BASED', 'BIN', 'BINARY', 'BIT', 'BOOL', 'BUILTIN', 'BYTE',
+      'CHARACTER', 'CHAR', 'CONDITION', 'COND', 'CONTROLLED', 'CTL',
+      'DECIMAL', 'DEC', 'DEFINED', 'DEF', 'DIRECT',
       'ENTRY', 'ENVIRONMENT', 'ENV', 'EXTERNAL', 'EXT',
-      'FILE',
+      'FILE', 'FIXED', 'FLOAT',
       'GLOBALDEF', 'GLOBALREF',
-      'INITIAL', 'INIT', 'INPUT', 'INTERNAL', 'INT'
+      'INITIAL', 'INIT', 'INPUT', 'INT', 'INTERNAL',
       'KEYED',
       'LABEL', 'LIKE', 'LIST',
       'MEMBER',
       'NONVARYING', 'NONVAR',
-      'OPTIONAL', 'OPTIONS', 'OUTPUT',
+      'OPTIONAL', 'OPTIONS', 'ORDINAL', 'OUTPUT',
       'PARAMETER', 'PARM', 'PICTURE', 'PIC', 'POSITION', 'POS', 'PRECISION', 'PREC',
       'PRINT',
       'READONLY', 'RECORD', 'REFER', 'RETURNS',
@@ -172,14 +176,14 @@ class PL1Examiner(Examiner):
     functions = [
       'ABS', 'ACOS', 'ACTUALCOUNT', 'ADD', 'ADDR', 'ADDREL', 'ALLOCATION', 'ALLOCN',
       'ASIN', 'ATAN', 'ATAND', 'ATANH', 'AUTOMATIC', 'AUTO',
-      'BINARY', 'BIN', 'BIT', 'BOOL', 'BYTE', 'BYTESIZE',
-      'CEIL', 'CHARACTER', 'CHAR', 'COLLATE', 'COPY', 'COS', 'COSD', 'COSH',
-      'DATE', 'DATETIME', 'DECIMAL', 'DEC', 'DECODE', 'DESCRIPTOR', 'DESC',
+      'BYTESIZE',
+      'CEIL', 'COLLATE', 'COPY', 'COS', 'COSD', 'COSH',
+      'DATE', 'DATETIME', 'DECODE', 'DESCRIPTOR', 'DESC',
       'DIMENSION', 'DIM', 'DIVIDE',
       'EMPTY', 'ENCODE', 'ERROR', 'EVERY', 'EXP',
-      'FIXED', 'FLOAT', 'FLOOR',
+      'FLOOR',
       'HBOUND', 'HIGH',
-      'INDEX', 'INFORM', 'INT',
+      'INDEX', 'INFORM',
       'LBOUND', 'LENGTH', 'LINE', 'LINENO', 'LOG', 'LOG10', 'LOG2', 'LOW', 'LTRIM',
       'MAX', 'MAXLENGTH', 'MIN', 'MOD', 'MULTIPLY',
       'NULL',
@@ -194,7 +198,9 @@ class PL1Examiner(Examiner):
       'WARN'
     ]
 
-    function_tb = CaseInsensitiveListTokenBuilder(functions, 'function', True)
+    function_tb = CaseInsensitiveListTokenBuilder(functions, 'common function', True)
+    operand_types.append('common function')
+    operand_types.append('function')
 
     format_items = [
       'A',
@@ -336,6 +342,7 @@ class PL1Examiner(Examiner):
       self.tokens = tokens_free
       self.convert_identifiers_before_colon_to_labels(';')
       self.convert_identifiers_after_goto_to_labels()
+      self.convert_keywords_to_functions()
 
       self.calc_statistics()
       self.statistics['format'] = 'free'
@@ -443,6 +450,7 @@ class PL1Examiner(Examiner):
       self.tokens = tokens_fixed
       self.convert_identifiers_before_colon_to_labels(';')
       self.convert_identifiers_after_goto_to_labels()
+      self.convert_keywords_to_functions()
 
       self.calc_statistics()
       self.statistics['format'] = 'fixed'

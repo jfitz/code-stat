@@ -30,6 +30,9 @@ class Examiner:
   @staticmethod
   def convert_to_ascii(code):
     convertables = {
+      ' ': ' ',
+      ' ': ' ',
+      '­': ' ',
       '＝': '=',
       '＜': '<',
       '＞': '>',
@@ -264,6 +267,23 @@ class Examiner:
         token.is_operand = True
 
       if token.group not in ['whitespace', 'comment', 'newline', 'line identification']:
+        prev_token = token
+
+
+  # convert keywords before parens to functions
+  def convert_keywords_to_functions(self):
+    prev_prev_token = Token('\n', 'newline', False)
+    prev_token = Token('\n', 'newline', False)
+
+    for token in self.tokens:
+      if token.group == 'group' and token.text == '(' and \
+        prev_token.group == 'keyword' and \
+        prev_prev_token.group != 'newline':
+        prev_token.group = 'common function'
+        prev_token.is_operand = True
+
+      if token.group not in ['whitespace', 'comment']:
+        prev_prev_token = prev_token
         prev_token = token
 
 
@@ -785,7 +805,7 @@ class Examiner:
 
 
   def calc_keyword_confidence(self):
-    groups = ['keyword', 'type', 'function']
+    groups = ['keyword', 'type', 'common function']
     num_keywords = self.count_my_tokens(groups)
 
     if num_keywords > 0:
@@ -811,6 +831,18 @@ class Examiner:
       else:
         # more than 1000 tokens and no keyword? assume it is not
         self.confidences['keyword'] = 0.0
+
+
+  # expecting some percentage of lines with separators
+  def calc_statement_separator_confidence(self, tokens, groups, threshold):
+    num_separators = self.count_tokens(tokens, groups)
+    num_lines = self.count_source_lines()
+    confidence = num_separators / num_lines
+
+    if confidence > threshold:
+      confidence = 1.0
+
+    self.confidences['separator'] = confidence
 
 
   # preprocessor tokens followed by non-whitespace reduce confidence

@@ -1,7 +1,7 @@
 [
     {
         "type":"comment",
-        "value":"/* THISΓö¼├íPROGRAMΓö¼├íREADSΓö¼├íINΓö¼├íAΓö¼├íTEXTΓö¼├íANDΓö¼├íCOUNTSΓö¼├íTHEΓö¼├íNUMBERΓö¼├íOFΓö¼├íTIMESΓö¼├í\r\n THATΓö¼├íEACHΓö¼├íALPHABETICΓö¼├íDIGRAMΓö¼├íOCCURS.Γö¼├íAΓö¼├íDIGRAMΓö¼├íISΓö¼├íAΓö¼├íSEQUENCEΓö¼├í\r\n OFΓö¼├íTWOΓö¼├íADJACENTΓö¼├íCHARACTERS.Γö¼├íFORΓö¼├íINSTANCE,Γö¼├íTHEΓö¼├íDIGRAMSΓö¼├íINΓö¼├í\r\n 'GRUNGE\"Γö¼├íAREΓö¼├íGR,Γö¼├íRU,Γö¼├íUN,Γö¼├íNG,Γö¼├íANDΓö¼├íGE.Γö¼├í\r\n*/"
+        "value":"/* THIS PROGRAM READS IN A TEXT AND COUNTS THE NUMBER OF TIMES \r\n THAT EACH ALPHABETIC DIGRAM OCCURS. A DIGRAM IS A SEQUENCE \r\n OF TWO ADJACENT CHARACTERS. FOR INSTANCE, THE DIGRAMS IN \r\n 'GRUNGE\" ARE GR, RU, UN, NG, AND GE. \r\n*/"
     },
     {
         "type":"newline",
@@ -25,7 +25,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"attribute",
@@ -33,7 +33,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"group",
@@ -49,7 +49,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"statement terminator",
@@ -69,7 +69,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -97,10 +97,10 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
-        "type":"function",
+        "type":"attribute",
         "value":"FIXED"
     },
     {
@@ -129,7 +129,7 @@
     },
     {
         "type":"comment",
-        "value":"/*Γö¼├íCOUNTΓö¼├í(I,Γö¼├íJ)Γö¼├íGIVESΓö¼├íTHEΓö¼├íCURRENTΓö¼├íCOUNTΓö¼├íOFΓö¼├íOCCURRENCES\r\n    Γö¼├íΓö¼├íΓö¼├íOFΓö¼├íTHEΓö¼├íDIGRAMΓö¼├íFORMEDΓö¼├íFROMΓö¼├íTHEΓö¼├íIΓö¼┬íTHΓö¼├íLETTERΓö¼├íANDΓö¼├í\r\n    Γö¼├íΓö¼├íΓö¼├íTHEΓö¼├íJΓö¼┬íTHΓö¼├íLETTER.Γö¼├í\r\n    */"
+        "value":"/* COUNT (I, J) GIVES THE CURRENT COUNT OF OCCURRENCES\r\n       OF THE DIGRAM FORMED FROM THE I TH LETTER AND \r\n       THE J TH LETTER. \r\n    */"
     },
     {
         "type":"newline",
@@ -145,7 +145,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -153,15 +153,15 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
-        "type":"function",
+        "type":"attribute",
         "value":"CHARACTER"
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"group",
@@ -177,7 +177,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"attribute",
@@ -189,7 +189,7 @@
     },
     {
         "type":"whitespace",
-        "value":"     Γö¼├íΓö¼├íΓö¼├íΓö¼├íΓö¼├í"
+        "value":"          "
     },
     {
         "type":"group",
@@ -197,7 +197,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"string",
@@ -205,7 +205,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"group",
@@ -229,7 +229,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"group",
@@ -253,10 +253,10 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
-        "type":"function",
+        "type":"attribute",
         "value":"FIXED"
     },
     {
@@ -265,11 +265,11 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"comment",
-        "value":"/*Γö¼├íALPHABETICΓö¼├íPOSITIONΓö¼├íOFΓö¼├íLETTERΓö¼├í*/"
+        "value":"/* ALPHABETIC POSITION OF LETTER */"
     },
     {
         "type":"newline",
@@ -285,7 +285,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"group",
@@ -309,10 +309,10 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
-        "type":"function",
+        "type":"attribute",
         "value":"CHARACTER"
     },
     {
@@ -329,7 +329,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"statement terminator",
@@ -345,7 +345,7 @@
     },
     {
         "type":"comment",
-        "value":"/*Γö¼├íFIRSTΓö¼├íANDΓö¼├íSECONDΓö¼├íLETTERSΓö¼├íOFΓö¼├íDIGRAMΓö¼├í*/"
+        "value":"/* FIRST AND SECOND LETTERS OF DIGRAM */"
     },
     {
         "type":"newline",
@@ -361,7 +361,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -369,10 +369,10 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
-        "type":"function",
+        "type":"attribute",
         "value":"BIT"
     },
     {
@@ -389,7 +389,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"attribute",
@@ -397,7 +397,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"group",
@@ -429,7 +429,7 @@
     },
     {
         "type":"comment",
-        "value":"/*Γö¼├íCOMPLETIONΓö¼├íFLAGΓö¼├í*/"
+        "value":"/* COMPLETION FLAG */"
     },
     {
         "type":"newline",
@@ -437,7 +437,7 @@
     },
     {
         "type":"comment",
-        "value":"/*Γö¼├íSETΓö¼├íALLΓö¼├íELEMENTSΓö¼├íOFΓö¼├íTHEΓö¼├íCOUNTΓö¼├íARRAYΓö¼├íTOΓö¼├íZEROΓö¼├í*/"
+        "value":"/* SET ALL ELEMENTS OF THE COUNT ARRAY TO ZERO */"
     },
     {
         "type":"newline",
@@ -453,7 +453,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"operator",
@@ -461,7 +461,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"number",
@@ -481,7 +481,7 @@
     },
     {
         "type":"comment",
-        "value":"/*Γö¼├íREADΓö¼├íANDΓö¼├íPROCESSΓö¼├íDIGRAMSΓö¼├í*/"
+        "value":"/* READ AND PROCESS DIGRAMS */"
     },
     {
         "type":"newline",
@@ -505,7 +505,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"option",
@@ -513,7 +513,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"group",
@@ -541,7 +541,7 @@
     },
     {
         "type":"comment",
-        "value":"/*Γö¼├íDOΓö¼├íFOREVERΓö¼├í*/"
+        "value":"/* DO FOREVER */"
     },
     {
         "type":"newline",
@@ -557,7 +557,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -609,7 +609,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -617,15 +617,11 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"keyword",
         "value":"THEN"
-    },
-    {
-        "type":"whitespace",
-        "value":"Γö¼├í"
     },
     {
         "type":"newline",
@@ -641,15 +637,15 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
-        "type":"option",
+        "type":"keyword",
         "value":"TO"
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"attribute",
@@ -673,7 +669,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"operator",
@@ -681,15 +677,15 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
-        "type":"function",
+        "type":"common function",
         "value":"INDEX"
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"group",
@@ -705,7 +701,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -713,7 +709,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"group",
@@ -737,7 +733,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"operator",
@@ -745,15 +741,15 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
-        "type":"function",
+        "type":"common function",
         "value":"INDEX"
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"group",
@@ -769,7 +765,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -793,7 +789,7 @@
     },
     {
         "type":"comment",
-        "value":"/*Γö¼├íN.B.Γö¼├íΓö¼┬íΓö¼┬íINDEXΓö¼├íRETURNSΓö¼├íZEROΓö¼├íIFΓö¼├íLETTERΓö¼├íNOTΓö¼├íINΓö¼├íALPHABETΓö¼├í*/"
+        "value":"/* N.B.   INDEX RETURNS ZERO IF LETTER NOT IN ALPHABET */"
     },
     {
         "type":"newline",
@@ -813,7 +809,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -821,7 +817,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"operator",
@@ -829,7 +825,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -837,7 +833,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"operator",
@@ -845,7 +841,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"number",
@@ -853,7 +849,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"keyword",
@@ -865,7 +861,7 @@
     },
     {
         "type":"comment",
-        "value":"/*Γö¼├íDIGRAMΓö¼├íISΓö¼├íALPHABETICΓö¼├í*/"
+        "value":"/* DIGRAM IS ALPHABETIC */"
     },
     {
         "type":"newline",
@@ -901,7 +897,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"operator",
@@ -957,7 +953,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -966,10 +962,6 @@
     {
         "type":"statement terminator",
         "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":"Γö¼├í"
     },
     {
         "type":"newline",
@@ -981,7 +973,7 @@
     },
     {
         "type":"comment",
-        "value":"/*Γö¼├íPRINTΓö¼├íTHEΓö¼├íRESULTSΓö¼├í*/"
+        "value":"/* PRINT THE RESULTS */"
     },
     {
         "type":"newline",
@@ -1005,7 +997,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -1013,7 +1005,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"operator",
@@ -1021,7 +1013,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"number",
@@ -1029,15 +1021,15 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
-        "type":"option",
+        "type":"keyword",
         "value":"TO"
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"number",
@@ -1061,7 +1053,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -1069,7 +1061,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"operator",
@@ -1077,7 +1069,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"number",
@@ -1085,15 +1077,15 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
-        "type":"option",
+        "type":"keyword",
         "value":"TO"
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"number",
@@ -1117,7 +1109,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -1137,7 +1129,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -1149,7 +1141,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"operator",
@@ -1157,7 +1149,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"number",
@@ -1165,7 +1157,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"keyword",
@@ -1173,11 +1165,11 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"comment",
-        "value":"/*Γö¼├íDIGRAMΓö¼├íAPPEAREDΓö¼├í*/"
+        "value":"/* DIGRAM APPEARED */"
     },
     {
         "type":"newline",
@@ -1185,7 +1177,7 @@
     },
     {
         "type":"whitespace",
-        "value":"           Γö¼├í "
+        "value":"             "
     },
     {
         "type":"keyword",
@@ -1193,7 +1185,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"option",
@@ -1204,7 +1196,7 @@
         "value":"("
     },
     {
-        "type":"function",
+        "type":"common function",
         "value":"SUBSTR"
     },
     {
@@ -1237,7 +1229,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"group",
@@ -1249,10 +1241,10 @@
     },
     {
         "type":"whitespace",
-        "value":"           Γö¼├í Γö¼├í"
+        "value":"              "
     },
     {
-        "type":"function",
+        "type":"common function",
         "value":"SUBSTR"
     },
     {
@@ -1289,7 +1281,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -1297,7 +1289,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"group",
@@ -1329,7 +1321,7 @@
     },
     {
         "type":"whitespace",
-        "value":"           Γö¼├í Γö¼├í"
+        "value":"              "
     },
     {
         "type":"group",
@@ -1349,7 +1341,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -1373,7 +1365,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -1397,7 +1389,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -1429,7 +1421,7 @@
     },
     {
         "type":"whitespace",
-        "value":"           Γö¼├í "
+        "value":"             "
     },
     {
         "type":"keyword",
@@ -1477,11 +1469,11 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"comment",
-        "value":"/*Γö¼├íENDΓö¼├íEXECUTIONΓö¼├íOFΓö¼├íPROGRAMΓö¼├í*/"
+        "value":"/* END EXECUTION OF PROGRAM */"
     },
     {
         "type":"newline",
@@ -1489,7 +1481,7 @@
     },
     {
         "type":"comment",
-        "value":"/* INTERNALΓö¼├íPROCEDUREΓö¼├íTOΓö¼├íEXTRACTΓö¼├íTHEΓö¼├íNEXTΓö¼├íPAIR FROMΓö¼├íTHEΓö¼├íINPUTΓö¼├íTEXT\r\n*/"
+        "value":"/* INTERNAL PROCEDURE TO EXTRACT THE NEXT PAIR FROM THE INPUT TEXT\r\n*/"
     },
     {
         "type":"newline",
@@ -1508,12 +1500,12 @@
         "value":" "
     },
     {
-        "type":"keyword",
+        "type":"common function",
         "value":"PROCEDURE"
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"group",
@@ -1561,7 +1553,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"group",
@@ -1585,10 +1577,10 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
-        "type":"function",
+        "type":"attribute",
         "value":"CHARACTER"
     },
     {
@@ -1613,7 +1605,7 @@
     },
     {
         "type":"comment",
-        "value":"/*Γö¼├íLETTERΓö¼├íPAIRΓö¼├í*/"
+        "value":"/* LETTER PAIR */"
     },
     {
         "type":"newline",
@@ -1629,7 +1621,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -1637,10 +1629,10 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
-        "type":"function",
+        "type":"attribute",
         "value":"BIT"
     },
     {
@@ -1661,11 +1653,11 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í "
+        "value":"  "
     },
     {
         "type":"comment",
-        "value":"/*Γö¼├íENDΓö¼┬íOFΓö¼┬íDATAΓö¼├íINDICATORΓö¼├í*/"
+        "value":"/* END OF DATA INDICATOR */"
     },
     {
         "type":"newline",
@@ -1681,7 +1673,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -1689,10 +1681,10 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
-        "type":"function",
+        "type":"attribute",
         "value":"CHARACTER"
     },
     {
@@ -1717,7 +1709,7 @@
     },
     {
         "type":"comment",
-        "value":"/*Γö¼├íINPUTΓö¼├íLINEΓö¼├íIMAGEΓö¼├í*/"
+        "value":"/* INPUT LINE IMAGE */"
     },
     {
         "type":"newline",
@@ -1733,7 +1725,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -1741,15 +1733,15 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
-        "type":"function",
+        "type":"attribute",
         "value":"FIXED"
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"attribute",
@@ -1757,7 +1749,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"attribute",
@@ -1785,11 +1777,11 @@
     },
     {
         "type":"whitespace",
-        "value":"    Γö¼├í "
+        "value":"      "
     },
     {
         "type":"comment",
-        "value":"/*Γö¼├íCHARACTERΓö¼├íPOSITIONΓö¼├íINΓö¼├íINPUTΓö¼├í\r\n                                 CARDΓö¼├í*/"
+        "value":"/* CHARACTER POSITION IN INPUT\r\n                                 CARD */"
     },
     {
         "type":"newline",
@@ -1805,7 +1797,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"value",
@@ -1813,7 +1805,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"attribute",
@@ -1821,7 +1813,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"attribute",
@@ -1829,7 +1821,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"attribute",
@@ -1849,7 +1841,7 @@
     },
     {
         "type":"comment",
-        "value":"/*Γö¼├íINPUTΓö¼├íREADΓö¼├íFROMΓö¼├íFILEΓö¼├íSYSINΓö¼├í*/"
+        "value":"/* INPUT READ FROM FILE SYSIN */"
     },
     {
         "type":"newline",
@@ -1865,7 +1857,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"condition",
@@ -1873,7 +1865,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"group",
@@ -1893,7 +1885,7 @@
     },
     {
         "type":"comment",
-        "value":"/*Γö¼├íWHENΓö¼├íINPUTΓö¼├íEXHAUSTEDΓö¼├í*/"
+        "value":"/* WHEN INPUT EXHAUSTED */"
     },
     {
         "type":"newline",
@@ -1909,15 +1901,15 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
-        "type":"option",
+        "type":"keyword",
         "value":"TO"
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -1941,7 +1933,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -1949,7 +1941,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"operator",
@@ -1957,7 +1949,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"number",
@@ -1965,7 +1957,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"keyword",
@@ -1973,7 +1965,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"keyword",
@@ -1997,7 +1989,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"attribute",
@@ -2017,7 +2009,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"option",
@@ -2045,7 +2037,7 @@
     },
     {
         "type":"comment",
-        "value":"/*Γö¼├íREADΓö¼├íAΓö¼├íCARDΓö¼├í*/"
+        "value":"/* READ A CARD */"
     },
     {
         "type":"newline",
@@ -2061,7 +2053,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"operator",
@@ -2081,7 +2073,7 @@
     },
     {
         "type":"comment",
-        "value":"/*Γö¼├íPROCESSΓö¼├íFROMΓö¼├íSTARTΓö¼├íOFΓö¼├íCARDΓö¼├í*/"
+        "value":"/* PROCESS FROM START OF CARD */"
     },
     {
         "type":"newline",
@@ -2113,7 +2105,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"operator",
@@ -2121,10 +2113,10 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
-        "type":"function",
+        "type":"common function",
         "value":"SUBSTR"
     },
     {
@@ -2141,7 +2133,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -2153,7 +2145,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"number",
@@ -2181,7 +2173,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"operator",
@@ -2189,10 +2181,10 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
-        "type":"function",
+        "type":"common function",
         "value":"SUBSTR"
     },
     {
@@ -2209,7 +2201,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -2253,7 +2245,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"operator",
@@ -2261,7 +2253,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -2281,11 +2273,11 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í "
+        "value":"  "
     },
     {
         "type":"comment",
-        "value":"/*Γö¼├íMOVEΓö¼├íTOΓö¼├íNEXTΓö¼├íPAIRΓö¼├í*/"
+        "value":"/* MOVE TO NEXT PAIR */"
     },
     {
         "type":"newline",
@@ -2309,7 +2301,7 @@
     },
     {
         "type":"comment",
-        "value":"/*Γö¼├íEXITΓö¼├íFROMΓö¼├íTHISΓö¼├íPROCEDUREΓö¼├í*/"
+        "value":"/* EXIT FROM THIS PROCEDURE */"
     },
     {
         "type":"newline",
@@ -2321,7 +2313,7 @@
     },
     {
         "type":"comment",
-        "value":"/*Γö¼├íCOMEΓö¼├íHEREΓö¼├íIFΓö¼├íTHEΓö¼├íREADΓö¼├íSTATEMENTΓö¼├íENCOUNTEREDΓö¼├íANΓö¼├íENDΓö¼├íOFΓö¼├íFILEΓö¼├íΓö¼├í*/"
+        "value":"/* COME HERE IF THE READ STATEMENT ENCOUNTERED AN END OF FILE  */"
     },
     {
         "type":"newline",
@@ -2353,7 +2345,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"operator",
@@ -2361,7 +2353,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"string",
@@ -2381,7 +2373,7 @@
     },
     {
         "type":"comment",
-        "value":"/*Γö¼├íSIGNALΓö¼├íCOMPLETIONΓö¼├íTOΓö¼├íCALLERΓö¼├í*/"
+        "value":"/* SIGNAL COMPLETION TO CALLER */"
     },
     {
         "type":"newline",
@@ -2397,7 +2389,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"statement terminator",
@@ -2417,7 +2409,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",
@@ -2437,7 +2429,7 @@
     },
     {
         "type":"whitespace",
-        "value":"Γö¼├í"
+        "value":" "
     },
     {
         "type":"identifier",

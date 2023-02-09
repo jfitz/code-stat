@@ -1,40 +1,5 @@
 [
     {
-        "TYPE":"OPERAND_2",
-        "FIRST":"ERROR",
-        "SECOND":"'VALID CHOICES: 1 - 5'"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"ERROR",
-        "SECOND":"'VALID CHOICES: 2 - 7'"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"ERROR",
-        "SECOND":"'VALID CHOICES: 300 - 38400'"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"ERROR",
-        "SECOND":"'VALID CHOICES: None, Even or Odd (N, E or O)'"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"ERROR",
-        "SECOND":"'VALID CHOICES: 7 or 8'"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"ERROR",
-        "SECOND":"'VALID CHOICES: Xon/Xoff, Rts/cts or None (X, R or N)'"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"ERROR",
-        "SECOND":"'VALID CHOICES: 1 or 2'"
-    },
-    {
         "TYPE":"LENGTH",
         "LONG":"@ 8,10 SAY \"I/O Address (x#### = heX) ?\" GET ComAddr VALID .NOT. '?' $ ComAddr ERROR 'NEED TO SPECIFY PORT ADDRESS IN heX OR DECIMAL'",
         "WIDTH":132

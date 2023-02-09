@@ -131,7 +131,8 @@ class CBasicExaminer(Examiner):
       'RECL', 'RECS', 'SADD', 'SIZE', 'UCASE$', 'VARPTR'
     ]
 
-    function_tb = CaseInsensitiveListTokenBuilder(functions, 'function', True)
+    function_tb = CaseInsensitiveListTokenBuilder(functions, 'common function', True)
+    operand_types.append('common function')
     operand_types.append('function')
 
     directives = [

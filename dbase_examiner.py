@@ -335,7 +335,8 @@ class DbaseExaminer(Examiner):
         'YEAR'
       ]
 
-    function_tb = CaseInsensitiveListTokenBuilder(functions, 'function', True)
+    function_tb = CaseInsensitiveListTokenBuilder(functions, 'common function', True)
+    operand_types.append('common function')
     operand_types.append('function')
 
     filename_tb = DbaseFilenameTokenBuilder()
@@ -556,27 +557,10 @@ class DbaseExaminer(Examiner):
 
       if token.group == 'operator' and token.text in '*#' and \
         (x1 or x2):
-        token.group = 'function'
+        token.group = 'common function'
         token.is_operand = True
 
       if token.group not in ['whitespace', 'comment', 'newline']:
-        prev_token = token
-
-
-  # convert keywords before parens to functions
-  def convert_keywords_to_functions(self):
-    prev_prev_token = Token('\n', 'newline', False)
-    prev_token = Token('\n', 'newline', False)
-
-    for token in self.tokens:
-      if token.group == 'group' and token.text == '(' and \
-        prev_token.group == 'keyword' and \
-        prev_prev_token.group != 'newline':
-        prev_token.group = 'function'
-        prev_token.is_operand = True
-
-      if token.group not in ['whitespace', 'comment']:
-        prev_prev_token = prev_token
         prev_token = token
 
 

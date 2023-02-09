@@ -264,5 +264,6 @@ class DExaminer(Examiner):
 
     self.calc_keyword_confidence()
 
+    self.calc_statement_separator_confidence(tokens, ['statement terminator'], 0.33)
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_line_length_confidence(code, self.max_expected_line)

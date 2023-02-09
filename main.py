@@ -1553,7 +1553,7 @@ def identify_language(code, format, tab_size, comment, block_comment_limit, tieb
     if len(high_names) > 1:
       highest_keyword_count = 0
       for name in high_names:
-        group = ['keyword', 'type', 'function', 'register']
+        group = ['keyword', 'type', 'common function', 'register']
         keyword_count = examiners[name].count_my_tokens(group)
         if keyword_count > highest_keyword_count:
           highest_keyword_count = keyword_count

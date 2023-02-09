@@ -112,40 +112,6 @@ class RExaminer(Examiner):
     values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
     operand_types.append('value')
 
-    invalid_token_builder = InvalidTokenBuilder()
-
-    tokenbuilders = [
-      newline_tb,
-      whitespace_tb,
-      stmt_separator_tb,
-      integer_tb,
-      integer_exponent_tb,
-      real_tb,
-      real_exponent_tb,
-      keyword_tb,
-      values_tb,
-      user_operator_tb,
-      known_operator_tb,
-      groupers_tb,
-      identifier_tb,
-      string_tb,
-      raw_string_tb,
-      hash_comment_tb,
-      self.unknown_operator_tb,
-      invalid_token_builder
-    ]
-
-    tokenizer = Tokenizer(tokenbuilders)
-
-    code = self.TrimCtrlZText(code)
-    ascii_code = self.convert_to_ascii(code)
-    tokens = tokenizer.tokenize(ascii_code)
-
-    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
-    self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
-    self.convert_keywords_to_identifiers(['<-', '.', '='])
-    self.convert_identifiers_to_functions()
-
     known_functions = [
       'add_variable', 'add_constraint', 'set_objective', 'get_solution',
       'solver_status', 'solve_model','objective_value', 'list', 'paste',
@@ -178,7 +144,44 @@ class RExaminer(Examiner):
       'get_row-duals', 'get_col_duals', 'nrows', 'ncols'
     ]
 
-    self.convert_functions_to_unrec_functions(known_functions)
+    function_tb = CaseSensitiveListTokenBuilder(known_functions, 'common function', True)
+    operand_types.append('common function')
+    operand_types.append('function')
+
+    invalid_token_builder = InvalidTokenBuilder()
+
+    tokenbuilders = [
+      newline_tb,
+      whitespace_tb,
+      stmt_separator_tb,
+      integer_tb,
+      integer_exponent_tb,
+      real_tb,
+      real_exponent_tb,
+      keyword_tb,
+      values_tb,
+      user_operator_tb,
+      known_operator_tb,
+      groupers_tb,
+      function_tb,
+      identifier_tb,
+      string_tb,
+      raw_string_tb,
+      hash_comment_tb,
+      self.unknown_operator_tb,
+      invalid_token_builder
+    ]
+
+    tokenizer = Tokenizer(tokenbuilders)
+
+    code = self.TrimCtrlZText(code)
+    ascii_code = self.convert_to_ascii(code)
+    tokens = tokenizer.tokenize(ascii_code)
+
+    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
+    self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
+    self.convert_keywords_to_identifiers(['<-', '.', '='])
+    self.convert_identifiers_to_functions()
 
     self.calc_statistics()
 
@@ -206,14 +209,3 @@ class RExaminer(Examiner):
     self.calc_keyword_confidence()
 
     self.calc_line_length_confidence(code, self.max_expected_line)
-
-
-  def convert_functions_to_unrec_functions(self, recognizeds):
-    prev_token = Token('\n', 'newline', False)
-
-    for token in self.tokens:
-      if token.group == 'function' and token.text not in recognizeds:
-        token.group = 'unrecog function'
-
-      if token.group not in ['whitespace', 'comment', 'newline', 'line identification']:
-        prev_token = token

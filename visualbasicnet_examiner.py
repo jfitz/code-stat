@@ -142,7 +142,9 @@ class VisualBasicNETExaminer(Examiner):
       'StrReverse', 'Trim', 'UCase'
     ]
 
-    function_tb = CaseSensitiveListTokenBuilder(functions, 'function', True)
+    function_tb = CaseSensitiveListTokenBuilder(functions, 'common function', True)
+    operand_types.append('common function')
+    operand_types.append('function')
 
     types = [
       'Boolean', 'Byte',

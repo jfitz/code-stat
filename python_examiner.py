@@ -103,7 +103,7 @@ class PythonExaminer(Examiner):
       '+', '-',
       'not', '~',
       '++', '--',
-      '.'
+      '.', '*', '**'
     ]
 
     self.postfix_operators = [

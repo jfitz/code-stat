@@ -134,7 +134,7 @@ def identify_language(contents, params, tiebreak_keywords, tiebreak_tokens, tieb
           keyword_count_confidence = count / highest_keyword_count
           confidences[language]['keyword_count'] = keyword_count_confidence
           # debug
-          # sys.stderr.write(' ADJ: ' + language + ' ' + str(keyword_count_confidence) + '\n')
+          # sys.stderr.write(' ADJ: ' + language + ' ' + str(count) + ' ' + str(keyword_count_confidence) + '\n')
 
         # recalculate confidence with new factor
         for language in high_languages:

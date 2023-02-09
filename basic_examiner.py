@@ -233,7 +233,7 @@ class BasicExaminer(Examiner):
     if version in ['basic-80', 'basica', 'gw-basic']:
       functions += functions_ms
 
-    function_tb = CaseInsensitiveListTokenBuilder(functions, 'function', True)
+    function_tb = CaseInsensitiveListTokenBuilder(functions, 'common function', True)
     user_function_tb = UserFunctionTokenBuilder('%#!$&')
     hardware_function_tb = NullTokenBuilder()
 
@@ -241,6 +241,7 @@ class BasicExaminer(Examiner):
       user_function_tb = LongUserFunctionTokenBuilder('%#!$&')
       hardware_function_tb = HardwareFunctionTokenBuilder()
 
+    operand_types.append('common function')
     operand_types.append('function')
 
     invalid_token_builder = InvalidTokenBuilder()
@@ -273,8 +274,6 @@ class BasicExaminer(Examiner):
       self.unknown_operator_tb,
       invalid_token_builder
     ]
-
-    operand_types = ['number', 'string', 'symbol', 'identifier', 'variable', 'function']
 
     tokenizer = Tokenizer(tokenbuilders)
 
