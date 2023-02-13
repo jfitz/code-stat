@@ -1,18 +1,14 @@
 [
     {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
+        "type":"label",
+        "value":".."
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"TEST"
     },
     {
@@ -28,7 +24,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"comment",
         "value":"OPS"
     },
     {
@@ -44,7 +40,7 @@
         "value":" "
     },
     {
-        "type":"number",
+        "type":"invalid",
         "value":"90"
     },
     {
@@ -60,44 +56,8 @@
         "value":" "
     },
     {
-        "type":"number",
-        "value":"0"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"SET"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"UP"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"R6"
+        "type":"comment",
+        "value":"0     .. SET UP R6"
     },
     {
         "type":"newline",
@@ -112,7 +72,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"B6"
     },
     {
@@ -128,7 +88,7 @@
         "value":" "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"6"
     },
     {
@@ -144,7 +104,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"F829"
     },
     {
@@ -160,52 +120,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"DOIT"
-    },
-    {
-        "type":"whitespace",
-        "value":"  "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"FOR"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"INPUT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"OF"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"OPCODE"
+        "type":"comment",
+        "value":"DOIT  .. FOR INPUT OF OPCODE"
     },
     {
         "type":"newline",
@@ -220,7 +136,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"A6"
     },
     {
@@ -236,7 +152,7 @@
         "value":" "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"6"
     },
     {
@@ -252,7 +168,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"E0"
     },
     {
@@ -268,52 +184,8 @@
         "value":" "
     },
     {
-        "type":"number",
-        "value":"0"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"register",
-        "value":"X"
-    },
-    {
-        "type":"operator",
-        "value":"="
-    },
-    {
-        "type":"number",
-        "value":"0"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"ALREADY"
-    },
-    {
-        "type":"group",
-        "value":")"
+        "type":"comment",
+        "value":"0     .. (X=0 ALREADY)"
     },
     {
         "type":"newline",
@@ -328,7 +200,7 @@
         "value":" "
     },
     {
-        "type":"number",
+        "type":"invalid",
         "value":"6400"
     },
     {
@@ -344,52 +216,8 @@
         "value":" "
     },
     {
-        "type":"number",
-        "value":"4"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"number",
-        "value":"00"
-    },
-    {
-        "type":"whitespace",
-        "value":"  "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"ANNOUNCE"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"US"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"READY"
+        "type":"comment",
+        "value":"4,00  .. ANNOUNCE US READY"
     },
     {
         "type":"newline",
@@ -404,7 +232,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"E6"
     },
     {
@@ -420,44 +248,8 @@
         "value":" "
     },
     {
-        "type":"number",
-        "value":"6"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"NOW"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"register",
-        "value":"X"
-    },
-    {
-        "type":"operator",
-        "value":"="
-    },
-    {
-        "type":"number",
-        "value":"6"
+        "type":"comment",
+        "value":"6     .. NOW X=6"
     },
     {
         "type":"newline",
@@ -472,7 +264,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"3F09"
     },
     {
@@ -488,51 +280,15 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"WAIT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"FOR"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"IT"
+        "type":"comment",
+        "value":"*     .. WAIT FOR IT"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"label",
+        "type":"invalid",
         "value":"000B"
     },
     {
@@ -540,7 +296,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"6C"
     },
     {
@@ -556,55 +312,15 @@
         "value":" "
     },
     {
-        "type":"number",
-        "value":"4"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"OK"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"GET"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"IT"
+        "type":"comment",
+        "value":"4     .. OK, GET IT"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"label",
+        "type":"invalid",
         "value":"000C"
     },
     {
@@ -612,7 +328,7 @@
         "value":" "
     },
     {
-        "type":"number",
+        "type":"invalid",
         "value":"64"
     },
     {
@@ -628,59 +344,15 @@
         "value":" "
     },
     {
-        "type":"number",
-        "value":"4"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"AND"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"ECHO"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"TO"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"DISPLAY"
+        "type":"comment",
+        "value":"4     .. AND ECHO TO DISPLAY"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"label",
+        "type":"invalid",
         "value":"000D"
     },
     {
@@ -688,7 +360,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"370D"
     },
     {
@@ -704,51 +376,15 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"whitespace",
-        "value":"      "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"WAIT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"FOR"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"RELEASE"
+        "type":"comment",
+        "value":"*      .. WAIT FOR RELEASE"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"label",
+        "type":"invalid",
         "value":"000F"
     },
     {
@@ -756,7 +392,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"F860"
     },
     {
@@ -772,52 +408,8 @@
         "value":" "
     },
     {
-        "type":"number",
-        "value":"#60"
-    },
-    {
-        "type":"whitespace",
-        "value":"   "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"NOW"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"GET"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"READY"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"FOR"
+        "type":"comment",
+        "value":"#60   .. NOW GET READY FOR"
     },
     {
         "type":"newline",
@@ -832,7 +424,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"A6"
     },
     {
@@ -848,36 +440,8 @@
         "value":" "
     },
     {
-        "type":"number",
-        "value":"6"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"FIRST"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"OPERAND"
+        "type":"comment",
+        "value":"6     .. FIRST OPERAND"
     },
     {
         "type":"newline",
@@ -892,7 +456,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"E0"
     },
     {
@@ -908,36 +472,8 @@
         "value":" "
     },
     {
-        "type":"number",
-        "value":"0"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"SAY"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"SO"
+        "type":"comment",
+        "value":"0     .. SAY SO"
     },
     {
         "type":"newline",
@@ -952,7 +488,7 @@
         "value":" "
     },
     {
-        "type":"number",
+        "type":"invalid",
         "value":"6401"
     },
     {
@@ -968,16 +504,8 @@
         "value":" "
     },
     {
-        "type":"number",
-        "value":"4"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"number",
-        "value":"01"
+        "type":"comment",
+        "value":"4,01"
     },
     {
         "type":"newline",
@@ -992,7 +520,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"3F15"
     },
     {
@@ -1008,7 +536,7 @@
         "value":" "
     },
     {
-        "type":"operator",
+        "type":"comment",
         "value":"*"
     },
     {
@@ -1024,7 +552,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"E6"
     },
     {
@@ -1040,60 +568,8 @@
         "value":" "
     },
     {
-        "type":"number",
-        "value":"6"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"TAKE"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"IT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"IN"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"AND"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"ECHO"
+        "type":"comment",
+        "value":"6     .. TAKE IT IN AND ECHO"
     },
     {
         "type":"newline",
@@ -1108,7 +584,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"6C"
     },
     {
@@ -1124,44 +600,8 @@
         "value":" "
     },
     {
-        "type":"number",
-        "value":"4"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"TO"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"0060"
-    },
-    {
-        "type":"group",
-        "value":")"
+        "type":"comment",
+        "value":"4     .. (TO 0060)"
     },
     {
         "type":"newline",
@@ -1176,7 +616,7 @@
         "value":" "
     },
     {
-        "type":"number",
+        "type":"invalid",
         "value":"64"
     },
     {
@@ -1192,76 +632,24 @@
         "value":" "
     },
     {
-        "type":"number",
-        "value":"4"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"ALSO"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"INCREMENT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"R6"
-    },
-    {
-        "type":"group",
-        "value":")"
+        "type":"comment",
+        "value":"4     .. (ALSO INCREMENT R6)"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"number",
-        "value":"001"
-    },
-    {
-        "type":"register",
-        "value":"A"
+        "type":"invalid",
+        "value":"001A"
     },
     {
         "type":"whitespace",
         "value":" "
     },
     {
-        "type":"number",
-        "value":"371"
-    },
-    {
-        "type":"register",
-        "value":"A"
+        "type":"invalid",
+        "value":"371A"
     },
     {
         "type":"whitespace",
@@ -1276,7 +664,7 @@
         "value":" "
     },
     {
-        "type":"operator",
+        "type":"comment",
         "value":"*"
     },
     {
@@ -1284,7 +672,7 @@
         "value":"\r\n"
     },
     {
-        "type":"label",
+        "type":"invalid",
         "value":"001C"
     },
     {
@@ -1292,7 +680,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"E0"
     },
     {
@@ -1308,51 +696,15 @@
         "value":" "
     },
     {
-        "type":"number",
-        "value":"0"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"DITTO"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"SECOND"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"OPERAND"
+        "type":"comment",
+        "value":"0     .. DITTO SECOND OPERAND"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"label",
+        "type":"invalid",
         "value":"001D"
     },
     {
@@ -1360,7 +712,7 @@
         "value":" "
     },
     {
-        "type":"number",
+        "type":"invalid",
         "value":"6402"
     },
     {
@@ -1376,23 +728,15 @@
         "value":" "
     },
     {
-        "type":"number",
-        "value":"4"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"number",
-        "value":"02"
+        "type":"comment",
+        "value":"4,02"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"label",
+        "type":"invalid",
         "value":"001F"
     },
     {
@@ -1400,7 +744,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"E6"
     },
     {
@@ -1416,7 +760,7 @@
         "value":" "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"6"
     },
     {
@@ -1432,7 +776,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"3F20"
     },
     {
@@ -1440,64 +784,16 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"LOOP"
-    },
-    {
-        "type":"group",
-        "value":":"
+        "type":"label",
+        "value":"LOOP:"
     },
     {
         "type":"whitespace",
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"BN4"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"WAIT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"FOR"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"IT"
+        "type":"comment",
+        "value":"BN4 *     .. WAIT FOR IT"
     },
     {
         "type":"newline",
@@ -1512,7 +808,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"6C"
     },
     {
@@ -1528,72 +824,8 @@
         "value":" "
     },
     {
-        "type":"number",
-        "value":"4"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"GET"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"IT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"NOTE"
-    },
-    {
-        "type":"group",
-        "value":":"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"register",
-        "value":"X"
-    },
-    {
-        "type":"operator",
-        "value":"="
-    },
-    {
-        "type":"number",
-        "value":"6"
-    },
-    {
-        "type":"group",
-        "value":")"
+        "type":"comment",
+        "value":"4     .. GET IT (NOTE: X=6)"
     },
     {
         "type":"newline",
@@ -1608,7 +840,7 @@
         "value":" "
     },
     {
-        "type":"number",
+        "type":"invalid",
         "value":"64"
     },
     {
@@ -1624,36 +856,8 @@
         "value":" "
     },
     {
-        "type":"number",
-        "value":"4"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"ECHO"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"IT"
+        "type":"comment",
+        "value":"4     .. ECHO IT"
     },
     {
         "type":"newline",
@@ -1668,7 +872,7 @@
         "value":" "
     },
     {
-        "type":"number",
+        "type":"invalid",
         "value":"3724"
     },
     {
@@ -1684,44 +888,8 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"*"
-    },
-    {
-        "type":"whitespace",
-        "value":"      "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"WAIT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"FOR"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"RELEASE"
+        "type":"comment",
+        "value":"*      .. WAIT FOR RELEASE"
     },
     {
         "type":"newline",
@@ -1736,7 +904,7 @@
         "value":" "
     },
     {
-        "type":"number",
+        "type":"invalid",
         "value":"26"
     },
     {
@@ -1744,7 +912,7 @@
         "value":"         "
     },
     {
-        "type":"keyword",
+        "type":"identifier",
         "value":"DEC"
     },
     {
@@ -1752,60 +920,8 @@
         "value":" "
     },
     {
-        "type":"number",
-        "value":"6"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"BACK"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"UP"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"R6"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"TO"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"0060"
+        "type":"comment",
+        "value":"6     .. BACK UP R6 TO 0060"
     },
     {
         "type":"newline",
@@ -1820,7 +936,7 @@
         "value":" "
     },
     {
-        "type":"number",
+        "type":"invalid",
         "value":"26"
     },
     {
@@ -1828,7 +944,7 @@
         "value":"         "
     },
     {
-        "type":"keyword",
+        "type":"identifier",
         "value":"DEC"
     },
     {
@@ -1836,7 +952,7 @@
         "value":" "
     },
     {
-        "type":"number",
+        "type":"comment",
         "value":"6"
     },
     {
@@ -1852,7 +968,7 @@
         "value":" "
     },
     {
-        "type":"number",
+        "type":"invalid",
         "value":"46"
     },
     {
@@ -1860,7 +976,7 @@
         "value":"         "
     },
     {
-        "type":"keyword",
+        "type":"identifier",
         "value":"LDA"
     },
     {
@@ -1868,60 +984,8 @@
         "value":" "
     },
     {
-        "type":"number",
-        "value":"6"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"GET"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"1ST"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"OPERAND"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"TO"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"D"
+        "type":"comment",
+        "value":"6     .. GET 1ST OPERAND TO D"
     },
     {
         "type":"newline",
@@ -1936,7 +1000,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"C4"
     },
     {
@@ -1944,67 +1008,31 @@
         "value":"   "
     },
     {
-        "type":"identifier",
-        "value":"DOIT"
-    },
-    {
-        "type":"group",
-        "value":":"
+        "type":"label",
+        "value":"DOIT:"
     },
     {
         "type":"whitespace",
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"NOP"
-    },
-    {
-        "type":"whitespace",
-        "value":"       "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"DO"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"OPERATION"
+        "type":"comment",
+        "value":"NOP       .. DO OPERATION"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"number",
-        "value":"002"
-    },
-    {
-        "type":"register",
-        "value":"A"
+        "type":"invalid",
+        "value":"002A"
     },
     {
         "type":"whitespace",
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"C4"
     },
     {
@@ -2020,35 +1048,15 @@
         "value":"       "
     },
     {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"identifier",
-        "value":"SPARE"
-    },
-    {
-        "type":"group",
-        "value":")"
+        "type":"comment",
+        "value":".. (SPARE)"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"label",
+        "type":"invalid",
         "value":"002B"
     },
     {
@@ -2056,7 +1064,7 @@
         "value":" "
     },
     {
-        "type":"number",
+        "type":"invalid",
         "value":"26"
     },
     {
@@ -2064,7 +1072,7 @@
         "value":"         "
     },
     {
-        "type":"keyword",
+        "type":"identifier",
         "value":"DEC"
     },
     {
@@ -2072,51 +1080,15 @@
         "value":" "
     },
     {
-        "type":"number",
-        "value":"6"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"BACK"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"TO"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"0060"
+        "type":"comment",
+        "value":"6     .. BACK TO 0060"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"label",
+        "type":"invalid",
         "value":"002C"
     },
     {
@@ -2124,7 +1096,7 @@
         "value":" "
     },
     {
-        "type":"number",
+        "type":"invalid",
         "value":"56"
     },
     {
@@ -2140,43 +1112,15 @@
         "value":" "
     },
     {
-        "type":"number",
-        "value":"6"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"OUTPUT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"RESULT"
+        "type":"comment",
+        "value":"6     .. OUTPUT RESULT"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"label",
+        "type":"invalid",
         "value":"002D"
     },
     {
@@ -2184,7 +1128,7 @@
         "value":" "
     },
     {
-        "type":"number",
+        "type":"invalid",
         "value":"64"
     },
     {
@@ -2200,59 +1144,15 @@
         "value":" "
     },
     {
-        "type":"number",
-        "value":"4"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"register",
-        "value":"X"
-    },
-    {
-        "type":"operator",
-        "value":"="
-    },
-    {
-        "type":"number",
-        "value":"6"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"STILL"
-    },
-    {
-        "type":"group",
-        "value":")"
+        "type":"comment",
+        "value":"4     .. (X=6 STILL)"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"label",
+        "type":"invalid",
         "value":"002E"
     },
     {
@@ -2260,12 +1160,8 @@
         "value":" "
     },
     {
-        "type":"number",
-        "value":"7"
-    },
-    {
-        "type":"register",
-        "value":"A"
+        "type":"invalid",
+        "value":"7A"
     },
     {
         "type":"whitespace",
@@ -2280,43 +1176,15 @@
         "value":"       "
     },
     {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"TURN"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"OFF"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"Q"
+        "type":"comment",
+        "value":".. TURN OFF Q"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"label",
+        "type":"invalid",
         "value":"002F"
     },
     {
@@ -2324,7 +1192,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"CA0020"
     },
     {
@@ -2340,48 +1208,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"LOOP"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"THEN"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"preprocessor",
-        "value":"IF"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"ZERO"
-    },
-    {
-        "type":"group",
-        "value":","
+        "type":"comment",
+        "value":"LOOP .. THEN IF ZERO,"
     },
     {
         "type":"newline",
@@ -2396,7 +1224,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"7B"
     },
     {
@@ -2412,44 +1240,8 @@
         "value":"       "
     },
     {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"TURN"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"IT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"ON"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"AGAIN"
+        "type":"comment",
+        "value":".. TURN IT ON AGAIN"
     },
     {
         "type":"newline",
@@ -2464,7 +1256,7 @@
         "value":" "
     },
     {
-        "type":"number",
+        "type":"invalid",
         "value":"3020"
     },
     {
@@ -2480,55 +1272,15 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"LOOP"
-    },
-    {
-        "type":"whitespace",
-        "value":"   "
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"REPEAT"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"IN"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"ANY"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"CASE"
+        "type":"comment",
+        "value":"LOOP   .. REPEAT IN ANY CASE"
     },
     {
         "type":"newline",
         "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
     }
 ]

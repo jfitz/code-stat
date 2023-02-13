@@ -176,7 +176,7 @@ class GenericCodeExaminer(Examiner):
     # self.calc_operand_n_confidence(tokens, operand_types, 2)
     self.calc_operand_n_confidence(tokens, operand_types, 4)
 
-    # self.calc_keyword_confidence()
+    # self.calc_keyword_confidence(0.7)
 
     self.calc_paired_blockers_confidence(['{'], ['}'])
     self.calc_line_length_confidence(code, self.max_expected_line)

@@ -1,6 +1,6 @@
 [
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -24,55 +24,15 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"an"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"example"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"of"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"the"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"string",
-        "value":"\"Hello World\""
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"program."
+        "type":"comment",
+        "value":"an example of the \"Hello World\" program."
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -96,16 +56,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"assembler"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"mnemonics."
+        "type":"comment",
+        "value":"assembler mnemonics."
     },
     {
         "type":"newline",
@@ -132,40 +84,8 @@
         "value":"        "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"cpm"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"programs"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"start"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"address."
+        "type":"comment",
+        "value":"; cpm programs start address."
     },
     {
         "type":"newline",
@@ -192,40 +112,8 @@
         "value":"       "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"go"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"to"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"program"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"start."
+        "type":"comment",
+        "value":"; go to program start."
     },
     {
         "type":"newline",
@@ -236,7 +124,7 @@
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -260,7 +148,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"comment",
         "value":"space"
     },
     {
@@ -269,11 +157,7 @@
     },
     {
         "type":"label",
-        "value":"MsgStr"
-    },
-    {
-        "type":"group",
-        "value":":"
+        "value":"MsgStr:"
     },
     {
         "type":"whitespace",
@@ -337,11 +221,7 @@
     },
     {
         "type":"label",
-        "value":"Stack1"
-    },
-    {
-        "type":"group",
-        "value":":"
+        "value":"Stack1:"
     },
     {
         "type":"whitespace",
@@ -364,48 +244,8 @@
         "value":"           "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"place"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"to"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"save"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"old"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"stack."
+        "type":"comment",
+        "value":"; place to save old stack."
     },
     {
         "type":"newline",
@@ -413,11 +253,7 @@
     },
     {
         "type":"label",
-        "value":"Sbot"
-    },
-    {
-        "type":"group",
-        "value":":"
+        "value":"Sbot:"
     },
     {
         "type":"whitespace",
@@ -440,56 +276,8 @@
         "value":"          "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"temp"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"stack"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"for"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"us"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"to"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"use."
+        "type":"comment",
+        "value":"; temp stack for us to use."
     },
     {
         "type":"newline",
@@ -500,7 +288,7 @@
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -517,11 +305,7 @@
     },
     {
         "type":"label",
-        "value":"STOP"
-    },
-    {
-        "type":"group",
-        "value":":"
+        "value":"STOP:"
     },
     {
         "type":"whitespace",
@@ -552,40 +336,8 @@
         "value":"         "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"top"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"of"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"our"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"stack."
+        "type":"comment",
+        "value":"; top of our stack."
     },
     {
         "type":"newline",
@@ -593,11 +345,7 @@
     },
     {
         "type":"label",
-        "value":"BDOS"
-    },
-    {
-        "type":"group",
-        "value":":"
+        "value":"BDOS:"
     },
     {
         "type":"whitespace",
@@ -620,40 +368,8 @@
         "value":"           "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"address"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"of"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"BDOS"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"entry."
+        "type":"comment",
+        "value":"; address of BDOS entry."
     },
     {
         "type":"newline",
@@ -664,7 +380,7 @@
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -688,16 +404,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"code"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"segment"
+        "type":"comment",
+        "value":"code segment"
     },
     {
         "type":"newline",
@@ -705,11 +413,7 @@
     },
     {
         "type":"label",
-        "value":"START"
-    },
-    {
-        "type":"group",
-        "value":":"
+        "value":"START:"
     },
     {
         "type":"whitespace",
@@ -736,44 +440,8 @@
         "value":" "
     },
     {
-        "type":"number",
-        "value":"0"
-    },
-    {
-        "type":"whitespace",
-        "value":"        "
-    },
-    {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"HL"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"="
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"0"
-    },
-    {
-        "type":"invalid operator",
-        "value":"."
+        "type":"comment",
+        "value":"0        ; HL = 0."
     },
     {
         "type":"newline",
@@ -792,40 +460,8 @@
         "value":"     "
     },
     {
-        "type":"identifier",
-        "value":"SP"
-    },
-    {
-        "type":"whitespace",
-        "value":"          "
-    },
-    {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"HL"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"="
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"SP."
+        "type":"comment",
+        "value":"SP          ; HL = SP."
     },
     {
         "type":"newline",
@@ -852,32 +488,8 @@
         "value":"      "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"save"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"original"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"stack."
+        "type":"comment",
+        "value":"; save original stack."
     },
     {
         "type":"newline",
@@ -908,64 +520,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"STOP"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"HL"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"="
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"address"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"of"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"new"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"stack."
+        "type":"comment",
+        "value":"STOP     ; HL = address of new stack."
     },
     {
         "type":"newline",
@@ -984,48 +540,8 @@
         "value":"                "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"stack"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"pointer"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"="
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"our"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"stack."
+        "type":"comment",
+        "value":"; stack pointer = our stack."
     },
     {
         "type":"newline",
@@ -1056,56 +572,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"MsgStr"
-    },
-    {
-        "type":"whitespace",
-        "value":"   "
-    },
-    {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"HL"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"="
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"address"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"of"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"string."
+        "type":"comment",
+        "value":"MsgStr   ; HL = address of string."
     },
     {
         "type":"newline",
@@ -1113,71 +581,15 @@
     },
     {
         "type":"label",
-        "value":"LOOP1"
-    },
-    {
-        "type":"group",
-        "value":":"
+        "value":"LOOP1:"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"identifier",
-        "value":"MOV"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"M"
-    },
-    {
-        "type":"whitespace",
-        "value":"        "
-    },
-    {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"read"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"string"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"char."
+        "type":"comment",
+        "value":"MOV     A, M        ; read string char."
     },
     {
         "type":"newline",
@@ -1204,32 +616,8 @@
         "value":"           "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"set"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"cpu"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"flags."
+        "type":"comment",
+        "value":"; set cpu flags."
     },
     {
         "type":"newline",
@@ -1256,48 +644,8 @@
         "value":"        "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"if"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"char"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"="
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"0"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"done."
+        "type":"comment",
+        "value":"; if char = 0 done."
     },
     {
         "type":"newline",
@@ -1328,56 +676,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"A"
-    },
-    {
-        "type":"whitespace",
-        "value":"        "
-    },
-    {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"E"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"="
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"char"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"to"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"send."
+        "type":"comment",
+        "value":"A        ; E = char to send."
     },
     {
         "type":"newline",
@@ -1388,7 +688,7 @@
         "value":"        "
     },
     {
-        "type":"keyword",
+        "type":"identifier",
         "value":"MVI"
     },
     {
@@ -1396,72 +696,8 @@
         "value":"     "
     },
     {
-        "type":"identifier",
-        "value":"C"
-    },
-    {
-        "type":"group",
-        "value":","
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"2"
-    },
-    {
-        "type":"whitespace",
-        "value":"        "
-    },
-    {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"we"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"want"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"BDOS"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"func"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"2"
-    },
-    {
-        "type":"invalid operator",
-        "value":"."
+        "type":"comment",
+        "value":"C, 2        ; we want BDOS func 2."
     },
     {
         "type":"newline",
@@ -1488,32 +724,8 @@
         "value":"           "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"save"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"HL"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"register."
+        "type":"comment",
+        "value":"; save HL register."
     },
     {
         "type":"newline",
@@ -1540,32 +752,8 @@
         "value":"        "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"call"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"BDOS"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"function."
+        "type":"comment",
+        "value":"; call BDOS function."
     },
     {
         "type":"newline",
@@ -1592,32 +780,8 @@
         "value":"           "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"restore"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"HL"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"register"
+        "type":"comment",
+        "value":"; restore HL register"
     },
     {
         "type":"newline",
@@ -1644,40 +808,8 @@
         "value":"           "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"point"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"to"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"next"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"char."
+        "type":"comment",
+        "value":"; point to next char."
     },
     {
         "type":"newline",
@@ -1704,32 +836,8 @@
         "value":"       "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"do"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"next"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"char."
+        "type":"comment",
+        "value":"; do next char."
     },
     {
         "type":"newline",
@@ -1740,7 +848,7 @@
         "value":"\r\n"
     },
     {
-        "type":"invalid operator",
+        "type":"invalid",
         "value":";"
     },
     {
@@ -1764,16 +872,8 @@
         "value":" "
     },
     {
-        "type":"directive",
-        "value":"return"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"code"
+        "type":"comment",
+        "value":"return code"
     },
     {
         "type":"newline",
@@ -1781,11 +881,7 @@
     },
     {
         "type":"label",
-        "value":"EXIT"
-    },
-    {
-        "type":"group",
-        "value":":"
+        "value":"EXIT:"
     },
     {
         "type":"whitespace",
@@ -1808,48 +904,8 @@
         "value":"      "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"HL"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"="
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"directive",
-        "value":"entry"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"stack"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"address."
+        "type":"comment",
+        "value":"; HL = entry stack address."
     },
     {
         "type":"newline",
@@ -1868,48 +924,8 @@
         "value":"                "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"SP"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"="
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"value"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"on"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"entry."
+        "type":"comment",
+        "value":"; SP = value on entry."
     },
     {
         "type":"newline",
@@ -1928,48 +944,8 @@
         "value":"                 "
     },
     {
-        "type":"invalid operator",
-        "value":";"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"directive",
-        "value":"return"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"control"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"back"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"to"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"CPM."
+        "type":"comment",
+        "value":"; return control back to CPM."
     },
     {
         "type":"newline",
@@ -1986,5 +962,9 @@
     {
         "type":"newline",
         "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
     }
 ]

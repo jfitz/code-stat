@@ -528,7 +528,7 @@ class AssemblyIBMExaminer(Examiner):
     self.calc_operand_n_confidence(tokens, operand_types_2, 2)
     self.calc_operand_n_confidence(tokens, operand_types, 4)
 
-    self.calc_keyword_confidence()
+    self.calc_keyword_confidence(0.7)
 
     if indents is not None:
       self.calc_indent_confidence(indents)

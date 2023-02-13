@@ -379,7 +379,7 @@ class SqlExaminer(Examiner):
     self.calc_operand_n_confidence(tokens, operand_types_2, 1)
     # self.calc_operand_n_confidence(tokens, operand_types, 1)
 
-    self.calc_keyword_confidence()
+    self.calc_keyword_confidence(0.7)
     self.calc_line_length_confidence(code, self.max_expected_line)
 
 

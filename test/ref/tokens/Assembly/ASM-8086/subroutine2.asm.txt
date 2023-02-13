@@ -4,12 +4,8 @@
         "value":"        "
     },
     {
-        "type":"keyword",
-        "value":"sub"
-    },
-    {
-        "type":"invalid",
-        "value":"r"
+        "type":"identifier",
+        "value":"subr"
     },
     {
         "type":"newline",
@@ -20,7 +16,7 @@
         "value":"           "
     },
     {
-        "type":"invalid",
+        "type":"identifier",
         "value":"stm"
     },
     {
@@ -64,8 +60,56 @@
         "value":"        "
     },
     {
-        "type":"comment",
-        "value":"! store multiple registers into caller's"
+        "type":"operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"store"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"multiple"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"registers"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"into"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"caller"
+    },
+    {
+        "type":"operator",
+        "value":"'"
+    },
+    {
+        "type":"identifier",
+        "value":"s"
     },
     {
         "type":"newline",
@@ -76,7 +120,7 @@
         "value":"                                       "
     },
     {
-        "type":"invalid",
+        "type":"operator",
         "value":"!"
     },
     {
@@ -84,8 +128,72 @@
         "value":"    "
     },
     {
-        "type":"comment",
-        "value":"save area (r14,r15,r0,...,r12)"
+        "type":"identifier",
+        "value":"save"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"area"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"r14"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"r15"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"r0"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"value",
+        "value":"."
+    },
+    {
+        "type":"value",
+        "value":"."
+    },
+    {
+        "type":"value",
+        "value":"."
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"r12"
+    },
+    {
+        "type":"group",
+        "value":")"
     },
     {
         "type":"newline",
@@ -96,7 +204,7 @@
         "value":"           "
     },
     {
-        "type":"invalid",
+        "type":"identifier",
         "value":"balr"
     },
     {
@@ -120,36 +228,80 @@
         "value":"                  "
     },
     {
-        "type":"comment",
-        "value":"! set address in r12 for use as base reg"
-    },
-    {
-        "type":"newline",
-        "value":"\r\n"
-    },
-    {
-        "type":"whitespace",
-        "value":"           "
-    },
-    {
-        "type":"invalid",
-        "value":"us"
-    },
-    {
-        "type":"keyword",
-        "value":"in"
-    },
-    {
-        "type":"invalid",
-        "value":"g"
+        "type":"operator",
+        "value":"!"
     },
     {
         "type":"whitespace",
         "value":" "
     },
     {
-        "type":"comment",
-        "value":"*,r12                 ! pseudo-op to tell assembler to use r12"
+        "type":"identifier",
+        "value":"set"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"address"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"in"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"r12"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"preprocessor",
+        "value":"for"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"use"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"directive",
+        "value":"as"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"base"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"reg"
     },
     {
         "type":"newline",
@@ -160,7 +312,107 @@
         "value":"           "
     },
     {
-        "type":"invalid",
+        "type":"identifier",
+        "value":"using"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"r12"
+    },
+    {
+        "type":"whitespace",
+        "value":"                 "
+    },
+    {
+        "type":"operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"pseudo"
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"identifier",
+        "value":"op"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"to"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"tell"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"assembler"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"to"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"use"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"r12"
+    },
+    {
+        "type":"newline",
+        "value":"\r\n"
+    },
+    {
+        "type":"whitespace",
+        "value":"           "
+    },
+    {
+        "type":"identifier",
         "value":"la"
     },
     {
@@ -184,8 +436,56 @@
         "value":"           "
     },
     {
-        "type":"comment",
-        "value":"! load address of my save area"
+        "type":"operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"load"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"address"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"of"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"my"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"save"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"area"
     },
     {
         "type":"newline",
@@ -196,7 +496,7 @@
         "value":"           "
     },
     {
-        "type":"invalid",
+        "type":"identifier",
         "value":"st"
     },
     {
@@ -228,8 +528,64 @@
         "value":"         "
     },
     {
-        "type":"comment",
-        "value":"! store address of caller's save area"
+        "type":"operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"store"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"address"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"of"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"caller"
+    },
+    {
+        "type":"operator",
+        "value":"'"
+    },
+    {
+        "type":"identifier",
+        "value":"s"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"save"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"area"
     },
     {
         "type":"newline",
@@ -240,7 +596,7 @@
         "value":"           "
     },
     {
-        "type":"invalid",
+        "type":"identifier",
         "value":"st"
     },
     {
@@ -276,8 +632,64 @@
         "value":"             "
     },
     {
-        "type":"comment",
-        "value":"! store address of my save area in"
+        "type":"operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"store"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"address"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"of"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"my"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"save"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"area"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"in"
     },
     {
         "type":"newline",
@@ -288,7 +700,7 @@
         "value":"                                       "
     },
     {
-        "type":"invalid",
+        "type":"operator",
         "value":"!"
     },
     {
@@ -296,8 +708,32 @@
         "value":"    "
     },
     {
-        "type":"comment",
-        "value":"caller's save area"
+        "type":"identifier",
+        "value":"caller"
+    },
+    {
+        "type":"operator",
+        "value":"'"
+    },
+    {
+        "type":"identifier",
+        "value":"s"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"save"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"area"
     },
     {
         "type":"newline",
@@ -312,8 +748,16 @@
         "value":"           "
     },
     {
-        "type":"invalid",
-        "value":"..."
+        "type":"value",
+        "value":"."
+    },
+    {
+        "type":"value",
+        "value":"."
+    },
+    {
+        "type":"value",
+        "value":"."
     },
     {
         "type":"whitespace",
@@ -328,8 +772,32 @@
         "value":" "
     },
     {
-        "type":"comment",
-        "value":"of subroutine ..."
+        "type":"identifier",
+        "value":"of"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"subroutine"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"."
+    },
+    {
+        "type":"value",
+        "value":"."
+    },
+    {
+        "type":"value",
+        "value":"."
     },
     {
         "type":"newline",
@@ -344,8 +812,16 @@
         "value":"           "
     },
     {
-        "type":"invalid",
-        "value":"..."
+        "type":"value",
+        "value":"."
+    },
+    {
+        "type":"value",
+        "value":"."
+    },
+    {
+        "type":"value",
+        "value":"."
     },
     {
         "type":"whitespace",
@@ -360,8 +836,76 @@
         "value":" "
     },
     {
-        "type":"comment",
-        "value":"is used for return code, if present ..."
+        "type":"identifier",
+        "value":"is"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"used"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"preprocessor",
+        "value":"for"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"return"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"code"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"preprocessor",
+        "value":"if"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"present"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"value",
+        "value":"."
+    },
+    {
+        "type":"value",
+        "value":"."
+    },
+    {
+        "type":"value",
+        "value":"."
     },
     {
         "type":"newline",
@@ -376,7 +920,7 @@
         "value":"           "
     },
     {
-        "type":"invalid",
+        "type":"identifier",
         "value":"l"
     },
     {
@@ -408,8 +952,64 @@
         "value":"         "
     },
     {
-        "type":"comment",
-        "value":"! load address of caller's save area"
+        "type":"operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"load"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"address"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"of"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"caller"
+    },
+    {
+        "type":"operator",
+        "value":"'"
+    },
+    {
+        "type":"identifier",
+        "value":"s"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"save"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"area"
     },
     {
         "type":"newline",
@@ -420,7 +1020,7 @@
         "value":"           "
     },
     {
-        "type":"invalid",
+        "type":"identifier",
         "value":"lm"
     },
     {
@@ -464,8 +1064,56 @@
         "value":"        "
     },
     {
-        "type":"comment",
-        "value":"! load multiple registers from caller's"
+        "type":"operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"load"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"multiple"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"registers"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"from"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"caller"
+    },
+    {
+        "type":"operator",
+        "value":"'"
+    },
+    {
+        "type":"identifier",
+        "value":"s"
     },
     {
         "type":"newline",
@@ -476,7 +1124,7 @@
         "value":"                                       "
     },
     {
-        "type":"invalid",
+        "type":"operator",
         "value":"!"
     },
     {
@@ -484,8 +1132,72 @@
         "value":"    "
     },
     {
-        "type":"comment",
-        "value":"save area (r14,r15,r0,...,r12)"
+        "type":"identifier",
+        "value":"save"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"area"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"identifier",
+        "value":"r14"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"r15"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"r0"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"value",
+        "value":"."
+    },
+    {
+        "type":"value",
+        "value":"."
+    },
+    {
+        "type":"value",
+        "value":"."
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"identifier",
+        "value":"r12"
+    },
+    {
+        "type":"group",
+        "value":")"
     },
     {
         "type":"newline",
@@ -496,7 +1208,7 @@
         "value":"           "
     },
     {
-        "type":"invalid",
+        "type":"identifier",
         "value":"br"
     },
     {
@@ -512,8 +1224,32 @@
         "value":"                    "
     },
     {
-        "type":"comment",
-        "value":"! return to caller"
+        "type":"operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"return"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"to"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"caller"
     },
     {
         "type":"newline",
@@ -528,7 +1264,7 @@
         "value":"        "
     },
     {
-        "type":"invalid",
+        "type":"identifier",
         "value":"savearea"
     },
     {
@@ -540,7 +1276,7 @@
         "value":"           "
     },
     {
-        "type":"directive",
+        "type":"register",
         "value":"ds"
     },
     {
@@ -556,8 +1292,40 @@
         "value":"    "
     },
     {
-        "type":"comment",
-        "value":"! 18-word save area"
+        "type":"operator",
+        "value":"!"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"18"
+    },
+    {
+        "type":"operator",
+        "value":"-"
+    },
+    {
+        "type":"directive",
+        "value":"word"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"save"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"area"
     },
     {
         "type":"newline",
@@ -568,7 +1336,7 @@
         "value":"                       "
     },
     {
-        "type":"invalid",
+        "type":"operator",
         "value":"!"
     },
     {
@@ -576,8 +1344,28 @@
         "value":"    "
     },
     {
-        "type":"comment",
-        "value":"byte  0: reserved"
+        "type":"directive",
+        "value":"byte"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"group",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"reserved"
     },
     {
         "type":"newline",
@@ -588,7 +1376,7 @@
         "value":"                       "
     },
     {
-        "type":"invalid",
+        "type":"operator",
         "value":"!"
     },
     {
@@ -596,8 +1384,68 @@
         "value":"    "
     },
     {
-        "type":"comment",
-        "value":"byte  4: address of caller's save area"
+        "type":"directive",
+        "value":"byte"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"number",
+        "value":"4"
+    },
+    {
+        "type":"group",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"address"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"of"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"caller"
+    },
+    {
+        "type":"operator",
+        "value":"'"
+    },
+    {
+        "type":"identifier",
+        "value":"s"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"save"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"area"
     },
     {
         "type":"newline",
@@ -608,7 +1456,7 @@
         "value":"                       "
     },
     {
-        "type":"invalid",
+        "type":"operator",
         "value":"!"
     },
     {
@@ -616,8 +1464,76 @@
         "value":"    "
     },
     {
-        "type":"comment",
-        "value":"byte  8: address of called subroutine's save area"
+        "type":"directive",
+        "value":"byte"
+    },
+    {
+        "type":"whitespace",
+        "value":"  "
+    },
+    {
+        "type":"number",
+        "value":"8"
+    },
+    {
+        "type":"group",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"address"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"of"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"called"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"subroutine"
+    },
+    {
+        "type":"operator",
+        "value":"'"
+    },
+    {
+        "type":"identifier",
+        "value":"s"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"save"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"area"
     },
     {
         "type":"newline",
@@ -628,7 +1544,7 @@
         "value":"                       "
     },
     {
-        "type":"invalid",
+        "type":"operator",
         "value":"!"
     },
     {
@@ -636,8 +1552,44 @@
         "value":"    "
     },
     {
-        "type":"comment",
-        "value":"byte 12: contents of r14"
+        "type":"directive",
+        "value":"byte"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"12"
+    },
+    {
+        "type":"group",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"contents"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"of"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"r14"
     },
     {
         "type":"newline",
@@ -648,7 +1600,7 @@
         "value":"                       "
     },
     {
-        "type":"invalid",
+        "type":"operator",
         "value":"!"
     },
     {
@@ -656,8 +1608,44 @@
         "value":"    "
     },
     {
-        "type":"comment",
-        "value":"byte 16: contents of r15"
+        "type":"directive",
+        "value":"byte"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"16"
+    },
+    {
+        "type":"group",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"contents"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"of"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"r15"
     },
     {
         "type":"newline",
@@ -668,7 +1656,7 @@
         "value":"                       "
     },
     {
-        "type":"invalid",
+        "type":"operator",
         "value":"!"
     },
     {
@@ -676,8 +1664,44 @@
         "value":"    "
     },
     {
-        "type":"comment",
-        "value":"byte 20: contents of r0"
+        "type":"directive",
+        "value":"byte"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"20"
+    },
+    {
+        "type":"group",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"contents"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"of"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"r0"
     },
     {
         "type":"newline",
@@ -688,7 +1712,7 @@
         "value":"                       "
     },
     {
-        "type":"invalid",
+        "type":"operator",
         "value":"!"
     },
     {
@@ -696,8 +1720,44 @@
         "value":"    "
     },
     {
-        "type":"comment",
-        "value":"byte 24: contents of r1"
+        "type":"directive",
+        "value":"byte"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"24"
+    },
+    {
+        "type":"group",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"contents"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"of"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"r1"
     },
     {
         "type":"newline",
@@ -708,7 +1768,7 @@
         "value":"                       "
     },
     {
-        "type":"invalid",
+        "type":"operator",
         "value":"!"
     },
     {
@@ -716,8 +1776,16 @@
         "value":"    "
     },
     {
-        "type":"comment",
-        "value":"..."
+        "type":"value",
+        "value":"."
+    },
+    {
+        "type":"value",
+        "value":"."
+    },
+    {
+        "type":"value",
+        "value":"."
     },
     {
         "type":"newline",
@@ -728,7 +1796,7 @@
         "value":"                       "
     },
     {
-        "type":"invalid",
+        "type":"operator",
         "value":"!"
     },
     {
@@ -736,15 +1804,47 @@
         "value":"    "
     },
     {
-        "type":"comment",
-        "value":"byte 68: contents of r12"
+        "type":"directive",
+        "value":"byte"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"68"
+    },
+    {
+        "type":"group",
+        "value":":"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"contents"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"of"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"identifier",
+        "value":"r12"
     },
     {
         "type":"newline",
         "value":"\r\n"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
     }
 ]

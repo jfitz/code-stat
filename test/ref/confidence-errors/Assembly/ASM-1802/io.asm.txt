@@ -1,130 +1,225 @@
 [
     {
-        "TYPE":"OPERATOR",
-        "INVALID":"?",
+        "TYPE":"TOKEN",
+        "INVALID":"/",
         "FIRST":"",
         "SECOND":""
     },
     {
-        "TYPE":"OPERATOR",
-        "INVALID":"?",
+        "TYPE":"TOKEN",
+        "INVALID":"/",
         "FIRST":"",
         "SECOND":""
     },
     {
-        "TYPE":"OPERATOR2",
-        "FIRST":"/",
-        "SECOND":"/"
+        "TYPE":"TOKEN",
+        "INVALID":"Basic",
+        "FIRST":"",
+        "SECOND":""
     },
     {
-        "TYPE":"OPERATOR2",
-        "FIRST":"/",
-        "SECOND":"/"
+        "TYPE":"TOKEN",
+        "INVALID":"/",
+        "FIRST":"",
+        "SECOND":""
     },
     {
-        "TYPE":"OPERATOR2",
-        "FIRST":"/",
-        "SECOND":"/"
+        "TYPE":"TOKEN",
+        "INVALID":"GetChar,",
+        "FIRST":"",
+        "SECOND":""
     },
     {
-        "TYPE":"OPERATOR3",
-        "FIRST":"\n",
-        "SECOND":"/"
+        "TYPE":"TOKEN",
+        "INVALID":"XGetChar",
+        "FIRST":"",
+        "SECOND":""
     },
     {
-        "TYPE":"OPERATOR3",
-        "FIRST":"/",
-        "SECOND":"/"
+        "TYPE":"TOKEN",
+        "INVALID":"Type,",
+        "FIRST":"",
+        "SECOND":""
     },
     {
-        "TYPE":"OPERATOR3",
-        "FIRST":"/",
-        "SECOND":"/"
+        "TYPE":"TOKEN",
+        "INVALID":"XType",
+        "FIRST":"",
+        "SECOND":""
     },
     {
-        "TYPE":"OPERATOR3",
-        "FIRST":"/",
-        "SECOND":"/"
+        "TYPE":"TOKEN",
+        "INVALID":"/",
+        "FIRST":"",
+        "SECOND":""
     },
     {
-        "TYPE":"OPERATOR4",
-        "FIRST":"/",
-        "SECOND":"/"
+        "TYPE":"TOKEN",
+        "INVALID":"/",
+        "FIRST":"",
+        "SECOND":""
     },
     {
-        "TYPE":"OPERATOR4",
-        "FIRST":"-",
-        "SECOND":"Page"
+        "TYPE":"TOKEN",
+        "INVALID":"Code",
+        "FIRST":"",
+        "SECOND":""
     },
     {
-        "TYPE":"OPERATOR4",
-        "FIRST":"/",
-        "SECOND":"/"
+        "TYPE":"TOKEN",
+        "INVALID":"/",
+        "FIRST":"",
+        "SECOND":""
     },
     {
-        "TYPE":"OPERATOR4",
-        "FIRST":"-",
-        "SECOND":"Page"
+        "TYPE":"TOKEN",
+        "INVALID":"Main,",
+        "FIRST":"",
+        "SECOND":""
     },
     {
-        "TYPE":"OPERATOR4",
-        "FIRST":"/",
-        "SECOND":"/"
+        "TYPE":"TOKEN",
+        "INVALID":"cla",
+        "FIRST":"",
+        "SECOND":""
     },
     {
-        "TYPE":"OPERATOR4",
-        "FIRST":"-",
-        "SECOND":"page"
+        "TYPE":"TOKEN",
+        "INVALID":"kcc",
+        "FIRST":"",
+        "SECOND":""
     },
     {
-        "TYPE":"OPERAND_4",
-        "FIRST":"link",
-        "SECOND":"kcc"
+        "TYPE":"TOKEN",
+        "INVALID":"tls",
+        "FIRST":"",
+        "SECOND":""
     },
     {
-        "TYPE":"OPERAND_4",
-        "FIRST":"i",
-        "SECOND":"GetChar"
+        "TYPE":"TOKEN",
+        "INVALID":"jms",
+        "FIRST":"",
+        "SECOND":""
     },
     {
-        "TYPE":"OPERAND_4",
-        "FIRST":"dca",
-        "SECOND":"Hold"
+        "TYPE":"TOKEN",
+        "INVALID":"dca",
+        "FIRST":"",
+        "SECOND":""
     },
     {
-        "TYPE":"OPERAND_4",
-        "FIRST":"i",
-        "SECOND":"Type"
+        "TYPE":"TOKEN",
+        "INVALID":"tad",
+        "FIRST":"",
+        "SECOND":""
     },
     {
-        "TYPE":"OPERAND_4",
-        "FIRST":"AC",
-        "SECOND":"jmp"
+        "TYPE":"TOKEN",
+        "INVALID":"jms",
+        "FIRST":"",
+        "SECOND":""
     },
     {
-        "TYPE":"OPERAND_4",
-        "FIRST":"jmp",
-        "SECOND":"i"
+        "TYPE":"TOKEN",
+        "INVALID":"/",
+        "FIRST":"",
+        "SECOND":""
     },
     {
-        "TYPE":"OPERAND_4",
-        "FIRST":"i",
-        "SECOND":"XGetChar"
+        "TYPE":"TOKEN",
+        "INVALID":"/",
+        "FIRST":"",
+        "SECOND":""
     },
     {
-        "TYPE":"OPERAND_4",
-        "FIRST":"link",
-        "SECOND":"jmp"
+        "TYPE":"TOKEN",
+        "INVALID":"Basic",
+        "FIRST":"",
+        "SECOND":""
     },
     {
-        "TYPE":"OPERAND_4",
-        "FIRST":"jmp",
-        "SECOND":"i"
+        "TYPE":"TOKEN",
+        "INVALID":"/",
+        "FIRST":"",
+        "SECOND":""
     },
     {
-        "TYPE":"OPERAND_4",
-        "FIRST":"i",
-        "SECOND":"XType"
+        "TYPE":"TOKEN",
+        "INVALID":"XGetChar,",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"0",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"ksf",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"jmp",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"krb",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"jmp",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"XType,",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"0",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"tsk",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"jmp",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"tls",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"cla",
+        "FIRST":"",
+        "SECOND":""
+    },
+    {
+        "TYPE":"TOKEN",
+        "INVALID":"jmp",
+        "FIRST":"",
+        "SECOND":""
     },
     {
         "TYPE":"KEYWORDS",

@@ -1,158 +1,340 @@
 [
     {
         "TYPE":"TOKEN",
-        "INVALID":"r",
+        "REPEATED":".",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"stm",
+        "REPEATED":".",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!",
+        "REPEATED":".",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"balr",
+        "REPEATED":".",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"us",
+        "REPEATED":".",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"g",
+        "REPEATED":".",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"la",
+        "REPEATED":".",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"st",
+        "REPEATED":".",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"st",
+        "REPEATED":".",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"!",
+        "REPEATED":".",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"...",
+        "REPEATED":".",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"...",
+        "REPEATED":".",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"l",
+        "REPEATED":".",
         "FIRST":"",
         "SECOND":""
     },
     {
         "TYPE":"TOKEN",
-        "INVALID":"lm",
+        "REPEATED":".",
         "FIRST":"",
         "SECOND":""
     },
     {
-        "TYPE":"TOKEN",
-        "INVALID":"!",
-        "FIRST":"",
-        "SECOND":""
+        "TYPE":"OPERATOR4",
+        "FIRST":"-",
+        "SECOND":"word"
     },
     {
-        "TYPE":"TOKEN",
-        "INVALID":"br",
-        "FIRST":"",
-        "SECOND":""
+        "TYPE":"OPERATOR4",
+        "FIRST":"!",
+        "SECOND":"byte"
     },
     {
-        "TYPE":"TOKEN",
-        "INVALID":"savearea",
-        "FIRST":"",
-        "SECOND":""
+        "TYPE":"OPERATOR4",
+        "FIRST":"!",
+        "SECOND":"byte"
     },
     {
-        "TYPE":"TOKEN",
-        "INVALID":"!",
-        "FIRST":"",
-        "SECOND":""
+        "TYPE":"OPERATOR4",
+        "FIRST":"!",
+        "SECOND":"byte"
     },
     {
-        "TYPE":"TOKEN",
-        "INVALID":"!",
-        "FIRST":"",
-        "SECOND":""
+        "TYPE":"OPERATOR4",
+        "FIRST":"!",
+        "SECOND":"byte"
     },
     {
-        "TYPE":"TOKEN",
-        "INVALID":"!",
-        "FIRST":"",
-        "SECOND":""
+        "TYPE":"OPERATOR4",
+        "FIRST":"!",
+        "SECOND":"byte"
     },
     {
-        "TYPE":"TOKEN",
-        "INVALID":"!",
-        "FIRST":"",
-        "SECOND":""
+        "TYPE":"OPERATOR4",
+        "FIRST":"!",
+        "SECOND":"byte"
     },
     {
-        "TYPE":"TOKEN",
-        "INVALID":"!",
-        "FIRST":"",
-        "SECOND":""
+        "TYPE":"OPERATOR4",
+        "FIRST":"!",
+        "SECOND":"byte"
     },
     {
-        "TYPE":"TOKEN",
-        "INVALID":"!",
-        "FIRST":"",
-        "SECOND":""
+        "TYPE":"OPERATOR4",
+        "FIRST":"!",
+        "SECOND":"byte"
     },
     {
-        "TYPE":"TOKEN",
-        "INVALID":"!",
-        "FIRST":"",
-        "SECOND":""
+        "TYPE":"OPERAND_2",
+        "FIRST":".",
+        "SECOND":"."
     },
     {
-        "TYPE":"TOKEN",
-        "INVALID":"!",
-        "FIRST":"",
-        "SECOND":""
+        "TYPE":"OPERAND_2",
+        "FIRST":".",
+        "SECOND":"."
     },
     {
-        "TYPE":"TOKEN",
-        "INVALID":"!",
-        "FIRST":"",
-        "SECOND":""
+        "TYPE":"OPERAND_2",
+        "FIRST":".",
+        "SECOND":"."
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":".",
+        "SECOND":"."
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":".",
+        "SECOND":"."
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":".",
+        "SECOND":"."
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":".",
+        "SECOND":"."
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":".",
+        "SECOND":"."
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":".",
+        "SECOND":"."
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"into",
+        "SECOND":"caller"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"assembler",
+        "SECOND":"to"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"to",
+        "SECOND":"use"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"use",
+        "SECOND":"r12"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"r12",
+        "SECOND":"la"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"la",
+        "SECOND":"r11"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"my",
+        "SECOND":"save"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"save",
+        "SECOND":"area"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"area",
+        "SECOND":"st"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"st",
+        "SECOND":"r13"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"st",
+        "SECOND":"r11"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"my",
+        "SECOND":"save"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"save",
+        "SECOND":"area"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"area",
+        "SECOND":"in"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":".",
+        "SECOND":"."
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":".",
+        "SECOND":"."
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":".",
+        "SECOND":"body"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"body",
+        "SECOND":"of"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"of",
+        "SECOND":"subroutine"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"subroutine",
+        "SECOND":"."
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":".",
+        "SECOND":"."
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":".",
+        "SECOND":"."
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":".",
+        "SECOND":"."
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":".",
+        "SECOND":"."
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":".",
+        "SECOND":"."
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":".",
+        "SECOND":"r0"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"r0",
+        "SECOND":"is"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"is",
+        "SECOND":"used"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":".",
+        "SECOND":"l"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"l",
+        "SECOND":"r13"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"lm",
+        "SECOND":"r14"
+    },
+    {
+        "TYPE":"OPERAND_4",
+        "FIRST":"from",
+        "SECOND":"caller"
+    },
+    {
+        "TYPE":"KEYWORDS",
+        "MESSAGE":"No keywords found"
     }
 ]

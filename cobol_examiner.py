@@ -517,7 +517,7 @@ class CobolExaminer(Examiner):
       # self.calc_operand_n_confidence(tokens, operand_types, 2)
       # self.calc_operand_n_confidence(tokens, operand_types, 4)
 
-      self.calc_keyword_confidence()
+      self.calc_keyword_confidence(0.2)
       self.calc_picture_confidence()
       self.calc_line_length_confidence(code, self.max_expected_line)
 
@@ -607,7 +607,7 @@ class CobolExaminer(Examiner):
       # self.calc_operand_n_confidence(tokens, operand_types, 2)
       # self.calc_operand_n_confidence(tokens, operand_types, 4)
 
-      self.calc_keyword_confidence()
+      self.calc_keyword_confidence(0.2)
       self.calc_picture_confidence()
       self.calc_line_length_confidence(code, self.max_expected_line)
       self.calc_line_description_confidence()

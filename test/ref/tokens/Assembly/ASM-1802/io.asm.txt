@@ -1,6 +1,6 @@
 [
     {
-        "type":"operator",
+        "type":"invalid",
         "value":"/"
     },
     {
@@ -8,7 +8,7 @@
         "value":"\r\n"
     },
     {
-        "type":"operator",
+        "type":"invalid",
         "value":"/"
     },
     {
@@ -16,7 +16,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"Basic"
     },
     {
@@ -40,47 +40,15 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"Routine"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"Vectors"
-    },
-    {
-        "type":"whitespace",
-        "value":"  "
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"directive",
-        "value":"Page"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"0"
+        "type":"comment",
+        "value":"Routine Vectors  - Page 0"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"operator",
+        "type":"invalid",
         "value":"/"
     },
     {
@@ -96,19 +64,15 @@
         "value":"\r\n"
     },
     {
-        "type":"label",
-        "value":"GetChar"
-    },
-    {
-        "type":"group",
-        "value":","
+        "type":"invalid",
+        "value":"GetChar,"
     },
     {
         "type":"whitespace",
         "value":"  "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"XGetChar"
     },
     {
@@ -116,19 +80,15 @@
         "value":"\r\n"
     },
     {
-        "type":"label",
-        "value":"Type"
-    },
-    {
-        "type":"group",
-        "value":","
+        "type":"invalid",
+        "value":"Type,"
     },
     {
         "type":"whitespace",
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"XType"
     },
     {
@@ -136,7 +96,7 @@
         "value":"\r\n"
     },
     {
-        "type":"operator",
+        "type":"invalid",
         "value":"/"
     },
     {
@@ -144,7 +104,7 @@
         "value":"\r\n"
     },
     {
-        "type":"operator",
+        "type":"invalid",
         "value":"/"
     },
     {
@@ -152,7 +112,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"Code"
     },
     {
@@ -160,7 +120,7 @@
         "value":" "
     },
     {
-        "type":"directive",
+        "type":"identifier",
         "value":"Segment"
     },
     {
@@ -168,31 +128,15 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"directive",
-        "value":"Page"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"1"
+        "type":"comment",
+        "value":"- Page 1"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"operator",
+        "type":"invalid",
         "value":"/"
     },
     {
@@ -208,19 +152,15 @@
         "value":"\r\n"
     },
     {
-        "type":"label",
-        "value":"Main"
-    },
-    {
-        "type":"group",
-        "value":","
+        "type":"invalid",
+        "value":"Main,"
     },
     {
         "type":"whitespace",
         "value":"     "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"cla"
     },
     {
@@ -236,40 +176,8 @@
         "value":"   "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"clear"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"AC"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"and"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"link"
+        "type":"comment",
+        "value":"/ clear AC and link"
     },
     {
         "type":"newline",
@@ -280,7 +188,7 @@
         "value":"          "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"kcc"
     },
     {
@@ -288,24 +196,8 @@
         "value":"       "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"reset"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"keyboard"
+        "type":"comment",
+        "value":"/ reset keyboard"
     },
     {
         "type":"newline",
@@ -316,7 +208,7 @@
         "value":"          "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"tls"
     },
     {
@@ -324,31 +216,15 @@
         "value":"       "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"rest"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"printer"
+        "type":"comment",
+        "value":"/ rest printer"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"comment",
+        "type":"label",
         "value":"..."
     },
     {
@@ -360,7 +236,7 @@
         "value":"          "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"jms"
     },
     {
@@ -376,40 +252,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"GetChar"
-    },
-    {
-        "type":"whitespace",
-        "value":"  "
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"read"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"a"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"character"
+        "type":"comment",
+        "value":"GetChar  / read a character"
     },
     {
         "type":"newline",
@@ -420,7 +264,7 @@
         "value":"          "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"dca"
     },
     {
@@ -436,24 +280,8 @@
         "value":"       "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"store"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"it"
+        "type":"comment",
+        "value":"/ store it"
     },
     {
         "type":"newline",
@@ -464,7 +292,7 @@
         "value":"          "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"tad"
     },
     {
@@ -480,24 +308,8 @@
         "value":"       "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"get"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"character"
+        "type":"comment",
+        "value":"/ get character"
     },
     {
         "type":"newline",
@@ -508,7 +320,7 @@
         "value":"          "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"jms"
     },
     {
@@ -524,47 +336,15 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"Type"
-    },
-    {
-        "type":"whitespace",
-        "value":"     "
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"echo"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"to"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"screen"
+        "type":"comment",
+        "value":"Type     / echo to screen"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"comment",
+        "type":"label",
         "value":"..."
     },
     {
@@ -576,7 +356,7 @@
         "value":"\r\n"
     },
     {
-        "type":"operator",
+        "type":"invalid",
         "value":"/"
     },
     {
@@ -584,7 +364,7 @@
         "value":"\r\n"
     },
     {
-        "type":"operator",
+        "type":"invalid",
         "value":"/"
     },
     {
@@ -592,7 +372,7 @@
         "value":" "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"Basic"
     },
     {
@@ -616,39 +396,15 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"routines"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"directive",
-        "value":"page"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"number",
-        "value":"30"
+        "type":"comment",
+        "value":"routines - page 30"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"operator",
+        "type":"invalid",
         "value":"/"
     },
     {
@@ -664,19 +420,15 @@
         "value":"\r\n"
     },
     {
-        "type":"label",
-        "value":"XGetChar"
-    },
-    {
-        "type":"group",
-        "value":","
+        "type":"invalid",
+        "value":"XGetChar,"
     },
     {
         "type":"whitespace",
         "value":" "
     },
     {
-        "type":"number",
+        "type":"invalid",
         "value":"0"
     },
     {
@@ -684,32 +436,8 @@
         "value":"              "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"return"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"address"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"here"
+        "type":"comment",
+        "value":"/ return address here"
     },
     {
         "type":"newline",
@@ -720,7 +448,7 @@
         "value":"          "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"ksf"
     },
     {
@@ -728,44 +456,8 @@
         "value":"            "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"is"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"keyboard"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"flag"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"raised"
-    },
-    {
-        "type":"invalid operator",
-        "value":"?"
+        "type":"comment",
+        "value":"/ is keyboard flag raised?"
     },
     {
         "type":"newline",
@@ -776,7 +468,7 @@
         "value":"          "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"jmp"
     },
     {
@@ -800,32 +492,8 @@
         "value":"        "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"no"
-    },
-    {
-        "type":"whitespace",
-        "value":"  "
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"loop"
+        "type":"comment",
+        "value":"/ no  - loop"
     },
     {
         "type":"newline",
@@ -836,7 +504,7 @@
         "value":"          "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"krb"
     },
     {
@@ -844,56 +512,8 @@
         "value":"            "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"yes"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"read"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"character"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"to"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"AC"
+        "type":"comment",
+        "value":"/ yes - read character to AC"
     },
     {
         "type":"newline",
@@ -904,7 +524,7 @@
         "value":"          "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"jmp"
     },
     {
@@ -920,43 +540,23 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"XGetChar"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"return"
+        "type":"comment",
+        "value":"XGetChar / return"
     },
     {
         "type":"newline",
         "value":"\r\n"
     },
     {
-        "type":"label",
-        "value":"XType"
-    },
-    {
-        "type":"group",
-        "value":","
+        "type":"invalid",
+        "value":"XType,"
     },
     {
         "type":"whitespace",
         "value":"    "
     },
     {
-        "type":"number",
+        "type":"invalid",
         "value":"0"
     },
     {
@@ -964,32 +564,8 @@
         "value":"              "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"return"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"address"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"here"
+        "type":"comment",
+        "value":"/ return address here"
     },
     {
         "type":"newline",
@@ -1000,7 +576,7 @@
         "value":"          "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"tsk"
     },
     {
@@ -1008,44 +584,8 @@
         "value":"            "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"is"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"printer"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"flag"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"raised"
-    },
-    {
-        "type":"invalid operator",
-        "value":"?"
+        "type":"comment",
+        "value":"/ is printer flag raised?"
     },
     {
         "type":"newline",
@@ -1056,7 +596,7 @@
         "value":"          "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"jmp"
     },
     {
@@ -1080,32 +620,8 @@
         "value":"        "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"no"
-    },
-    {
-        "type":"whitespace",
-        "value":"  "
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"loop"
+        "type":"comment",
+        "value":"/ no  - loop"
     },
     {
         "type":"newline",
@@ -1116,7 +632,7 @@
         "value":"          "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"tls"
     },
     {
@@ -1124,40 +640,8 @@
         "value":"            "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"yes"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"-"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"print"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"character"
+        "type":"comment",
+        "value":"/ yes - print character"
     },
     {
         "type":"newline",
@@ -1168,7 +652,7 @@
         "value":"          "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"cla"
     },
     {
@@ -1184,40 +668,8 @@
         "value":"        "
     },
     {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"clear"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"AC"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"and"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"link"
+        "type":"comment",
+        "value":"/ clear AC and link"
     },
     {
         "type":"newline",
@@ -1228,7 +680,7 @@
         "value":"          "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"jmp"
     },
     {
@@ -1244,24 +696,8 @@
         "value":" "
     },
     {
-        "type":"identifier",
-        "value":"XType"
-    },
-    {
-        "type":"whitespace",
-        "value":"    "
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"return"
+        "type":"comment",
+        "value":"XType    / return"
     },
     {
         "type":"newline",
@@ -1274,5 +710,9 @@
     {
         "type":"newline",
         "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
     }
 ]

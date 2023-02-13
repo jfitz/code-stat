@@ -1,15 +1,11 @@
 [
     {
-        "type":"invalid",
-        "value":"prog"
-    },
-    {
-        "type":"line continuation",
-        "value":"r"
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"invalid",
-        "value":"am"
+        "value":"program"
     },
     {
         "type":"whitespace",
@@ -33,23 +29,15 @@
     },
     {
         "type":"newline",
-        "value":"\n"
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
-        "value":"  "
+        "value":"   "
     },
     {
         "type":"invalid",
-        "value":"  wr"
-    },
-    {
-        "type":"line continuation",
-        "value":"i"
-    },
-    {
-        "type":"invalid",
-        "value":"te"
+        "value":"write"
     },
     {
         "type":"whitespace",
@@ -165,23 +153,23 @@
     },
     {
         "type":"newline",
-        "value":"\n"
-    },
-    {
-        "type":"invalid",
-        "value":"end "
+        "value":"\r\n"
     },
     {
         "type":"whitespace",
         "value":" "
     },
     {
-        "type":"line continuation",
-        "value":"p"
+        "type":"invalid",
+        "value":"end"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
     },
     {
         "type":"invalid",
-        "value":"rogram"
+        "value":"program"
     },
     {
         "type":"whitespace",
@@ -202,9 +190,5 @@
     {
         "type":"invalid",
         "value":"orld"
-    },
-    {
-        "type":"newline",
-        "value":"\n"
     }
 ]

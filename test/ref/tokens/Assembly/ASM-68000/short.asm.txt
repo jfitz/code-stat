@@ -24,40 +24,8 @@
         "value":"                  "
     },
     {
-        "type":"directive",
-        "value":"END"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"OF"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"FILE"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"FLAG"
-    },
-    {
-        "type":"whitespace",
-        "value":"                      "
-    },
-    {
-        "type":"number",
-        "value":"02754000"
+        "type":"comment",
+        "value":"END OF FILE FLAG                      02754000"
     },
     {
         "type":"newline",
@@ -92,64 +60,8 @@
         "value":"              "
     },
     {
-        "type":"identifier",
-        "value":"FLAG"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"FOR"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"TEMPORARY"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"group",
-        "value":"("
-    },
-    {
-        "type":"value",
-        "value":"."
-    },
-    {
-        "type":"operator",
-        "value":"/"
-    },
-    {
-        "type":"value",
-        "value":"*"
-    },
-    {
-        "type":"group",
-        "value":")"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"EOF"
-    },
-    {
-        "type":"whitespace",
-        "value":"          "
-    },
-    {
-        "type":"number",
-        "value":"02755000"
+        "type":"comment",
+        "value":"FLAG FOR TEMPORARY (./*) EOF          02755000"
     },
     {
         "type":"newline",
@@ -160,7 +72,7 @@
         "value":"         "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"l"
     },
     {
@@ -172,7 +84,7 @@
         "value":"r15"
     },
     {
-        "type":"directive",
+        "type":"operator",
         "value":"="
     },
     {
@@ -196,59 +108,15 @@
         "value":"            "
     },
     {
-        "type":"operator",
-        "value":"!"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"load"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"address"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"of"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"subroutine"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"in"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"r15"
+        "type":"comment",
+        "value":"! load address of subroutine in r15"
     },
     {
         "type":"newline",
         "value":"\r\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
     }
 ]

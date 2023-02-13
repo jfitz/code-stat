@@ -16,7 +16,7 @@
         "value":"           "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"l"
     },
     {
@@ -28,7 +28,7 @@
         "value":"r15"
     },
     {
-        "type":"directive",
+        "type":"operator",
         "value":"="
     },
     {
@@ -52,56 +52,8 @@
         "value":"            "
     },
     {
-        "type":"operator",
-        "value":"!"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"load"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"address"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"of"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"subroutine"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"operator",
-        "value":"in"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"r15"
+        "type":"comment",
+        "value":"! load address of subroutine in r15"
     },
     {
         "type":"newline",
@@ -112,7 +64,7 @@
         "value":"           "
     },
     {
-        "type":"identifier",
+        "type":"invalid",
         "value":"balr"
     },
     {
@@ -136,64 +88,8 @@
         "value":"                "
     },
     {
-        "type":"operator",
-        "value":"!"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"save"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"return"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"address"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"in"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"r14"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"and"
-    },
-    {
-        "type":"whitespace",
-        "value":" "
-    },
-    {
-        "type":"identifier",
-        "value":"set"
+        "type":"comment",
+        "value":"! save return address in r14 and set"
     },
     {
         "type":"newline",
@@ -206,5 +102,9 @@
     {
         "type":"comment",
         "value":"*  ...                         !    pc to contents of r15"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
     }
 ]
