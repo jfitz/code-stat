@@ -416,7 +416,8 @@ class DbaseExaminer(Examiner):
       operand_types_2 = ['number', 'number', 'function', 'value', 'string', 'filename']
       self.calc_operand_n_confidence(tokens, operand_types_2, 2)
 
-      self.calc_keyword_confidence(0.2)
+      self.no_keyword_confidence = 0.2
+      self.calc_keyword_confidence()
 
       if version == 'ii':
         self.calc_line_format_confidence_ii()
