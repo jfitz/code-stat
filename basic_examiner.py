@@ -116,7 +116,10 @@ class BasicExaminer(Examiner):
     if version in ['basic-80', 'basica', 'gw-basic']:
       known_operators += known_operators_ms
 
-    known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
+    if version in ['basic']:
+      known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
+    else:
+      known_operator_tb = CaseInsensitiveListTokenBuilder(known_operators, 'operator', False)
 
     self.unary_operators = [
       '+', '-', '#', 'NOT'
@@ -190,7 +193,10 @@ class BasicExaminer(Examiner):
     if version in ['basica', 'gw-basic']:
       keywords += keywords_basica
 
-    keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
+    if version in ['basic']:
+      keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
+    else:
+      keyword_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
 
     values = ['OFF', 'ON']
 
@@ -233,7 +239,11 @@ class BasicExaminer(Examiner):
     if version in ['basic-80', 'basica', 'gw-basic']:
       functions += functions_ms
 
-    function_tb = CaseInsensitiveListTokenBuilder(functions, 'common function', True)
+    if version in ['basic']:
+      function_tb = CaseSensitiveListTokenBuilder(functions, 'common function', True)
+    else:
+      function_tb = CaseInsensitiveListTokenBuilder(functions, 'common function', True)
+
     user_function_tb = UserFunctionTokenBuilder('%#!$&')
     hardware_function_tb = NullTokenBuilder()
 
