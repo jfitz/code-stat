@@ -604,7 +604,12 @@ class Examiner:
 
       prev_token = token
 
-    line_continuation_confidence = 1.0 - (errors * 0.05)
+    reduction = errors * 0.05
+
+    if reduction > 1.0:
+      reduction = 1.0
+
+    line_continuation_confidence = 1.0 - reduction
 
     self.confidences['line continuation'] = line_continuation_confidence
 
