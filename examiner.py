@@ -581,6 +581,34 @@ class Examiner:
     self.confidences['operator_4'] = operator_confidence_4
 
 
+  # tokens after line  continuation reduce confidence
+  def calc_line_continuation_confidence(self, tokens):
+    num_line_cont = self.count_my_tokens(['line continuation'])
+
+    if num_line_cont == 0:
+      return
+
+    line_continuation_confidence = 1.0
+    errors = 0
+    prev_token = Token('\n', 'newline', False)
+
+    for token in tokens:
+      if prev_token.group == 'line continuation' and \
+        token.group != 'newline':
+        errors += 1
+        self.errors.append({
+          'TYPE': 'LINE CONTINUATION',
+          'FIRST': prev_token.text,
+          'SECOND': token.text
+          })
+
+      prev_token = token
+
+    line_continuation_confidence = 1.0 - (errors * 0.05)
+
+    self.confidences['line continuation'] = line_continuation_confidence
+
+
   # groups that follow groups reduce confidence
   def calc_group_confidence(self, tokens, groups):
     num_groups = self.count_my_tokens(['group'])

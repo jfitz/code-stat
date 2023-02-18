@@ -155,11 +155,11 @@ class FortranExaminer(Examiner):
 
     if year in ['66', '1966', '77', '1977']:
       user_operator_tb = NullTokenBuilder()
-      continuation_tb = NullTokenBuilder()
+      line_continuation_tb = NullTokenBuilder()
       stmt_separator_tb = NullTokenBuilder()
     else:
       user_operator_tb = UserDefinedOperatorTokenBuilder()
-      continuation_tb = SingleCharacterTokenBuilder('&', 'line continuation', False)
+      line_continuation_tb = SingleCharacterTokenBuilder('&', 'line continuation', False)
       stmt_separator_tb = SingleCharacterTokenBuilder(';', 'statement separator', False)
 
     if year in ['66', '1966', '77', '1977']:
@@ -260,7 +260,7 @@ class FortranExaminer(Examiner):
       tokenbuilders_free = [
         newline_tb,
         whitespace_tb,
-        continuation_tb,
+        line_continuation_tb,
         stmt_separator_tb,
         integer_tb,
         integer_exponent_tb,
@@ -305,6 +305,10 @@ class FortranExaminer(Examiner):
 
       self.calc_token_confidence()
       self.calc_token_2_confidence()
+
+      drop_types = ['whitespace', 'comment']
+      line_cont_tokens = self.drop_tokens(self.tokens, drop_types)
+      self.calc_line_continuation_confidence(line_cont_tokens)
 
       num_operators = self.count_my_tokens(['operator', 'invalid operator'])
       if num_operators > 0:

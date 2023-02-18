@@ -247,6 +247,7 @@ class DExaminer(Examiner):
 
     self.calc_token_confidence()
     self.calc_token_2_confidence()
+    self.calc_line_continuation_confidence(tokens)
 
     num_operators = self.count_my_tokens(['operator', 'invalid operator'])
     if num_operators > 0:
