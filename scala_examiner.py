@@ -210,7 +210,7 @@ class ScalaExaminer(Examiner):
     num_operators = self.count_my_tokens(['operator', 'invalid operator'])
     if num_operators > 0:
       self.calc_operator_confidence(num_operators)
-      allow_pairs = []
+      allow_pairs = [['=', 'try']]
       self.calc_operator_2_confidence(tokens, num_operators, allow_pairs)
       self.calc_operator_3_confidence(tokens, num_operators, group_ends, allow_pairs)
       self.calc_operator_4_confidence(tokens, num_operators, group_starts, allow_pairs)
