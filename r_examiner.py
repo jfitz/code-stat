@@ -210,7 +210,9 @@ class RExaminer(Examiner):
     tokens = tokenizer.tokenize(ascii_code)
 
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
-    self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
+    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
+
+    self.tokens = tokens
     self.convert_keywords_to_identifiers(['<-', '.', '='])
     self.convert_identifiers_to_functions()
 

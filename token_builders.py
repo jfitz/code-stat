@@ -1578,7 +1578,7 @@ class RegexTokenBuilder(TokenBuilder):
     if not self.pattern.match(self.text):
       return 0
 
-    invalids = ['number', 'identifier', 'variable', 'function', 'symbol']
+    invalids = ['number', 'identifier', 'variable', 'symbol']
     if len(line_printable_tokens) > 0 and \
       line_printable_tokens[-1].group in invalids:
       return 0

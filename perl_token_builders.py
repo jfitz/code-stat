@@ -648,3 +648,69 @@ class PerlSigilBraceTokenBuilder(TokenBuilder):
       return 0
 
     return len(self.text)
+
+
+# token reader for Perl prototypes
+class PerlEndTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self):
+    self.text = ''
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    tokens = []
+
+    lines = self.text.split('\n')
+
+    for line in lines:
+      if line.endswith('\r'):
+        tokens.append(Token(line[:-1], 'comment', False))
+        tokens.append(Token('\r\n', 'newline', False))
+      else:
+        tokens.append(Token(line, 'comment', False))
+        tokens.append(Token('\n', 'newline', False))
+
+    return tokens
+
+
+  def accept(self, candidate, c):
+    if len(candidate) == 0:
+      return c == '_'
+
+    if len(candidate) == 1:
+      return c == '_'
+
+    if len(candidate) == 2:
+      return c == 'E'
+
+    if len(candidate) == 3:
+      return c == 'N'
+
+    if len(candidate) == 4:
+      return c == 'D'
+
+    if len(candidate) == 5:
+      return c == '_'
+
+    if len(candidate) == 6:
+      return c == '_'
+
+    return True
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if not self.text.startswith('__END__'):
+      return 0
+
+    return len(self.text)

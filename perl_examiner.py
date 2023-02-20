@@ -29,7 +29,8 @@ from perl_token_builders import (
   YRegexTokenBuilder,
   TrRegexTokenBuilder,
   PerlPrototypeTokenBuilder,
-  PerlSigilBraceTokenBuilder
+  PerlSigilBraceTokenBuilder,
+  PerlEndTokenBuilder
 )
 from examiner import Examiner
 
@@ -60,6 +61,7 @@ class PerlExaminer(Examiner):
     TrRegexTokenBuilder.__escape_z__()
     PerlPrototypeTokenBuilder.__escape_z__()
     PerlSigilBraceTokenBuilder.__escape_z__()
+    PerlEndTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
 
@@ -113,6 +115,7 @@ class PerlExaminer(Examiner):
     prototype_tb = PerlPrototypeTokenBuilder()
 
     comment_tb = LeadToEndOfLineTokenBuilder('#', False, 'comment')
+    end_tb = PerlEndTokenBuilder()
 
     line_continuation_tb = SingleCharacterTokenBuilder('\\', 'line continuation', False)
 
@@ -161,18 +164,19 @@ class PerlExaminer(Examiner):
 
     keywords = [
       'bless', 'break',
-      'continue',
-      'die', 'do',
-      'else', 'elsif', 'eval', 'exit', 'exp',
+      'caller', 'continue',
+      'die', 'do', 'dump,'
+      'else', 'elsif', 'eval', 'evalbytes', 'exit', 'exp',
       'for', 'foreach',
-      'if',
-      'last', 'lock',
+      'goto',
+      'if', 'import',
+      'last', 'local', 'lock',
       'my',
       'next', 'no',
       'our',
       'package',
       'redo', 'return',
-      'say', 'sub',
+      'say', 'state', 'sub',
       'taint',
       'undef', 'unless', 'until', 'use',
       'wantarray', 'while'
@@ -184,6 +188,34 @@ class PerlExaminer(Examiner):
 
     values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
     operand_types.append('value')
+
+    functions = [
+      'chomp', 'chop', 'chr', 'crypt', 'fc', 'hex', 'index', 'lc', 'lcfirst',
+      'length', 'oct', 'ord', 'pack', 'reverse', 'rindex', 'sprintf', 'substr',
+      'uc', 'ucfirst',
+      'pos', 'quotemeta', 'split', 'study',
+      'abs', 'atan2', 'cos', 'exp', 'hex', 'int', 'log', 'oct', 'rand', 'sin',
+      'sqrt', 'srand',
+      'each', 'keys', 'pop', 'push', 'shift', 'splice', 'unshift', 'values',
+      'grep', 'join', 'map', 'sort', 'unpack',
+      'delete', 'each', 'exists', 'keys',
+      'binmode', 'close', 'closedir', 'dbmclose', 'dbmopen', 'die', 'eof',
+      'fileno', 'flock', 'format', 'getc', 'print', 'printf', 'read', 'readdir',
+      'readline', 'rewinddir', 'say', 'seek', 'seekdir', 'select', 'syscall',
+      'sysread', 'sysseek', 'syswrite', 'tell', 'telldir', 'truncate', 'warn',
+      'write',
+      'pack', 'read', 'vec',
+      '-X', 'chdir', 'chmod', 'chown', 'chroot', 'fcntl', 'glob', 'ioctl',
+      'link', 'lstat', 'mkdir', 'open', 'opendir', 'readlink', 'rename', 'rmdir',
+      'select', 'stat', 'symlink', 'sysopen', 'umask', 'unlink', 'utime',
+      'defined', 'formline', 'lock', 'prototype', 'reset', 'scalar', 'undef',
+      'alarm', 'exec', 'fork', 'getpgrp', 'getppid', 'getpriority', 'kill',
+      'pipe', 'readpipe', 'setpgrp', 'setpriority', 'sleep', 'system', 'times',
+      'wait', 'waitpid',
+      'gmtime', 'localtime', 'time'
+    ]
+
+    function_tb = CaseSensitiveListTokenBuilder(functions, 'common function', True)
 
     invalid_token_builder = InvalidTokenBuilder()
 
@@ -201,6 +233,7 @@ class PerlExaminer(Examiner):
       values_tb,
       groupers_tb,
       known_operator_tb,
+      function_tb,
       prototype_tb,
       identifier_tb,
       perl_identfier_tb,
@@ -216,6 +249,7 @@ class PerlExaminer(Examiner):
       tr_regex_tb,
       preprocessor_tb,
       comment_tb,
+      end_tb,
       self.unknown_operator_tb,
       invalid_token_builder
     ]
@@ -229,8 +263,10 @@ class PerlExaminer(Examiner):
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     tokens = Examiner.combine_identifier_colon(tokens, ['statement terminator', 'newline'], ['{'], ['whitespace', 'comment'])
+
     self.tokens = tokens
     self.convert_identifiers_after_goto_to_labels()
+    self.convert_identifiers_to_functions()
 
     self.calc_statistics()
 
