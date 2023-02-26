@@ -48,11 +48,6 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"begin",
-        "SECOND":"SetColor"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"div",
         "SECOND":"3"
     },
@@ -78,18 +73,8 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"begin",
-        "SECOND":"SetFillStyle"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"else",
         "SECOND":"begin"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"begin",
-        "SECOND":"SetFillStyle"
     },
     {
         "TYPE":"OPERAND_2",
@@ -223,11 +208,6 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"then",
-        "SECOND":"PutPixel"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"If",
         "SECOND":"L"
     },
@@ -235,11 +215,6 @@
         "TYPE":"OPERAND_2",
         "FIRST":"then",
         "SECOND":"begin"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"begin",
-        "SECOND":"DrawCloud"
     },
     {
         "TYPE":"OPERAND_2",
@@ -278,11 +253,6 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"begin",
-        "SECOND":"SetColor"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"Keypressed",
         "SECOND":"then"
     },
@@ -310,11 +280,6 @@
         "TYPE":"OPERAND_2",
         "FIRST":"Night",
         "SECOND":"then"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"then",
-        "SECOND":"SetBkColor"
     },
     {
         "TYPE":"OPERAND_2",
@@ -368,11 +333,6 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"begin",
-        "SECOND":"SetColor"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"to",
         "SECOND":"30"
     },
@@ -403,8 +363,13 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"do",
-        "SECOND":"PutPixel"
+        "FIRST":"to",
+        "SECOND":"5"
+    },
+    {
+        "TYPE":"OPERAND_2",
+        "FIRST":"5",
+        "SECOND":"do"
     },
     {
         "TYPE":"OPERAND_2",
@@ -418,11 +383,6 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"do",
-        "SECOND":"PutPixel"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"to",
         "SECOND":"5"
     },
@@ -430,26 +390,6 @@
         "TYPE":"OPERAND_2",
         "FIRST":"5",
         "SECOND":"do"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"do",
-        "SECOND":"PutPixel"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"to",
-        "SECOND":"5"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"5",
-        "SECOND":"do"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"do",
-        "SECOND":"PutPixel"
     },
     {
         "TYPE":"OPERAND_2",
@@ -460,11 +400,6 @@
         "TYPE":"OPERAND_2",
         "FIRST":"then",
         "SECOND":"begin"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"begin",
-        "SECOND":"SetFillStyle"
     },
     {
         "TYPE":"OPERAND_2",
@@ -513,11 +448,6 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"do",
-        "SECOND":"PutDotInCircle"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"Keypressed",
         "SECOND":"then"
     },
@@ -535,11 +465,6 @@
         "TYPE":"OPERAND_2",
         "FIRST":"10000",
         "SECOND":"do"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"do",
-        "SECOND":"PutDotInCircle"
     },
     {
         "TYPE":"OPERAND_2",
@@ -593,11 +518,6 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"do",
-        "SECOND":"PutDotInCircle"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"div",
         "SECOND":"2"
     },
@@ -643,11 +563,6 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"begin",
-        "SECOND":"PutDotInCircle"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"div",
         "SECOND":"2"
     },
@@ -680,11 +595,6 @@
         "TYPE":"OPERAND_2",
         "FIRST":"else",
         "SECOND":"begin"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"begin",
-        "SECOND":"SetBkColor"
     },
     {
         "TYPE":"OPERAND_2",
@@ -730,11 +640,6 @@
         "TYPE":"OPERAND_2",
         "FIRST":"I",
         "SECOND":"do"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"do",
-        "SECOND":"PutPixel"
     },
     {
         "TYPE":"OPERAND_2",
@@ -788,11 +693,6 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"do",
-        "SECOND":"PutPixel"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"Not",
         "SECOND":"MountainRange"
     },
@@ -835,11 +735,6 @@
         "TYPE":"OPERAND_2",
         "FIRST":"20",
         "SECOND":"do"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"do",
-        "SECOND":"PutDotInCircle"
     },
     {
         "TYPE":"OPERAND_2",
@@ -903,11 +798,6 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"do",
-        "SECOND":"PutDotInCircle"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"Cloud",
         "SECOND":"and"
     },
@@ -950,11 +840,6 @@
         "TYPE":"OPERAND_2",
         "FIRST":"then",
         "SECOND":"begin"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"begin",
-        "SECOND":"DrawCloud"
     },
     {
         "TYPE":"OPERAND_2",
@@ -1003,11 +888,6 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"begin",
-        "SECOND":"DrawCloud"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"div",
         "SECOND":"5"
     },
@@ -1053,11 +933,6 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"then",
-        "SECOND":"Triangle"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"div",
         "SECOND":"2"
     },
@@ -1073,11 +948,6 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"MountainRange",
-        "SECOND":"and"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"Sunset",
         "SECOND":"then"
     },
@@ -1088,11 +958,6 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"begin",
-        "SECOND":"SetColor"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"to",
         "SECOND":"GetMaxX"
     },
@@ -1100,11 +965,6 @@
         "TYPE":"OPERAND_2",
         "FIRST":"GetMaxX",
         "SECOND":"do"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"do",
-        "SECOND":"Line"
     },
     {
         "TYPE":"OPERAND_2",
@@ -1163,11 +1023,6 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"begin",
-        "SECOND":"SetColor"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"div",
         "SECOND":"2"
     },
@@ -1198,11 +1053,6 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"begin",
-        "SECOND":"Line"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"div",
         "SECOND":"2"
     },
@@ -1228,28 +1078,13 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"begin",
-        "SECOND":"PutPixel"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"then",
         "SECOND":"begin"
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"begin",
-        "SECOND":"PutPixel"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"then",
         "SECOND":"begin"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"begin",
-        "SECOND":"PutPixel"
     },
     {
         "TYPE":"OPERAND_2",
@@ -1388,11 +1223,6 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"do",
-        "SECOND":"PutDotInCircle"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"to",
         "SECOND":"10"
     },
@@ -1428,11 +1258,6 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"begin",
-        "SECOND":"SetColor"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"then",
         "SECOND":"I"
     },
@@ -1448,11 +1273,6 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"do",
-        "SECOND":"PutDotInCircle"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"div",
         "SECOND":"2"
     },
@@ -1465,11 +1285,6 @@
         "TYPE":"OPERAND_2",
         "FIRST":"250",
         "SECOND":"do"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"do",
-        "SECOND":"PutDotInCircle"
     },
     {
         "TYPE":"OPERAND_2",
@@ -1495,11 +1310,6 @@
         "TYPE":"OPERAND_2",
         "FIRST":"then",
         "SECOND":"begin"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"begin",
-        "SECOND":"SetColor"
     },
     {
         "TYPE":"OPERAND_2",
@@ -1533,11 +1343,6 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"do",
-        "SECOND":"Circle"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"div",
         "SECOND":"2"
     },
@@ -1553,11 +1358,6 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"then",
-        "SECOND":"SetColor"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"mod",
         "SECOND":"2"
     },
@@ -1565,11 +1365,6 @@
         "TYPE":"OPERAND_2",
         "FIRST":"mod",
         "SECOND":"2"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"then",
-        "SECOND":"MoveTo"
     },
     {
         "TYPE":"OPERAND_2",
@@ -1618,11 +1413,6 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"begin",
-        "SECOND":"SetColor"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"div",
         "SECOND":"2"
     },
@@ -1690,11 +1480,6 @@
         "TYPE":"OPERAND_2",
         "FIRST":"begin",
         "SECOND":"If"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"If",
-        "SECOND":"Not"
     },
     {
         "TYPE":"OPERAND_2",
@@ -1725,11 +1510,6 @@
         "TYPE":"OPERAND_2",
         "FIRST":"begin",
         "SECOND":"If"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"If",
-        "SECOND":"Not"
     },
     {
         "TYPE":"OPERAND_2",
@@ -1750,11 +1530,6 @@
         "TYPE":"OPERAND_2",
         "FIRST":"then",
         "SECOND":"begin"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"begin",
-        "SECOND":"SetTextStyle"
     },
     {
         "TYPE":"OPERAND_2",
@@ -1823,11 +1598,6 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"If",
-        "SECOND":"Random"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"then",
         "SECOND":"ShootingStar"
     },
@@ -1858,11 +1628,6 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"then",
-        "SECOND":"PutImage"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"I",
         "SECOND":"in"
     },
@@ -1875,11 +1640,6 @@
         "TYPE":"OPERAND_2",
         "FIRST":"then",
         "SECOND":"Halt"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"If",
-        "SECOND":"Random"
     },
     {
         "TYPE":"OPERAND_2",
@@ -1903,11 +1663,6 @@
     },
     {
         "TYPE":"OPERAND_2",
-        "FIRST":"begin",
-        "SECOND":"PutImage"
-    },
-    {
-        "TYPE":"OPERAND_2",
         "FIRST":"to",
         "SECOND":"30"
     },
@@ -1920,11 +1675,6 @@
         "TYPE":"OPERAND_2",
         "FIRST":"do",
         "SECOND":"begin"
-    },
-    {
-        "TYPE":"OPERAND_2",
-        "FIRST":"begin",
-        "SECOND":"Sound"
     },
     {
         "TYPE":"OPERAND_2",

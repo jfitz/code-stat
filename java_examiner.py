@@ -182,8 +182,10 @@ class JavaExaminer(Examiner):
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     tokens = Examiner.combine_identifier_colon(tokens, ['statement terminator', 'newline'], ['{'], ['whitespace', 'comment'])
+
     self.tokens = tokens
     self.convert_identifiers_after_goto_to_labels()
+    self.convert_identifiers_to_functions()
 
     self.convert_keywords_to_identifiers(['::', '.'])
     self.convert_operators_to_identifiers(['::', '.'])

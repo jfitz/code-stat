@@ -71,6 +71,7 @@ def count_tokens(statistic, groups):
 # identify language with highest confidence
 # break ties
 def identify_language(contents, params, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages):
+  tiebreak_operators = True
   tiebreak_override = True
   confidences = make_confidences(contents, params, languages)
   # debug
@@ -106,8 +107,13 @@ def identify_language(contents, params, tiebreak_keywords, tiebreak_tokens, tieb
     # if a tie among multiple examiners
     if len(high_languages) > 1:
       statistics = {}
-      highest_keyword_count = 0
+      lowest_operator_count = 0
 
+      groups = [
+        'keyword', 'type', 'common function', 'register',
+        'directive', 'preprocessor'
+      ]
+        
       for language in high_languages:
         # todo: get statistics, save in dictionary
         params2 = params.copy()
@@ -119,20 +125,16 @@ def identify_language(contents, params, tiebreak_keywords, tiebreak_tokens, tieb
         statistic = json.loads(content)
         statistics[language] = statistic
 
-        groups = [
-          'keyword', 'type', 'function', 'register', 'directive', 'preprocessor'
-        ]
-        
-        keyword_count = count_tokens(statistic, groups)
-        if keyword_count > highest_keyword_count:
-          highest_keyword_count = keyword_count
+        operator_count = count_tokens(statistic, groups)
+        if operator_count > lowest_operator_count:
+          lowest_operator_count = operator_count
 
-      if highest_keyword_count > 0:
+      if lowest_operator_count > 0:
         # assign confidence to number of keywords and types (more is better)
         for language in high_languages:
-          count = count_tokens(statistics[language], groups)
-          keyword_count_confidence = count / highest_keyword_count
-          confidences[language]['keyword_count'] = keyword_count_confidence
+          operator_count = count_tokens(statistics[language], groups)
+          operator_count_confidence = operator_count / lowest_operator_count
+          confidences[language]['keyword_count'] = operator_count_confidence
           # debug
           # sys.stderr.write(' ADJ: ' + language + ' ' + str(count) + ' ' + str(keyword_count_confidence) + '\n')
 
@@ -143,6 +145,63 @@ def identify_language(contents, params, tiebreak_keywords, tiebreak_tokens, tieb
 
   # debug
   # sys.stderr.write('HIGH CONF: ' + str(highest_confidence) + '\n')
+
+  if tiebreak_operators:
+    # sys.stderr.write('TIEBREAK OPERATORS\n')
+    # count how many have the greatest confidence
+    high_languages = []
+    for language in confidences:
+      confidence = calc_confidence(confidences[language])
+      if confidence == highest_confidence:
+        high_languages.append(language)
+        # debug
+        # sys.stderr.write('  ' + language + '\n')
+
+    # if a tie among multiple examiners
+    if len(high_languages) > 1:
+      statistics = {}
+      high_operator_count = 0
+
+      groups = [
+        'operator'
+      ]
+        
+      for language in high_languages:
+        # todo: get statistics, save in dictionary
+        params2 = params.copy()
+        params2.append('language=' + language)
+        paramstext = '&'.join(params2)
+        url = "http://" + target + "/" + "statistics" + "?" + paramstext
+        resp = requests.post(url, data=contents)
+        content = resp.content
+        statistic = json.loads(content)
+        operator_count = count_tokens(statistic, groups)
+
+        if operator_count > high_operator_count:
+          high_operator_count = operator_count
+
+        statistics[language] = statistic
+
+      lowest_operator_count = high_operator_count
+
+      for language in high_languages:
+        operator_count = count_tokens(statistic, groups)
+        if operator_count < lowest_operator_count:
+          lowest_operator_count = operator_count
+
+      if lowest_operator_count < high_operator_count:
+        # assign confidence to number of operators (fewer is better)
+        for language in high_languages:
+          operator_count = count_tokens(statistics[language], groups)
+          operator_count_confidence = lowest_operator_count / operator_count
+          confidences[language]['operator_count'] = operator_count_confidence
+          # debug
+          # sys.stderr.write(' ADJ: ' + language + ' ' + str(count) + ' ' + str(keyword_count_confidence) + '\n')
+
+        # recalculate confidence with new factor
+        for language in high_languages:
+          confidence = calc_confidence(confidences[language])
+          retval[language] = confidence
 
   if tiebreak_simple:
     # sys.stderr.write('TIEBREAK SIMPLE\n')
@@ -180,6 +239,7 @@ def identify_language(contents, params, tiebreak_keywords, tiebreak_tokens, tieb
         retval[language] = confidence
 
   if tiebreak_override:
+    # sys.stderr.write('TIEBREAK OVERRIDE\n')
     # count how many have the greatest confidence
     high_languages = []
     for language in confidences:

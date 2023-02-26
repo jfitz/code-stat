@@ -109,6 +109,16 @@ class PrologExaminer(Examiner):
 
     keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
+    functions =[
+      'portray', 'print', 'prompt', 'prompt1',
+      'read', 'read_clause', 'read_term', 'read_term_from_atom',
+      'read_term_with_history',
+      'write', 'writeln', 'writeq', 'write_canonical', 'write_length',
+      'write_term'
+    ]
+
+    function_tb = CaseSensitiveListTokenBuilder(functions, 'common function', True)
+
     values = ['(-)']
 
     value_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
@@ -128,6 +138,7 @@ class PrologExaminer(Examiner):
       keyword_tb,
       known_operator_tb,
       special_symbol_tb,
+      function_tb,
       variable_tb,
       groupers_tb,
       identifier_tb,
@@ -145,7 +156,10 @@ class PrologExaminer(Examiner):
     tokens = tokenizer.tokenize(ascii_code)
 
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
-    self.tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
+    tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
+
+    self.tokens = tokens
+    self.convert_identifiers_to_functions()
 
     self.calc_statistics()
 
