@@ -299,7 +299,7 @@ class DbaseExaminer(Examiner):
         'ALLTRIM',
         'CHR', 'CTOD',
         'DATE', 'DATETIME', 'DAY', 'DELETED', 'DESCEND', 'DESC', 'DTOC', 'DTOS',
-        'INT', 'IIF',
+        'IF', 'IIF', 'INT',
         'LEFT', 'LEN', 'LTRIM',
         'MONTH',
         'PAGENO', 'PEEK',
@@ -320,7 +320,7 @@ class DbaseExaminer(Examiner):
         'EOF', 'ERROR', 'EXP',
         'FILE', 'FKMAX', 'FKLABEL', 'FIELD', 'FOUND',
         'GETENV',
-        'IIF', 'INKEY', 'INT', 'ISALPHA', 'ISCOLOR', 'ISLOWER', 'ISUPPER',
+        'IF', 'IIF', 'INKEY', 'INT', 'ISALPHA', 'ISCOLOR', 'ISLOWER', 'ISUPPER',
         'LEFT', 'LEN', 'LOG', 'LOWER', 'LTRIM', 'LUPDATE',
         'MAX', 'MESSAGE', 'MIN', 'MOD', 'MONTH',
         'NDX',
@@ -380,14 +380,23 @@ class DbaseExaminer(Examiner):
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     self.tokens = tokens
-    tokens_prg = tokens.copy()
-    tokens_fmt = tokens.copy()
-    tokens_frm = tokens.copy()
 
     self.convert_specials_to_functions(group_starts, group_mids)
     self.convert_keywords_to_functions()
     self.convert_keywords_to_identifiers()
+    self.convert_identifiers_to_functions()
+
+    lower_functions = []
+
+    for function in functions:
+      lower_functions.append(function.lower())
+
+    self.convert_functions_to_common_functions(lower_functions)
     self.convert_dollar_to_value()
+
+    tokens_prg = self.tokens.copy()
+    tokens_fmt = self.tokens.copy()
+    tokens_frm = self.tokens.copy()
 
     self.calc_statistics()
     statistics_prg = self.statistics.copy()

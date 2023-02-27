@@ -154,6 +154,12 @@ class Examiner:
         prev_token = token
 
 
+  def convert_functions_to_common_functions(self, common_names):
+    for token in self.tokens:
+      if token.group == 'function' and token.text.lower() in common_names:
+        token.group = 'common function'
+
+
   def check_paired_tokens(self, tokens, open_tokens, close_tokens):
     level = 0
     min_level = 0
@@ -280,7 +286,7 @@ class Examiner:
       if token.group == 'group' and token.text == '(' and \
         prev_token.group == 'keyword' and \
         prev_prev_token.group != 'newline':
-        prev_token.group = 'common function'
+        prev_token.group = 'function'
         prev_token.is_operand = True
 
       if token.group not in ['whitespace', 'comment']:
