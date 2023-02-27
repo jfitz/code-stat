@@ -145,6 +145,28 @@ class PythonExaminer(Examiner):
 
     keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
+    functions = [
+      'abs', 'aiter', 'all', 'any', 'anext', 'ascii',
+      'bin', 'bool', 'breakpoint', 'bytearray', 'bytes',
+      'callable', 'chr', 'classmethod', 'compile', 'complex',
+      'delattr', 'dict', 'dir', 'divmod',
+      'enumerate', 'eval', 'exec',
+      'filter', 'float', 'format', 'frozenset',
+      'getattr', 'globals',
+      'hasattr', 'hash', 'help', 'hex',
+      'id', 'input', 'int', 'isinstance', 'issubclass', 'iter',
+      'len', 'list', 'locals',
+      'map', 'max', 'memoryview', 'min',
+      'next',
+      'object', 'oct', 'open', 'ord',
+      'pow', 'print', 'property',
+      'range', 'repr', 'reversed', 'round',
+      'set', 'setattr', 'slice', 'sorted', 'statismethod', 'str', 'sum', 'super'
+      'tuple', 'type',
+      'vars',
+      'zip'
+    ]
+
     values = [
       'False', 'None', 'True'
     ]
@@ -192,6 +214,7 @@ class PythonExaminer(Examiner):
 
     self.tokens = tokens
     self.convert_identifiers_to_functions()
+    self.convert_functions_to_common_functions(functions)
 
     self.calc_statistics()
 
