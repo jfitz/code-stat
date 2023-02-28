@@ -158,6 +158,48 @@ class CExaminer(Examiner):
 
     keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
+    functions = [
+      'abs', 'acos', 'asctime', 'asctime_r', 'asin', 'assert', 'atan', 'atan2',
+      'atexit', 'atof', 'atoi', 'atol',
+      'bsearch', 'btowc',
+      'calloc', 'catclose', 'catgets', 'catopen', 'ceil', 'clearerr', 'clock',
+      'cos', 'cosh', 'ctime', 'ctime64', 'ctime_r',
+      'difftime', 'difftime64', 'div',
+      'erf', 'erfc', 'exit', 'exp',
+      'fabs', 'fclose', 'fdopen', 'feof', 'ferror', 'fflush', 'fgetc', 'fgetpos',
+      'fgets', 'fgetwc', 'fgetws', 'fileno', 'floor', 'fmod', 'fopen', 'fprintf',
+      'fputc', 'fputs', 'fputwc', 'fputws', 'fread', 'free', 'freopen',
+      'frexp', 'fscanf', 'fseek', 'fsetpos', 'ftell', 'fwide', 'fwprintf',
+      'fwrite', 'fwscanf',
+      'gamma', 'getc', 'getchar', 'getenv', 'gets', 'getwc', 'getwchar',
+      'gmtime', 'gmtime64', 'gmtime_r', 'gmtime64_r',
+      'hypot',
+      'isalnum', 'isalpha', 'isascii', 'isblank', 'iscntrl', 'isdigit', 'isgraph',
+      'islower', 'isprint', 'ispunct', 'isspace', 'isupper', 'iswalnum',
+      'iswalpha', 'iswblank', 'iswcntrl', 'iswctype', 'iswdigit', 'iswgraph',
+      'iswlower', 'iswprint', 'iswpunct', 'iswspace', 'iswupper', 'iswxdigit',
+      'isxdigit',
+      'j0', 'j1', 'jn',
+      'labs', 'ldexp', 'ldiv', 'localconv', 'localtime', 'localtime64',
+      'localtime_r', 'localtime64_r', 'log', 'log10', 'longjmp',
+      'malloc', 'mblen', 'mbrlen', 'mbrtowc', 'mbsinit',
+      'memchr', 'memcmp', 'memcpy', 'memmove', 'memset', 'mktime', 'mktime64',
+      'modf',
+      'perror', 'pow', 'printf', 'putc', 'putchar', 'putenv', 'puts', 'putwc',
+      'putwchar',
+      'qsort',
+      'raise', 'rand', 'rand_r', 'realloc', 'regexec', 'regfree', 'remove',
+      'rename', 'rewind',
+      'scanf', 'setbuf', 'setjmp', 'setlocale', 'signal', 'sin', 'sinh',
+      'sprintf', 'sqrt', 'srand', 'sscanf', 'strcasecmp', 'strcat', 'strcmp',
+      'strcoll', 'strcpy', 'strcspn', 'strerror', 'strftime', 'strlen',
+      'strncasecmp', 'strncat', 'strncmp', 'strpbrk', 'strptime', 'strrchr',
+      'strspn', 'strstr', 'strtod', 'strtof', 'strtok',
+      'tan', 'tanh', 'time', 'time64', 'tmpfile', 'tmpnam', 'toascii',
+      'tolower', 'toupper',
+      'ungetc'
+    ]
+
     types = [
       'char', 'double', 'float', 'int',
       'long', 'short'
@@ -237,6 +279,7 @@ class CExaminer(Examiner):
     self.convert_identifiers_before_colon_to_labels('{};')
     self.convert_identifiers_after_goto_to_labels()
     self.convert_identifiers_to_functions()
+    self.convert_functions_to_common_functions(functions)
 
     self.calc_statistics()
 
