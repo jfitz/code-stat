@@ -141,16 +141,39 @@ class CsharpExaminer(Examiner):
 
     keyword_tb = CaseSensitiveListTokenBuilder(keywords, 'keyword', False)
 
+    functions = [
+      'Add',
+      'Clear', 'Contains',
+      'Dispose',
+      'Equals',
+      'Format',
+      'GetEnumerator', 'GetHashCode',
+      'HasValue',
+      'IndexOf',
+      'Remove', 'RemoveAt',
+      'SystemException',
+      'ToString'
+    ]
+
     types = [
-      'bool', 'byte', 'char', 'decimal', 'double', 'float', 'int', 'long', 'object',
-      'sbyte', 'short', 'string', 'uint', 'ulong', 'ushort', 'void'
+      'bool', 'byte',
+      'char',
+      'decimal', 'double',
+      'float',
+      'int',
+      'long',
+      'object',
+      'sbyte', 'short', 'string',
+      'uint', 'ulong', 'ushort',
+      'void',
+      'EventArgs'
     ]
 
     types_tb = CaseSensitiveListTokenBuilder(types, 'type', True)
     operand_types.append('type')
 
     values = [
-      'base', 'false', 'null', 'this', 'true'
+      'base', 'false', 'null', 'this', 'true', 'NULL'
     ]
 
     values_tb = CaseSensitiveListTokenBuilder(values, 'value', True)
@@ -199,6 +222,7 @@ class CsharpExaminer(Examiner):
     self.convert_identifiers_before_colon_to_labels('{};')
     self.convert_identifiers_after_goto_to_labels()
     self.convert_identifiers_to_functions()
+    self.convert_functions_to_common_functions(functions)
 
     number_suffixes = ['f', 'F', 'd', 'D', 'm', 'M']
     self.tokens = self.combine_tokens_and_adjacent_types(tokens, 'number', 'identifier', number_suffixes)

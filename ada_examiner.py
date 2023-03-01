@@ -193,6 +193,7 @@ class AdaExaminer(Examiner):
 
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
+
     self.tokens = tokens
     self.convert_keywords_to_identifiers()
     self.convert_then_to_operator()
