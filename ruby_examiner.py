@@ -190,6 +190,7 @@ class RubyExaminer(Examiner):
     self.convert_keywords_to_identifiers(['.'])
     self.convert_operators_to_identifiers()
     self.convert_identifiers_to_functions()
+    # self.convert_functions_to_common_functions(functions)
 
     self.calc_statistics()
 

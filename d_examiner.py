@@ -235,6 +235,7 @@ class DExaminer(Examiner):
     self.tokens = tokens
     self.convert_identifiers_after_goto_to_labels()
     self.convert_identifiers_to_functions()
+    # self.convert_functions_to_common_functions(functions)
 
     number_suffixes = ['f', 'F', 'i', 'I', 'u', 'U', 'l', 'L', 'ul', 'uL', 'Ul', 'UL', 'lu', 'lU', 'Lu', 'LU']
     tokens = self.combine_tokens_and_adjacent_types(tokens, 'number', 'identifier', number_suffixes)

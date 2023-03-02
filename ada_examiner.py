@@ -198,6 +198,8 @@ class AdaExaminer(Examiner):
     self.convert_keywords_to_identifiers()
     self.convert_then_to_operator()
     self.convert_else_to_operator()
+    # self.convert_identifiers_to_functions()
+    # self.convert_functions_to_common_functions(functions)
 
     self.calc_statistics()
 

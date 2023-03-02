@@ -304,6 +304,8 @@ class BasicExaminer(Examiner):
       tokens = BasicExaminer.convert_operators_to_values(tokens)
 
     self.tokens = tokens
+    # self.convert_identifiers_to_functions()
+    # self.convert_functions_to_common_functions(functions)
 
     self.calc_statistics()
 

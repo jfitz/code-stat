@@ -362,6 +362,7 @@ class PLMExaminer(Examiner):
       self.convert_identifiers_before_colon_to_labels(';')
       self.convert_identifiers_after_goto_to_labels()
       self.convert_keywords_to_functions()
+      # self.convert_functions_to_common_functions(functions)
 
       self.calc_statistics()
       self.statistics['format'] = 'free'
@@ -473,6 +474,7 @@ class PLMExaminer(Examiner):
       self.convert_identifiers_before_colon_to_labels(';')
       self.convert_identifiers_after_goto_to_labels()
       self.convert_keywords_to_functions()
+      # self.convert_functions_to_common_functions(functions)
 
       self.calc_statistics()
       self.statistics['format'] = 'fixed'

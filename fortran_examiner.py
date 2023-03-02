@@ -302,6 +302,8 @@ class FortranExaminer(Examiner):
       statistics_free = self.statistics.copy()
 
       tokens = self.source_tokens()
+    # self.convert_identifiers_to_functions()
+    # self.convert_functions_to_common_functions(functions)
 
       self.calc_token_confidence()
       self.calc_token_2_confidence()
@@ -377,10 +379,11 @@ class FortranExaminer(Examiner):
       tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'whitespace')
 
       self.tokens = tokens_fixed
-
       self.convert_identifiers_after_goto_to_labels()
       self.convert_numbers_to_line_numbers()
       self.convert_stars_to_io_channels()
+    # self.convert_identifiers_to_functions()
+    # self.convert_functions_to_common_functions(functions)
 
       self.calc_statistics()
       self.statistics['format'] = 'fixed'

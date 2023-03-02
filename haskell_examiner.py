@@ -152,8 +152,11 @@ class HaskellExaminer(Examiner):
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     # tokens = Examiner.combine_identifier_colon(tokens, ['statement terminator', 'newline'], ['{'], ['whitespace', 'comment'])
     HaskellExaminer.convert_keywords_to_identifiers(tokens)
+
     self.tokens = tokens
     # self.convert_identifiers_to_labels()
+    # self.convert_identifiers_to_functions()
+    # self.convert_functions_to_common_functions(functions)
 
     self.calc_statistics()
 

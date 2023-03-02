@@ -194,6 +194,7 @@ class SwiftExaminer(Examiner):
     self.tokens = tokens
     self.convert_keywords_to_identifiers(['.'])
     self.convert_identifiers_to_functions()
+    # self.convert_functions_to_common_functions(functions)
 
     self.calc_statistics()
 

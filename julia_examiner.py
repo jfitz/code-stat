@@ -211,14 +211,17 @@ class JuliaExaminer(Examiner):
     tokenizer = Tokenizer(tokenbuilders)
 
     code = self.TrimCtrlZText(code)
-    ascii_code = self.convert_to_ascii(code)
-    tokens = tokenizer.tokenize(ascii_code)
+    # ascii_code = self.convert_to_ascii(code)
+    tokens = tokenizer.tokenize(code)
 
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
     tokens = JuliaExaminer.split_symbols_to_operators_identifiers(tokens, group_ends)
+
     self.tokens = tokens
     self.convert_keywords_to_identifiers()
+    # self.convert_identifiers_to_functions()
+    # self.convert_functions_to_common_functions(functions)
 
     self.calc_statistics()
 

@@ -487,12 +487,14 @@ class CobolExaminer(Examiner):
 
       tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid operator')
       tokens_free = Examiner.combine_adjacent_identical_tokens(tokens_free, 'invalid')
+ 
       self.tokens = tokens_free
-
       self.convert_numbers_to_pictures()
       self.convert_numbers_to_levels()
       self.convert_identifiers_before_period_to_labels()
       self.convert_identifiers_after_perform_or_through_to_labels()
+    # self.convert_identifiers_to_functions()
+    # self.convert_functions_to_common_functions(functions)
 
       self.calc_statistics()
       self.statistics['format'] = 'free'
@@ -578,12 +580,14 @@ class CobolExaminer(Examiner):
       tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid operator')
       tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'invalid')
       tokens_fixed = Examiner.combine_adjacent_identical_tokens(tokens_fixed, 'whitespace')
-      self.tokens = tokens_fixed
 
+      self.tokens = tokens_fixed
       self.convert_numbers_to_pictures()
       self.convert_numbers_to_levels()
       self.convert_identifiers_before_period_to_labels()
       self.convert_identifiers_after_perform_or_through_to_labels()
+    # self.convert_identifiers_to_functions()
+    # self.convert_functions_to_common_functions(functions)
 
       self.calc_statistics()
       self.statistics['format'] = 'fixed'

@@ -234,9 +234,13 @@ class RustExaminer(Examiner):
 
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
-    self.tokens = self.combine_numbers_and_adjacent_types(tokens)
+    tokens = self.combine_numbers_and_adjacent_types(tokens)
+
+    self.tokens = tokens
     self.convert_operators_to_identifiers()
     self.convert_bars_to_groups()
+    self.convert_identifiers_to_functions()
+    # self.convert_functions_to_common_functions(functions)
 
     self.calc_statistics()
 

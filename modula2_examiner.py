@@ -192,6 +192,7 @@ class Modula2Examiner(Examiner):
 
     self.tokens = tokens
     self.convert_identifiers_to_functions()
+    # self.convert_functions_to_common_functions(functions)
 
     self.calc_statistics()
 

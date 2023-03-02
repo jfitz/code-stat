@@ -379,12 +379,13 @@ class DbaseExaminer(Examiner):
 
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
-    self.tokens = tokens
 
+    self.tokens = tokens
     self.convert_specials_to_functions(group_starts, group_mids)
     self.convert_keywords_to_functions()
     self.convert_keywords_to_identifiers()
     self.convert_identifiers_to_functions()
+    # self.convert_functions_to_common_functions(functions)
 
     lower_functions = []
 
