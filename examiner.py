@@ -88,7 +88,7 @@ class Examiner:
       else:
         detabbed_text += c
         column += 1
-    
+
     return detabbed_text
 
 

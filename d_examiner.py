@@ -230,18 +230,27 @@ class DExaminer(Examiner):
 
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid operator')
     tokens = Examiner.combine_adjacent_identical_tokens(tokens, 'invalid')
-    tokens = Examiner.combine_identifier_colon(tokens, ['statement terminator', 'newline'], ['{'], ['whitespace', 'comment'])
+    sep_groups = ['statement terminator', 'newline']
+    sep_texts = ['{']
+    ignore_groups = ['whitespace', 'comment']
+    tokens = Examiner.combine_identifier_colon(tokens, sep_groups, sep_texts, ignore_groups)
 
     self.tokens = tokens
     self.convert_identifiers_after_goto_to_labels()
     self.convert_identifiers_to_functions()
     # self.convert_functions_to_common_functions(functions)
 
-    number_suffixes = ['f', 'F', 'i', 'I', 'u', 'U', 'l', 'L', 'ul', 'uL', 'Ul', 'UL', 'lu', 'lU', 'Lu', 'LU']
+    number_suffixes = [
+      'f', 'F', 'i', 'I', 'u', 'U', 'l', 'L',
+       'ul', 'uL', 'Ul', 'UL', 'lu', 'lU', 'Lu', 'LU'
+    ]
+
     tokens = self.combine_tokens_and_adjacent_types(tokens, 'number', 'identifier', number_suffixes)
 
     string_suffixes = ['c', 'w', 'd']
-    self.tokens = self.combine_tokens_and_adjacent_types(tokens, 'string', 'identifier', string_suffixes)
+
+    self.tokens = self.combine_tokens_and_adjacent_types(
+      tokens, 'string', 'identifier', string_suffixes)
 
     self.calc_statistics()
 
