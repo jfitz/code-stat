@@ -70,7 +70,8 @@ def count_tokens(statistic, groups):
 
 # identify language with highest confidence
 # break ties
-def identify_language(contents, params, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages):
+def identify_language(contents, params, tiebreak_keywords, tiebreak_tokens,
+                      tiebreak_simple, languages):
   tiebreak_operators = True
   tiebreak_override = True
   confidences = make_confidences(contents, params, languages)
@@ -90,7 +91,7 @@ def identify_language(contents, params, tiebreak_keywords, tiebreak_tokens, tieb
     # find the highest value
     if confidence > highest_confidence:
       highest_confidence = confidence
-  
+
   # sys.stderr.write('HIGH CONF: ' + str(highest_confidence) + '\n')
 
   if tiebreak_keywords:
@@ -113,7 +114,7 @@ def identify_language(contents, params, tiebreak_keywords, tiebreak_tokens, tieb
         'keyword', 'type', 'common function', 'register',
         'directive', 'preprocessor'
       ]
-        
+
       for language in high_languages:
         # todo: get statistics, save in dictionary
         params2 = params.copy()
@@ -136,7 +137,9 @@ def identify_language(contents, params, tiebreak_keywords, tiebreak_tokens, tieb
           operator_count_confidence = operator_count / lowest_operator_count
           confidences[language]['keyword_count'] = operator_count_confidence
           # debug
-          # sys.stderr.write(' ADJ: ' + language + ' ' + str(count) + ' ' + str(keyword_count_confidence) + '\n')
+          # sys.stderr.write(
+          # ' ADJ: ' + language + ' ' + str(count) + ' ' +
+          #  str(keyword_count_confidence) + '\n')
 
         # recalculate confidence with new factor
         for language in high_languages:
@@ -165,7 +168,7 @@ def identify_language(contents, params, tiebreak_keywords, tiebreak_tokens, tieb
       groups = [
         'operator'
       ]
-        
+
       for language in high_languages:
         # todo: get statistics, save in dictionary
         params2 = params.copy()
@@ -223,7 +226,7 @@ def identify_language(contents, params, tiebreak_keywords, tiebreak_tokens, tieb
 
       for language in high_languages:
         b = language
-        a = simpler_languages[language]
+        a = simpler_languages.get(language)
         while a is not None:
           if a in high_languages:
             # when there is a simpler language in the high names list
@@ -231,7 +234,7 @@ def identify_language(contents, params, tiebreak_keywords, tiebreak_tokens, tieb
             confidences[b]['simplest'] = 0.99
             # sys.stderr.write(' ADJ: ' + b + ' ' + str(keyword_count_confidence + '\n'))
             b = a
-          a = simpler_languages[a]
+          a = simpler_languages.get(a)
 
       # recalculate confidence with new factor
       for language in high_languages:

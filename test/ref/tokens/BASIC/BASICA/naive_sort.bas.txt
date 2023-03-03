@@ -1,0 +1,790 @@
+[
+    {
+        "type":"line number",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"OPTION"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"BASE"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"20"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"READ"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"N"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"30"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"DIM"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"variable",
+        "value":"N"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"40"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"ARR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"READ"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"A"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"50"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PRINT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"ORIGINAL:\""
+    },
+    {
+        "type":"group",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"60"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"ARR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PRINT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"A"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"100"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"FOR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"I"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"N"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"110"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"FOR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"J"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"TO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"N"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"120"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"variable",
+        "value":"I"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":">="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"variable",
+        "value":"J"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"THEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"line number",
+        "value":"140"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"130"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"LET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"variable",
+        "value":"I"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"variable",
+        "value":"J"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"variable",
+        "value":"J"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"A"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"variable",
+        "value":"I"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"140"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"NEXT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"J"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"150"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"NEXT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"I"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"160"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PRINT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"SORTED:\""
+    },
+    {
+        "type":"group",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"170"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"ARR"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PRINT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"A"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"190"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"STOP"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"200"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"DATA"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"10"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"210"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"DATA"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"5"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"17"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"200"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"3"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"61"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"61"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"75"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"105"
+    },
+    {
+        "type":"group",
+        "value":","
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"33"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"999"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    }
+]

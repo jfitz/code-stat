@@ -72,12 +72,15 @@ class BasicExaminer(Examiner):
     real_tb = RealTokenBuilder(False, False, False)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', '_')
     double_exponent_tb = NullTokenBuilder()
-    integer_suffix_tb = SuffixedIntegerTokenBuilder(['%', '&', 'S', 'I', 'L', 'F', 'D', 'R', 'US', 'UI', 'UL'], True, '_')
+
+    integer_suffix_tb = SuffixedIntegerTokenBuilder(
+      ['%', '&', 'S', 'I', 'L', 'F', 'D', 'R', 'US', 'UI', 'UL'], True, '_')
+
     float_suffix_tb = SuffixedRealTokenBuilder(False, False, ['!', '#', 'F', 'D', 'R'], True, '_')
 
     if version in ['basic-80', 'basica', 'gw-basic']:
       double_exponent_tb = RealExponentTokenBuilder(False, False, 'D', '_')
-      integer_suffix_tb = SuffixedIntegerTokenBuilder(['%'], False, '_')
+      integer_suffix_tb = SuffixedIntegerTokenBuilder(['!', '%'], False, '_')
       float_suffix_tb = SuffixedRealTokenBuilder(False, False, ['!', '#'], True, '_')
 
     hex_constant_tb = PrefixedIntegerTokenBuilder('&H', True, '0123456789ABCDEFabcdef_')
@@ -141,7 +144,7 @@ class BasicExaminer(Examiner):
       'IF', 'INPUT',
       'LET', 'LINE',
       'MAT',
-      'NEXT', 
+      'NEXT',
       'ON', 'ONERR', 'OPEN', 'OUTPUT',
       'POKE', 'PRINT',
       'RANDOMIZE', 'READ', 'REM', 'REMARK', 'RESTORE', 'RETURN',
@@ -153,6 +156,30 @@ class BasicExaminer(Examiner):
     keywords_plain = [
       'AS',
       'GO'
+    ]
+
+    keywords_1965 = [
+      'ARR', 'MAT',
+      'BREAK',
+      'CONTINUE',
+      'FILES', 'FORGET',
+      'OPTION', 'BASE',
+      'PLOT',
+      'WRITE'
+    ]
+
+    keywords_1973 = [
+      'CHAIN', 'CHANGE',
+      'ENDFN', 'ERROR',
+      'FNEND',
+      'RANDOMIZE', 'RESUME'
+    ]
+
+    keywords_1978 = [
+      'CHAIN',
+      'ENDFN', 'ERROR',
+      'FNEND',
+      'RANDOMIZE', 'RESUME'
     ]
 
     keywords_ms = [
@@ -184,6 +211,15 @@ class BasicExaminer(Examiner):
 
     if version in ['basic-80', 'basica', 'gw-basic']:
       keywords += keywords_ms
+
+    if version in ['basic-1965', 'basic-1973', 'basic-1978']:
+      keywords += keywords_1965
+
+    if version in ['basic-1973']:
+      keywords += keywords_1973
+
+    if version in ['basic-1978']:
+      keywords += keywords_1978
 
     keywords_basica = [
       'COLOR', 'KEY', 'LOCATE', 'PAINT', 'PLAY', 'PSET',
@@ -236,8 +272,48 @@ class BasicExaminer(Examiner):
       'VARPTR'
     ]
 
+    functions_1965 = [
+      'ARCCOS', 'ARCSIN', 'ARCTAN', 'AVG',
+      'BROKEN',
+      'CON1', 'CON2', 'COT', 'CSC',
+      'DEG',
+      'FIX', 'FRA',
+      'MAXA', 'MAXM', 'MEDIAN', 'MINA', 'MINM', 'MOD',
+      'NCOL', 'NELEM', 'NROW',
+      'PROD',
+      'RAD', 'RND1', 'RND2', 'REV1', 'ROUND',
+      'SORT1', 'SORT2', 'SUM',
+      'UNIQ1',
+      'ZER1', 'ZER2'
+    ]
+ 
+    functions_1973 = [
+      'ASC%', 'ASCII', 'ASCII%', 'CHR$', 'CON1%', 'CON1$', 'CON2%', 'CON2$',
+      'ERL', 'ERR',
+      'FIX%', 'FRAC', 'INSTR', 'INSTR%', 'INT%',
+      'LEFT', 'LEN', 'LOWER$',
+      'MAXA%', 'MAXA$', 'MAXM%', 'MAXM$', 'MEDIAN%', 'MEDIAN$', 'MINA%', 'MINA$',
+      'MINM%', 'MINM$',
+      'NCOL%', 'NELEM%', 'NROW%',
+      'NUM', 'NUM$',
+      'PACK$', 'PROD%',
+      'RAD', 'RIGHT', 'RND%', 'RND$', 'RND1%', 'RND1$', 'RND2%', 'RND2$',
+      'REV1%', 'REV1$',
+      'SGN%', 'SORT1%', 'SORT1$', 'SORT2%', 'SORT2$', 'SPACE$', 'SPC', 'SPC$',
+      'SPLIT1$', 'SUM%', 'STR$', 'STRING$',
+      'TAB', 'TIME',
+      'UNIQ1%', 'UNIQ1$', 'UNPACK', 'UNPACK%', 'UPPER$',
+      'ZER1%', 'ZER1$', 'ZER2%', 'ZER2$'
+    ]
+
     if version in ['basic-80', 'basica', 'gw-basic']:
       functions += functions_ms
+
+    if version in ['basic-1965', 'basic-1973', 'basic-1978']:
+      functions += functions_1965
+
+    if version in ['basic-1973', 'basic-1978']:
+      functions += functions_1973
 
     if version in ['basic']:
       function_tb = CaseSensitiveListTokenBuilder(functions, 'common function', True)
@@ -318,12 +394,17 @@ class BasicExaminer(Examiner):
     num_operators = self.count_my_tokens(['operator', 'invalid operator'])
     if num_operators > 0:
       self.calc_operator_confidence(num_operators)
+
       allow_pairs = []
+      if version in ['basic-80', 'basica', 'gw-basic']:
+        allow_pairs = [',', ',']
+
       self.calc_operator_2_confidence(tokens, num_operators, allow_pairs)
       self.calc_operator_3_confidence(tokens, num_operators, group_ends, allow_pairs)
       self.calc_operator_4_confidence(tokens, num_operators, group_starts, allow_pairs)
 
-    self.calc_group_confidence(tokens, group_mids)
+    if version not in ['basic-80', 'basica', 'gw-basic']:
+      self.calc_group_confidence(tokens, group_mids)
 
     if version not in ['basic-80', 'basica', 'gw-basic']:
       operand_types_2 = ['number', 'string', 'variable', 'symbol']

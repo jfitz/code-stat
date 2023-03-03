@@ -178,7 +178,9 @@ def find_winners(text, format, tab_size, comment, block_comment_limit, languages
   tiebreak_keywords = False
   tiebreak_tokens = False
   tiebreak_simple = False
-  detected_languages, examiners = identify_language(text, format, tab_size, comment, block_comment_limit, tiebreak_keywords, tiebreak_tokens, tiebreak_simple, languages)
+  detected_languages, examiners = identify_language(
+    text, format, tab_size, comment, block_comment_limit, tiebreak_keywords,
+    tiebreak_tokens, tiebreak_simple, languages)
 
   # find the highest value
   high_value = 0
@@ -201,7 +203,8 @@ def build_language_list(languages, text, format, tab_size, comment, block_commen
 
   if len(languages) > 0:
     # detect for specified languages, pick the most confident
-    winning_languages, examiners = find_winners(text, format, tab_size, comment, block_comment_limit, languages)
+    winning_languages, examiners = find_winners(
+      text, format, tab_size, comment, block_comment_limit, languages)
   else:
     # tokenize as generic
     winning_languages = ['generic']
@@ -224,7 +227,7 @@ def dicts_to_json(list_of_dicts, languages, operation):
     else:
       # 1 or more languages, the requestor did not request a specific language
       json_text = json.dumps(list_of_dicts)
-  
+
   return json_text
 
 
@@ -257,6 +260,9 @@ codes_and_names = {
   'basica': 'BASICA',
   'basic-80': 'BASIC-80',
   'bbc-basic': 'BBC-Basic',
+  'basic-1965': 'BASIC-1965',
+  'basic-1973': 'BASIC-1973',
+  'basic-1978': 'BASIC-1978',
   'c-78': 'C-78',
   'c-89': 'C-89',
   'c-99': 'C-99',
@@ -352,6 +358,9 @@ codes_and_groups = {
   'basica': 'BASIC',
   'basic-80': 'BASIC',
   'bbc-basic': 'BASIC',
+  'basic-1965': 'BASIC',
+  'basic-1973': 'BASIC',
+  'basic-1978': 'BASIC',
   'c-78': 'C',
   'c-89': 'C',
   'c-99': 'C',
@@ -447,6 +456,9 @@ codes_and_years = {
   'basica': 1982,
   'basic-80': 1980,
   'bbc-basic': 1981,
+  'basic-1965': 1965,
+  'basic-1973': 1973,
+  'basic-1978': 1978,
   'c-78': 1978,
   'c-89': 1989,
   'c-99': 1999,
@@ -542,6 +554,9 @@ simpler_languages = {
   'basica': 'basic-80',
   'basic-80': 'basic',
   'bbc-basic': 'basic-80',
+  'basic-1965': 'basic',
+  'basic-1973': 'basic-1965',
+  'basic-1978': 'basic-1973',
   'c-78': None,
   'c-89': 'c-78',
   'c-99': 'c-89',
@@ -1044,6 +1059,15 @@ def make_one_examiner(language, code, format, tab_size, comment, block_comment_l
   if language in ['basica']:
     examiner = BasicExaminer(code, 'basica')
 
+  if language in ['basic-1965']:
+    examiner = BasicExaminer(code, 'basic-1965')
+
+  if language in ['basic-1973']:
+    examiner = BasicExaminer(code, 'basic-1973')
+
+  if language in ['basic-1978']:
+    examiner = BasicExaminer(code, 'basic-1978')
+
   if language in ['bbc-basic']:
     examiner = BasicBbcExaminer(code)
 
@@ -1328,6 +1352,15 @@ def make_multiple_examiners(code, format, tab_size, comment, block_comment_limit
 
   if 'basica' in languages:
     examiners['basica'] = BasicExaminer(code, 'basica')
+
+  if 'basic-1965' in languages:
+    examiners['basic-1965'] = BasicExaminer(code, 'basic-1965')
+
+  if 'basic-1973' in languages:
+    examiners['basic-1973'] = BasicExaminer(code, 'basic-1973')
+
+  if 'basic-1978' in languages:
+    examiners['basic-1978'] = BasicExaminer(code, 'basic-1978')
 
   if 'bbc-basic' in languages:
     examiners['bbc-basic'] = BasicBbcExaminer(code)

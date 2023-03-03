@@ -46,7 +46,7 @@ test\bin\run_action_tests_language.ps1 -language "Ada" -variants ("Ada-83", "Ada
 test\bin\run_action_tests_language.ps1 -language "Awk" -variants ("Awk", "gawk") -format "better"
 
 # BASIC
-test\bin\run_action_tests_language.ps1 -language "BASIC" -variants ("BASIC", "BASIC-80", "BASICA") -format "better"
+test\bin\run_action_tests_language.ps1 -language "BASIC" -variants ("BASIC", "BASIC-80", "BASICA", "BASIC-1965", "BASIC-1973", "BASIC-1978") -format "better"
 
 # BBC BASIC
 test\bin\run_action_tests_language.ps1 -language "BBC-BASIC" -variants ("BBC-BASIC") -format "better"
