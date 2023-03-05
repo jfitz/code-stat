@@ -1,0 +1,922 @@
+[
+    {
+        "type":"line number",
+        "value":"10"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"REM"
+    },
+    {
+        "type":"comment",
+        "value":" THE COMPUTER CHOOSES A NUMBER FROM"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"20"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"REM"
+    },
+    {
+        "type":"comment",
+        "value":" 1 TO 100 AT RANDOM, THE OBJECT OF"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"30"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"REM"
+    },
+    {
+        "type":"comment",
+        "value":" THE GAME IS TO GUESS THE CHOSEN"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"40"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"REM"
+    },
+    {
+        "type":"comment",
+        "value":" NUMBER IN AS FEW GUESSES AS POSSIBLE"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"50"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"LET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"R"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"common function",
+        "value":"INT"
+    },
+    {
+        "type":"group",
+        "value":"("
+    },
+    {
+        "type":"number",
+        "value":"100"
+    },
+    {
+        "type":"operator",
+        "value":"*"
+    },
+    {
+        "type":"common function",
+        "value":"RND"
+    },
+    {
+        "type":"group",
+        "value":")"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"60"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"LET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"Y"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"0"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"70"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PRINT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"A RANDOM NUMBER HAS BEEN PICKED\""
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"80"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PRINT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"TRY GUESSING IT, HINT THE NUMBER\""
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"90"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PRINT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"IS FROM 1 TO 100\""
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"100"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PRINT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"GOOD LUCK!!!\""
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"110"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PRINT"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"120"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PRINT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"YOUR GUESS IS = \""
+    },
+    {
+        "type":"group",
+        "value":";"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"130"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"INPUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"X"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"140"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"LET"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"Y"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"Y"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"+"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"150"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"X"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"R"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"THEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"line number",
+        "value":"180"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"160"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"X"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":">"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"R"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"THEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"line number",
+        "value":"280"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"170"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"GOTO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"line number",
+        "value":"300"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"180"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PRINT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"NOT BAD!!!-YOU GOT IT!!!\""
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"190"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PRINT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"YOUR NUMBER OF TRIES WERE\""
+    },
+    {
+        "type":"group",
+        "value":";"
+    },
+    {
+        "type":"variable",
+        "value":"Y"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"200"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PRINT"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"210"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PRINT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"IF YOU WANT TO TRY AGAIN, TYPE 1\""
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"220"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PRINT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"IF NOT TYPE 0\""
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"230"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"INPUT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"L"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"240"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"IF"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"variable",
+        "value":"L"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"operator",
+        "value":"="
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"number",
+        "value":"1"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"THEN"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"line number",
+        "value":"260"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"250"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"STOP"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"260"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PRINT"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"270"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"GOTO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"line number",
+        "value":"50"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"280"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PRINT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"TOO HIGH, TRY AGAIN\""
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"290"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"GOTO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"line number",
+        "value":"120"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"300"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"PRINT"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"string",
+        "value":"\"TOO LOW, TRY AGAIN\""
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"310"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"GOTO"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"line number",
+        "value":"120"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    },
+    {
+        "type":"line number",
+        "value":"320"
+    },
+    {
+        "type":"whitespace",
+        "value":" "
+    },
+    {
+        "type":"keyword",
+        "value":"END"
+    },
+    {
+        "type":"newline",
+        "value":"\n"
+    }
+]

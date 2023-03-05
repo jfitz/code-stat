@@ -67,21 +67,28 @@ class BasicExaminer(Examiner):
     whitespace_tb = WhitespaceTokenBuilder()
     newline_tb = NewlineTokenBuilder()
 
+    if version in ['basic-1965', 'basic-1973']:
+      break_tb = SingleCharacterTokenBuilder('_', 'break', False)
+    else:
+      break_tb = NullTokenBuilder()
+
     integer_tb = IntegerTokenBuilder('_')
     integer_exponent_tb = IntegerExponentTokenBuilder(False)
     real_tb = RealTokenBuilder(False, False, False)
     real_exponent_tb = RealExponentTokenBuilder(False, False, 'E', '_')
-    double_exponent_tb = NullTokenBuilder()
-
-    integer_suffix_tb = SuffixedIntegerTokenBuilder(
-      ['%', '&', 'S', 'I', 'L', 'F', 'D', 'R', 'US', 'UI', 'UL'], True, '_')
-
-    float_suffix_tb = SuffixedRealTokenBuilder(False, False, ['!', '#', 'F', 'D', 'R'], True, '_')
 
     if version in ['basic-80', 'basica', 'gw-basic']:
       double_exponent_tb = RealExponentTokenBuilder(False, False, 'D', '_')
       integer_suffix_tb = SuffixedIntegerTokenBuilder(['!', '%'], False, '_')
       float_suffix_tb = SuffixedRealTokenBuilder(False, False, ['!', '#'], True, '_')
+    else:
+      double_exponent_tb = NullTokenBuilder()
+
+      integer_suffix_tb = SuffixedIntegerTokenBuilder(
+        ['%', '&', 'S', 'I', 'L', 'F', 'D', 'R', 'US', 'UI', 'UL'], True, '_')
+
+      float_suffix_tb = SuffixedRealTokenBuilder(
+        False, False, ['!', '#', 'F', 'D', 'R'], True, '_')
 
     hex_constant_tb = PrefixedIntegerTokenBuilder('&H', True, '0123456789ABCDEFabcdef_')
     octal_constant_tb = PrefixedIntegerTokenBuilder('&O', True, '01234567_')
@@ -111,13 +118,30 @@ class BasicExaminer(Examiner):
       '#', '\\', 'AND', 'OR', 'NOT'
     ]
 
-    known_operators_ms = [
-      '=>', '=<',
-      'IMP', 'EQV', 'XOR', 'MOD'
-    ]
+    if version in ['basic-1965']:
+      known_operators = [
+        '+', '-', '*', '/', '^',
+        '=', '>', '>=', '<', '<=', '<>',
+        '#'
+      ]
+
+    if version in ['basic-1973', 'basic-1978']:
+      known_operators = [
+        '+', '-', '*', '/', '^', '**',
+        '=', '>', '>=', '<', '<=', '<>',
+        '#', '\\', 'AND', 'OR', 'NOT',
+        '=>', '=<', '><',
+        'XOR', 'MOD'
+      ]
 
     if version in ['basic-80', 'basica', 'gw-basic']:
-      known_operators += known_operators_ms
+      known_operators = [
+        '+', '-', '*', '/', '^',
+        '=', '>', '>=', '<', '<=', '<>',
+        '#', '\\', 'AND', 'OR', 'NOT',
+        '=>', '=<',
+        'IMP', 'EQV', 'XOR', 'MOD'
+      ]
 
     if version in ['basic']:
       known_operator_tb = CaseSensitiveListTokenBuilder(known_operators, 'operator', False)
@@ -143,11 +167,10 @@ class BasicExaminer(Examiner):
       'GOSUB', 'GOTO',
       'IF', 'INPUT',
       'LET', 'LINE',
-      'MAT',
       'NEXT',
       'ON', 'ONERR', 'OPEN', 'OUTPUT',
       'POKE', 'PRINT',
-      'RANDOMIZE', 'READ', 'REM', 'REMARK', 'RESTORE', 'RETURN',
+      'READ', 'REM', 'REMARK', 'RESTORE', 'RETURN',
       'STEP', 'STOP',
       'THEN', 'TO',
       'USING'
@@ -165,21 +188,71 @@ class BasicExaminer(Examiner):
       'FILES', 'FORGET',
       'OPTION', 'BASE',
       'PLOT',
-      'WRITE'
+      'WRITE',
+      'ALLOW_ASCII', 'ASC_ALLOW_ALL',
+      'BACK_TAB', 'BASE',
+      'CACHE_CONST_EXPR', 'CRLF_ON_LINE_INPUT',
+      'DEFAULT_PROMPT', 'DEGREES', 'DETECT_INFINITE_LOOP',
+      'FIELD_SEP', 'FORGET_FORNEXT',
+      'HEADING',
+      'IGNORE_RND_ARG', 'IMPLIED_SEMICOLON', 'INT_FLOOR',
+      'LOCK_FORNEXT', 'MATCH_FORNEXT',
+      'NEWLINE_SPEED',
+      'PRECISION', 'PRINT_SPEED', 'PRINT_WIDTH', 'PROMPT_COUNT', 'PROVENANCE',
+      'QMARK_AFTER_PROMPT',
+      'RADIANS', 'REQUIRE_INITIALIZED',
+      'SEMICOLON_ZONE_WIDTH',
+      'TIMING', 'TRACE', 'TRIG_REQUIRE_UNITS',
+      'WRAP',
+      'ZONE_WIDTH'
     ]
 
     keywords_1973 = [
       'CHAIN', 'CHANGE',
-      'ENDFN', 'ERROR',
+      'ELSE', 'ENDFN', 'ERROR',
       'FNEND',
-      'RANDOMIZE', 'RESUME'
+      'RANDOMIZE', 'RESUME',
+      'UNLESS', 'UNTIL', 'WHILE',
+      'ALLOW_ASCII', 'ASC_ALLOW_ALL',
+      'BACK_TAB', 'BASE',
+      'CACHE_CONST_EXPR', 'CRLF_ON_LINE_INPUT',
+      'DEFAULT_PROMPT', 'DEGREES', 'DETECT_INFINITE_LOOP',
+      'FIELD_SEP', 'FORGET_FORNEXT', 'FORNEXT_ONE_BEYOND',
+      'HEADING',
+      'IGNORE_RND_ARG', 'IMPLIED_SEMICOLON', 'INT_FLOOR',
+      'LOCK_FORNEXT', 'MATCH_FORNEXT',
+      'NEWLINE_SPEED',
+      'PRECISION', 'PRINT_SPEED', 'PRINT_WIDTH', 'PROMPT_COUNT', 'PROVENANCE',
+      'QMARK_AFTER_PROMPT',
+      'RADIANS', 'REQUIRE_INITIALIZED', 'RESPECT_RANDOMIZE',
+      'SEMICOLON_ZONE_WIDTH',
+      'TIMING', 'TRACE', 'TRIG_REQUIRE_UNITS',
+      'WRAP',
+      'ZONE_WIDTH'
     ]
 
     keywords_1978 = [
       'CHAIN',
-      'ENDFN', 'ERROR',
+      'ELSE', 'ENDFN', 'ERROR',
       'FNEND',
-      'RANDOMIZE', 'RESUME'
+      'RANDOMIZE', 'RESUME',
+      'UNLESS', 'UNTIL', 'WHILE',
+      'ALLOW_ASCII', 'ASC_ALLOW_ALL',
+      'BACK_TAB', 'BASE',
+      'CACHE_CONST_EXPR', 'CRLF_ON_LINE_INPUT',
+      'DEFAULT_PROMPT', 'DEGREES', 'DETECT_INFINITE_LOOP',
+      'FIELD_SEP', 'FORGET_FORNEXT',
+      'HEADING',
+      'IGNORE_RND_ARG', 'IMPLIED_SEMICOLON', 'INT_FLOOR',
+      'LOCK_FORNEXT', 'MATCH_FORNEXT',
+      'NEWLINE_SPEED',
+      'PRECISION', 'PRINT_SPEED', 'PRINT_WIDTH', 'PROMPT_COUNT', 'PROVENANCE',
+      'QMARK_AFTER_PROMPT',
+      'RADIANS', 'REQUIRE_INITIALIZED', 'RESPECT_RANDOMIZE',
+      'SEMICOLON_ZONE_WIDTH',
+      'TIMING', 'TRACE', 'TRIG_REQUIRE_UNITS',
+      'WRAP',
+      'ZONE_WIDTH'
     ]
 
     keywords_ms = [
@@ -196,7 +269,7 @@ class BasicExaminer(Examiner):
       'NULL',
       'ONERR', 'OPTION', 'OUT',
       'PUT',
-      'RESET', 'RESUME', 'RETURN', 'RSET', 'RUN',
+      'RANDOMIZE', 'RESET', 'RESUME', 'RETURN', 'RSET', 'RUN',
       'SET', 'SWAP', 'SYSTEM',
       'TRON', 'TROFF',
       'WAIT', 'WHILE', 'WEND', 'WIDTH', 'WRITE'
@@ -206,7 +279,7 @@ class BasicExaminer(Examiner):
       'CHANGE'
     ]
 
-    if version in ['']:
+    if version in ['basic-1965', 'basic-1973', 'basic-1978']:
       keywords += keywords_plain
 
     if version in ['basic-80', 'basica', 'gw-basic']:
@@ -234,7 +307,7 @@ class BasicExaminer(Examiner):
     else:
       keyword_tb = CaseInsensitiveListTokenBuilder(keywords, 'keyword', False)
 
-    values = ['OFF', 'ON']
+    values = ['OFF', 'ON', 'TRUE', 'FALSE']
 
     values_tb = CaseInsensitiveListTokenBuilder(values, 'value', True)
     operand_types.append('value')
@@ -336,6 +409,7 @@ class BasicExaminer(Examiner):
       newline_tb,
       whitespace_tb,
       stmt_separator_tb,
+      break_tb,
       integer_tb,
       integer_exponent_tb,
       float_suffix_tb,

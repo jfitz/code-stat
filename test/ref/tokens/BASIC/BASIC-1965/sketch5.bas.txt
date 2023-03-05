@@ -360,7 +360,7 @@
         "value":"X"
     },
     {
-        "type":"operator",
+        "type":"invalid operator",
         "value":"\\"
     },
     {
@@ -396,7 +396,7 @@
         "value":"X"
     },
     {
-        "type":"operator",
+        "type":"invalid operator",
         "value":"\\"
     },
     {
@@ -596,8 +596,16 @@
         "value":" "
     },
     {
-        "type":"operator",
-        "value":"AND"
+        "type":"variable",
+        "value":"A"
+    },
+    {
+        "type":"variable",
+        "value":"N"
+    },
+    {
+        "type":"variable",
+        "value":"D"
     },
     {
         "type":"whitespace",
@@ -1628,8 +1636,12 @@
         "value":"L"
     },
     {
-        "type":"operator",
-        "value":"OR"
+        "type":"variable",
+        "value":"O"
+    },
+    {
+        "type":"variable",
+        "value":"R"
     },
     {
         "type":"whitespace",
