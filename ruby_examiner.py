@@ -21,6 +21,7 @@ from token_builders import (
 )
 from ruby_token_builders import (
   RubyIdentifierTokenBuilder,
+  RubySymbolTokenBuilder,
   HereDocTokenBuilder
 )
 from examiner import Examiner
@@ -43,6 +44,7 @@ class RubyExaminer(Examiner):
     PrefixedIdentifierTokenBuilder.__escape_z__()
     RegexTokenBuilder.__escape_z__()
     RubyIdentifierTokenBuilder.__escape_z__()
+    RubySymbolTokenBuilder.__escape_z__()
     HereDocTokenBuilder.__escape_z__()
     return 'Escape ?Z'
 
@@ -67,7 +69,7 @@ class RubyExaminer(Examiner):
     identifier_tb = RubyIdentifierTokenBuilder()
     operand_types.append('identifier')
 
-    symbol_tb = PrefixedIdentifierTokenBuilder(':', 'symbol', True)
+    symbol_tb = RubySymbolTokenBuilder()
     operand_types.append('symbol')
 
     quotes = ['"', "'"]
@@ -204,7 +206,7 @@ class RubyExaminer(Examiner):
     num_operators = self.count_my_tokens(['operator', 'invalid operator'])
     if num_operators > 0:
       self.calc_operator_confidence(num_operators)
-      allow_pairs = []
+      allow_pairs = [['=', 'if']]
       self.calc_operator_2_confidence(tokens, num_operators, allow_pairs)
       self.calc_operator_3_confidence(tokens, num_operators, group_ends, allow_pairs)
       self.calc_operator_4_confidence(tokens, num_operators, group_starts, allow_pairs)

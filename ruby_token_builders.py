@@ -12,11 +12,13 @@ class RubyIdentifierTokenBuilder(TokenBuilder):
   def __init__(self):
     self.text = None
 
+
   def get_tokens(self):
     if self.text is None:
       return None
 
     return [Token(self.text, 'identifier', True)]
+
 
   def accept(self, candidate, c):
     if len(candidate) == 0:
@@ -32,6 +34,49 @@ class RubyIdentifierTokenBuilder(TokenBuilder):
       return False
 
     return c.isalpha() or c.isdigit() or c in ['_', '?', '!']
+
+
+# token reader for identifier
+class RubySymbolTokenBuilder(TokenBuilder):
+  @staticmethod
+  def __escape_z__():
+    Token.__escape_z__()
+    return 'Escape ?Z'
+
+
+  def __init__(self):
+    self.prefix = ':'
+    self.text = None
+
+
+  def get_tokens(self):
+    if self.text is None:
+      return None
+
+    return [Token(self.text, 'symbol', True)]
+
+
+  def accept(self, candidate, c):
+    if len(candidate) == 0:
+      return c == self.prefix
+
+    if candidate[-1] in ['?', '!']:
+      return False
+
+    return c.isalpha() or c.isdigit() or c in ['_', '?', '!']
+
+
+  def get_score(self, line_printable_tokens):
+    if self.text is None:
+      return 0
+
+    if len(self.text) < 2:
+      return 0
+
+    if not self.text.startswith(self.prefix):
+      return 0
+
+    return len(self.text)
 
 
 # token reader for identifier
